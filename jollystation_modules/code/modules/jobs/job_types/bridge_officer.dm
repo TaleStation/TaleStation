@@ -29,7 +29,6 @@
 	family_heirlooms = list(/obj/item/book/manual/wiki/security_space_law)
 
 	mail_goodies = list(
-
 		/obj/item/clothing/mask/cigarette/cigar/havana = 10,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 10,
 		/obj/item/food/donut/choco = 10,
