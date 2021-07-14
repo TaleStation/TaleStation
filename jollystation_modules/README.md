@@ -132,6 +132,7 @@ To prevent me from accidentally accept incoming on files with module changes, I'
 - code\modules\mob\living\carbon\human\human_update_icons.dm
 - code\modules\mob\living\carbon\human\species.dm
 - code\modules\modular_computers\file_system\programs\jobmanagement.dm
+- code\modules\surgery\bodyparts\_bodyparts.dm
 - code\modules\surgery\bodyparts\dismemberment.dm
 - code\modules\surgery\bodyparts\helpers.dm
 - code\modules\surgery\organs\lungs.dm
