@@ -114,7 +114,6 @@ To prevent me from accidentally accept incoming on files with module changes, I'
 - code\game\machinery\computer\medical.dm
 - code\game\machinery\computer\security.dm
 - code\game\objects\items\devices\PDA\PDA.dm
-- code\game\objects\items\implants\implantuplink.dm
 - code\game\objects\items\plushes.dm
 - code\game\objects\items\scanners.dm
 - code\modules\admin\create_mob.dm
