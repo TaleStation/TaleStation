@@ -20,7 +20,7 @@
 
 	display_order = JOB_DISPLAY_ORDER_QUARTERMASTER
 	bounty_types = CIV_JOB_RANDOM
-	departments = DEPARTMENT_CARGO
+	departments = DEPARTMENT_CARGO | DEPARTMENT_COMMAND
 	family_heirlooms = list(/obj/item/stamp, /obj/item/stamp/denied)
 	mail_goodies = list(
 		/obj/item/circuitboard/machine/emitter = 3
@@ -28,10 +28,10 @@
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE
 
-	voice_of_god_power = 1.4 //Command staff has authority
+	voice_of_god_power = 1.4 // NON-MODULE CHANGE: Command staff
 
 
-/datum/job/research_director/get_captaincy_announcement(mob/living/captain) // NON-MODULE CHANGE
+/datum/job/quartermaster/get_captaincy_announcement(mob/living/captain) // NON-MODULE CHANGE
 	return "Due to staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
 
 /datum/outfit/job/quartermaster
