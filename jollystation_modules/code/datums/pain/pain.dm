@@ -11,10 +11,10 @@
 	var/mob/living/carbon/parent
 	/// Modifier applied to all [adjust_pain] amounts
 	var/pain_modifier = 1
-	/// Assoc list [id] to [modifier], all our pain modifiers affecting our final mod
-	var/list/pain_mods = list()
-	/// Assoc list [zones] to [references to bodyparts], all the body parts we're tracking
-	var/list/body_zones = list()
+	/// Lazy Assoc list [id] to [modifier], all our pain modifiers affecting our final mod
+	var/list/pain_mods
+	/// Lazy Assoc list [zones] to [references to bodyparts], all the body parts we're tracking
+	var/list/body_zones
 	/// Natural amount of decay given to each limb per 5 ticks of process, increases over time
 	var/natural_pain_decay = -0.2
 	/// The base amount of pain decay received.
@@ -37,7 +37,7 @@
 	for(var/obj/item/bodypart/parent_bodypart as anything in parent.bodyparts)
 		add_bodypart(parent, parent_bodypart, TRUE)
 
-	if(!body_zones.len)
+	if(!LAZYLEN(body_zones))
 		stack_trace("Pain datum failed to find any body_zones to track!")
 		qdel(src) // If we have no bodyparts, delete us
 		return
@@ -49,7 +49,7 @@
 
 /datum/pain/Destroy()
 	for(var/part in body_zones)
-		body_zones -= part
+		LAZYREMOVE(body_zones, part)
 	stop_pain_processing()
 	UnregisterParentSignals()
 	parent = null
@@ -113,7 +113,7 @@
 		else // if we somehow don't have a val assigned to this key
 			body_zones -= new_limb.body_zone
 
-	body_zones[new_limb.body_zone] = new_limb
+	LAZYSET(body_zones, new_limb.body_zone, new_limb)
 
 	if(special)
 		new_limb.pain = 0
@@ -139,7 +139,7 @@
 		lost_limb.pain = initial(lost_limb.pain)
 		lost_limb.max_stamina_damage = initial(lost_limb.max_stamina_damage)
 
-	body_zones -= lost_limb
+	LAZYREMOVE(body_zones, lost_limb)
 
 /*
  * Add a pain modifier and update our overall modifier.
@@ -150,15 +150,16 @@
  * returns TRUE if our pain mod actually changed
  */
 /datum/pain/proc/set_pain_modifier(key, amount)
-	if(!isnull(pain_mods[key]))
-		if(amount > 1 && pain_mods[key] >= amount)
+	var/existing_key = LAZYACCESS(pain_mods, key)
+	if(!isnull(existing_key))
+		if(amount > 1 && existing_key >= amount)
 			return FALSE
-		if(amount < 1 && pain_mods[key] <= amount)
+		if(amount < 1 && existing_key <= amount)
 			return FALSE
 		if(amount == 1)
 			return FALSE
 
-	pain_mods[key] = amount
+	LAZYSET(pain_mods, key, amount)
 	return update_pain_modifier()
 
 /*
@@ -169,10 +170,10 @@
  * returns TRUE if our pain mod actually changed
  */
 /datum/pain/proc/unset_pain_modifier(key)
-	if(isnull(pain_mods[key]))
+	if(isnull(LAZYACCESS(pain_mods, key)))
 		return FALSE
 
-	pain_mods -= key
+	LAZYREMOVE(pain_mods, key)
 	return update_pain_modifier()
 
 /*
@@ -194,7 +195,7 @@
  * def_zones - list of all zones being adjusted. Can be passed a non-list.
  * amount - amount of pain being applied to all items in [def_zones]. If posiitve, multiplied by [pain_modifier].
  */
-/datum/pain/proc/adjust_bodypart_pain(list/def_zones, amount, type = BRUTE)
+/datum/pain/proc/adjust_bodypart_pain(list/def_zones, amount = 0, dam_type = BRUTE)
 	SHOULD_NOT_SLEEP(TRUE) // This needs to be asyncronously called in a lot of places, it should already check that this doesn't sleep but just in case.
 
 	if(!islist(def_zones))
@@ -214,14 +215,14 @@
 		if(amount > 0 && adjusted_bodypart.pain >= adjusted_bodypart.max_pain)
 			continue
 		if(adjusted_amount > 0)
-			adjusted_bodypart.last_received_pain_type = type
+			adjusted_bodypart.last_received_pain_type = dam_type
 			adjusted_amount = round(adjusted_amount * pain_modifier * adjusted_bodypart.bodypart_pain_modifier, 0.01)
 		adjusted_bodypart.pain = clamp(adjusted_bodypart.pain + adjusted_amount, adjusted_bodypart.min_pain, adjusted_bodypart.max_pain)
 
 		if(adjusted_amount > 0)
-			INVOKE_ASYNC(src, .proc/on_pain_gain, adjusted_bodypart, amount, type)
+			INVOKE_ASYNC(src, .proc/on_pain_gain, adjusted_bodypart, amount, dam_type)
 		else if(adjusted_amount <= -1.5 || COOLDOWN_FINISHED(src, time_since_last_pain_loss))
-			INVOKE_ASYNC(src, .proc/on_pain_loss, adjusted_bodypart, amount, type)
+			INVOKE_ASYNC(src, .proc/on_pain_loss, adjusted_bodypart, amount, dam_type)
 
 		if(debugging)
 			message_admins("DEBUG: [parent] recived [adjusted_amount] pain to [adjusted_bodypart]. Part pain: [adjusted_bodypart.pain]")
@@ -234,7 +235,7 @@
  * def_zones - list of all zones being adjusted. Can be passed a non-list.
  * amount - amount of pain being all items in [def_zones] are set to.
  */
-/datum/pain/proc/adjust_bodypart_min_pain(list/def_zones, amount)
+/datum/pain/proc/adjust_bodypart_min_pain(list/def_zones, amount = 0)
 	if(!amount)
 		return
 
@@ -484,7 +485,7 @@
 			if(unset_pain_modifier(PAIN_MOD_OFF_STATION))
 				to_chat(parent, span_notice("Returning to the station, you feel much more vulnerable to incoming pain."))
 		else
-			if(set_pain_modifier(PAIN_MOD_OFF_STATION, 0.6))
+			if(isturf(parent.loc) && set_pain_modifier(PAIN_MOD_OFF_STATION, 0.6))
 				to_chat(parent, span_notice("As you depart from the station, you feel more resilient to incoming pain."))
 
 	if(parent.IsSleeping())
