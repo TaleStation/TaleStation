@@ -26,7 +26,8 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		"Research Director",
 		"Chief Medical Officer",
 		"Quartermaster", // NON-MODULE CHANGE
-		"Bridge Officer", // NON-MODULE CHANGE
+		"Bridge Officer", //NON-MODULE CHANGE
+		"Asset Protection", // NON-MODULE CHANGE
 		)
 
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %

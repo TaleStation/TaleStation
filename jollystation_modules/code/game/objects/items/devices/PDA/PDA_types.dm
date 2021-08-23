@@ -2,6 +2,7 @@
 /// This proc adds modular PDAs into the PDA painter. Don't forget to update it or else you can't paint added PDAs.
 /proc/get_modular_PDA_regions()
 	return list(
+		/obj/item/pda/heads/asset_protection = list(REGION_COMMAND),
 		/obj/item/pda/heads/bridge_officer = list(REGION_COMMAND),
 		/obj/item/pda/science/toxocologist = list(REGION_RESEARCH),
 		/obj/item/pda/science/xenobiologist = list(REGION_RESEARCH),)
@@ -9,9 +10,16 @@
 // Bridge Officer PDA.
 /obj/item/pda/heads/bridge_officer
 	name = "bridge officer PDA"
-	default_cartridge = /obj/item/cartridge/hos
+	default_cartridge = /obj/item/cartridge/hop
 	greyscale_config = /datum/greyscale_config/pda/head
 	greyscale_colors = "#99ccff#000099"
+
+// Asset Protection PDA.
+/obj/item/pda/heads/asset_protection
+	name = "asset protection PDA"
+	default_cartridge = /obj/item/cartridge/hos
+	greyscale_config = /datum/greyscale_config/pda/head
+	greyscale_colors = "#d91a40#3F1514"
 
 /// QM PDA, with head of staff stripe.
 /obj/item/pda/quartermaster
