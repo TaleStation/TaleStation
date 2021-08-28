@@ -9,7 +9,7 @@
 /datum/round_event_control/resource_drift
 	name = "Resource Drift"
 	typepath = /datum/round_event/resource_drift
-	weight = 15
+	weight = 18
 	max_occurrences = 3
 	earliest_start = 5 MINUTES
 
@@ -24,7 +24,7 @@
 	var/list/obj/structure/closet/crate/picked_crates = list()
 
 /datum/round_event/resource_drift/announce(fake)
-	priority_announce("[get_source()]Expect [get_debris()][num_caches - rand(1, 2)] to [num_caches + rand(1, 3)] caches of resources to drift near [station_name()] soon.", "Nanotrasen News Network")
+	priority_announce("[get_source()] Expect [get_debris()][num_caches - rand(1, 2)] to [num_caches + rand(1, 3)] caches of resources to drift near your station soon.", "Nanotrasen News Network")
 
 /datum/round_event/resource_drift/setup()
 	startWhen = rand(40, 60)
@@ -59,22 +59,21 @@
 	if(!picked_crates.len)
 		CRASH("Resource drift: No list of picked crates found.")
 
-	// Spawn some debris in based on the number of caches we're throwing.
-	switch(amt_debris)
-		if(MAJOR_DEBRIS)
-			spawn_meteors(num_caches * 3, GLOB.meteorsC)
-		if(MINOR_DEBRIS)
-			spawn_meteors(num_caches * 2, GLOB.meteorsC)
+	// Spawn some debris (space dust) in based on the number of caches we're throwing.
+	// In the future this can be buffed up a bit but space dust is laggy.
+	spawn_meteors(num_caches * amt_debris, GLOB.meteorsC)
 
-	// Now, spawn the caches and yeet them out
+	// Now, spawn the caches and yeet them towards the station
 	for(var/crate in picked_crates)
-		var/obj/structure/closet/crate/resource_cache/spawned_crate = new crate(pick_n_take(spawn_locations))
-		addtimer(CALLBACK(src, .proc/throw_crate, spawned_crate), (4 SECONDS * num_caches--))
+		addtimer(CALLBACK(src, .proc/spawn_and_throw_crate, crate, pick_n_take(spawn_locations)), (4 SECONDS * num_caches--))
 
-/// Proc that does the actual throwing of the crate. Passsed an initialized crate.
-/datum/round_event/resource_drift/proc/throw_crate(obj/structure/closet/crate/resource_cache/selected_cache)
-	message_admins("[selected_cache.type] spawned at [ADMIN_VERBOSEJMP(selected_cache.loc)] by [src].")
-	log_game("[selected_cache.type] spawned at [loc_name(selected_cache.loc)] by [src].")
+/*
+ * Spawns the supplied crate path [selected_cache_path] at [spawn_loc].
+ * After being spawned, the crate is thrown towards a random human, or a communications console if there are no humans.
+ */
+/datum/round_event/resource_drift/proc/spawn_and_throw_crate(obj/structure/closet/crate/resource_cache/selected_cache_path, spawn_loc)
+	var/obj/structure/closet/crate/resource_cache/selected_cache = new selected_cache_path(spawn_loc)
+	log_game("EVENT: Resource crate spawned at [ADMIN_VERBOSEJMP(selected_cache.loc)].")
 
 	// If we just spawned the crates in space they'd be impossible to find, let's throw em!
 	/// The target we're throwing at
@@ -91,41 +90,26 @@
 			if(console.z == selected_cache.z)
 				target = console
 				break
+	// If, SOMEHOW, there are no humans and no comms consoles on the station, send it towards observer spawn (middle of the station)
+	if(!target)
+		target = (locate(/obj/effect/landmark/observer_start) in GLOB.landmarks_list)
 	// Toss it with big range and okay speed at the target
 	selected_cache.throw_at(target, 200, 2)
 
-/// Get the source of the debris and resources - some event that happened.
+/*
+ * Generate a "source event" / reason as to why the crates and debris are spawning.
+ */
 /datum/round_event/resource_drift/proc/get_source()
-	var/list/parties = list("TerraGov", "Space Station [rand(1, 12)]", "Space Station [rand(14, 99)]", "Waffle Co.", "Donk Co.", "Spinward Stellar Coalition", "Lizard Empire", "pirate", "raider", "Gorlex Marauder", "Cybersun Industry", "Nanotrasen")
-	var/party_one = pick_n_take(parties)
-	var/party_two = pick_n_take(parties)
+	var/list/parties = strings(COMPANY_FILE, "companies")
+	parties += list("Space Station [rand(1, 12)]", "Space Station [rand(14, 99)]", "raider", "pirate")
 
-	return pick(list(\
-		"A recent ship scuttle between [party_one] and [party_two] ships in your sector led large amounts of ship debris and caravan goods floating freely in your orbit. ", \
-		"A recent raid by [party_one] gunships on [party_two] transports has lead to abandoned caches of goods floating freely in your orbit. ", \
-		"A [party_one] supply ship crashed into an asteroid in your sector. ", \
-		"A [party_one] supply ship crashed into an moon surface in your sector. ", \
-		"A [party_one] gunship self-destructed following a xenomorph infestation. ",\
-		"A [party_one] ship was disassembled piece by piece by a swarmer infestation. ",\
-		"A [party_one] supply ship crashed into a moon surface in your sector. ", \
-		"A [party_one] station was bombed into submission following mutiny and takeover by the crew. ",\
-		"A [party_one] orbital resarch platform self-destructed following a nuclear device detonation. ",\
-		"A old planet thought to once be colonized long ago by [party_one] settlers but abandoned recently lit up on sensors again. It deployed multiple objects into orbit before returning to radio silence. ", \
-		"An abandoned planet was recently chosen to be a test-site for [party_one] weapons. ", \
-		"An abandoned planet recently experienced complete and utter annihilation. ", \
-		"An abandoned station once controlled by [party_two] members recently experienced complete destruction. ", \
-		"An abandoned research platform once controlled by [party_two] affiliates recently atrophied into pieces. ", \
-		"An outpost was established by a [party_one] expeditionary force in your sector, leaving behind some resources in your orbit during construction. ", \
-		"A moon-base was established by a [party_one] mining crew in your sector, leaving behind some resources in your orbit during installation. ", \
-		"A research platform was established by a [party_one] research crew in your sector, leaving behind some resources in your orbit during installation. ", \
-		"Illegal [party_two] black market weapon trading has risen in your sector, leaving excess resource caches throughout your local space. ", \
-		"A supply ship destined for a [party_one] space was raided by [party_two] frigates while it passed through your sector. ", \
-		"A supply ship destined for a [party_two] space was confiscated by [party_one] frigates while it passed through your sector. Their contraband resourecs were left behind in your orbit. ",\
-		"Unprecedented [party_one] activity combatting [party_two] bases has risen in your sector, causing leftover boxes to fall into your orbit. ",\
-		"Sudden [party_one] activity extorting civilian caravans has risen in your sector, causing extra crates to float into your orbit. "
-	))
+	. = pick_list(RESOURCE_EVENT_FILE, "drift_reasons")
+	. = replacetext(., "$party_one", pick_n_take(parties))
+	. = replacetext(., "$party_two", pick_n_take(parties))
 
-/// Get the describer about the amount of debris.
+/*
+ * Picks a adjective describing the amount of debris being thrown and returns it.
+ */
 /datum/round_event/resource_drift/proc/get_debris()
 	switch(amt_debris)
 		if(NO_DEBRIS)
