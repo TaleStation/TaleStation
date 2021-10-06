@@ -1,26 +1,5 @@
 // -- Defines for player prefs --
-/datum/preferences
-	/// Character preferences
-	var/flavor_text = ""
-	var/general_records = ""
-	var/security_records = ""
-	var/medical_records = ""
-	var/exploitable_info = ""
-	var/runechat_color = "aaa"
-	/// Loadout prefs. Assoc list of [typepaths] to [associated list of item info].
-	var/list/loadout_list
-
-	/// Client preferences
-	var/hear_speech_sounds = TRUE
-	var/hear_radio_sounds = TRUE
-
-// Extension of validate_quirks to ensure people don't get around white/blacklists by changing species.
-/datum/preferences/validate_quirks()
-	for(var/quirk in all_quirks)
-		if(SSquirks.species_blacklist[quirk] && (pref_species.type in SSquirks.species_blacklist[quirk]))
-			all_quirks -= quirk
-			continue
-		if(SSquirks.species_whitelist[quirk] && !(pref_species.type in SSquirks.species_whitelist[quirk]))
-			all_quirks -= quirk
-			continue
+/datum/preferences/update_preferences(current_version, savefile/S)
 	. = ..()
+	if (current_version < 41)
+		write_preference(GLOB.preference_entries[/datum/preference/loadout], update_loadout_list(read_preference(/datum/preference/loadout)))

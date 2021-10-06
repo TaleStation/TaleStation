@@ -7,14 +7,15 @@
 /datum/quirk/bad_touch
 	value = -2
 
-/datum/quirk/light_drinker
-	desc = "You just can't handle your drinks and get drunk very quickly. (Unallowed: Skrell)"
+/datum/quirk/light_drinker/New()
+	desc += " - (Unallowed: Skrell)"
 
 // Modular quirks
 // More vulnerabile to pain (increased pain modifier)
 /datum/quirk/pain_vulnerability
 	name = "Hyperalgesia"
 	desc = "You're less resistant to pain - Your pain naturally decreases slower and you receive more overall."
+	icon = "user-injured"
 	value = -6
 	gain_text = "<span class='danger'>You feel sharper.</span>"
 	lose_text = "<span class='notice'>You feel duller.</span>"
@@ -34,6 +35,7 @@
 /datum/quirk/allodynia
 	name = "Allodynia"
 	desc = "Your nerves are extremely sensitive - you may receive pain from things that wouldn't normally be painful, such as hugs."
+	icon = "tired"
 	value = -10
 	gain_text = "<span class='danger'>You feel fragile.</span>"
 	lose_text = "<span class='notice'>You feel less delicate.</span>"

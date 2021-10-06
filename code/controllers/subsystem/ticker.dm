@@ -171,7 +171,7 @@ SUBSYSTEM_DEF(ticker)
 			timeLeft -= wait
 
 			if(timeLeft <= 300 && !tipped)
-				send_tip_of_the_round()
+				send_tip_of_the_round(world, selected_tip)
 				tipped = TRUE
 
 			if(timeLeft <= 0)
@@ -252,6 +252,8 @@ SUBSYSTEM_DEF(ticker)
 		var/datum/callback/cb = I
 		cb.InvokeAsync()
 	LAZYCLEARLIST(round_start_events)
+
+	SEND_SIGNAL(src, COMSIG_TICKER_ROUND_STARTING)
 
 	log_world("Game start took [(world.timeofday - init_start)/10]s")
 	round_start_time = world.time
@@ -399,15 +401,10 @@ SUBSYSTEM_DEF(ticker)
 			var/acting_captain = !is_captain_job(player_assigned_role)
 			SSjob.promote_to_captain(new_player_living, acting_captain)
 			OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, player_assigned_role.get_captaincy_announcement(new_player_living)))
-		if(ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits))
+		if((player_assigned_role.job_flags & JOB_ASSIGN_QUIRKS) && ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits))
 			if(new_player_mob.client?.prefs?.should_be_random_hardcore(player_assigned_role, new_player_living.mind))
 				new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
-		/// NON-MODULE CHANGE: LOADOUTS // ALSO MELBERT TODO: FIGURE OUT A BETTER WAY OF DOING THIS
-		if(ishuman(new_player_living) && (player_assigned_role.job_flags & JOB_EQUIP_RANK))
-			for(var/datum/loadout_item/item as anything in loadout_list_to_datums(new_player_mob.client?.prefs?.loadout_list))
-				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-
 		CHECK_TICK
 
 	if(captainless)
@@ -431,7 +428,7 @@ SUBSYSTEM_DEF(ticker)
 			officer_mobs += character
 
 			var/datum/client_interface/client = GET_CLIENT(new_player_mob)
-			var/preference = client?.prefs?.prefered_security_department || SEC_DEPT_NONE
+			var/preference = client?.prefs?.read_preference(/datum/preference/choiced/security_department)
 			officer_preferences += preference
 
 	var/distribution = get_officer_departments(officer_preferences, departments)
@@ -452,7 +449,7 @@ SUBSYSTEM_DEF(ticker)
 			qdel(player)
 			living.notransform = TRUE
 			if(living.client)
-				var/atom/movable/screen/splash/S = new(living.client, TRUE)
+				var/atom/movable/screen/splash/S = new(null, living.client, TRUE)
 				S.Fade(TRUE)
 				living.client.init_verbs()
 			livings += living
@@ -463,21 +460,6 @@ SUBSYSTEM_DEF(ticker)
 	for(var/I in livings)
 		var/mob/living/L = I
 		L.notransform = FALSE
-
-/datum/controller/subsystem/ticker/proc/send_tip_of_the_round()
-	var/m
-	if(selected_tip)
-		m = selected_tip
-	else
-		var/list/randomtips = world.file2list("strings/tips.txt")
-		var/list/memetips = world.file2list("strings/sillytips.txt")
-		if(randomtips.len && prob(95))
-			m = pick(randomtips)
-		else if(memetips.len)
-			m = pick(memetips)
-
-	if(m)
-		to_chat(world, span_purple("<span class='oocplain'><b>Tip of the round: </b>[html_encode(m)]</span>"))
 
 /datum/controller/subsystem/ticker/proc/check_queue()
 	if(!queued_players.len)

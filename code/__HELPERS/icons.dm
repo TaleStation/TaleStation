@@ -1034,7 +1034,7 @@ GLOBAL_LIST_EMPTY(friendly_animal_types)
 	if(job)
 		body.dna.species.pre_equip_species_outfit(job, body, TRUE)
 	if(outfit)
-		body.equip_outfit_and_loadout(outfit, prefs, TRUE) // NON-MODULE CHANGE
+		body.equipOutfit(outfit, TRUE)
 
 	var/icon/out_icon = icon('icons/effects/effects.dmi', "nothing")
 	COMPILE_OVERLAYS(body)
@@ -1266,5 +1266,3 @@ GLOBAL_LIST_EMPTY(transformation_animation_objects)
 	GLOB.transformation_animation_objects -= src
 	if(filters && length(filters) >= filter_index)
 		filters -= filters[filter_index]
-	//else
-	// filters = null
