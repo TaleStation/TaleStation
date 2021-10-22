@@ -46,3 +46,7 @@
 				var/datum/loadout_manager/tgui = new(usr)
 				tgui.ui_interact(usr)
 			return TRUE
+		if ("open_language_picker")
+			var/datum/language_picker/tgui = new(src)
+			tgui.ui_interact(usr)
+			return TRUE
