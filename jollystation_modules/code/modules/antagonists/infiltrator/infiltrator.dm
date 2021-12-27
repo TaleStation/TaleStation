@@ -53,6 +53,7 @@
 			purchases += log.generate_render(FALSE)
 
 	if(LAZYLEN(linked_advanced_datum.our_goals))
+		result += "<b>[owner]'s</b> objectives:"
 		var/count = 1
 		for(var/datum/advanced_antag_goal/goal as anything in linked_advanced_datum.our_goals)
 			result += goal.get_roundend_text(count++)
@@ -107,10 +108,9 @@
 
 /datum/antagonist/traitor/advanced/intiltrator/pod_spawn/finalize_antag()
 	. = ..()
-	if(linked_advanced_datum.open_panels[owner.current])
-		SStgui.close_uis(linked_advanced_datum.open_panels[owner.current])
+	SStgui.close_user_uis(owner, linked_advanced_datum)
 	if(!spawn_infiltrator_pod(owner.current, silent))
-		message_admins("Cannot pod-spawn [owner.current] as infiltrator.")
+		message_admins("Cannot pod-spawn [owner.current] as infiltrator - they have not been launched anywhere. Consider sending them via pod manually.")
 
 /datum/antagonist/traitor/advanced/intiltrator/pod_spawn/proc/spawn_infiltrator_pod(mob/living/infiltrator, silent)
 	if(!istype(infiltrator))

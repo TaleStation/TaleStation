@@ -17,10 +17,17 @@
 	var/static/list/possible_objectives = list()
 	/// Whether our goals are finalized.
 	var/finalized = FALSE
+
+	/// -- UI STUFF --
+
+	/// Whether the antag can actually open and edit the ui.
+	var/can_use_ui = TRUE
 	/// The type of advanced panel datum we make / open
-	var/advanced_panel_type = /datum/advanced_antag_panel
-	/// All advanced traitor panels we have open (assoc list user to panel)
-	var/list/open_panels
+	var/advanced_panel_type = "_AdvancedTraitorPanel"
+	/// The current state of the background tutorial.
+	var/background_tutorial_state = TUTORIAL_OFF
+	/// The current state of the objective tutorial.
+	var/objective_tutorial_state = TUTORIAL_OFF
 
 /datum/advanced_antag_datum/New(datum/antagonist/linked_antag)
 	src.linked_antagonist = linked_antag
@@ -28,11 +35,6 @@
 
 /datum/advanced_antag_datum/Destroy()
 	remove_verb(linked_antagonist.owner.current, /mob/proc/open_advanced_antag_panel)
-
-	for(var/panel_user in open_panels)
-		var/datum/advanced_antag_panel/tgui_panel = open_panels[panel_user]
-		SStgui.close_uis(tgui_panel)
-
 	linked_antagonist = null
 	QDEL_LIST(our_goals)
 	return ..()
@@ -70,43 +72,30 @@
 	to_chat(antagonist, span_danger("In your goal panel, you should set a few goals to get started and finalize them to receive your uplink. If you're not sure how to use the panel or its functions, use the tutorial built into the UI."))
 
 /* Updates the user's currently open TGUI panel, or open a new panel if they don't have one.
- * Checks the open_panels list if our user already has a panel opened. If so, try to update the ui instead of opening a new one.
- * If the user is not in the open_panels list, create a new panel and add the panel/user to the open_panels list.
+ * If user is the antagonist itself, and can_use_ui is FALSE, does nothing.
  *
  * user - the mob opening the panel (usually the antagonist themselves, but sometimes admins)
  */
 /datum/advanced_antag_datum/proc/show_advanced_antag_panel(mob/user)
-	if(istype(user, /client))
-		var/client/our_client = user
-		user = our_client.mob
-	else if(istype(user, /datum/mind))
-		var/datum/mind/our_mind = user
-		user = our_mind.current
+	if(user == linked_antagonist.owner.current && !can_use_ui)
+		to_chat(user, span_warning("You can no longer use this."))
+		return
 
-	var/datum/advanced_antag_panel/tgui
-	if(LAZYLEN(open_panels))
-		tgui = open_panels[user]
-		if(tgui)
-			tgui.ui_interact(user, tgui.open_ui)
-			return
-
-	tgui = new advanced_panel_type(user, src)
-	tgui.ui_interact(user)
-	LAZYSET(open_panels, user, tgui)
+	ui_interact(user)
 
 /// Modify the traitor's starting_points (TC, processing points, etc) based on their goals's intensity levels.
 /datum/advanced_antag_datum/proc/modify_antag_points()
-	return 0 // Unimplemented
+	CRASH("modify_antag_points not implemented for [type]!")
 
 /// Calculate the traitor's starting points (TC, processing power, etc) based on their goals's intensity levels.
 /// Returns a number (the number of points calculated)
 /datum/advanced_antag_datum/proc/get_antag_points_from_goals()
-	return 0 // Unimplemented
+	CRASH("get_antag_points_from_goals not implemented for [type]!")
 
 /// Get the text that shows up in the tooltip of the finalize button.
 /// Returns a string (The formatted text)
 /datum/advanced_antag_datum/proc/get_finalize_text()
-	return 0 // Unimplemented
+	CRASH("get_finalize_text not implemented for [type]!")
 
 /// Actions to do after the antag finalizes their goals.
 /datum/advanced_antag_datum/proc/post_finalize_actions()
@@ -187,4 +176,3 @@
 
 	to_chat(src, "You shouldn't have this!")
 	remove_verb(src, /mob/proc/open_advanced_antag_panel)
-	return

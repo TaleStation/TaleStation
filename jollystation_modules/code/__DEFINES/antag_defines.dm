@@ -27,6 +27,30 @@
 /// Number of influences gained per intensity level
 #define ADV_HERETIC_INFLUENCE_PER_INTENSITY 0.33
 
+/// The max number of spells a cultist can invoke with and without a rune.
+#define ADV_CULTIST_MAX_SPELLS_NORUNE 1
+#define ADV_CULTIST_MAX_SPELLS_RUNE 4
+
+/// Styles of cult.
+#define CULT_STYLE_NARSIE "Nar'sian Cult"
+#define CULT_STYLE_RATVAR "Rat'varian Cult"
+
+/// Trait for people who were recently funnyhanded and can't be for a few seconds. (See TRAIT_IWASBATONNED)
+#define TRAIT_I_WAS_FUNNY_HANDED "i_was_funny_handed"
+/// Trait for people who were recently funnyhanded and won't recieve any side effects (but will recieve stamina damage)
+#define TRAIT_NO_FUNNY_HAND_SIDE_EFFECTS "no_funny_hand_side_effects"
+/// Trait for people who were ""sacrificed"" by a cultist and shouldn't get more side effects
+#define TRAIT_WAS_ON_CONVERSION_RUNE "no_sac_side_effects"
+
+#define CONVERSION_FAILED -1
+#define CONVERSION_NOT_ALLOWED 0
+#define CONVERSION_MINDSHIELDED 1
+#define CONVERSION_HOLY 2
+#define CONVERSION_SUCCESS 3
+
+#define ADD_CLOCKCULT_FILTER(target) target.add_filter("ratvar_glow", 5, list("type" = "outline", "size" = 1, "color" = "#cc9900", "flags" = 0))
+#define REMOVE_CLOCKCULT_FILTER(target) target.remove_filter("ratvar_glow")
+
 /// The initial number of points for changelings
 #define ADV_CHANGELING_INITIAL_POINTS 4
 /// The max number of points for changelings
@@ -89,3 +113,21 @@
 
 /// Infiltrator antag type
 #define ROLE_INFILTRATOR "Infiltrator"
+
+// Antag UI tutorial defines
+/// Defines for tutorial state.
+#define TUTORIAL_OFF -1
+/// Defines for state of the background tutorial.
+#define TUTORIAL_BACKGROUND_START 0
+#define TUTORIAL_BACKGROUND_NAME 1
+#define TUTORIAL_BACKGROUND_EMPLOYER 2
+#define TUTORIAL_BACKGROUND_BACKSTORY 3
+#define TUTORIAL_BACKGROUND_END (TUTORIAL_BACKGROUND_BACKSTORY+1)
+/// Defines for state of the objective tutorial.
+#define TUTORIAL_OBJECTIVE_START 0
+#define TUTORIAL_OBJECTIVE_ADD_GOAL 1
+#define TUTORIAL_OBJECTIVE_EDIT_GOAL 2
+#define TUTORIAL_OBJECTIVE_INTENSITIES 3
+#define TUTORIAL_OBJECTIVE_SIM_OBJECTIVES 4
+#define TUTORIAL_OBJECTIVE_SIM_OBJECTIVES_EXTRA 5
+#define TUTORIAL_OBJECTIVE_END (TUTORIAL_OBJECTIVE_SIM_OBJECTIVES_EXTRA+1)
