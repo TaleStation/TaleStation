@@ -2,6 +2,10 @@
 	/// The name of the job , used for preferences, bans and more. Make sure you know what you're doing before changing this.
 	var/title = "NOPE"
 
+	/// The description of the job, used for preferences menu.
+	/// Keep it short and useful. Avoid in-jokes, these are for new players.
+	var/description
+
 	/// Innate skill levels unlocked at roundstart. Based on config.jobs_have_minimal_access config setting, for example with a skeleton crew. Format is list(/datum/skill/foo = SKILL_EXP_NOVICE) with exp as an integer or as per code/_DEFINES/skills.dm
 	var/list/skills
 	/// Innate skill levels unlocked at roundstart. Based on config.jobs_have_minimal_access config setting, for example with a full crew. Format is list(/datum/skill/foo = SKILL_EXP_NOVICE) with exp as an integer or as per code/_DEFINES/skills.dm
@@ -79,7 +83,14 @@
 
 	/// Bitfield of departments this job belongs to. These get setup when adding the job into the department, on job datum creation.
 	var/departments_bitflags = NONE
+
+	/// If specified, this department will be used for the preferences menu.
+	var/datum/job_department/department_for_prefs = null
+
 	/// Lazy list with the departments this job belongs to.
+	/// Required to be set for playable jobs.
+	/// The first department will be used in the preferences menu,
+	/// unless department_for_prefs is set.
 	var/list/departments_list = null
 
 	/// Should this job be allowed to be picked for the bureaucratic error event?
@@ -186,7 +197,9 @@
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) // NON-MODULE CHANGE: LOADOUTS
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only) // NON-MODULE CHANGE: LOADOUTS
+	// NON-MODULE CHANGE: LOADOUTS
+	if(equipping.outfit)
+		equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only)
 
 
 /datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
@@ -238,6 +251,8 @@
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	box = /obj/item/storage/box/survival
 
+	preload = TRUE // These are used by the prefs ui, and also just kinda could use the extra help at roundstart
+
 	var/backpack = /obj/item/storage/backpack
 	var/satchel = /obj/item/storage/backpack/satchel
 	var/duffelbag = /obj/item/storage/backpack/duffelbag
@@ -245,21 +260,22 @@
 	var/pda_slot = ITEM_SLOT_BELT
 
 /datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	switch(H.backpack)
-		if(GBACKPACK)
-			back = /obj/item/storage/backpack //Grey backpack
-		if(GSATCHEL)
-			back = /obj/item/storage/backpack/satchel //Grey satchel
-		if(GDUFFELBAG)
-			back = /obj/item/storage/backpack/duffelbag //Grey Duffel bag
-		if(LSATCHEL)
-			back = /obj/item/storage/backpack/satchel/leather //Leather Satchel
-		if(DSATCHEL)
-			back = satchel //Department satchel
-		if(DDUFFELBAG)
-			back = duffelbag //Department duffel bag
-		else
-			back = backpack //Department backpack
+	if(ispath(back, /obj/item/storage/backpack))
+		switch(H.backpack)
+			if(GBACKPACK)
+				back = /obj/item/storage/backpack //Grey backpack
+			if(GSATCHEL)
+				back = /obj/item/storage/backpack/satchel //Grey satchel
+			if(GDUFFELBAG)
+				back = /obj/item/storage/backpack/duffelbag //Grey Duffel bag
+			if(LSATCHEL)
+				back = /obj/item/storage/backpack/satchel/leather //Leather Satchel
+			if(DSATCHEL)
+				back = satchel //Department satchel
+			if(DDUFFELBAG)
+				back = duffelbag //Department duffel bag
+			else
+				back = backpack //Department backpack
 
 	//converts the uniform string into the path we'll wear, whether it's the skirt or regular variant
 	var/holder
@@ -312,6 +328,16 @@
 	types += satchel
 	types += duffelbag
 	return types
+
+/datum/outfit/job/get_types_to_preload()
+	var/list/preload = ..()
+	preload += backpack
+	preload += satchel
+	preload += duffelbag
+	preload += /obj/item/storage/backpack/satchel/leather
+	var/skirtpath = "[uniform]/skirt"
+	preload += text2path(skirtpath)
+	return preload
 
 /// An overridable getter for more dynamic goodies.
 /datum/job/proc/get_mail_goodies(mob/recipient)
@@ -400,13 +426,15 @@
 
 	var/require_human = CONFIG_GET(flag/enforce_human_authority) && (job.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND)
 
-	if(fully_randomize)
-		if(require_human)
-			player_client.prefs.randomise_appearance_prefs(~RANDOMIZE_SPECIES)
-		else
-			player_client.prefs.randomise_appearance_prefs()
+	src.job = job.title
 
+	if(fully_randomize)
 		player_client.prefs.apply_prefs_to(src)
+
+		if(require_human)
+			randomize_human_appearance(~RANDOMIZE_SPECIES)
+		else
+			randomize_human_appearance()
 
 		if (require_human)
 			set_species(/datum/species/human)

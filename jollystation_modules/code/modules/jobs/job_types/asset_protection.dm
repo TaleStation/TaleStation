@@ -1,8 +1,10 @@
 // -- Asset Protection job & outfit datum --
 /datum/job/asset_protection
 	title = "Asset Protection"
+	description = "Protect heads of staff and the captain \
+		from foreign threats and themselves. Exert authority over the Bridge Officer."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
-	department_head = list("Captain")
+	department_head = list(JOB_CAPTAIN)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
