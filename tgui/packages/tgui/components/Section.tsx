@@ -11,7 +11,11 @@ import { BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 
 interface SectionProps extends BoxProps {
   className?: string;
+<<<<<<< HEAD
   title?: string;
+=======
+  title?: InfernoNode;
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
   buttons?: InfernoNode;
   fill?: boolean;
   fitted?: boolean;

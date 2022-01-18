@@ -1,6 +1,10 @@
 import { useBackend, useLocalState } from '../backend';
 import { multiline } from 'common/string';
+<<<<<<< HEAD
 import { GenericUplink } from './Uplink';
+=======
+import { GenericUplink, Item } from './Uplink/GenericUplink';
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 import { BlockQuote, Button, Section, Stack, Tabs } from '../components';
 import { BooleanLike } from 'common/react';
 import { Window } from '../layouts';
@@ -36,6 +40,10 @@ type Info = {
   intro: string;
   processingTime: string;
   objectives: Objective[];
+<<<<<<< HEAD
+=======
+  categories: any[];
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 };
 
 const ObjectivePrintout = (props, context) => {
@@ -191,14 +199,41 @@ const CodewordsSection = (props, context) => {
 };
 
 export const AntagInfoMalf = (props, context) => {
+<<<<<<< HEAD
   const { data } = useBackend<Info>(context);
   const {
     processingTime,
+=======
+  const { act, data } = useBackend<Info>(context);
+  const {
+    processingTime,
+    categories,
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
   } = data;
   const [
     antagInfoTab,
     setAntagInfoTab,
   ] = useLocalState(context, 'antagInfoTab', 0);
+<<<<<<< HEAD
+=======
+  const categoriesList: string[] = [];
+  const items: Item[] = [];
+  for (let i = 0; i < categories.length; i++) {
+    const category = categories[i];
+    categoriesList.push(category.name);
+    for (let itemIndex = 0; itemIndex < category.items.length; itemIndex++) {
+      const item = category.items[itemIndex];
+      items.push({
+        id: item.name,
+        name: item.name,
+        category: category.name,
+        cost: `${item.cost} PT`,
+        desc: item.desc,
+        disabled: processingTime < item.cost,
+      });
+    }
+  }
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
   return (
     <Window
       width={660}
@@ -245,12 +280,22 @@ export const AntagInfoMalf = (props, context) => {
             <Stack.Item>
               <Section>
                 <GenericUplink
+<<<<<<< HEAD
                   currencyAmount={processingTime}
                   currencySymbol="PT" />
               </Section>
             </Stack.Item>
 
 
+=======
+                  categories={categoriesList}
+                  items={items}
+                  currency={`${processingTime} PT`}
+                  handleBuy={(item) => act("buy", { name: item.name })}
+                />
+              </Section>
+            </Stack.Item>
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
           )}
         </Stack>
       </Window.Content>

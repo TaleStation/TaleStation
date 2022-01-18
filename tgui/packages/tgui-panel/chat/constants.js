@@ -28,7 +28,10 @@ export const MESSAGE_TYPE_INFO = 'info';
 export const MESSAGE_TYPE_WARNING = 'warning';
 export const MESSAGE_TYPE_DEADCHAT = 'deadchat';
 export const MESSAGE_TYPE_OOC = 'ooc';
+<<<<<<< HEAD
 export const MESSAGE_TYPE_LOOC = 'looc'; // NON-MODULE CHANGE
+=======
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 export const MESSAGE_TYPE_ADMINPM = 'adminpm';
 export const MESSAGE_TYPE_COMBAT = 'combat';
 export const MESSAGE_TYPE_ADMINCHAT = 'adminchat';
@@ -85,6 +88,7 @@ export const MESSAGE_TYPES = [
     description: 'The bluewall of global OOC messages',
     selector: '.ooc, .adminooc, .adminobserverooc, .oocplain',
   },
+<<<<<<< HEAD
   // NON-MODULE CHANGE
   {
     type: MESSAGE_TYPE_LOOC,
@@ -93,6 +97,8 @@ export const MESSAGE_TYPES = [
     selector: '.looc',
   },
   // NON-MODULE CHANGE END
+=======
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
   {
     type: MESSAGE_TYPE_ADMINPM,
     name: 'Admin PMs',

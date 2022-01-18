@@ -13,7 +13,11 @@ import { filterMap, sortBy } from "common/collections";
 import { useRandomToggleState } from "./useRandomToggleState";
 
 const CLOTHING_CELL_SIZE = 48;
+<<<<<<< HEAD
 const CLOTHING_SIDEBAR_ROWS = 13.5; // NON-MODULE CHANGE
+=======
+const CLOTHING_SIDEBAR_ROWS = 9;
+>>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 
 const CLOTHING_SELECTION_CELL_SIZE = 48;
 const CLOTHING_SELECTION_WIDTH = 5.4;
