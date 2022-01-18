@@ -192,10 +192,9 @@
 
 	new_ling_datum.granter = WEAKREF(owner.mind)
 	new_ling_datum.total_chem_storage = round(0.66 * our_ling.total_chem_storage)
-	new_ling_datum.chem_storage = new_ling_datum.total_chem_storage
 	new_ling_datum.chem_charges = 10
-	new_ling_datum.total_geneticspoints = round(0.5 * our_ling.total_geneticspoints)
-	new_ling_datum.geneticpoints = new_ling_datum.total_geneticspoints
+	new_ling_datum.total_genetic_points = round(0.5 * our_ling.total_genetic_points)
+	new_ling_datum.genetic_points = new_ling_datum.total_genetic_points
 
 	// MELBERT TODO: This is kinda hacky.
 	new_ling_datum.all_powers -= /datum/action/changeling/grant_powers
