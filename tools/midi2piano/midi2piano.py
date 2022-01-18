@@ -54,10 +54,7 @@ def notenum2string(num, accidentals, octaves):
     names = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
     convert_table = {1:0, 3:1, 6:2, 8:3, 10:4}
     inclusion_table = {0:0, 2:1, 5:2, 7:3, 9:4}
-<<<<<<< HEAD
-=======
     correspondence_table = {0:1, 1:0, 2:3, 3:2, 5:6, 6:5, 7:8, 8:7, 9:10, 10:9}
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 
     num += OCTAVE_KEYS * OCTAVE_TRANSPOSE
     octave = int(num / OCTAVE_KEYS)
@@ -72,11 +69,8 @@ def notenum2string(num, accidentals, octaves):
 
     accidental = (len(names[name_indx]) == 2)
     output_octaves[name_indx] = octave
-<<<<<<< HEAD
-=======
     if name_indx in correspondence_table:
         output_octaves[correspondence_table[name_indx]] = octave
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
     add_n = False
 
     if accidental:

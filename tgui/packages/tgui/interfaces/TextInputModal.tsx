@@ -40,11 +40,7 @@ export const TextInputModal = (_, context) => {
   };
   // Dynamically changes the window height based on the message.
   const windowHeight
-<<<<<<< HEAD
-    = 127
-=======
     = 125
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
     + Math.ceil(message.length / 3)
     + (multiline || input.length >= 30 ? 75 : 0)
     + (message.length && large_buttons ? 5 : 0);
@@ -67,11 +63,7 @@ export const TextInputModal = (_, context) => {
             <Stack.Item>
               <Box color="label">{message}</Box>
             </Stack.Item>
-<<<<<<< HEAD
-            <Stack.Item grow mb={0.7}>
-=======
             <Stack.Item grow>
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
               <InputArea input={input} onType={onType} />
             </Stack.Item>
             <Stack.Item pl={!large_buttons && 5} pr={!large_buttons && 5}>
@@ -89,23 +81,14 @@ export const TextInputModal = (_, context) => {
 
 /** Gets the user input and invalidates if there's a constraint. */
 const InputArea = (props, context) => {
-<<<<<<< HEAD
-  const { data } = useBackend<TextInputData>(context);
-  const { max_length } = data;
-=======
   const { act, data } = useBackend<TextInputData>(context);
   const { max_length, multiline } = data;
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
   const { input, onType } = props;
 
   return (
     <TextArea
       autoFocus
       autoSelect
-<<<<<<< HEAD
-      height="100%"
-      maxLength={max_length}
-=======
       height={multiline || input.length >= 30 ? "100%" : "1.8rem"}
       maxLength={max_length}
       onKeyDown={(event) => {
@@ -117,7 +100,6 @@ const InputArea = (props, context) => {
           act('cancel');
         }
       }}
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
       onInput={(_, value) => onType(value)}
       placeholder="Type something..."
       value={input}

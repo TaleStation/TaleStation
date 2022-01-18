@@ -40,8 +40,6 @@ $tracked_branch = 'master';
 $require_changelogs = false;
 $discordWebHooks = array();
 
-<<<<<<< HEAD
-=======
 // Only these repositories will announce in game.
 // Any repository that players actually care about.
 $game_announce_whitelist = array(
@@ -54,7 +52,6 @@ $discord_announce_blacklist = array(
 	"/^event-.*$/",
 );
 
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 require_once 'secret.php';
 
 //CONFIG END
@@ -325,10 +322,6 @@ function check_dismiss_changelog_review($payload){
 				dismiss_review($payload, $R['id'], 'Changelog added/fixed.');
 }
 
-<<<<<<< HEAD
-function handle_pr($payload) {
-	global $no_changelog;
-=======
 function is_blacklisted($blacklist, $name) {
 	foreach ($blacklist as $pattern) {
 		if (preg_match($pattern, $name)) {
@@ -343,8 +336,7 @@ function handle_pr($payload) {
 	global $discord_announce_blacklist;
 	global $no_changelog;
 	global $game_announce_whitelist;
-	
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
+
 	$action = 'opened';
 	$validated = validate_user($payload);
 	switch ($payload["action"]) {
@@ -385,11 +377,6 @@ function handle_pr($payload) {
 	if (!$validated) {
 		$pr_flags |= F_UNVALIDATED_USER;
 	}
-<<<<<<< HEAD
-	discord_announce($action, $payload, $pr_flags);
-	game_announce($action, $payload, $pr_flags);
-
-=======
 
 	$repo_name = $payload['repository']['name'];
 
@@ -400,7 +387,6 @@ function handle_pr($payload) {
 	if (!is_blacklisted($discord_announce_blacklist, $repo_name)) {
 		discord_announce($action, $payload, $pr_flags);
 	}
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 }
 
 function filter_announce_targets($targets, $owner, $repo, $action, $pr_flags) {

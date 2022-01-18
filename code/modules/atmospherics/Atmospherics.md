@@ -38,11 +38,7 @@ Now then, into the breach.
  The air controller is, at its core, quite simple, yet it is absolutely fundamental to the atmospheric system. The air controller is the clock which triggers all continuous actions within the atmos system, such as vents distributing air or gas moving between tiles. The actions taken by the air controller are quite simple, and will be enumerated here. Much of the substance of the air ticker is due to the game's master controller, whose intricacies I will not delve into for this document. I will however go into more detail about how SSAir in particular works in Chapter 6. In any case, this is a simplified list of the air controller's actions in a single tick:
 1. Rebuild Pipenets
     - Runs each time SSAir processes, sometimes out of order. It ensures that no pipeline sit unresolved or unbuilt
-<<<<<<< HEAD
-    - Processes the `rebuild_queue` list into the `expansion_queue` list, and then builds a full pipeline piecemeal. We do a ton of fenagling here to reduce overrun
-=======
     - Processes the `rebuild_queue` list into the `expansion_queue` list, and then builds a full pipeline piecemeal. We do a ton of fenagling here to reduce overrun 
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 2. Pipenets
     - Updates the internal gasmixes of attached pipe machinery, and reacts the gases in a pipeline
 	- Calls `process()` on each `/datum/pipenet` in the `networks` list
@@ -161,8 +157,6 @@ As for react(), it is where all the behavior of the reaction is defined. The pro
 
 This is a rather large subject, we will need to cover gas flow, turf sleeping, superconduction, and much more. Strap in and enjoy the ride!
 
-<<<<<<< HEAD
-=======
 ### A Word On `Share()`
 
 Each pair of turfs will only ever call `share()` on each other once. They use an archived cycle to keep track of
@@ -235,7 +229,6 @@ This can lead to negative moles, which the system is not prepared for.
 This is also why we queue space's sucking till the end of a tile's `process_cell()` btw, by that point we can ensure that no other tile will need to check for our mix, so we can freely violate our portioning.
 
 
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 ### Active Turfs
 ![](https://raw.githubusercontent.com/tgstation/documentation-assets/main/atmos/FlowVisuals.png)
 
@@ -243,11 +236,7 @@ This is also why we queue space's sucking till the end of a tile's `process_cell
 
 Active turfs are the backbone of how gas moves from tile to tile. While most of `process_cell()` should be easy enough to understand, I am going to go into some detail about archiving, since I think it's a common source of hiccups.
 
-<<<<<<< HEAD
-* *`archived_cycle`* this var stores the last cycle of the atmos loop that the turf processed on. The key point to notice here is that when processing a turf, we don't share with all its neighbors, we only talk to those who haven't processed yet. This is because the remainder of `process_cell()` and especially `share()` ought to be similar in form to addition. We can add in any order we like, and we only need to add once. This is what archived gases are for by the way, they store the state of the relevant tile before any processing occurs. This additive behavior isn't strictly the case unfortunately, but it's minor enough that we can ignore the effects.
-=======
 * *`archived_cycle`* this var stores the last cycle of the atmos loop that the turf processed on. The key point to notice here is that when processing a turf, we don't share with all its neighbors, we only talk to those who haven't processed yet. This is because the remainder of `process_cell()` and especially `share()` are like addition. We can add in any order we like, and we only need to add once. This is what archived gases are for by the way, they store the state of the relevant tile before any processing occurs.
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 
 Alright then, with that out of the way, what is an active turf.
 

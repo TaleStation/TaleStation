@@ -94,20 +94,13 @@ export const CharacterPreferenceWindow = (props, context) => {
             />
           </Stack.Item>
 
-<<<<<<< HEAD
           {/*
           NON-MODULE CHANGE: Removing the byond premium banner
-=======
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
           {!data.content_unlocked && (
             <Stack.Item align="center">
               Buy BYOND premium for more slots!
             </Stack.Item>
           )}
-<<<<<<< HEAD
-          */}
-=======
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 
           <Stack.Divider />
 

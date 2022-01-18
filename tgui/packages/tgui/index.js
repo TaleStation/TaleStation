@@ -16,11 +16,8 @@ import './styles/themes/paper.scss';
 import './styles/themes/retro.scss';
 import './styles/themes/syndicate.scss';
 import './styles/themes/wizard.scss';
-<<<<<<< HEAD
 
 import './styles/themes/jolly-syndicate.scss'; // NON-MODULE CHANGE
-=======
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
 import './styles/themes/admin.scss';
 
 import { perf } from 'common/perf';

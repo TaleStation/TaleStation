@@ -27,7 +27,6 @@ const Plasmaman: Species = {
       icon: "wind",
       name: "Plasma Healing",
       description: "Plasmamen can heal wounds by consuming plasma.",
-<<<<<<< HEAD
     },
     // NON-MODULE CHANGE
     {
@@ -38,9 +37,6 @@ const Plasmaman: Species = {
     },
     // NON-MODULE CHANGE END
     {
-=======
-    }, {
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
       icon: "hard-hat",
       name: "Protective Helmet",
       description: "Plasmamen's helmets provide them shielding from the \

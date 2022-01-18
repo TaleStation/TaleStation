@@ -410,13 +410,6 @@ export const JobsPage = () => {
 
               <PriorityHeaders />
 
-<<<<<<< HEAD
-              <Department department="Command">
-                <Gap amount={6} />
-              </Department>
-
-=======
->>>>>>> b4c08c4bd5e6dd7751287bbd05f6c0fc6e01ff1b
               <Department department="Security">
                 <Gap amount={6} />
               </Department>
