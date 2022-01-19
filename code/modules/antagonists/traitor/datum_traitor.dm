@@ -39,7 +39,6 @@
 
 	if(give_objectives)
 		forge_traitor_objectives()
-		forge_ending_objective()
 
 	if(finalize_antag) // NON-MODULE CHANGE
 		finalize_antag()

@@ -11,7 +11,7 @@
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
 
-	uplink = owner.find_syndicate_uplink()
+	give_uplink = owner.find_syndicate_uplink()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/tatoralert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 /// The Advanecd Traitor antagonist datum.
