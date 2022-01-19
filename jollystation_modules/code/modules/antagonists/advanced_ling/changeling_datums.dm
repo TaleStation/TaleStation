@@ -14,8 +14,8 @@
 		generate_name()
 
 /datum/antagonist/changeling/finalize_antag()
-	create_actions()
-	reset_powers()
+	create_innate_actions()
+//	reset_powers()
 	create_initial_profile()
 	owner.current.grant_all_languages(FALSE, FALSE, TRUE) //Grants omnitongue. We are able to transform our body after all.
 	play_changeling_sound()
@@ -50,17 +50,15 @@
 	ui_name = null
 	hijack_speed = 0
 	give_objectives = FALSE
-	you_are_greet = FALSE
 	hivemind_link_awoken = FALSE
 	antag_moodlet = /datum/mood_event/fallen_changeling
 	dna_max = 1
 	sting_range = 1
 	chem_recharge_rate = 0.1
 	chem_charges = 5
-	chem_storage = 25
 	total_chem_storage = 25
-	geneticpoints = 1
-	total_geneticspoints = 1 // You get one weak ability, make it count
+	genetic_points = 1
+	total_genetic_points = 1 // You get one weak ability, make it count
 
 	/// List of powers neutered lings are allowed to keep.
 	var/list/allowed_powers = list(
@@ -82,14 +80,15 @@
 /datum/antagonist/changeling/neutered/create_initial_profile()
 	add_new_profile(owner.current, TRUE)
 
-/datum/antagonist/changeling/neutered/reset_powers()
-	var/list/powers = purchasedpowers
+/* /datum/antagonist/changeling/neutered/reset_powers()
+	var/list/powers = purchased_powers
 	if(powers.len)
 		remove_changeling_powers()
 	for(var/path in allowed_powers)
 		var/datum/action/changeling/sting = new path()
-		purchasedpowers += sting
+		purchased_powers += sting
 		sting.on_purchase(owner.current, TRUE)
+*/ //Disabled; Was removed according to Melbert. I don't care enough to fix it, I'm not a coder
 
 /datum/antagonist/changeling/neutered/roundend_report()
 	var/list/result = list()
@@ -124,7 +123,6 @@
 /// Fresh changeling, from the Uplift Human ability.
 /datum/antagonist/changeling/fresh
 	name = "Fresh Changeling"
-	you_are_greet = FALSE
 	show_in_antagpanel = FALSE
 	give_objectives = FALSE
 	soft_antag = TRUE

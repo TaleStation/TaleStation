@@ -30,7 +30,7 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 	if(needs_button)
 		Grant(user)//how powers are added rather than the checks in mob.dm
 
-/datum/action/changeling/Trigger()
+/datum/action/changeling/Trigger(trigger_flags)
 	var/mob/user = owner
 	if(!user || !user.mind || !user.mind.has_antag_datum(/datum/antagonist/changeling))
 		return
@@ -73,10 +73,10 @@ the same goes for Remove(). if you override Remove(), call parent or else your p
 	if(c.chem_charges < chemical_cost)
 		to_chat(user, span_warning("We require at least [chemical_cost] unit\s of chemicals to do that!"))
 		return FALSE
-	if(c.absorbedcount < req_dna)
+	if(c.absorbed_count < req_dna)
 		to_chat(user, span_warning("We require at least [req_dna] sample\s of compatible DNA."))
 		return FALSE
-	if(c.trueabsorbs < req_absorbs)
+	if(c.true_absorbs < req_absorbs)
 		to_chat(user, span_warning("We require at least [req_absorbs] sample\s of DNA gained through our Absorb ability."))
 		return FALSE
 	if(req_stat < user.stat)

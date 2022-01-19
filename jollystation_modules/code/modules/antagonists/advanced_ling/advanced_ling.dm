@@ -5,7 +5,6 @@
 	ui_name = null
 	hijack_speed = 0.5
 	give_objectives = FALSE
-	you_are_greet = FALSE
 	hivemind_link_awoken = FALSE
 	/// List of objectives changelings can get in addition to the base ones
 	var/static/list/ling_objectives = list(
@@ -60,7 +59,7 @@
 	if(our_ling.no_hard_absorb)
 		result += "The changeling gave up the ability to absorb humans!"
 
-	var/list/powers = purchasedpowers
+	var/list/powers = purchased_powers
 	if(powers.len && linked_advanced_datum.finalized)
 		var/list/bought_powers = list()
 		for(var/datum/action/changeling/power as anything in powers)
@@ -93,11 +92,10 @@
 	var/datum/antagonist/changeling/our_changeling = linked_antagonist
 
 	starting_points = get_antag_points_from_goals()
-	our_changeling.geneticpoints = starting_points
-	our_changeling.total_geneticspoints = starting_points
+	our_changeling.genetic_points = starting_points
+	our_changeling.total_genetic_points = starting_points
 
 	our_changeling.chem_charges = starting_points * 2
-	our_changeling.chem_storage = round((starting_points * ADV_CHANGELING_CHEM_PER_POINTS) + (10 * no_hard_absorb))
 	our_changeling.total_chem_storage = round((starting_points * ADV_CHANGELING_CHEM_PER_POINTS) + (10 * no_hard_absorb))
 
 /datum/advanced_antag_datum/changeling/get_antag_points_from_goals()
@@ -119,7 +117,7 @@
 	if(no_hard_absorb)
 		var/datum/antagonist/changeling/our_changeling = linked_antagonist
 		our_changeling.all_powers -= /datum/action/changeling/absorb_dna
-		var/datum/action/changeling/absorb_dna/dna_power = locate() in our_changeling.purchasedpowers
+		var/datum/action/changeling/absorb_dna/dna_power = locate() in our_changeling.purchased_powers
 		dna_power?.Remove(linked_antagonist.owner.current)
 
 /datum/advanced_antag_datum/changeling/log_goals_on_finalize()

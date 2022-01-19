@@ -10,7 +10,7 @@
 
 /datum/uplink_item/bundles_tc/contract_kit // Sorry, but if you have nuke-ops gear in your uplink, you shouldn't be able to get more tc
 	limited_stock = 1
-	player_minimum = 10
+	progression_minimum = 10
 	purchasable_from = UPLINK_TRAITORS
 
 /datum/uplink_item/bundles_tc/bundle_a // Infiltrators should already have an idea/plan, not rely on a random bundle
@@ -38,7 +38,7 @@
 	purchasable_from = UPLINK_INFILTRATOR
 
 /datum/uplink_item/dangerous/doublesword
-	player_minimum = 15
+	progression_minimum = 15
 
 /datum/uplink_item/dangerous/surplus_smg/infiltrator
 	cost = 4 // A gun is a gun
@@ -60,7 +60,7 @@
 	purchasable_from = UPLINK_INFILTRATOR
 
 /datum/uplink_item/stealthy_weapons/crossbow
-	player_minimum = 15
+	progression_minimum = 15
 	purchasable_from = UPLINK_TRAITORS
 
 /datum/uplink_item/stealthy_weapons/crossbow/infiltrator
@@ -68,7 +68,7 @@
 	purchasable_from = UPLINK_INFILTRATOR
 
 /datum/uplink_item/stealthy_weapons/martialarts
-	player_minimum = 15
+	progression_minimum = 15
 
 /datum/uplink_item/stealthy_weapons/romerol_kit // No romerol, for the love of god
 	purchasable_from = ~UPLINK_INFILTRATOR
@@ -89,7 +89,7 @@
 	purchasable_from = UPLINK_TRAITORS
 
 /datum/uplink_item/stealthy_tools/syndigaloshes
-	player_minimum = 5
+	progression_minimum = 5
 
 /datum/uplink_item/suits/hardsuit/elite/infiltrator
 	cost = 12 // Elite hardsuit is well armored - costs a bit extra, for infiltrators focusing on combat
@@ -100,7 +100,7 @@
 	purchasable_from = ~UPLINK_TRAITORS
 
 /datum/uplink_item/device_tools/powersink
-	player_minimum = 12
+	progression_minimum = 12
 
 /datum/uplink_item/device_tools/syndie_jaws_of_life
 	purchasable_from = ~UPLINK_TRAITORS

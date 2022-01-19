@@ -11,7 +11,7 @@
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
 
-	uplink = owner.find_syndicate_uplink()
+	give_uplink = owner.find_syndicate_uplink()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/tatoralert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 /// The Advanecd Traitor antagonist datum.
@@ -83,8 +83,6 @@
 		var/uplink_text = span_bold("(used [TC_uses] TC)")
 		uplink_text += "[purchases]"
 		result += uplink_text
-		if (contractor_hub)
-			result += contractor_round_end()
 	else
 		result += span_bold("<br>The [name] never obtained their uplink!")
 
@@ -107,7 +105,7 @@
 		return
 
 	starting_points = get_antag_points_from_goals()
-	made_uplink.telecrystals = starting_points
+	made_uplink.add_telecrystals(starting_points)
 	linked_antagonist.hijack_speed = (starting_points * hijack_speed_modifier) // 20 tc traitor = 0.5 (default traitor hijack speed)
 
 /datum/advanced_antag_datum/traitor/get_antag_points_from_goals()

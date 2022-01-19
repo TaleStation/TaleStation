@@ -92,13 +92,13 @@ Things you **CAN'T** do:
 
 ## Development Guides
 
-#### Writing readable code
+#### Writing readable code 
 [Style guide](./guides/STYLE.md)
 
-#### Writing sane code
+#### Writing sane code 
 [Code standards](./guides/STANDARDS.md)
 
-#### Writing understandable code
+#### Writing understandable code 
 [Autodocumenting code](./guides/AUTODOC.md)
 
 #### Misc
@@ -147,7 +147,7 @@ Negative GBP increases the likelihood of a maintainer closing your PR. With that
 
 There is no benefit to having a higher positive GBP score, since GBP only comes into consideration when it is negative.
 
-You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml).
+You can see each tag and their GBP values [Here](https://github.com/tgstation/tgstation/blob/master/.github/gbp.toml). 
 
 ## Porting features/sprites/sounds/tools from other codebases
 

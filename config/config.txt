@@ -126,13 +126,13 @@ LOG_TELECOMMS
 ## log prayers
 LOG_PRAYER
 
-## log lawchanges
-LOG_LAW
+## log silicons
+LOG_SILICON
 
 ## log economy actions
 LOG_ECON
 
-## log crew manifest to seperate file
+## log crew manifest to separate file
 LOG_MANIFEST
 
 ## log job divide debugging information
@@ -246,17 +246,16 @@ USEWHITELIST
 # SERVER ss13.example.com:2506
 
 ## forum address
-FORUMURL https://docs.google.com/document/d/1tcM2kTv4crDHqCWZcZu7U7CISuvQLMc5fMJE-JQxVtc/edit
+# FORUMURL http://tgstation13.org/phpBB/index.php
 
 ## Wiki address
 # WIKIURL http://www.tgstation13.org/wiki
 
 ## Rules address
-RULESURL https://discord.com/channels/801124315213987880/801124534182215681/853315055285305406
+# RULESURL http://www.tgstation13.org/wiki/Rules
 
 ## Github address
-GITHUBURL https://github.com/Jolly-66/JollyStationCode
-
+# GITHUBURL https://www.github.com/tgstation/tgstation
 
 ## Discord bot command prefix, if the discord bot is used
 # DISCORDBOTCOMMANDPREFIX ?
@@ -584,6 +583,17 @@ URGENT_AHELP_COOLDOWN 300
 MOTD motd.txt
 #MOTD motd_extra.txt
 
+## Assets can opt-in to caching their results into `tmp`.
+## This is important, as preferences assets take upwards of 30 seconds (without sleeps) to collect.
+## The cache is assumed to be cleared by TGS recompiling, which deletes `tmp`.
+## This should be disabled (through `CACHE_ASSETS 0`) on development,
+## but enabled on production (the default).
+CACHE_ASSETS 0
+
+## Uncomment to allow the station name to be in the hub entry.
+## You should only enable this if you can guarantee a station name doesn't break BYOND's TOS.
+## BYOND staff have gotten upset at us in the past for inappropriate station names.
+#STATION_NAME_IN_HUB_ENTRY
 
 #############################
 #### MODULE CONFIG STUFF ####

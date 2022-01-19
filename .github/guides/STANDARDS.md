@@ -106,7 +106,7 @@ All procs that are registered to listen for signals using `RegisterSignal()` mus
 ```
 This is to ensure that it is clear the proc handles signals and turns on a lint to ensure it does not sleep.
 
-Any sleeping behaviour that you need to perform inside a `SIGNAL_HANDLER` proc must be called asynchronously (e.g. with `INVOKE_ASYNC()`) or be redone to work asynchronously.
+Any sleeping behaviour that you need to perform inside a `SIGNAL_HANDLER` proc must be called asynchronously (e.g. with `INVOKE_ASYNC()`) or be redone to work asynchronously. 
 
 ### Enforcing parent calling
 
@@ -222,7 +222,7 @@ Good:
 		off_overlay = iconstate2appearance(icon, "off")
 		broken_overlay = icon2appearance(broken_icon)
 	if (stat & broken)
-		add_overlay(broken_overlay)
+		add_overlay(broken_overlay) 
 		return
 	if (is_on)
 		add_overlay(on_overlay)
@@ -246,7 +246,7 @@ Bad:
 	if (isnull(our_overlays))
 		our_overlays = list("on" = iconstate2appearance(overlay_icon, "on"), "off" = iconstate2appearance(overlay_icon, "off"), "broken" = iconstate2appearance(overlay_icon, "broken"))
 	if (stat & broken)
-		add_overlay(our_overlays["broken"])
+		add_overlay(our_overlays["broken"]) 
 		return
 	...
 ```
@@ -320,6 +320,21 @@ H.gib()
 However, DM also has a dot variable, accessed just as `.` on its own, defaulting to a value of null. Now, what's special about the dot operator is that it is automatically returned (as in the `return` statement) at the end of a proc, provided the proc does not already manually return (`return count` for example.) Why is this special?
 
 With `.` being everpresent in every proc, can we use it as a temporary variable? Of course we can! However, the `.` operator cannot replace a typecasted variable - it can hold data any other var in DM can, it just can't be accessed as one, although the `.` operator is compatible with a few operators that look weird but work perfectly fine, such as: `.++` for incrementing `.'s` value, or `.[1]` for accessing the first element of `.`, provided that it's a list.
+
+### The BYOND walk procs
+
+BYOND has a few procs that move one atom towards/away from another, `walk()`, `walk_to()`, `walk_towards`, `walk_away()` and `walk_rand()`.
+
+The way they pull this off, while fine for the language itself, makes a mess of our master-controller, and can cause the whole game to slow down. Do not use them.
+
+The following is a list of procs, and their safe replacements.
+
+* Removing something from the loop `walk(0)` -> `SSmove_manager.stop_looping()`
+* Move in a direction `walk()` -> `SSmove_manager.move()`
+* Move towards a thing, taking turf density into account`walk_to()` -> `SSmove_manager.move_to()`
+* Move in a thing's direction, ignoring turf density `walk_towards()` -> `SSmove_manager.home_onto()` and `SSmove_manager.move_towards_legacy()`, check the documentation to see which you like better
+* Move away from something, taking turf density into account `walk_away()` -> `SSmove_manager.move_away()`
+* Move to a random place nearby. NOT random walk `walk_rand()` -> `SSmove_manager.move_rand()` is random walk, `SSmove_manager.move_to_rand()` is walk to a random place
 
 ### BYOND hellspawn
 
