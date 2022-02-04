@@ -831,6 +831,12 @@
 			flowergun.update_appearance()
 			to_chat(user, span_notice("[myseed.plantname]'s mutation was set to [locked_mutation], depleting [flowergun]'s cell!"))
 			return
+//NON-MODULAR CHANGE - Edit used for alien seed check
+	else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/xeno))
+		var/obj/item/seeds/current_seed = O
+		if(current_seed.is_alien_seeds && !accepts_alien_seeds)
+			to_chat(user, span_warning("[src] cannot accept alien seedds!"))
+			return
 	else
 		return ..()
 
