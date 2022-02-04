@@ -118,7 +118,7 @@
 	if(!owner || !pain)
 		return FALSE
 
-	if(owner.has_status_effect(STATUS_EFFECT_DETERMINED))
+	if(owner.has_status_effect(/datum/status_effect/determined))
 		return FALSE
 
 	var/list/feedback_phrases = list()
@@ -196,7 +196,7 @@
 	if(!owner || !pain)
 		return FALSE
 
-	if(owner.has_status_effect(STATUS_EFFECT_DETERMINED))
+	if(owner.has_status_effect(/datum/status_effect/determined))
 		return FALSE
 
 	var/list/feedback_phrases = list()

@@ -116,7 +116,6 @@
 		if(DEPARTMENT_SERVICE)
 			. -= /area/service/electronic_marketing_den
 			. -= /area/service/abandoned_gambling_den
-			. -= /area/service/abandoned_gambling_den/secondary
 			. -= /area/service/theater/abandoned
 			. -= /area/service/library/abandoned
 			. -= /area/service/hydroponics/garden/abandoned

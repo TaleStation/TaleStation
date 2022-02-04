@@ -453,7 +453,7 @@
 			if(checked_bodypart.pain_feedback(delta_time, COOLDOWN_FINISHED(src, time_since_last_pain_loss)))
 				COOLDOWN_START(src, time_since_last_pain_message, 4 SECONDS)
 
-	if(!parent.has_status_effect(STATUS_EFFECT_DETERMINED))
+	if(!parent.has_status_effect(/datum/status_effect/determined))
 		switch(get_average_pain())
 			if(10 to 40)
 				low_pain_effects(delta_time)
