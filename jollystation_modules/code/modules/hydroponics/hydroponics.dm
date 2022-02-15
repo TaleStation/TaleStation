@@ -7,16 +7,9 @@
 
 //Xenobotany trays; we grow weird shit
 /obj/machinery/hydroponics/xeno_tray
+	circuit
 	accepts_alien_seeds = TRUE
 	icon_state = "hydrotray2"
-
-/*/obj/machinery/hydroponics/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/xeno))
-		var/obj/item/seeds/current_seed = O
-		if(current_seed.is_alien_seeds && !accepts_alien_seeds)
-			to_chat(user, span_warning("[src] cannot accept alien seedds!"))
-			return
-	..()*/
 
 /obj/machinery/hydroponics/constructable
 	// Nutriment drain is halved so they can not worry about fertilizer as much
