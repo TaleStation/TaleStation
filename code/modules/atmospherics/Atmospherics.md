@@ -180,7 +180,7 @@ You may notice something like this in `process_cell()`. It's not quite the same 
 
 Back in the old FEA days, neighbor count was hardcoded to 4 (Likely because this is what cell sharing on an infinite grid would look like). This means that turf A -> turf B is the same as turf B -> turf A, because they're each portioning up the gas in the same way.
 
-But when we moved to LINDA, we started using the length of our atmos_adjacent_turfs list (or an analog). 
+But when we moved to LINDA, we started using the length of our atmos_adjacent_turfs list (or an analog).
 We need this so things like multiz can work, and so tiles in a corner share in a way that makes sense.
 
 Because of this, turf A -> turf B was no longer the same as turf B -> turf A, assuming one of those turfs had a different neighbor count, from I DON'T KNOW WALLS?
