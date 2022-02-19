@@ -38,16 +38,16 @@
 	chemical_cost = 50
 	dna_cost = 2
 	/// Our DNA we're using to target.
-	var/datum/changelingprofile/selected_dna
+	var/datum/changeling_profile/selected_dna
 
-/datum/action/changeling/sting/temp_transformation/Trigger()
+/datum/action/changeling/sting/temp_transformation/Trigger(trigger_flags)
 	var/mob/user = usr
 	var/datum/antagonist/changeling/changeling = is_any_changeling(user)
 	if(changeling.chosen_sting)
 		unset_sting(user)
 		return
-	selected_dna = changeling.select_dna("Select the target DNA: ", "Target DNA")
-	if(!selected_dna)
+	selected_dna = changeling.select_dna()
+	if(QDELETED(src) || QDELETED(changeling) || !selected_dna)
 		return
 	if(NOTRANSSTING in selected_dna.dna.species.species_traits)
 		to_chat(user, span_notice("That DNA is not compatible with changeling retrovirus!"))
