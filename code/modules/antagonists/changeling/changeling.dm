@@ -71,7 +71,7 @@
 	var/hive_name
 
 	/// Static typecache of all changeling powers that are usable.
-	var/static/list/all_powers = typecacheof(/datum/action/changeling, TRUE)
+	var/static/list/all_powers = typecacheof(/datum/action/changeling, ignore_root_path = TRUE)
 
 	/// Satic list of what each slot associated with (in regard to changeling flesh items).
 	var/static/list/slot2type = list(
@@ -107,13 +107,11 @@
 	return ..()
 
 /datum/antagonist/changeling/on_gain()
-	create_emporium()
-	create_innate_actions()
-	create_initial_profile()
+	/// NON-MODULE CHANGE: ADVANCED CHANGELINGS
 	if(give_objectives)
+		finalize_antag()
 		forge_objectives()
-	owner.current.grant_all_languages(FALSE, FALSE, TRUE) //Grants omnitongue. We are able to transform our body after all.
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+
 	return ..()
 
 /datum/antagonist/changeling/apply_innate_effects(mob/living/mob_override)
