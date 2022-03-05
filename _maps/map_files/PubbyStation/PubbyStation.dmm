@@ -8945,7 +8945,7 @@
 "aCu" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /obj/item/screwdriver{
 	pixel_y = 16
 	},
@@ -18264,7 +18264,7 @@
 "blw" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /turf/open/floor/iron/dark/smooth_large,
 /area/hallway/primary/aft)
 "blx" = (
@@ -19158,7 +19158,7 @@
 "boZ" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
@@ -19489,8 +19489,8 @@
 "bqk" = (
 /obj/structure/rack,
 /obj/item/crowbar,
-/obj/item/stock_parts/cell/high/plus,
-/obj/item/stock_parts/cell/high/plus{
+/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/high{
 	pixel_x = 5;
 	pixel_y = -5
 	},
@@ -21739,7 +21739,6 @@
 /turf/open/floor/engine,
 /area/science/xenobiology)
 "bxV" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -21993,8 +21992,8 @@
 "byI" = (
 /obj/structure/table,
 /obj/machinery/cell_charger,
-/obj/item/stock_parts/cell/high/plus,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/high,
 /turf/open/floor/iron/white/smooth_large,
 /area/science/lab)
 "byJ" = (
@@ -24541,11 +24540,13 @@
 /area/science/mixing)
 "bHE" = (
 /obj/structure/window/reinforced,
-/obj/machinery/doppler_array/research/science,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/tile/purple/anticorner,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/tank_compressor{
+	dir = 8
 	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
@@ -24787,6 +24788,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/machinery/doppler_array,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 4
 	},
@@ -26684,7 +26686,7 @@
 /obj/machinery/cell_charger{
 	pixel_y = 5
 	},
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /obj/effect/turf_decal/tile/green/full,
 /turf/open/floor/iron/dark/smooth_large,
 /area/engineering/storage/tech)
@@ -28336,7 +28338,7 @@
 /obj/item/clipboard,
 /obj/item/lighter,
 /obj/item/stamp/ce,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /obj/machinery/keycard_auth{
 	pixel_x = 26;
 	pixel_y = 26
@@ -29533,8 +29535,8 @@
 /obj/item/electronics/airlock,
 /obj/item/electronics/airlock,
 /obj/item/electronics/apc,
-/obj/item/stock_parts/cell/high/plus,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
+/obj/item/stock_parts/cell/high,
 /turf/open/floor/iron,
 /area/engineering/main)
 "cay" = (
@@ -29989,7 +29991,7 @@
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
 /obj/item/electronics/airlock,
-/obj/item/stock_parts/cell/high/plus,
+/obj/item/stock_parts/cell/high,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 30
 	},
@@ -36826,9 +36828,9 @@
 /turf/open/floor/iron,
 /area/engineering/atmos)
 "eNF" = (
-/obj/structure/grille,
-/obj/structure/lattice,
-/turf/closed/wall,
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
 /area/space/nearstation)
 "eOe" = (
 /obj/effect/turf_decal/trimline/green/line{
@@ -43153,6 +43155,22 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
+/obj/structure/table/glass,
+/obj/item/computer_hardware/hard_drive/portable{
+	pixel_x = -2
+	},
+/obj/item/computer_hardware/hard_drive/portable{
+	pixel_x = -5;
+	pixel_y = 8
+	},
+/obj/item/computer_hardware/hard_drive/portable{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/obj/item/computer_hardware/hard_drive/portable{
+	pixel_x = 7;
+	pixel_y = 2
+	},
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -47097,7 +47115,6 @@
 	},
 /area/science/robotics)
 "noM" = (
-/obj/machinery/research/explosive_compressor,
 /obj/item/radio/intercom/directional/east,
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 4
@@ -49795,13 +49812,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/cafeteria,
 /area/service/kitchen)
-"pwS" = (
-/obj/structure/lattice,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/open/space/basic,
-/area/space/nearstation)
 "pxE" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 4
@@ -53337,11 +53347,6 @@
 /turf/open/floor/plating,
 /area/construction/mining/aux_base)
 "scz" = (
-/obj/machinery/power/apc/highcap/fifteen_k{
-	dir = 8;
-	name = "Engineering APC";
-	pixel_x = -25
-	},
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/engineering/storage_shared)
@@ -57743,6 +57748,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/machinery/research/anomaly_refinery,
 /turf/open/floor/iron/dark/smooth_large,
 /area/science/mixing)
 "veR" = (
@@ -81233,7 +81239,7 @@ bHQ
 bNF
 bHQ
 bva
-oTJ
+bva
 aht
 aht
 aht
@@ -86908,7 +86914,7 @@ sww
 kev
 bBX
 aht
-eNF
+pDW
 aaa
 aaa
 aaa
@@ -87165,7 +87171,7 @@ kev
 wfO
 bBX
 aht
-eNF
+pDW
 aaa
 aaa
 aaa
@@ -87679,7 +87685,7 @@ bBX
 bBX
 bBX
 aht
-eNF
+pDW
 aaa
 aaa
 aaa
@@ -88187,7 +88193,7 @@ aaa
 aaa
 aaa
 aaa
-eNF
+pDW
 aaa
 aaa
 aaa
@@ -88444,7 +88450,7 @@ aaa
 aaa
 aaa
 aaa
-eNF
+pDW
 aaa
 aaa
 aaa
@@ -112300,8 +112306,8 @@ vCE
 gyj
 oNE
 sXR
-cqX
-pwS
+eNF
+mMc
 rNB
 lWy
 rui
