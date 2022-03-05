@@ -179,12 +179,6 @@
 /// Whether this job can be an intern.
 #define JOB_CAN_BE_INTERN (1<<8)
 
-/* Job type datum job_type_flags */
-/// Stating this job is a station job
-#define JOB_STATION_JOB (1<<0)
-/// Stating this job is a Command/Head of staff job
-#define JOB_HEAD_JOB (1<<1)
-
 
 #define FACTION_NONE "None"
 #define FACTION_STATION "Station"

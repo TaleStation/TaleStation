@@ -311,6 +311,7 @@ const ResearchInfo = (props, context) => {
   );
 };
 
+
 export const AntagInfoHeretic = (props, context) => {
   const { data } = useBackend<Info>(context);
   const {
