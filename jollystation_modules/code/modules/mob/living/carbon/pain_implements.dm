@@ -452,7 +452,7 @@
 	STR.max_items = 12
 	STR.max_combined_w_class = 12
 
-/obj/item/storage/firstaid/emergency/PopulateContents()
+/obj/item/storage/medkit/emergency/PopulateContents()
 	if(empty)
 		return
 	var/static/items_inside = list(
