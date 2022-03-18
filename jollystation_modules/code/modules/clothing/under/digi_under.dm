@@ -70,7 +70,8 @@
 		has_digi_support = FALSE
 
 	// Female uniforms (skirts)
-	if(fitted == FEMALE_UNIFORM_TOP)
+	if(female_sprite_flags != FEMALE_UNIFORM_TOP_ONLY)
+		female_sprite_flags = NO_FEMALE_UNIFORM
 		should_not_squish = TRUE
 		has_digi_support = FALSE
 
@@ -80,9 +81,9 @@
 	if(!istype(wearer))
 		return
 	if(!. && has_digi_support && wearer.is_digitigrade())
-		fitted = NO_FEMALE_UNIFORM
+		female_sprite_flags = NO_FEMALE_UNIFORM
 	else
-		fitted = initial(fitted)
+		female_sprite_flags = initial(female_sprite_flags)
 	wearer.update_inv_w_uniform()
 
 /obj/item/clothing/under/swap_digitigrade_dmi(mob/user)
@@ -91,9 +92,9 @@
 		return
 
 	if(user.is_digitigrade())
-		fitted = NO_FEMALE_UNIFORM
+		female_sprite_flags = NO_FEMALE_UNIFORM
 	else
-		fitted = initial(fitted)
+		female_sprite_flags = initial(female_sprite_flags)
 
 // -- Misc. Jumpsuits --
 /obj/item/clothing/under/misc

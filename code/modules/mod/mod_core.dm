@@ -62,27 +62,6 @@
 /obj/item/mod/core/infinite/subtract_charge(amount)
 	return TRUE
 
-/obj/item/mod/core/infinite
-	name = "MOD infinite core"
-	icon_state = "mod-core-infinite"
-	desc = "A fusion core using the rare Fixium to sustain enough energy for the lifetime of the MOD's user. \
-		This might be because of the slowly killing poison inside, but those are just rumors."
-
-/obj/item/mod/core/infinite/charge_source()
-	return src
-
-/obj/item/mod/core/infinite/charge_amount()
-	return INFINITY
-
-/obj/item/mod/core/infinite/max_charge_amount()
-	return INFINITY
-
-/obj/item/mod/core/infinite/add_charge(amount)
-	return TRUE
-
-/obj/item/mod/core/infinite/subtract_charge(amount)
-	return TRUE
-
 /obj/item/mod/core/standard
 	name = "MOD standard core"
 	icon_state = "mod-core-standard"
