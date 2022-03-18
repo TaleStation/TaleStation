@@ -190,7 +190,7 @@
 /turf/open/floor/engine/cult
 	name = "engraved floor"
 	desc = "The air smells strange over this sinister flooring."
-	icon_state = "plating"
+	icon_state = "cult"
 	floor_tile = null
 	var/obj/effect/cult_turf/overlay/floor/bloodcult/realappearance
 

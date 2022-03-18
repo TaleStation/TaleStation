@@ -459,8 +459,6 @@
 	targetitem = /obj/item/stack/sheet/cardboard
 	difficulty = 9001
 
-/obj/item/stack/sheet/cardboard/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/stack/sheet/cardboard)
 
 /datum/objective_item/stack/check_special_completion(obj/item/stack/S)
 	var/target_amount = text2num(name)
@@ -490,8 +488,5 @@
 	name = "25 refined uranium bars"
 	targetitem = /obj/item/stack/sheet/mineral/uranium
 	difficulty = 10
-
-/obj/item/stack/sheet/mineral/uranium/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/stack/sheet/mineral/uranium)
 
 #undef ADD_STEAL_ITEM

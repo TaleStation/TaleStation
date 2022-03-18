@@ -217,10 +217,6 @@
 	var/obj/item/mod/control/mod = storage_holder
 	return !(istype(mod) && mod.open)
 
-/obj/item/stock_parts/cell/attackby_storage_insert(datum/component/storage, atom/storage_holder, mob/user)
-	var/obj/item/mod/control/mod = storage_holder
-	return !(istype(mod) && mod.open)
-
 /* Cell variants*/
 /obj/item/stock_parts/cell/empty
 	empty = TRUE

@@ -654,6 +654,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "\improper Recreation Area"
 	icon_state = "rec"
 
+/area/commons/fitness/recreation/entertainment
+	name = "\improper Entertainment Center"
+	icon_state = "entertainment"
+
 // Commons - Vacant Rooms
 /area/commons/vacant_room
 	name = "\improper Vacant Room"
@@ -716,6 +720,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/service/kitchen/diner
 	name = "\improper Diner"
+	icon_state = "diner"
 
 /area/service/kitchen/abandoned
 	name = "\improper Abandoned Kitchen"
@@ -893,6 +898,15 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/engineering/atmos/project
 	name = "\improper Atmospherics Project Room"
+	icon_state = "atmos_projectroom"
+
+/area/engineering/atmos/pumproom
+	name = "\improper Atmospherics Pumping Room"
+	icon_state = "atmos_pump_room"
+
+/area/engineering/atmos/mix
+	name = "\improper Atmospherics Mixing Room"
+	icon_state = "atmos_mix"
 
 /area/engineering/atmos/storage
 	name = "\improper Atmospherics Storage Room"
@@ -904,9 +918,11 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/engineering/atmos/office
 	name = "\improper Atmospherics Office"
+	icon_state = "atmos_office"
 
 /area/engineering/atmos/hfr_room
 	name = "\improper Atmospherics HFR Room"
+	icon_state = "atmos_HFR"
 
 /area/engineering/atmospherics_engine
 	name = "\improper Atmospherics Engine"
@@ -1391,6 +1407,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "\improper Cargo Bay"
 	icon_state = "cargo_bay"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+
+/area/cargo/lobby
+	name = "\improper Cargo Lobby"
+	icon_state = "cargo_lobby"
 
 /area/cargo/qm
 	name = "\improper Quartermaster's Office"

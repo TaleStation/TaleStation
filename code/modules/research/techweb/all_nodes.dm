@@ -49,6 +49,7 @@
 		"rdservercontrol",
 		"restaurant_portal",
 		"rglass",
+		"roll",
 		"salestagger",
 		"sec_38",
 		"sec_Islug",
@@ -58,6 +59,8 @@
 		"space_heater",
 		"tech_disk",
 		"titaniumglass",
+		"toner",
+		"toner_large",
 	)
 
 /datum/techweb_node/mmi
@@ -124,7 +127,7 @@
 		"mod_helmet",
 		"mod_paint_kit",
 		"mod_shell",
-		"mod_armor_standard",
+		"mod_plating_standard",
 		"mod_storage",
 		"mod_welding",
 		"mod_mouthhole",
@@ -508,8 +511,11 @@
 		"stack_machine",
 		"tesla_coil",
 		"thermomachine",
-		"w-recycler" , "emitter",
+		"w-recycler", 
+		"emitter",
 		"welding_goggles",
+		"anomaly_refinery",
+		"tank_compressor",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 12500)
 	discount_experiments = list(/datum/experiment/scanning/random/material/easy = 7500)
@@ -1465,7 +1471,7 @@
 	description = "Engineering suits, for powered engineers."
 	prereq_ids = list("mod_advanced", "engineering")
 	design_ids = list(
-		"mod_armor_engineering",
+		"mod_plating_engineering",
 		"mod_visor_meson",
 		"mod_t_ray",
 		"mod_magboot",
@@ -1481,7 +1487,7 @@
 	description = "Advanced Engineering suits, for advanced powered engineers."
 	prereq_ids = list("mod_engineering", "adv_engi")
 	design_ids = list(
-		"mod_armor_atmospheric",
+		"mod_plating_atmospheric",
 		"mod_jetpack",
 		"mod_rad_protection",
 		"mod_emp_shield",
@@ -1495,7 +1501,7 @@
 	description = "Medical suits for quick rescue purposes."
 	prereq_ids = list("mod_advanced", "biotech")
 	design_ids = list(
-		"mod_armor_medical",
+		"mod_plating_medical",
 		"mod_visor_medhud",
 		"mod_health_analyzer",
 		"mod_quick_carry",
@@ -1511,7 +1517,7 @@
 	description = "Security suits for space crime handling."
 	prereq_ids = list("mod_advanced", "sec_basic")
 	design_ids = list(
-		"mod_armor_security",
+		"mod_plating_security",
 		"mod_visor_sechud",
 		"mod_stealth",
 		"mod_holster",
@@ -1525,7 +1531,7 @@
 	description = "Powered suits for protection against low-humor environments."
 	prereq_ids = list("mod_advanced", "clown")
 	design_ids = list(
-		"mod_armor_cosmohonk",
+		"mod_plating_cosmohonk",
 		"mod_bikehorn",
 		"mod_microwave_beam",
 		"mod_waddle",
