@@ -1164,23 +1164,6 @@
 		M.adjustToxLoss(-0.5, 0)
 	return ..()
 
-/datum/reagent/consumable/agua_fresca
-	name = "Agua Fresca"
-	description = "A refreshing watermelon agua fresca. Perfect on a day at the holodeck."
-	color = "#D25B66" 
-	quality = DRINK_VERYGOOD
-	taste_description = "cool refreshing watermelon"
-	glass_icon_state = "aguafresca"
-	glass_name = "Agua Fresca"
-	glass_desc = "90% water, but still refreshing."
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-/datum/reagent/consumable/agua_fresca/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.adjust_bodytemperature(-8 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, M.get_body_temp_normal())
-	if(M.getToxLoss() && DT_PROB(10, delta_time))
-		M.adjustToxLoss(-0.5, 0)
-	return ..()
-
 /datum/reagent/consumable/mushroom_tea
 	name = "Mushroom Tea"
 	description = "A savoury glass of tea made from polypore mushroom shavings, originally native to Tizira."
