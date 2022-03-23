@@ -76,3 +76,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 
 /datum/preference/choiced/head_tentacles/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["head_tentacles"] = value
+
+/datum/preference/choiced/skrell_hair/init_possible_values()
+	return generate_skrell_side_shots(GLOB.head_tentacles_list, "head_tentacles", list("ADJ", "FRONT"))
