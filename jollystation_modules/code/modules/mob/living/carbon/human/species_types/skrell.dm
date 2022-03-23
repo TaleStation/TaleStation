@@ -73,3 +73,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 
 /obj/item/organ/external/head_tentacles/get_global_feature_list()
 	return GLOB.head_tentacles_list
+
+/datum/preference/choiced/head_tentacles/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["head_tentacles"] = value
