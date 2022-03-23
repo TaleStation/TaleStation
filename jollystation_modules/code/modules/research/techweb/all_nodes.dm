@@ -8,3 +8,14 @@
 	id_additions = list(
 		"cybernetic_cat_ears",
 		)
+
+//Xenobotany tech web
+/datum/techweb_node/xeno_botany
+	id = "xenobotany"
+	display_name = "XenoBotany"
+	description = "Team up with the botanist to unleash horrors beyond everyons creation."
+	prereq_ids = list("botany")
+	design_ids = list(
+		"XenoBotany",
+	)
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
