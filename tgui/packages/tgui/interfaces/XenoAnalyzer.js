@@ -1,10 +1,9 @@
 import { useBackend } from '../backend';
-import { Button, LabeledList, Section } from '../components';
+import { ProgressBar, Box } from '../components';
 import { Window } from '../layouts';
 
-export const SampleInterface = (props, context) => {
+export const XenoAnalyzer = (props, context) => {
   const { act, data } = useBackend(context);
-  // Extract `health` and `color` variables from the `data` object.
   const {
     aaa,
     color,
@@ -12,21 +11,9 @@ export const SampleInterface = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Section title="aaa status">
-          <LabeledList>
-            <LabeledList.Item label="aaa">
-              {aaa}
-            </LabeledList.Item>
-            <LabeledList.Item label="Color">
-              {color}
-            </LabeledList.Item>
-            <LabeledList.Item label="Button!">
-              <Button
-                content="Dispatch a 'test' action"
-                onClick={() => act('test')} />
-            </LabeledList.Item>
-          </LabeledList>
-        </Section>
+        <Box as="Test1" m={1}>
+          {props => <ProgressBar value={0.6} />}
+        </Box>
       </Window.Content>
     </Window>
   );
