@@ -110,6 +110,7 @@
 		"moth_markings" = pick(GLOB.moth_markings_list),
 		"tail_monkey" = "None",
 		"pod_hair" = pick(GLOB.pod_hair_list),
+		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULE CHANGE
 	))
 
 /proc/random_hairstyle(gender)
