@@ -62,14 +62,9 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	preference = "feature_head_tentacles"
 
 /obj/item/organ/external/head_tentacles/can_draw_on_bodypart(mob/living/carbon/human/human)
-	. = TRUE
-	if(istype(human.head) && (human.head.flags_inv & HIDEHAIR))
-		. = FALSE
-	if(istype(human.wear_mask) && (human.wear_mask.flags_inv & HIDEHAIR))
-		. = FALSE
-	var/obj/item/bodypart/head/our_head = human.get_bodypart(BODY_ZONE_HEAD)
-	if(our_head?.status == BODYPART_ROBOTIC)
-		. = FALSE
+	if(!(human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
+		return TRUE
+	return FALSE
 
 /obj/item/organ/external/head_tentacles/get_global_feature_list()
 	return GLOB.head_tentacles_list
