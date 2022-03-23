@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	default_color = "4B4B4B"
 	species_traits = list(MUTCOLORS, EYECOLOR, LIPS, HAS_FLESH, HAS_BONE)
 	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_CAN_STRIP, TRAIT_LIGHT_DRINKER)
-	external_organs = list(/obj/item/organ/external/head_tentacles = "Long", "Short")
+	external_organs = list(/obj/item/organ/external/head_tentacles = "Long")
 	toxic_food = MEAT | RAW | DAIRY | TOXIC | SEAFOOD
 	disliked_food = GROSS
 	liked_food = VEGETABLES | FRUIT
