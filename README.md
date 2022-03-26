@@ -1,6 +1,7 @@
 ## JollyStation, a /TG/ Station downstream.
 
 Something something work in progress.
+JOLLY IS A BIG BOTTOM
 
 ## Discords
 
