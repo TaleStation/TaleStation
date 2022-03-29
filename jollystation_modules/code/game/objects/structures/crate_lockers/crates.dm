@@ -69,6 +69,8 @@
 			continue
 		if(contraband_value < uplink_item.cost)
 			continue
+		if(!uplink_item.item) // Being absolutely honest, this is intended because sometimes your uplink_item is being used for inheritance stuff.
+			continue
 		contraband_value -= uplink_item.cost
 		new uplink_item.item(src)
 
