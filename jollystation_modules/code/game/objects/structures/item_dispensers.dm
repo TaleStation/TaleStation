@@ -3,7 +3,7 @@
 /obj/structure/item_dispenser
 	name = "empty item dispenser"
 	desc = "A small wall-mounted receptacle which can dispense a specific item."
-	icon = 'goon/icons/obj/itemdispenser.dmi'
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
 	icon_state = "dispenser_generic"
 	anchored = TRUE
 	density = FALSE
