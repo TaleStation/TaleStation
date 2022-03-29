@@ -4,4 +4,10 @@ about: Suggest an idea for this project
 
 ---
 
-In the title of your PR, please indicate you are making a feature request with [Feature Request]. If its some elaborate system, a design doc is required. You will also be required to properly document your ideas should it make it into a PR and eventually code.
+## Feature being request:
+
+<!-- Explain your issue in detail what you're suggesting. You may be required to attach a design doc if your idea is expansive enough.-->
+
+## How it enhances the game:
+
+<!-- Every idea has potential, but some don't make the cut. Why do you think your ideas worth the cut?-->
