@@ -141,6 +141,7 @@
 		smash(hit_atom)
 
 
+
 /obj/item/reagent_containers/food/drinks/proc/smash(atom/target, mob/thrower, ranged = FALSE)
 	if(!isGlass)
 		return
@@ -148,18 +149,9 @@
 		return
 	if(bartender_check(target) && ranged)
 		return
+	SplashReagents(target, ranged, override_spillable = TRUE)
 	var/obj/item/broken_bottle/B = new (loc)
-	B.icon_state = icon_state
-	var/icon/I = new(icon, src.icon_state) // NON-MODULE CHANGE: use the original dmi instead
-	I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
-	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
-	B.icon = I
-	B.name = "broken [name]"
-	if(prob(33))
-		var/obj/item/shard/S = new(drop_location())
-		target.Bumped(S)
-	playsound(src, SFX_SHATTER, 70, TRUE)
-	transfer_fingerprints_to(B)
+	B.mimic_broken(src, target)
 	qdel(src)
 	target.Bumped(B)
 
@@ -546,17 +538,9 @@
 /obj/item/reagent_containers/food/drinks/sillycup/smallcarton/smash(atom/target, mob/thrower, ranged = FALSE)
 	if(bartender_check(target) && ranged)
 		return
+	SplashReagents(target, ranged, override_spillable = TRUE)
 	var/obj/item/broken_bottle/B = new (loc)
-	B.icon_state = icon_state
-	var/icon/I = new('icons/obj/drinks.dmi', src.icon_state)
-	I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
-	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
-	B.icon = I
-	B.name = "broken [name]"
-	B.force = 0
-	B.throwforce = 0
-	B.desc = "A carton with the bottom half burst open. Might give you a papercut."
-	transfer_fingerprints_to(B)
+	B.mimic_broken(src, target)
 	qdel(src)
 	target.Bumped(B)
 
