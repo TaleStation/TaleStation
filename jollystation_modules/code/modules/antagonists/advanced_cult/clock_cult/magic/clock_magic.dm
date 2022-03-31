@@ -39,8 +39,6 @@
 		return
 
 	. = ..()
-	button.locked = TRUE
-	button.ordered = FALSE
 	magic_source.Positioning()
 
 /datum/action/item_action/cult/Destroy()
@@ -277,8 +275,6 @@
 	desc += "<br><b><u>Has [charges] use\s remaining</u></b>."
 	all_magic = magic_source
 	. = ..()
-	button.locked = TRUE
-	button.ordered = FALSE
 
 /datum/action/innate/cult/clock_spell/Remove()
 	if(all_magic)
