@@ -78,7 +78,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
 #define isskrell(A) (is_species(A, /datum/species/skrell)) // NON-MODULE Change, check for Skrell
-#define isreploid(A) (is_species(A, /datum/species/reploid)) // NON-MODULE Change, check for Reploids.
 
 //more carbon mobs
 
