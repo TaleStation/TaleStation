@@ -455,17 +455,6 @@ There are several things that need to be remembered:
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_OCLOTHING) + 1]
 		inv.update_icon()
 
-<<<<<<< HEAD
-	if(wear_suit) // NON-MODULE CHANGE: I hate old-code!
-		wear_suit.screen_loc = ui_oclothing
-		if(client && hud_used?.hud_shown)
-			if(hud_used.inventory_shown)
-				client.screen += wear_suit
-		update_observer_view(wear_suit,1)
-		overlays_standing[SUIT_LAYER] = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/clothing/suit.dmi')
-		var/mutable_appearance/suit_overlay = overlays_standing[SUIT_LAYER]
-		if(OFFSET_SUIT in dna.species.offset_features)
-=======
 	if(wear_suit)
 		var/obj/item/worn_item = wear_suit
 		var/mutable_appearance/suit_overlay
@@ -488,7 +477,6 @@ There are several things that need to be remembered:
 		if(!suit_overlay)
 			return
 		if((!handled_by_bodytype) && (OFFSET_SUIT in dna.species.offset_features))
->>>>>>> 1d0eadcb126 (Kapulimbs (#65523))
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
 			suit_overlay.pixel_y += dna.species.offset_features[OFFSET_SUIT][2]
 		overlays_standing[SUIT_LAYER] = suit_overlay

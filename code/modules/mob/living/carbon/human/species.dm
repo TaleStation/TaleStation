@@ -706,32 +706,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(!source.dna.features["ears"] || source.dna.features["ears"] == "None" || source.head && (source.head.flags_inv & HIDEHAIR) || (source.wear_mask && (source.wear_mask.flags_inv & HIDEHAIR)) || !noggin || !IS_ORGANIC_LIMB(noggin))
 			bodyparts_to_add -= "ears"
 
-<<<<<<< HEAD
-	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more aggressive updating than most limbs.
-	var/update_needed = FALSE
-	var/not_digitigrade = TRUE
-	for(var/obj/item/bodypart/bodypart as anything in source.bodyparts)
-		if(!bodypart.use_digitigrade)
-			continue
-		not_digitigrade = FALSE
-		if(!(DIGITIGRADE in species_traits)) //Someone cut off a digitigrade leg and tacked it on
-			species_traits += DIGITIGRADE
-		var/should_be_squished = FALSE
-		if(source.wear_suit && ((source.wear_suit.flags_inv & HIDEJUMPSUIT) || ((source.wear_suit.body_parts_covered & LEGS) && !source.wear_suit.should_not_squish)) || ((source.w_uniform && (source.w_uniform.body_parts_covered & LEGS) && !source.w_uniform.should_not_squish))) // NON-MODULE CHANGE
-			should_be_squished = TRUE
-		if(bodypart.use_digitigrade == FULL_DIGITIGRADE && should_be_squished)
-			bodypart.use_digitigrade = SQUISHED_DIGITIGRADE
-			update_needed = TRUE
-		else if(bodypart.use_digitigrade == SQUISHED_DIGITIGRADE && !should_be_squished)
-			bodypart.use_digitigrade = FULL_DIGITIGRADE
-			update_needed = TRUE
-	if(update_needed)
-		source.update_body_parts()
-	if(not_digitigrade && (DIGITIGRADE in species_traits)) //Curse is lifted
-		species_traits -= DIGITIGRADE
-
-=======
->>>>>>> 1d0eadcb126 (Kapulimbs (#65523))
 	if(!bodyparts_to_add)
 		return
 

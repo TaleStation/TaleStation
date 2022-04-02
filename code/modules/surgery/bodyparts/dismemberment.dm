@@ -300,13 +300,6 @@
 /obj/item/bodypart/proc/replace_limb(mob/living/carbon/limb_owner, special)
 	if(!istype(limb_owner))
 		return
-<<<<<<< HEAD
-	var/obj/item/bodypart/limb = limb_owner.get_bodypart(body_zone) //needs to happen before attach because multiple limbs in same zone breaks helpers
-	if(!attach_limb(limb_owner, special))//we can attach this limb and drop the old after because of our robust bodyparts system. you know, just for a sec.
-		return
-	if(limb)
-		limb.drop_limb(special) // NON-MODULE CHANGE
-=======
 	var/obj/item/bodypart/old_limb = limb_owner.get_bodypart(body_zone)
 	if(old_limb)
 		old_limb.drop_limb(TRUE)
@@ -314,7 +307,6 @@
 	. = attach_limb(limb_owner, special)
 	if(!.) //If it failed to replace, re-attach their old limb as if nothing happened.
 		old_limb.attach_limb(limb_owner, TRUE)
->>>>>>> 1d0eadcb126 (Kapulimbs (#65523))
 
 /obj/item/bodypart/head/replace_limb(mob/living/carbon/head_owner, special)
 	if(!istype(head_owner))

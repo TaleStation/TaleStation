@@ -54,14 +54,7 @@
 #define ORGAN_ORGANIC   1
 #define ORGAN_ROBOTIC   2
 
-<<<<<<< HEAD
-#define BODYPART_ORGANIC   1
-#define BODYPART_ROBOTIC   2
-
-#define DEFAULT_BODYPART_ICON_ORGANIC 'jollystation_modules/icons/mob/human_parts_greyscale_js.dmi' //NON-MODULE CHANGE - FUTURE EDIT: This define was dehardcoded, should be re-evaluated at some point.
-=======
 #define DEFAULT_BODYPART_ICON_ORGANIC 'icons/mob/human_parts_greyscale.dmi'
->>>>>>> 1d0eadcb126 (Kapulimbs (#65523))
 #define DEFAULT_BODYPART_ICON_ROBOTIC 'icons/mob/augmentation/augments.dmi'
 
 #define MONKEY_BODYPART "monkey"
