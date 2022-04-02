@@ -1,7 +1,7 @@
 // -- The file that allows digitigrade clothes to work --
 
 // When digigrade_leg_swap is done, make sure to update the DMIs.
-/mob/living/carbon/human/Digitigrade_Leg_Swap(swap_back)
+/mob/living/carbon/Digitigrade_Leg_Swap(swap_back)
 	. = ..()
 	w_uniform?.swap_digitigrade_dmi(src)
 	wear_suit?.swap_digitigrade_dmi(src)

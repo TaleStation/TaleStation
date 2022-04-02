@@ -5,7 +5,7 @@
 	// (Because slimepeople are more customizable / less ugly)
 	hair_color = "mutcolor"
 	hair_alpha = 150
-	limbs_id = "slime"
+	limbs_id = SPECIES_SLIMEPERSON
 
 /datum/species/jelly/New()
 	. = ..()
