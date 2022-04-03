@@ -27,6 +27,14 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	species_speech_sounds_exclaim = list('jollystation_modules/sound/voice/huff_ask.ogg' = 120)
 	species_speech_sounds_ask = list('jollystation_modules/sound/voice/huff_exclaim.ogg' = 120)
 	species_pain_mod = 0.80
+	bodypart_overrides = list(
+		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm/skrell,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/skrell,
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/skrell,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg/skrell,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg/skrell,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/skrell,
+	)
 
 /datum/species/skrell/spec_life(mob/living/carbon/human/skrell_mob, delta_time, times_fired)
 	. = ..()
