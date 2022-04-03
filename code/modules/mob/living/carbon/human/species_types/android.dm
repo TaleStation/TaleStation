@@ -45,7 +45,6 @@
 	// Androids don't eat, hunger or metabolise foods. Let's do some cleanup.
 	C.set_safe_hunger_level()
 
-
 /datum/species/android/replace_body(mob/living/carbon/target, datum/species/new_species)
 	. = ..()
 	var/skintone
