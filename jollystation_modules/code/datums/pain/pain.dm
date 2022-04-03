@@ -108,7 +108,7 @@
 		return
 
 	if(LAZYACCESS(body_zones, new_limb.body_zone)) // if we already have a val assigned to this key, remove it
-		remove_bodypart(source, body_zones[new_limb.body_zone], special, FALSE)
+		remove_bodypart(source, body_zones[new_limb.body_zone], FALSE, TRUE)
 
 	LAZYSET(body_zones, new_limb.body_zone, new_limb)
 
