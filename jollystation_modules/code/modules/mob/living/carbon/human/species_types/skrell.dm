@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	if(istype(human.wear_mask) && (human.wear_mask.flags_inv & HIDEHAIR))
 		. = FALSE
 	var/obj/item/bodypart/head/our_head = human.get_bodypart(BODY_ZONE_HEAD)
-	if(our_head?.status == BODYTYPE_ROBOTIC)
+	if(our_head?.bodytype == BODYTYPE_ROBOTIC)
 		. = FALSE
 
 /obj/item/organ/external/head_tentacles/get_global_feature_list()
