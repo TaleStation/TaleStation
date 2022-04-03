@@ -2,7 +2,7 @@
 	var/icon/lower_half = icon('icons/blanks/32x32.dmi', "nothing")
 
 	for (var/icon in icons)
-		lower_half.Blend(icon('icons/mob/human_parts_greyscale.dmi', icon), ICON_OVERLAY)
+		lower_half.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', icon), ICON_OVERLAY) // NON-MODULE CHANGE - Reverts back to our GS dmi
 
 	var/list/values = list()
 
@@ -95,13 +95,13 @@
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/undershirt/init_possible_values()
-	var/icon/body = icon('icons/mob/human_parts_greyscale.dmi', "human_r_leg")
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_arm"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_arm"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_hand"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_hand"), ICON_OVERLAY)
-	body.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
+	var/icon/body = icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_r_leg") // NON-MODULE CHANGE START - Uses our GS dmi
+	body.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_l_leg"), ICON_OVERLAY)
+	body.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_r_arm"), ICON_OVERLAY)
+	body.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_l_arm"), ICON_OVERLAY)
+	body.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_r_hand"), ICON_OVERLAY)
+	body.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_l_hand"), ICON_OVERLAY)
+	body.Blend(icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_chest_m"), ICON_OVERLAY) // NON-MODULE CHANGE END
 
 	var/list/values = list()
 
