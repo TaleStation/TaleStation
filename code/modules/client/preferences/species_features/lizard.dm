@@ -1,8 +1,12 @@
 /proc/generate_lizard_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
 
+<<<<<<< HEAD
 	var/icon/lizard = icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "lizard_head_m", EAST) // NON-MODULE CHANGE - Uses our GS dmi
 
+=======
+	var/icon/lizard = icon('icons/mob/species/lizard/bodyparts.dmi', "lizard_head", EAST)
+>>>>>>> 3f2e753115e (Fixes some Kapulimbs bugs (#65923))
 	var/icon/eyes = icon('icons/mob/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_GRAY, ICON_MULTIPLY)
 	lizard.Blend(eyes, ICON_OVERLAY)
@@ -38,7 +42,11 @@
 /datum/preference/choiced/lizard_body_markings/init_possible_values()
 	var/list/values = list()
 
+<<<<<<< HEAD
 	var/icon/lizard = icon('jollystation_modules/icons/mob/human_parts_greyscale_js.dmi', "lizard_chest_m") // NON-MODULE CHANGE - Uses our GS dmi
+=======
+	var/icon/lizard = icon('icons/mob/species/lizard/bodyparts.dmi', "lizard_chest_m")
+>>>>>>> 3f2e753115e (Fixes some Kapulimbs bugs (#65923))
 
 	for (var/name in GLOB.body_markings_list)
 		var/datum/sprite_accessory/sprite_accessory = GLOB.body_markings_list[name]
