@@ -64,3 +64,16 @@
  * Use instead of `A.loc.loc`.
  */
 #define get_area(A) (isarea(A) ? A : get_step(A, 0)?.loc)
+<<<<<<< HEAD
+=======
+
+#define TEMPORARY_THERMAL_CONDUCTIVITY 1
+
+#define MAX_TEMPORARY_THERMAL_CONDUCTIVITY 1
+/// Turf will be passable if density is 0
+#define TURF_PATHING_PASS_DENSITY 0
+/// Turf will be passable depending on [CanAStarPass] return value
+#define TURF_PATHING_PASS_PROC 1
+/// Turf is never passable
+#define TURF_PATHING_PASS_NO 2
+>>>>>>> fa746bad9b0 (Turbine Rework (#65586))
