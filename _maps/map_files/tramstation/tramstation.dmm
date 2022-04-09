@@ -547,11 +547,6 @@
 /obj/structure/sign/painting/library_secure{
 	pixel_x = 32
 	},
-/obj/machinery/door/window{
-	dir = 8;
-	name = "Secure Art Exhibition";
-	req_access_txt = "37"
-	},
 /obj/structure/window/reinforced/spawner,
 /obj/effect/spawner/random/decoration/statue{
 	spawn_loot_chance = 50
@@ -559,6 +554,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/structure/window/reinforced/spawner/west,
 /turf/open/floor/wood/large,
 /area/service/library)
 "aeC" = (
@@ -2959,6 +2955,9 @@
 "avv" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/sign/painting/large/library_private{
+	dir = 1
+	},
 /turf/open/floor/engine/cult,
 /area/service/library)
 "avw" = (
@@ -3154,9 +3153,13 @@
 /obj/effect/spawner/random/decoration/statue{
 	spawn_loot_chance = 50
 	},
-/obj/structure/window/reinforced/spawner/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 8;
+	name = "Secure Art Exhibition";
+	req_access_txt = "37"
 	},
 /turf/open/floor/wood/large,
 /area/service/library)
@@ -5694,15 +5697,12 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
-<<<<<<< HEAD
-=======
 "aPI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/medical/surgery/aft)
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "aPM" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 5
@@ -6773,13 +6773,6 @@
 	},
 /turf/open/floor/iron,
 /area/security/checkpoint/engineering)
-"bch" = (
-/obj/structure/bed/double{
-	dir = 4
-	},
-/obj/item/bedsheet/dorms_double,
-/turf/open/floor/carpet,
-/area/commons/dorms)
 "bck" = (
 /obj/effect/turf_decal/trimline/white/line{
 	dir = 6
@@ -7870,14 +7863,6 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/secondary/exit)
-"bxJ" = (
-/obj/structure/bed,
-/obj/effect/turf_decal/trimline/red/filled/line{
-	dir = 8
-	},
-/obj/effect/landmark/start/prisoner,
-/turf/open/floor/iron,
-/area/security/prison/safe)
 "bxO" = (
 /turf/closed/wall/r_wall,
 /area/maintenance/port/fore)
@@ -9222,14 +9207,6 @@
 /obj/item/wrench/medical,
 /turf/open/floor/iron/dark,
 /area/medical/treatment_center)
-"bWa" = (
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 9
-	},
-/obj/structure/bed,
-/obj/effect/landmark/start/virologist,
-/turf/open/floor/iron/dark,
-/area/medical/virology)
 "bWe" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 8
@@ -11452,14 +11429,15 @@
 /turf/open/floor/iron,
 /area/security/brig)
 "cQt" = (
-/obj/structure/chair/comfy/black{
-	dir = 1
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/effect/landmark/start/assistant,
-/obj/item/radio/intercom/directional/east,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/west,
+/obj/effect/spawner/random/decoration/statue{
+	spawn_loot_chance = 50
+	},
+/obj/structure/table/wood/fancy/royalblue,
 /turf/open/floor/wood/large,
 /area/service/library)
 "cQG" = (
@@ -23553,28 +23531,6 @@
 	},
 /turf/open/floor/iron,
 /area/commons/dorms)
-<<<<<<< HEAD
-"hbx" = (
-/obj/machinery/door/airlock/medical{
-	name = "Surgery";
-	req_access_txt = "45"
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/duct,
-/turf/open/floor/iron/white,
-/area/medical/surgery)
-=======
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "hbU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -28359,14 +28315,6 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/service/chapel/office)
-"iOw" = (
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
-	},
-/obj/structure/bed,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron,
-/area/medical/virology)
 "iOA" = (
 /obj/machinery/telecomms/server/presets/service,
 /turf/open/floor/iron/dark/telecomms,
@@ -30484,20 +30432,16 @@
 /area/science/xenobiology)
 "jES" = (
 /obj/structure/table/wood/fancy/royalblue,
-/obj/structure/sign/painting/library_secure{
-	pixel_x = 32
-	},
 /obj/machinery/door/window{
 	dir = 8;
 	name = "Secure Art Exhibition";
 	req_access_txt = "37"
 	},
-/obj/structure/window/reinforced/spawner/north,
-/obj/effect/spawner/random/decoration/statue{
-	spawn_loot_chance = 50
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/structure/sign/painting/large/library{
+	dir = 4
 	},
 /turf/open/floor/wood/large,
 /area/service/library)
@@ -32036,6 +31980,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor,
 /area/maintenance/central/greater)
+"kfv" = (
+/obj/structure/sign/painting/library_private{
+	pixel_y = -32
+	},
+/turf/open/floor/engine/cult,
+/area/service/library)
 "kfw" = (
 /obj/machinery/door/airlock/command{
 	name = "Research Division Server Room";
@@ -40660,6 +40610,7 @@
 "nma" = (
 /obj/structure/table/wood,
 /obj/item/paicard,
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/wood/large,
 /area/service/library)
 "nml" = (
@@ -41047,11 +40998,6 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/plating,
 /area/ai_monitored/turret_protected/aisat/foyer)
-"nvj" = (
-/obj/structure/bed,
-/obj/item/bedsheet/brown,
-/turf/open/floor/carpet,
-/area/cargo/miningdock)
 "nvp" = (
 /obj/machinery/vending/autodrobe,
 /obj/machinery/airalarm/directional/north,
@@ -43332,8 +43278,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor,
 /area/maintenance/solars/port/aft)
-<<<<<<< HEAD
-=======
 "olB" = (
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -43345,7 +43289,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/medical/surgery/fore)
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "olM" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt,
@@ -43999,15 +43942,6 @@
 	icon_state = "wood-broken7"
 	},
 /area/commons/vacant_room/office)
-<<<<<<< HEAD
-"oxg" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white,
-/area/medical/surgery/fore)
-=======
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "oxh" = (
 /obj/structure/table,
 /obj/item/fuel_pellet,
@@ -49095,16 +49029,6 @@
 	},
 /turf/open/floor/plating,
 /area/hallway/secondary/entry)
-<<<<<<< HEAD
-"qqw" = (
-/obj/effect/turf_decal/trimline/brown/filled/line{
-	dir = 1
-	},
-/obj/machinery/computer/cargo,
-/turf/open/floor/iron,
-/area/cargo/office)
-=======
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "qqF" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
@@ -50272,6 +50196,12 @@
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/iron/cafeteria,
 /area/service/kitchen/diner)
+"qNV" = (
+/obj/structure/chair/comfy/black{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/service/library)
 "qNW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment{
@@ -54867,13 +54797,6 @@
 	},
 /turf/open/floor/iron,
 /area/science/mixing)
-"sxb" = (
-/obj/structure/bed/double{
-	dir = 4
-	},
-/obj/item/bedsheet/dorms_double,
-/turf/open/floor/wood,
-/area/commons/dorms)
 "sxi" = (
 /obj/machinery/door/airlock/engineering/glass/critical{
 	heat_proof = 1;
@@ -55281,14 +55204,6 @@
 	},
 /turf/open/floor/circuit/green,
 /area/ai_monitored/command/nuke_storage)
-"sFC" = (
-/obj/structure/bed,
-/obj/item/bedsheet/captain,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/command/heads_quarters/captain/private)
 "sFL" = (
 /obj/effect/turf_decal/stripes{
 	dir = 1
@@ -56823,8 +56738,6 @@
 	},
 /turf/open/floor/iron,
 /area/security/office)
-<<<<<<< HEAD
-=======
 "tjK" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -56832,7 +56745,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/medical/surgery/aft)
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "tjZ" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -61525,6 +61437,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
+/obj/effect/landmark/start/assistant,
 /turf/open/floor/wood/large,
 /area/service/library)
 "uTw" = (
@@ -62509,16 +62422,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/hallway/primary/central)
-"vns" = (
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
-	},
-/obj/structure/bed,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/medical/virology)
 "vnK" = (
 /obj/machinery/rnd/server,
 /turf/open/floor/circuit/telecomms/server,
@@ -64234,8 +64137,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/science/lab)
-<<<<<<< HEAD
-=======
 "vYs" = (
 /obj/structure/closet/secure_closet/medical2,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -64244,7 +64145,6 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/white,
 /area/medical/surgery/aft)
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "vZf" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
 	dir = 10
@@ -65910,11 +65810,6 @@
 /obj/effect/landmark/xeno_spawn,
 /turf/open/floor/iron,
 /area/science/mixing/launch)
-"wCW" = (
-/obj/machinery/light/directional/west,
-/obj/structure/bed,
-/turf/open/floor/iron/textured_large,
-/area/security/execution/education)
 "wDe" = (
 /turf/closed/wall,
 /area/cargo/storage)
@@ -66706,14 +66601,11 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
 /area/maintenance/department/security)
-<<<<<<< HEAD
-=======
 "wRO" = (
 /obj/structure/table/optable,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /turf/open/floor/iron/white,
 /area/medical/surgery/fore)
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 "wRY" = (
 /obj/structure/table,
 /obj/item/phone{
@@ -83739,11 +83631,7 @@ dhe
 dhe
 nBT
 nnQ
-<<<<<<< HEAD
-wCW
-=======
 cDe
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 ohx
 nBT
 dhe
@@ -91239,17 +91127,6 @@ aMK
 oyC
 mGH
 aEc
-<<<<<<< HEAD
-sxb
-syA
-mmr
-akE
-bch
-aky
-oDv
-akE
-sxb
-=======
 hgs
 syA
 mmr
@@ -91259,7 +91136,6 @@ aky
 oDv
 akE
 hgs
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 syA
 mmr
 yee
@@ -93000,17 +92876,6 @@ ceM
 fUB
 cIh
 jkg
-<<<<<<< HEAD
-bxJ
-bHi
-cIh
-dZB
-bxJ
-bHi
-cIh
-qre
-bxJ
-=======
 pcT
 bHi
 cIh
@@ -93020,7 +92885,6 @@ bHi
 cIh
 qre
 pcT
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 bHi
 cIh
 ltb
@@ -112821,21 +112685,13 @@ dhe
 dhe
 sHb
 fmq
-<<<<<<< HEAD
-nvj
-=======
 jyY
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 sHb
 sHb
 wVV
 sHb
 sHb
-<<<<<<< HEAD
-nvj
-=======
 jyY
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 fmq
 llO
 ukb
@@ -150393,7 +150249,7 @@ wDZ
 aKl
 avv
 deW
-cKD
+kfv
 aKl
 aKl
 aKl
@@ -152966,7 +152822,7 @@ mCH
 xWM
 aFN
 aFN
-aFN
+qNV
 aFN
 aFN
 aFN
@@ -159095,11 +158951,7 @@ erH
 rON
 nom
 ezo
-<<<<<<< HEAD
-sFC
-=======
 bme
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 lPm
 ezo
 xJF
@@ -170972,15 +170824,9 @@ joC
 baa
 joC
 tvi
-<<<<<<< HEAD
-vns
-joC
-iOw
-=======
 gOi
 joC
 xfu
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 xGh
 joC
 iCU
@@ -172513,11 +172359,7 @@ dhe
 dhe
 dhe
 xTg
-<<<<<<< HEAD
-bWa
-=======
 pfS
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 qtG
 kOP
 ggJ
@@ -179929,13 +179771,8 @@ kQm
 tVu
 hRw
 bah
-<<<<<<< HEAD
-pXz
-qqw
-=======
 xtb
 vsy
->>>>>>> 68f57a26cf5 (TramStation Medbay Fixes (#65950))
 lrq
 eqy
 ufr
