@@ -189,7 +189,7 @@
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
 	bank_account.replaceable = FALSE
-	dress_up_as_job(equipping FALSE, used_pref) //NON-MODULE CHANGE - Loadouts
+	dress_up_as_job(equipping, FALSE, used_pref) //NON-MODULE CHANGE - Loadouts
 
 
 /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
