@@ -11,7 +11,7 @@ export const XenoAnalyzer = (props, context) => {
   return (
     <Window resizable>
       <Window.Content scrollable>
-        <Box as="Test1" m={1}>
+        <Box as="Test" m={1}>
           {props => <ProgressBar value={0.6} />}
         </Box>
       </Window.Content>
