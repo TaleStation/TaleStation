@@ -381,10 +381,7 @@
 /obj/item/shock_blanket/proc/check_protection(mob/living/source)
 	SIGNAL_HANDLER
 
-	if(source.body_position == LYING_DOWN)
-		enable_protection(source)
-		return
-	if(source.buckled)
+	if(source.body_position == LYING_DOWN || source.buckled)
 		enable_protection(source)
 		return
 
@@ -455,7 +452,7 @@
 	STR.max_items = 12
 	STR.max_combined_w_class = 12
 
-/obj/item/storage/firstaid/emergency/PopulateContents()
+/obj/item/storage/medkit/emergency/PopulateContents()
 	if(empty)
 		return
 	var/static/items_inside = list(

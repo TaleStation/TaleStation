@@ -186,7 +186,7 @@
 
 	UnregisterSignal(sac_target, COMSIG_MOVABLE_Z_CHANGED)
 	UnregisterSignal(sac_target, COMSIG_LIVING_DEATH)
-	sac_target.remove_status_effect(STATUS_EFFECT_NECROPOLIS_CURSE)
+	sac_target.remove_status_effect(/datum/status_effect/necropolis_curse)
 
 	if(is_station_level(sac_target.z))
 		return

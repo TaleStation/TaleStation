@@ -86,7 +86,7 @@
 
 	if(our_theme.scribing_takes_blood && ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
-		human_owner.bleed(rune ? 40 : 10)
+		human_owner.bleed(rune ? 10 : 40)
 		human_owner.cause_pain(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), 8)
 
 	var/datum/action/new_spell
@@ -104,18 +104,21 @@
 	channeling = FALSE
 
 /datum/action/innate/cult/blood_magic/advanced/Positioning()
-	var/list/screen_loc_split = splittext(button.screen_loc, ",")
-	var/list/screen_loc_X = splittext(screen_loc_split[1], ":")
-	var/list/screen_loc_Y = splittext(screen_loc_split[2], ":")
-	var/pix_X = text2num(screen_loc_X[2])
-
-	for(var/datum/action/spell as anything in spells)
-		if(!spell.button.locked)
-			continue
-
-		var/order = pix_X + spells.Find(spell) * 31
-		spell.button.screen_loc = "[screen_loc_X[1]]:[order],[screen_loc_Y[1]]:[screen_loc_Y[2]]"
-		spell.button.moved = spell.button.screen_loc
+	for(var/datum/hud/hud as anything in viewers)
+		var/our_view = hud.mymob?.client?.view || "15x15"
+		var/atom/movable/screen/movable/action_button/button = viewers[hud]
+		var/position = screen_loc_to_offset(button.screen_loc)
+		var/spells_iterated = 0
+		for(var/datum/action/innate/cult/blood_spell/blood_spell in spells)
+			spells_iterated += 1
+			if(blood_spell.positioned)
+				continue
+			var/atom/movable/screen/movable/action_button/moving_button = blood_spell.viewers[hud]
+			if(!moving_button)
+				continue
+			var/our_x = position[1] + spells_iterated * world.icon_size // Offset any new buttons into our list
+			hud.position_action(moving_button, offset_to_screen_loc(our_x, position[2], our_view))
+			blood_spell.positioned = TRUE
 
 /*
  * Check for any sources of anti-magic between [target] and [user].
@@ -124,7 +127,7 @@
  * Otherwise returns false.
  */
 /proc/anti_cult_magic_check(mob/living/target, mob/living/user, use_charges = 1)
-	var/anti_magic_source = target.anti_magic_check(TRUE, TRUE, chargecost = use_charges)
+	var/anti_magic_source = target.can_block_magic(MAGIC_RESISTANCE, charge_cost = use_charges)
 	if(anti_magic_source)
 		target.mob_light(_range = 2, _color = LIGHT_COLOR_HOLY_MAGIC, _duration = 10 SECONDS)
 		var/mutable_appearance/forbearance = mutable_appearance('icons/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)

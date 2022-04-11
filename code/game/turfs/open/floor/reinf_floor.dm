@@ -54,7 +54,6 @@
 	return ..()
 
 /turf/open/floor/engine/ex_act(severity, target)
-	contents_explosion(severity, target)
 	if(target == src)
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 		return TRUE
@@ -191,7 +190,7 @@
 /turf/open/floor/engine/cult
 	name = "engraved floor"
 	desc = "The air smells strange over this sinister flooring."
-	icon_state = "plating"
+	icon_state = "cult"
 	floor_tile = null
 	var/obj/effect/cult_turf/overlay/floor/bloodcult/realappearance
 

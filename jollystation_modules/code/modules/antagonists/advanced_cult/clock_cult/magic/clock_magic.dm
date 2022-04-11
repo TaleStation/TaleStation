@@ -39,8 +39,6 @@
 		return
 
 	. = ..()
-	button.locked = TRUE
-	button.ordered = FALSE
 	magic_source.Positioning()
 
 /datum/action/item_action/cult/Destroy()
@@ -51,7 +49,7 @@
 		magic_source = null
 	return ..()
 
-/datum/action/item_action/cult/Trigger()
+/datum/action/item_action/cult/Trigger(trigger_flags)
 	var/obj/item/item_target = target
 	for(var/datum/action/item_action/cult/spell in item_target.actions)
 		if(spell != src && spell.active)
@@ -277,8 +275,6 @@
 	desc += "<br><b><u>Has [charges] use\s remaining</u></b>."
 	all_magic = magic_source
 	. = ..()
-	button.locked = TRUE
-	button.ordered = FALSE
 
 /datum/action/innate/cult/clock_spell/Remove()
 	if(all_magic)

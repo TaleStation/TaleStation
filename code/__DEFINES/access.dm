@@ -5,7 +5,7 @@
 /// Armory, gulag teleporter, execution chamber
 #define ACCESS_ARMORY 3
 ///Detective's office, forensics lockers, security+medical records
-#define ACCESS_FORENSICS_LOCKERS 4
+#define ACCESS_FORENSICS 4
 /// Medical general access
 #define ACCESS_MEDICAL 5
 /// Morgue access
@@ -69,7 +69,7 @@
 #define ACCESS_TCOMSAT 61
 #define ACCESS_GATEWAY 62
 /// Outer brig doors, department security posts
-#define ACCESS_SEC_DOORS 63
+#define ACCESS_BRIG_ENTRANCE 63
 /// For releasing minerals from the ORM
 #define ACCESS_MINERAL_STOREROOM 64
 #define ACCESS_MINISAT 65
@@ -84,6 +84,8 @@
 #define ACCESS_ORDNANCE_STORAGE 71
 /// Room and launching.
 #define ACCESS_AUX_BASE 72
+/// Service access, for service hallway and service consoles
+#define ACCESS_SERVICE 73
 
 	//BEGIN CENTCOM ACCESS
 	/*Should leave plenty of room if we need to add more access levels.
@@ -238,7 +240,7 @@
 	ACCESS_NETWORK, \
 	ACCESS_WEAPONS, \
 	ACCESS_MINERAL_STOREROOM, \
-	ACCESS_SEC_DOORS, \
+	ACCESS_BRIG_ENTRANCE, \
 	ACCESS_XENOBIOLOGY, \
 	ACCESS_MINING_STATION, \
 	ACCESS_MAILSORTING, \
@@ -269,12 +271,13 @@
 	ACCESS_RND, \
 	ACCESS_MORGUE, \
 	ACCESS_MEDICAL, \
-	ACCESS_FORENSICS_LOCKERS, \
+	ACCESS_FORENSICS, \
 	ACCESS_BRIG, \
 	ACCESS_SECURITY, \
 	ACCESS_ATMOSPHERICS, \
 	ACCESS_ORDNANCE_STORAGE, \
 	ACCESS_ORDNANCE, \
+	ACCESS_SERVICE, \
 )
 
 /// Command staff/secure accesses, think bridge/armoury, AI upload, notably access to modify ID cards themselves. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_COMMAND)
@@ -366,17 +369,18 @@
 	ACCESS_LIBRARY, \
 	ACCESS_THEATRE, \
 	ACCESS_LAWYER, \
+	ACCESS_SERVICE, \
 )
 /// Name for the Security region.
 #define REGION_SECURITY "Security"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all security regional accesses that are overseen by the HoS.
 #define REGION_ACCESS_SECURITY list( \
-	ACCESS_SEC_DOORS, \
+	ACCESS_BRIG_ENTRANCE, \
 	ACCESS_WEAPONS, \
 	ACCESS_SECURITY, \
 	ACCESS_BRIG, \
 	ACCESS_ARMORY, \
-	ACCESS_FORENSICS_LOCKERS, \
+	ACCESS_FORENSICS, \
 	ACCESS_COURT, \
 	ACCESS_MECH_SECURITY, \
 	ACCESS_HOS, \

@@ -47,14 +47,6 @@
 	results = list(/datum/reagent/mutationtoxin/shadow = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation/empowered = 1, /datum/reagent/liquid_dark_matter = 1)
 
-/datum/chemical_reaction/mutation_toxin/synth_mutation
-	results = list(/datum/reagent/mutationtoxin/synth = 2)
-	required_reagents = list(/datum/reagent/unstable_mutation/empowered = 1, /datum/reagent/iron = 1)
-
 /datum/chemical_reaction/mutation_toxin/skrell_mutation
 	results = list(/datum/reagent/mutationtoxin/skrell = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/toxin/carpotoxin = 1) //i dunno i just picked a fish thing because skrell have tentacles
-
-/datum/chemical_reaction/mutation_toxin/reploid_mutation
-	results = list(/datum/reagent/mutationtoxin/reploid = 2)
-	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/silicon = 1)

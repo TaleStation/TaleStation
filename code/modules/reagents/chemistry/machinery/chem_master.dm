@@ -37,6 +37,10 @@
 	var/list/pill_styles
 	/// List of available condibottle styles for UI
 	var/list/condi_styles
+	/// Currently selected patch style
+	var/patch_style = DEFAULT_PATCH_STYLE
+	/// List of available patch styles for UI
+	var/list/patch_styles
 
 /obj/machinery/chem_master/Initialize(mapload)
 	create_reagents(100)
@@ -49,6 +53,15 @@
 		SL["id"] = x
 		SL["className"] = assets.icon_class_name("pill[x]")
 		pill_styles += list(SL)
+
+	var/datum/asset/spritesheet/simple/patches_assets = get_asset_datum(/datum/asset/spritesheet/simple/patches)
+	patch_styles = list()
+	for (var/raw_patch_style in PATCH_STYLE_LIST)
+		//adding class_name for use in UI
+		var/list/patch_style = list()
+		patch_style["style"] = raw_patch_style
+		patch_style["class_name"] = patches_assets.icon_class_name(raw_patch_style)
+		patch_styles += list(patch_style)
 
 	condi_styles = strip_condi_styles_to_icons(get_condi_styles())
 
@@ -110,6 +123,11 @@
 	if (prob(50))
 		qdel(src)
 
+/obj/machinery/chem_master/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	default_unfasten_wrench(user, tool)
+	return TOOL_ACT_TOOLTYPE_SUCCESS
+
 /obj/machinery/chem_master/attackby(obj/item/I, mob/user, params)
 	if(default_deconstruction_screwdriver(user, "mixer0_nopower", "mixer0", I))
 		return
@@ -117,8 +135,6 @@
 	else if(default_deconstruction_crowbar(I))
 		return
 
-	if(default_unfasten_wrench(user, I))
-		return
 	if(istype(I, /obj/item/reagent_containers) && !(I.item_flags & ABSTRACT) && I.is_open_container())
 		. = TRUE // no afterattack
 		if(panel_open)
@@ -184,6 +200,7 @@
 	return list(
 		get_asset_datum(/datum/asset/spritesheet/simple/pills),
 		get_asset_datum(/datum/asset/spritesheet/simple/condiments),
+		get_asset_datum(/datum/asset/spritesheet/simple/patches),
 	)
 
 /obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
@@ -225,6 +242,8 @@
 	//Calculated at init time as it never changes
 	data["pillStyles"] = pill_styles
 	data["condiStyles"] = condi_styles
+	data["patch_style"] = patch_style
+	data["patch_styles"] = patch_styles
 	return data
 
 /obj/machinery/chem_master/ui_act(action, params)
@@ -382,6 +401,7 @@
 			for(var/i in 1 to amount)
 				P = new/obj/item/reagent_containers/pill/patch(drop_location())
 				P.name = trim("[name] patch")
+				P.icon_state = patch_style
 				adjust_item_drop_location(P)
 				reagents.trans_to(P, vol_each, transfered_by = usr)
 			return TRUE
@@ -432,6 +452,10 @@
 
 	if(action == "goScreen")
 		screen = params["screen"]
+		return TRUE
+
+	if(action == "change_patch_style")
+		patch_style = params["patch_style"]
 		return TRUE
 
 	return FALSE

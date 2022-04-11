@@ -176,9 +176,10 @@ Behavior that's still missing from this component that original food items had t
 
 	return TryToEat(user, user)
 
-/datum/component/edible/proc/OnFried(fry_object)
+/datum/component/edible/proc/OnFried(datum/source, atom/fry_object)
 	SIGNAL_HANDLER
 	var/atom/our_atom = parent
+	fry_object.reagents.maximum_volume = our_atom.reagents.maximum_volume
 	our_atom.reagents.trans_to(fry_object, our_atom.reagents.total_volume)
 	qdel(our_atom)
 	return COMSIG_FRYING_HANDLED
@@ -191,11 +192,12 @@ Behavior that's still missing from this component that original food items had t
 		return
 
 	var/atom/this_food = parent
-	var/reagents_for_slice = chosen_processing_option[TOOL_PROCESSING_AMOUNT]
 
-	this_food.create_reagents(volume) //Make sure we have a reagent container
+	//Make sure we have a reagent container large enough to fit the original atom's reagents.
+	volume = max(volume, ROUND_UP(original_atom.reagents.maximum_volume / chosen_processing_option[TOOL_PROCESSING_AMOUNT]))
 
-	original_atom.reagents.trans_to(this_food, reagents_for_slice)
+	this_food.create_reagents(volume)
+	original_atom.reagents.copy_to(this_food, original_atom.reagents.total_volume, 1 / chosen_processing_option[TOOL_PROCESSING_AMOUNT])
 
 	if(original_atom.name != initial(original_atom.name))
 		this_food.name = "slice of [original_atom.name]"
@@ -209,9 +211,16 @@ Behavior that's still missing from this component that original food items had t
 	var/atom/this_food = parent
 
 	this_food.reagents.multiply_reagents(CRAFTED_FOOD_BASE_REAGENT_MODIFIER)
+	this_food.reagents.maximum_volume *= CRAFTED_FOOD_BASE_REAGENT_MODIFIER
 
 	for(var/obj/item/food/crafted_part in parts_list)
-		crafted_part.reagents?.trans_to(this_food.reagents, crafted_part.reagents.maximum_volume, CRAFTED_FOOD_INGREDIENT_REAGENT_MODIFIER)
+		if(!crafted_part.reagents)
+			continue
+
+		this_food.reagents.maximum_volume += crafted_part.reagents.maximum_volume * CRAFTED_FOOD_INGREDIENT_REAGENT_MODIFIER
+		crafted_part.reagents.trans_to(this_food.reagents, crafted_part.reagents.maximum_volume, CRAFTED_FOOD_INGREDIENT_REAGENT_MODIFIER)
+
+	this_food.reagents.maximum_volume = ROUND_UP(this_food.reagents.maximum_volume) // Just because I like whole numbers for this.
 
 	SSblackbox.record_feedback("tally", "food_made", 1, type)
 
@@ -319,19 +328,25 @@ Behavior that's still missing from this component that original food items had t
 			to_chat(feeder, span_warning("[eater] doesn't seem to have a mouth!"))
 			return
 		if(fullness <= (600 * (1 + eater.overeatduration / (2000 SECONDS))))
-			eater.visible_message(span_danger("[feeder] attempts to feed [eater] [parent]."), \
-									span_userdanger("[feeder] attempts to feed you [parent]."))
+			eater.visible_message(
+				span_danger("[feeder] attempts to [eater.get_bodypart(BODY_ZONE_HEAD) ? "feed [eater] [parent]." : "stuff [parent] down [eater]'s throat hole! Gross."]"),
+				span_userdanger("[feeder] attempts to [eater.get_bodypart(BODY_ZONE_HEAD) ? "feed you [parent]." : "stuff [parent] down your throat hole! Gross."]")
+			)
 		else
-			eater.visible_message(span_warning("[feeder] cannot force any more of [parent] down [eater]'s throat!"), \
-									span_warning("[feeder] cannot force any more of [parent] down your throat!"))
+			eater.visible_message(
+				span_danger("[feeder] cannot force any more of [parent] down [eater]'s [eater.get_bodypart(BODY_ZONE_HEAD) ? "throat!" : "throat hole! Eugh."]"),
+				span_userdanger("[feeder] cannot force any more of [parent] down your [eater.get_bodypart(BODY_ZONE_HEAD) ? "throat!" : "throat hole! Eugh."]")
+			)
 			return
 		if(!do_mob(feeder, eater)) //Wait 3 seconds before you can feed
 			return
 		if(IsFoodGone(owner, feeder))
 			return
-		log_combat(feeder, eater, "fed", owner.reagents.log_list())
-		eater.visible_message(span_danger("[feeder] forces [eater] to eat [parent]!"), \
-									span_userdanger("[feeder] forces you to eat [parent]!"))
+		log_combat(feeder, eater, "fed", owner.reagents.get_reagent_log_string())
+		eater.visible_message(
+			span_danger("[feeder] forces [eater] to eat [parent]!"),
+			span_userdanger("[feeder] forces you to eat [parent]!")
+		)
 
 	TakeBite(eater, feeder)
 

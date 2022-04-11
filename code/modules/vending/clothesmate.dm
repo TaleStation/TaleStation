@@ -25,6 +25,9 @@
 		/obj/item/clothing/head/beret/black = 3,
 		/obj/item/clothing/head/kippah = 3,
 		/obj/item/clothing/head/taqiyahred = 3,
+		/obj/item/clothing/mask/bandana/color = 3,
+		/obj/item/clothing/mask/bandana/color/striped = 3,
+		/obj/item/clothing/mask/bandana/color/skull = 3,
 		/obj/item/clothing/gloves/fingerless = 2,
 		/obj/item/clothing/neck/scarf/pink = 3,
 		/obj/item/clothing/neck/scarf/red = 3,
@@ -174,7 +177,10 @@
 		/obj/item/clothing/suit/basil_boys = 20,
 		/obj/item/clothing/under/costume/basil_boys = 20,
 		/obj/item/clothing/head/basil_boys = 20,
-		/obj/item/clothing/shoes/basil_boys = 20
+		/obj/item/clothing/shoes/basil_boys = 20,
+		/obj/item/clothing/suit/mothcoat = 3,
+		/obj/item/clothing/suit/mothcoat/winter = 3,
+		/obj/item/clothing/head/mothcap = 3,
 	)
 	contraband = list(
 		/obj/item/clothing/under/syndicate/tacticool = 1,
@@ -185,7 +191,6 @@
 		/obj/item/storage/belt/fannypack/black = 2,
 		/obj/item/clothing/suit/jacket/letterman_syndie = 1,
 		/obj/item/clothing/under/costume/jabroni = 1,
-		/obj/item/clothing/suit/vapeshirt = 1,
 		/obj/item/clothing/under/costume/geisha = 1,
 		/obj/item/clothing/under/rank/centcom/officer/replica = 1,
 		/obj/item/clothing/under/rank/centcom/officer_skirt/replica = 1
@@ -208,9 +213,6 @@
 	payment_department = NO_FREEBIES
 	light_mask = "wardrobe-light-mask"
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
-
-/obj/machinery/vending/clothing/canLoadItem(obj/item/I,mob/user)
-	return (I.type in products)
 
 /obj/item/vending_refill/clothing
 	machine_name = "ClothesMate"

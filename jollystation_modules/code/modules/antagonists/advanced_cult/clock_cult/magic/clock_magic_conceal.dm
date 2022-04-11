@@ -11,7 +11,7 @@
 	/// Whether our next use will reveal or conceal.
 	var/revealing = FALSE
 
-/datum/action/item_action/cult/clock_spell/conceal/Trigger()
+/datum/action/item_action/cult/clock_spell/conceal/Trigger(trigger_flags)
 	if(revealing)
 		reveal_nearby()
 	else
@@ -19,7 +19,7 @@
 
 	SEND_SOUND(owner, sound(curr_sound, 0, 1, 25))
 	after_successful_spell(owner)
-	UpdateButtonIcon()
+	UpdateButtons()
 
 /datum/action/item_action/cult/clock_spell/conceal/proc/reveal_nearby()
 	owner.visible_message(
@@ -30,7 +30,7 @@
 	var/list/nearby = range(6, owner)
 	for(var/obj/effect/rune/sigil in nearby)
 		sigil.reveal()
-	for(var/obj/structure/destructible/brass/struct in nearby)
+	for(var/obj/structure/destructible/cult/struct in nearby)
 		struct.reveal()
 	for(var/turf/open/floor/engine/cult/brass/tile in nearby)
 		if(!tile.realappearance)
@@ -53,7 +53,7 @@
 	var/list/nearby = range(5, owner)
 	for(var/obj/effect/rune/sigil in nearby)
 		sigil.conceal()
-	for(var/obj/structure/destructible/brass/struct in nearby)
+	for(var/obj/structure/destructible/cult/struct in nearby)
 		struct.conceal()
 	for(var/turf/open/floor/engine/cult/tile in nearby)
 		if(!tile.realappearance)
