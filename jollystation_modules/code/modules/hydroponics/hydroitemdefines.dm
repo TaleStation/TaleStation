@@ -14,8 +14,12 @@
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
-	var/aaa = 0
-	var/allowed_colors = "null"
+	var/health = 0
+	var/water_level = 0
+	var/instablity = 0
+	var/fertilizer = 0
+	var/light_level = "null"
+	var/pests = "null"
 
 /obj/item/xeno_analyzer/pre_attack(target, mob/user)
 	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
