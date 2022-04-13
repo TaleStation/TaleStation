@@ -198,4 +198,4 @@
 	icon_state = "dispenserframe"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser
-	pixel_shift = -27
+	pixel_shift = 30
