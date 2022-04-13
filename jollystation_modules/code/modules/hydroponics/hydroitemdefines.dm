@@ -14,18 +14,27 @@
 	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
+	// Vars for TGUI
 	var/health = 0
 	var/water_level = 0
-	var/instablity = 0
+	var/instability = 0
 	var/fertilizer = 0
 	var/light_level = "null"
 	var/pests = "null"
+	var/plant_name = "null"
+	var/researched = "null"
+
+var/list/analyzer_data = list()
 
 /obj/item/xeno_analyzer/pre_attack(target, mob/user)
 	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
-		ui_interact(user)
-		return
+		do_plant_stats_scan(target)
+		return TRUE
 	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
+	return TRUE
+
+/obj/item/xeno_analyzer/proc/do_plant_stats_scan(atom/target, mob/user)
+	ui_interact(user)
 
 /obj/item/xeno_analyzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -35,11 +44,17 @@
 
 /obj/item/xeno_analyzer/ui_data(mob/user)
 	var/list/data = list()
-	data["aaa"] = aaa
-	data["color"] = color
+	data["health"] = health
+	data["water_level"] = water_level
+	data["instability"] = instability
+	data["fertilizer"] = fertilizer
+	data["light_level"] = light_level
+	data["pests"] = pests
+	data["plant_name"] = plant_name
+	data["researched"] = researched
 
 	return data
-
+/*
 /obj/item/xeno_analyzer/ui_act(action, list/params)
 	. = ..()
 	if(.)
@@ -51,3 +66,4 @@
 		color = new_color
 		. = TRUE
 	update_icon()
+*/

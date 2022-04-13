@@ -5,8 +5,14 @@ import { Window } from '../layouts';
 export const XenoAnalyzer = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    aaa,
-    color,
+    health,
+    water_level,
+    instability,
+    fertilizer,
+    light_level,
+    pests,
+    plant_name,
+    researched,
   } = data;
   return (
     <Window resizable>
