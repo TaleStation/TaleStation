@@ -194,7 +194,7 @@
 /obj/item/wallframe/item_dispenser
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'goon/icons/obj/itemdispenser.dmi'
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
 	icon_state = "dispenserframe"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser
