@@ -28,7 +28,7 @@ var/list/analyzer_data = list()
 
 /obj/item/xeno_analyzer/pre_attack(target, mob/user)
 	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
-		do_plant_stats_scan(target)
+		do_plant_stats_scan(target, user)
 		return TRUE
 	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
 	return TRUE
