@@ -70,7 +70,7 @@ GLOBAL_VAR(restart_counter)
 	if(CONFIG_GET(flag/usewhitelist))
 		load_whitelist()
 
-	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
+	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 77400
 
 	if(fexists(RESTART_COUNTER_PATH))
 		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
@@ -316,12 +316,14 @@ GLOBAL_VAR(restart_counter)
 
 	s += " ("
 	s += "<a href=\"https://discord.gg/PWAHwa3wrr\">" //Change this to wherever you want the hub to link to.
-	s += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "Discord "  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
-	s += "<a href=\"https://github.com/JollyStation/JollyStation\">" //Change this to wherever you want the hub to link to.
-	s += "GitHub"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "<a href=\"https://github.com/JollyStation/JollyStation\">"
+	s += "GitHub"
 	s += "</a>"
-	s += ")"
+	s += ") "
+	s += ""
+	s += "TG-Based code server where Roleplay comes first. Join our Discord for more information (We're still working on things!)"
 
 	var/players = GLOB.clients.len
 
