@@ -30,6 +30,7 @@ var/list/analyzer_data = list()
 	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
 		do_plant_stats_scan(target, user)
 		return TRUE
+	balloon_alert(user, "invalid object")
 	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
 	return TRUE
 

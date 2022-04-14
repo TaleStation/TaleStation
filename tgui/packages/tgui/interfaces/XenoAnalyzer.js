@@ -1,6 +1,8 @@
 import { useBackend } from '../backend';
-import { ProgressBar, Box } from '../components';
+import { Box, ProgressBar } from '../components';
 import { Window } from '../layouts';
+
+let windowTitle = 'Analyzer';
 
 export const XenoAnalyzer = (props, context) => {
   const { act, data } = useBackend(context);
@@ -14,12 +16,12 @@ export const XenoAnalyzer = (props, context) => {
     plant_name,
     researched,
   } = data;
+
   return (
-    <Window resizable>
-      <Window.Content scrollable>
-        <Box as="Test" m={1}>
-          {props => <ProgressBar value={0.6} />}
-        </Box>
+    <Window resizable title={windowTitle} width={1000} height={500}>
+      <Window.Content scrollable >
+        <Box text={plant_name} width={25} height={30} />
+        <ProgressBar value={water_level} width={5} height={25} />
       </Window.Content>
     </Window>
   );
