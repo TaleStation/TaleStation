@@ -1,4 +1,4 @@
-/// Dispensers, sprites from Goon.
+/// Dispensers.
 
 /obj/structure/item_dispenser
 	name = "empty item dispenser"
@@ -191,6 +191,44 @@
 
 /// Empty Dispenser Wallframes
 
+/obj/structure/item_dispenser/glasses/empty
+	icon_state = "dispenser_glasses"
+	stock = /obj/item/clothing/glasses/regular
+	stocked = FALSE
+
+/obj/structure/item_dispenser/handcuffs/empty
+	icon_state = "dispenser_handcuffs"
+	stock = /obj/item/restraints/handcuffs
+	stocked = FALSE
+
+/obj/structure/item_dispenser/latex/empty
+	icon_state = "dispenser_gloves"
+	stock = /obj/item/clothing/gloves/color/latex
+	stocked = FALSE
+
+/obj/structure/item_dispenser/mask/empty
+	icon_state = "dispenser_mask"
+	stock = /obj/item/clothing/mask/surgical
+	stocked = FALSE
+
+/obj/structure/item_dispenser/id/empty
+	icon_state = "dispenser_id"
+	stock = /obj/item/card/id
+	stocked = FALSE
+
+/obj/structure/item_dispenser/radio/empty
+	icon_state = "dispenser_radio"
+	stock = /obj/item/radio
+	charges = 3
+	stocked = FALSE
+
+/obj/structure/item_dispenser/bodybag/empty
+	icon_state = "dispenser_bodybag"
+	stock = /obj/item/bodybag
+	stocked = FALSE
+
+/// Dispenser in-hand item
+
 /obj/item/wallframe/item_dispenser
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
@@ -199,3 +237,109 @@
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser
 	pixel_shift = 30
+
+/// In-hand Dispensers
+
+/obj/item/wallframe/item_dispenser/glasses
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_glasses"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/glasses
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/handcuffs
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_handcuffs"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/handcuffs
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/latex
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_gloves"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/latex
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/mask
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_mask"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/mask
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/id
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_id"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/id
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/radio
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_radio"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/radio
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/bodybag
+	name = "item dispenser frame"
+	desc = "An empty frame for an item dispenser."
+	icon = 'jollystation_modules/icons/obj/itemdispenser.dmi'
+	icon_state = "dispenser_bodybag"
+	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
+	result_path = /obj/structure/item_dispenser/bodybag
+	var/stocked = FALSE
+	pixel_shift = 30
+
+/obj/item/wallframe/item_dispenser/attack_self(mob/user)
+	var/dispenser_images = list(
+		"any" = image(icon = src.icon, icon_state = "dispenser_generic"),
+		"glasses" = image(icon = src.icon, icon_state = "dispenser_glasses"),
+		"handcuffs" = image(icon = src.icon, icon_state = "dispenser_handcuffs"),
+		"latex" = image(icon = src.icon, icon_state = "dispenser_gloves"),
+		"mask" = image(icon = src.icon, icon_state = "dispenser_mask"),
+		"id" = image(icon = src.icon, icon_state = "dispenser_id"),
+		"radio" = image(icon = src.icon, icon_state = "dispenser_radio"),
+		"bodybag" = image(icon = src.icon, icon_state = "dispenser_bodybag")
+		)
+	var/dispenser_types = list()
+	dispenser_types["any"] = "dispenser_generic"
+	dispenser_types["glasses"] = "dispenser_glasses"
+	dispenser_types["handcuffs"] = "dispenser_handcuffs"
+	dispenser_types["latex"] = "dispenser_gloves"
+	dispenser_types["mask"] = "dispenser_mask"
+	dispenser_types["id"] = "dispenser_id"
+	dispenser_types["radio"] = "dispenser_radio"
+	dispenser_types["bodybag"] = "dispenser_bodybag"
+
+	var/choice = show_radial_menu(user,src, dispenser_images, tooltips = FALSE)
+
+	if(!choice)
+		return FALSE
+
+	if(src && choice)
+		switch(choice)
+			if("any")
+				result_path = text2path("/obj/structure/item_dispenser")
+			else
+				result_path = text2path("/obj/structure/item_dispenser/[choice]/empty")
+				icon_state = dispenser_types[choice]
