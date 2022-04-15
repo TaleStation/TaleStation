@@ -1,8 +1,8 @@
 // -- Bridge Officer job & outfit datum --
 /datum/job/bridge_officer
-	title = "Bridge Officer"
+	title = JOB_BRIDGE_OFFICER
 	description = "File paperwork to Central Command via your fax machine. \
-		Pretend to be a head of staff. Fetch coffee for the real heads of staff instead."
+		Pretend to be a Head of Staff. Fetch coffee for the real Heads of Staff instead."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list(JOB_CAPTAIN)
 	faction = FACTION_STATION
@@ -27,6 +27,7 @@
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM) // QM normally has this, but since they're a head of staff now I put it here. C'est la vie.
 
 	display_order = JOB_DISPLAY_ORDER_BRIDGE_OFFICER
+	department_for_prefs = /datum/job_department/command
 	departments_list = list(
 		/datum/job_department/command,
 		)

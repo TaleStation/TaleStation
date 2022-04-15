@@ -61,6 +61,14 @@
 #define ACCESS_CE 56
 #define ACCESS_HOP 57
 #define ACCESS_HOS 58
+
+//NON-MODULE CHANGE START
+
+#define ACCESS_BO 58.1
+#define ACCESS_AP 58.2
+
+//NON-MODULE CHANGE END
+
 /// Request console announcements
 #define ACCESS_RC_ANNOUNCE 59
 /// Used for events which require at least two people to confirm them

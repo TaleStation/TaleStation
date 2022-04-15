@@ -26,8 +26,8 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		JOB_CYBORG,
 		JOB_ASSISTANT,
 		JOB_QUARTERMASTER, // NON-MODULE CHANGE
-		"Bridge Officer", //NON-MODULE CHANGE
-		"Asset Protection", // NON-MODULE CHANGE
+		JOB_BRIDGE_OFFICER, //NON-MODULE CHANGE
+		JOB_ASSET_PROTECTION, // NON-MODULE CHANGE
 	)
 
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %

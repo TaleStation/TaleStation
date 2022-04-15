@@ -1,7 +1,7 @@
 // -- Asset Protection job & outfit datum --
 /datum/job/asset_protection
-	title = "Asset Protection"
-	description = "Protect heads of staff and the captain \
+	title = JOB_ASSET_PROTECTION
+	description = "Protect Heads of Staff and the Captain \
 		from foreign threats and themselves. Exert authority over the Bridge Officer."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	department_head = list(JOB_CAPTAIN)
@@ -27,6 +27,7 @@
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM) // QM normally has this, but since they're a head of staff now I put it here. C'est la vie.
 
 	display_order = JOB_DISPLAY_ORDER_ASSET_PROTECTION
+	department_for_prefs = /datum/job_department/command
 	departments_list = list(
 		/datum/job_department/command,
 		)
