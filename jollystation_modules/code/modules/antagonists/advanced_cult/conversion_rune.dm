@@ -102,7 +102,7 @@
 
 		if(convertee.getStaminaLoss() <= 100)
 			convertee.apply_damage(50, STAMINA, BODY_ZONE_CHEST)
-		convertee.stuttering += 10
+		convertee.adjust_timed_status_effect(20 SECONDS, /datum/status_effect/speech/stutter)
 		user.say(invocations[i], language = /datum/language/common, ignore_spam = TRUE, forced = "cult invocation")
 
 	return TRUE
@@ -134,9 +134,8 @@
 	if(ishuman(convertee))
 		var/mob/living/carbon/human/human_convertee = convertee
 		human_convertee.uncuff()
-		human_convertee.stuttering = 0
-		human_convertee.cultslurring = 0
-
+		human_convertee.remove_status_effect(/datum/status_effect/speech/stutter)
+		human_convertee.remove_status_effect(/datum/status_effect/speech/slurring/cult)
 	return TRUE
 
 /*
