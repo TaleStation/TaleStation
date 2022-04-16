@@ -538,13 +538,14 @@
  * Effects caused by low pain. (~100-250 pain)
  */
 /datum/pain/proc/low_pain_effects(delta_time)
+	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
 	if(DT_PROB(3, delta_time))
 		to_chat(parent, span_danger(pick("Everything aches.", "Everything feels sore.")))
 		if(parent.staminaloss < 5)
 			parent.apply_damage(10, STAMINA)
 
-	else if(parent.stuttering <= 12 && DT_PROB(6, delta_time))
-		parent.stuttering += 5
+	else if(stuttering && stuttering.duration <= 24 && DT_PROB(6, delta_time))
+		parent.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/speech/stutter)
 
 	else if(parent.jitteriness <= 20 && DT_PROB(2, delta_time))
 		parent.Jitter(5)
@@ -557,8 +558,9 @@
  */
 /datum/pain/proc/med_pain_effects(delta_time)
 
-	if(parent.stuttering <= 25 && DT_PROB(8, delta_time))
-		parent.stuttering += 8
+	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
+	if(stuttering && stuttering.duration <= 50 && DT_PROB(8, delta_time))
+		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
 
 	else if(DT_PROB(3, delta_time))
 		to_chat(parent, span_bold(span_danger(pick("Everything hurts.", "Everything feels very sore.", "It hurts."))))
@@ -601,8 +603,9 @@
  */
 /datum/pain/proc/high_pain_effects(delta_time)
 
-	if(parent.stuttering <= 40 && DT_PROB(12, delta_time))
-		parent.stuttering += 8
+	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
+	if(stuttering && stuttering.duration <= 80 && DT_PROB(12, delta_time))
+		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
 
 	else if(DT_PROB(3, delta_time))
 		to_chat(parent, span_userdanger(pick("Stop the pain!", "Everything hurts!")))

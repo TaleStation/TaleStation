@@ -197,7 +197,7 @@
 		human_user.cause_pain(BODY_ZONES_ALL, 20)
 		human_user.adjust_disgust(33)
 		human_user.dizziness += 15
-		human_user.stuttering += 15
+		human_user.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/stutter)
 		human_user.Jitter(20)
 
 	if(--charges <= 0)

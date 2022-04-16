@@ -67,7 +67,7 @@
 				to_chat(victim, span_userdanger("A bright white light washes over you, sapping you of energy and voice!"))
 			carbon_target.silent += 4
 
-		carbon_target.stuttering += 8
+		carbon_target.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
 		carbon_target.Jitter(4 SECONDS)
 
 	ADD_TRAIT(victim, TRAIT_I_WAS_FUNNY_HANDED, REF(user))

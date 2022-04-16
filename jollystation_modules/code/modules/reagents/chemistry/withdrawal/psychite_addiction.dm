@@ -18,14 +18,14 @@
 	if(DT_PROB(8, delta_time))
 		affected_carbon.add_confusion(5)
 	if(DT_PROB(10, delta_time))
-		affected_carbon.stuttering = min(affected_carbon.stuttering + 3 * delta_time, 15)
+		affected_carbon.adjust_timed_status_effect(5 SECONDS * delta_time, /datum/status_effect/speech/stutter, max_duration = 30 SECONDS)
 
 /datum/addiction/psychite/withdrawal_stage_3_process(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
 	if(DT_PROB(8, delta_time))
 		affected_carbon.add_confusion(12)
 	if(DT_PROB(15, delta_time))
-		affected_carbon.stuttering = min(affected_carbon.stuttering + 5 * delta_time, 25)
+		affected_carbon.adjust_timed_status_effect(5 SECONDS * delta_time, /datum/status_effect/speech/stutter, max_duration = 30 SECONDS)
 
 /datum/addiction/psychite/end_withdrawal(mob/living/carbon/affected_carbon)
 	. = ..()

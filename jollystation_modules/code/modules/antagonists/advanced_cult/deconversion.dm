@@ -30,7 +30,7 @@
 
 	data["misc"] += delta_time SECONDS * REM
 	if(data["misc"] >= (25 SECONDS)) // ~10 units
-		user.stuttering = min(user.stuttering + (2 * delta_time), 10)
+		user.adjust_timed_status_effect(4 SECONDS * delta_time, /datum/status_effect/speech/stutter, max_duration = 20 SECONDS)
 		user.Dizzy(0.5 SECONDS)
 
 		if(DT_PROB(10, delta_time))
@@ -63,7 +63,7 @@
 		user.mind.remove_antag_datum(cult_datum.type)
 		user.Unconscious(15 SECONDS)
 		user.jitteriness = 0
-		user.stuttering *= 1.5 // Ah fuck I can't believe you've done this
+		user.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/stutter) // Ah fuck I can't believe you've done this
 		holder.remove_reagent(type, volume)
 		return
 
