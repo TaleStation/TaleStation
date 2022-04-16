@@ -25,6 +25,10 @@
 	display_order = JOB_DISPLAY_ORDER_ORDNANCE_TECH
 	bounty_types = CIV_JOB_SCI
 
+	departments_list = list(
+		/datum/job_department/science,
+		)
+
 	family_heirlooms = list(/obj/item/toy/nuke)
 
 	mail_goodies = list(
@@ -36,10 +40,6 @@
 		/obj/item/toy/nuke = 5,
 		/obj/item/transfer_valve = 1,
 	)
-
-	departments_list = list(
-		/datum/job_department/science,
-		)
 
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Dwarven Miner"

@@ -3,7 +3,7 @@
 // The actual Bridge Officer's locker of equipment
 /obj/structure/closet/secure_closet/bridge_officer
 	name = "\proper bridge officer's locker"
-	req_access = list(ACCESS_HEADS)
+	req_access = list(ACCESS_BO)
 	icon = 'jollystation_modules/icons/obj/locker.dmi'
 	icon_state = "bo"
 

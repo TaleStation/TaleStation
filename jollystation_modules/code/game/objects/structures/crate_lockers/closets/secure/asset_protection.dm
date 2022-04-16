@@ -3,7 +3,7 @@
 // The actual Asset Protection's locker of equipment
 /obj/structure/closet/secure_closet/asset_protection
 	name = "\proper asset protection's locker"
-	req_access = list(ACCESS_HEADS)
+	req_access = list(ACCESS_AP)
 	icon = 'jollystation_modules/icons/obj/locker.dmi'
 	icon_state = "ap"
 
