@@ -64,8 +64,9 @@
 
 //NON-MODULE CHANGE START
 
-#define ACCESS_BO 58.1
-#define ACCESS_AP 58.2
+// Psuedo command defines
+#define ACCESS_BO 74
+#define ACCESS_AP 75
 
 //NON-MODULE CHANGE END
 
