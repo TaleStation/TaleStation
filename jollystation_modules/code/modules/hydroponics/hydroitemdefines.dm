@@ -55,16 +55,3 @@ var/list/analyzer_data = list()
 	data["researched"] = researched
 
 	return data
-/*
-/obj/item/xeno_analyzer/ui_act(action, list/params)
-	. = ..()
-	if(.)
-		return
-	if(action == "change_color")
-		var/new_color = params["color"]
-		if(!(color in allowed_colors))
-			return FALSE
-		color = new_color
-		. = TRUE
-	update_icon()
-*/
