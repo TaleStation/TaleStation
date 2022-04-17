@@ -7,9 +7,9 @@
 	spawn_positions = 2
 	supervisors = "the chief engineer"
 	selection_color = "#fff5cc"
-	exp_requirements = 60
-	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_requirements = 180 // NON-MODULE CHANGE
+	exp_required_type = EXP_TYPE_ENGINEERING // NON-MODULE CHANGE
+	exp_granted_type = EXP_TYPE_ENGINEERING // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/atmos
 	plasmaman_outfit = /datum/outfit/plasmaman/atmospherics

@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel and the chief medical officer"
 	selection_color = "#bbe291"
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SERVICE // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/psychologist
 	plasmaman_outfit = /datum/outfit/plasmaman/psychologist

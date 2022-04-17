@@ -9,7 +9,9 @@
 	spawn_positions = 3
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
-	exp_granted_type = EXP_TYPE_CREW
+	exp_requirements = 300
+	exp_required_type = EXP_TYPE_SCIENCE
+	exp_granted_type = EXP_TYPE_SCIENCE
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	plasmaman_outfit = /datum/outfit/plasmaman/science
