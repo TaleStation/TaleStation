@@ -7,7 +7,7 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#bbe291"
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SERVICE // NON-MODULE CHANGE
 	var/cooks = 0 //Counts cooks amount
 	/// List of areas that are counted as the kitchen for the purposes of CQC. Defaults to just the kitchen. Mapping configs can and should override this.
 	var/list/kitchen_areas = list(/area/service/kitchen)

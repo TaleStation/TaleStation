@@ -10,9 +10,9 @@
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	minimal_player_age = 7
-	exp_requirements = 300
-	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_requirements = 600 //NON-MODULE CHANGE
+	exp_required_type = EXP_TYPE_SECURITY
+	exp_granted_type = EXP_TYPE_SECURITY
 
 	outfit = /datum/outfit/job/detective
 	plasmaman_outfit = /datum/outfit/plasmaman/detective

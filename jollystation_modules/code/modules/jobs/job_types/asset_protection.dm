@@ -12,10 +12,10 @@
 	selection_color = "#ddddff"
 	req_admin_notify = TRUE
 	minimal_player_age = 10
-	exp_requirements = 180
+	exp_requirements = 3000
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_COMMAND
 
 	outfit = /datum/outfit/job/asset_protection
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_security

@@ -10,9 +10,9 @@
 	spawn_positions = 3
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
-	exp_requirements = 60
-	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_requirements = 300
+	exp_required_type = EXP_TYPE_SCIENCE
+	exp_granted_type = EXP_TYPE_SCIENCE
 
 //most likely can be subtyped later
 
