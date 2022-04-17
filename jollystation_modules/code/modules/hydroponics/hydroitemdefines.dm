@@ -19,10 +19,10 @@
 	var/water_level = 0
 	var/instability = 0
 	var/fertilizer = 0
-	var/light_level = "null"
-	var/pests = "null"
+	var/light_level = 0
+	var/pests = 0
 	var/plant_name = "null"
-	var/researched = "null"
+	var/researched = 0
 
 var/list/analyzer_data = list()
 
