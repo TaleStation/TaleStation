@@ -5478,6 +5478,7 @@
 /area/science/robotics/mechbay)
 "cqI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green,
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "cqS" = (
@@ -5738,7 +5739,6 @@
 /turf/open/floor/iron,
 /area/hallway/primary/central)
 "cuW" = (
-/obj/structure/table,
 /obj/structure/sign/plaques/kiddie{
 	pixel_x = 32
 	},
@@ -5747,9 +5747,7 @@
 	dir = 6;
 	network = list("aiupload")
 	},
-/obj/item/ai_module/supplied/quarantine,
-/obj/effect/spawner/random/aimodule/harmless,
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit/red,
 /area/ai_monitored/turret_protected/ai_upload)
 "cva" = (
 /obj/effect/spawner/random/trash/garbage,
@@ -7563,6 +7561,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/door/window/left/directional/west{
+	base_state = "right";
+	dir = 2;
+	icon_state = "right";
+	layer = 3.1;
+	name = "Upload Console Window";
+	req_access_txt = "16"
+	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "dfF" = (
@@ -8461,9 +8467,7 @@
 /turf/open/floor/plating,
 /area/security/brig)
 "dxN" = (
-/obj/machinery/airalarm{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/carpet/red,
 /area/command/heads_quarters/hos)
 "dxQ" = (
@@ -10750,11 +10754,9 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "exk" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
+/obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 4;
-	external_pressure_bound = 140;
-	name = "server vent";
-	pressure_checks = 0
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -12259,6 +12261,7 @@
 	},
 /obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/violet/visible,
 /turf/open/floor/engine,
 /area/maintenance/disposal/incinerator)
 "eXF" = (
@@ -19601,7 +19604,7 @@
 /turf/open/floor/iron,
 /area/hallway/primary/fore)
 "hKI" = (
-/obj/item/kirbyplants/random,
+/obj/machinery/pdapainter/research,
 /turf/open/floor/iron/dark,
 /area/command/heads_quarters/rd)
 "hKK" = (
@@ -21728,6 +21731,9 @@
 "iEd" = (
 /obj/machinery/atmospherics/pipe/smart/simple/pink/visible{
 	dir = 4
+	},
+/obj/machinery/meter{
+	name = "Mixed Air Tank Out"
 	},
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
@@ -25522,6 +25528,7 @@
 	name = "Head of Security RC";
 	pixel_y = 30
 	},
+/obj/machinery/pdapainter/security,
 /turf/open/floor/wood,
 /area/command/heads_quarters/hos)
 "kap" = (
@@ -28101,7 +28108,6 @@
 /turf/open/floor/grass,
 /area/service/hydroponics)
 "kVI" = (
-/obj/structure/table,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -28111,15 +28117,13 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/door/window/right/directional/south{
+/obj/machinery/door/window/brigdoor/left/directional/south{
 	name = "High-Risk Modules";
 	req_access_txt = "20"
 	},
-/obj/item/ai_module/core/full/robocop,
-/obj/item/ai_module/reset/purge,
-/obj/item/ai_module/supplied/protect_station,
+/obj/structure/table/wood/fancy/red,
 /obj/effect/spawner/random/aimodule/harmful,
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit/red,
 /area/ai_monitored/turret_protected/ai_upload)
 "kVL" = (
 /obj/effect/spawner/random/trash/food_packaging,
@@ -29439,6 +29443,12 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/machinery/door/window/left/directional/west{
+	dir = 2;
+	layer = 3.1;
+	name = "Cyborg Upload Console Window";
+	req_access_txt = "16"
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
@@ -33409,7 +33419,6 @@
 /turf/open/floor/iron/dark,
 /area/science/xenobiology)
 "mQx" = (
-/obj/structure/table,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -33423,12 +33432,9 @@
 	name = "Core Modules";
 	req_access_txt = "20"
 	},
-/obj/item/ai_module/core/full/hulkamania,
-/obj/item/ai_module/core/full/peacekeeper,
-/obj/item/ai_module/core/full/asimov,
-/obj/item/ai_module/core/full/reporter,
+/obj/structure/table/wood/fancy/blue,
 /obj/effect/spawner/random/aimodule/neutral,
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "mQL" = (
 /obj/effect/spawner/random/vending/snackvend,
@@ -33748,7 +33754,19 @@
 /area/maintenance/port/lower)
 "mWB" = (
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/dark,
+/obj/structure/table/wood/fancy/green,
+/obj/effect/spawner/random/aimodule/harmless{
+	pixel_x = -9;
+	pixel_y = -4
+	},
+/obj/item/ai_module/core/full/asimov{
+	pixel_y = 9;
+	pixel_x = 7
+	},
+/obj/item/ai_module/reset{
+	pixel_x = 7
+	},
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "mWL" = (
 /obj/structure/disposalpipe/sorting/mail/flip{
@@ -34496,6 +34514,7 @@
 	pixel_y = 10;
 	req_access_txt = "24"
 	},
+/obj/machinery/pdapainter/engineering,
 /turf/open/floor/iron,
 /area/command/heads_quarters/ce)
 "nkM" = (
@@ -35197,6 +35216,7 @@
 /area/service/hydroponics/garden/abandoned)
 "nxJ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "nxU" = (
@@ -37740,13 +37760,8 @@
 /turf/open/floor/grass,
 /area/hallway/primary/aft)
 "oum" = (
-/obj/structure/table,
-/obj/item/ai_module/supplied/freeform,
-/obj/item/ai_module/reset{
-	pixel_y = 8
-	},
 /obj/machinery/airalarm/directional/west,
-/turf/open/floor/iron/dark,
+/turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "ous" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -38874,6 +38889,7 @@
 /area/science/robotics/lab)
 "oRx" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "oRz" = (
@@ -41340,6 +41356,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "pMY" = (
@@ -43634,6 +43651,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "qDv" = (
@@ -48843,7 +48861,7 @@
 /obj/machinery/porta_turret/ai{
 	dir = 8
 	},
-/turf/open/floor/circuit,
+/turf/open/floor/circuit/red,
 /area/ai_monitored/turret_protected/ai_upload)
 "syJ" = (
 /obj/structure/cable,
@@ -50052,6 +50070,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/lower)
+"sRW" = (
+/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
+	dir = 4
+	},
+/obj/machinery/meter,
+/turf/closed/wall/r_wall,
+/area/engineering/atmos)
 "sSa" = (
 /obj/machinery/atmospherics/components/unary/outlet_injector/monitored/nitrous_input{
 	dir = 4
@@ -51006,7 +51031,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/circuit,
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "tmK" = (
 /obj/machinery/door/airlock{
@@ -57740,6 +57765,9 @@
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
 	dir = 4
 	},
+/obj/machinery/meter{
+	name = "Mixed Air Tank Out"
+	},
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "vWx" = (
@@ -58611,6 +58639,7 @@
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 8
 	},
+/obj/machinery/meter,
 /turf/closed/wall/r_wall,
 /area/engineering/atmos)
 "wmG" = (
@@ -59750,10 +59779,9 @@
 	dir = 5;
 	network = list("ss13","rd")
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+/obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 1;
-	external_pressure_bound = 120;
-	name = "server vent"
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -60241,6 +60269,16 @@
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/iron/cafeteria,
 /area/service/kitchen)
+"wVr" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/pdapainter/medbay,
+/turf/open/floor/iron/showroomfloor,
+/area/command/heads_quarters/cmo)
 "wVv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -62195,7 +62233,7 @@
 /turf/open/floor/plating,
 /area/maintenance/disposal)
 "xJg" = (
-/turf/open/floor/circuit,
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "xJl" = (
 /obj/structure/cable,
@@ -78241,7 +78279,7 @@ pMS
 asL
 qDt
 sqS
-vWt
+sRW
 asL
 wmy
 sqS
@@ -83889,11 +83927,11 @@ syl
 sqS
 cqI
 asL
-vWt
+sRW
 sqS
 wmy
 asL
-vWt
+sRW
 sqS
 iEd
 asL
@@ -101589,7 +101627,7 @@ vyD
 lTq
 wEP
 vAU
-bQD
+wVr
 bQD
 xlQ
 ufw
