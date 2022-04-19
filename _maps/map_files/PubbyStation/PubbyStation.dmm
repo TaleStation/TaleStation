@@ -4377,6 +4377,7 @@
 /obj/effect/turf_decal/tile/red/half{
 	dir = 1
 	},
+/obj/machinery/pdapainter/security,
 /turf/open/floor/iron/dark/smooth_half,
 /area/command/heads_quarters/hos)
 "anU" = (
@@ -17696,7 +17697,9 @@
 /turf/closed/wall/r_wall,
 /area/science/explab)
 "bjB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold/general/visible{
+	dir = 8
+	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
 "bjK" = (
@@ -22727,7 +22730,6 @@
 	},
 /area/command/heads_quarters/rd)
 "bBu" = (
-/obj/item/kirbyplants/dead,
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
@@ -22758,6 +22760,7 @@
 /obj/effect/turf_decal/tile/purple/half{
 	dir = 4
 	},
+/obj/machinery/pdapainter/research,
 /turf/open/floor/iron/dark/smooth_large,
 /area/command/heads_quarters/rd)
 "bBw" = (
@@ -23662,7 +23665,6 @@
 	pixel_y = 2
 	},
 /obj/structure/table,
-/obj/machinery/light,
 /obj/item/wrench/medical,
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -23670,7 +23672,6 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/airalarm/directional/south,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
 /turf/open/floor/iron/white,
@@ -28725,6 +28726,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/half,
+/obj/machinery/pdapainter/engineering,
 /turf/open/floor/iron/half,
 /area/command/heads_quarters/ce)
 "bXi" = (
@@ -34529,6 +34531,18 @@
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/science/genetics)
+"cQe" = (
+/obj/machinery/pdapainter/medbay,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/south,
+/obj/machinery/light,
+/turf/open/floor/iron/white,
+/area/command/heads_quarters/cmo)
 "cQs" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/edge{
@@ -35155,6 +35169,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/commons/fitness/recreation)
+"duD" = (
+/turf/open/floor/circuit/telecomms,
+/area/science/xenobiology)
 "duF" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -40276,6 +40293,16 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/maintenance/solars/port)
+"hzw" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/white,
+/area/maintenance/department/engine)
 "hzx" = (
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -49564,10 +49591,9 @@
 /turf/open/floor/grass,
 /area/medical/psychology)
 "pnU" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+/obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 4;
-	external_pressure_bound = 120;
-	name = "server vent"
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -53728,6 +53754,9 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/engineering/atmos/experiment_room)
+"sxR" = (
+/turf/closed/wall/r_wall,
+/area/medical/surgery)
 "sxT" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -56675,8 +56704,8 @@
 	},
 /area/engineering/atmos)
 "uwb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/general/visible{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/simple/general/visible{
+	dir = 10
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -58779,8 +58808,9 @@
 /turf/open/floor/iron,
 /area/science/breakroom)
 "vYN" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
-	dir = 8
+/obj/machinery/atmospherics/components/unary/passive_vent{
+	dir = 8;
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -89354,7 +89384,7 @@ dZb
 uEY
 bEE
 bub
-bFU
+sxR
 bFU
 bFU
 bFU
@@ -89610,11 +89640,11 @@ hBn
 krb
 eFj
 bCl
+hzw
 xyI
 bJb
 bJb
 sVp
-bJb
 bJb
 bJb
 bLG
@@ -89867,11 +89897,11 @@ lsr
 hHJ
 bDw
 bEF
-bub
+cQe
+bBX
 bEz
 bTl
 bNX
-bsn
 bsn
 bSw
 bSw
@@ -106556,7 +106586,7 @@ aEj
 uSW
 lEn
 pnU
-pnU
+duD
 bnd
 taT
 lWH
@@ -107069,7 +107099,7 @@ uSW
 aEj
 uSW
 lEn
-biD
+duD
 biD
 bnd
 tdB
@@ -107326,7 +107356,7 @@ dBQ
 aEj
 uSW
 lEn
-vYN
+duD
 vYN
 bnd
 blZ

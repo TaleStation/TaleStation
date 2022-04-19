@@ -8467,9 +8467,7 @@
 /turf/open/floor/plating,
 /area/security/brig)
 "dxN" = (
-/obj/machinery/airalarm{
-	pixel_y = 24
-	},
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/carpet/red,
 /area/command/heads_quarters/hos)
 "dxQ" = (
@@ -10756,11 +10754,9 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/entry)
 "exk" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on{
+/obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 4;
-	external_pressure_bound = 140;
-	name = "server vent";
-	pressure_checks = 0
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -19608,7 +19604,7 @@
 /turf/open/floor/iron,
 /area/hallway/primary/fore)
 "hKI" = (
-/obj/item/kirbyplants/random,
+/obj/machinery/pdapainter/research,
 /turf/open/floor/iron/dark,
 /area/command/heads_quarters/rd)
 "hKK" = (
@@ -25532,6 +25528,7 @@
 	name = "Head of Security RC";
 	pixel_y = 30
 	},
+/obj/machinery/pdapainter/security,
 /turf/open/floor/wood,
 /area/command/heads_quarters/hos)
 "kap" = (
@@ -34517,6 +34514,7 @@
 	pixel_y = 10;
 	req_access_txt = "24"
 	},
+/obj/machinery/pdapainter/engineering,
 /turf/open/floor/iron,
 /area/command/heads_quarters/ce)
 "nkM" = (
@@ -59781,10 +59779,9 @@
 	dir = 5;
 	network = list("ss13","rd")
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+/obj/machinery/atmospherics/components/unary/passive_vent{
 	dir = 1;
-	external_pressure_bound = 120;
-	name = "server vent"
+	name = "killroom vent"
 	},
 /turf/open/floor/circuit/telecomms,
 /area/science/xenobiology)
@@ -60272,6 +60269,16 @@
 /obj/effect/spawner/random/food_or_drink/donkpockets,
 /turf/open/floor/iron/cafeteria,
 /area/service/kitchen)
+"wVr" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/machinery/pdapainter/medbay,
+/turf/open/floor/iron/showroomfloor,
+/area/command/heads_quarters/cmo)
 "wVv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -101620,7 +101627,7 @@ vyD
 lTq
 wEP
 vAU
-bQD
+wVr
 bQD
 xlQ
 ufw
