@@ -9026,13 +9026,11 @@
 /area/medical/medbay/central)
 "aCG" = (
 /obj/structure/table,
-/obj/item/ai_module/supplied/quarantine,
 /obj/machinery/camera/motion{
 	c_tag = "AI Upload Port";
 	dir = 8;
 	network = list("aiupload")
 	},
-/obj/item/ai_module/reset,
 /obj/machinery/flasher{
 	id = "brigentry";
 	pixel_x = -28
@@ -9040,6 +9038,7 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 1
 	},
+/obj/item/ai_module/reset,
 /turf/open/floor/iron/dark/smooth_corner,
 /area/ai_monitored/turret_protected/ai_upload)
 "aCH" = (
@@ -9063,7 +9062,6 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "aCM" = (
 /obj/structure/table,
-/obj/item/ai_module/supplied/freeform,
 /obj/machinery/camera/motion{
 	c_tag = "AI Upload Starboard";
 	dir = 4;
@@ -9076,6 +9074,7 @@
 /obj/effect/turf_decal/tile/blue/anticorner{
 	dir = 4
 	},
+/obj/item/ai_module/core/full/asimov,
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 8
 	},
@@ -9401,21 +9400,17 @@
 /obj/machinery/porta_turret/ai{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/blue/full,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 8
-	},
+/turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "aDL" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/circuit,
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "aDM" = (
 /obj/machinery/camera/motion{
 	c_tag = "AI Upload Center";
-	dir = 1;
 	network = list("aiupload")
 	},
 /obj/machinery/holopad/secure,
@@ -9427,7 +9422,9 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
-/turf/open/floor/circuit,
+/obj/structure/table/wood/fancy/green,
+/obj/effect/spawner/random/aimodule/harmless,
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "aDN" = (
 /obj/machinery/porta_turret/ai{
@@ -9436,10 +9433,7 @@
 /obj/structure/sign/plaques/kiddie{
 	pixel_x = 32
 	},
-/obj/effect/turf_decal/tile/blue/full,
-/turf/open/floor/iron/dark/smooth_edge{
-	dir = 4
-	},
+/turf/open/floor/circuit/red,
 /area/ai_monitored/turret_protected/ai_upload)
 "aDO" = (
 /obj/effect/turf_decal/tile/blue,
@@ -9714,10 +9708,6 @@
 	},
 /area/command/bridge)
 "aED" = (
-/obj/structure/table,
-/obj/item/ai_module/core/full/asimov,
-/obj/effect/spawner/random/aimodule/harmless,
-/obj/item/ai_module/core/freeformcore,
 /obj/machinery/door/window{
 	base_state = "right";
 	dir = 4;
@@ -9725,8 +9715,6 @@
 	name = "Core Modules";
 	req_access_txt = "20"
 	},
-/obj/effect/spawner/random/aimodule/neutral,
-/obj/item/ai_module/core/full/custom,
 /obj/structure/window/reinforced{
 	dir = 1;
 	pixel_y = 1
@@ -9735,19 +9723,28 @@
 	id = "brigentry";
 	pixel_x = -28
 	},
-/obj/effect/turf_decal/tile/blue/full,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/table/wood/fancy/blue,
+/obj/effect/spawner/random/aimodule/neutral,
+/turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "aEE" = (
 /obj/machinery/light/directional/south,
-/obj/effect/turf_decal/tile/blue/half,
-/turf/open/floor/iron/dark/smooth_edge,
+/turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
 "aEF" = (
 /obj/machinery/computer/upload/ai{
 	dir = 1
 	},
-/turf/open/floor/circuit,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/left/directional/west{
+	dir = 1;
+	layer = 3.1;
+	name = "Cyborg Upload Console Window";
+	req_access_txt = "16"
+	},
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "aEG" = (
 /obj/machinery/flasher{
@@ -9760,20 +9757,20 @@
 /obj/machinery/computer/upload/borg{
 	dir = 1
 	},
-/turf/open/floor/circuit,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/left/directional/west{
+	base_state = "right";
+	dir = 1;
+	icon_state = "right";
+	layer = 3.1;
+	name = "Upload Console Window";
+	req_access_txt = "16"
+	},
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "aEI" = (
-/obj/structure/table,
-/obj/item/ai_module/supplied/oxygen,
-/obj/item/ai_module/zeroth/onehuman,
-/obj/machinery/door/window{
-	dir = 8;
-	name = "High-Risk Modules";
-	req_access_txt = "20"
-	},
-/obj/item/ai_module/reset/purge,
-/obj/effect/spawner/random/aimodule/harmful,
-/obj/item/ai_module/supplied/protect_station,
 /obj/structure/window/reinforced{
 	dir = 1;
 	pixel_y = 1
@@ -9782,8 +9779,14 @@
 	id = "brigentry";
 	pixel_x = 28
 	},
-/obj/effect/turf_decal/tile/blue/full,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/machinery/door/window/brigdoor/left/directional/south{
+	name = "High-Risk Modules";
+	req_access_txt = "20";
+	dir = 8
+	},
+/obj/structure/table/wood/fancy/red,
+/obj/effect/spawner/random/aimodule/harmful,
+/turf/open/floor/circuit/red,
 /area/ai_monitored/turret_protected/ai_upload)
 "aEJ" = (
 /obj/machinery/camera{
@@ -29688,6 +29691,10 @@
 	},
 /turf/open/floor/engine/vacuum,
 /area/maintenance/disposal/incinerator)
+"cbG" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/circuit/red,
+/area/ai_monitored/turret_protected/ai_upload)
 "cbK" = (
 /obj/structure/chair/wood{
 	dir = 1
@@ -59784,7 +59791,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/circuit,
+/turf/open/floor/circuit/green,
 /area/ai_monitored/turret_protected/ai_upload)
 "wFr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -93411,7 +93418,7 @@ aAB
 aBx
 aCL
 aCK
-aEE
+cbG
 aAB
 aGs
 awd
