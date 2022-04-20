@@ -10,7 +10,7 @@
 	selection_color = "#fff5cc"
 	// exp_requirements = 60 // NON-MODULE CHANGE
 	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_ENGINEERING
+	exp_granted_type = EXP_TYPE_ENGINEERING // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/engineer
 	plasmaman_outfit = /datum/outfit/plasmaman/engineering

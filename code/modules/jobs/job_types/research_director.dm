@@ -14,9 +14,9 @@
 	req_admin_notify = 1
 	minimal_player_age = 7
 	exp_required_type_department = EXP_TYPE_SCIENCE
-	exp_requirements = 2400
+	exp_requirements = 2400 // NON-MODULE CHANGE
 	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_COMMAND
+	exp_granted_type = EXP_TYPE_COMMAND // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/rd
 	plasmaman_outfit = /datum/outfit/plasmaman/research_director
