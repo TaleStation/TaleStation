@@ -9,8 +9,8 @@
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
 	exp_requirements = 300 // NON-MODULE CHANGE
-	exp_required_type = EXP_TYPE_MEDICAL
-	exp_granted_type = EXP_TYPE_MEDICAL
+	exp_required_type = EXP_TYPE_MEDICAL // NON-MODULE CHANGE
+	exp_granted_type = EXP_TYPE_MEDICAL // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/virologist
 	plasmaman_outfit = /datum/outfit/plasmaman/viro

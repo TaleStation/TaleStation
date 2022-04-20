@@ -12,7 +12,7 @@
 	minimal_player_age = 7
 	// exp_requirements = 300 // NON-MODULE CHANGE
 	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_SECURITY
+	exp_granted_type = EXP_TYPE_SECURITY // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/security
 	plasmaman_outfit = /datum/outfit/plasmaman/security
