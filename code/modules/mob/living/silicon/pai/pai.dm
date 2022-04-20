@@ -182,6 +182,8 @@
 		ADD_TRAIT(src, TRAIT_IMMOBILIZED, PAI_FOLDED)
 		ADD_TRAIT(src, TRAIT_HANDS_BLOCKED, PAI_FOLDED)
 
+	return INITIALIZE_HINT_LATELOAD
+
 /mob/living/silicon/pai/Destroy()
 	QDEL_NULL(atmos_analyzer)
 	QDEL_NULL(internal_instrument)
@@ -198,12 +200,18 @@
 	GLOB.pai_list -= src
 	return ..()
 
+<<<<<<< HEAD
 /mob/living/silicon/pai/proc/pdaconfig()
 	//PDA
 	aiPDA = new /obj/item/pda/ai(src)
 	aiPDA.owner = real_name
 	aiPDA.ownjob = "pAI Messenger"
 	aiPDA.name = "[real_name] ([aiPDA.ownjob])"
+=======
+/mob/living/silicon/pai/LateInitialize()
+	. = ..()
+	modularInterface.saved_identification = name
+>>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))
 
 /mob/living/silicon/pai/make_laws()
 	laws = new /datum/ai_laws/pai()

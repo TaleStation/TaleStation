@@ -46,11 +46,24 @@
 	/// Number of total expansion bays this computer has available.
 	var/max_bays = 0
 
+<<<<<<< HEAD
+=======
+	var/saved_identification = null // next two values are the currently imprinted id and job values
+	var/saved_job = null
+
+	/// Allow people with chunky fingers to use?
+	var/allow_chunky = FALSE
+
+	var/honkamnt = 0 /// honk honk honk honk honk honkh onk honkhnoohnk
+
+>>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))
 	var/list/idle_threads // Idle programs on background. They still receive process calls but can't be interacted with.
 	var/obj/physical = null // Object that represents our computer. It's used for Adjacent() and UI visibility checks.
 	var/has_light = FALSE //If the computer has a flashlight/LED light/what-have-you installed
 	var/comp_light_luminosity = 3 //The brightness of that light
 	var/comp_light_color //The color of that light
+
+	var/datum/action/item_action/toggle_computer_light/light_butt
 
 /obj/item/modular_computer/Initialize(mapload)
 	. = ..()
@@ -61,6 +74,13 @@
 	idle_threads = list()
 	if(looping_sound)
 		soundloop = new(src, enabled)
+<<<<<<< HEAD
+=======
+	if(id)
+		id.UpdateDisplay()
+	if(has_light)
+		light_butt = new(src)
+>>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))
 	update_appearance()
 
 /obj/item/modular_computer/Destroy()
@@ -75,8 +95,25 @@
 	all_components.Cut() //Die demon die
 	//Some components will actually try and interact with this, so let's do it later
 	QDEL_NULL(soundloop)
+<<<<<<< HEAD
+=======
+	Remove_Messenger()
+
+	if(istype(pai))
+		QDEL_NULL(pai)
+	if(istype(light_butt))
+		QDEL_NULL(light_butt)
+
+>>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))
 	physical = null
 	return ..()
+
+/obj/item/modular_computer/ui_action_click(mob/user, actiontype)
+	if(istype(actiontype, light_butt))
+		toggle_flashlight()
+	else
+		..()
+
 
 /obj/item/modular_computer/pre_attack_secondary(atom/A, mob/living/user, params)
 	if(active_program?.tap(A, user, params))
@@ -470,6 +507,7 @@
 		set_light(comp_light_luminosity, 1, comp_light_color)
 	else
 		set_light(0)
+	update_appearance()
 	return TRUE
 
 /**

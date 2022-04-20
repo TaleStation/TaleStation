@@ -153,4 +153,56 @@
 
 /obj/item/modular_computer/tablet/integrated/syndicate/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	borgo.lamp_color = COLOR_RED //Syndicate likes it red
+=======
+	if(istype(borgo, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/robo = borgo
+		robo.lamp_color = COLOR_RED //Syndicate likes it red
+
+// Round start tablets
+
+/obj/item/modular_computer/tablet/pda
+	icon_state = "pda"
+
+	greyscale_config = /datum/greyscale_config/tablet
+	greyscale_colors = "#999875#a92323"
+
+	bypass_state = TRUE
+	allow_chunky = TRUE
+
+	var/default_disk = 0
+
+/obj/item/modular_computer/tablet/pda/update_overlays()
+	. = ..()
+	var/init_icon = initial(icon)
+	var/obj/item/computer_hardware/card_slot/card = all_components[MC_CARD]
+	if(!init_icon)
+		return
+	if(card)
+		if(card.stored_card)
+			. += mutable_appearance(init_icon, "id_overlay")
+	if(light_on)
+		. += mutable_appearance(init_icon, "light_overlay")
+
+/obj/item/modular_computer/tablet/pda/attack_ai(mob/user)
+	to_chat(user, span_notice("It doesn't feel right to snoop around like that..."))
+	return // we don't want ais or cyborgs using a private role tablet
+
+/obj/item/modular_computer/tablet/pda/Initialize(mapload)
+	. = ..()
+	install_component(new /obj/item/computer_hardware/hard_drive/small)
+	install_component(new /obj/item/computer_hardware/processor_unit/small)
+	install_component(new /obj/item/computer_hardware/battery(src, /obj/item/stock_parts/cell/computer))
+	install_component(new /obj/item/computer_hardware/network_card)
+	install_component(new /obj/item/computer_hardware/card_slot)
+	install_component(new /obj/item/computer_hardware/identifier)
+	install_component(new /obj/item/computer_hardware/sensorpackage)
+
+	if(default_disk)
+		var/obj/item/computer_hardware/hard_drive/portable/disk = new default_disk(src)
+		install_component(disk)
+
+	if(insert_type)
+		inserted_item = new insert_type(src)
+>>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))

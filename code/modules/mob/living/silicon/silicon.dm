@@ -403,3 +403,41 @@
 
 /mob/living/silicon/on_standing_up()
 	return // Silicons are always standing by default.
+<<<<<<< HEAD
+=======
+
+/**
+ * Records an IC event log entry in the cyborg's internal tablet.
+ *
+ * Creates an entry in the borglog list of the cyborg's internal tablet (if it's a borg), listing the current
+ * in-game time followed by the message given. These logs can be seen by the cyborg in their
+ * BorgUI tablet app. By design, logging fails if the cyborg is dead.
+ *
+ * (This used to be in robot.dm. It's in here now.)
+ *
+ * Arguments:
+ * arg1: a string containing the message to log.
+ */
+/mob/living/silicon/proc/logevent(string = "")
+	if(!string)
+		return
+	if(stat == DEAD) //Dead silicons log no longer
+		return
+	if(!modularInterface)
+		stack_trace("Silicon [src] ( [type] ) was somehow missing their integrated tablet. Please make a bug report.")
+		create_modularInterface()
+	var/mob/living/silicon/robot/robo = modularInterface.borgo
+	if(istype(robo))
+		modularInterface.borglog += "[station_time_timestamp()] - [string]"
+	var/datum/computer_file/program/robotact/program = modularInterface.get_robotact()
+	if(program)
+		program.force_full_update()
+
+/// Same as the normal character name replacement, but updates the contents of the modular interface.
+/mob/living/silicon/fully_replace_character_name(oldname, newname)
+	. = ..()
+	if(!modularInterface)
+		stack_trace("Silicon [src] ( [type] ) was somehow missing their integrated tablet. Please make a bug report.")
+		create_modularInterface()
+	modularInterface.saved_identification = newname
+>>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))
