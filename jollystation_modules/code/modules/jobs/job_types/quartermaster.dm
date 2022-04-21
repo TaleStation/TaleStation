@@ -24,5 +24,5 @@
 		/obj/item/modular_computer/tablet/preset/advanced/command/cargo=  1,
 		/obj/item/melee/baton/telescopic = 1,
 	)
-	belt = /obj/item/pda/quartermaster
+	belt = /obj/item/modular_computer/tablet/pda/heads/qm
 	ears = /obj/item/radio/headset/heads/headset_qm

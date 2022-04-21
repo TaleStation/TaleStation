@@ -57,7 +57,7 @@
 	jobtype = /datum/job/bridge_officer
 
 	id = /obj/item/card/id/advanced/silver
-	belt = /obj/item/pda/heads/bridge_officer
+	belt = /obj/item/modular_computer/tablet/pda/heads/bo
 	ears = /obj/item/radio/headset/heads/bridge_officer
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/white
