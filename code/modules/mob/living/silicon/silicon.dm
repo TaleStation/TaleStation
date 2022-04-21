@@ -47,7 +47,8 @@
 
 	var/hack_software = FALSE //Will be able to use hacking actions
 	interaction_range = 7 //wireless control range
-	var/obj/item/pda/ai/aiPDA
+
+	var/obj/item/modular_computer/tablet/integrated/modularInterface
 
 /mob/living/silicon/Initialize(mapload)
 	. = ..()
@@ -71,11 +72,34 @@
 	QDEL_NULL(radio)
 	QDEL_NULL(aicamera)
 	QDEL_NULL(builtInCamera)
-	QDEL_NULL(aiPDA)
 	laws?.owner = null //Laws will refuse to die otherwise.
 	QDEL_NULL(laws)
 	GLOB.silicon_mobs -= src
 	return ..()
+
+/mob/living/silicon/proc/create_modularInterface()
+	if(!modularInterface)
+		modularInterface = new /obj/item/modular_computer/tablet/integrated(src)
+	modularInterface.layer = ABOVE_HUD_PLANE
+	modularInterface.plane = ABOVE_HUD_PLANE
+	modularInterface.saved_identification = real_name || name
+	if(istype(src, /mob/living/silicon/robot))
+		modularInterface.saved_job = "Cyborg"
+		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated/borg)
+	if(istype(src, /mob/living/silicon/ai))
+		modularInterface.saved_job = "AI"
+		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated)
+	if(istype(src, /mob/living/silicon/pai))
+		modularInterface.saved_job = "pAI Messenger"
+		modularInterface.install_component(new /obj/item/computer_hardware/hard_drive/small/integrated)
+
+/mob/living/silicon/robot/model/syndicate/create_modularInterface()
+	if(!modularInterface)
+		modularInterface = new /obj/item/modular_computer/tablet/integrated/syndicate(src)
+		modularInterface.saved_identification = real_name
+		modularInterface.saved_job = "Cyborg"
+	return ..()
+
 
 /mob/living/silicon/med_hud_set_health()
 	return //we use a different hud
@@ -403,8 +427,6 @@
 
 /mob/living/silicon/on_standing_up()
 	return // Silicons are always standing by default.
-<<<<<<< HEAD
-=======
 
 /**
  * Records an IC event log entry in the cyborg's internal tablet.
@@ -440,4 +462,3 @@
 		stack_trace("Silicon [src] ( [type] ) was somehow missing their integrated tablet. Please make a bug report.")
 		create_modularInterface()
 	modularInterface.saved_identification = newname
->>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))

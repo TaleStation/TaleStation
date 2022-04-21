@@ -1042,13 +1042,6 @@
 					break
 				search_id = 0
 
-<<<<<<< HEAD
-		else if( search_pda && istype(A, /obj/item/pda) )
-			var/obj/item/pda/PDA = A
-			if(PDA.owner == oldname)
-				PDA.owner = newname
-				PDA.update_label()
-=======
 		else if( search_pda && istype(A, /obj/item/modular_computer/tablet/pda) )
 			var/obj/item/modular_computer/tablet/pda/PDA = A
 			if(PDA.saved_identification == oldname)
@@ -1056,7 +1049,6 @@
 				var/obj/item/computer_hardware/identifier/display = PDA.all_components[MC_IDENTIFY]
 				if(display)
 					display.UpdateDisplay()
->>>>>>> 061dc94b387 ([NO GBP] more tablet additions (#66358))
 				if(!search_id)
 					break
 				search_pda = 0
