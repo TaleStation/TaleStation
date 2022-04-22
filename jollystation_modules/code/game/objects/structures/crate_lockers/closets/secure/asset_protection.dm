@@ -12,7 +12,6 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/radio/headset/heads/asset_protection(src)
 	new /obj/item/megaphone/command(src)
-	new /obj/item/cartridge/hos(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/photo_album/ap(src)
 	new /obj/item/storage/belt/security/full(src)

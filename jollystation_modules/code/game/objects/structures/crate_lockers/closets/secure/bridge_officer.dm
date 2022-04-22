@@ -10,7 +10,6 @@
 /obj/structure/closet/secure_closet/bridge_officer/PopulateContents()
 	new /obj/item/storage/bag/garment/bridge_officer(src)
 	new /obj/item/radio/headset/heads/bridge_officer(src)
-	new /obj/item/cartridge/hop(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/photo_album/bo(src)
 	new /obj/item/storage/box/office_supplies(src)

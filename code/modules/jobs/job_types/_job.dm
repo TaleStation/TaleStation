@@ -316,14 +316,8 @@
 
 	var/obj/item/pda/PDA = H.get_item_by_slot(pda_slot)
 	if(istype(PDA))
-<<<<<<< HEAD
-		PDA.owner = H.real_name
-		PDA.ownjob = J.title
-		PDA.update_label()
-=======
 		PDA.saved_identification = H.real_name
 		PDA.saved_job = J.title
->>>>>>> 14cad503352 (Fixes merge skew (#66397))
 
 
 /datum/outfit/job/get_chameleon_disguise_info()
