@@ -316,8 +316,14 @@
 
 	var/obj/item/pda/PDA = H.get_item_by_slot(pda_slot)
 	if(istype(PDA))
+<<<<<<< HEAD
 		PDA.saved_identification = H.real_name
 		PDA.saved_job = J.title
+=======
+		PDA.owner = H.real_name
+		PDA.ownjob = J.title
+		PDA.update_label()
+>>>>>>> parent of c4481022794... fixes merge skew
 
 
 /datum/outfit/job/get_chameleon_disguise_info()
