@@ -455,19 +455,6 @@
 "aeJ" = (
 /turf/closed/wall/r_wall,
 /area/security/prison/safe)
-"aeN" = (
-/obj/item/flashlight/lamp/green{
-	pixel_x = 1;
-	pixel_y = 5
-	},
-/obj/structure/table/wood,
-/obj/machinery/button/door/directional/north{
-	id = "hop";
-	name = "Privacy Shutters Control";
-	req_access_txt = "28"
-	},
-/turf/open/floor/wood,
-/area/command/heads_quarters/hop)
 "aeO" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
 /obj/structure/cable,
@@ -874,6 +861,15 @@
 /obj/item/clothing/under/misc/assistantformal,
 /turf/open/floor/wood,
 /area/commons/dorms)
+"aju" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "ajx" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -1547,6 +1543,21 @@
 	icon_state = "panelscorched"
 	},
 /area/maintenance/starboard/fore)
+"arL" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "arP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3165,6 +3176,13 @@
 /obj/machinery/computer/rdconsole,
 /turf/open/floor/iron/dark,
 /area/science/lab)
+"aLq" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 8;
+	initialize_directions = 8
+	},
+/turf/open/floor/iron,
+/area/engineering/atmos/pumproom)
 "aLB" = (
 /obj/effect/landmark/start/lawyer,
 /turf/open/floor/iron,
@@ -3944,6 +3962,12 @@
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
+"aWn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/decal/cleanable/oil/slippery,
+/turf/open/floor/iron,
+/area/science/mixing)
 "aWu" = (
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/effect/turf_decal/stripes/line,
@@ -4587,6 +4611,19 @@
 	},
 /turf/open/floor/iron/dark,
 /area/engineering/atmos)
+"bgu" = (
+/obj/machinery/recharger{
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/storage/secure/safe/directional/east,
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = -12;
+	pixel_y = 5
+	},
+/turf/open/floor/wood,
+/area/command/heads_quarters/hop)
 "bgF" = (
 /obj/machinery/door/window/left/directional/west{
 	dir = 1;
@@ -4759,6 +4796,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/service/cafeteria)
+"biF" = (
+/obj/structure/cable,
+/turf/open/floor/plating{
+	icon_state = "platingdmg1"
+	},
+/area/maintenance/department/science/xenobiology)
 "biL" = (
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
@@ -4885,6 +4928,20 @@
 /obj/item/extinguisher,
 /turf/open/floor/plating,
 /area/maintenance/central)
+"bkD" = (
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/camera/directional/west{
+	c_tag = "Atmospherics - Port-Aft"
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/machinery/light/no_nightlight/directional/west,
+/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
+/turf/open/floor/iron/dark/corner{
+	dir = 1
+	},
+/area/engineering/atmos)
 "bkP" = (
 /obj/item/retractor,
 /obj/item/hemostat{
@@ -6037,6 +6094,12 @@
 /obj/structure/closet/secure_closet/brig,
 /turf/open/floor/iron/dark,
 /area/security/holding_cell)
+"bAk" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on/coldroom,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/light_switch/directional/north,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/service/kitchen/coldroom)
 "bAm" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -8569,6 +8632,17 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/security/checkpoint/science)
+"cma" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Supermatter Engine Room";
+	req_one_access_txt = "10;24"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/engineering/supermatter/room)
 "cmt" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -10210,6 +10284,18 @@
 	},
 /turf/open/floor/engine,
 /area/engineering/atmospherics_engine)
+"cIJ" = (
+/obj/structure/disposalpipe/sorting/mail/flip{
+	dir = 4;
+	sortType = 16
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "cIY" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
@@ -10859,6 +10945,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/service/hydroponics/garden)
+"cQB" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+	dir = 8;
+	initialize_directions = 4;
+	name = "euthanization chamber freezer"
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron,
+/area/science/xenobiology)
 "cQE" = (
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/chapel,
@@ -12332,6 +12431,15 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"dnn" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/shutters/window{
+	id = "gateshutter";
+	name = "Gateway Access Shutter"
+	},
+/turf/open/floor/iron,
+/area/command/gateway)
 "dnu" = (
 /obj/structure/closet/emcloset,
 /turf/open/floor/plating,
@@ -12781,6 +12889,14 @@
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark,
 /area/command/teleporter)
+"dun" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "duo" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -12982,6 +13098,14 @@
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/hop)
+"dxA" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+	dir = 1
+	},
+/obj/structure/extinguisher_cabinet/directional/east,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
+/area/science/server)
 "dxD" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=2.1-Leaving-Storage";
@@ -13021,6 +13145,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/engineering/atmos)
+"dyi" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/engineering/break_room)
 "dyl" = (
 /obj/machinery/door/airlock/external{
 	name = "Space Shack"
@@ -13876,6 +14006,14 @@
 /obj/effect/turf_decal/tile/brown/anticorner/contrasted,
 /turf/open/floor/iron,
 /area/cargo/miningoffice)
+"dOx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "dOy" = (
 /obj/structure/cable,
 /turf/open/floor/plating/airless,
@@ -14785,6 +14923,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/security/brig)
+"edZ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/status_display/evac/directional/south,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/science/mixing)
 "ees" = (
 /obj/structure/fluff/broken_flooring{
 	dir = 4;
@@ -15857,6 +16001,17 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/security/range)
+"evR" = (
+/obj/structure/closet/bombcloset,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/west,
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/science/mixing)
 "evV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -15962,6 +16117,10 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/port)
+"eyM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/visible/layer4,
+/turf/closed/wall/r_wall,
+/area/engineering/atmos/pumproom)
 "eyN" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -16396,6 +16555,14 @@
 	},
 /turf/open/floor/iron,
 /area/hallway/primary/central)
+"eGC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "eGO" = (
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 9
@@ -17401,6 +17568,16 @@
 	},
 /turf/open/floor/plating,
 /area/engineering/atmos)
+"eYC" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/medical/cryo)
 "eYG" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/bot{
@@ -17558,12 +17735,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/hallway/primary/central)
-"fdu" = (
-/obj/machinery/recharger,
-/obj/item/storage/secure/safe/directional/east,
-/obj/structure/table/wood,
-/turf/open/floor/wood,
-/area/command/heads_quarters/hop)
 "fdB" = (
 /obj/structure/frame/machine,
 /obj/item/circuitboard/machine/chem_master,
@@ -17910,6 +18081,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/security/checkpoint/supply)
+"fjw" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/iron,
+/area/science/mixing)
 "fjK" = (
 /obj/machinery/flasher/portable,
 /obj/structure/cable,
@@ -17986,6 +18163,15 @@
 	},
 /turf/open/floor/carpet,
 /area/medical/psychology)
+<<<<<<< HEAD
+=======
+"fmF" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 "fmR" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
@@ -19476,6 +19662,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/telecomms,
 /area/tcommsat/server)
+"fOL" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/item/radio/intercom/directional/south,
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "fOM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -19578,6 +19769,16 @@
 	},
 /turf/open/floor/wood,
 /area/commons/lounge)
+<<<<<<< HEAD
+=======
+"fQB" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/stripes/line,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port)
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 "fRb" = (
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
@@ -21777,6 +21978,12 @@
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/iron,
 /area/commons/locker)
+"gGZ" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
+/turf/open/floor/iron/dark,
+/area/engineering/supermatter/room)
 "gHb" = (
 /obj/machinery/igniter/incinerator_atmos,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
@@ -21945,6 +22152,15 @@
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/iron,
 /area/maintenance/port/aft)
+"gLL" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/on{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/engineering/atmos/pumproom)
 "gMj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
@@ -22437,6 +22653,7 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/hallway/primary/central)
+<<<<<<< HEAD
 "gWT" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
@@ -22444,6 +22661,8 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+=======
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 "gXE" = (
 /obj/effect/turf_decal/siding/white,
 /obj/effect/turf_decal/trimline/brown/warning,
@@ -23283,6 +23502,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/science/mixing)
+"hme" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/maintenance{
+	req_one_access_txt = "12;5;39;25;28"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "hmi" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line{
@@ -23843,6 +24071,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
+"hwv" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Xenobiology Maintenance";
+	req_access_txt = "47"
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/maintenance/department/science/xenobiology)
 "hwA" = (
 /obj/structure/table,
 /obj/item/clothing/gloves/color/latex,
@@ -23939,6 +24176,14 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted,
 /turf/open/floor/iron,
 /area/commons/storage/tools)
+"hyr" = (
+/obj/structure/cable,
+/obj/machinery/door/airlock/hatch{
+	name = "Observation Room";
+	req_access_txt = "47"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/science/xenobiology)
 "hyt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -24857,6 +25102,15 @@
 "hRx" = (
 /turf/closed/wall,
 /area/maintenance/port/greater)
+"hRC" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Engineering - Transit Tube Access"
+	},
+/obj/effect/turf_decal/stripes/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "hRG" = (
 /obj/machinery/computer/security/telescreen/ce{
 	dir = 1;
@@ -25015,6 +25269,21 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/science/mixing/launch)
+"hTS" = (
+/obj/structure/closet/bombcloset,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/requests_console/directional/west{
+	department = "Ordnance Lab";
+	departmentType = 5;
+	name = "Ordnance Requests Console"
+	},
+/obj/effect/turf_decal/siding{
+	dir = 10
+	},
+/turf/open/floor/iron/white,
+/area/science/mixing)
 "hTU" = (
 /obj/structure/chair{
 	dir = 8
@@ -25866,6 +26135,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/hallway/secondary/command)
+"imA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/engineering/supermatter/room)
 "imG" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
@@ -26196,6 +26471,12 @@
 	dir = 1
 	},
 /area/engineering/atmos/storage/gas)
+"itG" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "itM" = (
 /obj/machinery/button/door/directional/north{
 	id = "chem_lockdown";
@@ -26428,6 +26709,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/medical/office)
+"iyG" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/spawner/random/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "iyL" = (
 /obj/machinery/atmospherics/pipe/bridge_pipe/dark/visible{
 	dir = 4
@@ -27817,6 +28105,18 @@
 /obj/machinery/status_display/ai/directional/east,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai)
+"jah" = (
+/obj/structure/cable,
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 14
+	},
+/obj/machinery/power/apc/auto_name/directional/north,
+/mob/living/simple_animal/hostile/retaliate/goat{
+	name = "Pete"
+	},
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
+/area/service/kitchen/coldroom)
 "jan" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/chem_pack{
@@ -28223,6 +28523,18 @@
 	},
 /turf/open/floor/iron/white,
 /area/security/prison)
+"jiz" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 12
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "jiA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -28855,12 +29167,23 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/science/xenobiology)
+<<<<<<< HEAD
 "jsJ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/machinery/meter,
+=======
+"jsN" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 /turf/open/floor/plating,
 /area/maintenance/department/science/xenobiology)
 "jsY" = (
@@ -29099,6 +29422,13 @@
 /area/command/gateway)
 "jxI" = (
 /turf/open/floor/engine/vacuum,
+/area/engineering/atmos)
+"jxU" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/heater/on,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
 /area/engineering/atmos)
 "jyd" = (
 /obj/structure/table,
@@ -30131,6 +30461,12 @@
 	},
 /turf/open/floor/iron,
 /area/service/hydroponics)
+"jRc" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/engineering/supermatter/room)
 "jRi" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -30324,6 +30660,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/cargo/storage)
+"jVJ" = (
+/obj/machinery/button/door/directional/north{
+	id = "hop";
+	name = "Privacy Shutters Control";
+	req_access_txt = "28"
+	},
+/obj/machinery/computer/accounting,
+/turf/open/floor/wood,
+/area/command/heads_quarters/hop)
 "jVO" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
@@ -31407,6 +31752,20 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/hallway/primary/starboard)
+"ksD" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	name = "MiniSat Access";
+	req_one_access_txt = "32;19"
+	},
+/obj/structure/cable,
+/obj/effect/landmark/navigate_destination,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/poddoor/preopen{
+	id = "transitlockdown"
+	},
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "kta" = (
 /obj/structure/chair/comfy/brown{
 	dir = 8
@@ -34250,6 +34609,13 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/white,
 /area/medical/chemistry)
+"lsT" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/spawner/random/trash/janitor_supplies,
+/turf/open/floor/plating{
+	icon_state = "platingdmg3"
+	},
+/area/maintenance/starboard/greater)
 "lsU" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -34360,6 +34726,14 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/iron,
 /area/maintenance/port/aft)
+"lvZ" = (
+/obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/stripes/corner,
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
+/turf/open/floor/iron,
+/area/engineering/break_room)
 "lwf" = (
 /obj/effect/landmark/start/head_of_personnel,
 /obj/structure/chair/office{
@@ -34572,6 +34946,13 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/atmos/pumproom)
+"lzj" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold/yellow/visible,
+/turf/open/floor/iron/dark,
+/area/engineering/atmos)
 "lzu" = (
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
@@ -36303,6 +36684,13 @@
 	},
 /turf/open/floor/iron/dark/corner,
 /area/engineering/atmos/storage/gas)
+"meg" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/engine,
+/area/engineering/supermatter/room)
 "mew" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/closet/secure_closet/security/med,
@@ -41825,6 +42213,12 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"nXj" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "nXv" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/bureaucracy/folder{
@@ -43573,6 +43967,15 @@
 	},
 /turf/open/floor/carpet,
 /area/command/corporate_showroom)
+"oEF" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/engineering/supermatter/room)
 "oEG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -44985,6 +45388,13 @@
 	},
 /turf/open/floor/iron,
 /area/science/research)
+"pgn" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold/purple/visible,
+/turf/open/floor/iron/dark,
+/area/engineering/atmos)
 "pgy" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -47692,6 +48102,20 @@
 /obj/effect/spawner/random/bureaucracy/pen,
 /turf/open/floor/iron,
 /area/commons/locker)
+"qgf" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	name = "MiniSat Space Access Airlock";
+	req_access_txt = "32"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/poddoor/preopen{
+	id = "transitlockdown"
+	},
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "qgo" = (
 /obj/structure/table,
 /obj/item/storage/fancy/cigarettes{
@@ -47949,6 +48373,15 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/security/prison)
+"qka" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/door/airlock/engineering/glass{
+	name = "Supermatter Engine Room";
+	req_one_access_txt = "10;24"
+	},
+/turf/open/floor/iron/dark,
+/area/engineering/supermatter/room)
 "qkg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden,
 /obj/effect/spawner/structure/window/reinforced,
@@ -48246,6 +48679,13 @@
 	},
 /turf/open/floor/plating/airless,
 /area/engineering/atmos)
+"qoJ" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "qoO" = (
 /obj/effect/turf_decal/siding/white{
 	dir = 8
@@ -48406,6 +48846,12 @@
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /turf/open/floor/iron/white,
 /area/medical/pharmacy)
+"qsw" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "qsF" = (
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/tile/neutral{
@@ -48548,6 +48994,11 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/medical/break_room)
+"quL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/engineering/break_room)
 "quS" = (
 /obj/machinery/door/morgue{
 	name = "Confession Booth"
@@ -48715,6 +49166,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/construction/storage_wing)
+"qyy" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "qyH" = (
 /obj/machinery/vending/assist,
 /obj/effect/turf_decal/stripes/line{
@@ -51134,6 +51593,14 @@
 /obj/item/pen,
 /turf/open/floor/wood,
 /area/service/library)
+"rwO" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 10
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron,
+/area/science/mixing)
 "rxh" = (
 /obj/item/toy/beach_ball/branded{
 	pixel_y = 7
@@ -51355,6 +51822,16 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/break_room)
+"rBw" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/event_spawn,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/sign/poster/contraband/random/directional/north,
+/turf/open/floor/plating,
+/area/maintenance/port)
 "rBy" = (
 /obj/machinery/biogenerator,
 /turf/closed/wall,
@@ -52057,6 +52534,11 @@
 	},
 /turf/open/floor/plating,
 /area/commons/toilet/auxiliary)
+"rQe" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark,
+/area/engineering/supermatter/room)
 "rQn" = (
 /obj/structure/sink{
 	dir = 4;
@@ -52374,6 +52856,23 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron/white,
 /area/science/xenobiology)
+"rUI" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 8
+	},
+/obj/machinery/light/no_nightlight/directional/west,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 4;
+	initialize_directions = 8
+	},
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/engineering/atmospherics_engine)
 "rUM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -52686,6 +53185,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/security/prison)
+"scq" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/thermomachine/heater{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/maintenance/disposal/incinerator)
 "scK" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
@@ -53124,6 +53630,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/medical/office)
+"smz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/tile/yellow/half/contrasted,
+/turf/open/floor/iron,
+/area/engineering/break_room)
 "smE" = (
 /obj/machinery/computer/operating,
 /obj/machinery/light/small/directional/north,
@@ -55742,6 +56255,11 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line,
 /turf/open/floor/iron/white,
 /area/medical/medbay/central)
+"tpu" = (
+/obj/effect/spawner/random/structure/grille,
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "tpy" = (
 /obj/machinery/firealarm/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -56174,6 +56692,12 @@
 	},
 /turf/open/floor/iron,
 /area/engineering/atmospherics_engine)
+"twq" = (
+/obj/structure/sign/warning/hottemp{
+	pixel_y = -32
+	},
+/turf/open/floor/plating,
+/area/maintenance/starboard/greater)
 "twK" = (
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/chapel{
@@ -56968,6 +57492,10 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
 /area/science/genetics)
+"tMI" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
+/turf/open/floor/iron,
+/area/engineering/atmos/pumproom)
 "tMV" = (
 /turf/open/floor/carpet,
 /area/command/heads_quarters/hos)
@@ -57067,6 +57595,15 @@
 /obj/item/multitool,
 /turf/open/floor/iron/dark,
 /area/engineering/storage/tech)
+"tPk" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
+/turf/open/floor/iron/dark,
+/area/engineering/transit_tube)
 "tPm" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
@@ -58991,6 +59528,13 @@
 /obj/item/canvas/twentythree_twentythree,
 /turf/open/floor/wood,
 /area/service/library)
+"uDu" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/science/xenobiology)
 "uDv" = (
 /turf/closed/wall/r_wall,
 /area/command/heads_quarters/rd)
@@ -59173,6 +59717,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/service/chapel)
+"uIc" = (
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/maintenance/department/science/xenobiology)
 "uIg" = (
 /obj/machinery/door/window/left/directional/north{
 	dir = 8;
@@ -59224,6 +59772,7 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft/lesser)
+<<<<<<< HEAD
 "uKb" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -59231,6 +59780,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/engineering/supermatter/room)
+=======
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 "uKd" = (
 /turf/closed/wall,
 /area/security/lockers)
@@ -59347,6 +59898,15 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron,
 /area/engineering/main)
+"uLZ" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	name = "Mix to Gas"
+	},
+/turf/open/floor/engine,
+/area/engineering/supermatter/room)
 "uMk" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Quartermaster";
@@ -59482,6 +60042,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/security/office)
+"uPG" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/science/xenobiology)
 "uPJ" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Research Maintenance";
@@ -60184,6 +60751,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/tcommsat/computer)
+"vdd" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/heater{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/engineering/atmos)
 "vde" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -61234,6 +61807,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/security/prison)
+"vzQ" = (
+/obj/structure/cable,
+/obj/effect/spawner/random/trash/garbage{
+	spawn_scatter_radius = 1
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/science/xenobiology)
 "vzU" = (
 /obj/machinery/computer/operating{
 	dir = 8
@@ -61623,6 +62203,12 @@
 "vEJ" = (
 /turf/closed/wall/r_wall,
 /area/engineering/storage/tech)
+"vEV" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/heater{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/science/mixing)
 "vFb" = (
 /obj/structure/lattice/catwalk,
 /obj/item/binoculars,
@@ -61961,6 +62547,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/science/xenobiology)
+"vKs" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "vKw" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -65139,6 +65732,11 @@
 	},
 /turf/open/floor/iron/dark,
 /area/command/bridge)
+"wUu" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/iron/white,
+/area/science/xenobiology)
 "wUy" = (
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine,
@@ -65558,6 +66156,18 @@
 	},
 /turf/open/floor/iron,
 /area/cargo/storage)
+"xdt" = (
+/obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
+/obj/machinery/door/airlock{
+	name = "Kitchen Cold Room";
+	req_access_txt = "28"
+	},
+/obj/machinery/duct,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/cafeteria,
+/area/service/kitchen/coldroom)
 "xdI" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/table/wood,
@@ -66878,6 +67488,15 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"xAt" = (
+/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/port/aft)
 "xAu" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
@@ -67888,6 +68507,10 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"xXq" = (
+/obj/machinery/atmospherics/pipe/smart/manifold/yellow/visible,
+/turf/closed/wall/r_wall,
+/area/science/xenobiology)
 "xXK" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/cable/layer3,
@@ -88694,6 +89317,7 @@ uUx
 xcH
 pPs
 alK
+<<<<<<< HEAD
 nJu
 tqn
 lzf
@@ -88702,6 +89326,16 @@ fDh
 dme
 dZY
 bCy
+=======
+dOx
+fQB
+hme
+xAt
+itG
+dun
+iyG
+nLc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dux
 wWK
 wFR
@@ -88951,7 +89585,11 @@ dWl
 jIZ
 jIZ
 alK
+<<<<<<< HEAD
 uKD
+=======
+eGC
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 xYz
 alK
 dux
@@ -89208,14 +89846,22 @@ oNC
 dPk
 dPk
 alK
+<<<<<<< HEAD
 cuF
+=======
+rBw
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 qQS
 alK
 hfv
 dRa
 gaP
 tqf
+<<<<<<< HEAD
 aiX
+=======
+eYC
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 mRw
 kWz
 wjS
@@ -89465,7 +90111,11 @@ bRg
 qQn
 fqP
 xwG
+<<<<<<< HEAD
 iZe
+=======
+cIJ
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 tWo
 alK
 dvq
@@ -92013,7 +92663,7 @@ fng
 lqn
 sPn
 nxX
-aeN
+jVJ
 iRg
 prB
 aBz
@@ -92527,7 +93177,7 @@ qAu
 wpc
 pZq
 nxX
-fdu
+bgu
 gAY
 qcp
 fFD
@@ -98488,6 +99138,7 @@ cFy
 ipr
 cHo
 cyK
+<<<<<<< HEAD
 gyZ
 nXX
 emd
@@ -98496,6 +99147,16 @@ lgD
 pWt
 hEX
 xJm
+=======
+evR
+hTS
+rwO
+kDc
+lgD
+vEV
+fjw
+aWn
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 egU
 qmW
 wrP
@@ -98752,7 +99413,11 @@ efz
 hlP
 hlP
 hlP
+<<<<<<< HEAD
 nrA
+=======
+edZ
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 qBs
 kKe
 wrP
@@ -99228,7 +99893,11 @@ rGz
 cOf
 kuB
 jRm
+<<<<<<< HEAD
 gKg
+=======
+dnn
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 bTI
 aWf
 ktQ
@@ -99485,7 +100154,11 @@ iIo
 fRE
 paP
 jRm
+<<<<<<< HEAD
 gKg
+=======
+dnn
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 bTI
 aWf
 ktQ
@@ -99742,7 +100415,11 @@ jXG
 rrx
 bDt
 iLM
+<<<<<<< HEAD
 gKg
+=======
+dnn
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 bTI
 aWf
 ktQ
@@ -104390,8 +105067,13 @@ vRa
 kOC
 hzW
 pot
+<<<<<<< HEAD
 bIj
 kCx
+=======
+dxA
+cIg
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 itl
 mvx
 jZi
@@ -105391,8 +106073,13 @@ ruR
 pGx
 hzQ
 sDm
+<<<<<<< HEAD
 oVj
 qOX
+=======
+qMr
+bAk
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 qfx
 iOA
 qMr
@@ -105648,7 +106335,11 @@ eLr
 ngU
 fsB
 hSY
+<<<<<<< HEAD
 fiw
+=======
+xdt
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dgC
 tlN
 thR
@@ -105905,8 +106596,13 @@ eLr
 kNb
 hSz
 gvN
+<<<<<<< HEAD
 oVj
 vmJ
+=======
+qMr
+jah
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 gqa
 xli
 qMr
@@ -107717,7 +108413,11 @@ rya
 nDU
 uzm
 mKO
+<<<<<<< HEAD
 pxR
+=======
+scq
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 qne
 apX
 mcS
@@ -108741,7 +109441,11 @@ hYU
 qjr
 vuA
 hRL
+<<<<<<< HEAD
 pxk
+=======
+twq
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 xkU
 aaU
 afQ
@@ -108998,7 +109702,11 @@ mPp
 dFI
 kyF
 xEw
+<<<<<<< HEAD
 mEA
+=======
+lsT
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 xkU
 cba
 elA
@@ -109512,7 +110220,11 @@ wbE
 jvD
 tsp
 aim
+<<<<<<< HEAD
 hse
+=======
+bkD
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 omb
 lKf
 rDW
@@ -110493,8 +111205,13 @@ ffx
 xNc
 qvj
 oma
+<<<<<<< HEAD
 uKb
 rGw
+=======
+imA
+oEF
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 mrX
 mrX
 mrX
@@ -111029,7 +111746,11 @@ bAJ
 xMa
 laG
 iXg
+<<<<<<< HEAD
 jps
+=======
+quL
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 mBy
 bfX
 eTk
@@ -111264,7 +111985,11 @@ omu
 oma
 kkt
 oma
+<<<<<<< HEAD
 ncq
+=======
+meg
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 gsg
 jOd
 jOd
@@ -111286,7 +112011,11 @@ hrb
 xMa
 hoa
 rBt
+<<<<<<< HEAD
 jps
+=======
+quL
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 kSg
 bfX
 xUJ
@@ -111520,8 +112249,13 @@ xDO
 kBE
 rMs
 rVz
+<<<<<<< HEAD
 gPC
 uWd
+=======
+qka
+uLZ
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 vgR
 fPi
 fPi
@@ -111543,7 +112277,11 @@ alq
 atm
 mON
 xwN
+<<<<<<< HEAD
 bHU
+=======
+dyi
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 cFc
 bfX
 ufy
@@ -111800,7 +112538,11 @@ fWF
 rqM
 nkQ
 ioR
+<<<<<<< HEAD
 iac
+=======
+lvZ
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 sLi
 sLi
 sLi
@@ -111809,7 +112551,11 @@ sLi
 sLi
 vaX
 lDl
+<<<<<<< HEAD
 rPP
+=======
+aLq
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aQU
 lzg
 tAn
@@ -112033,9 +112779,15 @@ dqT
 pHW
 lPW
 fZy
+<<<<<<< HEAD
 qHT
 vQt
 aGS
+=======
+gGZ
+kkt
+qLO
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 gsg
 iYv
 wST
@@ -112057,11 +112809,19 @@ lLs
 atm
 ixn
 cRR
+<<<<<<< HEAD
 pir
 qlE
 mXc
 eqQ
 hWy
+=======
+smz
+ksD
+arL
+qoJ
+aju
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 mAR
 pVl
 tYY
@@ -112289,10 +113049,17 @@ jNT
 dqT
 bfJ
 lPW
+<<<<<<< HEAD
 rVz
 qHT
 vQt
 aGS
+=======
+rQe
+gGZ
+kkt
+qLO
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 umM
 ugD
 toS
@@ -112318,9 +113085,15 @@ jaw
 sLi
 fqN
 uqu
+<<<<<<< HEAD
 sYC
 rAv
 fWM
+=======
+uqu
+hRC
+tPk
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 oaL
 sxU
 egS
@@ -112546,9 +113319,15 @@ ydL
 dqT
 wxb
 xOh
+<<<<<<< HEAD
 eOn
 eOn
 jcG
+=======
+jRc
+jRc
+cma
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 lDy
 sPO
 fPi
@@ -112577,11 +113356,19 @@ sMJ
 jws
 usW
 sLi
+<<<<<<< HEAD
 sUz
 pUa
 iKZ
 mqO
 xHp
+=======
+qgf
+eyM
+iKZ
+eSU
+tMI
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aNV
 tZy
 tUb
@@ -112835,7 +113622,11 @@ kFl
 xCY
 sLi
 jAT
+<<<<<<< HEAD
 pUa
+=======
+eyM
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 wOj
 xxQ
 lhr
@@ -113092,8 +113883,13 @@ aOY
 aOY
 sLi
 tUI
+<<<<<<< HEAD
 kEk
 bxL
+=======
+vaX
+gLL
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dAD
 eqy
 nAJ
@@ -113148,10 +113944,17 @@ dlV
 fLm
 rhT
 rhT
+<<<<<<< HEAD
 qSg
 sQw
 aSy
 rrt
+=======
+lMJ
+lMJ
+tpu
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 aaa
 aaa
@@ -113366,9 +114169,15 @@ spj
 rmt
 dyb
 rQA
+<<<<<<< HEAD
 eha
 kix
 xdN
+=======
+pgn
+jxU
+lzj
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 mFv
 bgp
 jMk
@@ -113398,12 +114207,21 @@ gim
 kqU
 cHu
 kqU
+<<<<<<< HEAD
 vpS
 oez
 vwv
 obl
 hPF
 urd
+=======
+qsw
+jiz
+qyy
+hwv
+jsN
+vzQ
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dbv
 gWT
 aaa
@@ -113614,7 +114432,11 @@ iLe
 bJI
 twh
 ulj
+<<<<<<< HEAD
 vco
+=======
+rUI
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 oCS
 eeV
 rfN
@@ -113624,7 +114446,11 @@ elN
 nZy
 rtq
 wLr
+<<<<<<< HEAD
 icl
+=======
+vdd
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 uzC
 lLZ
 pFE
@@ -113655,17 +114481,30 @@ kbe
 lxZ
 cSd
 dcQ
+<<<<<<< HEAD
 bxB
+=======
+wUu
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 cSd
 wXQ
 dlV
 dlV
+<<<<<<< HEAD
 puu
 dbv
 oXm
 utt
 nsj
 rrt
+=======
+uIc
+dbv
+aaa
+aaa
+tpu
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 aaa
 aaa
@@ -113917,9 +114756,17 @@ cPX
 kOu
 dSl
 dlV
+<<<<<<< HEAD
 dLg
 fgz
 nsj
+=======
+uIc
+rhT
+aaa
+aaa
+tpu
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 rbD
 rrt
@@ -114174,12 +115021,21 @@ bCv
 ubI
 kHd
 dlV
+<<<<<<< HEAD
 dLg
 dbv
 kVO
 sQw
 tHt
 rrt
+=======
+uIc
+dbv
+lMJ
+lMJ
+tpu
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 aaa
 aaa
@@ -114431,9 +115287,15 @@ jSw
 kOu
 cSn
 dlV
+<<<<<<< HEAD
 dLg
 fgz
 nsj
+=======
+uIc
+rhT
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 rbD
 lMJ
@@ -114678,22 +115540,39 @@ cSd
 uzW
 pud
 cSd
+<<<<<<< HEAD
 sSZ
+=======
+cQB
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 wOk
 aBR
 cSd
 rUh
+<<<<<<< HEAD
 loQ
+=======
+fOL
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 cSd
 wXQ
 dlV
 dlV
+<<<<<<< HEAD
 puu
 dbv
 oXm
 utt
 nsj
 rrt
+=======
+uIc
+dbv
+aaa
+aaa
+tpu
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 aaa
 aaa
@@ -114935,6 +115814,7 @@ sEX
 fFm
 cSA
 tmH
+<<<<<<< HEAD
 uBY
 nth
 fXJ
@@ -114946,11 +115826,30 @@ vBv
 dlV
 vFO
 vFO
+=======
+cSW
+cSW
+cSW
+vKs
+fmF
+nXj
+ycZ
+vBv
+dlV
+uIc
+uIc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dbv
 gWT
 aaa
+<<<<<<< HEAD
 rbD
 rrt
+=======
+aaa
+tpu
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 aaa
 aaa
@@ -115201,6 +116100,7 @@ epI
 eMR
 lpz
 dlV
+<<<<<<< HEAD
 vFO
 rhT
 rhT
@@ -115208,6 +116108,15 @@ gCa
 sQw
 vCz
 rrt
+=======
+uIc
+rhT
+rhT
+lMJ
+lMJ
+tpu
+aaa
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 aaa
 aaa
 aaa
@@ -115458,7 +116367,11 @@ ffm
 cpM
 wXH
 dlV
+<<<<<<< HEAD
 vFO
+=======
+uIc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dbv
 aaa
 aaa
@@ -115715,7 +116628,11 @@ dbt
 cSn
 cSn
 dlV
+<<<<<<< HEAD
 vFO
+=======
+uIc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 dbv
 aaa
 aaa
@@ -115972,7 +116889,11 @@ dbt
 wUy
 gAH
 dlV
+<<<<<<< HEAD
 vFO
+=======
+uIc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 rhT
 lMJ
 lMJ
@@ -116229,7 +117150,11 @@ dlV
 dlV
 dlV
 dlV
+<<<<<<< HEAD
 vFO
+=======
+uIc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 rhT
 aaa
 aaa
@@ -116481,12 +117406,21 @@ mNH
 ujh
 kpA
 kGb
+<<<<<<< HEAD
 cRi
 dlV
 lxk
 vFO
 vFO
 urd
+=======
+xXq
+dlV
+biF
+uIc
+uIc
+vzQ
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 rhT
 aaa
 aaa
@@ -116740,7 +117674,11 @@ qQD
 hqx
 cRi
 jDi
+<<<<<<< HEAD
 fmT
+=======
+uIc
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 cTA
 cTA
 tRg
@@ -116997,7 +117935,11 @@ idw
 tev
 mXg
 xfs
+<<<<<<< HEAD
 xtL
+=======
+uPG
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 cTB
 tms
 rhT
@@ -117254,7 +118196,11 @@ cSn
 cSn
 cRi
 rhT
+<<<<<<< HEAD
 pwR
+=======
+hyr
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 rhT
 rhT
 rhT
@@ -117511,8 +118457,13 @@ cSn
 cSn
 cRi
 jsI
+<<<<<<< HEAD
 fca
 jsJ
+=======
+uDu
+kJe
+>>>>>>> 6ad8000bd3d (Adds the Accounting Console to the game (HOP Job Content) (#66304))
 rhT
 aaa
 aaa
