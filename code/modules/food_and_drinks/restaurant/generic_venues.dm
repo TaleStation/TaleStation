@@ -90,13 +90,7 @@
 		/datum/customer_data/malfunction = 1,
 	)
 
-<<<<<<< HEAD
-/datum/venue/bar/order_food(mob/living/simple_animal/robot_customer/customer_pawn, datum/customer_data/customer_data)
-	var/datum/reagent/reagent_to_order = pick_weight(customer_data.orderable_objects[venue_type])
-
-=======
 /datum/venue/bar/get_food_appearance(order)
->>>>>>> 59efaf75b35 ([NO GBP] Fixes the moth costumer for the restaurant venue not showing up and bar venue customers. (#66545))
 	var/glass_visual
 
 	if(initial(reagent_to_order.glass_icon_state))
