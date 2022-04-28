@@ -154,11 +154,8 @@
 	log_econ("[total_cost] credits were spent on [parent] by [user] via [idcard.registered_account.account_holder]'s card.")
 	idcard.registered_account.bank_card_talk("[total_cost] credits deducted from your account.")
 	playsound(src, 'sound/effects/cashregister.ogg', 20, TRUE)
-<<<<<<< HEAD
-=======
 	SSeconomy.track_purchase(idcard.registered_account, total_cost, parent)
 	return TRUE
->>>>>>> 5f4d5a42d44 (Arconomy: The bigger balance PR (REVISED EDITION) (#65795))
 
 /**
  * Attempts to remove the payment component, currently when the crew wins a revolution.
@@ -166,14 +163,7 @@
  */
 /datum/component/payment/proc/clean_up(datum/source)
 	SIGNAL_HANDLER
-<<<<<<< HEAD
-
-	if(!isnum(new_cost))
-		CRASH("change_cost called with variable new_cost as not a number.")
-	cost = new_cost
-=======
 	target_acc = null
 	qdel(src)
 	return
 
->>>>>>> 5f4d5a42d44 (Arconomy: The bigger balance PR (REVISED EDITION) (#65795))
