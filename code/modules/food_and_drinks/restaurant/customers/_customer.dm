@@ -297,6 +297,7 @@
 /datum/customer_data/moth/proc/get_dynamic_order(datum/venue/venue)
 	var/mob/living/carbon/buffet = venue.restaurant_portal?.turned_on_portal?.resolve()
 	if (!istype(buffet))
+<<<<<<< HEAD
 		return
 
 	var/list/orderable = list()
@@ -313,6 +314,12 @@
 	if (orderable.len)
 		var/datum/order = pick_weight(orderable)
 		return order.type
+=======
+		return FALSE
+	if(QDELETED(buffet.head) && QDELETED(buffet.gloves) && QDELETED(buffet.shoes))
+		return FALSE
+	return TRUE
+>>>>>>> 59efaf75b35 ([NO GBP] Fixes the moth costumer for the restaurant venue not showing up and bar venue customers. (#66545))
 
 /datum/customer_data/moth/proc/get_wings(mob/living/simple_animal/robot_customer/customer)
 	var/customer_ref = WEAKREF(customer)
