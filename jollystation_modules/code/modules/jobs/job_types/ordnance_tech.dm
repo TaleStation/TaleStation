@@ -19,7 +19,7 @@
 	outfit = /datum/outfit/job/scientist/ordnance_tech
 	plasmaman_outfit = /datum/outfit/plasmaman/science
 
-	paycheck = PAYCHECK_MEDIUM
+	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SCI
 
 	display_order = JOB_DISPLAY_ORDER_ORDNANCE_TECH
