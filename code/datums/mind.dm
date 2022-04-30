@@ -45,6 +45,7 @@
 	var/datum/job/assigned_role
 	var/special_role
 	var/list/restricted_roles = list()
+	var/list/datum/objective/objectives = list() // NON-MODULAR CHANGE: Cryopods
 
 	var/list/spell_list = list() // Wizard mode & "Give Spell" badmin button.
 
