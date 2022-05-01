@@ -148,6 +148,20 @@
 
 /obj/machinery/door/airlock/Initialize(mapload)
 	. = ..()
+	// NON-MODULAR CHANGES: Airlock icon update
+	//overlay2
+	vis_overlay1 = new()
+	vis_overlay1.icon = overlays_file
+	//overlay1
+	vis_overlay2 = new()
+	vis_overlay2.icon = overlays_file
+	vis_overlay2.layer = layer
+	vis_overlay2.plane = 1
+	vis_contents += vis_overlay1
+	vis_contents += vis_overlay2
+	update_overlays()
+	// NON-MODULAR CHANGES END
+
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
