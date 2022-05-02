@@ -464,12 +464,14 @@
 	airlock_state = state
 
 	. = ..()
-
+/* NON-MODULE CHANGES: Aesthetics
 	if(hasPower() && unres_sides)
 		set_light(2, 1)
 	else
 		set_light(0)
+*/ //NON-MODULE CHANGES END
 
+/* NON-MODULE CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_icon_state()
 	. = ..()
 	switch(airlock_state)
@@ -477,7 +479,7 @@
 			icon_state = ""
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
-/* NON-MODULE CHANGES: Aesthetics
+
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 
