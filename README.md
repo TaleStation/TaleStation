@@ -1,6 +1,10 @@
 ## JollyStation, a /TG/ Station downstream.
 
-Something something work in progress.
+A work in progress.
+
+A sever with a HRP end goal, and fun for everyone.
+
+Join our DevBus for more information about development, or our main Discord for information about the game itself.
 
 ## Discords
 
