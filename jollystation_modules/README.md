@@ -1,7 +1,7 @@
 
 # The JollyStation Module Folder
 
-## MODULES ARE YOU:
+## MODULES AND YOU:
 
 So you want to add content? Then you've come to the right place. I appreciate you for reading this first before jumping in and adding a bunch of changes to /TG/ files.
 
