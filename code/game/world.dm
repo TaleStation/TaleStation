@@ -323,7 +323,7 @@ GLOBAL_VAR(restart_counter)
 	s += "</a>"
 	s += ") "
 	s += ""
-	s += "TG-Based code server where Roleplay comes first.
+	s += "TG-Based code server where Roleplay comes first."
 	s += "Join our Discord for more information."
 	s += "(We're still working on things!)"
 
