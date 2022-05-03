@@ -147,21 +147,27 @@
 	network_id = NETWORK_DOOR_AIRLOCKS
 
 /obj/machinery/door/airlock/Initialize(mapload)
-	. = ..()
-	// NON-MODULAR CHANGES: Airlock icon update
-	//overlay2
+	//NON-MODULAR CHANGES: Aesthetic
 	vis_overlay1 = new()
 	vis_overlay1.icon = overlays_file
-	//overlay1
 	vis_overlay2 = new()
 	vis_overlay2.icon = overlays_file
 	vis_overlay2.layer = layer
 	vis_overlay2.plane = 1
 	vis_contents += vis_overlay1
 	vis_contents += vis_overlay2
+	//NON-MODULAR CHANGES END
+	. = ..()
+	//NON-MODULAR CHANGES: Aesthetic
+/* Multi tile doors, add these later - Jolly
+	if(multi_tile)
+		SetBounds()
+	if(multi_tile)
+		vis_overlay1.dir = src.dir
+		vis_overlay2.dir = src.dir
 	update_overlays()
-	// NON-MODULAR CHANGES END
-
+*/
+	//NON-MODULAR CHANGES END
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
