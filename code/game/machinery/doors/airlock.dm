@@ -471,7 +471,7 @@
 		set_light(0)
 */ //NON-MODULE CHANGES END
 
-
+// NON-MODULE CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_icon_state()
 	. = ..()
 	switch(airlock_state)
@@ -480,9 +480,12 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
-/* NON-MODULE CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
+	var/pre_light_range = 0
+	var/pre_light_power = 0
+	var/pre_light_color = ""
+	var/lights_overlay = ""
 
 	var/frame_state
 	var/light_state
@@ -491,21 +494,43 @@
 			frame_state = AIRLOCK_FRAME_CLOSED
 			if(locked)
 				light_state = AIRLOCK_LIGHT_BOLTS
+				lights_overlay = "lights_bolts"
+				pre_light_color = light_color_bolts
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
+				lights_overlay = "lights_emergency"
+				pre_light_color = light_color_emergency
+			else
+				lights_overlay = "lights_poweron"
+				pre_light_color = light_color_poweron
 		if(AIRLOCK_DENY)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
+			lights_overlay = "lights_denied"
+			pre_light_color = light_color_deny
 		if(AIRLOCK_EMAG)
 			frame_state = AIRLOCK_FRAME_CLOSED
 		if(AIRLOCK_CLOSING)
 			frame_state = AIRLOCK_FRAME_CLOSING
 			light_state = AIRLOCK_LIGHT_CLOSING
+			lights_overlay = "lights_closing"
+			pre_light_color = light_color_access
 		if(AIRLOCK_OPEN)
 			frame_state = AIRLOCK_FRAME_OPEN
+			if(locked)
+				lights_overlay = "lights_bolts_open"
+				pre_light_color = light_color_bolts
+			else if(emergency)
+				lights_overlay = "lights_emergency_open"
+				pre_light_color = light_color_emergency
+			else
+				lights_overlay = "lights_poweron_open"
+				pre_light_color = light_color_poweron
 		if(AIRLOCK_OPENING)
 			frame_state = AIRLOCK_FRAME_OPENING
 			light_state = AIRLOCK_LIGHT_OPENING
+			lights_overlay = "lights_opening"
+			pre_light_color = light_color_access
 
 	. += get_airlock_overlay(frame_state, icon, em_block = TRUE)
 	if(airlock_material)
@@ -515,6 +540,14 @@
 
 	if(lights && hasPower())
 		. += get_airlock_overlay("lights_[light_state]", overlays_file, em_block = FALSE)
+		pre_light_range = door_light_range
+		pre_light_power = door_light_power
+		if(has_environment_lights)
+			set_light(pre_light_range, pre_light_power, pre_light_color, TRUE)
+	else
+		lights_overlay = ""
+
+	update_vis_overlays(lights_overlay)
 
 	if(panel_open)
 		. += get_airlock_overlay("panel_[frame_state][security_level ? "_protected" : null]", overlays_file, em_block = TRUE)
@@ -557,7 +590,6 @@
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_w")
 			I.pixel_x = -32
 			. += I
-*/ //NON-MODULE CHANGES END
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -614,6 +646,7 @@
 		. += span_notice("Ctrl-click [src] to [ locked ? "raise" : "drop"] its bolts.")
 		. += span_notice("Alt-click [src] to [ secondsElectrified ? "un-electrify" : "permanently electrify"] it.")
 		. += span_notice("Ctrl-Shift-click [src] to [ emergency ? "disable" : "enable"] emergency access.")
+// NON-MODULE CHANGES END
 
 /obj/machinery/door/airlock/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
