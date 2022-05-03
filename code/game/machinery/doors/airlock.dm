@@ -147,7 +147,27 @@
 	network_id = NETWORK_DOOR_AIRLOCKS
 
 /obj/machinery/door/airlock/Initialize(mapload)
+	//NON-MODULAR CHANGES: Aesthetic
+	vis_overlay1 = new()
+	vis_overlay1.icon = overlays_file
+	vis_overlay2 = new()
+	vis_overlay2.icon = overlays_file
+	vis_overlay2.layer = layer
+	vis_overlay2.plane = 1
+	vis_contents += vis_overlay1
+	vis_contents += vis_overlay2
+	//NON-MODULAR CHANGES END
 	. = ..()
+	//NON-MODULAR CHANGES: Aesthetic
+/* Multi tile doors, add these later - Jolly
+	if(multi_tile)
+		SetBounds()
+	if(multi_tile)
+		vis_overlay1.dir = src.dir
+		vis_overlay2.dir = src.dir
+	update_overlays()
+*/
+	//NON-MODULAR CHANGES END
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
@@ -450,11 +470,13 @@
 	airlock_state = state
 
 	. = ..()
-
+/* NON-MODULE CHANGES: Aesthetics
 	if(hasPower() && unres_sides)
 		set_light(2, 1)
 	else
 		set_light(0)
+*/ //NON-MODULE CHANGES END
+
 
 /obj/machinery/door/airlock/update_icon_state()
 	. = ..()
@@ -464,6 +486,7 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
+/* NON-MODULE CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 
@@ -540,6 +563,7 @@
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_w")
 			I.pixel_x = -32
 			. += I
+*/ //NON-MODULE CHANGES END
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -1126,7 +1150,8 @@
 		use_power(50)
 		playsound(src, doorOpen, 30, TRUE)
 	else
-		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
+		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULE REMOVAL: Asthetics
+		playsound(src, forcedOpen, 30, TRUE) // NON-MODULE CHANGES: Asthetics
 
 	if(autoclose)
 		autoclose_in(normalspeed ? 8 SECONDS : 1.5 SECONDS)
@@ -1194,7 +1219,8 @@
 		playsound(src, doorClose, 30, TRUE)
 
 	else
-		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
+		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULE REMOVAL: Asthetics
+		playsound(src, forcedClosed, 30, TRUE) // NON-MODULE CHANGES: Asthetics
 
 	var/obj/structure/window/killthis = (locate(/obj/structure/window) in get_turf(src))
 	if(killthis)
