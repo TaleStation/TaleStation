@@ -247,8 +247,18 @@
 /obj/machinery/door/airlock/captain
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/cap.dmi'
 
+/obj/machinery/door/airlock/captain/glass
+	opacity = FALSE
+	glass = TRUE
+	normal_integrity = 400
+
 /obj/machinery/door/airlock/hop
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/hop.dmi'
+
+/obj/machinery/door/airlock/hop/glass
+	opacity = FALSE
+	glass = TRUE
+	normal_integrity = 400
 
 /obj/machinery/door/airlock/hos
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/hos.dmi'
