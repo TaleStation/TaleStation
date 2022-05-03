@@ -4,7 +4,7 @@
 // Code from SkyRat
 
 /obj/machinery/computer
-	icon = 'modular_skyrat/modules/connecting_computer/icons/computer.dmi'
+	icon = 'jollystation_modules/icons/obj/computer.dmi'
 	///Determines if the computer can connect to other computers (no arcades, etc.)
 	var/connectable = TRUE
 
