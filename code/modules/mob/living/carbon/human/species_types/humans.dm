@@ -9,6 +9,8 @@
 		TRAIT_CAN_USE_FLIGHT_POTION,
 	)
 	mutant_bodyparts = list("tail_human" = "None", "ears" = "None", "wings" = "None")
+	mutantears = /obj/item/organ/ears
+	mutant_organs = list()
 	use_skintones = 1
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	disliked_food = GROSS | RAW | CLOTH
@@ -16,10 +18,58 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1
 
+//Curiosity killed the human's wagging tail.
+/datum/species/human/spec_death(gibbed, mob/living/carbon/human/H)
+	if(H)
+		stop_wagging_tail(H)
+
+/datum/species/human/spec_stun(mob/living/carbon/human/H,amount)
+	if(H)
+		stop_wagging_tail(H)
+	. = ..()
+
+/datum/species/human/can_wag_tail(mob/living/carbon/human/H)
+	return mutant_bodyparts["tail_human"] || mutant_bodyparts["waggingtail_human"]
+
+/datum/species/human/is_wagging_tail(mob/living/carbon/human/H)
+	return mutant_bodyparts["waggingtail_human"]
+
+/datum/species/human/start_wagging_tail(mob/living/carbon/human/H)
+	if(mutant_bodyparts["tail_human"])
+		mutant_bodyparts["waggingtail_human"] = mutant_bodyparts["tail_human"]
+		mutant_bodyparts -= "tail_human"
+	H.update_body()
+
+/datum/species/human/stop_wagging_tail(mob/living/carbon/human/H)
+	if(mutant_bodyparts["waggingtail_human"])
+		mutant_bodyparts["tail_human"] = mutant_bodyparts["waggingtail_human"]
+		mutant_bodyparts -= "waggingtail_human"
+	H.update_body()
+
+/datum/species/human/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		if(H.dna.features["ears"] == "Cat")
+			var/obj/item/organ/ears/cat/ears = new
+			ears.Insert(H, drop_if_replaced = FALSE)
+		else
+			mutantears = /obj/item/organ/ears
+		if(H.dna.features["tail_human"] == "Cat")
+			var/obj/item/organ/tail/cat/tail = new
+			tail.Insert(H, special = TRUE, drop_if_replaced = FALSE)
+		else
+			mutant_organs = list()
+	return ..()
+
 /datum/species/human/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.hairstyle = "Business Hair"
 	human.hair_color = "#bb9966" // brown
 	human.update_hair()
+
+	var/obj/item/organ/ears/cat/cat_ears = human.getorgan(/obj/item/organ/ears/cat)
+	if (cat_ears)
+		cat_ears.color = human.hair_color
+		human.update_body()
 
 /datum/species/human/get_scream_sound(mob/living/carbon/human/human)
 	if(human.gender == MALE)
