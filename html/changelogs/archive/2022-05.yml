@@ -1,0 +1,106 @@
+2022-05-01:
+  Jolly:
+  - bugfix: Interactions are now functioning properly, again.
+  - rscadd: Cryopods have been reintroduced.
+  - rscadd: Cryopods have been added to Lima and Pubby station.
+  Jolly, sprites by PositiveEntropy:
+  - rscadd: Added the AP and BO stamps.
+2022-05-04:
+  EthanRocks:
+  - bugfix: rare case of being able to spawn off station when returning from shadow
+      realm
+  GoldenAlpharex:
+  - bugfix: Fixed hair not blocking emissives, which ended up creating some rather
+      silly visual glitches at times, in darker areas.
+  Jolly:
+  - rscadd: Pubby and Lima now use some new doors for certain command areas.
+  - bugfix: Lima HoP fax machine was moved to make the table more accessible.
+  - bugfix: False walls now use our tile set.
+  - imageadd: Walls, doors, windows and ect have been changed.
+  - imageadd: Other minor images have been changed.
+  - bugfix: Cryopods should now appear in maps.
+  JollyStationBot:
+  - rscadd: adds the "how to charge your PDA" poster
+  - bugfix: fix oversight with prop gasmasks having some of the features of normal
+      ones but without fov
+  - rscdel: Removed adding glass floors to plating
+  - balance: Allows you to replace plating with glass floors instead. 3 second timer.
+  - rscdel: Removed deconstructing the glass floors. No replacement for this one,
+      use a rcd.
+  - bugfix: Fixed metastation glassfloor spawning a weird turf when crowbarred.
+  - bugfix: Fixes Icebox Security's entrance airlock cyclers and the Interrogation
+      shutters.
+  - bugfix: Fixes Icebox Engineering's lower floor EVA airlock cycler.
+  - bugfix: Cayenne can no longer use the nuke from anywhere.
+  - bugfix: pAIs can now use Newscaster UIs, and all Silicon can now use Newscasters
+      in general (except the Bounty board, as they have no money to payout).
+  - bugfix: Nanotrasen will no longer install "Mining" Access Doors in DeltaStation's
+      Cargo Bay.
+  - refactor: Wizard casting clothes now use a bitflag instead of a typecache. This
+      allows for nonstandard headwear and suits to be varedited into casting clothes.
+  - balance: The enchanted modsuit's chestplate and helmet must now be deployed in
+      order to cast robed spells.
+  - code_imp: changed some backend code for rendering, please report any layering
+      issues on the github
+  - bugfix: Fixed several inconsistent or niche access requirements on MetaStation
+  - bugfix: Fixed plasma sheets and it's derivatives exploding you for being shot
+      at.
+  - rscadd: Mechs now have a weapons safety, which can be toggled with the Middle
+      Mouse button. Don't worry, it defaults to off.
+  - bugfix: AIs can use mech equipment again. With weapons safety off, equipment is
+      used. With weapons safety on, AI clicks are used.
+  - spellcheck: Fixed a few insignificant typos.
+  - bugfix: corrects pathway in sausage and eggs. Now cooked with fried eggs as intended.
+  - bugfix: Shuffled around some pipes in KiloStation garden so they are no longer
+      under tables/grass.
+  - bugfix: Drones are exempt from the lathe tax, off and on station.
+  - bugfix: Icebox no longer spawns Prisoners outside of Permabrig.
+  - bugfix: The disposals bin in front of the cafeteria on KiloStation now is actually
+      properly connected to the disposals network.
+  - rscadd: Hey did you know you can charge your tablet by microwaving it?
+  - bugfix: H.E.C.K. suit now once again prevents your clothes from burning and your
+      hair from sticking out.
+  - bugfix: Cryo cell overlay should properly display above mobs now
+  - rscadd: Breathing helium now makes your speech small
+  - rscadd: Replaced secborg sprite
+  - rscadd: Back by popular demand, the Syndicate has re-included their state-of-the-art
+      Chameleon Gun into their chameleon kits, capable of disguising itself as any
+      gun known to man-kind! Lethal rounds not included.
+  - bugfix: Drones can no longer give themselves access to machines/wires through
+      consoles.
+  - bugfix: Fixes an issue with service borg apparatuses getting multiple beakers
+      in it's contents.
+  - bugfix: Fixed being able to ride dead space carp.
+  - bugfix: Security hailers no longer inform you that you used a cryptographic sequencer
+      to emag them when you did not
+  - bugfix: Fix ghosts not being able to read in the dark
+  Ryll/Shaps:
+  - balance: Armored bounty hunters are no longer being issued flamethrowers. Instead,
+      they are now issued dual-tube shotguns filled with rubbershot and trailless
+      incendiary slugs, as well as a 9mm Makarov loaded with fire bullets.
+  timothymtorres, san7890, axietheaxolotl:
+  - rscadd: Adds haunted tarot deck that allows the user the ability to see and communicate
+      with the dead.  Can be found in maint loot as a rare item.
+  - rscadd: Adds blank card decks to games vendor.  These can be written on with a
+      pen or crayon.
+  - soundadd: Adds a public domain cardflip.ogg from freesound.org that is used when
+      drawing a card.
+  - bugfix: Holodeck card decks are now spawned as syndicate deck to convey that they
+      can do damage if safeties are overridden.
+  - bugfix: Any holodeck items have their force and throwforce damage nerfed to zero
+      while the safeties are on.
+  - bugfix: Fix xray trait to appear on mobs that equip xray glasses or have xray
+      eye augmentation.
+  - code_imp: Moved the card deck code to it's own files and folder.
+  - rscdel: Remove CAS decks from random deck spawner (you need both decks to play
+      so only having one spawn was bleh)
+  - refactor: Cards have been refactored and a lot of deprecated code has been removed.
+  - imagedel: Remove old cardhand icons that were unused.
+  - imageadd: Add some new blank/scribble card icons.
+  - imageadd: Add new clown and mime joker cards to standard decks curtesy of axietheaxolotl
+      (Viro on discord)
+  xyc:
+  - bugfix: Fixed the cabling and piping in the mining lobby on Kilo. The mining shuttle
+      should now charge correctly.
+  - bugfix: removes windows in Kilo's monkey pen in genetics, allowing access to the
+      wallmounts in there.

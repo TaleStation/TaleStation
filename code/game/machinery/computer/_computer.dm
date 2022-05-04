@@ -3,9 +3,6 @@
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "computer"
 	density = TRUE
-	use_power = IDLE_POWER_USE
-	idle_power_usage = 300
-	active_power_usage = 300
 	max_integrity = 200
 	integrity_failure = 0.5
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 40, ACID = 20)
@@ -28,6 +25,7 @@
 		return FALSE
 	return TRUE
 
+/* NON-MODULE CHANGES: Conjoining consoles
 /obj/machinery/computer/update_overlays()
 	. = ..()
 	if(icon_keyboard)
@@ -46,6 +44,7 @@
 
 	. += mutable_appearance(icon, icon_screen)
 	. += emissive_appearance(icon, icon_screen)
+*/ // NON-MODULE CHANGES END
 
 /obj/machinery/computer/power_change()
 	. = ..()
@@ -126,3 +125,13 @@
 		return
 	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
 		return
+
+/obj/machinery/computer/ui_interact(mob/user, datum/tgui/ui)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	update_use_power(ACTIVE_POWER_USE)
+
+/obj/machinery/computer/ui_close(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	update_use_power(IDLE_POWER_USE)

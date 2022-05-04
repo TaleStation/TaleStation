@@ -147,7 +147,27 @@
 	network_id = NETWORK_DOOR_AIRLOCKS
 
 /obj/machinery/door/airlock/Initialize(mapload)
+	//NON-MODULAR CHANGES: Aesthetic
+	vis_overlay1 = new()
+	vis_overlay1.icon = overlays_file
+	vis_overlay2 = new()
+	vis_overlay2.icon = overlays_file
+	vis_overlay2.layer = layer
+	vis_overlay2.plane = 1
+	vis_contents += vis_overlay1
+	vis_contents += vis_overlay2
+	//NON-MODULAR CHANGES END
 	. = ..()
+	//NON-MODULAR CHANGES: Aesthetic
+/* Multi tile doors, add these later - Jolly
+	if(multi_tile)
+		SetBounds()
+	if(multi_tile)
+		vis_overlay1.dir = src.dir
+		vis_overlay2.dir = src.dir
+	update_overlays()
+*/
+	//NON-MODULAR CHANGES END
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
@@ -389,15 +409,12 @@
 		if(secondsMainPowerLost>0)
 			if(!wires.is_cut(WIRE_POWER1) && !wires.is_cut(WIRE_POWER2))
 				secondsMainPowerLost -= 1
-				updateDialog()
 			cont = TRUE
 		if(secondsBackupPowerLost>0)
 			if(!wires.is_cut(WIRE_BACKUP1) && !wires.is_cut(WIRE_BACKUP2))
 				secondsBackupPowerLost -= 1
-				updateDialog()
 			cont = TRUE
 	spawnPowerRestoreRunning = FALSE
-	updateDialog()
 	update_appearance()
 
 /obj/machinery/door/airlock/proc/loseMainPower()
@@ -453,11 +470,13 @@
 	airlock_state = state
 
 	. = ..()
-
+/* NON-MODULE CHANGES: Aesthetics
 	if(hasPower() && unres_sides)
 		set_light(2, 1)
 	else
 		set_light(0)
+*/ //NON-MODULE CHANGES END
+
 
 /obj/machinery/door/airlock/update_icon_state()
 	. = ..()
@@ -467,6 +486,7 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
+/* NON-MODULE CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 
@@ -543,6 +563,7 @@
 			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_w")
 			I.pixel_x = -32
 			. += I
+*/ //NON-MODULE CHANGES END
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -761,31 +782,11 @@
 			return
 
 		secondsElectrified--
-		updateDialog()
 	// This is to protect against changing to permanent, mid loop.
 	if(secondsElectrified == MACHINE_NOT_ELECTRIFIED)
 		set_electrified(MACHINE_NOT_ELECTRIFIED)
 	else
 		set_electrified(MACHINE_ELECTRIFIED_PERMANENT)
-	updateDialog()
-
-/obj/machinery/door/airlock/Topic(href, href_list, nowindow = 0)
-	// If you add an if(..()) check you must first remove the var/nowindow parameter.
-	// Otherwise it will runtime with this kind of error: null.Topic()
-	if(!nowindow)
-		..()
-	if(!usr.canUseTopic(src) && !isAdminGhostAI(usr))
-		return
-	add_fingerprint(usr)
-
-	if((in_range(src, usr) && isturf(loc)) && panel_open)
-		usr.set_machine(src)
-
-	add_fingerprint(usr)
-	if(!nowindow)
-		updateUsrDialog()
-	else
-		updateDialog()
 
 /obj/machinery/door/airlock/screwdriver_act(mob/living/user, obj/item/tool)
 	if(panel_open && detonated)
@@ -1149,7 +1150,8 @@
 		use_power(50)
 		playsound(src, doorOpen, 30, TRUE)
 	else
-		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
+		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULE REMOVAL: Asthetics
+		playsound(src, forcedOpen, 30, TRUE) // NON-MODULE CHANGES: Asthetics
 
 	if(autoclose)
 		autoclose_in(normalspeed ? 8 SECONDS : 1.5 SECONDS)
@@ -1217,7 +1219,8 @@
 		playsound(src, doorClose, 30, TRUE)
 
 	else
-		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
+		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULE REMOVAL: Asthetics
+		playsound(src, forcedClosed, 30, TRUE) // NON-MODULE CHANGES: Asthetics
 
 	var/obj/structure/window/killthis = (locate(/obj/structure/window) in get_turf(src))
 	if(killthis)
@@ -1383,6 +1386,15 @@
 	if(atom_integrity < (0.75 * max_integrity))
 		update_appearance()
 
+/obj/machinery/door/airlock/proc/prepare_deconstruction_assembly(obj/structure/door_assembly/assembly)
+	assembly.heat_proof_finished = heat_proof //tracks whether there's rglass in
+	assembly.set_anchored(TRUE)
+	assembly.glass = glass
+	assembly.state = AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS
+	assembly.created_name = name
+	assembly.previous_assembly = previous_airlock
+	assembly.update_name()
+	assembly.update_appearance()
 
 /obj/machinery/door/airlock/deconstruct(disassembled = TRUE, mob/user)
 	if(!(flags_1 & NODECONSTRUCT_1))
@@ -1392,14 +1404,7 @@
 		else
 			A = new /obj/structure/door_assembly(loc)
 			//If you come across a null assemblytype, it will produce the default assembly instead of disintegrating.
-		A.heat_proof_finished = heat_proof //tracks whether there's rglass in
-		A.set_anchored(TRUE)
-		A.glass = glass
-		A.state = AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS
-		A.created_name = name
-		A.previous_assembly = previous_airlock
-		A.update_name()
-		A.update_appearance()
+		prepare_deconstruction_assembly(A)
 
 		if(!disassembled)
 			A?.update_integrity(A.max_integrity * 0.5)

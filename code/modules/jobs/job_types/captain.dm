@@ -12,10 +12,10 @@
 	selection_color = "#ccccff"
 	req_admin_notify = 1
 	minimal_player_age = 14
-	exp_requirements = 180
+	exp_requirements = 2400 // NON-MODULE CHANGE
 	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_COMMAND
-	exp_granted_type = EXP_TYPE_CREW
+	exp_required_type_department = EXP_TYPE_COMMAND // NON-MODULE CHANGE
+	exp_granted_type = EXP_TYPE_COMMAND // NON-MODULE CHANGE
 
 	outfit = /datum/outfit/job/captain
 	plasmaman_outfit = /datum/outfit/plasmaman/captain
@@ -62,7 +62,7 @@
 		/obj/item/melee/baton/telescopic = 1,
 		/obj/item/station_charter = 1,
 		)
-	belt = /obj/item/pda/captain
+	belt = /obj/item/modular_computer/tablet/pda/captain
 	ears = /obj/item/radio/headset/heads/captain/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
 	gloves = /obj/item/clothing/gloves/color/captain

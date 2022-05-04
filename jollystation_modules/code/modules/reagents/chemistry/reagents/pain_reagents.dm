@@ -344,7 +344,7 @@
 	M.adjustBruteLoss(-0.3 * REM * delta_time, FALSE)
 	M.adjustFireLoss(-0.2 * REM * delta_time, FALSE)
 	M.cause_pain(BODY_ZONES_ALL, -0.6 * REM * delta_time)
-	M.set_drugginess(10 * REM * delta_time)
+	M.set_timed_status_effect(20 SECONDS * REM * delta_time, /datum/status_effect/drugginess)
 	if(M.disgust < DISGUST_LEVEL_VERYGROSS && DT_PROB(75 * max(1 - creation_purity, 0.5), delta_time))
 		M.adjust_disgust(2 * REM * delta_time)
 	if(DT_PROB(33 * max(1 - creation_purity, 0.5), delta_time))

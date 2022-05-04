@@ -9,12 +9,14 @@
 	var/hud_icon = 'icons/hud/screen_changeling.dmi'
 
 /datum/action/changeling/sting/set_sting(mob/user)
-	user.hud_used.lingstingdisplay.icon = hud_icon
+	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
+	changeling.lingstingdisplay.icon = hud_icon
 	. = ..()
 
 /datum/action/changeling/sting/unset_sting(mob/user)
+	var/datum/antagonist/changeling/changeling = user.mind.has_antag_datum(/datum/antagonist/changeling)
 	. = ..()
-	user.hud_used.lingstingdisplay.icon = initial(user.hud_used.lingstingdisplay.icon)
+	changeling.lingstingdisplay.icon = initial(changeling.lingstingdisplay.icon)
 
 /*
  * Simple proc to check if [target] is in range of [user] according to the user's [var/sting_range]

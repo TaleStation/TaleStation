@@ -112,6 +112,6 @@
 		to_chat(target, span_userdanger("A cold wave of light washes over you, sapping you of energy!"))
 
 		carbon_target.silent += 8
-		carbon_target.stuttering += 15
-		carbon_target.cultslurring += 18
+		carbon_target.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/stutter)
+		carbon_target.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/slurring/cult)
 		carbon_target.Jitter(3 SECONDS)

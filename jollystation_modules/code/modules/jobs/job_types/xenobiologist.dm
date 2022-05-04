@@ -9,12 +9,14 @@
 	spawn_positions = 3
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
-	exp_granted_type = EXP_TYPE_CREW
+	exp_requirements = 300
+	exp_required_type = EXP_TYPE_SCIENCE
+	exp_granted_type = EXP_TYPE_SCIENCE
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	plasmaman_outfit = /datum/outfit/plasmaman/science
 
-	paycheck = PAYCHECK_MEDIUM
+	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SCI
 
 	display_order = JOB_DISPLAY_ORDER_XENOBIOLOGIST
@@ -48,6 +50,6 @@
 	name = "Xenobiologist"
 	suit = /obj/item/clothing/suit/toggle/labcoat/xenobio
 	uniform = /obj/item/clothing/under/rank/rnd/xenobiologist
-	belt = /obj/item/pda/science/xenobiologist
+	belt = /obj/item/modular_computer/tablet/pda/science/xenobiologist
 	jobtype = /datum/job/xenobiologist
 	id_trim = /datum/id_trim/job/xenobiologist

@@ -210,7 +210,7 @@
 	name = "bottle of painkillers"
 	desc = "Contains multiple pills used to treat anywhere from mild to extreme pain. CAUTION: Do not take in conjunction with alcohol."
 	icon = 'jollystation_modules/icons/obj/chemical.dmi'
-	custom_premium_price = PAYCHECK_HARD * 1.5
+	custom_premium_price = PAYCHECK_COMMAND * 1.5
 
 /obj/item/storage/pill_bottle/painkillers/Initialize()
 	. = ..()
@@ -281,7 +281,7 @@
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 2
-	custom_price = PAYCHECK_MEDIUM
+	custom_price = PAYCHECK_CREW
 
 /obj/item/shock_blanket/Initialize(mapload)
 	. = ..()

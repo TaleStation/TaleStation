@@ -188,6 +188,20 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
+		//NON-MODULE CHANGES START
+		"[ACCESS_BO]" = list(
+			"regions" = list(REGION_COMMAND),
+			"head" = JOB_CAPTAIN,
+			"templates" = list(),
+			"pdas" = list(),
+		),
+		"[ACCESS_AP]" = list(
+			"regions" = list(REGION_COMMAND),
+			"head" = JOB_CAPTAIN,
+			"templates" = list(),
+			"pdas" = list(),
+		),
+		//NON-MODULE CHANGES END
 	)
 
 	var/list/station_job_trims = subtypesof(/datum/id_trim/job)
@@ -211,8 +225,8 @@ SUBSYSTEM_DEF(id_access)
 		var/datum/id_trim/trim = trim_singletons_by_path[trim_path]
 		centcom_job_templates[trim_path] = trim.assignment
 
-	var/list/all_pda_paths = typesof(/obj/item/pda)
-	var/list/pda_regions = PDA_PAINTING_REGIONS + get_modular_PDA_regions() // NON-MODULE CHANGE
+	var/list/all_pda_paths = typesof(/obj/item/modular_computer/tablet/pda)
+	var/list/pda_regions = PDA_PAINTING_REGIONS
 	for(var/pda_path in all_pda_paths)
 		if(!(pda_path in pda_regions))
 			continue
@@ -225,7 +239,7 @@ SUBSYSTEM_DEF(id_access)
 				if(!(whitelisted_region in manager_regions))
 					continue
 				var/list/manager_pdas = manager_info["pdas"]
-				var/obj/item/pda/fake_pda = pda_path
+				var/obj/item/modular_computer/tablet/pda/fake_pda = pda_path
 				manager_pdas[pda_path] = initial(fake_pda.name)
 				station_pda_templates[pda_path] = initial(fake_pda.name)
 

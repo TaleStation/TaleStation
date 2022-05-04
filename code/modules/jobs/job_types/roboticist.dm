@@ -7,8 +7,8 @@
 	spawn_positions = 2
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
-	exp_requirements = 60
-	exp_required_type = EXP_TYPE_CREW
+	exp_requirements = 180 // NON-MODULE CHANGE
+	exp_required_type = EXP_TYPE_SCIENCE // NON-MODULE CHANGE
 	exp_granted_type = EXP_TYPE_CREW
 	bounty_types = CIV_JOB_ROBO
 
@@ -18,7 +18,7 @@
 		/datum/job_department/science,
 		)
 
-	paycheck = PAYCHECK_MEDIUM
+	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SCI
 
 	display_order = JOB_DISPLAY_ORDER_ROBOTICIST
@@ -45,12 +45,9 @@
 	id_trim = /datum/id_trim/job/roboticist
 	uniform = /obj/item/clothing/under/rank/rnd/roboticist
 	suit = /obj/item/clothing/suit/toggle/labcoat/roboticist
-	backpack_contents = list(
-		/obj/item/modular_computer/tablet/preset/science = 1,
-		)
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/headset_sci
-	l_pocket = /obj/item/pda/roboticist
+	l_pocket = /obj/item/modular_computer/tablet/pda/roboticist
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/science

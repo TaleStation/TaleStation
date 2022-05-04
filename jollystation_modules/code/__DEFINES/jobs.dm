@@ -1,7 +1,5 @@
 /// -- Job defines. --
-#define JOB_DISPLAY_ORDER_ASSET_PROTECTION 3.1
-#define JOB_DISPLAY_ORDER_BRIDGE_OFFICER 3.2
-#define JOB_DISPLAY_ORDER_ORDNANCE_TECH 29.1
-#define JOB_DISPLAY_ORDER_XENOBIOLOGIST 29.2
+// There is a HIGH probable chance you may need to add job defines to the main jobs.dm due to load order, unless its 100% modular
 
+// Syndicate job define
 #define JOB_SYNDICATE (1<<0)

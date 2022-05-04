@@ -9,7 +9,7 @@
 	selection_color = "#ddffdd"
 	spawn_type = /mob/living/silicon/robot
 	minimal_player_age = 21
-	exp_requirements = 120
+	exp_requirements = 1200 // NON-MODULE CHANGE
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
 

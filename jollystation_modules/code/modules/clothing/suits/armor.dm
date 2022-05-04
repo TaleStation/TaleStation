@@ -69,7 +69,7 @@
 		/obj/item/lighter,
 		/obj/item/storage/box/matches,
 		/obj/item/modular_computer/tablet,
-		/obj/item/pda,
+		/obj/item/modular_computer/tablet/pda,
 		/obj/item/toy,
 		/obj/item/stamp,
 		/obj/item/pen,
