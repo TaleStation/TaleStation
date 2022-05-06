@@ -96,4 +96,10 @@
 	for(var/datum/mutation/human/clumsy/M in H.dna.mutations)
 		M.mutadone_proof = TRUE
 	var/datum/atom_hud/fan = GLOB.huds[DATA_HUD_FAN]
+<<<<<<< HEAD
 	fan.add_hud_to(H)
+=======
+	fan.show_to(H)
+	H.faction |= FACTION_CLOWN
+	
+>>>>>>> f5fe3a8909c (Clown Bomb Clowns and Station Clown share a faction, stopping attacks (#66318))
