@@ -49,21 +49,6 @@
 	name = "Lower Port Maintenance"
 	icon_state = "pmaint"
 
-
-//Berry Physics Space Ruin
-/area/ruin/space/has_grav/powered/berry_physics
-	name = "Berry Physics"
-	icon_state = "red"
-
-//NERVA Station
-/area/ruin/space/has_grav/nerva
-	name = "NERVA Beacon"
-	icon_state = "green"
-
-/area/solars/nerva
-	name = "NERVA Beacon Solar Array"
-	icon_state = "panelsP"
-
 /area/commons/cryopods
 	name = "\improper Cryopod Room"
 	icon_state = "green"
