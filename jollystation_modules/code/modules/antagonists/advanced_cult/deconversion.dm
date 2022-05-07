@@ -31,7 +31,7 @@
 	data["misc"] += delta_time SECONDS * REM
 	if(data["misc"] >= (25 SECONDS)) // ~10 units
 		user.adjust_timed_status_effect(4 SECONDS * delta_time, /datum/status_effect/speech/stutter, max_duration = 20 SECONDS)
-		user.Dizzy(0.5 SECONDS)
+		user.set_timed_status_effect(1 SECONDS, /datum/status_effect/dizziness)
 
 		if(DT_PROB(10, delta_time))
 			user.say(cult_datum.cultist_style.pick_deconversion_line(), forced = "holy water")

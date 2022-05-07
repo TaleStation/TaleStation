@@ -108,7 +108,7 @@
 
 	victim.flash_act(1, TRUE, TRUE, TRUE, length = 4 SECONDS)
 	victim.apply_damage(50, STAMINA, BODY_ZONE_CHEST)
-	victim.dizziness += 15
+	victim.set_timed_status_effect(20 SECONDS, /datum/status_effect/dizziness)
 	victim.add_confusion(20)
 
 	playsound(get_turf(victim), 'sound/magic/blind.ogg', 15, FALSE, SILENCED_SOUND_EXTRARANGE, pressure_affected = FALSE, ignore_walls = FALSE)

@@ -468,8 +468,11 @@
  * Check which additional pain modifiers should be applied.
  */
 /datum/pain/proc/check_pain_modifiers(delta_time)
-	if(parent.drunkenness)
-		if(parent.drunkenness > 10)
+
+	var/parent_drunkenness = parent.get_drunk_amount()
+
+	if(parent_drunkenness )
+		if(parent_drunkenness > 10)
 			set_pain_modifier(PAIN_MOD_DRUNK, 0.9)
 		else
 			unset_pain_modifier(PAIN_MOD_DRUNK)
@@ -539,6 +542,7 @@
  */
 /datum/pain/proc/low_pain_effects(delta_time)
 	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
+	var/datum/status_effect/dizziness = parent.has_status_effect(/datum/status_effect/dizziness)
 	if(DT_PROB(3, delta_time))
 		to_chat(parent, span_danger(pick("Everything aches.", "Everything feels sore.")))
 		if(parent.staminaloss < 5)
@@ -550,8 +554,8 @@
 	else if(parent.jitteriness <= 20 && DT_PROB(2, delta_time))
 		parent.Jitter(5)
 
-	else if(parent.dizziness <= 12 && DT_PROB(2, delta_time))
-		parent.Dizzy(2)
+	else if(dizziness && dizziness.duration <= 12 && DT_PROB(2, delta_time))
+		parent.set_timed_status_effect(4 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 /*
  * Effects caused by medium pain. (~250-400 pain)
@@ -559,6 +563,7 @@
 /datum/pain/proc/med_pain_effects(delta_time)
 
 	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
+	var/datum/status_effect/dizziness = parent.has_status_effect(/datum/status_effect/dizziness)
 	if(stuttering && stuttering.duration <= 50 && DT_PROB(8, delta_time))
 		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
 
@@ -585,8 +590,8 @@
 	else if(parent.jitteriness <= 30 && DT_PROB(1, delta_time))
 		parent.Jitter(10)
 
-	else if(parent.dizziness <= 20 && DT_PROB(1, delta_time))
-		parent.Dizzy(5)
+	else if(dizziness && dizziness.duration <= 20 && DT_PROB(1, delta_time))
+		parent.set_timed_status_effect(10 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 	else if(DT_PROB(3, delta_time))
 		do_pain_emote("cry", 6 SECONDS)
