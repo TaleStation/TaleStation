@@ -407,15 +407,20 @@ or shoot a gun to move around via Newton's 3rd Law of Motion."
 	. = ..()
 	if(!.)
 		return
-
 	var/mob/living/living_owner = owner
+<<<<<<< HEAD
 	var/last_whisper = tgui_input_text(usr, "Do you have any last words?", "Final Words")
 	if (!last_whisper || !CAN_SUCCUMB(living_owner))
 		return
 
 	if (length(last_whisper))
+=======
+	var/last_whisper = tgui_input_text(usr, "Do you have any last words?", "Goodnight, Sweet Prince")
+	if(isnull(last_whisper) || !CAN_SUCCUMB(living_owner))
+		return
+	if(length(last_whisper))
+>>>>>>> 3c69aff4f34 (Changes stripped_input to behave like tgui_text (#66757))
 		living_owner.say("#[last_whisper]")
-
 	living_owner.succumb(whispered = length(last_whisper) > 0)
 
 //ALIENS
