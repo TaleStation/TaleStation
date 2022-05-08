@@ -97,8 +97,28 @@ GLOBAL_VAR(test_log)
 	var/list/log_entry = list("[test.succeeded ? "PASS" : "FAIL"]: [test_path] [duration / 10]s")
 	var/list/fail_reasons = test.fail_reasons
 
+<<<<<<< HEAD
 	for(var/J in 1 to LAZYLEN(fail_reasons))
 		log_entry += "\tREASON #[J]: [fail_reasons[J]]"
+=======
+	for(var/reasonID in 1 to LAZYLEN(fail_reasons))
+		var/text = fail_reasons[reasonID][1]
+		var/file = fail_reasons[reasonID][2]
+		var/line = fail_reasons[reasonID][3]
+
+		// Github action annotation.
+		// See https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions
+
+		// Need to escape the text to properly support newlines.
+		var/annotation_text = replacetext(text, "%", "%25")
+		annotation_text = replacetext(annotation_text, "\n", "%0A")
+
+		log_world("::error file=[file],line=[line],title=[test_path]::[annotation_text]")
+
+		// Normal log message
+		log_entry += "\tREASON #[reasonID]: [text] at [file]:[line]"
+
+>>>>>>> 52d7aadbfad (Forgot about CI failure due to runtime (whoops) (#66762))
 	var/message = log_entry.Join("\n")
 	log_test(message)
 
