@@ -162,13 +162,8 @@ There are several things that need to be remembered:
 		var/woman
 		if(!uniform_overlay)
 			//BEGIN SPECIES HANDLING
-<<<<<<< HEAD
-			if((dna?.species.bodytype & BODYTYPE_DIGITIGRADE) && (U.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-				icon_file = 'jollystation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULE CHANGE - Enables digi uniform
-=======
 			if((dna?.species.bodytype & BODYTYPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-				icon_file = DIGITIGRADE_UNIFORM_FILE
->>>>>>> a13adca6850 (Fixed female fitted uniforms not being fitted for female bodies (#66646))
+				icon_file = 'jollystation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULE CHANGE - Enables digi uniform
 
 			//Female sprites have lower priority than digitigrade sprites
 			else if(dna.species.sexes && (dna.species.bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && uniform.female_sprite_flags != NO_FEMALE_UNIFORM) //Agggggggghhhhh
