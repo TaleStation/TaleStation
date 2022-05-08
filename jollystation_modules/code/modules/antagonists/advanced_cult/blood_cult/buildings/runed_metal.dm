@@ -8,7 +8,6 @@
 	. = ..()
 	if(isliving(user) && !IS_CULTIST(user))
 		var/mob/living/living_user = user
-		var/datum/status_effect/dizziness = living_user.has_status_effect(/datum/status_effect/dizziness)
-		if(dizziness && dizziness.duration <= 25 && prob(66))
-			living_user.set_timed_status_effect(20 SECONDS, /datum/status_effect/dizziness)
+		if(prob(66))
+			living_user.set_timed_status_effect(25 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 			. += span_hypnophrase("The shifting symbols cause you to feel dizzy...")
