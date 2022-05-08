@@ -554,7 +554,7 @@
 		parent.Jitter(5)
 
 	else if(DT_PROB(2, delta_time))
-		parent.set_timed_status_effect(40 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
+		parent.set_timed_status_effect(24 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 /*
  * Effects caused by medium pain. (~250-400 pain)

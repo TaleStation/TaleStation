@@ -268,7 +268,7 @@
 		M.drowsyness += 1 * REM * delta_time
 	// ...And dizziness
 	if(DT_PROB(85 * max(1 - creation_purity, 0.5), delta_time))
-		M.set_timed_status_effect (2 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
+		M.set_timed_status_effect (4 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 	return TRUE
 
