@@ -196,7 +196,7 @@
 		LAZYADD(already_heated_things, hit_mob)
 		hit_mob.apply_damage((clamp((radius - curr_radius), 0.5, 3) * 30), BURN, spread_damage = TRUE)
 		hit_mob.adjust_fire_stacks(clamp(radius - curr_radius, 1, 5))
-		hit_mob.IgniteMob()
+		hit_mob.ignite_mob()
 
 // Larger flare. Double radius.
 /obj/effect/solar_flare/large
