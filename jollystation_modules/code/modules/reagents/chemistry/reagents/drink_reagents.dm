@@ -13,7 +13,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/green_tea/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.dizziness = max(M.dizziness - (2 * REM * delta_time), 0)
+	M.adjust_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
 	M.drowsyness = max(M.drowsyness - (1 * REM * delta_time), 0)
 	M.jitteriness = max(M.jitteriness - (3 * REM * delta_time), 0)
 	M.AdjustSleeping(-20 * REM * delta_time)
@@ -37,7 +37,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/icetea/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.dizziness = max(M.dizziness - (2 * REM * delta_time), 0)
+	M.adjust_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
 	M.drowsyness = max(M.drowsyness - (1 * REM * delta_time), 0)
 	M.AdjustSleeping(-40 * REM * delta_time)
 	M.adjustToxLoss(-0.5, 0)
