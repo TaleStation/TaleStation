@@ -332,7 +332,7 @@
 
 /datum/reagent/psychite_tea/on_mob_life(mob/living/carbon/user, delta_time, times_fired)
 	user.drowsyness = max(user.drowsyness - (3 * REM * delta_time), 0)
-	user.dizziness = max(user.dizziness - (2 * REM * delta_time), 0)
+	user.set_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
 	user.jitteriness = max(user.jitteriness - (2 * REM * delta_time), 0)
 	user.AdjustSleeping(-20 * REM * delta_time)
 	user.adjust_bodytemperature(20 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, 0, user.get_body_temp_normal())

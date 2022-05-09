@@ -138,10 +138,10 @@
 	if(!allowed_areas)
 		///Places that we shouldn't send crates.
 		var/list/safe_area_types = typecacheof(list(
-			/area/maintenance,
+			/area/station/maintenance,
 			/area/tcommsat,
 			/area/ai_monitored,
-			/area/engineering/supermatter,
+			/area/station/engineering/supermatter,
 			/area/shuttle,
 			/area/solars,
 		))
