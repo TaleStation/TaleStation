@@ -25,7 +25,7 @@
 	if(DT_PROB(8, delta_time))
 		affected_carbon.add_confusion(12)
 	if(DT_PROB(15, delta_time))
-		affected_carbon.adjust_timed_status_effect(5 SECONDS * delta_time, /datum/status_effect/speech/stutter, max_duration = 30 SECONDS)
+		affected_carbon.adjust_timed_status_effect(5 SECONDS * delta_time, /datum/status_effect/speech/stutter, max_duration = 50 SECONDS)
 
 /datum/addiction/psychite/end_withdrawal(mob/living/carbon/affected_carbon)
 	. = ..()
