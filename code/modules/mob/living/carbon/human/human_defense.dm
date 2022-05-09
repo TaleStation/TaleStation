@@ -966,8 +966,6 @@
 
 	for(var/obj/item/I in torn_items)
 		I.take_damage(damage_amount, damage_type, damage_flag, 0)
-<<<<<<< HEAD
-=======
 
 /**
  * Used by fire code to damage worn items.
@@ -1033,4 +1031,3 @@
 	if(dna && dna.species)
 		no_protection = dna.species.handle_fire(src, delta_time, times_fired, no_protection)
 	fire_handler.harm_human(delta_time, times_fired, no_protection)
->>>>>>> c07fcb4cd87 (New mob fire! (#66746))
