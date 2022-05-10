@@ -64,7 +64,7 @@ SUBSYSTEM_DEF(crewtransfer)
 		return FALSE
 
 	//we won't call a vote if a vote is running
-	if(SSvote.mode)
+	if(SSvote.current_vote)
 		message_admins("Automatic crew transfer vote prevented due to ongoing vote.")
 		return FALSE
 
