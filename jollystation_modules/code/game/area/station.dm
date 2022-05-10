@@ -2,53 +2,53 @@
 
 
 // Drone Bay Area
-/area/engineering/atmos/control_center
+/area/station/engineering/atmos/control_center
 	name = "Atmospherics Control Center"
 
-/area/engineering/atmos/experiment_room
+/area/station/engineering/atmos/experiment_room
 	name = "Atmospherics Experimentation Room"
 
 //BO Office
-/area/security/detectives_office/bridge_officer_office //This should inherient det offices ambient?
+/area/station/security/detectives_office/bridge_officer_office //This should inherient det offices ambient?
 	name = "Bridge Officer's Office"
 	icon = 'jollystation_modules/icons/turf/areas.dmi'
 	icon_state = "bo_office"
 
 //AP Office, possibly going unused? We're adding it anyway, fuck you
-/area/command/ap_office
+/area/station/command/ap_office
 	name = "Asset Protection's Office"
 	icon = 'jollystation_modules/icons/turf/areas.dmi'
 	icon_state = "ap_office"
 
-/area/service/hydroponics/park
+/area/station/service/hydroponics/park
 	name = "Park"
 
-/area/service/bar/lower
+/area/station/service/bar/lower
 	name = "Lower Bar"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
-/area/service/barber
+/area/station/service/barber
 	name = "Salon"
 	icon_state = "cafeteria" // yeah ok
 
-/area/science/robotics/abandoned
+/area/station/science/robotics/abandoned
 	name = "\improper Abandoned Robotics"
 	icon_state = "abandoned_sci"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/service/kitchen/abandoned
+/area/station/service/kitchen/abandoned
 	name = "\improper Abandoned Kitchen"
 	icon_state = "kitchen"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
-/area/maintenance/starboard/lower
+/area/station/maintenance/starboard/lower
 	name = "Lower Starboard Maintenance"
 	icon_state = "smaint"
 
-/area/maintenance/port/lower
+/area/station/maintenance/port/lower
 	name = "Lower Port Maintenance"
 	icon_state = "pmaint"
 
-/area/commons/cryopods
+/area/station/commons/cryopods
 	name = "\improper Cryopod Room"
 	icon_state = "green"
