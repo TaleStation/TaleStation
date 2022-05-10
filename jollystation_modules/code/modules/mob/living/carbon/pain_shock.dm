@@ -8,7 +8,7 @@
 	cure_text = "Maintain a high body temperature, stop blood loss, and provide pain relievers while monitoring closely."
 	agent = "Pain"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 1
+	spreading_modifier = 1
 	desc = "Occurs when a subject enters a state of shock due to high pain, blood loss, heart difficulties, and other injuries. \
 		If left untreated the subject may experience cardiac arrest."
 	severity = DISEASE_SEVERITY_DANGEROUS

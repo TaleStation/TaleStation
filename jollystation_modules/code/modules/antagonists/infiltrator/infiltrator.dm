@@ -131,7 +131,7 @@
 	// Spawns us somewhere in maintenance via drop pod.
 	var/list/possible_spawns = list()
 	for(var/turf/found_turf in GLOB.xeno_spawn)
-		if(istype(get_area(found_turf), /area/maintenance))
+		if(istype(get_area(found_turf), /area/station/maintenance))
 			possible_spawns += found_turf
 	if(!possible_spawns.len)
 		return FALSE
