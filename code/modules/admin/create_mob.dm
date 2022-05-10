@@ -28,20 +28,6 @@
 	human.dna.blood_type = random_blood_type()
 
 	// Mutant randomizing, doesn't affect the mob appearance unless it's the specific mutant.
-<<<<<<< HEAD
-	H.dna.features["mcolor"] = "#[random_color()]"
-	H.dna.features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
-	H.dna.features["tail_lizard"] = pick(GLOB.tails_list_lizard)
-	H.dna.features["snout"] = pick(GLOB.snouts_list)
-	H.dna.features["horns"] = pick(GLOB.horns_list)
-	H.dna.features["frills"] = pick(GLOB.frills_list)
-	H.dna.features["spines"] = pick(GLOB.spines_list)
-	H.dna.features["body_markings"] = pick(GLOB.body_markings_list)
-	H.dna.features["moth_wings"] = pick(GLOB.moth_wings_list)
-	H.dna.features["moth_antennae"] = pick(GLOB.moth_antennae_list)
-	H.dna.features["pod_hair"] = pick(GLOB.pod_hair_list)
-	H.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULE CHANGE
-=======
 	human.dna.features["mcolor"] = "#[random_color()]"
 	human.dna.features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
 	human.dna.features["tail_lizard"] = pick(GLOB.tails_list_lizard)
@@ -53,7 +39,7 @@
 	human.dna.features["moth_wings"] = pick(GLOB.moth_wings_list)
 	human.dna.features["moth_antennae"] = pick(GLOB.moth_antennae_list)
 	human.dna.features["pod_hair"] = pick(GLOB.pod_hair_list)
->>>>>>> 6f58040394f (Fixes mulligan not randomizing ethereal color, removes default_color for every race except ethereals (#66229))
+	human.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULE CHANGE
 
 	human.update_body(is_creating = TRUE)
 	human.update_hair(is_creating = TRUE)
