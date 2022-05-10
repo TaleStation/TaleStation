@@ -48,94 +48,14 @@ SUBSYSTEM_DEF(vote)
 	current_vote?.reset()
 	current_vote = null
 
-<<<<<<< HEAD
-/datum/controller/subsystem/vote/proc/get_result()
-	//get the highest number of votes
-	var/greatest_votes = 0
-	var/total_votes = 0
-	for(var/option in choices)
-		var/votes = choices[option]
-		total_votes += votes
-		if(votes > greatest_votes)
-			greatest_votes = votes
-	//default-vote for everyone who didn't vote
-	if(!CONFIG_GET(flag/default_no_vote) && choices.len)
-		var/list/non_voters = GLOB.directory.Copy()
-		non_voters -= voted
-		for (var/non_voter_ckey in non_voters)
-			var/client/C = non_voters[non_voter_ckey]
-			if (!C || C.is_afk())
-				non_voters -= non_voter_ckey
-		if(non_voters.len > 0)
-			if(mode == "restart")
-				choices["Continue Playing"] += non_voters.len
-				if(choices["Continue Playing"] >= greatest_votes)
-					greatest_votes = choices["Continue Playing"]
-			else if(mode == "map")
-				for (var/non_voter_ckey in non_voters)
-					var/client/C = non_voters[non_voter_ckey]
-					var/preferred_map = C.prefs.read_preference(/datum/preference/choiced/preferred_map)
-					if(isnull(global.config.defaultmap))
-						continue
-					if(!preferred_map)
-						preferred_map = global.config.defaultmap.map_name
-					choices[preferred_map] += 1
-					greatest_votes = max(greatest_votes, choices[preferred_map])
-			// NON-MODULE CHANGE: AUTOTRANSFER
-			else if(mode == "transfer")
-				/// multipler applied to non-voters. non-voters count for 1/3rd of a vote, then past two votes they count for 1/4th, 1/5th, and so on.
-				var/non_voters_multiplier = clamp(SScrewtransfer.transfer_votes_attempted + 1, 3, 50)
-				choices["Continue Shift"] += round(non_voters.len / non_voters_multiplier)
-				if(choices["Continue Shift"] >= greatest_votes)
-					greatest_votes = choices["Continue Shift"]
-			// NON-MODULE CHANGE END
-	. = list()
-	if(greatest_votes)
-		for(var/option in choices)
-			if(choices[option] == greatest_votes)
-				. += option
-	return .
-=======
 	for(var/datum/action/vote/voting_action as anything in generated_actions)
 		if(QDELETED(voting_action))
 			continue
 		voting_action.Remove(voting_action.owner)
->>>>>>> 6e098e2dbaa (Refactors SSvote, makes votes into datums, also makes vote ui Typescript (#66772))
 
 	generated_actions.Cut()
 
-<<<<<<< HEAD
-/datum/controller/subsystem/vote/proc/result()
-	. = announce_result()
-	var/restart = FALSE
-	if(.)
-		switch(mode)
-			if("restart")
-				if(. == "Restart Round")
-					restart = TRUE
-			if("map")
-				SSmapping.changemap(global.config.maplist[.])
-				SSmapping.map_voted = TRUE
-			// NON-MODULE CHANGE: AUTOTRANSFER
-			if("transfer")
-				if(. == "Initiate Crew Transfer")
-					SScrewtransfer.initiate_crew_transfer()
-			// NON-MODULE CHANGE END
-	if(restart)
-		var/active_admins = FALSE
-		for(var/client/C in GLOB.admins + GLOB.deadmins)
-			if(!C.is_afk() && check_rights_for(C, R_SERVER))
-				active_admins = TRUE
-				break
-		if(!active_admins)
-			// No delay in case the restart is due to lag
-			SSticker.Reboot("Restart vote successful.", "restart vote", 1)
-		else
-			to_chat(world, span_boldannounce("Notice: Restart vote will not restart the server automatically because there are active admins on."))
-			message_admins("A restart vote has passed, but there are active admins on with +server, so it has been canceled. If you wish, you may restart the server.")
-=======
 	SStgui.update_uis(src)
->>>>>>> 6e098e2dbaa (Refactors SSvote, makes votes into datums, also makes vote ui Typescript (#66772))
 
 /**
  * Process the results of the vote.
@@ -192,10 +112,6 @@ SUBSYSTEM_DEF(vote)
 	else
 		voted += voter.ckey
 
-<<<<<<< HEAD
-/datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key, forced = FALSE) // NON-MODULE CHANGE: AUTOTRANSFER
-	//Server is still intializing.
-=======
 	current_vote.choices_by_ckey[voter.ckey] = their_vote
 	current_vote.choices[their_vote]++
 	return TRUE
@@ -211,97 +127,20 @@ SUBSYSTEM_DEF(vote)
 /datum/controller/subsystem/vote/proc/initiate_vote(vote_type, vote_initiator_name, mob/vote_initiator, forced = FALSE)
 
 	// Even if it's forced we can't vote before we're set up
->>>>>>> 6e098e2dbaa (Refactors SSvote, makes votes into datums, also makes vote ui Typescript (#66772))
 	if(!MC_RUNNING(init_stage))
 		if(vote_initiator)
 			to_chat(vote_initiator, span_warning("You cannot start vote now, the server is not done initializing."))
 		return FALSE
-<<<<<<< HEAD
-	var/lower_admin = FALSE
-	var/ckey = ckey(initiator_key)
-	if(GLOB.admin_datums[ckey] || forced) // NON-MODULE CHANGE: AUTOTRANSFER
-		lower_admin = TRUE
-=======
->>>>>>> 6e098e2dbaa (Refactors SSvote, makes votes into datums, also makes vote ui Typescript (#66772))
 
 	// Check if we have unlimited voting power.
 	// Admin started (or forced) voted will go through even if there's an ongoing vote,
 	// if voting is on cooldown, or regardless if a vote is config disabled (in some cases)
 	var/unlimited_vote_power = forced || !!GLOB.admin_datums[vote_initiator?.ckey]
 
-<<<<<<< HEAD
-		reset()
-		switch(vote_type)
-			if("restart")
-				choices.Add("Restart Round","Continue Playing")
-			if("map")
-				if(!lower_admin && SSmapping.map_voted)
-					to_chat(usr, span_warning("The next map has already been selected."))
-					return FALSE
-				// Randomizes the list so it isn't always METASTATION
-				var/list/maps = list()
-				for(var/map in global.config.maplist)
-					var/datum/map_config/VM = config.maplist[map]
-					if(!VM.votable || (VM.map_name in SSpersistence.blocked_maps))
-						continue
-					if (VM.config_min_users > 0 && GLOB.clients.len < VM.config_min_users)
-						continue
-					if (VM.config_max_users > 0 && GLOB.clients.len > VM.config_max_users)
-						continue
-					maps += VM.map_name
-					shuffle_inplace(maps)
-				for(var/valid_map in maps)
-					choices.Add(valid_map)
-			if("custom")
-				question = tgui_input_text(usr, "What is the vote for?", "Custom Vote")
-				if(!question)
-					return FALSE
-				for(var/i in 1 to 10)
-					var/option = tgui_input_text(usr, "Please enter an option or hit cancel to finish", "Options", max_length = MAX_NAME_LEN)
-					if(!option || mode || !usr.client)
-						break
-					choices.Add(capitalize(option))
-			// NON-MODULE CHANGE: AUTOTRANSFER
-			if("transfer")
-				var/mob/dead/observer/caller = usr
-				//Observers/ghosts don't get to decide when a shuttle-call vote happens
-				if(!lower_admin && istype(caller))
-					to_chat(usr, span_warning("[caller.started_as_observer? "You are not taking part in the round." : "You have died in the round."] If you think it should end, call a restart vote instead."))
-					return FALSE
-
-				SScrewtransfer.transfer_votes_attempted++
-				choices.Add("Initiate Crew Transfer", "Continue Shift")
-			// NON-MODULE CHANGE END
-			else
-				return FALSE
-		mode = vote_type
-		initiator = initiator_key
-		started_time = world.time
-		var/text = "[capitalize(mode)] vote started by [initiator || "CentCom"]."
-		if(mode == "custom")
-			text += "\n[question]"
-		log_vote(text)
-		var/vp = CONFIG_GET(number/vote_period)
-		to_chat(world, "\n<span class='infoplain'><font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='byond://winset?command=vote'>here</a> to place your votes.\nYou have [DisplayTimeText(vp)] to vote.</font></span>")
-		time_remaining = round(vp/10)
-		for(var/c in GLOB.clients)
-			var/client/C = c
-			var/datum/action/vote/V = new
-			if(question)
-				V.name = "Vote: [question]"
-			C.player_details.player_actions += V
-			V.Grant(C.mob)
-			generated_actions += V
-			if(C.prefs.toggles & SOUND_ANNOUNCEMENTS)
-				SEND_SOUND(C, sound('sound/misc/bloop.ogg'))
-		return TRUE
-	return FALSE
-=======
 	if(current_vote && !unlimited_vote_power)
 		if(vote_initiator)
 			to_chat(vote_initiator, span_warning("There is already a vote in progress! Please wait for it to finish."))
 		return FALSE
->>>>>>> 6e098e2dbaa (Refactors SSvote, makes votes into datums, also makes vote ui Typescript (#66772))
 
 	// Get our actual datum
 	var/datum/vote/to_vote
