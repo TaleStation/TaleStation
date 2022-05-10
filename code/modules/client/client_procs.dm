@@ -1032,6 +1032,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		CRASH("change_view called without argument.")
 
 	view = new_size
+	SEND_SIGNAL(src, COMSIG_VIEW_SET, new_size)
 	mob.hud_used.screentip_text.update_view()
 	apply_clickcatcher()
 	mob.reload_fullscreen()
@@ -1126,7 +1127,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(holder)
 		holder.filteriffic = new /datum/filter_editor(in_atom)
 		holder.filteriffic.ui_interact(mob)
-
 
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)
