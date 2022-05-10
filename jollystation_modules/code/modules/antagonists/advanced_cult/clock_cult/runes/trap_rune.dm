@@ -109,7 +109,7 @@
 	victim.flash_act(1, TRUE, TRUE, TRUE, length = 4 SECONDS)
 	victim.apply_damage(50, STAMINA, BODY_ZONE_CHEST)
 	victim.set_timed_status_effect(30 SECONDS, /datum/status_effect/dizziness)
-	victim.add_confusion(20)
+	victim.set_timed_status_effect(40 SECONDS, /datum/status_effect/confusion)
 
 	playsound(get_turf(victim), 'sound/magic/blind.ogg', 15, FALSE, SILENCED_SOUND_EXTRARANGE, pressure_affected = FALSE, ignore_walls = FALSE)
 	victim.mob_light(_range = 2, _color = LIGHT_COLOR_TUNGSTEN, _duration = 0.8 SECONDS)

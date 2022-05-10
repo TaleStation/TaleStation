@@ -161,7 +161,15 @@
 		M.set_timed_status_effect(2 SECONDS * REM * delta_time, only_if_higher = TRUE)
 	// ...And finally, confusion
 	if(current_cycle >= 25 && DT_PROB(30 * max(1 - creation_purity, 0.5), delta_time))
-		M.set_confusion(clamp(M.get_confusion() + 2, 1, 6))
+		var/confusion_left = M.get_timed_status_effect_duration(/datum/status_effect/confusion)
+		if(confusion_left < 1 SECONDS)
+			M.set_timed_status_effect(1 SECONDS, /datum/status_effect/confusion)
+
+		else if (confusion_left < 2 SECONDS)
+			M.set_timed_status_effect(2 SECONDS, /datum/status_effect/confusion)
+
+		else if (confusion_left < 6 SECONDS)
+			M.set_timed_status_effect(6 SECONDS, /datum/status_effect/confusion)
 
 	return TRUE
 
