@@ -107,7 +107,7 @@
 				affected_mob.flash_pain_overlay(2)
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("You can't focus on anything!"))
-				affected_mob.add_confusion(rand(4,8))
+				affected_mob.set_timed_status_effect(rand(8 SECONDS, 16 SECONDS), /datum/status_effect/confusion)
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("You're having difficulties breathing!"))
 				affected_mob.losebreath = clamp(affected_mob.losebreath + 4, 0, 12)

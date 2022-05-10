@@ -39,7 +39,7 @@
 	if(DT_PROB(66, delta_time))
 		affected_carbon.drowsyness = min(affected_carbon.drowsyness + 1 * REM * delta_time, 8)
 	if(DT_PROB(8, delta_time))
-		affected_carbon.add_confusion(5)
+		affected_carbon.set_timed_status_effect(10 SECONDS, /datum/status_effect/confusion)
 
 /datum/addiction/gojuice/withdrawal_enters_stage_3(mob/living/carbon/affected_carbon, delta_time)
 	. = ..()
@@ -52,7 +52,7 @@
 	if(DT_PROB(75, delta_time))
 		affected_carbon.drowsyness = min(affected_carbon.drowsyness + 1 * REM * delta_time, 16)
 	if(DT_PROB(8, delta_time))
-		affected_carbon.add_confusion(8)
+		affected_carbon.set_timed_status_effect(16 SECONDS, /datum/status_effect/confusion)
 
 /datum/addiction/gojuice/end_withdrawal(mob/living/carbon/affected_carbon)
 	. = ..()
