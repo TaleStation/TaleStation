@@ -388,12 +388,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 		return
 	if(SSvote.current_vote) //Theres already a vote running, default to rotation.
 		maprotate()
-<<<<<<< HEAD
-	SSvote.initiate_vote("map", "automatic map rotation", TRUE) // NON-MODULE CHANGE: AUTOTRANSFER
-=======
-		return
-	SSvote.initiate_vote(/datum/vote/map_vote, "automatic map rotation")
->>>>>>> 6e098e2dbaa (Refactors SSvote, makes votes into datums, also makes vote ui Typescript (#66772))
+	SSvote.initiate_vote(/datum/vote/map_vote, "automatic map rotation", TRUE) // NON-MODULE CHANGE: AUTOTRANSFER
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/change_to)
 	if(!change_to.MakeNextMap())
