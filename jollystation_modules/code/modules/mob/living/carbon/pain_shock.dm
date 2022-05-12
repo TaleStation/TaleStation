@@ -87,7 +87,7 @@
 					affected_mob.vomit(35, stun = FALSE)
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("You feel anxious."))
-				affected_mob.jitteriness += rand(6,8)
+				affected_mob.adjust_timed_status_effect(rand(12 SECONDS, 16 SECONDS), /datum/status_effect/jitter)
 			if(DT_PROB(6, delta_time))
 				to_chat(affected_mob, span_danger("You feel cold."))
 				affected_mob.pain_emote("shiver", 3 SECONDS)
