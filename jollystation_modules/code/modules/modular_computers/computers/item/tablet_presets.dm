@@ -10,14 +10,12 @@
 // Asset Protection
 /obj/item/modular_computer/tablet/pda/heads/ap
 	name = "asset protections PDA"
-	default_disk = /obj/item/computer_hardware/hard_drive/role/hos
 	greyscale_config = /datum/greyscale_config/tablet/head
 	greyscale_colors = "#d91a40#3F1514"
 
 // Bridge Officer
 /obj/item/modular_computer/tablet/pda/heads/bo
 	name = "bridge officer PDA"
-	default_disk = /obj/item/computer_hardware/hard_drive/role/hop
 	greyscale_config = /datum/greyscale_config/tablet/head
 	greyscale_colors = "#99ccff#000099"
 
@@ -32,8 +30,7 @@
 
 // Ordance Tech.
 /obj/item/modular_computer/tablet/pda/science/ordnance_tech
-	name = "xenobiologist PDA"
-	default_disk = /obj/item/computer_hardware/hard_drive/role/signal/ordnance // NOTE: Remove this from the scinetist one later
+	name = "ordnance technician PDA"
 	greyscale_colors = "#e2e2e2#000099#40e0d0"
 
 // XenoBiologist
