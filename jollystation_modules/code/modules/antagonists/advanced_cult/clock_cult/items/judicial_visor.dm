@@ -74,15 +74,7 @@
 
 	// And THIS point on, is where attack effects are done to the target
 	target.apply_damage(15, BURN)
-	var/jitter_left = target.get_timed_status_effect_duration(/datum/status_effect/jitter)
-	if(jitter_left < 1 SECONDS)
-		target.set_timed_status_effect(1 SECONDS, /datum/status_effect/jitter)
-
-	else if (jitter_left < 6 SECONDS)
-		target.set_timed_status_effect(2 SECONDS, /datum/status_effect/jitter)
-
-	else if (jitter_left < 30 SECONDS)
-		target.set_timed_status_effect(6 SECONDS, /datum/status_effect/jitter)
+	target.adjust_timed_status_effect(12 SECONDS, /datum/status_effect/jitter, max_duration = 60 SECONDS)
 	to_chat(target, span_userdanger("You feel a searing gaze bear down onto you from the [dir2text(get_dir(examined, source))]!"))
 	to_chat(source, span_warning("You gaze harshly upon [examined], searing them!"))
 
