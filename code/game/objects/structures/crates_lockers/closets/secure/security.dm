@@ -12,7 +12,11 @@
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/storage/bag/garment/captain(src)
+<<<<<<< HEAD
 	new /obj/item/computer_hardware/hard_drive/role/captain(src)
+=======
+	new /obj/item/computer_hardware/hard_drive/portable/command/captain(src)
+>>>>>>> cfca867cf8a (Fixes the captain's PDA (#66908))
 	new /obj/item/storage/box/silver_ids(src)
 	new /obj/item/radio/headset/heads/captain/alt(src)
 	new /obj/item/radio/headset/heads/captain(src)
