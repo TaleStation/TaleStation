@@ -68,7 +68,7 @@
 			carbon_target.silent += 4
 
 		carbon_target.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
-		carbon_target.Jitter(4 SECONDS)
+		carbon_target.adjust_timed_status_effect(8 SECONDS, /datum/status_effect/jitter)
 
 	ADD_TRAIT(victim, TRAIT_I_WAS_FUNNY_HANDED, REF(user))
 	addtimer(TRAIT_CALLBACK_REMOVE(victim, TRAIT_I_WAS_FUNNY_HANDED, REF(user)), 3 SECONDS)
