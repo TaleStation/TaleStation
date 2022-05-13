@@ -251,17 +251,4 @@
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 100, /datum/material/gold = 50, /datum/material/silver = 50)
 	build_path = /obj/item/computer_hardware/sensorpackage
 	category = list("Computer Parts")
-<<<<<<< HEAD
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
-
-/datum/design/signaler_part
-	name = "Integrated Signaler"
-	id = "signalpart"
-	build_type = PROTOLATHE | AWAY_LATHE
-	materials = list(/datum/material/iron = 400, /datum/material/glass = 100)
-	build_path = /obj/item/computer_hardware/radio_card
-	category = list("Computer Parts")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
-=======
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
->>>>>>> 9ae3ef56a90 (Lathe taxes now checks departmental flags (#66896))
