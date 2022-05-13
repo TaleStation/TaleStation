@@ -550,8 +550,8 @@
 	else if(DT_PROB(6, delta_time))
 		parent.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/speech/stutter, max_duration = 24 SECONDS)
 
-	else if(parent.jitteriness <= 20 && DT_PROB(2, delta_time))
-		parent.Jitter(5)
+	else if(DT_PROB(2, delta_time))
+		parent.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/jitter, max_duration = 24 SECONDS)
 
 	else if(DT_PROB(2, delta_time))
 		parent.set_timed_status_effect(24 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
@@ -584,8 +584,8 @@
 		parent.Knockdown(15 * pain_modifier)
 		parent.visible_message(span_warning("[parent] collapses from pain!"))
 
-	else if(parent.jitteriness <= 30 && DT_PROB(1, delta_time))
-		parent.Jitter(10)
+	else if(DT_PROB(1, delta_time))
+		parent.set_timed_status_effect(20 SECONDS, /datum/status_effect/jitter, only_if_higher = TRUE)
 
 	else if(DT_PROB(1, delta_time))
 		parent.set_timed_status_effect(40 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
@@ -631,9 +631,9 @@
 	else if(DT_PROB(1, delta_time))
 		parent.vomit(50)
 
-	else if(parent.jitteriness <= 30 && DT_PROB(1, delta_time))
+	else if(DT_PROB(1, delta_time))
 		do_pain_emote("wince")
-		parent.Jitter(15)
+		parent.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/jitter)
 
 	else if(DT_PROB(1, delta_time))
 		parent.set_timed_status_effect(8 SECONDS, /datum/status_effect/confusion, only_if_higher = TRUE)
