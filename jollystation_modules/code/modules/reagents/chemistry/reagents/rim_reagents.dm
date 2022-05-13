@@ -212,7 +212,7 @@
 	if(DT_PROB(33, delta_time))
 		user.adjustOrganLoss(ORGAN_SLOT_BRAIN, rand(1, 3) * REM * delta_time)
 	user.drowsyness = max(user.drowsyness - (4 * REM * delta_time), 0)
-	user.Jitter(4 * REM * delta_time)
+	user.adjust_timed_status_effect(8 SECONDS * REM * delta_time, /datum/status_effect/jitter)
 	. = ..()
 	return TRUE
 
@@ -333,7 +333,7 @@
 /datum/reagent/psychite_tea/on_mob_life(mob/living/carbon/user, delta_time, times_fired)
 	user.drowsyness = max(user.drowsyness - (3 * REM * delta_time), 0)
 	user.set_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
-	user.jitteriness = max(user.jitteriness - (2 * REM * delta_time), 0)
+	user.adjust_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/jitter)
 	user.AdjustSleeping(-20 * REM * delta_time)
 	user.adjust_bodytemperature(20 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, 0, user.get_body_temp_normal())
 	. = ..()

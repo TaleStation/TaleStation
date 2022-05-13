@@ -198,7 +198,7 @@
 		human_user.adjust_disgust(33)
 		human_user.set_timed_status_effect(30 SECONDS, /datum/status_effect/dizziness)
 		human_user.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/stutter)
-		human_user.Jitter(20)
+		human_user.adjust_timed_status_effect(40 SECONDS, /datum/status_effect/jitter)
 
 	if(--charges <= 0)
 		qdel(src)

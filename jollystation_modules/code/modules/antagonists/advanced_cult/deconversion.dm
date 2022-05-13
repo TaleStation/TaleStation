@@ -11,8 +11,7 @@
 	if(!istype(cult_datum))
 		return ..() // We're dealing with a normal cultist so we don't need to bother
 
-	user.jitteriness = min(user.jitteriness + (2 * delta_time), 10)
-
+	user.adjust_timed_status_effect(4 SECONDS * delta_time, /datum/status_effect/jitter, max_duration = 20 SECONDS)
 	for(var/datum/action/spell as anything in cult_datum.our_magic?.spells)
 		var/deleted_a_spell = FALSE
 		// 12% chance per tick to lose innate spells
@@ -42,7 +41,7 @@
 					span_userdanger("You have a seizure!")
 					)
 
-				user.Jitter(5 SECONDS)
+				user.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/jitter)
 				user.Paralyze(6 SECONDS)
 				to_chat(user, cult_datum.cultist_style.our_cult_span(cult_datum.cultist_style.pick_god_shame_line(), bold = TRUE, large = TRUE))
 
@@ -62,7 +61,7 @@
 
 		user.mind.remove_antag_datum(cult_datum.type)
 		user.Unconscious(15 SECONDS)
-		user.jitteriness = 0
+		user.remove_status_effect(/datum/status_effect/jitter)
 		user.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/stutter) // Ah fuck I can't believe you've done this
 		holder.remove_reagent(type, volume)
 		return

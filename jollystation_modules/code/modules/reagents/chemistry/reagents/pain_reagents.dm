@@ -381,7 +381,7 @@
 				human_mob.drop_all_held_items()
 			if(4)
 				to_chat(human_mob, span_danger("You feel your heart skip a beat."))
-				human_mob.Jitter(3 * REM * delta_time)
+				human_mob.set_timed_status_effect(6 SECONDS * REM * delta_time, /datum/status_effect/jitter, only_if_higher = TRUE)
 			if(5)
 				to_chat(human_mob, span_danger("You feel the world spin."))
 				human_mob.set_timed_status_effect(6 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
