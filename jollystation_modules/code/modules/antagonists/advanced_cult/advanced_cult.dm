@@ -36,7 +36,7 @@
 		to_chat(owner.current, span_warning("You feel something interfering with your mental conditioning, but you resist it!"))
 		if(affected_by_implants && iscarbon(owner.current))
 			var/mob/living/carbon/carbon_current = owner.current
-			carbon_current.jitteriness += 8
+			carbon_current.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/jitter)
 			carbon_current.adjust_timed_status_effect(12 SECONDS, /datum/status_effect/speech/stutter)
 
 /datum/antagonist/advanced_cult/finalize_antag()
