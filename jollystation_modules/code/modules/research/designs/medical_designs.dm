@@ -7,4 +7,4 @@
 	materials = list(/datum/material/iron = 250, /datum/material/glass = 400)
 	build_path = /obj/item/organ/ears/cat/cybernetic
 	category = list("Cybernetics", "Medical Designs")
-	departmental_flags = DEPARTMENTAL_BITFLAG_MEDICAL
+	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
