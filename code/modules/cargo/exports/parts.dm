@@ -160,21 +160,6 @@
 	export_types = list(/obj/item/computer_hardware/printer/mini)
 	include_subtypes = TRUE
 
-<<<<<<< HEAD
-/datum/export/modular_part/sensorpackage
-	cost = CARGO_CRATE_VALUE * 0.2
-	unit_name = "sensor package"
-	export_types = list(/obj/item/computer_hardware/sensorpackage)
-	include_subtypes = TRUE
-
-/datum/export/modular_part/integratedsignaler
-	cost = CARGO_CRATE_VALUE * 0.2
-	unit_name = "integrated computer signaler"
-	export_types = list(/obj/item/computer_hardware/radio_card)
-	include_subtypes = TRUE
-
-=======
->>>>>>> c61d6dc3cb6 (Removes CPU, Sensors and Identify ModPC parts. (#66924))
 /datum/export/modular_part/misc
 	cost = CARGO_CRATE_VALUE * 0.1
 	unit_name = "miscellaneous computer part"
