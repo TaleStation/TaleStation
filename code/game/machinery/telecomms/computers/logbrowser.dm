@@ -86,6 +86,7 @@
 				packet_out["job"] = packet.parameters["job"]
 				packet_out["type"] = packet.input_type
 				packet_out["ref"] = REF(packet)
+
 				packets += list(packet_out)
 			server_out["packets"] = packets
 			data["server"] = server_out
