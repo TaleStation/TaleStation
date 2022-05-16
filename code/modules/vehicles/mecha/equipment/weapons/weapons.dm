@@ -252,6 +252,7 @@
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/needs_rearm()
 	return projectiles <= 0
 
+
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/action(mob/source, atom/target, list/modifiers)
 	. = ..()
 	if(!.)
