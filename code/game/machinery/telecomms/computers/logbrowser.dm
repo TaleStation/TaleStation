@@ -62,6 +62,7 @@
 				else
 					message_out = "(Unintelligible)"
 				packet_out["message"] = message_out
+
 				var/mob/mobtype = packet.parameters["mobtype"]
 				var/race = "Unidentifiable"
 				if(ispath(mobtype, /mob/living/carbon/human) || ispath(mobtype, /mob/living/brain))
