@@ -246,6 +246,7 @@
 
 /obj/machinery/door/airlock/captain
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/cap.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_captain
 
 /obj/machinery/door/airlock/captain/glass
 	opacity = FALSE
@@ -254,6 +255,7 @@
 
 /obj/machinery/door/airlock/hop
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/hop.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_hop
 
 /obj/machinery/door/airlock/hop/glass
 	opacity = FALSE
@@ -262,6 +264,7 @@
 
 /obj/machinery/door/airlock/hos
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/hos.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_hos
 
 /obj/machinery/door/airlock/hos/glass
 	opacity = FALSE
@@ -270,6 +273,7 @@
 
 /obj/machinery/door/airlock/ce
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/ce.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_ce
 
 /obj/machinery/door/airlock/ce/glass
 	opacity = FALSE
@@ -278,6 +282,7 @@
 
 /obj/machinery/door/airlock/rd
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/rd.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_rd
 
 /obj/machinery/door/airlock/rd/glass
 	opacity = FALSE
@@ -286,6 +291,7 @@
 
 /obj/machinery/door/airlock/qm
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/qm.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_qm
 
 /obj/machinery/door/airlock/qm/glass
 	opacity = FALSE
@@ -294,6 +300,7 @@
 
 /obj/machinery/door/airlock/cmo
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/cmo.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_cmo
 
 /obj/machinery/door/airlock/cmo/glass
 	opacity = FALSE
@@ -302,12 +309,15 @@
 
 /obj/machinery/door/airlock/psych
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/psych.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_psych
 
 /obj/machinery/door/airlock/asylum
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/asylum.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_asylum
 
 /obj/machinery/door/airlock/bathroom
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/bathroom.dmi'
+	assemblytype = /obj/structure/door_assembly/door_assembly_bathroom
 
 //STATION MINERAL AIRLOCKS
 /obj/machinery/door/airlock/gold
@@ -379,6 +389,12 @@
 	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/multi_tile/overlays.dmi'
 
 //ASSEMBLYS
+
+/obj/structure/door_assembly/
+	icon = 'jollystation_modules/icons/obj/doors/airlocks/station/public.dmi'
+	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/station/overlays.dmi'
+
+
 /obj/structure/door_assembly/door_assembly_public
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/station2/glass.dmi'
 	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/station2/overlays.dmi'
@@ -442,7 +458,6 @@
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/vault/vault.dmi'
 	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/vault/overlays.dmi'
 
-
 /obj/structure/door_assembly/door_assembly_centcom
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/centcom/centcom.dmi'
 	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/centcom/overlays.dmi'
@@ -500,7 +515,7 @@
 	glass_type = /obj/machinery/door/airlock/command/glass
 	airlock_type = /obj/machinery/door/airlock/hop
 
-/obj/structure/door_assembly/hos
+/obj/structure/door_assembly/door_assembly_hos
 	name = "head of security airlock assembly"
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/hos.dmi'
 	glass_type = /obj/machinery/door/airlock/hos/glass
