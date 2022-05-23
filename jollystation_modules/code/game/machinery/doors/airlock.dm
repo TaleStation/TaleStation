@@ -379,6 +379,12 @@
 	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/multi_tile/overlays.dmi'
 
 //ASSEMBLYS
+
+/obj/structure/door_assembly/
+	icon = 'modular_skyrat/modules/aesthetics/airlock/icons/airlocks/station/public.dmi'
+	overlays_file = 'modular_skyrat/modules/aesthetics/airlock/icons/airlocks/station/overlays.dmi'
+
+
 /obj/structure/door_assembly/door_assembly_public
 	icon = 'jollystation_modules/icons/obj/doors/airlocks/station2/glass.dmi'
 	overlays_file = 'jollystation_modules/icons/obj/doors/airlocks/station2/overlays.dmi'
