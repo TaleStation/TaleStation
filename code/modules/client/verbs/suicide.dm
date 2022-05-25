@@ -19,6 +19,7 @@
 		if(mmi.brainmob)
 			mmi.brainmob.suiciding = suicide_state
 
+/* NON-MODULE REMOVAL: No more suicide
 /mob/living/carbon/human/verb/suicide()
 	set hidden = TRUE
 	if(!canSuicide())
@@ -217,6 +218,7 @@
 
 		death(FALSE)
 		ghostize(FALSE) // Disallows reentering body and disassociates mind
+*/
 
 /mob/living/proc/suicide_log()
 	log_message("committed suicide as [src.type]", LOG_ATTACK)
