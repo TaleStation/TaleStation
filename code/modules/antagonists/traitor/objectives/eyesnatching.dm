@@ -200,7 +200,7 @@
 	desc += " It has been used up."
 	update_icon()
 
-/obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/eyes/eyeballies, obj/item/bodypart/head, mob/living/carbon/human/victim)
+/obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/eyes/eyeballies, obj/item/organ/eyes/eyes, obj/item/bodypart/head/head, mob/living/carbon/human/victim)
 	if(!eyeballies || QDELETED(eyeballies))
 		return FALSE
 
