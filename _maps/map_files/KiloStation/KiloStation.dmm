@@ -5761,17 +5761,6 @@
 /obj/structure/girder/reinforced,
 /turf/open/space/basic,
 /area/space/nearstation)
-"ccD" = (
-/obj/machinery/computer/pod/old/mass_driver_controller/ordnancedriver{
-	pixel_x = 24
-	},
-/obj/machinery/door/window/left/directional/south{
-	name = "Mass Driver Door";
-	req_access_txt = "8"
-	},
-/obj/effect/turf_decal/tile/purple/anticorner/contrasted,
-/turf/open/floor/iron/showroomfloor,
-/area/station/science/mixing)
 "ccN" = (
 /obj/structure/flora/rock,
 /turf/open/misc/asteroid/airless,
@@ -7582,6 +7571,17 @@
 /obj/effect/landmark/start/chief_engineer,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/ce)
+"cLA" = (
+/obj/machinery/computer/pod/old/mass_driver_controller/ordnancedriver{
+	pixel_x = 24
+	},
+/obj/machinery/door/window/left/directional/south{
+	name = "Mass Driver Door";
+	req_access = list("ordnance")
+	},
+/obj/effect/turf_decal/tile/purple/anticorner/contrasted,
+/turf/open/floor/iron/showroomfloor,
+/area/station/science/mixing)
 "cLG" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -9971,28 +9971,6 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/warden)
-"duC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/delivery,
-/obj/machinery/light/small/directional/east,
-/obj/structure/closet/crate/freezer{
-	name = "organ storage"
-	},
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/external/tail/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/ears/cat,
-/obj/item/organ/internal/heart,
-/obj/structure/sign/poster/contraband/random/directional/east,
-/turf/open/floor/iron/dark,
-/area/station/maintenance/fore)
 "duM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -15001,9 +14979,6 @@
 	icon_state = "platingdmg1"
 	},
 /area/station/maintenance/port/fore)
-"eOh" = (
-/turf/closed/wall/r_wall,
-/area/space)
 "eOi" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/effect/turf_decal/tile/blue{
@@ -15857,22 +15832,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
-"fbe" = (
-/obj/structure/table,
-/obj/machinery/camera/directional/west{
-	c_tag = "ai_upload";
-	name = "upload camera";
-	network = list("aiupload")
-	},
-/obj/item/radio/intercom/directional/west,
-/obj/machinery/light/cold/directional/west,
-/obj/item/ai_module/core/full/asimov,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/ai_monitored/turret_protected/ai_upload)
 "fbm" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -19299,6 +19258,9 @@
 	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/medical)
+"fPU" = (
+/turf/open/space/basic,
+/area/station/maintenance/disposal/incinerator)
 "fQb" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/turf_decal/tile/neutral{
@@ -26150,6 +26112,28 @@
 /obj/structure/flora/bush/pale/style_random,
 /turf/open/misc/asteroid,
 /area/station/maintenance/aft)
+"hEG" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/light/small/directional/east,
+/obj/structure/closet/crate/freezer{
+	name = "organ storage"
+	},
+/obj/item/organ/external/tail/cat,
+/obj/item/organ/external/tail/cat,
+/obj/item/organ/internal/ears/cat,
+/obj/item/organ/internal/ears/cat,
+/obj/item/organ/internal/heart,
+/obj/structure/sign/poster/contraband/random/directional/east,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/fore)
 "hEH" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
@@ -35289,6 +35273,24 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
+"keH" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/bz,
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/button/door/directional/south{
+	id = "xeno5";
+	name = "Creature Cell 5 Toggle";
+	pixel_x = -24;
+	req_access = list("xenobiology")
+	},
+/turf/open/floor/iron/dark,
+/area/station/science/xenobiology)
 "keO" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -38343,6 +38345,19 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/starboard/aft)
+"kZj" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/computer/pod/old/mass_driver_controller/ordnancedriver{
+	pixel_x = 24
+	},
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/station/maintenance/starboard)
 "kZq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -53543,6 +53558,18 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/primary)
+"pmz" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating{
+	icon_state = "panelscorched"
+	},
+/area/space/nearstation)
 "pmA" = (
 /obj/structure/sign/warning/electric_shock,
 /turf/closed/wall,
@@ -64009,24 +64036,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
-"smu" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/button/door/directional/south{
-	id = "xeno5";
-	name = "Creature Cell 5 Toggle";
-	pixel_x = -24;
-	req_access = list("xenobiology")
-	},
-/obj/machinery/portable_atmospherics/canister,
-/turf/open/floor/iron/dark,
-/area/station/science/xenobiology)
 "smR" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -70112,6 +70121,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/showroomfloor,
 /area/station/medical/chemistry)
+"tWw" = (
+/obj/structure/table,
+/obj/machinery/camera/directional/west{
+	c_tag = "ai_upload";
+	name = "upload camera";
+	network = list("aiupload")
+	},
+/obj/item/radio/intercom/directional/west,
+/obj/machinery/light/cold/directional/west,
+/obj/effect/spawner/round_default_module,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/ai_monitored/turret_protected/ai_upload)
 "tWA" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing,
@@ -78678,18 +78703,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
-"wli" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/station/maintenance/port/greater)
 "wlm" = (
 /obj/structure/bookcase/random/fiction,
 /turf/open/floor/iron/dark,
@@ -80578,16 +80591,6 @@
 /obj/machinery/power/shieldwallgen,
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
-"wIF" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable,
-/turf/open/floor/plating{
-	icon_state = "panelscorched"
-	},
-/area/station/maintenance/starboard)
 "wIH" = (
 /obj/machinery/flasher/directional/north{
 	id = "AI";
@@ -97228,9 +97231,9 @@ gGB
 gGB
 gGB
 kAu
-uAr
-qhm
-uAr
+gnM
+izK
+gnM
 kAu
 gGB
 vjh
@@ -97742,9 +97745,9 @@ vjh
 vjh
 gGB
 lFH
-uiF
-uiF
-uiF
+lAR
+lAR
+lAR
 xKl
 gGB
 vjh
@@ -100825,7 +100828,7 @@ wmq
 vHr
 mtV
 vjh
-wli
+pmz
 pYj
 vjh
 wWk
@@ -113740,7 +113743,7 @@ mLN
 gnM
 yma
 tur
-eOh
+yma
 yma
 kix
 yma
@@ -117592,7 +117595,7 @@ qpI
 lNn
 rTi
 izK
-lAR
+fPU
 ntw
 lAR
 vUS
@@ -117756,7 +117759,7 @@ efG
 qlC
 sRA
 izL
-duC
+hEG
 pMm
 lRk
 fvU
@@ -120369,7 +120372,7 @@ dbT
 gWi
 sNl
 nNU
-fbe
+tWw
 cEY
 qRD
 bBK
@@ -123401,7 +123404,7 @@ wuc
 mME
 oVc
 mwp
-smu
+keH
 wpw
 iPY
 odd
@@ -130632,7 +130635,7 @@ lDu
 uJa
 dpM
 exc
-ccD
+cLA
 dVR
 oLH
 vGx
@@ -131146,7 +131149,7 @@ mtc
 pzb
 ymc
 fbD
-wIF
+kZj
 gIZ
 fuL
 vGx
