@@ -600,7 +600,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "aop" = (
 /obj/structure/chair{
 	dir = 4
@@ -644,9 +644,11 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "engie-lathe"
+	},
 /obj/effect/landmark/navigate_destination/engineering,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/general,
 /turf/open/floor/iron/showroomfloor,
 /area/station/engineering/lobby)
 "apH" = (
@@ -1201,8 +1203,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "engie-lathe"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/showroomfloor,
 /area/station/engineering/lobby)
 "aBD" = (
@@ -1549,7 +1553,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "aKC" = (
 /obj/effect/landmark/start/chaplain,
 /turf/open/floor/carpet/red,
@@ -2162,7 +2166,7 @@
 "aYp" = (
 /obj/item/storage/belt/utility/full/engi,
 /turf/open/floor/plating/airless,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "aYr" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
@@ -2285,7 +2289,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "aZJ" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
@@ -2328,7 +2332,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "bbg" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/unres{
@@ -2341,7 +2345,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -2563,7 +2569,7 @@
 "bfE" = (
 /obj/effect/landmark/carpspawn,
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "bfJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2588,11 +2594,13 @@
 /area/station/cargo/warehouse)
 "bfZ" = (
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/any/service/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall-north"
+	},
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Hall"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/service/general,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/service)
 "bgh" = (
@@ -3194,7 +3202,7 @@
 	network = list("minisat")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "bst" = (
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron,
@@ -3348,7 +3356,7 @@
 	dir = 10
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "bwg" = (
 /obj/machinery/door/airlock{
 	name = "Unit 3"
@@ -4124,7 +4132,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "bLk" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/status_display/evac/directional/east,
@@ -4400,7 +4408,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "bPS" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai_monitored/security/armory)
@@ -4578,7 +4586,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "bVg" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
@@ -4705,7 +4713,7 @@
 "bYt" = (
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "bYu" = (
 /obj/machinery/newscaster/directional/west,
 /obj/machinery/vending/wardrobe/det_wardrobe,
@@ -4734,7 +4742,7 @@
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "bZg" = (
 /obj/machinery/light/directional/north,
 /obj/machinery/requests_console{
@@ -6106,7 +6114,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/burgundy,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "cDm" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -6149,7 +6157,7 @@
 	dir = 1
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "cDT" = (
 /obj/machinery/atmospherics/miner/n2o,
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide,
@@ -6315,7 +6323,7 @@
 "cGJ" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "cGM" = (
 /obj/structure/chair/office,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -6441,7 +6449,9 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Chapel"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel"
+	},
 /turf/open/floor/iron,
 /area/station/service/chapel)
 "cKF" = (
@@ -6488,7 +6498,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "cLO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7212,7 +7222,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "daQ" = (
 /obj/structure/cable,
 /obj/structure/frame/computer{
@@ -7359,8 +7369,7 @@
 /area/station/engineering/atmos/upper)
 "dcN" = (
 /obj/machinery/door/airlock/public/glass{
-	name = "Courtroom";
-	
+	name = "Courtroom"
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -7712,7 +7721,7 @@
 	},
 /obj/structure/fans/tiny/invisible,
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "diJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -7783,7 +7792,7 @@
 	width = 3
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "djF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -8530,7 +8539,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-ext"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/foyer)
@@ -8596,7 +8607,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "dAK" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/iron,
@@ -8719,7 +8730,9 @@
 	name = "Medbay"
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -8769,8 +8782,10 @@
 	name = "Crematorium Maintenance"
 	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "crematorium"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/crematorium,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "dEU" = (
@@ -8862,7 +8877,9 @@
 /area/station/medical/pharmacy)
 "dHi" = (
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "prison"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Prison Wing"
@@ -8980,7 +8997,9 @@
 /obj/effect/turf_decal/trimline/red/filled/end{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-enterance"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig";
@@ -9515,7 +9534,7 @@
 /obj/structure/lattice,
 /obj/effect/spawner/random/trash/grille_or_waste,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "dVB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
@@ -9606,7 +9625,7 @@
 	network = list("minisat")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "dZj" = (
 /obj/structure/table/wood,
 /obj/machinery/requests_console{
@@ -9948,7 +9967,7 @@
 	width = 5
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "ehA" = (
 /obj/structure/tank_dispenser/oxygen,
 /obj/machinery/firealarm/directional/east,
@@ -10562,7 +10581,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/patients_rooms)
@@ -10653,7 +10671,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "exj" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals Hallway - Port";
@@ -10968,7 +10986,7 @@
 /obj/structure/transit_tube/crossing/horizontal,
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "eDd" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "commissaryshutter";
@@ -10994,7 +11012,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "rd-server"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/rd,
 /obj/effect/landmark/navigate_destination,
 /obj/machinery/door/airlock/rd/glass{
@@ -11198,7 +11218,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "eHl" = (
 /obj/machinery/computer/med_data,
 /obj/effect/turf_decal/siding/wood,
@@ -11400,7 +11420,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "eKv" = (
 /obj/structure/table/wood,
 /obj/item/folder/red,
@@ -12200,7 +12220,7 @@
 	dir = 1
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "eYL" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -13143,11 +13163,13 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/any/security/armory,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "warden-office"
+	},
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig Control"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/security/armory,
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "fra" = (
@@ -13286,7 +13308,7 @@
 	},
 /obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "fsN" = (
 /obj/machinery/camera{
 	c_tag = "Courtroom";
@@ -13421,7 +13443,7 @@
 	width = 7
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "ful" = (
 /turf/open/floor/iron/sepia,
 /area/station/service/chapel/office)
@@ -13967,7 +13989,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
+	cycle_id = "bridge-right"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
 /obj/effect/landmark/navigate_destination/bridge,
@@ -14352,7 +14374,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "fNY" = (
 /obj/machinery/vending/assist,
 /obj/machinery/camera{
@@ -14432,7 +14454,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "toxins-launch"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/ordnance,
 /turf/open/floor/iron/dark,
 /area/station/science/mixing)
@@ -14514,7 +14538,9 @@
 /obj/effect/turf_decal/trimline/red/filled/end{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-enterance"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig";
@@ -14859,7 +14885,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel-west"
+	},
 /obj/structure/cable,
 /turf/open/floor/iron/sepia,
 /area/station/service/chapel)
@@ -15681,7 +15709,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "prison"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Prison Wing"
@@ -16062,7 +16092,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
 /turf/open/floor/iron/dark,
 /area/station/science/research)
@@ -16349,7 +16381,9 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science)
@@ -16608,7 +16642,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "gHk" = (
 /obj/structure/table,
 /obj/machinery/door/firedoor,
@@ -16663,7 +16697,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "gIb" = (
 /obj/machinery/door/airlock{
 	name = "Theatre Backstage"
@@ -17336,7 +17370,6 @@
 	name = "Bar Storage Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/service/bar,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/mineral/plastitanium{
 	name = "black plastitanium floor"
 	},
@@ -17479,7 +17512,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/duct,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science)
@@ -17489,11 +17524,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/service/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall-north"
+	},
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Hall"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/service/general,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/service)
 "gWx" = (
@@ -17944,7 +17981,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay-back"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -18124,8 +18163,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "engie-north"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/engine_equipment,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "hin" = (
@@ -18171,7 +18212,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "hkp" = (
 /obj/machinery/atmospherics/pipe/smart/simple/brown/visible,
 /obj/effect/turf_decal/tile/yellow{
@@ -18258,8 +18299,10 @@
 	name = "Service Hall"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall-north"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/service)
 "hlM" = (
@@ -18288,7 +18331,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "hml" = (
 /obj/machinery/light_switch{
 	pixel_x = 22;
@@ -18545,7 +18588,9 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Chapel"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel"
+	},
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/service/chapel)
@@ -18597,7 +18642,7 @@
 	network = list("minisat")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "htd" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron,
@@ -18841,7 +18886,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "to-prison"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Prison Wing"
@@ -20164,7 +20211,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "hZY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating{
@@ -21164,7 +21211,9 @@
 	name = "Cargo Bay"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "cargo-warehouse"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/supply/general,
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining,
 /turf/open/floor/iron,
@@ -22157,7 +22206,7 @@
 	pixel_y = 32
 	},
 /turf/open/space/basic,
-/area/misc/space)
+/area/space)
 "iOH" = (
 /obj/machinery/button/door{
 	id = "Skynet_launch";
@@ -22213,7 +22262,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "iPA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -22255,7 +22304,7 @@
 	start_active = 1
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "iPV" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/cable,
@@ -22729,8 +22778,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "engie-north"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "iYN" = (
@@ -22969,14 +23020,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/department/chapel)
-"jgd" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/turf/open/floor/plating,
-/area/station/maintenance/port/lower)
 "jgi" = (
 /obj/effect/spawner/random/trash/grille_or_waste,
 /obj/effect/decal/cleanable/dirt,
@@ -22990,8 +23033,10 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "crematorium"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/crematorium,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "jgx" = (
@@ -23007,7 +23052,7 @@
 /obj/structure/transit_tube/horizontal,
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "jgU" = (
 /obj/machinery/camera{
 	c_tag = "Central Lower Hallway - Departures";
@@ -23350,7 +23395,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "jpl" = (
 /obj/structure/cable/multilayer/multiz,
 /obj/effect/turf_decal/stripes/line{
@@ -23417,7 +23462,9 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Chapel"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel"
+	},
 /turf/open/floor/iron,
 /area/station/service/chapel)
 "jqt" = (
@@ -23490,7 +23537,9 @@
 "jrb" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/trimline/red/filled/line,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "to-prison"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Prison Wing"
@@ -23678,7 +23727,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "juJ" = (
 /obj/machinery/computer/mecha{
 	dir = 1
@@ -23858,7 +23907,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-court"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig"
@@ -24067,7 +24118,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-int"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
 /obj/effect/landmark/navigate_destination,
 /turf/open/floor/iron/dark,
@@ -24143,7 +24196,9 @@
 /obj/structure/cable,
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "toxins-launch"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/science/mixing/hallway)
@@ -24234,7 +24289,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
@@ -25163,7 +25220,7 @@
 /obj/structure/lattice,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "jWX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/airalarm/directional/east,
@@ -25603,7 +25660,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/ladder,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "kck" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -25947,7 +26004,7 @@
 	view_range = 10
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "kiR" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table_frame,
@@ -25969,7 +26026,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "kjt" = (
 /obj/structure/stairs/north,
 /turf/open/floor/iron/showroomfloor,
@@ -26074,7 +26131,7 @@
 	network = list("minisat")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "klc" = (
 /obj/structure/table/glass,
 /obj/machinery/computer/security/telescreen/cmo,
@@ -26182,7 +26239,7 @@
 	width = 36
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "knb" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Lower Telecommunications";
@@ -26380,7 +26437,7 @@
 /area/station/maintenance/department/science)
 "kru" = (
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "krN" = (
 /obj/structure/table/wood,
 /obj/item/stamp/law,
@@ -26513,7 +26570,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "toxins-launch"
+	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/science/ordnance,
 /obj/effect/landmark/navigate_destination,
@@ -26711,7 +26770,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "kwQ" = (
 /turf/open/openspace,
 /area/station/service/hydroponics)
@@ -26986,7 +27045,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-enterance"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig";
@@ -27586,8 +27647,10 @@
 /obj/machinery/door/airlock{
 	name = "Service Hall"
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/service)
 "kPX" = (
@@ -27944,7 +28007,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "kVN" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table,
@@ -28019,7 +28082,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "kXS" = (
 /obj/machinery/button/door/directional/south{
 	id = "l_bathroom2";
@@ -28051,7 +28114,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-int"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
@@ -28173,7 +28238,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/any/service/bar,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/mineral/plastitanium{
 	name = "black plastitanium floor"
 	},
@@ -28349,7 +28413,9 @@
 /obj/machinery/door/firedoor/heavy,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "toxins"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/ordnance,
 /turf/open/floor/iron/white,
 /area/station/science/mixing)
@@ -28371,7 +28437,9 @@
 /area/station/maintenance/port/fore)
 "ldB" = (
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "prison"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Prison Wing"
@@ -28736,7 +28804,7 @@
 	width = 30
 	},
 /turf/open/space/basic,
-/area/misc/space)
+/area/space)
 "liV" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/vodka/badminka{
@@ -28783,7 +28851,7 @@
 	network = list("ss13","prison")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "ljn" = (
 /obj/machinery/door/airlock/hydroponics{
 	name = "Hydroponics Access"
@@ -29991,7 +30059,7 @@
 	width = 7
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "lIT" = (
 /obj/machinery/camera{
 	c_tag = "Command - Starboard Bridge Hallway";
@@ -30408,7 +30476,7 @@
 	network = list("ss13","prison")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "lNY" = (
 /obj/structure/chair/stool,
 /turf/open/floor/iron/grimy,
@@ -30514,7 +30582,7 @@
 /obj/structure/lattice,
 /obj/structure/marker_beacon/burgundy,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "lQY" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -30537,7 +30605,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "lRM" = (
 /obj/structure/closet/secure_closet/brig{
 	name = "Prisoner Locker"
@@ -30820,7 +30888,7 @@
 "lXn" = (
 /obj/structure/fans/tiny/invisible,
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "lXo" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating/airless,
@@ -31031,7 +31099,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-ext"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/foyer)
@@ -32445,7 +32515,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio-lower"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lower)
@@ -32748,7 +32820,9 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Utilities Room"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
@@ -32789,7 +32863,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "mII" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/west,
@@ -32944,7 +33018,9 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay-back"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -34024,7 +34100,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio-lower"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology/hallway)
@@ -34085,8 +34163,10 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "atmos"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/atmos,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "ngL" = (
@@ -34308,7 +34388,9 @@
 /obj/machinery/door/airlock/maintenance{
 	name = "Service Maintenance"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/central)
@@ -34693,7 +34775,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel"
+	},
 /obj/effect/landmark/navigate_destination/chapel,
 /turf/open/floor/iron,
 /area/station/service/chapel)
@@ -34754,7 +34838,7 @@
 	width = 3
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "nul" = (
 /obj/effect/landmark/event_spawn,
 /obj/structure/cable,
@@ -34993,7 +35077,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "nye" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -35465,9 +35549,11 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/atmos,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "atmos"
+	},
 /obj/effect/landmark/navigate_destination/atmos,
+/obj/effect/mapping_helpers/airlock/access/any/engineering/atmos,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "nGP" = (
@@ -35517,7 +35603,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "nHz" = (
 /turf/closed/wall/r_wall,
 /area/station/security/detectives_office/bridge_officer_office)
@@ -35726,7 +35812,6 @@
 	id = "SupermatterExternal";
 	name = "Shutters Control";
 	pixel_x = -24;
-	req_access = list("engie_equip");
 	req_access = list("engineering")
 	},
 /turf/open/floor/iron/smooth_half{
@@ -36066,7 +36151,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "nSW" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -36441,7 +36526,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "rd-server"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/rd,
 /turf/open/floor/iron,
 /area/station/science/server)
@@ -36801,8 +36888,10 @@
 	name = "Chapel Office"
 	},
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel-east"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/chapel_office,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/sepia,
 /area/station/service/chapel/office)
 "oiw" = (
@@ -36860,7 +36949,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "ojW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -37200,7 +37289,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "ooZ" = (
 /obj/machinery/duct,
 /obj/structure/curtain,
@@ -37220,7 +37309,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "opj" = (
 /obj/machinery/camera{
 	c_tag = "Atmospherics Tank - O2";
@@ -37534,8 +37623,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel-east"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/chapel_office,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/sepia,
 /area/station/service/chapel/office)
 "ovg" = (
@@ -37682,7 +37773,9 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Telecommunications"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "tcomms"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/tcoms,
 /obj/effect/landmark/navigate_destination,
 /turf/open/floor/iron/showroomfloor,
@@ -37715,7 +37808,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
+	cycle_id = "bridge-right"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
@@ -37738,7 +37831,7 @@
 	width = 9
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "oze" = (
 /obj/structure/table,
 /obj/item/folder/white,
@@ -37768,7 +37861,9 @@
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Storage"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay-back"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -37967,13 +38062,13 @@
 	dir = 1
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "oDD" = (
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge"
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
+	cycle_id = "bridge-right"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
@@ -38376,7 +38471,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "ai-sat-ext"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/minisat,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat/foyer)
@@ -38426,7 +38523,7 @@
 "oMB" = (
 /obj/item/wallframe/apc,
 /turf/open/floor/plating/airless,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "oMM" = (
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/dirt,
@@ -38763,7 +38860,7 @@
 	network = list("minisat")
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "oTx" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -39088,7 +39185,7 @@
 /area/station/hallway/primary/port)
 "pai" = (
 /turf/open/floor/plating/airless,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "pan" = (
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/glass/fifty{
@@ -39096,7 +39193,7 @@
 	pixel_y = 3
 	},
 /turf/open/floor/plating/airless,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "pap" = (
 /obj/machinery/door/airlock/external{
 	name = "Port Docking Bay 1"
@@ -39140,7 +39237,7 @@
 "pbi" = (
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "pbo" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -39170,7 +39267,7 @@
 	pixel_y = -30
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "pby" = (
 /obj/structure/table,
 /obj/machinery/cell_charger{
@@ -39198,7 +39295,7 @@
 	dir = 5
 	},
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "pcl" = (
 /obj/structure/railing{
 	dir = 4
@@ -39764,7 +39861,7 @@
 	width = 35
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "pos" = (
 /obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/showroomfloor,
@@ -39868,7 +39965,7 @@
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "ppK" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -39975,7 +40072,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "prN" = (
 /obj/machinery/status_display/evac/directional/west,
 /turf/open/openspace,
@@ -40125,7 +40222,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-court"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig"
@@ -40195,7 +40294,7 @@
 	width = 3
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "pvR" = (
 /obj/effect/spawner/random/decoration/glowstick,
 /turf/open/floor/plating,
@@ -40361,7 +40460,7 @@
 /area/station/medical/medbay/central)
 "pAf" = (
 /turf/closed/wall,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "pAs" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
@@ -40760,7 +40859,9 @@
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-enterance"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/entrance,
 /obj/effect/landmark/navigate_destination/sec,
 /obj/machinery/door/airlock/security/old/glass{
@@ -40813,7 +40914,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
 /obj/effect/landmark/navigate_destination,
 /turf/open/floor/iron,
@@ -40825,11 +40928,13 @@
 "pIo" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/security/armory,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "warden-office"
+	},
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Brig Control"
 	},
+/obj/effect/mapping_helpers/airlock/access/any/security/armory,
 /turf/open/floor/iron/dark,
 /area/station/security/warden)
 "pIu" = (
@@ -41110,7 +41215,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "pOz" = (
 /obj/machinery/telecomms/server/presets/service,
 /obj/effect/turf_decal/trimline/green/filled/end{
@@ -42511,7 +42616,7 @@
 	network = list("ss13","prison")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "qoJ" = (
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/maintenance/two,
@@ -43315,7 +43420,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "qCR" = (
 /obj/machinery/atmospherics/pipe/multiz/supply/visible/layer4,
 /obj/effect/turf_decal/stripes/line,
@@ -43759,7 +43864,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "qMk" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
@@ -43970,7 +44075,7 @@
 /obj/structure/lattice,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "qQp" = (
 /turf/open/floor/iron,
 /area/station/engineering/storage)
@@ -44726,7 +44831,9 @@
 /obj/machinery/door/airlock/medical/glass{
 	name = "Medbay Storage"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay-back"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -44757,7 +44864,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "rdX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -44831,7 +44938,9 @@
 	},
 /obj/structure/cable/layer1,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "tcomms"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/tcoms,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/computer)
@@ -45948,7 +46057,7 @@
 	},
 /obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "rBY" = (
 /turf/closed/wall,
 /area/station/science/explab)
@@ -46249,7 +46358,7 @@
 	dir = 10
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "rJa" = (
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/machinery/light/cold/directional/east,
@@ -46722,7 +46831,7 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/ladder,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "rSd" = (
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/grass,
@@ -47170,7 +47279,9 @@
 /area/station/service/kitchen/abandoned)
 "rZW" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "sci-maint-up"
+	},
 /obj/structure/cable,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
@@ -47396,7 +47507,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/any/service/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall"
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "sdh" = (
@@ -47767,7 +47880,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/multiz/dark,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "sjv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -47795,7 +47908,7 @@
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "skk" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden,
@@ -48138,7 +48251,9 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "sec-office"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/detective,
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/machinery/door/airlock/security/old/glass{
@@ -48581,7 +48696,9 @@
 	name = "Cargo Bay"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "cargo-warehouse"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/supply/general,
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining,
 /turf/open/floor/iron,
@@ -48713,7 +48830,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "sBA" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -48950,7 +49067,9 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "prison"
+	},
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/airlock/security/old/glass{
 	name = "Prison Wing"
@@ -49352,7 +49471,7 @@
 	dir = 6
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "sLD" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/spawner/random/trash/food_packaging,
@@ -50146,9 +50265,11 @@
 	name = "Crematorium"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/access/any/service/crematorium,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "crematorium"
+	},
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/access/any/service/crematorium,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "taZ" = (
@@ -50181,7 +50302,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio-lower"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/xenobio,
 /turf/open/floor/iron,
 /area/station/science/xenobiology)
@@ -50333,7 +50456,9 @@
 	name = "Medbay"
 	},
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "medbay"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/landmark/navigate_destination/med,
 /turf/open/floor/iron/white,
@@ -50631,7 +50756,7 @@
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
+	cycle_id = "hop-ian"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/hop,
 /obj/machinery/door/airlock/hop/glass{
@@ -51504,7 +51629,7 @@
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "tDt" = (
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/plating,
@@ -51609,7 +51734,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/multiz/dark,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "tFB" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "Prison Gate";
@@ -51683,7 +51808,7 @@
 /obj/structure/lattice,
 /obj/effect/spawner/random/structure/grille,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "tGU" = (
 /obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/iron,
@@ -52085,7 +52210,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /obj/effect/mapping_helpers/airlock/access/any/science/general,
 /turf/open/floor/iron/dark,
 /area/station/science/breakroom)
@@ -52106,7 +52230,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
+	cycle_id = "bridge-right"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
 /turf/open/floor/iron,
@@ -52115,7 +52239,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "tPX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -52604,7 +52728,9 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "brig-court"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/effect/mapping_helpers/airlock/access/any/service/lawyer,
 /obj/structure/cable,
@@ -52640,7 +52766,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "uaw" = (
 /obj/machinery/duct,
 /turf/open/floor/plating,
@@ -52826,7 +52952,7 @@
 	network = list("ss13","prison")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "udL" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -52982,7 +53108,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "ugr" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -53115,7 +53241,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "tcomms"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/tcoms,
 /turf/open/floor/iron/showroomfloor,
 /area/station/ai_monitored/turret_protected/aisat/foyer)
@@ -53433,7 +53561,7 @@
 	dir = 9
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "uqB" = (
 /obj/structure/table/glass,
 /obj/item/paper_bin{
@@ -53603,7 +53731,7 @@
 	view_range = 10
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "utu" = (
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/floor/wood/large,
@@ -53620,14 +53748,14 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "utF" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 6
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "utJ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/window/preopen{
@@ -53640,7 +53768,7 @@
 /obj/structure/lattice,
 /obj/structure/window/reinforced,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "utX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -54378,7 +54506,9 @@
 	name = "Server Room"
 	},
 /obj/structure/cable/layer1,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "tcomms"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/tcoms,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/computer)
@@ -55033,7 +55163,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "uXl" = (
 /obj/machinery/door/airlock/security{
 	name = "Security Checkpoint"
@@ -55529,7 +55659,7 @@
 	},
 /obj/structure/lattice,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "vio" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -56173,8 +56303,10 @@
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Hall"
 	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall-north"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/general,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/service)
 "vvn" = (
@@ -56222,7 +56354,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/education)
@@ -56335,7 +56466,7 @@
 "vyK" = (
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
-	cycle_id = "bridge-left"
+	cycle_id = "hop-ian"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/hop,
 /obj/machinery/door/airlock/hop/glass{
@@ -57197,7 +57328,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "vSc" = (
 /obj/machinery/telecomms/bus/preset_three,
 /turf/open/floor/circuit/telecomms/mainframe,
@@ -57560,7 +57691,7 @@
 	dir = 4
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "vYB" = (
 /turf/open/floor/wood,
 /area/station/medical/psychology)
@@ -57698,7 +57829,7 @@
 "wcl" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wcw" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -58014,7 +58145,7 @@
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/heat_exchanging/manifold,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wib" = (
 /obj/structure/table,
 /obj/machinery/door/window/left/directional/west{
@@ -58045,7 +58176,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wix" = (
 /obj/machinery/newscaster/directional/east,
 /turf/open/floor/iron,
@@ -58513,7 +58644,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wqn" = (
 /obj/machinery/plate_press,
 /obj/effect/turf_decal/bot,
@@ -58673,7 +58804,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wuZ" = (
 /obj/machinery/conveyor{
 	id = "cargodelivery2";
@@ -58700,7 +58831,7 @@
 	},
 /obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wvi" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -58715,7 +58846,7 @@
 /obj/structure/lattice/catwalk,
 /obj/item/toy/plush/lizard_plushie,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wvC" = (
 /obj/effect/spawner/structure/window,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -59167,7 +59298,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "wEc" = (
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "rd-server"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/rd,
 /obj/machinery/door/airlock/rd/glass{
 	name = "Research Directors Office"
@@ -59661,7 +59794,7 @@
 "wPk" = (
 /obj/effect/landmark/carpspawn,
 /turf/open/space/basic,
-/area/misc/space)
+/area/space)
 "wPs" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -59983,7 +60116,9 @@
 	name = "Utilities Room"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "serv-hall"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/service)
@@ -60081,10 +60216,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/green,
 /obj/machinery/atmospherics/pipe/bridge_pipe/cyan/visible,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "wZN" = (
 /turf/closed/wall/r_wall,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "xaC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
@@ -60600,7 +60735,9 @@
 	name = "Chapel Viewing Room"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "chapel-west"
+	},
 /turf/open/floor/iron/sepia,
 /area/station/service/chapel)
 "xlf" = (
@@ -60925,7 +61062,7 @@
 	},
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "xqM" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
@@ -61035,7 +61172,7 @@
 "xsG" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
-/area/misc/space/nearstation)
+/area/space/nearstation)
 "xsR" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -61076,7 +61213,7 @@
 	network = list("ss13","prison")
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "xtd" = (
 /obj/machinery/light/directional/west,
 /obj/effect/turf_decal/trimline/red/filled/line{
@@ -61133,7 +61270,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "sec-office"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/security/detective,
 /obj/effect/mapping_helpers/airlock/access/any/security/general,
 /obj/machinery/door/airlock/security/old/glass{
@@ -61258,7 +61397,9 @@
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "xxu" = (
 /obj/machinery/door/airlock/maintenance,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "sci-maint-up"
+	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science)
 "xxF" = (
@@ -61372,7 +61513,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "xzK" = (
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "xzN" = (
 /obj/item/radio/intercom/directional/west,
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -61604,7 +61745,9 @@
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "toxins-launch"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/science/mixing/hallway)
@@ -62121,7 +62264,7 @@
 	width = 10
 	},
 /turf/open/space/openspace,
-/area/misc/space)
+/area/space)
 "xPi" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -62432,7 +62575,9 @@
 	},
 /obj/machinery/door/firedoor/heavy,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "toxins"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/ordnance,
 /turf/open/floor/iron/white,
 /area/station/science/mixing)
@@ -62550,7 +62695,9 @@
 /obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "xenobio-lower"
+	},
 /obj/effect/mapping_helpers/airlock/access/any/science/maintenance,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lower)
@@ -63308,7 +63455,7 @@
 /area/station/maintenance/department/engine/atmos)
 "ymg" = (
 /turf/open/space/basic,
-/area/misc/space)
+/area/space)
 "ymh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
@@ -148785,7 +148932,7 @@ bIg
 mSr
 mSr
 lBk
-jgd
+afD
 rbW
 prR
 ejo
