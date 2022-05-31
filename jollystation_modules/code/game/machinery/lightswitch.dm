@@ -1,5 +1,4 @@
-/obj/machinery/light_switch
-	icon = 'jollystation_modules/icons/obj/lightswitch.dmi'
+// Modular Light switch bullshit
 
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()
