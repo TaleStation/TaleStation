@@ -1,13 +1,13 @@
 // -- Bodypart and Organ pain definitions. --
 
-/obj/item/organ/lungs
+/obj/item/organ/internal/lungs
 	/// Whether we are currently breathing enough N2O to be considered asleep.
 	var/on_anesthetic = FALSE
 
 /*
  * Returns TRUE if we are breathing enough [partial_pressure] of N2O to be asleep.
  */
-/obj/item/organ/lungs/proc/check_anesthetic(partial_pressure, min_sleep)
+/obj/item/organ/internal/lungs/proc/check_anesthetic(partial_pressure, min_sleep)
 	return partial_pressure > min_sleep
 
 /obj/item/bodypart

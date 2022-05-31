@@ -324,18 +324,6 @@
 	if(!.) //If it failed to replace, re-attach their old limb as if nothing happened.
 		old_limb.attach_limb(limb_owner, TRUE)
 
-<<<<<<< HEAD
-/obj/item/bodypart/head/replace_limb(mob/living/carbon/head_owner, special)
-	if(!istype(head_owner))
-		return
-	var/obj/item/bodypart/head/head = head_owner.get_bodypart(body_zone)
-	if(!attach_limb(head_owner, special))
-		return
-	if(head)
-		head.drop_limb(special) // NON-MODULE CHANGE
-
-=======
->>>>>>> 6d470992cb6 (This tail refactor turned into an organ refactor. Funny how that works. (#67017))
 /obj/item/bodypart/proc/attach_limb(mob/living/carbon/new_limb_owner, special)
 	if(SEND_SIGNAL(new_limb_owner, COMSIG_CARBON_ATTACH_LIMB, src, special) & COMPONENT_NO_ATTACH)
 		return FALSE

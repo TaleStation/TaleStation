@@ -40,12 +40,7 @@
 #define DNA_UNI_IDENTITY_BLOCKS 7
 
 /// This number needs to equal the total number of DNA blocks
-<<<<<<< HEAD
 #define DNA_FEATURE_BLOCKS 17 //NON-MODULE CHANGE
-=======
-#define DNA_FEATURE_BLOCKS 15
->>>>>>> 6d470992cb6 (This tail refactor turned into an organ refactor. Funny how that works. (#67017))
-
 #define DNA_MUTANT_COLOR_BLOCK 1
 #define DNA_ETHEREAL_COLOR_BLOCK 2
 #define DNA_LIZARD_MARKINGS_BLOCK 3
@@ -60,13 +55,9 @@
 #define DNA_MOTH_ANTENNAE_BLOCK 12
 #define DNA_MOTH_MARKINGS_BLOCK 13
 #define DNA_MUSHROOM_CAPS_BLOCK 14
-<<<<<<< HEAD
 #define DNA_MONKEY_TAIL_BLOCK 15
 #define DNA_POD_HAIR_BLOCK 16
 #define DNA_HEAD_TENTACLES_BLOCK 17 // NON-MODULE CHANGE
-=======
-#define DNA_POD_HAIR_BLOCK 15
->>>>>>> 6d470992cb6 (This tail refactor turned into an organ refactor. Funny how that works. (#67017))
 
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8

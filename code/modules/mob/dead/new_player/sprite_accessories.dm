@@ -16,11 +16,7 @@
 	from doing this unless you absolutely know what you are doing, and have defined a
 	conversion in savefile.dm
 */
-<<<<<<< HEAD
-/proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female, roundstart = TRUE) // NON-MODULE CHANGE //Roundstart argument builds a specific list for roundstart parts where some parts may be locked
-=======
 /proc/init_sprite_accessory_subtypes(prototype, list/L, list/male, list/female,roundstart = FALSE, add_blank)//Roundstart argument builds a specific list for roundstart parts where some parts may be locked
->>>>>>> 6d470992cb6 (This tail refactor turned into an organ refactor. Funny how that works. (#67017))
 	if(!istype(L))
 		L = list()
 	if(!istype(male))

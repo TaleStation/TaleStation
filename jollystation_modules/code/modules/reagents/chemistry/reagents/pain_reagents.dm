@@ -71,12 +71,12 @@
 /datum/reagent/healium/on_mob_metabolize(mob/living/L)
 	. = ..()
 	if(L.IsSleeping())
-		var/obj/item/organ/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
+		var/obj/item/organ/internal/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
 		our_lungs?.on_anesthetic = TRUE
 
 /datum/reagent/healium/on_mob_end_metabolize(mob/living/L)
 	. = ..()
-	var/obj/item/organ/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
+	var/obj/item/organ/internal/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
 	our_lungs?.on_anesthetic = FALSE
 
 // Cryoxadone slowly heals pain, a la wounds
