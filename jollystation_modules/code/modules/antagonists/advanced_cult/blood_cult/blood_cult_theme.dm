@@ -56,7 +56,7 @@
 		return
 
 	var/mob/living/carbon/human/human_cultist = cultist
-	var/obj/item/organ/eyes/cultist_eyes = human_cultist.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/cultist_eyes = human_cultist.getorganslot(ORGAN_SLOT_EYES)
 	human_cultist.eye_color_left = cultist_eyes.old_eye_color_left
 	human_cultist.eye_color_right = cultist_eyes.old_eye_color_right
 	human_cultist.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)

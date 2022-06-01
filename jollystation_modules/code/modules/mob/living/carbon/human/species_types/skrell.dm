@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	species_language_holder = /datum/language_holder/skrell
 	say_mod = "warbles"
 	exotic_bloodtype = "S"
-	mutanttongue = /obj/item/organ/tongue/skrell
+	mutanttongue = /obj/item/organ/internal/tongue/skrell
 	species_speech_sounds = list('jollystation_modules/sound/voice/huff.ogg' = 120)
 	species_speech_sounds_exclaim = list('jollystation_modules/sound/voice/huff_ask.ogg' = 120)
 	species_speech_sounds_ask = list('jollystation_modules/sound/voice/huff_exclaim.ogg' = 120)
