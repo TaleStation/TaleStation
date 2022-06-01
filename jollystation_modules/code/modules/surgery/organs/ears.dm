@@ -1,4 +1,4 @@
-/obj/item/organ/ears/cat/cybernetic
+/obj/item/organ/internal/ears/cat/cybernetic
 	name = "cybernetic cat ears"
 	icon = 'jollystation_modules/icons/obj/clothing/hats.dmi'
 	icon_state = "cyber_kitty"

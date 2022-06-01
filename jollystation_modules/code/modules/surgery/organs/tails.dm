@@ -1,25 +1,23 @@
-/obj/item/organ/tail/cat/fox
+/obj/item/organ/external/tail/cat/fox
 	name = "fox tail"
 	desc = "A severed fox tail. Geckers."
-	tail_type = "Fox"
 	icon = 'jollystation_modules/icons/obj/surgery.dmi'
 	icon_state = "severedfoxtail"
 
-/obj/item/organ/tail/cat/fox/Insert(mob/living/carbon/human/tail_owner, special = FALSE, drop_if_replaced = TRUE)
+/obj/item/organ/external/tail/cat/fox/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
 	..()
-	if(istype(tail_owner))
-		var/default_part = tail_owner.dna.species.mutant_bodyparts["tail_human"]
+	if(istype(reciever))
+		var/default_part = reciever.dna.species.mutant_bodyparts["tail_cat"]
 		if(!default_part || default_part == "None")
-			if(tail_type)
-				tail_owner.dna.features["tail_human"] = tail_owner.dna.species.mutant_bodyparts["tail_human"] = tail_type
-				tail_owner.dna.update_uf_block(DNA_HUMAN_TAIL_BLOCK)
+			if(original_owner)
+				reciever.dna.features["tail_cat"] = reciever.dna.species.mutant_bodyparts["tail_cat"] = original_owner
+				reciever.dna.update_uf_block(DNA_TAIL_BLOCK)
 			else
-				tail_owner.dna.species.mutant_bodyparts["tail_human"] = tail_owner.dna.features["tail_human"]
-			tail_owner.update_body()
+				reciever.dna.species.mutant_bodyparts["tail_cat"] = reciever.dna.features["tail_cat"]
+			reciever.update_body()
 
-/obj/item/organ/tail/cat/fox/Remove(mob/living/carbon/human/tail_owner, special = FALSE)
+/obj/item/organ/external/tail/cat/fox/Remove(mob/living/carbon/reciever, special, moving)
 	..()
-	if(istype(tail_owner))
-		tail_owner.dna.species.mutant_bodyparts -= "tail_human"
-		color = tail_owner.hair_color
-		tail_owner.update_body()
+	if(istype(reciever))
+		reciever.dna.species.mutant_bodyparts -= "tail_cat"
+		reciever.update_body()

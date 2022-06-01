@@ -323,8 +323,8 @@
 		// pain = divided by the liver's tox tolerance, liver damage, stomach damage, and more for higher total toxloss
 		if(TOX)
 			def_zone = BODY_ZONE_CHEST
-			var/obj/item/organ/liver/our_liver = source.getorganslot(ORGAN_SLOT_LIVER)
-			var/obj/item/organ/stomach/our_stomach = source.getorganslot(ORGAN_SLOT_STOMACH)
+			var/obj/item/organ/internal/liver/our_liver = source.getorganslot(ORGAN_SLOT_LIVER)
+			var/obj/item/organ/internal/stomach/our_stomach = source.getorganslot(ORGAN_SLOT_STOMACH)
 			if(our_liver)
 				pain = damage / our_liver.toxTolerance
 				switch(our_liver.damage)
@@ -358,7 +358,7 @@
 		// pain = more for hurt lungs, more for higher total oxyloss
 		if(OXY)
 			def_zone = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST)
-			var/obj/item/organ/lungs/our_lungs = source.getorganslot(ORGAN_SLOT_LUNGS)
+			var/obj/item/organ/internal/lungs/our_lungs = source.getorganslot(ORGAN_SLOT_LUNGS)
 			if(our_lungs)
 				switch(our_lungs.damage)
 					if(20 to 50)
@@ -492,7 +492,7 @@
 			sleeping_modifier -= 0.2
 		if(locate(/obj/structure/table/optable) in sleeping_turf)
 			sleeping_modifier -= 0.1
-		var/obj/item/organ/lungs/our_lungs = parent.getorganslot(ORGAN_SLOT_LUNGS)
+		var/obj/item/organ/internal/lungs/our_lungs = parent.getorganslot(ORGAN_SLOT_LUNGS)
 		if(our_lungs?.on_anesthetic)
 			sleeping_modifier -= 0.5
 
