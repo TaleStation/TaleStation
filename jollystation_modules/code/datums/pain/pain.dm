@@ -323,8 +323,8 @@
 		// pain = divided by the liver's tox tolerance, liver damage, stomach damage, and more for higher total toxloss
 		if(TOX)
 			def_zone = BODY_ZONE_CHEST
-			var/obj/item/organ/liver/our_liver = source.getorganslot(ORGAN_SLOT_LIVER)
-			var/obj/item/organ/stomach/our_stomach = source.getorganslot(ORGAN_SLOT_STOMACH)
+			var/obj/item/organ/internal/liver/our_liver = source.getorganslot(ORGAN_SLOT_LIVER)
+			var/obj/item/organ/internal/stomach/our_stomach = source.getorganslot(ORGAN_SLOT_STOMACH)
 			if(our_liver)
 				pain = damage / our_liver.toxTolerance
 				switch(our_liver.damage)
@@ -358,7 +358,7 @@
 		// pain = more for hurt lungs, more for higher total oxyloss
 		if(OXY)
 			def_zone = list(BODY_ZONE_HEAD, BODY_ZONE_CHEST)
-			var/obj/item/organ/lungs/our_lungs = source.getorganslot(ORGAN_SLOT_LUNGS)
+			var/obj/item/organ/internal/lungs/our_lungs = source.getorganslot(ORGAN_SLOT_LUNGS)
 			if(our_lungs)
 				switch(our_lungs.damage)
 					if(20 to 50)
@@ -468,8 +468,11 @@
  * Check which additional pain modifiers should be applied.
  */
 /datum/pain/proc/check_pain_modifiers(delta_time)
-	if(parent.drunkenness)
-		if(parent.drunkenness > 10)
+
+	var/parent_drunkenness = parent.get_drunk_amount()
+
+	if(parent_drunkenness )
+		if(parent_drunkenness > 10)
 			set_pain_modifier(PAIN_MOD_DRUNK, 0.9)
 		else
 			unset_pain_modifier(PAIN_MOD_DRUNK)
@@ -489,7 +492,7 @@
 			sleeping_modifier -= 0.2
 		if(locate(/obj/structure/table/optable) in sleeping_turf)
 			sleeping_modifier -= 0.1
-		var/obj/item/organ/lungs/our_lungs = parent.getorganslot(ORGAN_SLOT_LUNGS)
+		var/obj/item/organ/internal/lungs/our_lungs = parent.getorganslot(ORGAN_SLOT_LUNGS)
 		if(our_lungs?.on_anesthetic)
 			sleeping_modifier -= 0.5
 
@@ -538,29 +541,28 @@
  * Effects caused by low pain. (~100-250 pain)
  */
 /datum/pain/proc/low_pain_effects(delta_time)
-	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
+
 	if(DT_PROB(3, delta_time))
 		to_chat(parent, span_danger(pick("Everything aches.", "Everything feels sore.")))
 		if(parent.staminaloss < 5)
 			parent.apply_damage(10, STAMINA)
 
-	else if(stuttering && stuttering.duration <= 24 && DT_PROB(6, delta_time))
-		parent.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/speech/stutter)
+	else if(DT_PROB(6, delta_time))
+		parent.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/speech/stutter, max_duration = 24 SECONDS)
 
-	else if(parent.jitteriness <= 20 && DT_PROB(2, delta_time))
-		parent.Jitter(5)
+	else if(DT_PROB(2, delta_time))
+		parent.adjust_timed_status_effect(10 SECONDS, /datum/status_effect/jitter, max_duration = 24 SECONDS)
 
-	else if(parent.dizziness <= 12 && DT_PROB(2, delta_time))
-		parent.Dizzy(2)
+	else if(DT_PROB(2, delta_time))
+		parent.set_timed_status_effect(24 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 /*
  * Effects caused by medium pain. (~250-400 pain)
  */
 /datum/pain/proc/med_pain_effects(delta_time)
 
-	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
-	if(stuttering && stuttering.duration <= 50 && DT_PROB(8, delta_time))
-		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
+	if(DT_PROB(8, delta_time))
+		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter, max_duration = 50 SECONDS)
 
 	else if(DT_PROB(3, delta_time))
 		to_chat(parent, span_bold(span_danger(pick("Everything hurts.", "Everything feels very sore.", "It hurts."))))
@@ -582,11 +584,11 @@
 		parent.Knockdown(15 * pain_modifier)
 		parent.visible_message(span_warning("[parent] collapses from pain!"))
 
-	else if(parent.jitteriness <= 30 && DT_PROB(1, delta_time))
-		parent.Jitter(10)
+	else if(DT_PROB(1, delta_time))
+		parent.set_timed_status_effect(20 SECONDS, /datum/status_effect/jitter, only_if_higher = TRUE)
 
-	else if(parent.dizziness <= 20 && DT_PROB(1, delta_time))
-		parent.Dizzy(5)
+	else if(DT_PROB(1, delta_time))
+		parent.set_timed_status_effect(40 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 	else if(DT_PROB(3, delta_time))
 		do_pain_emote("cry", 6 SECONDS)
@@ -603,9 +605,8 @@
  */
 /datum/pain/proc/high_pain_effects(delta_time)
 
-	var/datum/status_effect/speech/stutter/stuttering = parent.has_status_effect(/datum/status_effect/speech/stutter)
-	if(stuttering && stuttering.duration <= 80 && DT_PROB(12, delta_time))
-		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
+	if(DT_PROB(12, delta_time))
+		parent.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter, max_duration = 80 SECONDS)
 
 	else if(DT_PROB(3, delta_time))
 		to_chat(parent, span_userdanger(pick("Stop the pain!", "Everything hurts!")))
@@ -630,12 +631,12 @@
 	else if(DT_PROB(1, delta_time))
 		parent.vomit(50)
 
-	else if(parent.jitteriness <= 30 && DT_PROB(1, delta_time))
+	else if(DT_PROB(1, delta_time))
 		do_pain_emote("wince")
-		parent.Jitter(15)
+		parent.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/jitter)
 
 	else if(DT_PROB(1, delta_time))
-		parent.set_confusion(min(parent.get_confusion() + 4, 12))
+		parent.set_timed_status_effect(8 SECONDS, /datum/status_effect/confusion, only_if_higher = TRUE)
 
 	else if(DT_PROB(4, delta_time))
 		do_pain_emote("cry", 6 SECONDS)

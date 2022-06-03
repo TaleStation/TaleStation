@@ -138,12 +138,12 @@
 	if(!allowed_areas)
 		///Places that we shouldn't send crates.
 		var/list/safe_area_types = typecacheof(list(
-			/area/maintenance,
-			/area/tcommsat,
-			/area/ai_monitored,
-			/area/engineering/supermatter,
+			/area/station/maintenance,
+			/area/station/tcommsat,
+			/area/station/ai_monitored,
+			/area/station/engineering/supermatter,
 			/area/shuttle,
-			/area/solars,
+			/area/station/solars,
 		))
 
 		allowed_areas = make_associative(GLOB.the_station_areas) - safe_area_types

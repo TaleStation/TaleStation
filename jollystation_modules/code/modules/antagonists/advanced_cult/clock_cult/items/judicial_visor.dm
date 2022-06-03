@@ -74,7 +74,7 @@
 
 	// And THIS point on, is where attack effects are done to the target
 	target.apply_damage(15, BURN)
-	target.jitteriness = clamp(target.jitteriness + 6, 0, 30)
+	target.adjust_timed_status_effect(12 SECONDS, /datum/status_effect/jitter, max_duration = 60 SECONDS)
 	to_chat(target, span_userdanger("You feel a searing gaze bear down onto you from the [dir2text(get_dir(examined, source))]!"))
 	to_chat(source, span_warning("You gaze harshly upon [examined], searing them!"))
 

@@ -8,7 +8,7 @@
 	cure_text = "Maintain a high body temperature, stop blood loss, and provide pain relievers while monitoring closely."
 	agent = "Pain"
 	viable_mobtypes = list(/mob/living/carbon/human)
-	permeability_mod = 1
+	spreading_modifier = 1
 	desc = "Occurs when a subject enters a state of shock due to high pain, blood loss, heart difficulties, and other injuries. \
 		If left untreated the subject may experience cardiac arrest."
 	severity = DISEASE_SEVERITY_DANGEROUS
@@ -87,7 +87,7 @@
 					affected_mob.vomit(35, stun = FALSE)
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("You feel anxious."))
-				affected_mob.jitteriness += rand(6,8)
+				affected_mob.adjust_timed_status_effect(rand(12 SECONDS, 16 SECONDS), /datum/status_effect/jitter)
 			if(DT_PROB(6, delta_time))
 				to_chat(affected_mob, span_danger("You feel cold."))
 				affected_mob.pain_emote("shiver", 3 SECONDS)
@@ -107,7 +107,7 @@
 				affected_mob.flash_pain_overlay(2)
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("You can't focus on anything!"))
-				affected_mob.add_confusion(rand(4,8))
+				affected_mob.set_timed_status_effect(rand(8 SECONDS, 16 SECONDS), /datum/status_effect/confusion)
 			if(DT_PROB(2, delta_time))
 				to_chat(affected_mob, span_danger("You're having difficulties breathing!"))
 				affected_mob.losebreath = clamp(affected_mob.losebreath + 4, 0, 12)

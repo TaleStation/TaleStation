@@ -83,7 +83,7 @@
 		if(user.is_blind())
 			return FALSE
 
-		var/obj/item/organ/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
+		var/obj/item/organ/internal/eyes/eyes = user.getorganslot(ORGAN_SLOT_EYES)
 		if(!eyes)
 			return FALSE
 
@@ -97,7 +97,7 @@
 
 	for(var/hud in SPEC_HUDS)
 		var/datum/atom_hud/new_hud = GLOB.huds[hud]
-		new_hud.add_hud_to(user)
+		new_hud.show_to(user)
 	ADD_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
 	ADD_TRAIT(user, TRAIT_DIAGNOSTIC_HUD, GLASSES_TRAIT)
 	RegisterSignal(user, COMSIG_MOB_EXAMINATE, .proc/on_user_examinate)
@@ -117,7 +117,7 @@
 	REMOVE_TRAIT(user, TRAIT_DIAGNOSTIC_HUD, GLASSES_TRAIT)
 	for(var/hud in SPEC_HUDS)
 		var/datum/atom_hud/removed_hud = GLOB.huds[hud]
-		removed_hud.remove_hud_from(user)
+		removed_hud.hide_from(user)
 	UnregisterSignal(user, COMSIG_MOB_EXAMINATE)
 
 	darkness_view = 2
@@ -141,7 +141,7 @@
 	if(human_source.is_blind())
 		return
 
-	var/obj/item/organ/eyes/eyes = human_source.getorganslot(ORGAN_SLOT_EYES)
+	var/obj/item/organ/internal/eyes/eyes = human_source.getorganslot(ORGAN_SLOT_EYES)
 	if(!eyes)
 		return
 

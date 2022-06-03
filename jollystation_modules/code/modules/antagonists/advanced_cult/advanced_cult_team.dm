@@ -114,8 +114,10 @@
 		arise_given_cultist(cultist.current)
 
 /datum/team/advanced_cult/proc/arise_given_cultist(mob/living/carbon/human/human_cultist, no_sound = FALSE)
-	human_cultist.eye_color = BLOODCULT_EYE
-	human_cultist.dna.update_ui_block(DNA_EYE_COLOR_BLOCK)
+	human_cultist.eye_color_left = BLOODCULT_EYE
+	human_cultist.eye_color_right = BLOODCULT_EYE
+	human_cultist.dna.update_ui_block(DNA_EYE_COLOR_LEFT_BLOCK)
+	human_cultist.dna.update_ui_block(DNA_EYE_COLOR_RIGHT_BLOCK)
 	ADD_TRAIT(human_cultist, TRAIT_UNNATURAL_RED_GLOWY_EYES, CULT_TRAIT)
 	human_cultist.update_body()
 	if(!no_sound)

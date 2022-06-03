@@ -20,7 +20,7 @@
 	/// Can the monitor translate languages?
 	var/universal_translate = FALSE
 	/// Access required to delete messages
-	req_access = list(ACCESS_TCOMSAT)
+	req_access = list(ACCESS_TCOMMS)
 	circuit = /obj/item/circuitboard/computer/comm_server
 
 /obj/machinery/computer/telecomms/server/ui_data(mob/user)
@@ -62,6 +62,7 @@
 				else
 					message_out = "(Unintelligible)"
 				packet_out["message"] = message_out
+
 				var/mob/mobtype = packet.parameters["mobtype"]
 				var/race = "Unidentifiable"
 				if(ispath(mobtype, /mob/living/carbon/human) || ispath(mobtype, /mob/living/brain))
@@ -86,6 +87,7 @@
 				packet_out["job"] = packet.parameters["job"]
 				packet_out["type"] = packet.input_type
 				packet_out["ref"] = REF(packet)
+
 				packets += list(packet_out)
 			server_out["packets"] = packets
 			data["server"] = server_out

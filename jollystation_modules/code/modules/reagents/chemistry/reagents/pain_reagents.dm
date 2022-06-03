@@ -71,12 +71,12 @@
 /datum/reagent/healium/on_mob_metabolize(mob/living/L)
 	. = ..()
 	if(L.IsSleeping())
-		var/obj/item/organ/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
+		var/obj/item/organ/internal/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
 		our_lungs?.on_anesthetic = TRUE
 
 /datum/reagent/healium/on_mob_end_metabolize(mob/living/L)
 	. = ..()
-	var/obj/item/organ/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
+	var/obj/item/organ/internal/lungs/our_lungs = L.getorganslot(ORGAN_SLOT_LUNGS)
 	our_lungs?.on_anesthetic = FALSE
 
 // Cryoxadone slowly heals pain, a la wounds
@@ -158,10 +158,18 @@
 		M.hallucination = clamp(M.hallucination + 3 * REM * delta_time, 0, 20)
 	// ...Dizziness after a longer while...
 	if(current_cycle >= 20 && DT_PROB(50 * max(1 - creation_purity, 0.5), delta_time))
-		M.dizziness = clamp(M.dizziness + (1 * REM * delta_time), 0, 5)
+		M.set_timed_status_effect(2 SECONDS * REM * delta_time, only_if_higher = TRUE)
 	// ...And finally, confusion
 	if(current_cycle >= 25 && DT_PROB(30 * max(1 - creation_purity, 0.5), delta_time))
-		M.set_confusion(clamp(M.get_confusion() + 2, 1, 6))
+		var/confusion_left = M.get_timed_status_effect_duration(/datum/status_effect/confusion)
+		if(confusion_left < 1 SECONDS)
+			M.set_timed_status_effect(1 SECONDS, /datum/status_effect/confusion)
+
+		else if (confusion_left < 2 SECONDS)
+			M.set_timed_status_effect(2 SECONDS, /datum/status_effect/confusion)
+
+		else if (confusion_left < 6 SECONDS)
+			M.set_timed_status_effect(6 SECONDS, /datum/status_effect/confusion)
 
 	return TRUE
 
@@ -247,7 +255,7 @@
 		M.adjust_disgust(min(current_cycle * 0.02, 2.4) * REM * delta_time)
 	// ...and dizziness.
 	if(current_cycle >= 25 && DT_PROB(30 * max(1 - creation_purity, 0.5), delta_time))
-		M.dizziness = clamp(M.dizziness + (1 * REM * delta_time), 0, 5)
+		M.set_timed_status_effect (2 SECONDS * REM * delta_time, only_if_higher = TRUE)
 
 	. = ..()
 	return TRUE
@@ -268,7 +276,7 @@
 		M.drowsyness += 1 * REM * delta_time
 	// ...And dizziness
 	if(DT_PROB(85 * max(1 - creation_purity, 0.5), delta_time))
-		M.dizziness += 2 * REM * delta_time
+		M.set_timed_status_effect (4 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
 
 	return TRUE
 
@@ -348,7 +356,7 @@
 	if(M.disgust < DISGUST_LEVEL_VERYGROSS && DT_PROB(75 * max(1 - creation_purity, 0.5), delta_time))
 		M.adjust_disgust(2 * REM * delta_time)
 	if(DT_PROB(33 * max(1 - creation_purity, 0.5), delta_time))
-		M.dizziness = clamp(M.dizziness + (1 * REM * delta_time), 0, 5)
+		M.set_timed_status_effect (2 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
 	. = ..()
 	return TRUE
 
@@ -373,10 +381,10 @@
 				human_mob.drop_all_held_items()
 			if(4)
 				to_chat(human_mob, span_danger("You feel your heart skip a beat."))
-				human_mob.Jitter(3 * REM * delta_time)
+				human_mob.set_timed_status_effect(6 SECONDS * REM * delta_time, /datum/status_effect/jitter, only_if_higher = TRUE)
 			if(5)
 				to_chat(human_mob, span_danger("You feel the world spin."))
-				human_mob.Dizzy(3 * REM * delta_time)
+				human_mob.set_timed_status_effect(6 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
 			if(6)
 				to_chat(human_mob, span_userdanger("You feel your heart seize and stop completely!"))
 				if(human_mob.stat == CONSCIOUS)
