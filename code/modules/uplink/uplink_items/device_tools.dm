@@ -199,7 +199,7 @@
 	progression_minimum = 30 MINUTES
 	item = /obj/item/ai_module/syndicate
 	cost = 4
-	purchasable_from = NONE
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 /datum/uplink_item/device_tools/hypnotic_flash
 	name = "Hypnotic Flash"
@@ -207,7 +207,7 @@
 	progression_minimum = 30 MINUTES
 	item = /obj/item/assembly/flash/hypnotic
 	cost = 7
-	purchasable_from = NONE
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 /datum/uplink_item/device_tools/hypnotic_grenade
 	name = "Hypnotic Grenade"
@@ -215,7 +215,7 @@
 	progression_minimum = 30 MINUTES
 	item = /obj/item/grenade/hypnotic
 	cost = 12
-	purchasable_from = NONE
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 /datum/uplink_item/device_tools/singularity_beacon
 	name = "Power Beacon"
