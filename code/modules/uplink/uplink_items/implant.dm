@@ -32,6 +32,7 @@
 			On activation, it will conceal you inside a chameleon cardboard box that is only revealed once someone bumps into it."
 	item = /obj/item/storage/box/syndie_kit/imp_stealth
 	cost = 8
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 /datum/uplink_item/implants/storage
 	name = "Storage Implant"
