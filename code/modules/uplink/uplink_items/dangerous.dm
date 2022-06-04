@@ -56,6 +56,7 @@
 	progression_minimum = 20 MINUTES
 	item = /obj/item/melee/powerfist
 	cost = 6
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 /datum/uplink_item/dangerous/rapid
 	name = "Gloves of the North Star"
@@ -63,7 +64,7 @@
 	progression_minimum = 20 MINUTES
 	item = /obj/item/clothing/gloves/rapid
 	cost = 8
-
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 // Medium progression cost
 
@@ -88,7 +89,7 @@
 	item = /obj/item/storage/box/syndie_kit/guardian
 	cost = 18
 	surplus = 0
-	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 	restricted = TRUE
 
 /datum/uplink_item/dangerous/revolver
