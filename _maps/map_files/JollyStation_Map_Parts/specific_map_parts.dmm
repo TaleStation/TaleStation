@@ -6,7 +6,8 @@
 /obj/machinery/button/door/directional/south{
 	id = "aps";
 	name = "Asset Protection's Blinds";
-	pixel_x = 9
+	pixel_x = 9;
+	req_access = list("ap")
 	},
 /obj/structure/table/wood,
 /obj/item/storage/fancy/donut_box,
@@ -74,7 +75,8 @@
 "j" = (
 /obj/machinery/door/window/brigdoor/left/directional/east{
 	dir = 8;
-	name = "Asset Protection's Equipment"
+	name = "Asset Protection's Equipment";
+	req_access = list("ap")
 	},
 /obj/effect/landmark/locker_spawner/asset_protection_equipment,
 /obj/structure/window/reinforced{
@@ -116,7 +118,8 @@
 	id = "bos";
 	name = "BO Space Blinds";
 	pixel_x = 38;
-	pixel_y = 6
+	pixel_y = 6;
+	req_access = list("bo")
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -151,7 +154,8 @@
 "B" = (
 /obj/machinery/door/window/brigdoor/right/directional/east{
 	dir = 8;
-	name = "Bridge Officer's Equipment"
+	name = "Bridge Officer's Equipment";
+	req_access = list("bo")
 	},
 /obj/effect/landmark/locker_spawner/bridge_officer_equipment,
 /obj/machinery/light/directional/east,
@@ -186,9 +190,8 @@
 /turf/open/floor/wood/parquet,
 /area/station/security/detectives_office/bridge_officer_office)
 "G" = (
-/obj/machinery/door/airlock/command{
-	name = "Bridge Officer's Office";
-	req_one_access_txt = "19; 65"
+/obj/machinery/door/airlock/corporate{
+	name = "Bridge Officer's Office"
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
