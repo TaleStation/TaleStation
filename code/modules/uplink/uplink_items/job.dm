@@ -162,6 +162,7 @@
 	item = /obj/item/disk/surgery/brainwashing
 	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHIEF_MEDICAL_OFFICER, JOB_ROBOTICIST)
 	cost = 5
+	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
 
 /datum/uplink_item/role_restricted/springlock_module
 	name = "Heavily Modified Springlock MODsuit Module"
