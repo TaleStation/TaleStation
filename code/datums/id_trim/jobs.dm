@@ -891,9 +891,6 @@
 /datum/id_trim/job/security_officer/engineering
 	assignment = "Security Officer (Engineering)"
 	trim_state = "trim_securityofficer_engi"
-<<<<<<< HEAD
-	department_access = list(ACCESS_ATMOSPHERICS, ACCESS_AUX_BASE, ACCESS_CONSTRUCTION, ACCESS_ENGINEERING)
-=======
 	department_access = list(
 		ACCESS_ATMOSPHERICS,
 		ACCESS_AUX_BASE,
@@ -902,14 +899,10 @@
 		ACCESS_ENGINE_EQUIP,
 		ACCESS_TCOMMS,
 		)
->>>>>>> 3dd6524ea72 ([MDB IGNORE] Big Access Tweaks and Organization (#67512))
 
 /datum/id_trim/job/security_officer/medical
 	assignment = "Security Officer (Medical)"
 	trim_state = "trim_securityofficer_med"
-<<<<<<< HEAD
-	department_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY)
-=======
 	department_access = list(
 		ACCESS_MEDICAL,
 		ACCESS_MORGUE,
@@ -918,14 +911,10 @@
 		ACCESS_SURGERY,
 		ACCESS_VIROLOGY,
 		)
->>>>>>> 3dd6524ea72 ([MDB IGNORE] Big Access Tweaks and Organization (#67512))
 
 /datum/id_trim/job/security_officer/science
 	assignment = "Security Officer (Science)"
 	trim_state = "trim_securityofficer_sci"
-<<<<<<< HEAD
-	department_access = list(ACCESS_AUX_BASE, ACCESS_RESEARCH, ACCESS_SCIENCE)
-=======
 	department_access = list(
 		ACCESS_AUX_BASE,
 		ACCESS_GENETICS,
@@ -936,7 +925,6 @@
 		ACCESS_SCIENCE,
 		ACCESS_XENOBIOLOGY,
 		)
->>>>>>> 3dd6524ea72 ([MDB IGNORE] Big Access Tweaks and Organization (#67512))
 
 /datum/id_trim/job/shaft_miner
 	assignment = "Shaft Miner"
