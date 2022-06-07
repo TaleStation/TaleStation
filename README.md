@@ -8,7 +8,7 @@ Join our DevBus for more information about development, or our main Discord for 
 
 ## Discords
 
-Main - https://discord.gg/PWAHwa3wrr
+Main - https://discord.gg/fUVZ8np4ty
 
 DevBus - https://discord.gg/XYNzVa2KKG
 
