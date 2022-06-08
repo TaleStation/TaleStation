@@ -21,3 +21,16 @@
 	if(istype(reciever))
 		reciever.dna.species.mutant_bodyparts -= "tail_cat"
 		reciever.update_body()
+
+// Tail icon overrides
+/obj/item/organ/external/tail/monkey
+	icon = 'jollystation_modules/icons/obj/surgery.dmi'
+	icon_state= "severedmonkeytail"
+
+/obj/item/organ/external/tail/cat
+	icon = 'jollystation_modules/icons/obj/surgery.dmi'
+	icon_state = "severedtailcat"
+
+/obj/item/organ/external/tail/lizard
+	icon = 'jollystation_modules/icons/obj/surgery.dmi'
+	icon_state = "severedtailliz"
