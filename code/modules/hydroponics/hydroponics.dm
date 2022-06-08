@@ -779,7 +779,7 @@
 	else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/sample))
 		if(!myseed)
 		//NON-MODULAR CHANGES: XenoBotany
-			if(istype(O, /obj/item/seeds/xeno) != accepts_alien_seeds)
+			if(O.is_alien_seeds != accepts_alien_seeds)
 				to_chat(user, span_warning("[src] cannot accept [accepts_alien_seeds ? "normal" : "alien"] seeds!"))
 				return
 			if(istype(O, /obj/item/seeds/kudzu))
