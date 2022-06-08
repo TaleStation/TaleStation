@@ -3,11 +3,6 @@
 /datum/id_trim/job/cargo_technician
 	extra_access = list(ACCESS_MINING, ACCESS_MINING_STATION) // Removed Quartermaster's office from extra access.
 
-/datum/id_trim/job/quartermaster
-	trim_icon = 'jollystation_modules/icons/obj/card.dmi'
-	sechud_icon = 'jollystation_modules/icons/mob/huds/hud.dmi'
-	extra_access = list(ACCESS_RESEARCH, ACCESS_SCIENCE)
-
 /datum/id_trim/job/quartermaster/New()
 	minimal_access |= list(ACCESS_COMMAND, ACCESS_BRIG_ENTRANCE, ACCESS_SECURITY)
 	if(minimal_access.Remove(ACCESS_QM))
