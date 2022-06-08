@@ -1,6 +1,16 @@
 // -- Hydroponics tray additions --
 #define TRAY_MODIFIED_BASE_NUTRIDRAIN 0.5
 
+/obj/machinery/hydroponics
+	//Determines if we want to accept alien seeds
+	var/accepts_alien_seeds = FALSE
+
+//Xenobotany trays; we grow weird shit
+/obj/machinery/hydroponics/xeno_tray
+	circuit = /obj/item/circuitboard/machine/hydroponics_xeno
+	accepts_alien_seeds = TRUE
+	icon_state = "hydrotray2"
+
 /obj/machinery/hydroponics/constructable
 	// Nutriment drain is halved so they can not worry about fertilizer as much
 	nutridrain = TRAY_MODIFIED_BASE_NUTRIDRAIN
