@@ -19,11 +19,6 @@
 	greyscale_config = /datum/greyscale_config/tablet/head
 	greyscale_colors = "#99ccff#000099"
 
-// Quartermaster -Viva!
-/obj/item/modular_computer/tablet/pda/heads/qm
-	greyscale_config = /datum/greyscale_config/tablet/head
-	greyscale_colors = "#e39751#a92323"
-
 // Regular Tablets
 
 // Science
