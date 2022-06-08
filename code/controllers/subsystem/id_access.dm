@@ -188,7 +188,12 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
-<<<<<<< HEAD
+		"[ACCESS_QM]" = list(
+			"regions" = list(REGION_SUPPLY),
+			"head" = JOB_QUARTERMASTER,
+			"templates" = list(),
+			"pdas" = list(),
+		),
 		//NON-MODULE CHANGES START
 		"[ACCESS_BO]" = list(
 			"regions" = list(REGION_COMMAND),
@@ -203,14 +208,7 @@ SUBSYSTEM_DEF(id_access)
 			"pdas" = list(),
 		),
 		//NON-MODULE CHANGES END
-=======
-		"[ACCESS_QM]" = list(
-			"regions" = list(REGION_SUPPLY),
-			"head" = JOB_QUARTERMASTER,
-			"templates" = list(),
-			"pdas" = list(),
-		),
->>>>>>> aebd156a437 (CARGONIA THE FREE: The Quartermaster is now a head of staff. (#67518))
+
 	)
 
 	var/list/station_job_trims = subtypesof(/datum/id_trim/job)
