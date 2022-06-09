@@ -3,7 +3,7 @@
 /obj/structure/closet/secure_closet/xeno_botany
 	name = "xeno botany equipment locker"
 	icon_state = "science"
-	req_access = list(ACCESS_RESEARCH)
+	req_access = list(ACCESS_XENOBOTANY, ACCESS_XENOBIOLOGY)
 
 /obj/structure/closet/secure_closet/xeno_botany/PopulateContents()
 	. = ..()

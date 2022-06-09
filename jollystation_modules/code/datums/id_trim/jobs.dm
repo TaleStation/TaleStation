@@ -58,8 +58,8 @@
 	trim_state = "trim_ordnance_tech"
 	sechud_icon = 'jollystation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudordnancetechnician"
-	extra_access = list(ACCESS_GENETICS, ACCESS_ROBOTICS, ACCESS_XENOBIOLOGY)
-	minimal_access = list(ACCESS_AUX_BASE, ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_ORDNANCE, ACCESS_ORDNANCE_STORAGE,
+	extra_access = list(ACCESS_GENETICS, ACCESS_ROBOTICS, ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY)
+	minimal_access = list(ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_ORDNANCE, ACCESS_ORDNANCE_STORAGE,
 					ACCESS_RESEARCH, ACCESS_SCIENCE)
 	template_access = list(ACCESS_CAPTAIN, ACCESS_RD, ACCESS_CHANGE_IDS)
 	job = /datum/job/ordnance_tech
@@ -72,6 +72,7 @@
 	sechud_icon = 'jollystation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudxenobiologist"
 	extra_access = list(ACCESS_GENETICS, ACCESS_ROBOTICS, ACCESS_ORDNANCE, ACCESS_ORDNANCE_STORAGE)
-	minimal_access = list(ACCESS_AUX_BASE, ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_SCIENCE, ACCESS_XENOBIOLOGY)
+	minimal_access = list(ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_SCIENCE, ACCESS_XENOBIOLOGY,
+					ACCESS_XENOBOTANY)
 	template_access = list(ACCESS_CAPTAIN, ACCESS_RD, ACCESS_CHANGE_IDS)
 	job = /datum/job/xenobiologist
