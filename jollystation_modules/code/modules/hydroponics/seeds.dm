@@ -52,3 +52,22 @@
 // This is in mushrooms.dm, not seeds.dm
 /obj/item/seeds/plump/walkingmushroom
 	is_alien_seeds = TRUE
+
+// Mutate list overrides
+/obj/item/seeds/orange
+	mutatelist = list(/obj/item/seeds/lime)
+
+/obj/item/seeds/grass
+	mutatelist = list(/obj/item/seeds/grass/fairy)
+
+/obj/item/seeds/lemon
+	mutatelist = list()
+
+/obj/item/seeds/tomato
+	mutatelist = list(/obj/item/seeds/tomato/blue, /obj/item/seeds/tomato/blood)
+
+/obj/item/seeds/cabbage
+	mutatelist = list()
+
+/obj/item/seeds/plump
+	mutatelist = list()

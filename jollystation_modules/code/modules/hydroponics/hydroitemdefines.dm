@@ -34,6 +34,13 @@ var/list/analyzer_data = list()
 	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
 	return TRUE
 
+// This check is here for modularity sake, disables regular analyzers from being used
+/obj/item/plant_analyzer/pre_attack(target, mob/user)
+	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
+		balloon_alert(user, "invalid object")
+		to_chat(user, span_warning("[src] reads 'Invalid object.'"))
+	return TRUE
+
 /obj/item/xeno_analyzer/proc/do_plant_stats_scan(atom/target, mob/user)
 	ui_interact(user)
 
