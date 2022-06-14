@@ -31,12 +31,18 @@
 	desc = "Get your scientific green thumb ready with this handy box of assorted seeds!"
 
 /obj/item/storage/box/seed_box/PopulateContents()
-	new /obj/item/seeds/orange_3d(src)
-	new /obj/item/seeds/firelemon(src)
-	new /obj/item/seeds/cherry/bomb(src)
-	new /obj/item/seeds/gatfruit(src)
-	new /obj/item/seeds/tomato/killer(src)
-	new /obj/item/seeds/plump/walkingmushroom(src)
+	if(prob(50))
+		new /obj/item/seeds/orange_3d(src)
+	else
+		new /obj/item/seeds/firelemon(src)
+	if(prob(99))
+		new /obj/item/seeds/cherry/bomb(src)
+	else
+		new /obj/item/seeds/gatfruit(src)
+	if(prob(25))
+		new /obj/item/seeds/tomato/killer(src)
+	else
+		new /obj/item/seeds/plump/walkingmushroom(src)
 	new /obj/item/seeds/grass/carpet(src)
 	new /obj/item/seeds/random(src)
 	for(var/i in 1 to 3)

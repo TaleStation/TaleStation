@@ -26,6 +26,7 @@
 
 var/list/analyzer_data = list()
 
+// Xeno analyzer check, to check only on xeno trays
 /obj/item/xeno_analyzer/pre_attack(target, mob/user)
 	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
 		do_plant_stats_scan(target, user)
@@ -36,9 +37,11 @@ var/list/analyzer_data = list()
 
 // This check is here for modularity sake, disables regular analyzers from being used
 /obj/item/plant_analyzer/pre_attack(target, mob/user)
-	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
-		balloon_alert(user, "invalid object")
-		to_chat(user, span_warning("[src] reads 'Invalid object.'"))
+	if(is_type_in_list(target, list(/obj/machinery/hydroponics/constructable, /obj/machinery/hydroponics/soil)))
+		do_plant_stats_scan(target, user)
+		return TRUE
+	balloon_alert(user, "invalid object")
+	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
 	return TRUE
 
 /obj/item/xeno_analyzer/proc/do_plant_stats_scan(atom/target, mob/user)
@@ -50,6 +53,7 @@ var/list/analyzer_data = list()
 		ui = new(user, src, "XenoAnalyzer")
 		ui.open()
 
+// TGUI data
 /obj/item/xeno_analyzer/ui_data(mob/user)
 	var/list/data = list()
 	data["health"] = health
