@@ -54,3 +54,8 @@ GLOBAL_LIST_EMPTY(locker_landmarks)
 /obj/effect/landmark/locker_spawner/asset_protection_equipment
 	name = "asset protection locker"
 	spawned_path = /obj/structure/closet/secure_closet/asset_protection
+
+// Landmark for mapping in Asset Protection equipment.
+/obj/effect/landmark/locker_spawner/xenobotany_equipment
+	name = "xenobotany locker"
+	spawned_path = /obj/structure/closet/secure_closet/xeno_botany

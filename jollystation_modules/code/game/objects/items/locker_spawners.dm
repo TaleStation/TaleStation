@@ -40,7 +40,7 @@
 
 	qdel(src)
 
-// BO Locker summoner
+// BO locker summoner
 /obj/item/locker_spawner/bridge_officer
 	name = "bridge officer equipment beacon"
 	desc = "A beacon handed out for enterprising bridge officers being assigned to stations without proper \
@@ -50,7 +50,7 @@
 	spawned_locker_path = /obj/structure/closet/secure_closet/bridge_officer
 	icon_state = "gangtool-blue"
 
-// AP Locker summoner
+// AP locker summoner
 /obj/item/locker_spawner/asset_protection
 	name = "asset protection equipment beacon"
 	desc = "A beacon handed out for stalwart asset protection officers being assigned to stations without proper \
@@ -60,7 +60,8 @@
 	spawned_locker_path = /obj/structure/closet/secure_closet/asset_protection
 	icon_state = "gangtool-blue"
 
-/obj/item/locker_spawner/xeno_biologist
+// XenoBiologist locker summoner
+/obj/item/locker_spawner/xenobotany
 	name = "xenobotany equipment beacon"
 	desc = "A beacon handed out for upcoming xenobiologists being assigned to stations without proper \
 		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
