@@ -7,7 +7,7 @@
 
 //Xenobotany trays; we grow weird shit
 /obj/machinery/hydroponics/xeno_tray
-	circuit = /obj/item/circuitboard/machine/hydroponics_xeno
+	circuit = /obj/item/circuitboard/machine/hydroponics/xeno
 	accepts_alien_seeds = TRUE
 	icon_state = "hydrotray2"
 

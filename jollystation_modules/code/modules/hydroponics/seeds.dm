@@ -4,6 +4,10 @@
 /obj/item/seeds
 	var/is_alien_seeds = FALSE
 
+// Modular override to add the alien var
+/obj/item/food/grown
+	var/is_alien_produce = FALSE
+
 // Alien seeds used for XenoBotany
 /obj/item/seeds/xeno
 	is_alien_seeds = TRUE
@@ -71,3 +75,28 @@
 
 /obj/item/seeds/plump
 	mutatelist = list()
+
+// Alien produce list
+/obj/item/food/grown/citrus/orange_3d
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/grass/carpet
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/cherry_bomb
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/firelemon
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/shell/gatfruit
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/tomato/killer
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/random
+	is_alien_produce = TRUE
+
+/obj/item/food/grown/mushroom/plumphelmet
+	is_alien_produce = TRUE

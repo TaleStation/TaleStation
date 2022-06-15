@@ -16,6 +16,7 @@
 /proc/seedify(obj/item/O, t_max, obj/machinery/seed_extractor/extractor, mob/living/user)
 	var/t_amount = 0
 	var/list/seeds = list()
+	var/obj/item/food/grown/produce = O // NON-MODULAR CHANGE: Var used in the XenoBotany check
 	if(t_max == -1)
 		if(extractor)
 			t_max = rand(1,4) * extractor.seed_multiplier
@@ -28,6 +29,10 @@
 
 	if(istype(O, /obj/item/food/grown/))
 		var/obj/item/food/grown/F = O
+		// NON-MODULAR CHANGES: XenoBotrany seed extractor check
+		if(produce.is_alien_produce != extractor.accepts_alien_seeds)
+			return
+		// NON-MODULAR CHANGES END
 		if(F.seed)
 			if(user && !user.temporarilyRemoveItemFromInventory(O)) //couldn't drop the item
 				return
@@ -134,6 +139,13 @@
 		to_chat(user, span_notice("You extract some seeds."))
 		return
 	else if (istype(O, /obj/item/seeds))
+		// NON-MODULAR CHANGES: XenoBotany seed storage check
+		var/obj/item/seeds/seed = O
+		// Checks if our seeds are alien seeds
+		if(seed.is_alien_seeds != accepts_alien_seeds)
+			to_chat(user, span_warning("The [src.name] can't accept [O]!"))
+			return
+		// NON-MODULAR CHANGES END
 		if(add_seed(O))
 			to_chat(user, span_notice("You add [O] to [src.name]."))
 		return

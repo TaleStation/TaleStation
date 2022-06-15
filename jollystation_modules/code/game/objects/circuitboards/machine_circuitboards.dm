@@ -1,6 +1,6 @@
 // Modular machine circuit boards
 
-/obj/item/circuitboard/machine/hydroponics_xeno
+/obj/item/circuitboard/machine/hydroponics/xeno
 	name = "XenoBotany Hydroponics Tray (Machine Board)"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/hydroponics/xeno_tray
@@ -9,4 +9,8 @@
 		/obj/item/stock_parts/manipulator = 1,
 		/obj/item/stack/sheet/glass = 2,
 		/obj/item/stack/cable_coil = 4)
-	needs_anchored = FALSE
+
+/obj/item/circuitboard/machine/seed_extractor/xeno
+	name = "XenoBotany Seed Extractor (Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
+	build_path = /obj/machinery/seed_extractor/xeno
