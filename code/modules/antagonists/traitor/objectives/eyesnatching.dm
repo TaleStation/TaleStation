@@ -200,7 +200,11 @@
 	desc += " It has been used up."
 	update_icon()
 
+<<<<<<< HEAD
 /obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/internal/eyes/eyeballies, obj/item/organ/internal/eyes/eyes, obj/item/bodypart/head/head, mob/living/carbon/human/victim)
+=======
+/obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/internal/eyes/eyeballies, obj/item/bodypart/head/head, mob/living/carbon/human/victim)
+>>>>>>> f285aaf2924 (Adds eye snatching to the DME and fixes it (#67875))
 	if(!eyeballies || QDELETED(eyeballies))
 		return FALSE
 
@@ -213,7 +217,7 @@
 	if(eyeballies.owner != victim)
 		return FALSE
 
-	if(head.owner != victim || head.eyes != eyes)
+	if(head.owner != victim || head.eyes != eyeballies)
 		return FALSE
 
 	return TRUE
