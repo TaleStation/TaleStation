@@ -10,7 +10,7 @@
 /datum/tgui_say/proc/alter_entry(payload)
 	var/entry = payload["entry"]
 	/// No OOC leaks
-	if(!entry || payload["channel"] == OOC_CHANNEL || payload["channel"] == ME_CHANNEL)
+	if(!entry || payload["channel"] == OOC_CHANNEL || payload["channel"] == ME_CHANNEL || payload["channel"] == LOOC_CHANNEL) // NON-MODULAR CHANGES: LOOC
 		return pick(hurt_phrases)
 	/// Random trimming for larger sentences
 	if(length(entry) > 50)
@@ -31,7 +31,7 @@
  *  boolean - on success or failure
  */
 /datum/tgui_say/proc/delegate_speech(entry, channel)
-	if(channel == OOC_CHANNEL)
+	if(channel == OOC_CHANNEL || channel == LOOC_CHANNEL) // NON-MODULE CHANGES: LOOC
 		client.ooc(entry)
 		return TRUE
 	switch(channel)
@@ -85,7 +85,7 @@
 		return TRUE
 	if(type == "force")
 		var/target_channel = payload["channel"]
-		if(target_channel == ME_CHANNEL || target_channel == OOC_CHANNEL)
+		if(target_channel == ME_CHANNEL || target_channel == OOC_CHANNEL || LOOC_CHANNEL) // NON-MODULE CHANGES: LOOC
 			target_channel = SAY_CHANNEL // No ooc leaks
 		delegate_speech(alter_entry(payload), target_channel)
 		return TRUE
