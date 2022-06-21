@@ -82,7 +82,7 @@
 	if(!payload?["channel"])
 		CRASH("No channel provided to an open TGUI-Say")
 	window_open = TRUE
-	if((payload["channel"] != OOC_CHANNEL) || (payload["channel"] != LOOC_CHANNEL)) /// NON-MODULAR CHANGE: LOOC
+	if(payload["channel"] != OOC_CHANNEL || payload["channel"] != LOOC_CHANNEL) // NON-MODULAR CHANGE: LOOC
 		start_thinking()
 	if(client.typing_indicators)
 		log_speech_indicators("[key_name(client)] started typing at [loc_name(client.mob)], indicators enabled.")

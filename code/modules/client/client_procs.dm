@@ -1047,9 +1047,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				if(OOC_CHANNEL)
 					var/ooc = tgui_say_create_open_command(OOC_CHANNEL)
 					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[ooc]")
+				// NON-MODULAR CHANGES START: LOOC
 				if(LOOC_CHANNEL)
 					var/looc = tgui_say_create_open_command(LOOC_CHANNEL)
-					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[looc]") // NON-MODULAR CHANGE: LOOC
+					winset(src, "default-[REF(key)]", "parent=default;name=[key];command=[looc]")
+				// NON-MODULAR CHANGES END
 
 /client/proc/change_view(new_size)
 	if (isnull(new_size))
