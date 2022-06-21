@@ -85,7 +85,7 @@
 		return TRUE
 	if(type == "force")
 		var/target_channel = payload["channel"]
-		if(target_channel == ME_CHANNEL || target_channel == OOC_CHANNEL || LOOC_CHANNEL) // NON-MODULE CHANGES: LOOC
+		if(target_channel == ME_CHANNEL || target_channel == OOC_CHANNEL || target_channel == LOOC_CHANNEL) // NON-MODULE CHANGES: LOOC
 			target_channel = SAY_CHANNEL // No ooc leaks
 		delegate_speech(alter_entry(payload), target_channel)
 		return TRUE
