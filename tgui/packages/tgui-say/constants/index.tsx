@@ -1,5 +1,5 @@
 /** Radio channels */
-export const CHANNELS = ['Say', 'Radio', 'Me', 'OOC'] as const;
+export const CHANNELS = ['Say', 'Radio', 'Me', 'OOC', 'LOOC'] as const; // NON-MODULAR CHANGES: LOOC Channel
 
 /** Window sizes in pixels */
 export const WINDOW_SIZES = {

@@ -31,11 +31,12 @@
  *  boolean - on success or failure
  */
 /datum/tgui_say/proc/delegate_speech(entry, channel)
-	if(channel == OOC_CHANNEL) // NON-MODULE CHANGES: LOOC
-		client.ooc(entry)
-		return TRUE
+	// NON-MODULE CHANGES: LOOC
 	if(channel == LOOC_CHANNEL)
 		client.looc(entry)
+		return TRUE
+	if(channel == OOC_CHANNEL)
+		client.ooc(entry)
 		return TRUE
 	switch(channel)
 		if(RADIO_CHANNEL)
