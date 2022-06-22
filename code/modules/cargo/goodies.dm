@@ -167,8 +167,6 @@
 	desc = "A complete meal package for the terminally lazy. Contains one Ready-Donk meal."
 	cost = PAYCHECK_CREW * 2
 	contains = list(/obj/item/food/ready_donk)
-<<<<<<< HEAD
-=======
 
 /datum/supply_pack/goody/pill_mutadone
 	name = "Emergency Mutadone Pill"
@@ -235,4 +233,3 @@
 	desc = "When the standard variety is not good enough for you."
 	cost = PAYCHECK_CREW
 	contains = list(/obj/item/bait_can/worm/premium)
->>>>>>> 7f52ff0e39b (Arconomy expansion pack 1: Convenience and Luxury goods (#67417))
