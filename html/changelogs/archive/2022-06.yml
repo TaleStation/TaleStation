@@ -457,3 +457,104 @@
   - tweak: You can now use internals with the joy/emotion mask
   atteria:
   - imageadd: 3/4 sprites for MULEBots
+2022-06-23:
+  Cursor, sprites by Crumpaloo.:
+  - imageadd: The Cargorilla has found clothing in their size.
+  - rscadd: Updated the Cargorilla's description to match their new look.
+  GoldenAlpharex:
+  - bugfix: Fixed a runtime related to the TGUI white mode preference that would happen
+      every time someone would connect to the server.
+  JollyStationBot:
+  - rscadd: A white cane, an indicator that the wielder is blind, can now be bought
+      and crafted from medical vendors and iron rods respectively.
+  - rscadd: Added fishing, fishing rods and other fishing equipment.
+  - rscadd: Fishing related cargo crates & private packs.
+  - rscadd: Fishing technology and designs
+  - bugfix: Fixes proto-nitrate tritium response requiring proto-nitrate bz response
+      radiation energy requirement amount of energy to emit radiation pulses, and
+      vice versa.
+  - bugfix: Fixed recycler bug that deleted the output stack because it was merged
+      with the input stack
+  - bugfix: Fixed recycler bug where it deleted stacks of 50 because it didn't have
+      enough space by removing recycle bins that reset its internal space from infinity
+      to the level of matter bin part
+  - bugfix: Locate weakpoint objective now works again.
+  - rscadd: Botany can now grow olives, which can be ground into a paste and mixed
+      with water to make quality oil.
+  - rscadd: You can now make custom sushi by using an ingredient on a seaweed sheet.
+      The sushi will be named after the first ingredient you use.
+  - balance: Pierogis now need a dough slice instead of a bun
+  - balance: Quality oil costs 50 credits to order instead of 120
+  - rscadd: Glass floor tiles can now be made out of both plasma glass, and reinforced
+      plasma glass
+  - bugfix: mulebots can be turned on/off
+  - balance: Hacking the command console and winning revs no longer adds midround
+      threat. Instead, it'll force a heavy ruleset to spawn, and barring that, will
+      spawn a dangerous random event.
+  - bugfix: Fixed revolutions blaring alerts for a few seconds after winning.
+  - bugfix: The Traitor eye snatching objective will now appear in-game.
+  - bugfix: the randomize_human proc now gives non-humans a name that matches their
+      species
+  - rscadd: Added several new goodie items to purchase through cargo, including translation
+      keys, mutadone autoinjectors, and a full RLD.
+  - code_imp: documented research_nodes and radios.
+  - balance: Increased greed vending machine integrity and max items
+  - admin: Added a way for administrators to globally disable circuit component sound
+      emitters.
+  - balance: Further limited the sound emitter component so that maximum volume is
+      reduced and pitch is capped between -50 and 50
+  - rscadd: 'Oldstation: Added a lootbox for every role'
+  - rscadd: 'Oldstation: Added 1 diamond ore spawn and 1 gibtonite spawn to asteroids'
+  - rscdel: 'Oldstation: Removed redundant cable, pen, free pipe dispensers and the
+      box of firing pins'
+  - imageadd: Adds an inhand sprite for the atmos gasmask
+  - imageadd: Updates the medical duffelbag inhand sprite
+  - balance: Changes supermatter powerloss function. It will transition to linear
+      powerloss function at 5.88076GeV, and the linear powerloss function has been
+      offset so that the transition between the two functions is completely smooth.
+  - balance: Changes powerloss inhibition (both CO2 and psychologist effect) to change
+      the rate of powerloss instead of changing the rate of both functions then comparing
+      them to which one should be used.
+  - bugfix: Shuttle hijack timeouts work now.
+  - imageadd: The chef's hat, jumpsuit/skirt, and suit has been resprited
+  - bugfix: switching bodies, such as becoming a lich or mindswapping will no longer
+      revoke a wizard's access to their spell book
+  - rscadd: Gas canisters and other portable atmospheric machinery can now be packaged
+      with wrapping paper.
+  - rscadd: Replaces chat messages with balloon alerts for package wrapping related
+      failures.
+  - bugfix: the Chaplain's sparring sect now works on Kilostation again.
+  Melbert:
+  - balance: AI Gorillas are now allied to AI monkeys, and AI Cargorillas won't try
+      (and fail) to wail on crewmembers.
+  - code_imp: Diggable component was changed to the Diggable element.
+  - balance: The Cursed Dufflebag takes any food poisoned by any means, instead of
+      just burnt messes.
+  - balance: The Cursed Dufflebag deals out slightly less wounds now to people wearing
+      armor and protection.
+  - balance: The Cursed Dufflebag deals less damage if the mob it's attached to is
+      dead, and doesn't heal if so.
+  - bugfix: The Cursed Dufflebag no longer permanently makes you a pacifist and clumsy.
+  jlsnow301 KubeRoot stylemistake Iamgoofball Kapu1178:
+  - rscadd: Adds the TGUI say modal to replace speech input boxes. Many features!
+  - rscadd: You can switch output channel within the TGUI say modal by clicking the
+      channel button or keying TAB.
+  - rscadd: Added 5-message chat history to the say window. Use arrow keys to scroll
+      recent messages.
+  - rscadd: The say window auto-expands! It adds up to two extra lines and scrolls
+      beyond that.
+  - rscadd: The common radio hotkey - "Y". No need to type ; in radio channel. Help
+      maint!
+  - rscadd: Radio subchannel helpers - Typing subchannels like ":e " will show labels.
+  - rscadd: Getting hurt while speaking has a chance to force you to speak. You read
+      that correc-AUGH
+  - rscadd: Typing indicators! Having an IC channel open will show thinking/typing
+      icons activity.
+  - rscadd: Typing indicators are a preference. Go incognito if you want!
+  - rscadd: Themes for TGUI Say! There is currently a light mode. More to come.
+  - refactor: Sorts other TGUI inputs into their own folder and cleans up their code.
+      Remember, TGUI Inputs can be disabled in UI prefs if you're not a fan.
+  - refactor: Refactors a lot of human defense code, report bugs if you encounter
+      them.
+  - refactor: Refactors admin centcom reports into typescript. You must send the report
+      to save the text.
