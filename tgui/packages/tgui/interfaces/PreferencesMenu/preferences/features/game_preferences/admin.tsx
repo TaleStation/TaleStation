@@ -29,10 +29,3 @@ export const fast_mc_refresh: FeatureToggle = {
     'Whether or not the MC tab of the Stat Panel refreshes fast. This is expensive so make sure you need it.',
   component: CheckboxInput,
 };
-
-export const fast_mc_refresh: FeatureToggle = {
-  name: "Enable fast MC stat panel refreshes",
-  category: "ADMIN",
-  description: "Whether or not the MC tab of the Stat Panel refreshes fast. This is expensive so make sure you need it.",
-  component: CheckboxInput,
-};
