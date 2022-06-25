@@ -134,6 +134,7 @@
 #include "resist.dm"
 #include "say.dm"
 #include "security_officer_distribution.dm"
+#include "security_levels.dm"
 #include "serving_tray.dm"
 #include "siunit.dm"
 #include "slips.dm"
