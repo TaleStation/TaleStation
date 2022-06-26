@@ -295,7 +295,6 @@ const SpeciesPageInner = (
                       <Section title="Features">
                         <SpeciesPerks perks={currentSpecies.perks} />
                       </Section>
-
                     </Section>
                   </Stack.Item>
 
