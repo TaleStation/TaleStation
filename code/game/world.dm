@@ -348,7 +348,13 @@ GLOBAL_VAR(restart_counter)
 		s += ": [jointext(features, ", ")]"
 
 	s += "<br>Round time: <b>[gameTimestamp("hh:mm")]</b>"
+<<<<<<< HEAD
 	s += "<br>Alert level: <b>[capitalize(get_security_level())]</b>"
+=======
+	if(SSmapping.config)
+		s += "<br>Map: <b>[SSmapping.config.map_path == CUSTOM_MAP_PATH ? "Uncharted Territory" : SSmapping.config.map_name]</b>"
+	s += "<br>Alert level: <b>[capitalize(SSsecurity_level.get_current_level_as_text())]</b>"
+>>>>>>> 583918b16a67 (Adds Current Map To Hub Entry (#67986))
 
 	status = s
 
