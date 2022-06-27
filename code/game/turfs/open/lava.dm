@@ -33,10 +33,6 @@
 	. = ..()
 	AddElement(/datum/element/lazy_fishing_spot, FISHING_SPOT_PRESET_LAVALAND_LAVA)
 
-/turf/open/lava/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/lazy_fishing_spot, FISHING_SPOT_PRESET_LAVALAND_LAVA)
-
 /turf/open/lava/ex_act(severity, target)
 	return
 
