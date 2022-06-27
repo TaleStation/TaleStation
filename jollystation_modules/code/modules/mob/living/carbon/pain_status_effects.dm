@@ -354,7 +354,7 @@
 
 
 /datum/status_effect/temperature_pack/heat/tick()
-	if(pressed_item.obj_flags & FROZEN)
+	if(pressed_item.obj_flags & TRAIT_FROZEN)
 		stop_effects(silent = TRUE)
 		return
 
