@@ -10,7 +10,7 @@ import { Box, Button, Section, Stack, Input } from '../components';
 import { KEY_DOWN, KEY_UP, KEY_ENTER } from 'common/keycodes';
 import { Window } from '../layouts';
 import { Component, createRef } from 'inferno';
-import { globalEvents } from "../events";
+import { globalEvents } from '../events';
 
 export class ListInput extends Component {
   constructor() {
@@ -29,12 +29,8 @@ export class ListInput extends Component {
 
   handleKeyDown(e) {
     const { act, data } = useBackend(this.context);
-    const {
-      buttons,
-    } = data;
-    const {
-      selectedButton,
-    } = this.state;
+    const { buttons } = data;
+    const { selectedButton } = this.state;
 
     e.preventDefault();
     if (e.keyCode === KEY_UP || e.keyCode === KEY_DOWN) {
@@ -63,7 +59,7 @@ export class ListInput extends Component {
     }
 
     if (e.keyCode === KEY_ENTER) {
-      act("choose", { choice: selectedButton });
+      act('choose', { choice: selectedButton });
       return;
     }
 
@@ -80,27 +76,18 @@ export class ListInput extends Component {
   }
 
   componentDidMount() {
-    globalEvents.on("keydown", this.handleKey);
+    globalEvents.on('keydown', this.handleKey);
     setTimeout(() => this.inputRef.current?.inputRef?.current.focus(), 1);
   }
 
   componentWillUnmount() {
-    globalEvents.off("keydown", this.handleKey);
+    globalEvents.off('keydown', this.handleKey);
   }
 
   render() {
     const { act, data } = useBackend(this.context);
-    const {
-      title,
-      message,
-      buttons,
-      timeout,
-    } = data;
-    const {
-      showSearchBar,
-      displayedArray,
-      selectedButton,
-    } = this.state;
+    const { title, message, buttons, timeout } = data;
+    const { showSearchBar, displayedArray, selectedButton } = this.state;
 
     if (!displayedArray) {
       this.setState({
@@ -111,10 +98,7 @@ export class ListInput extends Component {
     }
 
     return (
-      <Window
-        title={title}
-        width={325}
-        height={325}>
+      <Window title={title} width={325} height={325}>
         {timeout !== undefined && <Loader value={timeout} />}
         <Window.Content>
           <Stack fill vertical>
@@ -126,7 +110,7 @@ export class ListInput extends Component {
                 title={message}
                 tabIndex={0}
                 onKeyDown={this.handleKeyDown}
-                buttons={(
+                buttons={
                   <Button
                     compact
                     icon="search"
@@ -141,12 +125,12 @@ export class ListInput extends Component {
                       });
                     }}
                   />
-                )}>
-                {displayedArray.map(button => (
+                }>
+                {displayedArray.map((button) => (
                   <Button
                     style={{
-                      "animation": "none",
-                      "transition": "none",
+                      'animation': 'none',
+                      'transition': 'none',
                     }}
                     key={button}
                     color="transparent"
@@ -155,9 +139,8 @@ export class ListInput extends Component {
                     selected={selectedButton === button}
                     onClick={() => {
                       if (selectedButton === button) {
-                        act("choose", { choice: button });
-                      }
-                      else {
+                        act('choose', { choice: button });
+                      } else {
                         this.setState({
                           selectedButton: button,
                         });
@@ -174,12 +157,13 @@ export class ListInput extends Component {
                   fluid
                   ref={this.inputRef}
                   onEnter={(e, value) => {
-                    act("choose", { choice: selectedButton });
+                    act('choose', { choice: selectedButton });
                   }}
                   onInput={(e, value) => {
-                    const filteredArray = buttons.filter(val => (
-                      val.toLowerCase().search(value.toLowerCase()) !== -1
-                    ));
+                    const filteredArray = buttons.filter(
+                      (val) =>
+                        val.toLowerCase().search(value.toLowerCase()) !== -1
+                    );
                     this.setState({
                       displayedArray: filteredArray,
                       selectedButton: filteredArray[0],
@@ -197,7 +181,7 @@ export class ListInput extends Component {
                     lineHeight={2}
                     content="Confirm"
                     disabled={selectedButton === null}
-                    onClick={() => act("choose", { choice: selectedButton })}
+                    onClick={() => act('choose', { choice: selectedButton })}
                   />
                 </Stack.Item>
                 <Stack.Item grow basis={0}>
@@ -206,7 +190,7 @@ export class ListInput extends Component {
                     color="bad"
                     lineHeight={2}
                     content="Cancel"
-                    onClick={() => act("cancel")}
+                    onClick={() => act('cancel')}
                   />
                 </Stack.Item>
               </Stack>
@@ -218,7 +202,7 @@ export class ListInput extends Component {
   }
 }
 
-export const Loader = props => {
+export const Loader = (props) => {
   const { value } = props;
   return (
     <div className="ListInput__Loader">
@@ -226,7 +210,8 @@ export const Loader = props => {
         className="ListInput__LoaderProgress"
         style={{
           width: clamp01(value) * 100 + '%',
-        }} />
+        }}
+      />
     </div>
   );
 };

@@ -70,7 +70,7 @@ GLOBAL_VAR(restart_counter)
 	if(CONFIG_GET(flag/usewhitelist))
 		load_whitelist()
 
-	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 77400
+	GLOB.timezoneOffset = text2num(time2text(0,"hh")) * 36000
 
 	if(fexists(RESTART_COUNTER_PATH))
 		GLOB.restart_counter = text2num(trim(file2text(RESTART_COUNTER_PATH)))
@@ -316,16 +316,10 @@ GLOBAL_VAR(restart_counter)
 		s += " &#8212; <b>[station_name()]</b>"
 
 	s += " ("
-	s += "<a href=\"https://discord.gg/fUVZ8np4ty\">" //Change this to wherever you want the hub to link to.
-	s += "Discord "  //Replace this with something else. Or ever better, delete it and uncomment the game version.
+	s += "<a href=\"http://\">" //Change this to wherever you want the hub to link to.
+	s += "Default"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
 	s += "</a>"
-	s += "<a href=\"https://github.com/JollyStation/JollyStation\">"
-	s += "GitHub"
-	s += "</a>"
-	s += ") "
-	s += ""
-	s += "TG-Based code server where Roleplay comes first."
-	s += "Join our Discord for more information."
+	s += ")"
 
 	var/players = GLOB.clients.len
 
@@ -348,13 +342,9 @@ GLOBAL_VAR(restart_counter)
 		s += ": [jointext(features, ", ")]"
 
 	s += "<br>Round time: <b>[gameTimestamp("hh:mm")]</b>"
-<<<<<<< HEAD
-	s += "<br>Alert level: <b>[capitalize(get_security_level())]</b>"
-=======
 	if(SSmapping.config)
 		s += "<br>Map: <b>[SSmapping.config.map_path == CUSTOM_MAP_PATH ? "Uncharted Territory" : SSmapping.config.map_name]</b>"
 	s += "<br>Alert level: <b>[capitalize(SSsecurity_level.get_current_level_as_text())]</b>"
->>>>>>> 583918b16a67 (Adds Current Map To Hub Entry (#67986))
 
 	status = s
 
