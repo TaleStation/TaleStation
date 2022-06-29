@@ -3,9 +3,9 @@
 
 $background: #131313;
 $button: #1f1f1f;
-$lightMode: #FFFFFF;
-$lightBorder: #BBBBBB;
-$lightHover: #EAEAEA;
+$lightMode: #ffffff;
+$lightBorder: #bbbbbb;
+$lightHover: #eaeaea;
 
 ////////////////////////////////////////////////
 // Normal chat colors
@@ -14,7 +14,7 @@ $radio: #1ecc43;
 $me: #5975da;
 $ooc: #cca300;
 // NON-MODULAR CHANGES: LOOC Color
-$looc: #04A8C5;
+$looc: #04a8c5;
 
 ////////////////////////////////////////////////
 // Subchannel chat colors
@@ -36,9 +36,8 @@ $_channel_map: (
   'radio': $radio,
   'me': $me,
   'ooc': $ooc,
-//  NON-MODULAR CHANGES: LOOC Channel map
+  //  NON-MODULAR CHANGES: LOOC Channel map
   'looc': $looc,
-
   'ai': $ai,
   'binary': $binary,
   'centcom': $centcom,
@@ -55,10 +54,13 @@ $_channel_map: (
 
 $channel_keys: map.keys($_channel_map) !default;
 
-$channel-map: (
-);
+$channel-map: ();
 
 @each $channel in $channel_keys {
-  $channel-map: map-merge($channel-map, ($channel: map.get($_channel_map, $channel),
-    ));
+  $channel-map: map-merge(
+    $channel-map,
+    (
+      $channel: map.get($_channel_map, $channel),
+    )
+  );
 }

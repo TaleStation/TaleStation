@@ -13,15 +13,22 @@
 	. = ..()
 	AddElement(/datum/element/temperature_pack, pain_heal_rate = 0.3, pain_modifier_on_limb = 0.9, temperature_change = -2)
 
+/obj/proc/make_frozen_visual()
+	if(!(obj_flags & TRAIT_FROZEN))
+		name = "frozen [name]"
+		add_atom_colour(GLOB.freon_color_matrix, TEMPORARY_COLOUR_PRIORITY)
+		alpha -= 25
+		obj_flags |= TRAIT_FROZEN
+
 // Frozen items become usable temperature packs.
 /obj/item/make_frozen_visual()
 	. = ..()
-	if(obj_flags & FROZEN)
+	if(obj_flags & TRAIT_FROZEN)
 		AddElement(/datum/element/temperature_pack, FROZEN_ITEM_PAIN_RATE, FROZEN_ITEM_PAIN_MODIFIER, FROZEN_ITEM_TEMPERATURE_CHANGE)
 
 /obj/item/make_unfrozen()
 	. = ..()
-	if(!(obj_flags & FROZEN))
+	if(!(obj_flags & TRAIT_FROZEN))
 		RemoveElement(/datum/element/temperature_pack, FROZEN_ITEM_PAIN_RATE, FROZEN_ITEM_PAIN_MODIFIER, FROZEN_ITEM_TEMPERATURE_CHANGE)
 
 /// Temperature packs (heat packs, cold packs). Apply to hurt limb to un-hurty.
