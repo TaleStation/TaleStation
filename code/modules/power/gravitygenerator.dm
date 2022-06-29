@@ -151,13 +151,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	breaker = FALSE
 	charge_count = 0
 
-<<<<<<< HEAD
-///Station generator that spawns with gravity turned off.
-/obj/machinery/gravity_generator/main/station/off
-	on = FALSE
-	breaker = FALSE
-	charge_count = 0
-=======
 /obj/machinery/gravity_generator/main/Initialize(mapload)
 	. = ..()
 	soundloop = new(src, start_immediately = FALSE)
@@ -165,7 +158,6 @@ GLOBAL_LIST_EMPTY(gravity_generators)
 	if(on)
 		enable()
 		center_part.add_overlay("activated")
->>>>>>> c9b3d9ab6780 (Fixes gravity gen sound & off gen loops (#67586))
 
 /obj/machinery/gravity_generator/main/Destroy() // If we somehow get deleted, remove all of our other parts.
 	investigate_log("was destroyed!", INVESTIGATE_GRAVITY)
