@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(crewtransfer)
 		/// The multiplier on the shuttle's timer
 		var/shuttle_time_mult = 1
 		/// Security level (for timer multiplier)
-		var/security_num = seclevel2num(get_security_level())
+		var/security_num = SSsecurity_level.get_current_level_as_number()
 		switch(security_num)
 			if(SEC_LEVEL_GREEN)
 				shuttle_time_mult = 2 // = ~20 minutes
