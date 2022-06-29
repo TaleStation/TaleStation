@@ -31,16 +31,6 @@
  *  boolean - on success or failure
  */
 /datum/tgui_say/proc/delegate_speech(entry, channel)
-<<<<<<< HEAD
-	// NON-MODULE CHANGES: LOOC
-	if(channel == LOOC_CHANNEL)
-		client.looc(entry)
-		return TRUE
-	if(channel == OOC_CHANNEL)
-		client.ooc(entry)
-		return TRUE
-=======
->>>>>>> c62195450d6b (TGUI Say no longer deletes your currently typed message on history (#67971))
 	switch(channel)
 		if(SAY_CHANNEL)
 			client.mob.say_verb(entry)
@@ -53,6 +43,10 @@
 			return TRUE
 		if(OOC_CHANNEL)
 			client.ooc(entry)
+			return TRUE
+		// NON-MODULAR CHANGES: LOOC
+		if(LOOC_CHANNEL)
+			client.looc(entry)
 			return TRUE
 	return FALSE
 
