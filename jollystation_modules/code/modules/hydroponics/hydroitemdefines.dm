@@ -21,10 +21,13 @@
 	var/fertilizer = 0
 	var/light_level = 0
 	var/pests = 0
-	var/plant_name = "null"
-	var/researched = 0
+	var/plant_name
+	var/plant_desc
+	var/researched = FALSE
+	var/saved_image
 
-var/list/analyzer_data = list()
+	var/max_nutri = 0
+	var/max_water = 0
 
 // Xeno analyzer check, to check only on xeno trays
 /obj/item/xeno_analyzer/pre_attack(target, mob/user)
@@ -44,7 +47,25 @@ var/list/analyzer_data = list()
 	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
 	return TRUE
 
-/obj/item/xeno_analyzer/proc/do_plant_stats_scan(atom/target, mob/user)
+/obj/item/xeno_analyzer/proc/do_plant_stats_scan(obj/machinery/hydroponics/xeno_tray/target, mob/user)
+	health = target.plant_health
+	water_level = target.waterlevel
+	fertilizer = target?.reagents.total_volume
+	var/turf/location = get_turf(target)
+	light_level = location.get_lumcount()
+	pests = target.pestlevel
+	max_water = target.maxwater
+	max_nutri = target.maxnutri
+	saved_image = icon2base64(getFlatIcon(target, defdir = SOUTH, no_anim = TRUE))
+	if(target.myseed)
+		instability = target.myseed.instability
+		plant_name = target.myseed.plantname
+		plant_desc = target.myseed.desc
+		// researched = target.myseed.researched
+	to_chat(user, span_notice("[src] reads \"Plant tray examined successfully, look at the screen for details.\""))
+	user.balloon_alert(user, "tray scanned")
+
+/obj/item/xeno_analyzer/attack_self(mob/user)
 	ui_interact(user)
 
 /obj/item/xeno_analyzer/ui_interact(mob/user, datum/tgui/ui)
@@ -63,6 +84,11 @@ var/list/analyzer_data = list()
 	data["light_level"] = light_level
 	data["pests"] = pests
 	data["plant_name"] = plant_name
+	data["plant_desc"] = plant_desc
 	data["researched"] = researched
+	data["plant_appearance"] = saved_image
+
+	data["max_water"] = max_water
+	data["max_nutri"] = max_nutri
 
 	return data
