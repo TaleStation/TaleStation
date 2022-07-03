@@ -235,10 +235,11 @@
 	. += span_notice("Ctrl-click to activate seed extraction.")
 
 /obj/item/storage/bag/plants/portaseeder/CtrlClick(mob/user)
+	// NON-MODULAR CHANGE: Var used in the XenoBotany check
 	if(user.incapacitated())
 		return
-	for(var/obj/item/plant in contents)
-		seedify(plant, 1)
+	for(var/obj/item/food/grown/produce in contents) // NON-MODULAR CHANGES
+		seedify(produce, 1)
 
 // -----------------------------
 //        Sheet Snatcher
