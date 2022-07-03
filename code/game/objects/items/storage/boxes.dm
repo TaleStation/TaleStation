@@ -117,7 +117,6 @@
 
 /obj/item/storage/box/survival/PopulateContents()
 	if(!isplasmaman(loc))
-		new mask_type(src)
 		new internal_type(src)
 	else
 		new /obj/item/tank/internals/plasmaman/belt(src)
