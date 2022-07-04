@@ -12,10 +12,10 @@
 	selection_color = "#ccccff"
 	req_admin_notify = 1
 	minimal_player_age = 14
-	exp_requirements = 2400 // NON-MODULAR CHANGE
+	exp_requirements = 180
 	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_COMMAND // NON-MODULAR CHANGE
-	exp_granted_type = EXP_TYPE_COMMAND // NON-MODULAR CHANGE
+	exp_required_type_department = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/captain
 	plasmaman_outfit = /datum/outfit/plasmaman/captain

@@ -9,7 +9,7 @@
 	spawn_positions = 2
 	supervisors = "the quartermaster"
 	selection_color = "#dcba97"
-	exp_granted_type = EXP_TYPE_SUPPLY // NON-MODULAR CHANGE
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/cargo_tech
 	plasmaman_outfit = /datum/outfit/plasmaman/cargo
