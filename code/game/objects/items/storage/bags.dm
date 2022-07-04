@@ -237,7 +237,7 @@
 /obj/item/storage/bag/plants/portaseeder/CtrlClick(mob/user)
 	if(user.incapacitated())
 		return
-	for(var/obj/item/plant in contents) // NON-MODULAR CHANGES
+	for(var/obj/item/plant in contents)
 		seedify(plant, 1, src)
 
 // -----------------------------

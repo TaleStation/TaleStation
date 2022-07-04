@@ -33,7 +33,7 @@
 	if(istype(O, /obj/item/food/grown/))
 		var/obj/item/food/grown/F = O
 		// NON-MODULAR CHANGES: XenoBotany seed extractor check
-		if(F.is_alien_produce && !accepts_alien_seeds(processing_object))
+		if(F.is_alien_produce != accepts_alien_seeds(processing_object)) // You know, this works, despite it making no fucking sense
 			return
 		// NON-MODULAR CHANGES END
 		if(F.seed)
