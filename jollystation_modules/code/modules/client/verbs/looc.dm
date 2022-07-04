@@ -36,7 +36,7 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 
 	// Really?
 	if(!SSticker.HasRoundStarted())
-		to_chat(src, span_danger("The round hasn't started yet, dummy! Just use OOC."))
+		to_chat(src, span_danger("The round hasn't started yet. Use OOC."))
 		return
 	if(istype(mob, /mob/dead/new_player))
 		to_chat(src, span_danger("You're not in game to broadcast LOOC anywhere! Use OOC."))
