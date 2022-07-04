@@ -13,7 +13,11 @@
  * * user - checks if we can remove the object from the inventory
  * *
  */
-/proc/seedify(obj/item/O, t_max, obj/machinery/seed_extractor/extractor, mob/living/user)
+/proc/seedify(obj/item/O, t_max, obj/processing_object, mob/living/user) // NON-MODULAR CHANGES: XenoBotany
+	var/obj/machinery/seed_extractor/extractor
+	if(istype(processing_object, /obj/machinery/seed_extractor))
+		extractor = processing_object
+	// NON-MODULAR CHANGES END
 	var/t_amount = 0
 	var/list/seeds = list()
 	if(t_max == -1)
@@ -28,6 +32,10 @@
 
 	if(istype(O, /obj/item/food/grown/))
 		var/obj/item/food/grown/F = O
+		// NON-MODULAR CHANGES: XenoBotany seed extractor check
+		if(F.is_alien_produce != accepts_alien_seeds(processing_object)) // You know, this works, despite it making no fucking sense
+			return
+		// NON-MODULAR CHANGES END
 		if(F.seed)
 			if(user && !user.temporarilyRemoveItemFromInventory(O)) //couldn't drop the item
 				return
@@ -134,6 +142,13 @@
 		to_chat(user, span_notice("You extract some seeds."))
 		return
 	else if (istype(O, /obj/item/seeds))
+		// NON-MODULAR CHANGES: XenoBotany seed storage check
+		var/obj/item/seeds/seed = O
+		// Checks if our seeds are alien seeds
+		if(seed.is_alien_seeds != accepts_alien_seeds)
+			to_chat(user, span_warning("The [src.name] can't accept [O]!"))
+			return
+		// NON-MODULAR CHANGES END
 		if(add_seed(O))
 			to_chat(user, span_notice("You add [O] to [src.name]."))
 		return

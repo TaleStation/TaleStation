@@ -40,7 +40,7 @@
 
 	qdel(src)
 
-// BO Locker summoner
+// BO locker summoner
 /obj/item/locker_spawner/bridge_officer
 	name = "bridge officer equipment beacon"
 	desc = "A beacon handed out for enterprising bridge officers being assigned to stations without proper \
@@ -48,12 +48,24 @@
 		for use when manning the bridge of Nanotrasen research stations."
 	requires_job_path = /datum/job/bridge_officer
 	spawned_locker_path = /obj/structure/closet/secure_closet/bridge_officer
+	icon_state = "gangtool-blue"
 
-// AP Locker summoner
+// AP locker summoner
 /obj/item/locker_spawner/asset_protection
 	name = "asset protection equipment beacon"
-	desc = "A beaconm handed out for stalwart asset protection officers being assigned to stations without proper \
+	desc = "A beacon handed out for stalwart asset protection officers being assigned to stations without proper \
 		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
 		for use when protecting the command staff of Nanotrasen research stations."
 	requires_job_path = /datum/job/asset_protection
 	spawned_locker_path = /obj/structure/closet/secure_closet/asset_protection
+	icon_state = "gangtool-blue"
+
+// XenoBiologist locker summoner
+/obj/item/locker_spawner/xenobotany
+	name = "xenobotany equipment beacon"
+	desc = "A beacon handed out for upcoming xenobiologists being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when you want to overrun the station with kuduz, the botanist way."
+	requires_job_path = /datum/job/xenobiologist
+	spawned_locker_path = /obj/structure/closet/secure_closet/xeno_botany
+	icon_state = "gangtool-purple"

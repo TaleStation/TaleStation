@@ -150,6 +150,10 @@
 // NON-MODULE CHANGES: Psuedo Command Defines
 #define ACCESS_AP "ap"
 #define ACCESS_BO "bo"
+
+// NON-MODULE CHANGES: XenoBotany access define
+#define ACCESS_XENOBOTANY "xenobot"
+
 // NON-MODULE CHANGES END
 
 /// - - - END ACCESS IDS - - -

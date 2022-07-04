@@ -23,3 +23,27 @@
 	new /obj/item/clothing/accessory/armband/science(src)
 	new /obj/item/clothing/accessory/armband/medblue(src)
 	new /obj/item/clothing/accessory/armband/service(src)
+
+// Box of seeds for the XenoBotanist
+
+/obj/item/storage/box/seed_box
+	name = "box of assorted seeds"
+	desc = "Get your scientific green thumb ready with this handy box of assorted seeds!"
+
+/obj/item/storage/box/seed_box/PopulateContents()
+	if(prob(50))
+		new /obj/item/seeds/orange_3d(src)
+	else
+		new /obj/item/seeds/firelemon(src)
+	if(prob(99))
+		new /obj/item/seeds/cherry/bomb(src)
+	else
+		new /obj/item/seeds/gatfruit(src)
+	if(prob(25))
+		new /obj/item/seeds/tomato/killer(src)
+	else
+		new /obj/item/seeds/plump/walkingmushroom(src)
+	new /obj/item/seeds/grass/carpet(src)
+	new /obj/item/seeds/random(src)
+	for(var/i in 1 to 3)
+		new /obj/item/seeds/replicapod(src)

@@ -53,3 +53,9 @@
 	belt = /obj/item/modular_computer/tablet/pda/science/xenobiologist
 	jobtype = /datum/job/xenobiologist
 	id_trim = /datum/id_trim/job/xenobiologist
+
+/datum/outfit/job/scientist/xenobiologist/pre_equip(mob/living/carbon/human/H)
+	..()
+	// If the map we're on doesn't have a xenobotany locker, add in a way to get one
+	if(!(locate(/obj/effect/landmark/locker_spawner/xenobotany_equipment) in GLOB.locker_landmarks))
+		LAZYADD(backpack_contents, /obj/item/locker_spawner/xenobotany)
