@@ -194,7 +194,7 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
-		//NON-MODULE CHANGES START
+		//NON-MODULAR CHANGES START
 		"[ACCESS_BO]" = list(
 			"regions" = list(REGION_COMMAND),
 			"head" = JOB_CAPTAIN,
@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
-		//NON-MODULE CHANGES END
+		//NON-MODULAR CHANGES END
 
 	)
 

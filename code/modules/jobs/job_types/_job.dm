@@ -183,20 +183,20 @@
 /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULE CHANGE: LOADOUTS
+/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGE: LOADOUTS
 	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
 	bank_account.replaceable = FALSE
-	dress_up_as_job(equipping, FALSE, used_pref) //NON-MODULE CHANGE: LOADOUTS
+	dress_up_as_job(equipping, FALSE, used_pref) //NON-MODULAR CHANGE: LOADOUTS
 
 
 /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return
 
-/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) // NON-MODULE CHANGE: LOADOUTS
+/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) // NON-MODULAR CHANGE: LOADOUTS
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	// NON-MODULE CHANGE: LOADOUTS
+	// NON-MODULAR CHANGE: LOADOUTS
 	if(equipping.outfit)
 		equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only)
 

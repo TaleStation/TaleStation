@@ -89,7 +89,7 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	if(!GLOB.pod_hair_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
-	if(!GLOB.head_tentacles_list.len) // NON-MODULE CHANGE: Head Tentacles initialize
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Head Tentacles initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/head_tentacles, GLOB.head_tentacles_list)
 
 	//For now we will always return none for tail_human and ears. | "For now" he says.
@@ -112,7 +112,7 @@
 		"moth_markings" = pick(GLOB.moth_markings_list),
 		"tail_monkey" = "None",
 		"pod_hair" = pick(GLOB.pod_hair_list),
-		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULE CHANGE
+		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULAR CHANGE
 	))
 
 /proc/random_hairstyle(gender)

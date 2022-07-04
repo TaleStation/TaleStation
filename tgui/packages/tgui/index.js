@@ -18,7 +18,7 @@ import './styles/themes/retro.scss';
 import './styles/themes/syndicate.scss';
 import './styles/themes/wizard.scss';
 
-import './styles/themes/jolly-syndicate.scss'; // NON-MODULE CHANGE
+import './styles/themes/jolly-syndicate.scss'; // NON-MODULAR CHANGE
 import './styles/themes/admin.scss';
 
 import { perf } from 'common/perf';

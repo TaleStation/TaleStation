@@ -37,13 +37,13 @@
 /datum/antagonist/traitor/on_gain()
 	owner.special_role = job_rank
 
-	// NON-MODULE CHANGE: ADV TRAITORS
+	// NON-MODULAR CHANGE: ADV TRAITORS
 	if(give_objectives)
 		forge_traitor_objectives()
 
 	if(finalize_antag)
 		finalize_antag()
-	// NON-MODULE CHANGE END
+	// NON-MODULAR CHANGE END
 
 	return ..()
 

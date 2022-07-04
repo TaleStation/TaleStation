@@ -40,7 +40,7 @@
 	human.dna.features["moth_wings"] = pick(GLOB.moth_wings_list)
 	human.dna.features["moth_antennae"] = pick(GLOB.moth_antennae_list)
 	human.dna.features["pod_hair"] = pick(GLOB.pod_hair_list)
-	human.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULE CHANGE
+	human.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULAR CHANGE
 
 	human.update_body(is_creating = TRUE)
 	human.update_hair(is_creating = TRUE)

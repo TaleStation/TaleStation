@@ -171,7 +171,7 @@
 	if(give_objectives)
 		forge_primary_objectives()
 
-	// NON-MODULE CHANGE: ADVANCED HERETICS
+	// NON-MODULAR CHANGE: ADVANCED HERETICS
 	if(finalize_antag)
 		finalize_antag()
 

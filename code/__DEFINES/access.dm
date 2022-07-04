@@ -147,14 +147,14 @@
 	//Special, for anything that's basically internal
 #define ACCESS_BLOODCULT "bloodcult"
 
-// NON-MODULE CHANGES: Psuedo Command Defines
+// NON-MODULAR CHANGES: Psuedo Command Defines
 #define ACCESS_AP "ap"
 #define ACCESS_BO "bo"
 
-// NON-MODULE CHANGES: XenoBotany access define
+// NON-MODULAR CHANGES: XenoBotany access define
 #define ACCESS_XENOBOTANY "xenobot"
 
-// NON-MODULE CHANGES END
+// NON-MODULAR CHANGES END
 
 /// - - - END ACCESS IDS - - -
 

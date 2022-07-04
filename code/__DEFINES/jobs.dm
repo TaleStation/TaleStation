@@ -184,7 +184,7 @@
 #define FACTION_NONE "None"
 #define FACTION_STATION "Station"
 
-// NON-MODULE CHANGES START - Due to file load order, THIS needs to be here, otherwise the main files can't access these defines
+// NON-MODULAR CHANGES START - Due to file load order, THIS needs to be here, otherwise the main files can't access these defines
 // Command
 #define JOB_ASSET_PROTECTION "Asset Protection"
 #define JOB_BRIDGE_OFFICER "Bridge Officer"
@@ -199,4 +199,4 @@
 #define JOB_DISPLAY_ORDER_ORDNANCE_TECH 38
 #define JOB_DISPLAY_ORDER_XENOBIOLOGIST 39
 
-//NON-MODULE CHANGES END
+//NON-MODULAR CHANGES END

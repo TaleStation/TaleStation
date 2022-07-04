@@ -262,9 +262,9 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 			G.fields["gender"]  = "Other"
 		G.fields["photo_front"] = photo_front
 		G.fields["photo_side"] = photo_side
-		// NON-MODULE CHANGES:
+		// NON-MODULAR CHANGES:
 		G.fields["past_records"] = H.linked_flavor?.gen_records
-		// NON-MODULE CHANGES END
+		// NON-MODULAR CHANGES END
 		general += G
 
 		//Medical Record
@@ -281,9 +281,9 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 		M.fields["cdi_d"] = "No diseases have been diagnosed at the moment."
 		M.fields["notes"] = H.get_quirk_string(!medical, CAT_QUIRK_NOTES)
 		M.fields["notes_d"] = H.get_quirk_string(medical, CAT_QUIRK_NOTES)
-		// NON-MODULE CHANGES:
+		// NON-MODULAR CHANGES:
 		M.fields["past_records"] = H.linked_flavor?.med_records
-		// NON-MODULE CHANGES END
+		// NON-MODULAR CHANGES END
 		medical += M
 
 		//Security Record
@@ -294,9 +294,9 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 		S.fields["citation"] = list()
 		S.fields["crim"] = list()
 		S.fields["notes"] = "No notes."
-		// NON-MODULE CHANGES:
+		// NON-MODULAR CHANGES:
 		S.fields["past_records"] = H.linked_flavor?.sec_records
-		// NON-MODULE CHANGES END
+		// NON-MODULAR CHANGES END
 		security += S
 
 		//Locked Record

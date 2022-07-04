@@ -203,7 +203,7 @@
 
 /turf/open/floor/engine/cult/Initialize(mapload)
 	. = ..()
-	make_culty() // NON-MODULE CHANGE
+	make_culty() // NON-MODULAR CHANGE
 
 /turf/open/floor/engine/cult/Destroy()
 	be_removed()

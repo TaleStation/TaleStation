@@ -10,7 +10,7 @@
 	supervisors = "the head of security"
 	selection_color = "#ffeeee"
 	minimal_player_age = 7
-	exp_requirements = 600 //NON-MODULE CHANGE
+	exp_requirements = 600 //NON-MODULAR CHANGE
 	exp_required_type = EXP_TYPE_SECURITY
 	exp_granted_type = EXP_TYPE_SECURITY
 

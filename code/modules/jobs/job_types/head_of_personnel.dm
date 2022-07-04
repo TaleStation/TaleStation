@@ -12,7 +12,7 @@
 	selection_color = "#ddddff"
 	req_admin_notify = 1
 	minimal_player_age = 10
-	exp_requirements = 2400 // NON-MODULE CHANGE
+	exp_requirements = 2400 // NON-MODULAR CHANGE
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_SERVICE
 	exp_granted_type = EXP_TYPE_COMMAND

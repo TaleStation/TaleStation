@@ -7,7 +7,7 @@
 	spawn_positions = 2
 	supervisors = "the research director"
 	selection_color = "#ffeeff"
-	// exp_requirements = 60 //NON-MODULE CHANGE
+	// exp_requirements = 60 //NON-MODULAR CHANGE
 	exp_required_type = EXP_TYPE_SCIENCE
 	exp_granted_type = EXP_TYPE_SCIENCE
 

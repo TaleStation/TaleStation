@@ -112,13 +112,13 @@
 						dat += "<tr><td>Fingerprint:</td><td><A href='?src=[REF(src)];field=fingerprint'>&nbsp;[active1.fields["fingerprint"]]&nbsp;</A></td></tr>"
 						dat += "<tr><td>Physical Status:</td><td><A href='?src=[REF(src)];field=p_stat'>&nbsp;[active1.fields["p_stat"]]&nbsp;</A></td></tr>"
 						dat += "<tr><td>Mental Status:</td><td><A href='?src=[REF(src)];field=m_stat'>&nbsp;[active1.fields["m_stat"]]&nbsp;</A></td></tr>"
-						dat += "<tr><td>General Records:</td><td><A href='?src=[REF(src)];choice=View Past General'>View&nbsp;</A></td></tr>" // NON-MODULE CHANGE
+						dat += "<tr><td>General Records:</td><td><A href='?src=[REF(src)];choice=View Past General'>View&nbsp;</A></td></tr>" // NON-MODULAR CHANGE
 					else
 						dat += "<tr><td>General Record Lost!</td></tr>"
 
 					dat += "<tr><td><br><b><font size='4'>Medical Data</font></b></td></tr>"
 					if(active2 in GLOB.data_core.medical)
-						dat += "<tr><td>Medical Records:</td><td><A href='?src=[REF(src)];choice=View Past Medical'>View&nbsp;</A></td></tr>" // NON-MODULE CHANGE
+						dat += "<tr><td>Medical Records:</td><td><A href='?src=[REF(src)];choice=View Past Medical'>View&nbsp;</A></td></tr>" // NON-MODULAR CHANGE
 						dat += "<tr><td>Blood Type:</td><td><A href='?src=[REF(src)];field=blood_type'>&nbsp;[active2.fields["blood_type"]]&nbsp;</A></td></tr>"
 						dat += "<tr><td>DNA:</td><td><A href='?src=[REF(src)];field=b_dna'>&nbsp;[active2.fields["b_dna"]]&nbsp;</A></td></tr>"
 						dat += "<tr><td><br>Minor Disabilities:</td><td><br><A href='?src=[REF(src)];field=mi_dis'>&nbsp;[active2.fields["mi_dis"]]&nbsp;</A></td></tr>"
@@ -197,7 +197,7 @@
 			active2 = null
 			playsound(src, 'sound/machines/terminal_off.ogg', 50, FALSE)
 		else if(href_list["choice"])
-// NON-MODULE CHANGE:
+// NON-MODULAR CHANGE:
 			if(href_list["choice"] == "View Past Medical")
 				if(istype(active2, /datum/data/record))
 					temp = "<h5>Medical Records:</h5>"
@@ -211,7 +211,7 @@
 					temp += "<ul>"
 					temp += "<li>[active1.fields["past_records"]]</li>"
 					temp += "</ul>"
-// NON-MODULE CHANGE END
+// NON-MODULAR CHANGE END
 			// SORTING!
 			if(href_list["choice"] == "Sorting")
 				// Reverse the order if clicked twice
@@ -534,8 +534,8 @@
 						P.info += text("Name: [] ID: []<BR>\nGender: []<BR>\nAge: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["gender"], active1.fields["age"])
 						P.info += "\nSpecies: [active1.fields["species"]]<BR>"
 						P.info += text("\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"])
-						if(!(active1.fields["past_records"] == "")) // NON-MODULE CHANGE
-							P.info += "\nGeneral Records:\n[active1.fields["past_records"]]\n" // NON-MODULE CHANGE
+						if(!(active1.fields["past_records"] == "")) // NON-MODULAR CHANGE
+							P.info += "\nGeneral Records:\n[active1.fields["past_records"]]\n" // NON-MODULAR CHANGE
 					else
 						P.info += "<B>General Record Lost!</B><BR>"
 					if(active2 in GLOB.data_core.medical)

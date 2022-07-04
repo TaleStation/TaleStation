@@ -328,7 +328,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)
 			job_preferences -= j
 
-	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), src) // NON-MODULE CHANGE
+	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), src) // NON-MODULAR CHANGE
 	validate_quirks()
 
 	return TRUE
