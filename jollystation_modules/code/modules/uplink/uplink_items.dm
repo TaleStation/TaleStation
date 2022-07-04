@@ -59,3 +59,36 @@
 	desc = "LOUDER VOICE MEANS MORE EVIL!"
 	item = /obj/item/megaphone/synd
 	cost = 1
+
+// Modular overrides
+/datum/uplink_item/dangerous/powerfist
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/rapid
+	purchasable_from = NONE
+
+/datum/uplink_item/dangerous/guardian
+	purchasable_from = NONE
+
+/datum/uplink_item/device_tools/hacked_module
+	purchasable_from = NONE
+
+/datum/uplink_item/device_tools/hypnotic_flash
+	purchasable_from = NONE
+/datum/uplink_item/device_tools/hypnotic_grenade
+	purchasable_from = NONE
+
+/datum/uplink_item/implants/stealthimplant
+	purchasable_from = NONE
+
+/datum/uplink_item/role_restricted/brainwash_disk
+	purchasable_from = NONE
+
+/datum/uplink_item/stealthy_weapons/romerol_kit
+	purchasable_from = NONE
+
+/datum/uplink_item/stealthy_weapons/martialarts
+	purchasable_from = NONE
+
+/datum/uplink_item/stealthy_weapons/crossbow
+	purchasable_from = NONE

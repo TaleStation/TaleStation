@@ -801,7 +801,7 @@
 			along with slurred speech, aggression, and the ability to infect others with this agent."
 	item = /obj/item/storage/box/syndie_kit/romerol
 	cost = 25
-	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
+	purchasable_from = UPLINK_CLOWN_OPS|UPLINK_NUKE_OPS
 	cant_discount = TRUE
 
 /datum/uplink_item/support/bomb_key

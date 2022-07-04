@@ -83,7 +83,7 @@
 	progression_minimum = 30 MINUTES
 	cost = 13
 	surplus = 0
-	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
 
 /datum/uplink_item/stealthy_weapons/crossbow
 	name = "Miniature Energy Crossbow"
@@ -97,4 +97,4 @@
 	progression_minimum = 30 MINUTES
 	cost = 10
 	surplus = 50
-	purchasable_from = NONE // NON-MODULAR CHANGES: Restricted Uplink items
+	purchasable_from = ~(UPLINK_NUKE_OPS | UPLINK_CLOWN_OPS)
