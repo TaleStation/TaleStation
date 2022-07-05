@@ -8,8 +8,7 @@
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#bbe291"
-	exp_granted_type = EXP_TYPE_SERVICE // NON-MODULE CHANGE
-
+	exp_granted_type = EXP_TYPE_CREW
 	outfit = /datum/outfit/job/chaplain
 	plasmaman_outfit = /datum/outfit/plasmaman/chaplain
 

@@ -92,7 +92,7 @@
 #define MAX_NAME_LEN 42
 #define MAX_BROADCAST_LEN 512
 #define MAX_CHARTER_LEN 80
-#define MAX_FLAVOR_LEN 2048 // NON-MODULE CHANGES
+#define MAX_FLAVOR_LEN 2048 // NON-MODULAR CHANGES
 
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
 #define MSG_VISUAL (1<<0)

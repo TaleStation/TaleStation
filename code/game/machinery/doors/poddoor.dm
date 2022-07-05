@@ -122,10 +122,10 @@
 	switch(animation)
 		if("opening")
 			flick("opening", src)
-			playsound(src, 'jollystation_modules/sound/machines/blastdoors/blast_door.ogg', 30, TRUE) // NON-MODULE CHANGE: Aesthetics
+			playsound(src, 'jollystation_modules/sound/machines/blastdoors/blast_door.ogg', 30, TRUE) // NON-MODULAR CHANGE: Aesthetics
 		if("closing")
 			flick("closing", src)
-			playsound(src, 'jollystation_modules/sound/machines/blastdoors/blast_door.ogg', 30, TRUE) // NON-MODULE CHANGE: Aesthetics
+			playsound(src, 'jollystation_modules/sound/machines/blastdoors/blast_door.ogg', 30, TRUE) // NON-MODULAR CHANGE: Aesthetics
 
 /obj/machinery/door/poddoor/update_icon_state()
 	. = ..()

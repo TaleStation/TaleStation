@@ -204,7 +204,7 @@ SUBSYSTEM_DEF(job)
 	job.current_positions++
 	return TRUE
 
-// NON-MODULE CHANGE START: Cryopods
+// NON-MODULAR CHANGE START: Cryopods
 /datum/controller/subsystem/job/proc/FreeRole(rank)
 	if(!rank)
 		return
@@ -213,7 +213,7 @@ SUBSYSTEM_DEF(job)
 	if(!job)
 		return FALSE
 	job.current_positions = max(0, job.current_positions - 1)
-// NON-MODULE CHANGE END
+// NON-MODULAR CHANGE END
 
 /datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level)
 	JobDebug("Running FOC, Job: [job], Level: [job_priority_level_to_string(level)]")
@@ -525,7 +525,7 @@ SUBSYSTEM_DEF(job)
 	if(player_client)
 		to_chat(player_client, "<span class='infoplain'><b>You are the [job.title].</b></span>")
 
-	equipping.on_job_equipping(job, player_client?.prefs) // NON-MODULE CHANGE
+	equipping.on_job_equipping(job, player_client?.prefs) // NON-MODULAR CHANGE
 
 	job.announce_job(equipping)
 

@@ -18,7 +18,7 @@
 #define MESSAGE_TYPE_ADMINLOG "adminlog"
 #define MESSAGE_TYPE_ATTACKLOG "attacklog"
 #define MESSAGE_TYPE_DEBUG "debug"
-#define MESSAGE_TYPE_LOOC "looc" // NON-MODULE CHANGE
+#define MESSAGE_TYPE_LOOC "looc" // NON-MODULAR CHANGE
 
 //debug printing macros (for development and testing)
 /// Used for debug messages to the world

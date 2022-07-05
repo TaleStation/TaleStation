@@ -10,9 +10,8 @@
 	minimal_player_age = 7
 	supervisors = "the captain"
 	selection_color = "#d7b088"
-	exp_requirements = 2400 // NON-MODULE CHANGE START
 	exp_required_type_department = EXP_TYPE_SUPPLY
-	exp_granted_type = EXP_TYPE_COMMAND // NON-MODULE CHANGE END
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/quartermaster
 	plasmaman_outfit = /datum/outfit/plasmaman/cargo

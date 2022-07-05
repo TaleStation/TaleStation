@@ -8,9 +8,9 @@
 	spawn_positions = 1
 	supervisors = "the chief medical officer"
 	selection_color = "#ffeef0"
-	exp_requirements = 300 // NON-MODULE CHANGE
-	exp_required_type = EXP_TYPE_MEDICAL // NON-MODULE CHANGE
-	exp_granted_type = EXP_TYPE_MEDICAL // NON-MODULE CHANGE
+	exp_requirements = 60
+	exp_required_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/virologist
 	plasmaman_outfit = /datum/outfit/plasmaman/viro

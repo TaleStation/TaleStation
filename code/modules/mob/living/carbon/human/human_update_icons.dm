@@ -166,7 +166,7 @@ There are several things that need to be remembered:
 		if(!uniform_overlay)
 			//BEGIN SPECIES HANDLING
 			if((dna?.species.bodytype & BODYTYPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-				icon_file = 'jollystation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULE CHANGE - Enables digi uniform
+				icon_file = 'jollystation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULAR CHANGE - Enables digi uniform
 
 			//Female sprites have lower priority than digitigrade sprites
 			else if(dna.species.sexes && (dna.species.bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && uniform.female_sprite_flags != NO_FEMALE_UNIFORM) //Agggggggghhhhh
@@ -375,7 +375,7 @@ There are several things that need to be remembered:
 		if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
 			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
-				icon_file = 'jollystation_modules/icons/mob/clothing/shoes/digi_shoes.dmi' //NON-MODULE CHANGE - Enables digi shoes
+				icon_file = 'jollystation_modules/icons/mob/clothing/shoes/digi_shoes.dmi' //NON-MODULAR CHANGE - Enables digi shoes
 
 		if(!(icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item))))
 			icon_file = DEFAULT_SHOES_FILE
