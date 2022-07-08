@@ -434,11 +434,21 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 
 	var/area/my_area = get_area(src)
 
-	if(!(client?.prefs.toggles & SOUND_SHIP_AMBIENCE) || !my_area.ambient_buzz)
+	if(!(client?.prefs.toggles & SOUND_SHIP_AMBIENCE) || !my_area.ambient_buzz || !can_hear())
 		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
 		return
 
+<<<<<<< HEAD
 	SEND_SOUND(src, sound(my_area.ambient_buzz, repeat = 1, wait = 0, volume = my_area.ambient_buzz_vol, channel = CHANNEL_BUZZ))
+=======
+	//Station ambience is dependant on a functioning and charged APC. (Lavaland always has it's ambience.)
+	if(!is_mining_level(my_area.z) && (!my_area.apc || !my_area.apc.operating || !my_area.apc.cell?.charge))
+		SEND_SOUND(src, sound(null, repeat = 0, wait = 0, channel = CHANNEL_BUZZ))
+		return
+
+	else
+		SEND_SOUND(src, sound(my_area.ambient_buzz, repeat = 1, wait = 0, volume = my_area.ambient_buzz_vol, channel = CHANNEL_BUZZ))
+>>>>>>> 656ceb822b4... cleans up code and adjusts volume
 
 
 /**
