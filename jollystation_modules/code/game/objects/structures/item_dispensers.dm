@@ -44,36 +44,31 @@
 
 /obj/structure/item_dispenser/Initialize(mapload)
 	. = ..()
+	create_storage()
 	if(stocked) // Used instead of mapload in case anyone wants to leave empty item dispensers in their maps
 		register_name()
 		create_contents()
 	update_icon(UPDATE_OVERLAYS)
+	storage_update()
 
 /obj/structure/item_dispenser/proc/create_contents()
 	if(!stocked)
 		return
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	for(var/i = 1 to STR.max_items)
+	for(var/i = 1 to atom_storage.max_slots)
 		new stock(src)
-
-/obj/structure/item_dispenser/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	storage_update()
 
 /obj/structure/item_dispenser/proc/storage_update()
 	if(stocked)
-		var/datum/component/storage/STR = GetComponent(/datum/component/storage/concrete)
-		STR.rustle_sound = FALSE
-		STR.max_items = charges
-		STR.set_holdable(list(stock))
-		STR.max_combined_w_class = 30
+		atom_storage.rustle_sound = FALSE
+		atom_storage.max_slots = charges
+		atom_storage.set_holdable(list(stock))
+		atom_storage.max_total_storage = 30
 
 /obj/structure/item_dispenser/attackby(obj/item/I, mob/user, params)
 	if(istype(I, stock))
 		if(contents.len < charges)
 			playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
-			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, I, user)
+			src.atom_storage.attempt_insert(src, I, user, TRUE)
 			contents += I
 			balloon_alert(user, "inserted [I]")
 			if(contents.len == 1)
@@ -88,7 +83,7 @@
 			stocked = TRUE
 			storage_update()
 			playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
-			SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, I, user)
+			src.atom_storage.attempt_insert(src, I, user, TRUE)
 			contents += I
 			to_chat(user, span_notice("You insert [I] into [src], causing the inner plastic to mold to its shape."))
 			register_name()
@@ -141,7 +136,7 @@
 		return
 	var/obj/item/grabbies = locate(stock) in contents
 	if(grabbies && contents.len > 0)
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_TAKE, grabbies, user)
+		src.atom_storage?.attempt_remove(grabbies, user)
 		user.put_in_hands(grabbies)
 		contents -= grabbies
 		balloon_alert(user, "took [item_name]")

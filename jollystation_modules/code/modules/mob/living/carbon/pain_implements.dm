@@ -204,9 +204,7 @@
 	if(pill_type)
 		name = "[initial(pill_type.name)] bottle"
 	if(num_pills)
-		var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-		STR.max_items = num_pills
-		STR.max_combined_w_class = num_pills
+		create_storage(max_slots = num_pills, max_total_storage = num_pills)
 
 /obj/item/storage/pill_bottle/prescription/PopulateContents()
 	if(num_pills && pill_type)
@@ -221,9 +219,7 @@
 
 /obj/item/storage/pill_bottle/painkillers/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 14
-	STR.max_combined_w_class = 14
+	create_storage(max_slots = 14, max_total_storage = 14)
 
 /obj/item/storage/pill_bottle/painkillers/PopulateContents()
 	for(var/i in 1 to 3)
@@ -454,10 +450,7 @@
 // Change the contents of emergency first-aid kids.
 /obj/item/storage/firstaid/emergency/Initialize()
 	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.max_items = 12
-	STR.max_combined_w_class = 12
+	create_storage(max_slots = 12, max_total_storage = 12, max_specific_storage = WEIGHT_CLASS_SMALL)
 
 /obj/item/storage/medkit/emergency/PopulateContents()
 	if(empty)
