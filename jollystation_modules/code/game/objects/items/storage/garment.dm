@@ -57,7 +57,7 @@
 		if(locker_clothing.type in blacklisted_types)
 			continue
 
-		SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, locker_clothing, null, TRUE, TRUE)
+		src.atom_storage?.attempt_insert(src, locker_clothing, null, TRUE, TRUE)
 
 /obj/item/storage/bag/garment/magic/quartermaster
 	name = "quartermaster's garment bag"
