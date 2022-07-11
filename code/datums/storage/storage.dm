@@ -892,6 +892,10 @@ GLOBAL_LIST_EMPTY(cached_storage_typecaches)
 	if(!resolve_location)
 		return
 
+	if(isobserver(toshow))
+		show_contents(toshow)
+		return
+
 	if(!toshow.CanReach(resolve_parent))
 		resolve_parent.balloon_alert(toshow, "can't reach!")
 		return FALSE
