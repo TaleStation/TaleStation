@@ -316,7 +316,6 @@ GLOBAL_VAR(restart_counter)
 	if (CONFIG_GET(flag/station_name_in_hub_entry))
 		s += " &#8212; <b>[station_name()]</b>"
 
-<<<<<<< HEAD
 	s += " ("
 	s += "<a href=\"https://discord.gg/fUVZ8np4ty\">" //Change this to wherever you want the hub to link to.
 	s += "Discord "  //Replace this with something else. Or ever better, delete it and uncomment the game version.
@@ -329,8 +328,6 @@ GLOBAL_VAR(restart_counter)
 	s += "TG-Based code server where Roleplay comes first."
 	s += "Join our Discord for more information."
 
-=======
->>>>>>> ea28f8599f45 (Shortens Hub Entry Descriptors (#68186))
 	var/players = GLOB.clients.len
 
 	game_state = (CONFIG_GET(number/extreme_popcap) && players >= CONFIG_GET(number/extreme_popcap)) //tells the hub if we are full
