@@ -25,8 +25,6 @@
 	clothing_flags = MASKINTERNALS | BLOCKS_SPEECH
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 0, ACID = 0)
 	equip_delay_other = 25 // my sprite has 4 straps, a-la a head harness. takes a while to equip, longer than a muzzle
-<<<<<<< HEAD
-=======
 
 /obj/item/clothing/mask/muzzle/tape
 	name = "tape piece"
@@ -105,4 +103,3 @@
 	greyscale_colors = "#8C0A00#300008"
 	strip_delay = 60
 	stripping_damage = 20
->>>>>>> 97f98bde930e (Fix talking while mouth is gagged with tape (#68421))
