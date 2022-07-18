@@ -78,21 +78,13 @@ SUBSYSTEM_DEF(security_level)
  * Returns the current security level as a number
  */
 /datum/controller/subsystem/security_level/proc/get_current_level_as_number()
-<<<<<<< HEAD
-	return current_security_level.number_level
-=======
 	return current_security_level ? current_security_level.number_level : SEC_LEVEL_GREEN //Send a response in case the subsystem hasn't finished setting up yet
->>>>>>> 8c907cf2c062 (Tweaks response provided by sssecurity_level during initialization (#68500))
 
 /**
  * Returns the current security level as text
  */
 /datum/controller/subsystem/security_level/proc/get_current_level_as_text()
-<<<<<<< HEAD
-	return current_security_level.name
-=======
 	return current_security_level ? current_security_level.name : "green"
->>>>>>> 8c907cf2c062 (Tweaks response provided by sssecurity_level during initialization (#68500))
 
 /**
  * Converts a text security level to a number
@@ -102,7 +94,7 @@ SUBSYSTEM_DEF(security_level)
  */
 /datum/controller/subsystem/security_level/proc/text_level_to_number(text_level)
 	var/datum/security_level/selected_level = available_levels[text_level]
-	return selected_level.number_level
+	return selected_level?.number_level
 
 /**
  * Converts a number security level to a text
