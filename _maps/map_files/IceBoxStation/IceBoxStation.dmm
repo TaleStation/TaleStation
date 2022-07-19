@@ -1247,7 +1247,7 @@
 /area/station/science/xenobiology)
 "aut" = (
 /obj/structure/rack,
-/obj/item/clothing/suit/fire/firefighter,
+/obj/item/clothing/suit/utility/fire/firefighter,
 /obj/item/tank/internals/oxygen,
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
@@ -6344,6 +6344,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -7262,7 +7263,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "cfS" = (
-/obj/item/clothing/suit/snowman{
+/obj/item/clothing/suit/costume/snowman{
 	name = "Man of Snow"
 	},
 /obj/item/clothing/head/snowman{
@@ -8718,6 +8719,11 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/commons/locker)
+"cBj" = (
+/obj/structure/closet/emcloset,
+/obj/item/clothing/head/festive,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
 "cBn" = (
 /obj/structure/sign/poster/random/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -9862,7 +9868,7 @@
 /obj/item/honey_frame,
 /obj/item/honey_frame,
 /obj/item/honey_frame,
-/obj/item/clothing/suit/beekeeper_suit,
+/obj/item/clothing/suit/utility/beekeeper_suit,
 /obj/item/clothing/suit/hooded/bee_costume,
 /obj/item/clothing/head/beekeeper_head,
 /obj/item/clothing/head/hooded/bee_hood,
@@ -10845,8 +10851,8 @@
 	network = list("isolation");
 	pixel_y = -32
 	},
-/obj/item/clothing/suit/straight_jacket,
-/obj/item/clothing/suit/straight_jacket{
+/obj/item/clothing/suit/jacket/straight_jacket,
+/obj/item/clothing/suit/jacket/straight_jacket{
 	pixel_x = 6
 	},
 /obj/machinery/camera/directional/east{
@@ -18105,7 +18111,6 @@
 /area/station/security/processing)
 "ftM" = (
 /obj/machinery/button/door/directional/north{
-	pixel_y = 24;
 	pixel_x = -25;
 	name = "Kitchen Lockdown";
 	req_access = list("kitchen");
@@ -19598,6 +19603,7 @@
 	},
 /obj/structure/table,
 /obj/item/clothing/head/fedora,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/service/kitchen/diner)
 "fRP" = (
@@ -22091,7 +22097,7 @@
 /area/station/maintenance/port/aft)
 "gFR" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/radiation,
+/obj/item/clothing/suit/utility/radiation,
 /obj/item/clothing/head/radiation,
 /obj/item/geiger_counter,
 /obj/effect/turf_decal/stripes/line{
@@ -22875,7 +22881,7 @@
 /area/station/medical/break_room)
 "gSr" = (
 /obj/structure/table/reinforced,
-/obj/item/clothing/suit/radiation,
+/obj/item/clothing/suit/utility/radiation,
 /obj/item/clothing/head/radiation,
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -26945,6 +26951,7 @@
 	},
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/airalarm/directional/east,
+/obj/machinery/camera/directional/east,
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "iiH" = (
@@ -27417,7 +27424,7 @@
 /area/icemoon/surface/outdoors/nospawn)
 "ipP" = (
 /obj/structure/bed,
-/obj/item/clothing/suit/straight_jacket,
+/obj/item/clothing/suit/jacket/straight_jacket,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron/white/textured,
@@ -37127,6 +37134,7 @@
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/range)
 "lmm" = (
@@ -42734,9 +42742,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/machinery/door/window/right/directional/east{
-	dir = 4
-	},
+/obj/machinery/door/window/right/directional/east,
 /obj/structure/sign/warning/cold_temp/directional/south,
 /turf/open/floor/plating/snowed/coldroom,
 /area/station/service/kitchen/coldroom)
@@ -45890,7 +45896,7 @@
 	anchored = 1
 	},
 /obj/item/clothing/under/pants/track,
-/obj/item/clothing/suit/ianshirt,
+/obj/item/clothing/suit/costume/ianshirt,
 /turf/open/floor/iron,
 /area/station/maintenance/starboard/fore)
 "nXH" = (
@@ -46849,8 +46855,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "kitchencounter";
-	name = "Kitchen Counter Shutters";
-	dir = 2
+	name = "Kitchen Counter Shutters"
 	},
 /turf/open/floor/plating,
 /area/station/service/kitchen)
@@ -50638,6 +50643,7 @@
 	},
 /obj/structure/chair,
 /obj/machinery/camera/autoname/directional/west,
+/obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/service/kitchen/diner)
 "pxu" = (
@@ -66282,7 +66288,6 @@
 /obj/effect/turf_decal/tile/neutral/diagonal_edge,
 /obj/effect/turf_decal/tile/blue/diagonal_edge,
 /obj/machinery/vending/wardrobe/chef_wardrobe{
-	pixel_y = 0;
 	pixel_x = -2
 	},
 /obj/item/radio/intercom/directional/west,
@@ -72806,8 +72811,7 @@
 "wrE" = (
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/glass/fifty{
-	pixel_x = 2;
-	pixel_y = 0
+	pixel_x = 2
 	},
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/cable_coil{
@@ -231218,7 +231222,7 @@ nWf
 prE
 gDS
 aXY
-iPR
+cBj
 lJO
 hEI
 hEI

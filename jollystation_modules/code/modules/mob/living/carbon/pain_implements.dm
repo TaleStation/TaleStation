@@ -26,7 +26,7 @@
 	if(obj_flags & TRAIT_FROZEN)
 		AddElement(/datum/element/temperature_pack, FROZEN_ITEM_PAIN_RATE, FROZEN_ITEM_PAIN_MODIFIER, FROZEN_ITEM_TEMPERATURE_CHANGE)
 
-/obj/item/make_unfrozen()
+/obj/item/unfreeze()
 	. = ..()
 	if(!(obj_flags & TRAIT_FROZEN))
 		RemoveElement(/datum/element/temperature_pack, FROZEN_ITEM_PAIN_RATE, FROZEN_ITEM_PAIN_MODIFIER, FROZEN_ITEM_TEMPERATURE_CHANGE)
