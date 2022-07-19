@@ -107,11 +107,10 @@
 	switch(department)
 		if(DEPARTMENT_SECURITY)
 			. -= typesof(/area/station/security/checkpoint)
-			. -= /area/station/security/detectives_office/bridge_officer_office
 
 		if(DEPARTMENT_COMMAND)
 			. -= /area/station/command/gateway
-			. += /area/station/security/detectives_office/bridge_officer_office
+			. += /area/station/command/bridge_officer_office
 
 		if(DEPARTMENT_SERVICE)
 			. -= /area/station/service/electronic_marketing_den
