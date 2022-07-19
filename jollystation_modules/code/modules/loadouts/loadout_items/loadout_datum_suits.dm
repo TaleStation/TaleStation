@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 
 /datum/loadout_item/suit/white_dress
 	name = "White Dress"
-	item_path = /obj/item/clothing/suit/whitedress
+	item_path = /obj/item/clothing/suit/costume/whitedress
 
 /datum/loadout_item/suit/labcoat
 	name = "Labcoat"
@@ -83,19 +83,19 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 
 /datum/loadout_item/suit/poncho
 	name = "Poncho"
-	item_path = /obj/item/clothing/suit/poncho
+	item_path = /obj/item/clothing/suit/costume/poncho
 
 /datum/loadout_item/suit/poncho_green
 	name = "Green Poncho"
-	item_path = /obj/item/clothing/suit/poncho/green
+	item_path = /obj/item/clothing/suit/costume/poncho/green
 
 /datum/loadout_item/suit/poncho_red
 	name = "Red Poncho"
-	item_path = /obj/item/clothing/suit/poncho/red
+	item_path = /obj/item/clothing/suit/costume/poncho/red
 
 /datum/loadout_item/suit/wawaiian_shirt
 	name = "Hawaiian Shirt"
-	item_path = /obj/item/clothing/suit/hawaiian
+	item_path = /obj/item/clothing/suit/costume/hawaiian
 
 /datum/loadout_item/suit/bomber_jacket
 	name = "Bomber Jacket"
