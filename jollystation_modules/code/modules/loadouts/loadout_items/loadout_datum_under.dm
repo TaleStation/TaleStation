@@ -213,7 +213,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /datum/loadout_item/under/formal/black_tango
 	name = "Black Tango Dress"
-	item_path = /obj/item/clothing/under/dress/blacktango
+	item_path = /obj/item/clothing/under/dress/tango
 
 /datum/loadout_item/under/formal/Black_twopiece
 	name = "Black Two-Piece Suit"
@@ -247,14 +247,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Blue Lawyer Suitskirt"
 	item_path = /obj/item/clothing/under/rank/civilian/lawyer/blue/skirt
 
-/datum/loadout_item/under/formal/blue_skirt
-	name = "Blue Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/blue
-
-/datum/loadout_item/under/formal/blue_skirt_plaid
-	name = "Blue Plaid Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/plaid/blue
-
 /datum/loadout_item/under/formal/burgundy_suit
 	name = "Burgundy Suit"
 	item_path = /obj/item/clothing/under/suit/burgundy
@@ -279,10 +271,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Green Suit"
 	item_path = /obj/item/clothing/under/suit/green
 
-/datum/loadout_item/under/formal/green_skirt_plaid
-	name = "Green Plaid Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/plaid/green
-
 /datum/loadout_item/under/formal/navy_suit
 	name = "Navy Suit"
 	item_path = /obj/item/clothing/under/suit/navy
@@ -303,14 +291,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Purple Suitskirt"
 	item_path = /obj/item/clothing/under/rank/civilian/lawyer/purpsuit/skirt
 
-/datum/loadout_item/under/formal/purple_skirt
-	name = "Purple Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/purple
-
-/datum/loadout_item/under/formal/purple_skirt_plaid
-	name = "Purple Plaid Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/plaid/purple
-
 /datum/loadout_item/under/formal/red_suit
 	name = "Red Suit"
 	item_path = /obj/item/clothing/under/suit/red
@@ -326,10 +306,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/formal/red_gown
 	name = "Red Evening Gown"
 	item_path = /obj/item/clothing/under/dress/redeveninggown
-
-/datum/loadout_item/under/formal/red_skirt
-	name = "Red Skirt"
-	item_path = /obj/item/clothing/under/dress/skirt/red
 
 /datum/loadout_item/under/formal/red_skirt_plaid
 	name = "Red Plaid Skirt"
@@ -402,17 +378,9 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Camo Pants"
 	item_path = /obj/item/clothing/under/pants/camo
 
-/datum/loadout_item/under/miscellaneous/jeans_classic
+/datum/loadout_item/under/miscellaneous/jeans
 	name = "Classic Jeans"
-	item_path = /obj/item/clothing/under/pants/classicjeans
-
-/datum/loadout_item/under/miscellaneous/jeans_black
-	name = "Black Jeans"
-	item_path = /obj/item/clothing/under/pants/blackjeans
-
-/datum/loadout_item/under/miscellaneous/black
-	name = "Black Pants"
-	item_path = /obj/item/clothing/under/pants/black
+	item_path = /obj/item/clothing/under/pants/jeans
 
 /datum/loadout_item/under/miscellaneous/black_short
 	name = "Black Shorts"
@@ -434,41 +402,17 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 	name = "Jeans"
 	item_path = /obj/item/clothing/under/pants/jeans
 
-/datum/loadout_item/under/miscellaneous/khaki
-	name = "Khaki Pants"
-	item_path = /obj/item/clothing/under/pants/khaki
-
-/datum/loadout_item/under/miscellaneous/jeans_musthang
-	name = "Must Hang Jeans"
-	item_path = /obj/item/clothing/under/pants/mustangjeans
-
 /datum/loadout_item/under/miscellaneous/purple_short
 	name = "Purple Shorts"
 	item_path = /obj/item/clothing/under/shorts/purple
-
-/datum/loadout_item/under/miscellaneous/red
-	name = "Red Pants"
-	item_path = /obj/item/clothing/under/pants/red
 
 /datum/loadout_item/under/miscellaneous/red_short
 	name = "Red Shorts"
 	item_path = /obj/item/clothing/under/shorts/red
 
-/datum/loadout_item/under/miscellaneous/tam
-	name = "Tan Pants"
-	item_path = /obj/item/clothing/under/pants/tan
-
 /datum/loadout_item/under/miscellaneous/track
 	name = "Track Pants"
 	item_path = /obj/item/clothing/under/pants/track
-
-/datum/loadout_item/under/miscellaneous/jeans_youngfolk
-	name = "Young Folks Jeans"
-	item_path = /obj/item/clothing/under/pants/youngfolksjeans
-
-/datum/loadout_item/under/miscellaneous/white
-	name = "White Pants"
-	item_path = /obj/item/clothing/under/pants/white
 
 /datum/loadout_item/under/miscellaneous/kilt
 	name = "Kilt"
