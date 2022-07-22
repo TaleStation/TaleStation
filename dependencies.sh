@@ -19,12 +19,9 @@ export SPACEMAN_DMM_VERSION=suite-1.7.1
 
 # Python version for mapmerge and other tools
 export PYTHON_VERSION=3.7.9
-<<<<<<< HEAD
-=======
 
 #auxlua repo
 export AUXLUA_REPO=tgstation/auxlua
 
 #auxlua git tag
 export AUXLUA_VERSION=0.2.0
->>>>>>> 99b3995299a0 ([GBP no update] Bumps auxlua to 0.2.0 to fix a server-crashing bug (#68649))

@@ -52,14 +52,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	can_be_greyscale = TRUE
 	item_path = /obj/item/clothing/suit/toggle/suspenders/greyscale
 
-/datum/loadout_item/suit/Suspenders_blue
-	name = "Blue Suspenders"
-	item_path = /obj/item/clothing/suit/toggle/suspenders/blue
-
-/datum/loadout_item/suit/suspenders_grey
-	name = "Grey Suspenders"
-	item_path = /obj/item/clothing/suit/toggle/suspenders/gray
-
 /datum/loadout_item/suit/suspenders_red
 	name = "Red Suspenders"
 	item_path = /obj/item/clothing/suit/toggle/suspenders
