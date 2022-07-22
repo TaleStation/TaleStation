@@ -22,45 +22,17 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Christmas Beanie"
 	item_path = /obj/item/clothing/head/beanie/christmas
 
-/datum/loadout_item/head/cyan_beanie
-	name = "Cyan Beanie"
-	item_path = /obj/item/clothing/head/beanie/cyan
-
 /datum/loadout_item/head/dark_blue_beanie
 	name = "Dark Blue Beanie"
 	item_path = /obj/item/clothing/head/beanie/darkblue
-
-/datum/loadout_item/head/green_beanie
-	name = "Green Beanie"
-	item_path = /obj/item/clothing/head/beanie/green
 
 /datum/loadout_item/head/orange_beanie
 	name = "Orange Beanie"
 	item_path = /obj/item/clothing/head/beanie/orange
 
-/datum/loadout_item/head/purple_beanie
-	name = "Purple Beanie"
-	item_path = /obj/item/clothing/head/beanie/purple
-
 /datum/loadout_item/head/red_beanie
 	name = "Red Beanie"
 	item_path = /obj/item/clothing/head/beanie/red
-
-/datum/loadout_item/head/striped_beanie
-	name = "Striped Beanie"
-	item_path = /obj/item/clothing/head/beanie/striped
-
-/datum/loadout_item/head/striped_red_beanie
-	name = "Striped Red Beanie"
-	item_path = /obj/item/clothing/head/beanie/stripedred
-
-/datum/loadout_item/head/striped_blue_beanie
-	name = "Striped Blue Beanie"
-	item_path = /obj/item/clothing/head/beanie/stripedblue
-
-/datum/loadout_item/head/striped_green_beanie
-	name = "Striped Green Beanie"
-	item_path = /obj/item/clothing/head/beanie/stripedgreen
 
 /datum/loadout_item/head/white_beanie
 	name = "White Beanie"
@@ -193,7 +165,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 
 /datum/loadout_item/head/rastafarian
 	name = "Rastafarian Cap"
-	item_path = /obj/item/clothing/head/beanie/rasta
+	item_path = /obj/item/clothing/head/rasta
 
 /datum/loadout_item/head/top_hat
 	name = "Top Hat"
