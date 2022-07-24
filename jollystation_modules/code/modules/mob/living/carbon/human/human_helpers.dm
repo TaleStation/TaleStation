@@ -72,4 +72,4 @@
 
 /// Humans check for DIGITIGRADE in species_traits
 /mob/living/carbon/human/is_digitigrade()
-	return (BODYTYPE_DIGITIGRADE in dna?.species?.species_traits)
+	return (dna?.species?.bodytype & BODYTYPE_DIGITIGRADE)
