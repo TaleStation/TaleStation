@@ -43,5 +43,4 @@
 	human.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULAR CHANGE
 
 	human.update_body(is_creating = TRUE)
-	human.update_hair(is_creating = TRUE)
 	human.dna.species.spec_updatehealth(human)
