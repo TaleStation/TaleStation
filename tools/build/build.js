@@ -64,21 +64,12 @@ export const DmTarget = new Juke.Target({
     get(DefineParameter).includes("ALL_MAPS") && DmMapsIncludeTarget,
   ],
   inputs: [
-<<<<<<< HEAD
     "_maps/map_files/generic/**",
     "code/**",
-    "goon/**",
     "html/**",
     "icons/**",
     "interface/**",
     "jollystation_modules/**", // NON-MODULAR CHANGE: BUILD OUR FILES!
-=======
-    '_maps/map_files/generic/**',
-    'code/**',
-    'html/**',
-    'icons/**',
-    'interface/**',
->>>>>>> 00c500d8a02f (Removes Goon from Build.js (#68679))
     `${DME_NAME}.dme`,
   ],
   outputs: [`${DME_NAME}.dmb`, `${DME_NAME}.rsc`],
