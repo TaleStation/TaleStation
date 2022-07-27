@@ -32,7 +32,11 @@
 	return TRUE
 
 /obj/item/ammo_casing/proc/tk_firing(mob/living/user, atom/fired_from)
+<<<<<<< HEAD
 	return fired_from.loc != user ? TRUE : FALSE
+=======
+	return !user.contains(fired_from)
+>>>>>>> 731f87895a0b ([NO GBP] fixes tk firing for real (#68804))
 
 /obj/item/ammo_casing/proc/ready_proj(atom/target, mob/living/user, quiet, zone_override = "", atom/fired_from)
 	if (!loaded_projectile)
