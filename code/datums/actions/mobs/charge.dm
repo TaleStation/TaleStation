@@ -37,8 +37,7 @@
 		destroy_objects = destroy
 
 /datum/action/cooldown/mob_cooldown/charge/Activate(atom/target_atom)
-	// start pre-cooldown so that the ability can't come up while the charge is happening
-	StartCooldown(10 SECONDS)
+	StartCooldown(360 SECONDS, 360 SECONDS)
 	charge_sequence(owner, target_atom, charge_delay, charge_past)
 	StartCooldown()
 
