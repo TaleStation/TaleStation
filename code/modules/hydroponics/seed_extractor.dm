@@ -113,6 +113,7 @@
 	default_unfasten_wrench(user, tool)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
+<<<<<<< HEAD
 /obj/machinery/seed_extractor/attackby(obj/item/O, mob/living/user, params)
 
 	if(default_deconstruction_screwdriver(user, "sextractor_open", "sextractor", O))
@@ -155,7 +156,58 @@
 	else if(!user.combat_mode)
 		to_chat(user, span_warning("You can't extract any seeds from \the [O.name]!"))
 	else
+=======
+/obj/machinery/seed_extractor/attackby(obj/item/attacking_item, mob/living/user, params)
+	if(!isliving(user) || user.combat_mode)
+>>>>>>> a9bf19ecc7c7 (Fixes seed extractors not taking seeds from plant bags. (#68842))
 		return ..()
+
+	if(default_deconstruction_screwdriver(user, "sextractor_open", "sextractor", attacking_item))
+		return TRUE
+
+	if(default_pry_open(attacking_item))
+		return TRUE
+
+	if(default_deconstruction_crowbar(attacking_item))
+		return TRUE
+
+	if(istype(attacking_item, /obj/item/storage/bag/plants))
+		var/loaded = 0
+		for(var/obj/item/seeds/to_store in attacking_item.contents)
+			if(contents.len >= max_seeds)
+				to_chat(user, span_warning("[src] is full."))
+				break
+			if(!add_seed(to_store, attacking_item))
+				continue
+			loaded += 1
+
+		if(loaded)
+			to_chat(user, span_notice("You put as many seeds from [attacking_item] into [src] as you can."))
+		else
+			to_chat(user, span_warning("There are no seeds in [attacking_item]."))
+
+		return TRUE
+
+	if(seedify(attacking_item, -1, src, user))
+		to_chat(user, span_notice("You extract some seeds."))
+		return TRUE
+
+	else if(istype(attacking_item, /obj/item/seeds))
+		if(contents.len >= max_seeds)
+			to_chat(user, span_warning("[src] is full."))
+
+		else if(add_seed(attacking_item, user))
+			to_chat(user, span_notice("You add [attacking_item] to [src]."))
+
+		else
+			to_chat(user, span_warning("You can't seem to add [attacking_item] to [src]."))
+		return TRUE
+
+	else if(!attacking_item.tool_behaviour) // Using the wrong tool shouldn't assume you want to turn it into seeds.
+		to_chat(user, span_warning("You can't extract any seeds from [attacking_item]!"))
+		return TRUE
+
+	return ..()
 
 /**
  * Generate seed string
@@ -176,27 +228,26 @@
  * Adds the seeds to the contents and to an associated list that pregenerates the data
  * needed to go to the ui handler
  *
+ * to_add - what seed are we adding?
+ * taking_from - where are we taking the seed from? A mob, a bag, etc?
+ * user - who is inserting the seed?
  **/
-/obj/machinery/seed_extractor/proc/add_seed(obj/item/seeds/O)
-	if(contents.len >= 999)
-		to_chat(usr, span_notice("\The [src] is full."))
+/obj/machinery/seed_extractor/proc/add_seed(obj/item/seeds/to_add, atom/taking_from)
+	if(ismob(taking_from))
+		var/mob/mob_loc = taking_from
+		if(!mob_loc.transferItemToLoc(to_add, src))
+			return FALSE
+
+	else if(!taking_from.atom_storage?.attempt_remove(to_add, src, silent = TRUE))
 		return FALSE
 
-	if(atom_storage)
-		if(!atom_storage.attempt_remove(O, src, silent = TRUE))
-			return FALSE
-	else if(ismob(O.loc))
-		var/mob/M = O.loc
-		if(!M.transferItemToLoc(O, src))
-			return FALSE
-
-	var/seed_string = generate_seed_string(O)
+	var/seed_string = generate_seed_string(to_add)
 	if(piles[seed_string])
-		piles[seed_string] += WEAKREF(O)
+		piles[seed_string] += WEAKREF(to_add)
 	else
-		piles[seed_string] = list(WEAKREF(O))
+		piles[seed_string] = list(WEAKREF(to_add))
 
-	. = TRUE
+	return TRUE
 
 /obj/machinery/seed_extractor/ui_state(mob/user)
 	return GLOB.notcontained_state
