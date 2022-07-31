@@ -7,8 +7,6 @@
 			continue
 		if(!antag_type || !specific && istype(A,antag_type) || specific && A.type == antag_type)
 			. += A.owner
-<<<<<<< HEAD
-=======
 
 /// From a list of players (minds, mobs or clients), finds the one with the highest playtime (either from a specific role or overall living) and returns it.
 /proc/get_most_experienced(list/players, specific_role)
@@ -37,4 +35,3 @@
 		if(player_playtime > most_playtime)
 			most_experienced = player
 	return most_experienced
->>>>>>> 1034e7d2b480 (fixes nuke ops leaders not spawning (#68855))

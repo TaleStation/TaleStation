@@ -149,18 +149,22 @@
 			else // Not dead? Disregard them, pick a new applicant
 				i--
 				continue
-
 		if(!applicant)
 			i--
 			continue
-
-		var/mob/new_character = applicant
-
-		if (makeBody)
-			new_character = generate_ruleset_body(applicant)
-
-		finish_setup(new_character, i)
 		assigned += applicant
+	finish_applications()
+
+/// Here the accepted applications get generated bodies and their setup is finished.
+/// Called by review_applications()
+/datum/dynamic_ruleset/midround/from_ghosts/proc/finish_applications()
+	var/i = 0
+	for(var/mob/applicant as anything in assigned)
+		i++
+		var/mob/new_character = applicant
+		if(makeBody)
+			new_character = generate_ruleset_body(applicant)
+		finish_setup(new_character, i)
 		notify_ghosts("[applicant.name] has been picked for the ruleset [name]!", source = new_character, action = NOTIFY_ORBIT, header="Something Interesting!")
 
 /datum/dynamic_ruleset/midround/from_ghosts/proc/generate_ruleset_body(mob/applicant)
@@ -388,17 +392,6 @@
 		return FALSE
 	return ..()
 
-<<<<<<< HEAD
-/datum/dynamic_ruleset/midround/from_ghosts/nuclear/finish_setup(mob/new_character, index)
-	new_character.mind.set_assigned_role(SSjob.GetJobType(/datum/job/nuclear_operative))
-	new_character.mind.special_role = ROLE_NUCLEAR_OPERATIVE
-	if (index == 1) // Our first guy is the leader
-		var/datum/antagonist/nukeop/leader/new_role = new
-		nuke_team = new_role.nuke_team
-		new_character.mind.add_antag_datum(new_role)
-	else
-		return ..()
-=======
 /datum/dynamic_ruleset/midround/from_ghosts/nuclear/finish_applications()
 	var/mob/leader = get_most_experienced(assigned, ROLE_NUCLEAR_OPERATIVE)
 	if(leader)
@@ -415,7 +408,6 @@
 		new_character.mind.add_antag_datum(leader_antag_datum)
 		return
 	return ..()
->>>>>>> 1034e7d2b480 (fixes nuke ops leaders not spawning (#68855))
 
 //////////////////////////////////////////////
 //                                          //
