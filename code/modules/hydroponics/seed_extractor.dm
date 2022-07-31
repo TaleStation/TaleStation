@@ -113,53 +113,8 @@
 	default_unfasten_wrench(user, tool)
 	return TOOL_ACT_TOOLTYPE_SUCCESS
 
-<<<<<<< HEAD
-/obj/machinery/seed_extractor/attackby(obj/item/O, mob/living/user, params)
-
-	if(default_deconstruction_screwdriver(user, "sextractor_open", "sextractor", O))
-		return
-
-	if(default_pry_open(O))
-		return
-
-	if(default_deconstruction_crowbar(O))
-		return
-
-	if(istype(O, /obj/item/storage/bag/plants))
-		var/obj/item/storage/P = O
-		var/loaded = 0
-		for(var/obj/item/seeds/G in P.contents)
-			if(contents.len >= max_seeds)
-				break
-			++loaded
-			add_seed(G)
-		if (loaded)
-			to_chat(user, span_notice("You put as many seeds from \the [O.name] into [src] as you can."))
-		else
-			to_chat(user, span_notice("There are no seeds in \the [O.name]."))
-		return
-
-	else if(seedify(O,-1, src, user))
-		to_chat(user, span_notice("You extract some seeds."))
-		return
-	else if (istype(O, /obj/item/seeds))
-		// NON-MODULAR CHANGES: XenoBotany seed storage check
-		var/obj/item/seeds/seed = O
-		// Checks if our seeds are alien seeds
-		if(seed.is_alien_seeds != accepts_alien_seeds)
-			to_chat(user, span_warning("The [src.name] can't accept [O]!"))
-			return
-		// NON-MODULAR CHANGES END
-		if(add_seed(O))
-			to_chat(user, span_notice("You add [O] to [src.name]."))
-		return
-	else if(!user.combat_mode)
-		to_chat(user, span_warning("You can't extract any seeds from \the [O.name]!"))
-	else
-=======
 /obj/machinery/seed_extractor/attackby(obj/item/attacking_item, mob/living/user, params)
 	if(!isliving(user) || user.combat_mode)
->>>>>>> a9bf19ecc7c7 (Fixes seed extractors not taking seeds from plant bags. (#68842))
 		return ..()
 
 	if(default_deconstruction_screwdriver(user, "sextractor_open", "sextractor", attacking_item))
@@ -189,13 +144,26 @@
 		return TRUE
 
 	if(seedify(attacking_item, -1, src, user))
+		// NON-MODULAR CHANGES: XenoBotany seedify check
+		var/obj/item/seeds/seed = attacking_item
+		// Checks if our seeds are alien seeds
+		if(seed.is_alien_seeds != accepts_alien_seeds)
+			to_chat(user, span_warning("The [src.name] can't accept [attacking_item]!"))
+			return
+		// NON-MODULAR CHANGES END
 		to_chat(user, span_notice("You extract some seeds."))
 		return TRUE
 
 	else if(istype(attacking_item, /obj/item/seeds))
 		if(contents.len >= max_seeds)
 			to_chat(user, span_warning("[src] is full."))
-
+		// NON-MODULAR CHANGES: XenoBotany seed storage check
+		var/obj/item/seeds/seed = attacking_item
+		// Checks if our seeds are alien seeds
+		if(seed.is_alien_seeds != accepts_alien_seeds)
+			to_chat(user, span_warning("The [src.name] can't accept [attacking_item]!"))
+			return
+		// NON-MODULAR CHANGES END
 		else if(add_seed(attacking_item, user))
 			to_chat(user, span_notice("You add [attacking_item] to [src]."))
 
