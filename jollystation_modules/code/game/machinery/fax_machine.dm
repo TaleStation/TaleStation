@@ -340,7 +340,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	var/message = "INCOMING FAX: FROM \[[station_name()]\], AUTHOR \[[user]\]: "
 	message += remove_all_tags(stored_paper.default_raw_text)
-	message += LAZYLEN(stored_paper.stamped) ? " --- The message is stamped." : ""
+	message += LAZYLEN(stored_paper.stamp_cache) ? " --- The message is stamped." : ""
 	if(destination in GLOB.admin_fax_destinations)
 		message_admins("[ADMIN_LOOKUPFLW(user)] sent a fax to [destination].")
 		send_fax_to_admins(user, message, ((obj_flags & EMAGGED) ? "crimson" : "orange"), destination)
@@ -682,10 +682,8 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	new_paper.desc = desc
 	new_paper.default_raw_text = default_raw_text
 	new_paper.color = color
-	new_paper.stamps = LAZYLISTDUPLICATE(stamps)
-	new_paper.stamped = LAZYLISTDUPLICATE(stamped)
-	new_paper.form_fields = form_fields.Copy()
-	new_paper.field_counter = field_counter
+	new_paper.stamp_cache = LAZYLISTDUPLICATE(stamp_cache)
+	new_paper.default_raw_text = raw_text_inputs
 	new_paper.update_icon_state()
 	copy_overlays(new_paper, TRUE)
 
@@ -761,16 +759,16 @@ GLOBAL_LIST_EMPTY(fax_machines)
 /obj/item/paper/processed/proc/check_requirements()
 	if(isnull(last_answer))
 		return FAIL_NO_ANSWER
-	if(!LAZYLEN(stamped))
+	if(!LAZYLEN(stamp_cache))
 		return FAIL_NO_STAMP
 	if(paper_data["redacts_present"])
 		return PAPERWORK_SUCCESS
 
 	if(paper_data["errors_present"])
-		if(!("stamp-deny" in stamped))
+		if(!("stamp-deny" in stamp_cache))
 			return FAIL_NOT_DENIED
 	else
-		if("stamp-deny" in stamped)
+		if("stamp-deny" in stamp_cache)
 			return FAIL_INCORRECTLY_DENIED
 		if(!findtext(last_answer, needed_answer))
 			return FAIL_QUESTION_WRONG
