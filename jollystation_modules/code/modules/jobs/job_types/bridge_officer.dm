@@ -8,7 +8,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the heads of staff and the captain"
+	supervisors = SUPERVISOR_COMMAND
 	selection_color = "#ddddff"
 	req_admin_notify = 1
 	minimal_player_age = 10

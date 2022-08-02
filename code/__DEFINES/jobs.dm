@@ -183,7 +183,15 @@
 #define FACTION_NONE "None"
 #define FACTION_STATION "Station"
 
-<<<<<<< HEAD
+// Variable macros used to declare who is the supervisor for a given job, announced to the player when they join as any given job.
+#define SUPERVISOR_CAPTAIN "the Captain"
+#define SUPERVISOR_CE "the Chief Engineer"
+#define SUPERVISOR_CMO "the Chief Medical Officer"
+#define SUPERVISOR_HOP "the Head of Personnel"
+#define SUPERVISOR_HOS "the Head of Security"
+#define SUPERVISOR_QM "the Quartermaster"
+#define SUPERVISOR_RD "the Research Director"
+
 // NON-MODULAR CHANGES START - Due to file load order, THIS needs to be here, otherwise the main files can't access these defines
 // Command
 #define JOB_ASSET_PROTECTION "Asset Protection"
@@ -199,14 +207,8 @@
 #define JOB_DISPLAY_ORDER_ORDNANCE_TECH 38
 #define JOB_DISPLAY_ORDER_XENOBIOLOGIST 39
 
+// Supervisor
+#define SUPERVISOR_COMMAND "the Heads of Staff and the Captain"
+#define SUPERVISOR_HOP_HOS "the Head of Personnel and Security"
+
 //NON-MODULAR CHANGES END
-=======
-// Variable macros used to declare who is the supervisor for a given job, announced to the player when they join as any given job.
-#define SUPERVISOR_CAPTAIN "the Captain"
-#define SUPERVISOR_CE "the Chief Engineer"
-#define SUPERVISOR_CMO "the Chief Medical Officer"
-#define SUPERVISOR_HOP "the Head of Personnel"
-#define SUPERVISOR_HOS "the Head of Security"
-#define SUPERVISOR_QM "the Quartermaster"
-#define SUPERVISOR_RD "the Research Director"
->>>>>>> d17e8d33be02 (Converts Supervisors Variable into Defines (mostly) (#68883))
