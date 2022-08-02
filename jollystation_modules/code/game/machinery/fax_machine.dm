@@ -131,7 +131,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	for(var/obj/item/paper/processed/paper as anything in received_paperwork)
 		var/list/found_paper_data = list()
 		found_paper_data["title"] = paper.name
-		found_paper_data["contents"] = TextPreview(remove_all_tags(paper.info), MAX_DISPLAYED_PAPER_CHARS)
+		found_paper_data["contents"] = TextPreview(remove_all_tags(paper.default_raw_text), MAX_DISPLAYED_PAPER_CHARS)
 		found_paper_data["required_answer"] = paper.required_question
 		found_paper_data["ref"] = REF(paper)
 		found_paper_data["num"] = iterator++
@@ -142,14 +142,14 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	if(stored_paper)
 		var/list/stored_paper_data = list()
 		stored_paper_data["title"] = stored_paper.name
-		stored_paper_data["contents"] = TextPreview(remove_all_tags(stored_paper.info), MAX_DISPLAYED_PAPER_CHARS)
+		stored_paper_data["contents"] = TextPreview(remove_all_tags(stored_paper.default_raw_text), MAX_DISPLAYED_PAPER_CHARS)
 		stored_paper_data["ref"] = REF(stored_paper_data)
 		data["stored_paper"] = stored_paper_data
 
 	if(received_paper)
 		var/list/received_paper_data = list()
 		received_paper_data["title"] = received_paper.name
-		received_paper_data["contents"] = TextPreview(remove_all_tags(received_paper.info), MAX_DISPLAYED_PAPER_CHARS)
+		received_paper_data["contents"] = TextPreview(remove_all_tags(received_paper.default_raw_text), MAX_DISPLAYED_PAPER_CHARS)
 		received_paper_data["source"] = received_paper.was_faxed_from
 		received_paper_data["ref"] = REF(received_paper)
 		data["received_paper"] = received_paper_data
@@ -196,7 +196,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	switch(action)
 		if("un_emag_machine")
-			to_chat(usr, span_notice("You restore [src]'s routing information to [CENTCOM_FAX_MACHINE]."))
+			to_chat(usr, span_notice("You restore [src]'s routing default_raw_textrmation to [CENTCOM_FAX_MACHINE]."))
 			obj_flags &= ~EMAGGED
 
 		if("toggle_recieving")
@@ -333,13 +333,13 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 		return FALSE
 
-	if(!stored_paper || !length(stored_paper.info) || !COOLDOWN_FINISHED(src, fax_cooldown))
+	if(!stored_paper || !length(stored_paper.default_raw_text) || !COOLDOWN_FINISHED(src, fax_cooldown))
 		balloon_alert_to_viewers("fax failed to send")
 		playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 		return FALSE
 
 	var/message = "INCOMING FAX: FROM \[[station_name()]\], AUTHOR \[[user]\]: "
-	message += remove_all_tags(stored_paper.info)
+	message += remove_all_tags(stored_paper.default_raw_text)
 	message += LAZYLEN(stored_paper.stamped) ? " --- The message is stamped." : ""
 	if(destination in GLOB.admin_fax_destinations)
 		message_admins("[ADMIN_LOOKUPFLW(user)] sent a fax to [destination].")
@@ -421,7 +421,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	var/obj/item/paper/sent_paper = new()
 	var/fax = stripped_multiline_input(user, "Write your fax to send here.", "Send Fax", max_length = MAX_MESSAGE_LEN)
 	if(length(fax))
-		sent_paper.info = fax
+		sent_paper.default_raw_text = fax
 	else
 		to_chat(user, span_warning("No contents inputted."))
 		qdel(sent_paper)
@@ -680,7 +680,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	new_paper.name = name
 	new_paper.desc = desc
-	new_paper.info = info
+	new_paper.default_raw_text = default_raw_text
 	new_paper.color = color
 	new_paper.stamps = LAZYLISTDUPLICATE(stamps)
 	new_paper.stamped = LAZYLISTDUPLICATE(stamped)
