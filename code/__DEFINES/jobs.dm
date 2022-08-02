@@ -180,9 +180,17 @@
 /// Whether this job can be an intern.
 #define JOB_CAN_BE_INTERN (1<<8)
 
-
 #define FACTION_NONE "None"
 #define FACTION_STATION "Station"
+
+// Variable macros used to declare who is the supervisor for a given job, announced to the player when they join as any given job.
+#define SUPERVISOR_CAPTAIN "the Captain"
+#define SUPERVISOR_CE "the Chief Engineer"
+#define SUPERVISOR_CMO "the Chief Medical Officer"
+#define SUPERVISOR_HOP "the Head of Personnel"
+#define SUPERVISOR_HOS "the Head of Security"
+#define SUPERVISOR_QM "the Quartermaster"
+#define SUPERVISOR_RD "the Research Director"
 
 // NON-MODULAR CHANGES START - Due to file load order, THIS needs to be here, otherwise the main files can't access these defines
 // Command
@@ -198,5 +206,9 @@
 #define JOB_DISPLAY_ORDER_BRIDGE_OFFICER 37
 #define JOB_DISPLAY_ORDER_ORDNANCE_TECH 38
 #define JOB_DISPLAY_ORDER_XENOBIOLOGIST 39
+
+// Supervisor
+#define SUPERVISOR_COMMAND "the Heads of Staff and the Captain"
+#define SUPERVISOR_HOP_HOS "the Head of Personnel and Security"
 
 //NON-MODULAR CHANGES END
