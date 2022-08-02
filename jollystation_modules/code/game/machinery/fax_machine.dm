@@ -422,6 +422,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	var/fax = stripped_multiline_input(user, "Write your fax to send here.", "Send Fax", max_length = MAX_MESSAGE_LEN)
 	if(length(fax))
 		sent_paper.default_raw_text = fax
+		sent_paper.add_raw_text(fax)
 	else
 		to_chat(user, span_warning("No contents inputted."))
 		qdel(sent_paper)
@@ -486,7 +487,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	if(!unread_message)
 		return FALSE
 
-	say(span_robot("Fax received from [source]!"))
+	say("Fax received from [source]!")
 	playsound(src, 'sound/machines/terminal_processing.ogg', 50, FALSE)
 	addtimer(CALLBACK(src, .proc/alert_received_paper, source), FAX_UNREAD_ALERT_TIME)
 
@@ -676,18 +677,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
  * returns a new instance of [/obj/item/paper].
  */
 /obj/item/paper/proc/fax_copy()
-	var/obj/item/paper/new_paper = new()
-
-	new_paper.name = name
-	new_paper.desc = desc
-	new_paper.default_raw_text = default_raw_text
-	new_paper.color = color
-	new_paper.stamp_cache = LAZYLISTDUPLICATE(stamp_cache)
-	new_paper.default_raw_text = raw_text_inputs
-	new_paper.update_icon_state()
-	copy_overlays(new_paper, TRUE)
-
-	return new_paper
+	return copy(type, null, TRUE, null)
 
 /obj/item/paper/processed
 	name = "\proper classified paperwork"
