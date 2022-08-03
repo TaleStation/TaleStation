@@ -389,11 +389,6 @@
 		"A peculiar and unusual corgi. You don't know if this corgi comes from Nar'Sie, \
 		Ratvar or the Eldritch Gods. Whatever it may be, best to keep your distance.", \
 		EXAMINE_CHECK_JOB, list("Chaplain"))
-	AddElement(/datum/element/unique_examine, \
-		"The tale of King Dufresne is a pecuilar one. Some say, Joey Petunia \
-		was the one who solved the riddle! Whatever happened, this corgi is now \
-		in the posession of Guirec Raaz. ", \
-		EXAMINE_CHECK_NONE, hint = FALSE)
 
 // MACHINES //
 
