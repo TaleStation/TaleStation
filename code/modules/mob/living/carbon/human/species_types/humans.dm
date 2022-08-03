@@ -8,17 +8,7 @@
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_LITERATE,
 	)
-	// NON-MODULAR CHANGES: Human gene mods for felinid part
-	mutant_bodyparts = list(
-						"tail_cat" = "None",
-						"ears" = "None",
-						"wings" = "None"
-						)
-	mutantears = /obj/item/organ/internal/ears
-	external_organs = list(
-		/obj/item/organ/external/tail/cat = "None",
-	)
-	// NON-MODULAR CHANGES END
+	mutant_bodyparts = list("wings" = "None")
 	use_skintones = 1
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	disliked_food = GROSS | RAW | CLOTH | BUGS
@@ -30,13 +20,6 @@
 	human.hairstyle = "Business Hair"
 	human.hair_color = "#bb9966" // brown
 	human.update_hair()
-
-	// NON-MODULAR CHANGES: Human gene mods for felinid part
-	var/obj/item/organ/internal/ears/cat/cat_ears = human.getorgan(/obj/item/organ/internal/ears/cat)
-	if (cat_ears)
-		cat_ears.color = human.hair_color
-		human.update_body()
-	// NON-MODULAR CHANGES END
 
 /datum/species/human/get_scream_sound(mob/living/carbon/human/human)
 	if(human.gender == MALE)

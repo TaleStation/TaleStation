@@ -2,10 +2,6 @@
 /// GLOB list of head tentacle sprites / options
 GLOBAL_LIST_EMPTY(head_tentacles_list)
 
-/randomize_human(mob/living/carbon/human/H)
-	H.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list)
-	. = ..()
-
 // The datum for Skrell.
 /datum/species/skrell
 	name = "Skrell"
@@ -39,15 +35,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	. = ..()
 	if(skrell_mob.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
 		skrell_mob.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
-
-/datum/species/skrell/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = sanitize_hexcolor(COLOR_BLUE_GRAY)
-	human.update_body()
-	human.update_body_parts()
-
-// Preset Skrell species
-/mob/living/carbon/human/species/skrell
-	race = /datum/species/skrell
 
 // Skrell bloodbag, for S type blood
 /obj/item/reagent_containers/blood/skrell
