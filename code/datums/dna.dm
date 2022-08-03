@@ -219,8 +219,16 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_MUSHROOM_CAPS_BLOCK] = construct_block(GLOB.caps_list.Find(features["caps"]), GLOB.caps_list.len)
 	if(features["pod_hair"])
 		L[DNA_POD_HAIR_BLOCK] = construct_block(GLOB.pod_hair_list.Find(features["pod_hair"]), GLOB.pod_hair_list.len)
-	if(features["head_tentacles"]) // NON-MODULAR CHANGE
+	if(features["head_tentacles"]) // NON-MODULAR CHANGE: Skrell head tentacles
 		L[DNA_HEAD_TENTACLES_BLOCK] = construct_block(GLOB.head_tentacles_list.Find(features["head_tentacles"]), GLOB.head_tentacles_list.len)
+	if(features["tajaran_ears"]) // NON-MODULAR CHANGE: Tajaran ears
+		L[DNA_TAJARAN_EARS_BLOCK] = construct_block(GLOB.tajaran_ears_list.Find(features["tajaran_ears"]), GLOB.tajaran_ears_list.len)
+	if(features["tajaran_tail"]) // NON-MODULAR CHANGE: Tajaran tail
+		L[DNA_TAJARAN_TAIL_BLOCK] = construct_block(GLOB.tajaran_tail_list.Find(features["tajaran_tail"]), GLOB.tajaran_tail_list.len)
+	if(features["tajaran_markings"]) // NON-MODULAR CHANGE: Tajaran markings
+		L[DNA_TAJARAN_MARKINGS_BLOCK] = construct_block(GLOB.tajaran_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_markings_list.len)
+	if(features["tajaran_snout"]) // NON-MODULAR CHANGE: Tajaran snout
+		L[DNA_TAJARAN_SNOUT_BLOCK] = construct_block(GLOB.tajaran_snout_list.Find(features["tajaran_snout"]), GLOB.tajaran_snout_list.len)
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)

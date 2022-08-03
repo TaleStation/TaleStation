@@ -89,8 +89,16 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	if(!GLOB.pod_hair_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
-	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Head Tentacles initialize
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Skrell head tentacles initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/head_tentacles, GLOB.head_tentacles_list)
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Tajaran ear initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_ears, GLOB.head_tentacles_list)
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Tajaran tail initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_tail, GLOB.head_tentacles_list)
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Tajaran snout initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_snout, GLOB.head_tentacles_list)
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Tajaran markings initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_markings, GLOB.head_tentacles_list)
 
 	//For now we will always return none for tail_human and ears. | "For now" he says.
 	return(list(
