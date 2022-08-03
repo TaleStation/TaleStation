@@ -39,3 +39,19 @@
 
 /datum/preference/choiced/tajaran_snout/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tajaran_snout"] = value
+
+/datum/preference/choiced/tajaran_tail
+	savefile_key = "feature_tajaran_tail"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	relevant_external_organ = /obj/item/organ/external/tail/tajaran_tail
+
+/datum/preference/choiced/tajaran_tail/init_possible_values()
+	return assoc_to_keys(GLOB.tajaran_tail_list)
+
+/datum/preference/choiced/tajaran_tail/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["tajaran_tail"] = value
+
+/datum/preference/choiced/tajaran_tail/create_default_value()
+	var/datum/sprite_accessory/tail/tajaran_tail/tail = /datum/sprite_accessory/tail/tajaran_tail
+	return initial(tail.name)

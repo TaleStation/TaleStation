@@ -28,11 +28,7 @@
 	name = "Wide"
 	icon_state = "wide"
 
-/datum/sprite_accessory/tail/tajaran_tail/regular
-	name = "Tail"
-	icon_state = "tail"
-
-/datum/sprite_accessory/ears/tajaran_ears/regular
+/datum/sprite_accessory/tail/tajaran_tail/tail
 	name = "Regular"
 	icon_state = "regular"
 

@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 	mutant_bodyparts = list("legs" = "Normal Legs",)
 	external_organs = list(
 		/obj/item/organ/external/snout/tajaran_snout = "Regular",
-		/obj/item/organ/external/tail/tajaran_tail = "Tail",
+		/obj/item/organ/external/tail/tajaran_tail = "Regular",
 		)
 
 	mutantears = /obj/item/organ/internal/ears/tajaran_ears
@@ -96,31 +96,3 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 		ear_owner.dna.features["tajaran_ears"] = ear_owner.dna.species.mutant_bodyparts["tajaran_ears"] = "Large"
 		ear_owner.dna.update_uf_block(DNA_TAJARAN_EARS_BLOCK)
 		ear_owner.update_body()
-
-/obj/item/organ/external/tail/tajaran_tail
-	zone = BODY_ZONE_PRECISE_GROIN
-	slot = ORGAN_SLOT_EXTERNAL_TAJARAN_TAIL
-	layers = EXTERNAL_BEHIND
-	dna_block = DNA_TAJARAN_TAIL_BLOCK
-	feature_key = "tajaran_tail"
-	preference = "feature_tajaran_tail"
-
-/obj/item/organ/external/tail/tajaran_tail/get_global_feature_list()
-	return GLOB.tajaran_tail_list
-
-/obj/item/organ/external/snout/tajaran_snout
-	zone = BODY_ZONE_HEAD
-	slot = ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT
-	layers = EXTERNAL_ADJACENT
-	dna_block = DNA_TAJARAN_SNOUT_BLOCK
-	feature_key = "tajaran_snout"
-	preference = "feature_tajaran_snout"
-	external_bodytypes = BODYTYPE_SNOUTED
-
-/obj/item/organ/external/snout/tajaran_snout/can_draw_on_bodypart(mob/living/carbon/human/human)
-	if(!(human.wear_mask?.flags_inv & HIDESNOUT) && !(human.head?.flags_inv & HIDESNOUT))
-		return TRUE
-	return FALSE
-
-/obj/item/organ/external/snout/tajaran_snout/get_global_feature_list()
-	return GLOB.tajaran_snout_list

@@ -15,11 +15,6 @@ export const feature_tajaran_tail: FeatureChoiced = {
   component: FeatureDropdownInput,
 };
 
-export const feature_tajaran_snout: FeatureChoiced = {
-  name: 'Snout',
-  component: FeatureDropdownInput,
-};
-
 export const feature_tajaran_ears: FeatureChoiced = {
   name: 'Ears',
   component: FeatureDropdownInput,
