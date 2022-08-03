@@ -1,4 +1,9 @@
 // Tajarans, the REAL cat people
+// GLOB list for the species sprites shit
+GLOBAL_LIST_EMPTY(tajaran_ears_list)
+GLOBAL_LIST_EMPTY(tajaran_snout_list)
+GLOBAL_LIST_EMPTY(tajaran_tail_list)
+GLOBAL_LIST_EMPTY(tajaran_markings_list)
 
 /datum/species/tajaran
 	name = "Tajaran"
