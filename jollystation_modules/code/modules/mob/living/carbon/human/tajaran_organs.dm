@@ -10,7 +10,7 @@
 	icon = 'jollystation_modules/icons/mob/tajaran_tail.dmi'
 
 /datum/sprite_accessory/tajaran_ears
-	icon = 'jollystation_modules/icons/mob/ears.dmi'
+	icon = 'jollystation_modules/icons/mob/tajaran_ears.dmi'
 
 /datum/sprite_accessory/snout/tajaran_snout/thin
 	name = "Thin"
