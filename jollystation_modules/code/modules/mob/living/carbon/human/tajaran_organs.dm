@@ -7,7 +7,7 @@
 	icon = 'jollystation_modules/icons/mob/tajaran_tail.dmi'
 
 /datum/sprite_accessory/tajaran_markings
-	icon = 'jollystation_modules/icons/mob/tajaran_tail.dmi'
+	icon = 'jollystation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 
 /datum/sprite_accessory/ears/cat/tajaran_ears
 	icon = 'jollystation_modules/icons/mob/tajaran_ears.dmi'
