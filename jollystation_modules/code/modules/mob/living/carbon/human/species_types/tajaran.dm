@@ -1,6 +1,5 @@
 // Tajarans, the REAL cat people
 // GLOB list for the species sprites shit
-GLOBAL_LIST_EMPTY(tajaran_ears_list)
 GLOBAL_LIST_EMPTY(tajaran_snout_list)
 GLOBAL_LIST_EMPTY(tajaran_tail_list)
 GLOBAL_LIST_EMPTY(tajaran_markings_list)
@@ -33,7 +32,7 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 		/obj/item/organ/external/tail/tajaran_tail = "Regular",
 		)
 
-	mutantears = /obj/item/organ/internal/ears/tajaran_ears
+	mutantears = /obj/item/organ/internal/ears/cat
 	attack_verb = "slash"
 	attack_effect = ATTACK_EFFECT_CLAW
 	attack_sound = 'sound/weapons/slash.ogg'

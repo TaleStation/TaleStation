@@ -91,8 +91,6 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
 	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Skrell head tentacles initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/head_tentacles, GLOB.head_tentacles_list)
-	if(!GLOB.tajaran_ears_list.len) // NON-MODULAR CHANGE: Tajaran ear initialize
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/ears/tajaran_ears, GLOB.tajaran_ears_list)
 	if(!GLOB.tajaran_tail_list.len) // NON-MODULAR CHANGE: Tajaran tail initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list)
 	if(!GLOB.tajaran_snout_list.len) // NON-MODULAR CHANGE: Tajaran snout initialize
@@ -121,7 +119,6 @@
 		"tail_monkey" = "None",
 		"pod_hair" = pick(GLOB.pod_hair_list),
 		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULAR CHANGE: Skrell
-		"tajaran_ears" =(pick(GLOB.tajaran_ears_list)), //NON-MODULAR CHANGE: tajaran
 		"tajaran_tail" =(pick(GLOB.tajaran_tail_list)), //NON-MODULAR CHANGE: tajaran
 		"tajaran_markings" =(pick(GLOB.tajaran_markings_list)), //NON-MODULAR CHANGE: tajaran
 		"tajaran_snout" =(pick(GLOB.tajaran_snout_list)), //NON-MODULAR CHANGE: tajaran

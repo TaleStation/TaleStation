@@ -41,7 +41,6 @@
 	human.dna.features["moth_antennae"] = pick(GLOB.moth_antennae_list)
 	human.dna.features["pod_hair"] = pick(GLOB.pod_hair_list)
 	human.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULAR CHANGE: Skrells
-	human.dna.features["tajaran_ears"] = pick(GLOB.tajaran_ears_list) // NON-MODULAR CHANGE: Tajarans
 	human.dna.features["tajaran_markings"] = pick(GLOB.tajaran_markings_list) // NON-MODULAR CHANGE: Tajarans
 	human.dna.features["tajaran_tail"] = pick(GLOB.tajaran_tail_list) // NON-MODULAR CHANGE: Tajarans
 	human.dna.features["tajaran_snout"] = pick(GLOB.tajaran_snout_list) // NON-MODULAR CHANGE: Tajarans

@@ -9,7 +9,7 @@
 /datum/sprite_accessory/tajaran_markings
 	icon = 'jollystation_modules/icons/mob/tajaran_tail.dmi'
 
-/datum/sprite_accessory/tajaran_ears
+/datum/sprite_accessory/ears/cat/tajaran_ears
 	icon = 'jollystation_modules/icons/mob/tajaran_ears.dmi'
 
 /datum/sprite_accessory/snout/tajaran_snout/thin
@@ -32,8 +32,8 @@
 	name = "Regular"
 	icon_state = "regular"
 
-/datum/sprite_accessory/ears/tajaran_ears/large
-	name = "Large"
+/datum/sprite_accessory/ears/cat/tajaran_ears/large
+	name = "Tajaran"
 	icon_state = "large"
 	hasinner = 1
 	color_src = MUTCOLORS
