@@ -138,7 +138,6 @@
 #define ORGAN_SLOT_EXTERNAL_POD_HAIR "pod_hair"
 #define ORGAN_SLOT_EXTERNAL_HEAD_TENTACLES "head_tentacles" // NON-MODULAR CHANGE: Skrell
 #define ORGAN_SLOT_EXTERNAL_TAJARAN_EARS "tajaran_ears" // NON-MODULAR CHANGE: Tajarans
-#define ORGAN_SLOT_EXTERNAL_TAJARAN_TAIL "tajaran_tail" // NON-MODULAR CHANGE: Tajarans
 #define ORGAN_SLOT_EXTERNAL_TAJARAN_MARKINGS "tajaran_markings" // NON-MODULAR CHANGE: Tajarans
 #define ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT "tajaran_snout" // NON-MODULAR CHANGE: Tajarans
 
