@@ -35,6 +35,8 @@
 /datum/sprite_accessory/ears/tajaran_ears/large
 	name = "Large"
 	icon_state = "large"
+	hasinner = 1
+	color_src = MUTCOLORS
 
 /datum/sprite_accessory/tajaran_markings/none
 	name = "None"

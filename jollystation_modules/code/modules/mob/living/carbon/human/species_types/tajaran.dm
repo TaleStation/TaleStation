@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list("legs" = "Normal Legs",)
+	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Large")
 	external_organs = list(
 		/obj/item/organ/external/snout/tajaran_snout = "Regular",
 		/obj/item/organ/external/tail/tajaran_tail = "Regular",
@@ -82,17 +82,3 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 	return list(
 		"Work in Progress.",
 	)
-
-// Tajarans unique organs and stuff
-/obj/item/organ/internal/ears/tajaran_ears
-	name = "tajaran ears"
-	visual = TRUE
-	damage_multiplier = 2
-
-/obj/item/organ/internal/ears/tajaran_ears/Insert(mob/living/carbon/human/ear_owner, special = 0, drop_if_replaced = TRUE)
-	..()
-	if(istype(ear_owner))
-		color = ear_owner.hair_color
-		ear_owner.dna.features["tajaran_ears"] = ear_owner.dna.species.mutant_bodyparts["tajaran_ears"] = "Large"
-		ear_owner.dna.update_uf_block(DNA_TAJARAN_EARS_BLOCK)
-		ear_owner.update_body()

@@ -1,3 +1,5 @@
+// Modular ears
+
 /obj/item/organ/internal/ears/cat/cybernetic
 	name = "cybernetic cat ears"
 	icon = 'jollystation_modules/icons/obj/clothing/hats.dmi'
@@ -25,3 +27,23 @@
 		return
 	damage += 40/severity
 
+// Tajaran ears
+/obj/item/organ/internal/ears/tajaran_ears
+	name = "tajaran ears"
+	visual = TRUE
+	damage_multiplier = 2
+
+/obj/item/organ/internal/ears/tajaran_ears/Insert(mob/living/carbon/human/ear_owner, special = 0, drop_if_replaced = TRUE)
+	..()
+	if(istype(ear_owner))
+		color = ear_owner.hair_color
+		ear_owner.dna.features["tajaran_ears"] = ear_owner.dna.species.mutant_bodyparts["tajaran_ears"] = "Large"
+		ear_owner.dna.update_uf_block(DNA_TAJARAN_EARS_BLOCK)
+		ear_owner.update_body()
+
+/obj/item/organ/internal/ears/tajaran_ears/Remove(mob/living/carbon/human/ear_owner,  special = 0)
+	..()
+	if(istype(ear_owner))
+		color = ear_owner.hair_color
+		ear_owner.dna.species.mutant_bodyparts -= "ears"
+		ear_owner.update_body()
