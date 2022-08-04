@@ -27,7 +27,7 @@
 	slot = ORGAN_SLOT_EXTERNAL_TAJARAN_TAIL
 	dna_block = DNA_TAJARAN_TAIL_BLOCK
 	name = "tajaran tail"
-	desc = "A severed Tajaran tail. What poor bastard would do such a thing?"
+	desc = "A severed tajaran tail. What poor bastard would do such a thing?"
 	feature_key = "tajaran_tail"
 	preference = "feature_tajaran_tail"
 	wag_flags = WAG_ABLE
@@ -49,7 +49,10 @@
 		wag_flags |= WAG_WAGGING
 		if(stop_after)
 			addtimer(CALLBACK(src, .proc/wag, FALSE), stop_after, TIMER_STOPPABLE|TIMER_DELETE_ME)
-
+	else
+		render_key = initial(render_key)
+		wag_flags &= ~WAG_WAGGING
+		
 	owner.update_body_parts()
 
 // Tail icon overrides
@@ -61,6 +64,6 @@
 	icon = 'jollystation_modules/icons/obj/surgery.dmi'
 	icon_state = "severedtailcat"
 
-/obj/item/organ/external/tail/lizard
+/obj/item/organ/external/tail/tajaran
 	icon = 'jollystation_modules/icons/obj/surgery.dmi'
 	icon_state = "severedtailliz"
