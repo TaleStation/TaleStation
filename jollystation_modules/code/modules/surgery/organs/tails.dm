@@ -32,24 +32,6 @@
 	preference = "feature_tajaran_tail"
 	wag_flags = WAG_ABLE
 
-/obj/item/organ/external/tail/tajaran_tail/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
-	..()
-	if(istype(reciever))
-		var/default_part = reciever.dna.species.mutant_bodyparts["tajaran_tail"]
-		if(!default_part || default_part == "None")
-			if(original_owner)
-				reciever.dna.features["tajaran_tail"] = reciever.dna.species.mutant_bodyparts["tajaran_tail"] = original_owner
-				reciever.dna.update_uf_block(DNA_TAIL_BLOCK)
-			else
-				reciever.dna.species.mutant_bodyparts["tajaran_tail"] = reciever.dna.features["tajaran_tail"]
-			reciever.update_body()
-
-/obj/item/organ/external/tail/tajaran_tail/Remove(mob/living/carbon/reciever, special, moving)
-	..()
-	if(istype(reciever))
-		reciever.dna.species.mutant_bodyparts -= "tajaran_tail"
-		reciever.update_body()
-
 /obj/item/organ/external/tail/tajaran_tail/can_draw_on_bodypart(mob/living/carbon/human/human)
 	if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
 		return FALSE
