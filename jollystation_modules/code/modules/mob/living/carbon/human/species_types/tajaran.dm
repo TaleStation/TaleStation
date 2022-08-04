@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 		/obj/item/organ/external/tail/tajaran_tail = "Regular",
 		)
 
-	mutantears = /obj/item/organ/internal/ears/cat
+	mutantears = /obj/item/organ/internal/ears/tajaran_ears
 	attack_verb = "slash"
 	attack_effect = ATTACK_EFFECT_CLAW
 	attack_sound = 'sound/weapons/slash.ogg'
