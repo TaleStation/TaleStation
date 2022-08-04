@@ -32,7 +32,7 @@
 	name = "Regular"
 	icon_state = "regular"
 
-/datum/sprite_accessory/ears/tajaran_ears/large
+/datum/sprite_accessory/ears/cat/tajaran_ears/large
 	name = "Tajaran"
 	icon_state = "large"
 	hasinner = 1
