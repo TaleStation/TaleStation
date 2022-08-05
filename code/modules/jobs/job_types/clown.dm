@@ -5,7 +5,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = SUPERVISOR_HOP
 	selection_color = "#bbe291"
 	exp_granted_type = EXP_TYPE_CREW
 
@@ -46,6 +46,7 @@
 	name = "Clown"
 	jobtype = /datum/job/clown
 
+	id = /obj/item/card/id/advanced/rainbow
 	id_trim = /datum/id_trim/job/clown
 	uniform = /obj/item/clothing/under/rank/civilian/clown
 	backpack_contents = list(

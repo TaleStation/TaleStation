@@ -1,6 +1,5 @@
 /// -- Modular areas, for ruins/modular maps/etc --
 
-
 // Drone Bay Area
 /area/station/engineering/atmos/control_center
 	name = "Atmospherics Control Center"
@@ -9,10 +8,11 @@
 	name = "Atmospherics Experimentation Room"
 
 //BO Office
-/area/station/security/detectives_office/bridge_officer_office //This should inherient det offices ambient?
+/area/station/command/bridge_officer_office //This should inherient det offices ambient?
 	name = "Bridge Officer's Office"
 	icon = 'jollystation_modules/icons/turf/areas.dmi'
 	icon_state = "bo_office"
+	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg')
 
 //AP Office, possibly going unused? We're adding it anyway, fuck you
 /area/station/command/ap_office

@@ -74,8 +74,7 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/regenerate_icons()
 
 	if(!..())
-		update_body()
-		update_hair()
+		update_body(is_creating = TRUE)
 		update_inv_w_uniform()
 		update_inv_wear_id()
 		update_inv_gloves()
@@ -166,7 +165,9 @@ There are several things that need to be remembered:
 		if(!uniform_overlay)
 			//BEGIN SPECIES HANDLING
 			if((dna?.species.bodytype & BODYTYPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-				icon_file = 'jollystation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULAR CHANGE - Enables digi uniform
+				icon_file = uniform.worn_icon_digitigrade || 'jollystation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULAR CHANGE - Enables digi uniform
+			if((dna?.species.bodytype & BODYTYPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
+				icon_file = MONKEY_UNIFORM_FILE
 
 			//Female sprites have lower priority than digitigrade sprites
 			else if(dna.species.sexes && (dna.species.bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && uniform.female_sprite_flags != NO_FEMALE_UNIFORM) //Agggggggghhhhh
@@ -391,6 +392,8 @@ There are several things that need to be remembered:
 
 	apply_overlay(SHOES_LAYER)
 
+	update_body_parts()
+
 
 /mob/living/carbon/human/update_inv_s_store()
 	remove_overlay(SUIT_STORE_LAYER)
@@ -484,7 +487,7 @@ There are several things that need to be remembered:
 		//More currently unused digitigrade handling
 		if(dna.species.bodytype & BODYTYPE_DIGITIGRADE)
 			if(worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)
-				icon_file = 'jollystation_modules/icons/mob/clothing/suit/digi_suit.dmi' //NON-MODULE EDIT - Enables digi suits
+				icon_file = wear_suit.worn_icon_digitigrade || 'jollystation_modules/icons/mob/clothing/suit/digi_suit.dmi' //NON-MODULE EDIT - Enables digi suits
 
 		if(!(icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item))))
 			icon_file = DEFAULT_SUIT_FILE

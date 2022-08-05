@@ -46,5 +46,4 @@
 	human.dna.features["tajaran_snout"] = pick(GLOB.tajaran_snout_list) // NON-MODULAR CHANGE: Tajarans
 
 	human.update_body(is_creating = TRUE)
-	human.update_hair(is_creating = TRUE)
 	human.dna.species.spec_updatehealth(human)

@@ -8,7 +8,7 @@
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 3
-	supervisors = "the research director"
+	supervisors = SUPERVISOR_RD
 	selection_color = "#ffeeff"
 	exp_requirements = 300
 	exp_required_type = EXP_TYPE_SCIENCE
