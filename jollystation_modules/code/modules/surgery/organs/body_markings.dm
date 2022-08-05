@@ -39,5 +39,24 @@
 /datum/preference/choiced/tajaran_body_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tajaran_body_markings"] = value
 
+/datum/preference/choiced/tajaran_body_markings/compile_constant_data()
+	var/list/data = ..()
+
+	data[SUPPLEMENTAL_FEATURE_KEY] = "tajaran_body_markings_color"
+
+	return data
+
 /obj/item/organ/external/tajaran_body_markings/get_global_feature_list()
 	return GLOB.tajaran_body_markings_list
+
+/datum/preference/color/tajaran_body_markings_color
+	savefile_key = "tajaran_body_markings_color"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
+	relevant_species_trait = MUTCOLORS
+
+/datum/preference/color/tajaran_body_markings_color/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["tajaran_body_markings_color"] = value
+
+/datum/preference/color/tajaran_body_markings_color/create_default_value()
+	return sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]")
