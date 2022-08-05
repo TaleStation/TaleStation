@@ -54,11 +54,24 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
-/datum/species/moth/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
+/datum/species/tajaran/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
 	var/snout = pick(GLOB.tajaran_snout_list)
+	var/ears = pick(GLOB.ears_list)
 	mutant_bodyparts["tajaran_snout"] = snout
 	human_mob.dna.features["snout"] = snout
+	mutant_bodyparts["tajaran_ears"] = ears
+	human_mob.dna.features["ears"] = ears
+	human_mob.dna.features["mcolor"] = "#b2c2e0"
 	human_mob.update_body()
+
+/datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human)
+	human.dna.features["mcolor"] = sanitize_hexcolor(COLOR_CYAN)
+
+	var/obj/item/organ/external/snout/tajaran_snout/snout = human.getorgan(/obj/item/organ/external/snout/tajaran_snout)
+	snout?.set_sprite("Short")
+
+	human.update_body()
+	human.update_body_parts()
 
 /datum/species/tajaran/random_name(gender,unique,lastname)
 	var/randname
