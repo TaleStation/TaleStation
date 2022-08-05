@@ -22,7 +22,7 @@
 		if (sprite_accessory.icon_state != "none")
 			var/icon/body_markings_icon = icon(
 				'jollystation_modules/icons/mob/tajaran_markings.dmi',
-				"m_body_markings_[sprite_accessory.icon_state]_ADJ",
+				"m_tajaran_body_markings_[sprite_accessory.icon_state]_ADJ",
 			)
 
 			final_icon.Blend(body_markings_icon, ICON_OVERLAY)

@@ -706,6 +706,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = GLOB.ears_list[source.dna.features["ears"]]
 				if("body_markings")
 					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
+				// NON-MODULAR CHANGES: Tajaran body markings check
+				if("tajaran_body_markings")
+					accessory = GLOB.tajaran_body_markings_list[source.dna.features["tajaran_body_markings"]]
+				// NON-MODULAR CHANGES END
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
 				if("caps")
