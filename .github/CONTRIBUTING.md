@@ -26,7 +26,12 @@ All code should be kept modular in nature if possible. If unable to, your code M
 If adding to a check in the main games files, try to (if possible) put your code at the end. This isn't always feesible, do it where applicable and if it works.
 Images are NOT to be added to the main .dmi files. Don't do it. If you need to overwrite something, make a new .dmi file, and copy the master file if needed.
 
+<<<<<<< HEAD
 When adding files, trying to follow a similar file path as the main game. For example, if you need to extend certain vars or procs in /code/modules/carbon/, you would do the same file format in jollystation_modules/code/modules/carbon/, this way its somewhat easier to flow through the folders and code if needed. Always start a new file with a comment stating what it is.
+=======
+If you want to contribute the first thing you'll need to do is [set up Git](https://hackmd.io/@tgstation/HJ8OdjNBc) so you can download the source code.
+After setting it up, optionally navigate your git commandline to the project folder and run the command: `git config blame.ignoreRevsFile .git-blame-ignore-revs`.
+>>>>>>> 3fdf0fcc47ac (Updates Contributing.MD to have the HackMD Git Guide (#68865))
 
 ## Contributing
 
