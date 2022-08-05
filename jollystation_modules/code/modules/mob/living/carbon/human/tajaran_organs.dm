@@ -6,8 +6,8 @@
 /datum/sprite_accessory/tail/tajaran_tail
 	icon = 'jollystation_modules/icons/mob/tajaran_tail.dmi'
 
-/datum/sprite_accessory/tajaran_markings
-	icon = 'jollystation_modules/icons/mob/species/tajaran/bodyparts.dmi'
+/datum/sprite_accessory/tajaran_body_markings
+	icon = 'jollystation_modules/icons/mob/tajaran_markings.dmi'
 
 /datum/sprite_accessory/ears/cat/tajaran_ears
 	icon = 'jollystation_modules/icons/mob/tajaran_ears.dmi'
@@ -38,10 +38,10 @@
 	hasinner = 1
 	color_src = MUTCOLORS
 
-/datum/sprite_accessory/tajaran_markings/none
+/datum/sprite_accessory/tajaran_body_markings/none
 	name = "None"
 	icon_state = "none"
 
-/datum/sprite_accessory/tajaran_markings/default
+/datum/sprite_accessory/tajaran_body_markings/default
 	name = "Default"
 	icon_state = "default"

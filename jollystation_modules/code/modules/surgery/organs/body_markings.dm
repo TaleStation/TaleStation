@@ -7,15 +7,15 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Body markings"
 	should_generate_icons = TRUE
-	relevant_mutant_bodypart = "body_markings"
+	relevant_mutant_bodypart = "tajaran_body_markings"
 
 /datum/preference/choiced/tajaran_body_markings/init_possible_values()
 	var/list/values = list()
 
-	var/icon/tajaran = icon('jollystation_modules/icons/mob/species/tajaran/bodyparts.dmi', "tajaran_chest_m") // NON-MODULAR CHANGE - Uses our GS dmi
+	var/icon/tajaran = icon('jollystation_modules/icons/mob/species/tajaran/bodyparts.dmi', "tajaran_chest_m")
 
-	for (var/name in GLOB.body_markings_list)
-		var/datum/sprite_accessory/sprite_accessory = GLOB.body_markings_list[name]
+	for (var/name in GLOB.tajaran_body_markings_list)
+		var/datum/sprite_accessory/sprite_accessory = GLOB.tajaran_body_markings_list[name]
 
 		var/icon/final_icon = icon(tajaran)
 
@@ -27,7 +27,7 @@
 
 			final_icon.Blend(body_markings_icon, ICON_OVERLAY)
 
-		final_icon.Blend(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
+		final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
 		final_icon.Crop(10, 8, 22, 23)
 		final_icon.Scale(26, 32)
 		final_icon.Crop(-2, 1, 29, 32)
@@ -40,4 +40,4 @@
 	target.dna.features["tajaran_body_markings"] = value
 
 /obj/item/organ/external/tajaran_body_markings/get_global_feature_list()
-	return GLOB.tajaran_tail_list
+	return GLOB.tajaran_body_markings_list

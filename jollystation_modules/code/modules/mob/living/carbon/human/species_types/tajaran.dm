@@ -2,7 +2,7 @@
 // GLOB list for the species sprites shit
 GLOBAL_LIST_EMPTY(tajaran_snout_list)
 GLOBAL_LIST_EMPTY(tajaran_tail_list)
-GLOBAL_LIST_EMPTY(tajaran_markings_list)
+GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 /datum/species/tajaran
 	name = "Tajaran"
@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(tajaran_markings_list)
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Large")
+	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Large", "tajaran_body_markings" = "default")
 	external_organs = list(
 		/obj/item/organ/external/snout/tajaran_snout = "Regular",
 		/obj/item/organ/external/tail/tajaran_tail = "Regular",

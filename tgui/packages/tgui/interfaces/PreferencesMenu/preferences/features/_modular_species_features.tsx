@@ -19,3 +19,8 @@ export const tajaran_snout: FeatureChoiced = {
   name: 'Snout',
   component: FeatureIconnedDropdownInput,
 };
+
+export const feature_tajaran_markings: FeatureChoiced = {
+  name: 'Body Markings',
+  component: FeatureDropdownInput,
+};

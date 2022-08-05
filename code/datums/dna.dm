@@ -224,7 +224,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(features["tajaran_tail"]) // NON-MODULAR CHANGE: Tajaran tail
 		L[DNA_TAJARAN_TAIL_BLOCK] = construct_block(GLOB.tajaran_tail_list.Find(features["tajaran_tail"]), GLOB.tajaran_tail_list.len)
 	if(features["tajaran_markings"]) // NON-MODULAR CHANGE: Tajaran markings
-		L[DNA_TAJARAN_MARKINGS_BLOCK] = construct_block(GLOB.tajaran_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_markings_list.len)
+		L[DNA_TAJARAN_MARKINGS_BLOCK] = construct_block(GLOB.tajaran_body_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_body_markings_list.len)
 	if(features["tajaran_snout"]) // NON-MODULAR CHANGE: Tajaran snout
 		L[DNA_TAJARAN_SNOUT_BLOCK] = construct_block(GLOB.tajaran_snout_list.Find(features["tajaran_snout"]), GLOB.tajaran_snout_list.len)
 
@@ -364,7 +364,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		if(DNA_TAJARAN_SNOUT_BLOCK) // NON-MODULAR CHANGE: TAJARAN
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_snout_list.Find(features["tajaran_snout"]), GLOB.tajaran_snout_list.len))
 		if(DNA_TAJARAN_MARKINGS_BLOCK) // NON-MODULAR CHANGE: TAJARAN
-			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_markings_list.len))
+			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_body_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_body_markings_list.len))
 		if(DNA_TAJARAN_TAIL_BLOCK) // NON-MODULAR CHANGE: TAJARAN
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_tail_list.Find(features["tajaran_tail"]), GLOB.tajaran_tail_list.len))
 
@@ -621,7 +621,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(dna.features["tajaran_snout"]) // NON-MODULAR CHANGE: Tajaran
 		dna.features["tajaran_snout"] = GLOB.tajaran_snout_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_TAIL_BLOCK), GLOB.tajaran_snout_list.len)]
 	if(dna.features["tajaran_markings"]) // NON-MODULAR CHANGE: Tajaran
-		dna.features["tajaran_markings"] = GLOB.tajaran_markings_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_MARKINGS_BLOCK), GLOB.tajaran_markings_list.len)]
+		dna.features["tajaran_markings"] = GLOB.tajaran_body_markings_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_MARKINGS_BLOCK), GLOB.tajaran_body_markings_list.len)]
 	if(dna.features["tajaran_tail"]) // NON-MODULAR CHANGE: Tajaran
 		dna.features["tajaran_tail"] = GLOB.tajaran_tail_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_TAIL_BLOCK), GLOB.tajaran_tail_list.len)]
 
