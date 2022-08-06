@@ -1,3 +1,4 @@
+// Generates tajaran side profile for prefs
 /proc/generate_tajaran_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
 
@@ -27,6 +28,7 @@
 
 	return values
 
+// Tajaran snouts
 /datum/preference/choiced/tajaran_snout
 	savefile_key = "feature_tajaran_snout"
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -40,6 +42,7 @@
 /datum/preference/choiced/tajaran_snout/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tajaran_snout"] = value
 
+// Tajaran tails
 /datum/preference/choiced/tajaran_tail
 	savefile_key = "feature_tajaran_tail"
 	savefile_identifier = PREFERENCE_CHARACTER

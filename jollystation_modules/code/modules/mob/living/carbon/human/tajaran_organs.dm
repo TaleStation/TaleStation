@@ -1,4 +1,4 @@
-// Tajaran organ accessories, because otherwise tajarans would be a billion line file
+// Tajaran sprite accessories, because otherwise tajarans would be a billion line file
 
 /datum/sprite_accessory/snout/tajaran_snout
 	icon = 'jollystation_modules/icons/mob/tajaran_snouts.dmi'

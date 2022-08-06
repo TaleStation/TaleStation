@@ -54,6 +54,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
+// Randomize tajaran
 /datum/species/tajaran/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
 	var/snout = pick(GLOB.tajaran_snout_list)
 	mutant_bodyparts["tajaran_snout"] = snout
@@ -68,6 +69,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	human_mob.update_body()
 	human_mob.update_body_parts(update_limb_data = TRUE)
 
+// Tajaran species preview in tgui
 /datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.hair_color = "#918787"
 	human_for_preview.dna.features["mcolor"] = COLOR_GRAY

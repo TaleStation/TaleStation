@@ -49,6 +49,7 @@
 /obj/item/organ/external/tajaran_body_markings/get_global_feature_list()
 	return GLOB.tajaran_body_markings_list
 
+// Tajaran body marking color
 /datum/preference/color/tajaran_body_markings_color
 	savefile_key = "tajaran_body_markings_color"
 	savefile_identifier = PREFERENCE_CHARACTER
