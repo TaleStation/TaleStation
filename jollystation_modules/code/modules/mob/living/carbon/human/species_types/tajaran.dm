@@ -42,6 +42,8 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	payday_modifier = 0.75
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_MAMMAL
+	coldmod = 0.67
+	heatmod = 1.5
 
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/tajaran,
@@ -52,7 +54,18 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg/tajaran,
 	)
 
+	// Body temp effects
+	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 10)
+	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 20)
+
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
+
+// Taken from felinids - Immunity to carpotoxin
+/datum/species/tajaran/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
+	. = ..()
+	if(istype(chem, /datum/reagent/toxin/carpotoxin))
+		var/datum/reagent/toxin/carpotoxin/fish = chem
+		fish.toxpwr = 0
 
 // Randomize tajaran
 /datum/species/tajaran/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
@@ -107,3 +120,30 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	return list(
 		"Work in Progress.",
 	)
+
+// Tajaran pref quirks info
+/datum/species/tajaran/create_pref_temperature_perks()
+	var/list/to_add = list()
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "thermometer-empty",
+			SPECIES_PERK_NAME = "Thick Fur",
+			SPECIES_PERK_DESC = "Due to the climate Tajarans are from, their fur is naturually insulating, keeping them warm.",
+	))
+
+	to_add += list(list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_ICON = "temperature-high",
+			SPECIES_PERK_NAME = "Thick Fur",
+			SPECIES_PERK_DESC = "Unfortunately, due to Tajarans thick fur, they're prone to overheating easier.",
+	))
+
+	to_add += list(list(
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = "fish",
+			SPECIES_PERK_NAME = "Sushi Lover",
+			SPECIES_PERK_DESC = "Tajarans LOVE to consume fish! As a result, they're immune to the toxin effects of carpotoxin.",
+	))
+
+	return to_add
