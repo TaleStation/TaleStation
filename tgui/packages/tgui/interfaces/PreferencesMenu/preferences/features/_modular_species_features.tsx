@@ -1,4 +1,4 @@
-import { CheckboxInput, FeatureChoiced, FeatureDropdownInput, FeatureIconnedDropdownInput, FeatureToggle, FeatureColorInput, Feature } from './base';
+import { CheckboxInput, FeatureChoiced, FeatureDropdownInput, FeatureToggle, FeatureColorInput, Feature } from './base';
 
 export const feature_head_tentacles: FeatureChoiced = {
   name: 'Head Tentacles',
@@ -17,12 +17,12 @@ export const feature_tajaran_tail: FeatureChoiced = {
 
 export const feature_tajaran_snout: FeatureChoiced = {
   name: 'Snout',
-  component: FeatureIconnedDropdownInput,
+  component: FeatureDropdownInput,
 };
 
 export const feature_tajaran_markings: FeatureChoiced = {
   name: 'Body Markings',
-  component: FeatureIconnedDropdownInput,
+  component: FeatureDropdownInput,
 };
 
 export const tajaran_body_markings_color: Feature<string> = {
