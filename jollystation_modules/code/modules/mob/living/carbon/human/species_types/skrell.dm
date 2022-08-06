@@ -36,6 +36,12 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	if(skrell_mob.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
 		skrell_mob.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
 
+/datum/species/skrell/prepare_human_for_preview(mob/living/carbon/human/human)
+	human.dna.features["mcolor"] = sanitize_hexcolor(COLOR_BLUE_GRAY)
+
+	human.update_body()
+	human.update_body_parts(update_limb_data = TRUE)
+
 // Skrell bloodbag, for S type blood
 /obj/item/reagent_containers/blood/skrell
 	blood_type = "S"
