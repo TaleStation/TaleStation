@@ -1358,6 +1358,7 @@
 // Called when we are hit by a bolt of polymorph and changed
 // Generally the mob we are currently in is about to be deleted
 /mob/living/proc/wabbajack_act(mob/living/new_mob)
+	SEND_SIGNAL(src, COMSIG_LIVING_WABBAJACKED, new_mob)
 	log_message("was wabbajack polymorphed into: [new_mob.name]([new_mob.type]).", LOG_GAME)
 	new_mob.name = real_name
 	new_mob.real_name = real_name
@@ -1406,6 +1407,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	var/datum/status_effect/fire_handler/fire_stacks/fire_status = has_status_effect(/datum/status_effect/fire_handler/fire_stacks)
 	if(!fire_status || !fire_status.on_fire)
 		return
+
 	remove_status_effect(/datum/status_effect/fire_handler/fire_stacks)
 
 /**
