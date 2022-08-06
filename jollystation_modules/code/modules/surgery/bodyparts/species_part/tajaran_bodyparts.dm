@@ -53,7 +53,7 @@
 			limb_id = "digitigrade"
 
 		else
-			limb_id = "lizard"
+			limb_id = "tajaran"
 
 /obj/item/bodypart/r_leg/digitigrade/tajaran
 	icon_greyscale = 'jollystation_modules/icons/mob/species/tajaran/bodyparts.dmi'
@@ -76,4 +76,4 @@
 			limb_id = "digitigrade"
 
 		else
-			limb_id = "lizard"
+			limb_id = "tajaran"

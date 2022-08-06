@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Large", "tajaran_body_markings" = "default")
+	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Tajaran", "tajaran_body_markings" = "default")
 	external_organs = list(
 		/obj/item/organ/external/snout/tajaran_snout = "Regular",
 		/obj/item/organ/external/tail/tajaran_tail = "Regular",
@@ -56,22 +56,33 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 /datum/species/tajaran/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
 	var/snout = pick(GLOB.tajaran_snout_list)
-	var/ears = pick(GLOB.ears_list)
 	mutant_bodyparts["tajaran_snout"] = snout
-	human_mob.dna.features["snout"] = snout
-	mutant_bodyparts["tajaran_ears"] = ears
-	human_mob.dna.features["ears"] = ears
-	human_mob.dna.features["mcolor"] = "#b2c2e0"
+	human_mob.dna.features["tajaran_snout"] = snout
+	human_mob.dna.features["mcolor"] = COLOR_GRAY
+
+	var/obj/item/organ/internal/ears/tajaran_ears/tajaran_ears = human_mob.getorgan(/obj/item/organ/internal/ears/tajaran_ears)
+	if (tajaran_ears)
+		tajaran_ears.color = human_mob.hair_color
+		human_mob.update_body()
+
 	human_mob.update_body()
+	human_mob.update_body_parts(update_limb_data = TRUE)
 
-/datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = sanitize_hexcolor(COLOR_CYAN)
+/datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	human_for_preview.hair_color = "#918787"
+	human_for_preview.dna.features["mcolor"] = COLOR_GRAY
+	human_for_preview.dna.features["ears"] = "Tajaran"
 
-	var/obj/item/organ/external/snout/tajaran_snout/snout = human.getorgan(/obj/item/organ/external/snout/tajaran_snout)
+	var/obj/item/organ/external/snout/tajaran_snout/snout = human_for_preview.getorgan(/obj/item/organ/external/snout/tajaran_snout)
 	snout?.set_sprite("Short")
 
-	human.update_body()
-	human.update_body_parts()
+	var/obj/item/organ/internal/ears/tajaran_ears/tajaran_ears = human_for_preview.getorgan(/obj/item/organ/internal/ears/tajaran_ears)
+	if (tajaran_ears)
+		tajaran_ears.color = human_for_preview.hair_color
+		human_for_preview.update_body()
+
+	human_for_preview.update_body()
+	human_for_preview.update_body_parts(update_limb_data = TRUE)
 
 /datum/species/tajaran/random_name(gender,unique,lastname)
 	var/randname
