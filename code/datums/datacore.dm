@@ -337,10 +337,14 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 		final_paper_text += text("Name: [] ID: []<BR>\nGender: []<BR>\nAge: []<BR>", general_data.fields["name"], general_data.fields["id"], general_data.fields["gender"], general_data.fields["age"])
 		final_paper_text += "\nSpecies: [general_data.fields["species"]]<BR>"
 		final_paper_text += text("\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", general_data.fields["fingerprint"], general_data.fields["p_stat"], general_data.fields["m_stat"])
+		if(!(general_data.fields["past_records"] == "")) // NON-MODULAR CHANGES: Security records
+			final_paper_text += "\nGeneral Records:\n[general_data.fields["past_records"]]\n" // NON-MODULAR CHANGES: Security records
 	else
 		final_paper_text += "<B>General Record Lost!</B><BR>"
 	if((istype(security, /datum/data/record) && GLOB.data_core.security.Find(security)))
 		final_paper_text += text("<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: []", security.fields["criminal"])
+		if(!(general_data.fields["past_records"] == "")) // NON-MODULAR CHANGE
+			final_paper_text += "\nSecurity Records:\n[general_data.fields["past_records"]]\n" // NON-MODULAR CHANGE
 
 		final_paper_text += "<BR>\n<BR>\nCrimes:<BR>\n"
 		final_paper_text +={"<table style="text-align:center;" border="1" cellspacing="0" width="100%">
