@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 	// Body temp effects
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 10)
-	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 20)
+	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 10)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
