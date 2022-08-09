@@ -103,6 +103,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	dna.features["head_tentacles"] = "Long"
 	dna.features["tajaran_snout"] = "Long"
 	dna.features["tajaran_body_markings"] = "Default"
+	dna.features["tajaran_ears"] = "Large"
 
 //Inefficient pooling/caching way.
 GLOBAL_LIST_EMPTY(human_dummy_list)

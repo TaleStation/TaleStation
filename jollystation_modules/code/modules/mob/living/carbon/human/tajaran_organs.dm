@@ -32,8 +32,14 @@
 	name = "Regular"
 	icon_state = "regular"
 
+/datum/sprite_accessory/ears/cat/tajaran_ears/sharp
+	name = "Sharp Tajaran Ears"
+	icon_state = "sharp"
+	hasinner = 1
+	color_src = MUTCOLORS
+
 /datum/sprite_accessory/ears/cat/tajaran_ears/large
-	name = "Tajaran"
+	name = "Large Tajaran Ears"
 	icon_state = "large"
 	hasinner = 1
 	color_src = MUTCOLORS
