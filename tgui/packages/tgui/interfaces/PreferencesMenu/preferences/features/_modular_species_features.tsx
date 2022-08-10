@@ -1,4 +1,4 @@
-import { FeatureChoiced, FeatureDropdownInput } from './base';
+import { FeatureChoiced, FeatureDropdownInput, FeatureColorInput, Feature } from './base';
 
 export const feature_head_tentacles: FeatureChoiced = {
   name: 'Head Tentacles',

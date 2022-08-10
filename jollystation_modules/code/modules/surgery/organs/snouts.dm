@@ -10,6 +10,7 @@
 	feature_key = "tajaran_snout"
 	preference = "feature_tajaran_snout"
 	external_bodytypes = BODYTYPE_SNOUTED
+	organ_flags = ORGAN_EXTERNAL
 
 /obj/item/organ/external/snout/tajaran_snout/can_draw_on_bodypart(mob/living/carbon/human/human)
 	if(!(human.wear_mask?.flags_inv & HIDESNOUT) && !(human.head?.flags_inv & HIDESNOUT))
