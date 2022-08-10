@@ -17,7 +17,7 @@
 	taste_description = "calamari"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
 
-/datum/reagent/mutationtoxin/felinid
+/datum/reagent/mutationtoxin/tajaran
 	name = "Tajaran Mutation Toxin"
 	description = "A curiously hairy-looking toxin. Do you really want to drink this?"
 	color = "#b1ace2"
