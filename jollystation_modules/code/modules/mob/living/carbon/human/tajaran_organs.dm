@@ -39,7 +39,7 @@
 	color_src = MUTCOLORS
 
 /datum/sprite_accessory/ears/cat/tajaran_ears/large
-	name = "Large Tajaran Ears"
+	name = "Tajaran"
 	icon_state = "large"
 	hasinner = 1
 	color_src = MUTCOLORS
@@ -51,3 +51,4 @@
 /datum/sprite_accessory/tajaran_body_markings/default
 	name = "Default"
 	icon_state = "default"
+	gender_specific = 1
