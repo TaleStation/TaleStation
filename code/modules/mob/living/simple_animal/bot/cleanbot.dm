@@ -107,12 +107,9 @@
 		if(!(bot_cover_flags & BOT_COVER_EMAGGED))
 			weapon.force = weapon.force / 2
 		add_overlay(image(icon=weapon.lefthand_file,icon_state=weapon.inhand_icon_state))
-<<<<<<< HEAD
-=======
 		return TRUE
 	balloon_alert(user, "couldn't attach!")
 	return FALSE
->>>>>>> 01fb74872c43 (Fixes player controlled cleanbots not being able to kill mice and cockroaches (#69050))
 
 /mob/living/simple_animal/bot/cleanbot/proc/update_titles()
 	var/working_title = ""
