@@ -587,12 +587,14 @@
 	race = /datum/species/jelly/slime
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
+/* NON-MODULAR CHANGES: Felinid Removal
 /datum/reagent/mutationtoxin/felinid
 	name = "Felinid Mutation Toxin"
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/human/felinid
 	taste_description = "something nyat good"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+*/ // NON-MODULAR CANGES END
 
 /datum/reagent/mutationtoxin/lizard
 	name = "Lizard Mutation Toxin"

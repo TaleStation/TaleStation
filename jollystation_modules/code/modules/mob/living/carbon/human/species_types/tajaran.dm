@@ -99,6 +99,14 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	human_for_preview.update_body()
 	human_for_preview.update_body_parts(update_limb_data = TRUE)
 
+// Tajaran say sounds, just old felinid ones
+/datum/species/tajaran
+	species_speech_sounds = list('jollystation_modules/sound/voice/meow1.ogg' = 50, \
+									'jollystation_modules/sound/voice/meow2.ogg' = 50,
+									'jollystation_modules/sound/voice/meow3.ogg' = 50)
+	species_speech_sounds_ask = list()
+	species_speech_sounds_exclaim = list()
+
 /datum/species/tajaran/random_name(gender,unique,lastname)
 	var/randname
 	if(gender == MALE)
