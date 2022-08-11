@@ -20,4 +20,4 @@
 	horns?.set_sprite("Simple")
 
 	human.update_body()
-	human.update_body_parts()
+	human.update_body_parts(update_limb_data = TRUE)

@@ -89,8 +89,14 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	if(!GLOB.pod_hair_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
-	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Head Tentacles initialize
+	if(!GLOB.head_tentacles_list.len) // NON-MODULAR CHANGE: Skrell head tentacles initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/head_tentacles, GLOB.head_tentacles_list)
+	if(!GLOB.tajaran_tail_list.len) // NON-MODULAR CHANGE: Tajaran tail initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list)
+	if(!GLOB.tajaran_snout_list.len) // NON-MODULAR CHANGE: Tajaran snout initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list)
+	if(!GLOB.tajaran_body_markings_list.len) // NON-MODULAR CHANGE: Tajaran markings initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list)
 
 	//For now we will always return none for tail_human and ears. | "For now" he says.
 	return(list(
@@ -112,7 +118,10 @@
 		"moth_markings" = pick(GLOB.moth_markings_list),
 		"tail_monkey" = "None",
 		"pod_hair" = pick(GLOB.pod_hair_list),
-		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULAR CHANGE
+		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULAR CHANGE: Skrell
+		"tajaran_tail" =(pick(GLOB.tajaran_tail_list)), //NON-MODULAR CHANGE: tajaran
+		"tajaran_markings" =(pick(GLOB.tajaran_body_markings_list)), //NON-MODULAR CHANGE: tajaran
+		"tajaran_snout" =(pick(GLOB.tajaran_snout_list)), //NON-MODULAR CHANGE: tajaran
 	))
 
 /proc/random_hairstyle(gender)

@@ -11,9 +11,11 @@
 	results = list(/datum/reagent/mutationtoxin/lizard = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/consumable/frostoil = 1) //lizerds are cold-blooded
 
+/* This was removed in code in favor of Tajarans
 /datum/chemical_reaction/mutation_toxin/felinid_mutation
 	results = list(/datum/reagent/mutationtoxin/felinid = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/consumable/sugar = 1)
+*/
 
 /datum/chemical_reaction/mutation_toxin/moth_mutation
 	results = list(/datum/reagent/mutationtoxin/moth = 2)
@@ -49,4 +51,8 @@
 
 /datum/chemical_reaction/mutation_toxin/skrell_mutation
 	results = list(/datum/reagent/mutationtoxin/skrell = 2)
-	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/toxin/carpotoxin = 1) //i dunno i just picked a fish thing because skrell have tentacles
+	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/toxin/slimejelly = 1) // can't put carpotoxin here unfortunately, makes CI scream
+
+/datum/chemical_reaction/mutation_toxin/tajaran_mutation
+	results = list(/datum/reagent/mutationtoxin/tajaran = 2)
+	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/toxin/carpotoxin = 1) // fsh

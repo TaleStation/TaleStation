@@ -12,7 +12,16 @@
 /datum/reagent/mutationtoxin/skrell
 	name = "Skrell Mutation Toxin"
 	description = "A non-euclidian-looking toxin. It has protrusions."
-	color = "#5EFF3B" //RGB: 94, 255, 59
+	color = "#764685"
 	race = /datum/species/skrell
 	taste_description = "calamari"
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+
+/datum/reagent/mutationtoxin/tajaran
+	name = "Tajaran Mutation Toxin"
+	description = "A curiously hairy-looking toxin. Do you really want to drink this?"
+	color = "#b1ace2"
+	race = /datum/species/tajaran
+	taste_description = "hairball"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
+

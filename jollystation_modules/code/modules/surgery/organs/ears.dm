@@ -1,3 +1,5 @@
+// Modular ears
+
 /obj/item/organ/internal/ears/cat/cybernetic
 	name = "cybernetic cat ears"
 	icon = 'jollystation_modules/icons/obj/clothing/hats.dmi'
@@ -25,3 +27,8 @@
 		return
 	damage += 40/severity
 
+// Tajaran ears
+/obj/item/organ/internal/ears/tajaran_ears
+	name = "tajaran ears"
+	visual = TRUE
+	damage_multiplier = 2

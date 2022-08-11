@@ -219,8 +219,14 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_MUSHROOM_CAPS_BLOCK] = construct_block(GLOB.caps_list.Find(features["caps"]), GLOB.caps_list.len)
 	if(features["pod_hair"])
 		L[DNA_POD_HAIR_BLOCK] = construct_block(GLOB.pod_hair_list.Find(features["pod_hair"]), GLOB.pod_hair_list.len)
-	if(features["head_tentacles"]) // NON-MODULAR CHANGE
+	if(features["head_tentacles"]) // NON-MODULAR CHANGE: Skrell head tentacles
 		L[DNA_HEAD_TENTACLES_BLOCK] = construct_block(GLOB.head_tentacles_list.Find(features["head_tentacles"]), GLOB.head_tentacles_list.len)
+	if(features["tajaran_tail"]) // NON-MODULAR CHANGE: Tajaran tail
+		L[DNA_TAJARAN_TAIL_BLOCK] = construct_block(GLOB.tajaran_tail_list.Find(features["tajaran_tail"]), GLOB.tajaran_tail_list.len)
+	if(features["tajaran_markings"]) // NON-MODULAR CHANGE: Tajaran markings
+		L[DNA_TAJARAN_MARKINGS_BLOCK] = construct_block(GLOB.tajaran_body_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_body_markings_list.len)
+	if(features["tajaran_snout"]) // NON-MODULAR CHANGE: Tajaran snout
+		L[DNA_TAJARAN_SNOUT_BLOCK] = construct_block(GLOB.tajaran_snout_list.Find(features["tajaran_snout"]), GLOB.tajaran_snout_list.len)
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
@@ -353,8 +359,14 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_feature_block(blocknumber, construct_block(GLOB.caps_list.Find(features["caps"]), GLOB.caps_list.len))
 		if(DNA_POD_HAIR_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.pod_hair_list.Find(features["pod_hair"]), GLOB.pod_hair_list.len))
-		if(DNA_HEAD_TENTACLES_BLOCK) // NON-MODULAR CHANGE
+		if(DNA_HEAD_TENTACLES_BLOCK) // NON-MODULAR CHANGE: Skrell
 			set_uni_feature_block(blocknumber, construct_block(GLOB.head_tentacles_list.Find(features["head_tentacles"]), GLOB.head_tentacles_list.len))
+		if(DNA_TAJARAN_SNOUT_BLOCK) // NON-MODULAR CHANGE: TAJARAN
+			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_snout_list.Find(features["tajaran_snout"]), GLOB.tajaran_snout_list.len))
+		if(DNA_TAJARAN_MARKINGS_BLOCK) // NON-MODULAR CHANGE: TAJARAN
+			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_body_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_body_markings_list.len))
+		if(DNA_TAJARAN_TAIL_BLOCK) // NON-MODULAR CHANGE: TAJARAN
+			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_tail_list.Find(features["tajaran_tail"]), GLOB.tajaran_tail_list.len))
 
 //Please use add_mutation or activate_mutation instead
 /datum/dna/proc/force_give(datum/mutation/human/HM)
@@ -607,8 +619,14 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		dna.features["caps"] = GLOB.caps_list[deconstruct_block(get_uni_feature_block(features, DNA_MUSHROOM_CAPS_BLOCK), GLOB.caps_list.len)]
 	if(dna.features["pod_hair"])
 		dna.features["pod_hair"] = GLOB.pod_hair_list[deconstruct_block(get_uni_feature_block(features, DNA_POD_HAIR_BLOCK), GLOB.pod_hair_list.len)]
-	if(dna.features["head_tentacles"]) // NON-MODULAR CHANGE
+	if(dna.features["head_tentacles"]) // NON-MODULAR CHANGE: Skrell
 		dna.features["head_tentacles"] = GLOB.head_tentacles_list[deconstruct_block(get_uni_feature_block(features, DNA_HEAD_TENTACLES_BLOCK), GLOB.head_tentacles_list.len)]
+	if(dna.features["tajaran_snout"]) // NON-MODULAR CHANGE: Tajaran
+		dna.features["tajaran_snout"] = GLOB.tajaran_snout_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_TAIL_BLOCK), GLOB.tajaran_snout_list.len)]
+	if(dna.features["tajaran_markings"]) // NON-MODULAR CHANGE: Tajaran
+		dna.features["tajaran_markings"] = GLOB.tajaran_body_markings_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_MARKINGS_BLOCK), GLOB.tajaran_body_markings_list.len)]
+	if(dna.features["tajaran_tail"]) // NON-MODULAR CHANGE: Tajaran
+		dna.features["tajaran_tail"] = GLOB.tajaran_tail_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_TAIL_BLOCK), GLOB.tajaran_tail_list.len)]
 
 	for(var/obj/item/organ/external/external_organ as anything in external_organs)
 		external_organ.mutate_feature(features, src)
