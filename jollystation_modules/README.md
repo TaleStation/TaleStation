@@ -83,7 +83,7 @@ qdel(src)
 
 ```
 
-- What DOES matter: The formatting of the first part of the comment! The comment MUST start with `// NON-MODULE`, space included, exact number of forward slashes, capitalized.
+- What DOES matter: The formatting of the first part of the comment! The comment MUST start with `// NON-MODULAR`, space included, exact number of forward slashes, capitalized.
 
 - What doesn't matter: what follows above. `// NON-MODULAR CHANGE`, `// NON-MODULAR CHANGE START`, `// NON-MODULAR CHANGES`, `// NON-MODULAR CHANGE: I did stuff`
 

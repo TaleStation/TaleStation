@@ -19,7 +19,7 @@
 		if(mmi.brainmob)
 			mmi.brainmob.suiciding = suicide_state
 
-/* NON-MODULE REMOVAL: No more suicide
+/* NON-MODULAR REMOVAL: No more suicide
 /mob/living/carbon/human/verb/suicide()
 	set hidden = TRUE
 	if(!canSuicide())
