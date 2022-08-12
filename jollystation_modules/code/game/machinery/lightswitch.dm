@@ -4,18 +4,7 @@
 	. = ..()
 	playsound(src, 'jollystation_modules/sound/machines/lights/lightswitch.ogg', 100, 1)
 
-/obj/machinery/light_switch/Initialize(mapload)
+/obj/machinery/light_switch/LateInitialize()
 	. = ..()
-	if(prob(50) && area.lightswitch) //50% chance for area to start with lights off.
-		turn_off()
-
-/obj/machinery/light_switch/proc/turn_off()
-	if(!area.lightswitch)
-		return
-	area.lightswitch = FALSE
-	area.update_icon()
-
-	for(var/obj/machinery/light_switch/L in area)
-		L.update_icon()
-
-	area.power_change()
+	if(prob(50)) //50% chance for an area to have their lights flipped.
+		set_lights(!area.lightswitch)
