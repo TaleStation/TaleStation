@@ -1,4 +1,4 @@
-import { resolveAsset } from 'tgui/assets';
+import { resolveAsset } from '../../tgui/assets';
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../../tgui/backend';
 import { Box, Button, Divider, Dropdown, Section, Stack, Tabs } from '../../tgui/components';
