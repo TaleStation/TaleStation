@@ -80,7 +80,7 @@
 	// Viewer is Target's Vassal?
 	if(viewer.mind.has_antag_datum(/datum/antagonist/vassal) in bloodsuckerdatum.vassals)
 		var/returnString = "\[<span class='warning'><EM>This is your Master!</EM></span>\]"
-		var/returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "bloodsucker")]"
+		var/returnIcon = "[icon2html('jollystation_modules/icons/bloodsuckers/vampiric.dmi', world, "bloodsucker")]"
 		returnString += "\n"
 		return returnIcon + returnString
 	// Viewer not a Vamp AND not the target's vassal?
@@ -89,7 +89,7 @@
 			return FALSE
 	// Default String
 	var/returnString = "\[<span class='warning'><EM>[bloodsuckerdatum.ReturnFullName()]</EM></span>\]"
-	var/returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "bloodsucker")]"
+	var/returnIcon = "[icon2html('jollystation_modules/icons/bloodsuckers/vampiric.dmi', world, "bloodsucker")]"
 
 	// In Disguise (Veil)?
 	//if (name_override != null)
@@ -114,19 +114,19 @@
 	// Am I Viewer's Vassal?
 	if(vassaldatum?.master.owner == viewer.mind)
 		returnString += "This [dna.species.name] bears YOUR mark!"
-		returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "vassal")]"
+		returnIcon = "[icon2html('jollystation_modules/icons/bloodsuckers/vampiric.dmi', world, "vassal")]"
 	// Am I someone ELSE'S Vassal?
 	else if(IS_BLOODSUCKER(viewer))
 		returnString += "This [dna.species.name] bears the mark of <span class='boldwarning'>[vassaldatum.master.ReturnFullName()][vassaldatum.master.broke_masquerade ? " who has broken the Masquerade" : ""]</span>"
-		returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "vassal_grey")]"
+		returnIcon = "[icon2html('jollystation_modules/icons/bloodsuckers/vampiric.dmi', world, "vassal_grey")]"
 	// Are you serving the same master as I am?
 	else if(viewer.mind.has_antag_datum(/datum/antagonist/vassal) in vassaldatum?.master.vassals)
 		returnString += "[p_they(TRUE)] bears the mark of your Master"
-		returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "vassal")]"
+		returnIcon = "[icon2html('jollystation_modules/icons/bloodsuckers/vampiric.dmi', world, "vassal")]"
 	// You serve a different Master than I do.
 	else
 		returnString += "[p_they(TRUE)] bears the mark of another Bloodsucker"
-		returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "vassal_grey")]"
+		returnIcon = "[icon2html('jollystation_modules/icons/bloodsuckers/vampiric.dmi', world, "vassal_grey")]"
 
 	returnString += "</span>\]" // \n"  Don't need spacers. Using . += "" in examine.dm does this on its own.
 	return returnIcon + returnString

@@ -90,7 +90,7 @@
 /atom/movable/screen/alert/status_effect/masquerade
 	name = "Masquerade"
 	desc = "You are currently hiding your identity using the Masquerade power. This halts Vampiric healing."
-	icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/actions_bloodsucker.dmi'
+	icon = 'jollystation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
 	icon_state = "power_human"
 	alerttooltipstyle = "cult"
 

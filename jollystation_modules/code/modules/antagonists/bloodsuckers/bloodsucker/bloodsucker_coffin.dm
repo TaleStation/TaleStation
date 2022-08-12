@@ -37,9 +37,9 @@
 	name = "black coffin"
 	desc = "For those departed who are not so dear."
 	icon_state = "coffin"
-	icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vamp_obj.dmi'
-	open_sound = 'jollystation_modules/code/modules/antagonists/bloodsuckers/sounds/coffin_open.ogg'
-	close_sound = 'jollystation_modules/code/modules/antagonists/bloodsuckers/sounds/coffin_close.ogg'
+	icon = 'jollystation_modules/icons/bloodsuckers/vamp_obj.dmi'
+	open_sound = 'jollystation_modules/sound/bloodsuckers/coffin_open.ogg'
+	close_sound = 'jollystation_modules/sound/bloodsuckers/coffin_close.ogg'
 	breakout_time = 30 SECONDS
 	pryLidTimer = 20 SECONDS
 	resistance_flags = NONE
@@ -51,9 +51,9 @@
 	name = "secure coffin"
 	desc = "For those too scared of having their place of rest disturbed."
 	icon_state = "securecoffin"
-	icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vamp_obj.dmi'
-	open_sound = 'jollystation_modules/code/modules/antagonists/bloodsuckers/sounds/coffin_open.ogg'
-	close_sound = 'jollystation_modules/code/modules/antagonists/bloodsuckers/sounds/coffin_close.ogg'
+	icon = 'jollystation_modules/icons/bloodsuckers/vamp_obj.dmi'
+	open_sound = 'jollystation_modules/sound/bloodsuckers/coffin_open.ogg'
+	close_sound = 'jollystation_modules/sound/bloodsuckers/coffin_close.ogg'
 	breakout_time = 35 SECONDS
 	pryLidTimer = 35 SECONDS
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF
@@ -65,7 +65,7 @@
 	name = "meat coffin"
 	desc = "When you're ready to meat your maker, the steaks can never be too high."
 	icon_state = "meatcoffin"
-	icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vamp_obj.dmi'
+	icon = 'jollystation_modules/icons/bloodsuckers/vamp_obj.dmi'
 	resistance_flags = FIRE_PROOF
 	open_sound = 'sound/effects/footstep/slime1.ogg'
 	close_sound = 'sound/effects/footstep/slime1.ogg'
@@ -79,7 +79,7 @@
 	name = "metal coffin"
 	desc = "A big metal sardine can inside of another big metal sardine can, in space."
 	icon_state = "metalcoffin"
-	icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vamp_obj.dmi'
+	icon = 'jollystation_modules/icons/bloodsuckers/vamp_obj.dmi'
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	open_sound = 'sound/effects/pressureplate.ogg'
 	close_sound = 'sound/effects/pressureplate.ogg'

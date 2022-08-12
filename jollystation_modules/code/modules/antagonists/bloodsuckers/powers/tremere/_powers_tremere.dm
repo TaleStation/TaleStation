@@ -12,8 +12,8 @@
 	background_icon_state = "tremere_power_off"
 	background_icon_state_on = "tremere_power_on"
 	background_icon_state_off = "tremere_power_off"
-	button_icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/actions_tremere_bloodsucker.dmi'
-	icon_icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/actions_tremere_bloodsucker.dmi'
+	button_icon = 'jollystation_modules/icons/bloodsuckers/actions_tremere_bloodsucker.dmi'
+	icon_icon = 'jollystation_modules/icons/bloodsuckers/actions_tremere_bloodsucker.dmi'
 
 	// Tremere powers don't level up, we have them hardcoded.
 	level_current = 0
