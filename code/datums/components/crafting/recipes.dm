@@ -58,9 +58,15 @@
 	reqs = list(/datum/reagent/fuel = 50,
 				/obj/item/stack/cable_coil = 1,
 				/obj/item/assembly/igniter = 1,
+<<<<<<< HEAD
 				/obj/item/reagent_containers/food/drinks/soda_cans = 1)
 	parts = list(/obj/item/reagent_containers/food/drinks/soda_cans = 1)
 	time = 15
+=======
+				/obj/item/reagent_containers/cup/soda_cans = 1)
+	parts = list(/obj/item/reagent_containers/cup/soda_cans = 1)
+	time = 1.5 SECONDS
+>>>>>>> 4a274a6e4b19 ([MDB IGNORE] Refactors drinks and fixes a lot of food problems (#69081))
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
@@ -92,11 +98,19 @@
 
 /datum/crafting_recipe/molotov
 	name = "Molotov"
+<<<<<<< HEAD
 	result = /obj/item/reagent_containers/food/drinks/bottle/molotov
 	reqs = list(/obj/item/reagent_containers/glass/rag = 1,
 				/obj/item/reagent_containers/food/drinks/bottle = 1)
 	parts = list(/obj/item/reagent_containers/food/drinks/bottle = 1)
 	time = 40
+=======
+	result = /obj/item/reagent_containers/cup/glass/bottle/molotov
+	reqs = list(/obj/item/reagent_containers/cup/rag = 1,
+				/obj/item/reagent_containers/cup/glass/bottle = 1)
+	parts = list(/obj/item/reagent_containers/cup/glass/bottle = 1)
+	time = 4 SECONDS
+>>>>>>> 4a274a6e4b19 ([MDB IGNORE] Refactors drinks and fixes a lot of food problems (#69081))
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
@@ -354,7 +368,7 @@
 /datum/crafting_recipe/cleanbot
 	name = "Cleanbot"
 	result = /mob/living/simple_animal/bot/cleanbot
-	reqs = list(/obj/item/reagent_containers/glass/bucket = 1,
+	reqs = list(/obj/item/reagent_containers/cup/bucket = 1,
 				/obj/item/assembly/prox_sensor = 1,
 				/obj/item/bodypart/r_arm/robot = 1)
 	time = 40
@@ -793,7 +807,7 @@
 
 /datum/crafting_recipe/sillycup
 	name = "Paper Cup"
-	result =  /obj/item/reagent_containers/food/drinks/sillycup
+	result =  /obj/item/reagent_containers/cup/glass/sillycup
 	time = 1 SECONDS
 	reqs = list(/obj/item/paper = 2)
 	category = CAT_MISC
@@ -997,7 +1011,7 @@
 	name = "Wooden Bucket"
 	time = 30
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3)
-	result = /obj/item/reagent_containers/glass/bucket/wooden
+	result = /obj/item/reagent_containers/cup/bucket/wooden
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/ore_sensor
@@ -1326,7 +1340,7 @@
 	name = "Alcohol burner"
 	result = /obj/item/burner
 	time = 5 SECONDS
-	reqs = list(/obj/item/reagent_containers/glass/beaker = 1,
+	reqs = list(/obj/item/reagent_containers/cup/beaker = 1,
 				/datum/reagent/consumable/ethanol = 15,
 				/obj/item/paper = 1
 				)
@@ -1336,7 +1350,7 @@
 	name = "Oil burner"
 	result = /obj/item/burner/oil
 	time = 5 SECONDS
-	reqs = list(/obj/item/reagent_containers/glass/beaker = 1,
+	reqs = list(/obj/item/reagent_containers/cup/beaker = 1,
 				/datum/reagent/fuel/oil = 15,
 				/obj/item/paper = 1
 				)
@@ -1346,7 +1360,7 @@
 	name = "Fuel burner"
 	result = /obj/item/burner/fuel
 	time = 5 SECONDS
-	reqs = list(/obj/item/reagent_containers/glass/beaker = 1,
+	reqs = list(/obj/item/reagent_containers/cup/beaker = 1,
 				/datum/reagent/fuel = 15,
 				/obj/item/paper = 1
 				)
