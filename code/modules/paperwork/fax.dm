@@ -1,3 +1,4 @@
+/* NON-MODULAR REMOVAL: Removes TGs faxes, repaths them to ours
 /obj/machinery/fax
 	name = "Fax Machine"
 	desc = "Bluespace technologies on the application of bureaucracy."
@@ -191,3 +192,4 @@
 		if (FAX.fax_name == new_fax_name)
 			return TRUE
 	return FALSE
+*/// NON-MODULAR CHANGES END
