@@ -31,6 +31,7 @@
 	current_mob.apply_status_effect(/datum/status_effect/agent_pinpointer/vassal_edition)
 	add_team_hud(current_mob)
 
+/datum/antagonist/vassal/add_team_hud(mob/target)
 	QDEL_NULL(team_hud_ref)
 
 	team_hud_ref = WEAKREF(target.add_alt_appearance(
