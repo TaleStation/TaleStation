@@ -22,6 +22,12 @@ GLOBAL_LIST_EMPTY(fax_machines)
 #define VV_SEND_FAX "send_fax"
 #define VV_SEND_MARKED_FAX "send_marked_fax"
 
+// Deletes TGs fax machines
+/obj/machinery/fax/Initialize(mapload)
+	. = ..()
+	new /obj/machinery/fax_machine/recieving_disabled(get_turf(src))
+	return INITIALIZE_HINT_QDEL
+
 /// Fax machine design, for techwebs.
 /datum/design/board/fax_machine
 	name = "Machine Design (Fax Machine Board)"
