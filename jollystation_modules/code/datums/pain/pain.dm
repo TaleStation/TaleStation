@@ -3,8 +3,8 @@
 /*
  * The pain controller datum.
  *
- * Attatched to a /carbon/human, this datum tracks all the pain values on all their bodyparts and handles updating them.
- * This datum processes on alive humans every 2 seconds.
+ * Attatched to a /mob/living/carbon, this datum tracks all the pain values on all their bodyparts and handles updating them.
+ * This datum processes on alive carbons every 2 seconds.
  */
 /datum/pain
 	/// The parent mob we're tracking.
@@ -12,9 +12,9 @@
 	/// Modifier applied to all [adjust_pain] amounts
 	var/pain_modifier = 1
 	/// Lazy Assoc list [id] to [modifier], all our pain modifiers affecting our final mod
-	var/list/pain_mods
+	var/list/pain_mods = list()
 	/// Lazy Assoc list [zones] to [references to bodyparts], all the body parts we're tracking
-	var/list/body_zones
+	var/list/body_zones = list()
 	/// Natural amount of decay given to each limb per 5 ticks of process, increases over time
 	var/natural_pain_decay = -0.2
 	/// The base amount of pain decay received.
@@ -28,22 +28,20 @@
 	/// Debugging = TRUE will spit debugging messages out for testing purposes.
 	var/debugging = FALSE
 
-/datum/pain/New(mob/living/carbon/human/new_parent)
-	if(!iscarbon(new_parent) || istype(new_parent, /mob/living/carbon/human/dummy))
-		qdel(src) // If we're not a carbon, or a dummy, delete us
+/datum/pain/New(mob/living/carbon/new_parent)
+	if(!iscarbon(new_parent))
 		return
 
 	parent = new_parent
 	for(var/obj/item/bodypart/parent_bodypart as anything in parent.bodyparts)
 		add_bodypart(parent, parent_bodypart, TRUE)
 
-	if(!LAZYLEN(body_zones))
+	if(!body_zones.len)
 		stack_trace("Pain datum failed to find any body_zones to track!")
 		qdel(src) // If we have no bodyparts, delete us
 		return
 
 	RegisterParentSignals()
-	base_pain_decay = natural_pain_decay
 	if(new_parent.stat == CONSCIOUS)
 		start_pain_processing()
 
@@ -433,6 +431,9 @@
  */
 /datum/pain/process(delta_time)
 
+	if(IS_IN_STASIS(parent))
+		return
+
 	check_pain_modifiers(delta_time)
 
 	for(var/part in shuffle(body_zones))
@@ -773,8 +774,8 @@
 /datum/pain/proc/on_analyzed(datum/source, list/render_list, advanced)
 	SIGNAL_HANDLER
 
-	var/amount = ""
-	var/tip = ""
+	var/amount
+	var/tip
 	if(is_undergoing_shock())
 		tip += "Neurogenic shock has begun and should be treated urgently. "
 
