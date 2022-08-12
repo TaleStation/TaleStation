@@ -47,12 +47,12 @@
 		return 0
 	return ..()
 
-// Used when analyzing a Bloodsucker, Masquerade will hide brain traumas (Unless you're a Beefman)
+// Used when analyzing a Bloodsucker, Masquerade will hide brain traumas.
 /mob/living/carbon/get_traumas()
 	if(!mind)
 		return ..()
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = IS_BLOODSUCKER(src)
-	if(bloodsuckerdatum && HAS_TRAIT(src, TRAIT_MASQUERADE) && !isbeefman(src))
+	if(bloodsuckerdatum && HAS_TRAIT(src, TRAIT_MASQUERADE))
 		return
 	return ..()
 
@@ -108,15 +108,15 @@
 	// Default String
 	var/returnString = "\[<span class='warning'>"
 	var/returnIcon = ""
-	// Vassals and Bloodsuckers recognize eachother, while Monster Hunters can see Vassals.
-	if(!IS_BLOODSUCKER(viewer) && !IS_VASSAL(viewer) && !IS_MONSTERHUNTER(viewer))
+	// Vassals and Bloodsuckers recognize eachother.
+	if(!IS_BLOODSUCKER(viewer) && !IS_VASSAL(viewer))
 		return FALSE
 	// Am I Viewer's Vassal?
 	if(vassaldatum?.master.owner == viewer.mind)
 		returnString += "This [dna.species.name] bears YOUR mark!"
 		returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "vassal")]"
 	// Am I someone ELSE'S Vassal?
-	else if(IS_BLOODSUCKER(viewer) || IS_MONSTERHUNTER(viewer))
+	else if(IS_BLOODSUCKER(viewer))
 		returnString += "This [dna.species.name] bears the mark of <span class='boldwarning'>[vassaldatum.master.ReturnFullName()][vassaldatum.master.broke_masquerade ? " who has broken the Masquerade" : ""]</span>"
 		returnIcon = "[icon2html('jollystation_modules/code/modules/antagonists/bloodsuckers/icons/vampiric.dmi', world, "vassal_grey")]"
 	// Are you serving the same master as I am?

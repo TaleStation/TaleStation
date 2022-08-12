@@ -135,6 +135,35 @@
 /**
  * Bloodsucker defines
  */
+
+///Whether a mob is a Bloodsucker
+#define IS_BLOODSUCKER(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/bloodsucker))
+///Whether a mob is a Vassal
+#define IS_VASSAL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal))
+///Whether a mob is a Favorite Vassal
+#define IS_FAVORITE_VASSAL(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/vassal/favorite))
+
+/**
+ * Traits
+ */
+/// Your heart doesn't beat
+#define TRAIT_NOPULSE "nopulse"
+/// Falsifies Health analyzer blood levels
+#define TRAIT_MASQUERADE "masquerade"
+/// Your body is literal room temperature. Does not make you immune to the temp
+#define TRAIT_COLDBLOODED "coldblooded"
+
+/**
+ * Sources5
+ */
+/// Source trait for Bloodsuckers-related traits
+#define BLOODSUCKER_TRAIT "bloodsucker_trait"
+/// Source trait while Feeding
+#define FEED_TRAIT "feed_trait"
+/// Source trait during a Frenzy
+#define FRENZY_TRAIT "frenzy_trait"
+
+
 /// Determines Bloodsucker regeneration rate
 #define BS_BLOOD_VOLUME_MAX_REGEN 700
 /// Cost to torture someone, in blood
@@ -205,8 +234,6 @@
 #define TREMERE_CAN_BUY (1<<2)
 /// This Power can be purchased by Vassals
 #define VASSAL_CAN_BUY (1<<3)
-/// This Power can be purchased by Monster Hunters
-#define HUNTER_CAN_BUY (1<<3)
 
 /// This Power is a Toggled Power
 #define BP_AM_TOGGLE (1<<0)

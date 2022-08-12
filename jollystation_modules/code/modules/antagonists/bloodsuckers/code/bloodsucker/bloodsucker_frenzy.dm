@@ -6,7 +6,7 @@
  */
 /datum/martial_art/frenzygrab
 	name = "Frenzy Grab"
-	id = MARTIALART_FRENZYGRAB
+	id = "frenzygrab"
 
 /datum/martial_art/frenzygrab/grab_act(mob/living/user, mob/living/target)
 	if(user != target)

@@ -11,7 +11,6 @@
 	antag_hud_name = "vassal"
 	show_in_roundend = FALSE
 	hud_icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/bloodsucker_icons.dmi'
-	tips = VASSAL_TIPS
 
 	/// The Master Bloodsucker's antag datum.
 	var/datum/antagonist/bloodsucker/master

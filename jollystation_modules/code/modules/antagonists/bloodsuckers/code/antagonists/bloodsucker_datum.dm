@@ -10,7 +10,6 @@
 	hijack_speed = 0.5
 	hud_icon = 'jollystation_modules/code/modules/antagonists/bloodsuckers/icons/bloodsucker_icons.dmi'
 	ui_name = "AntagInfoBloodsucker"
-	tips = BLOODSUCKER_TIPS
 	preview_outfit = /datum/outfit/bloodsucker_outfit
 
 	/// How much blood we have, starting off at default blood levels.
@@ -84,13 +83,11 @@
 	/// Antagonists that cannot be Vassalized no matter what
 	var/list/vassal_banned_antags = list(
 		/datum/antagonist/bloodsucker,
-		/datum/antagonist/monsterhunter,
 		/datum/antagonist/changeling,
 		/datum/antagonist/cult,
 		/datum/antagonist/heretic,
 		/datum/antagonist/xeno,
 		/datum/antagonist/obsessed,
-		/datum/antagonist/ert/safety_moth,
 	)
 	///Default Bloodsucker traits
 	var/static/list/bloodsucker_traits = list(
