@@ -322,12 +322,13 @@
 /// Signal from whenever an atom enters a turf with a towel on top.
 /obj/structure/beach_towel/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	SIGNAL_HANDLER
+	if(!isliving(arrived))
+		return
 	var/mob/living/living_arriver = arrived
 
 	if(our_towel.warm_towel)
-		if(!isliving(arrived))
+		if(islizard(living_arriver))
 			living_arriver.add_mood_event("on_towel", /datum/mood_event/on_warm_towel_lizard)
-			return
 		else
 			living_arriver.add_mood_event("on_towel", /datum/mood_event/on_warm_towel)
 	else
