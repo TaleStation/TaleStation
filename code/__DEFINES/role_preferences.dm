@@ -151,11 +151,11 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_PAI = 0,
 	ROLE_SENTIENCE = 0,
 
-	// jollystation edit
+//  NON-MODULAR CHANGES: Blood suckers
 	ROLE_BLOODSUCKER = 0,
 	ROLE_VAMPIRICACCIDENT = 0,
 	ROLE_BLOODSUCKERBREAKOUT = 0,
-	// jollystation edit ends
+	//  NON-MODULAR CHANGES END
 ))
 
 //Job defines for what happens when you fail to qualify for any job during job selection
