@@ -1,28 +1,15 @@
 // -- Xenobiologist job & outfit datum --
-/datum/job/xenobiologist
-	title = "Xenobiologist"
+/datum/job/scientist/xenobiologist
+	title = JOB_XENOBIOLOGIST
 	description = "Feed slimes all shift, never exit xenobiology for any reason. \
 		Leave after two hours as an unkillable god with an army of monsters."
-	department_head = list(JOB_RESEARCH_DIRECTOR)
-	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 3
-	supervisors = SUPERVISOR_RD
-	selection_color = "#ffeeff"
-	exp_requirements = 300
-	exp_required_type = EXP_TYPE_SCIENCE
-	exp_granted_type = EXP_TYPE_SCIENCE
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	plasmaman_outfit = /datum/outfit/plasmaman/science
 
-	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_SCI
-
 	display_order = JOB_DISPLAY_ORDER_XENOBIOLOGIST
-	bounty_types = CIV_JOB_SCI
-
-	family_heirlooms = list(/obj/item/toy/plush/slimeplushie)
 
 	mail_goodies = list(
 		/obj/item/toy/plush/slimeplushie = 25,
@@ -39,19 +26,14 @@
 		/obj/item/slime_extract/oil = 1
 	)
 
-	departments_list = list(
-		/datum/job_department/science,
-		)
-
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
-	rpg_title = "Beast Tamer"
+	rpg_title = "Slime Rancher"
 
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	suit = /obj/item/clothing/suit/toggle/labcoat/xenobio
 	uniform = /obj/item/clothing/under/rank/rnd/xenobiologist
 	belt = /obj/item/modular_computer/tablet/pda/science/xenobiologist
-	jobtype = /datum/job/xenobiologist
+	jobtype = /datum/job/scientist/xenobiologist
 	id_trim = /datum/id_trim/job/xenobiologist
 
 /datum/outfit/job/scientist/xenobiologist/pre_equip(mob/living/carbon/human/H)
