@@ -98,7 +98,7 @@
 
 // DRINKS //
 
-/obj/item/reagent_containers/food/drinks/bottle/lizardwine/Initialize()
+/obj/item/reagent_containers/cup/glass/bottle/lizardwine/Initialize()
 	. = ..()
 	var/vintage = rand(GLOB.year_integer + 450, GLOB.year_integer + 555) // Wine has an actual vintage var but lizardwine is special
 	AddElement(/datum/element/unique_examine, \
@@ -111,7 +111,7 @@
 		You can't help but feel disappointed and saddened looking at this, knowing a fellow kin was robbed of such a thing.", \
 		EXAMINE_CHECK_SPECIES, /datum/species/lizard)
 
-/obj/item/reagent_containers/food/drinks/bottle/wine/Initialize(mapload)
+/obj/item/reagent_containers/cup/glass/bottle/wine/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
 		"A bottle of fine [name]. Classic, refreshing, usually comes with a sharp taste. \

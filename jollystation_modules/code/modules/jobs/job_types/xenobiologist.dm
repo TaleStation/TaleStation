@@ -26,7 +26,7 @@
 
 	mail_goodies = list(
 		/obj/item/toy/plush/slimeplushie = 25,
-		/obj/item/reagent_containers/glass/beaker/bluespace = 20,
+		/obj/item/reagent_containers/cup/beaker/bluespace = 20,
 		/obj/item/slimepotion/slime/sentience = 15,
 		/obj/item/slimepotion/slime/docility = 15,
 		/obj/item/slimepotion/slime/steroid = 10,

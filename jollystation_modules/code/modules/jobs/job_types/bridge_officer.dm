@@ -37,15 +37,15 @@
 	mail_goodies = list(
 		/obj/item/food/donut/choco = 10,
 		/obj/item/food/donut/apple = 10,
-		/obj/item/reagent_containers/food/drinks/coffee = 10,
+		/obj/item/reagent_containers/cup/glass/coffee = 10,
 		/obj/item/food/donut/blumpkin = 5,
 		/obj/item/food/donut/caramel = 5,
 		/obj/item/food/donut/berry = 5,
 		/obj/item/food/donut/matcha = 5,
 		/obj/item/storage/fancy/cigarettes/cigars/havana = 5,
 		/obj/item/clothing/mask/whistle = 5,
-		/obj/item/reagent_containers/food/drinks/mug/tea = 5,
-		/obj/item/reagent_containers/food/drinks/mug/coco = 1,
+		/obj/item/reagent_containers/cup/glass/mug/tea = 5,
+		/obj/item/reagent_containers/cup/glass/mug/coco = 1,
 		/obj/item/storage/box/office_supplies = 1,
 	)
 
