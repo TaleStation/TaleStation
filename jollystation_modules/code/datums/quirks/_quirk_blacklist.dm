@@ -15,6 +15,6 @@
 	)
 
 //Extends the initialization proc, adding the module blacklists we have after the main init finishes.
-/datum/controller/subsystem/processing/quirks/Initialize()
-	. = ..()
+/datum/controller/subsystem/processing/quirks/Initialize(start_timeofday)
 	quirk_blacklist.Add(module_blacklist)
+	return ..()

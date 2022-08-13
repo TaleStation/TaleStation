@@ -487,7 +487,7 @@ There are several things that need to be remembered:
 		//More currently unused digitigrade handling
 		if(dna.species.bodytype & BODYTYPE_DIGITIGRADE)
 			if(worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)
-				icon_file = wear_suit.worn_icon_digitigrade || 'jollystation_modules/icons/mob/clothing/suit/digi_suit.dmi' //NON-MODULE EDIT - Enables digi suits
+				icon_file = wear_suit.worn_icon_digitigrade || 'jollystation_modules/icons/mob/clothing/suit/digi_suit.dmi' //NON-MODULAR CHANGES - Enables digi suits
 
 		if(!(icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item))))
 			icon_file = DEFAULT_SUIT_FILE

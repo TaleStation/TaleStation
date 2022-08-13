@@ -23,15 +23,17 @@
  * returns the total number of conditions we fulfill.
  */
 /datum/disease/shock/proc/check_cure_conditions()
-	. = 0
+	var/cure_chance = 0
 	var/our_average_pain = affected_mob.pain_controller.get_average_pain()
-	. += affected_mob.bodytemperature > affected_mob.get_body_temp_cold_damage_limit()
-	. += affected_mob.IsSleeping() ? 1 : 0
-	. += our_average_pain < 40
-	. += our_average_pain < 50
-	. += our_average_pain < 60
-	. -= affected_mob.body_position == STANDING_UP
-	. -= affected_mob.is_bleeding()
+	cure_chance += affected_mob.bodytemperature > affected_mob.get_body_temp_cold_damage_limit()
+	cure_chance += affected_mob.IsSleeping() ? 1 : 0
+	cure_chance += our_average_pain < 40
+	cure_chance += our_average_pain < 50
+	cure_chance += our_average_pain < 60
+	cure_chance -= affected_mob.body_position == STANDING_UP
+	cure_chance -= affected_mob.is_bleeding()
+
+	return cure_chance
 
 /datum/disease/shock/has_cure()
 	return check_cure_conditions() >= 3 && !affected_mob.undergoing_cardiac_arrest()

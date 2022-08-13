@@ -31,13 +31,14 @@
 	/// What false alarm this item triggers.
 	var/fake_event = null
 
-/obj/item/item_announcer/preset/Initialize()
+/obj/item/item_announcer/preset/Initialize(mapload)
 	. = ..()
-	if(fake_event)
-		for(var/datum/round_event_control/init_event in SSevents.control)
-			if(ispath(fake_event, init_event.type))
-				fake_event = init_event
-				break
+	if(isnull(fake_event))
+		return
+	for(var/datum/round_event_control/init_event in SSevents.control)
+		if(ispath(fake_event, init_event.type))
+			fake_event = init_event
+			break
 
 /obj/item/item_announcer/preset/examine(mob/user)
 	. = ..()
