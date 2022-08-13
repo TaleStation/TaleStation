@@ -62,7 +62,7 @@
 	minimal_access = list(ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_ORDNANCE, ACCESS_ORDNANCE_STORAGE,
 					ACCESS_RESEARCH, ACCESS_SCIENCE)
 	template_access = list(ACCESS_CAPTAIN, ACCESS_RD, ACCESS_CHANGE_IDS)
-	job = /datum/job/ordnance_tech
+	job = /datum/job/scientist/ordnance_tech
 
 // Xenobiologist
 /datum/id_trim/job/xenobiologist
@@ -75,4 +75,4 @@
 	minimal_access = list(ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_SCIENCE, ACCESS_XENOBIOLOGY,
 					ACCESS_XENOBOTANY)
 	template_access = list(ACCESS_CAPTAIN, ACCESS_RD, ACCESS_CHANGE_IDS)
-	job = /datum/job/xenobiologist
+	job = /datum/job/scientist/xenobiologist

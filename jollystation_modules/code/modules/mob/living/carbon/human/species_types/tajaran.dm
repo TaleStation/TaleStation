@@ -44,6 +44,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	examine_limb_id = SPECIES_MAMMAL
 	coldmod = 0.67
 	heatmod = 1.5
+	species_pain_mod = 1
 
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/tajaran,
