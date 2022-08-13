@@ -66,7 +66,7 @@
 	/// The name of the dogtag owner
 	var/display_name
 
-/obj/item/clothing/accessory/cosmetic_dogtag/Initialize()
+/obj/item/clothing/accessory/cosmetic_dogtag/Initialize(mapload)
 	. = ..()
 	var/mob/living/dogtag_owner
 	if(ismob(loc))
