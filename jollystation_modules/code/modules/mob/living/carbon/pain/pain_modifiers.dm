@@ -42,10 +42,10 @@
 /mob/living/carbon/human/set_health(new_value)
 	. = ..()
 	if(HAS_TRAIT_FROM(src, TRAIT_SIXTHSENSE, "near-death"))
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "near-death", /datum/mood_event/deaths_door)
+		src.add_mood_event("near-death", /datum/mood_event/deaths_door)
 		set_pain_mod(PAIN_MOD_NEAR_DEATH, 0.1)
 	else
-		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "near-death")
+		src.clear_mood_event("near-death")
 		unset_pain_mod(PAIN_MOD_NEAR_DEATH)
 
 // Stasis - This is a bit of a cop-out.
