@@ -86,6 +86,10 @@
 	ui_user = user
 	ui_user.AddComponent(/datum/component/pixel_shift)
 
+/datum/pixel_shift_ui/Destroy(force, ...)
+	ui_user = null
+	return ..()
+
 /datum/pixel_shift_ui/ui_close(mob/user)
 	SEND_SIGNAL(ui_user, COMSIG_PIXELSHIFT_STOP)
 	qdel(src)
@@ -147,11 +151,12 @@
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	living_parent = parent
-	living_parent.client.movement_locked = TRUE
-	living_parent.pixel_shifted = TRUE
-	x_shift = living_parent.pixel_x
-	y_shift = living_parent.pixel_y
+	src.living_parent = parent
+	if(living_parent)
+		living_parent.client.movement_locked = TRUE
+		living_parent.pixel_shifted = TRUE
+	src.x_shift = living_parent.pixel_x
+	src.y_shift = living_parent.pixel_y
 
 	// Moving at all or the RESET signal will reset the offsets to the base_pixel.
 	RegisterSignal(parent, list(COMSIG_MOVABLE_PRE_MOVE, COMSIG_PIXELSHIFT_RESET), .proc/reset_offsets)
