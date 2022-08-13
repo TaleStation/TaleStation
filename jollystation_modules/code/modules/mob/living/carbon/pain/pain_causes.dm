@@ -5,9 +5,9 @@
 	if(target.stat == CONSCIOUS)
 		var/obj/item/organ/internal/lungs/our_lungs = target.getorganslot(ORGAN_SLOT_LUNGS)
 		if(target.IsSleeping() && our_lungs?.on_anesthetic)
-			SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "surgery", /datum/mood_event/anesthetic)
+			target.add_mood_event("surgery", /datum/mood_event/anesthetic)
 		else
-			SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "surgery", /datum/mood_event/surgery)
+			target.add_mood_event("surgery", /datum/mood_event/surgery)
 			target.flash_pain_overlay(2)
 
 /datum/surgery_step/incise/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
@@ -16,9 +16,9 @@
 	if(target.stat == CONSCIOUS)
 		var/obj/item/organ/internal/lungs/our_lungs = target.getorganslot(ORGAN_SLOT_LUNGS)
 		if(target.IsSleeping() && our_lungs?.on_anesthetic)
-			SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "surgery", /datum/mood_event/anesthetic)
+			target.add_mood_event("surgery", /datum/mood_event/anesthetic)
 		else
-			SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "surgery", /datum/mood_event/surgery/major)
+			target.add_mood_event("surgery", /datum/mood_event/surgery/major)
 			target.flash_pain_overlay(1)
 
 /datum/surgery_step/replace_limb/success(mob/living/user, mob/living/carbon/target, target_zone, obj/item/bodypart/tool, datum/surgery/surgery, default_display_results = FALSE)
