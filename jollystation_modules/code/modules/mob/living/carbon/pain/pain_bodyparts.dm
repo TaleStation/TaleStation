@@ -26,7 +26,7 @@
 	. = ..()
 	if(!.)
 		return
-	if(!owner?.pain_controller)
+	if(!owner || !owner.pain_controller)
 		return
 
 	var/dominant_type = (brute > burn ? BRUTE : BURN)
@@ -45,7 +45,7 @@
  * Returns our effective pain.
  */
 /obj/item/bodypart/proc/get_modified_pain()
-	if(owner?.pain_controller)
+	if(owner && owner.pain_controller)
 		return pain * bodypart_pain_modifier * owner.pain_controller.pain_modifier
 	else
 		return pain * bodypart_pain_modifier
