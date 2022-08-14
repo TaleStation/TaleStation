@@ -28,7 +28,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	desc = "The circuit board for a Fax Machine."
 	id = "fax_machine"
 	build_path = /obj/item/circuitboard/machine/fax_machine
-	category = list("Misc. Machinery")
+	category = list(RND_CATEGORY_MISC)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CARGO
 
 /// Fax machine circuit.
