@@ -76,7 +76,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	dna_block = DNA_HEAD_TENTACLES_BLOCK
 	feature_key = "head_tentacles"
 	preference = "feature_head_tentacles"
-	organ_flags = ORGAN_EDIBLE | ORGAN_EXTERNAL
 	use_mob_sprite_as_obj_sprite = TRUE
 
 /obj/item/organ/external/head_tentacles/can_draw_on_bodypart(mob/living/carbon/human/human)
