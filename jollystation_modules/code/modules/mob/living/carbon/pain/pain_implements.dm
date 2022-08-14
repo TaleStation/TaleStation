@@ -9,7 +9,7 @@
 #define DOAFTER_SOURCE_BLANKET "doafter_blanket"
 
 // Holding a beer to your busted arm, now that's classic
-/obj/item/reagent_containers/food/drinks/beer/Initialize(mapload)
+/obj/item/reagent_containers/cup/glass/beer/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/temperature_pack, pain_heal_rate = 0.3, pain_modifier_on_limb = 0.9, temperature_change = -2)
 
@@ -56,7 +56,7 @@
 	/// The change in temperature applied to the user while our pack is in use.
 	var/temperature_change = 0
 
-/obj/item/temperature_pack/Initialize()
+/obj/item/temperature_pack/Initialize(mapload)
 	. = ..()
 	update_appearance()
 
@@ -199,7 +199,7 @@
 	/// Number of pills to spawn
 	var/num_pills = 0
 
-/obj/item/storage/pill_bottle/prescription/Initialize()
+/obj/item/storage/pill_bottle/prescription/Initialize(mapload)
 	. = ..()
 	if(pill_type)
 		name = "[initial(pill_type.name)] bottle"
@@ -217,7 +217,7 @@
 	icon = 'jollystation_modules/icons/obj/chemical.dmi'
 	custom_premium_price = PAYCHECK_COMMAND * 1.5
 
-/obj/item/storage/pill_bottle/painkillers/Initialize()
+/obj/item/storage/pill_bottle/painkillers/Initialize(mapload)
 	. = ..()
 	create_storage(max_slots = 14, max_total_storage = 14)
 
@@ -443,12 +443,12 @@
 	equip_delay_self = 1.2 SECONDS
 	equip_delay_other = 1.2 SECONDS
 
-/obj/item/shock_blanket/emergency/Initialize()
+/obj/item/shock_blanket/emergency/Initialize(mapload)
 	. = ..()
 	name = "emergency [name]"
 
 // Change the contents of emergency first-aid kids.
-/obj/item/storage/firstaid/emergency/Initialize()
+/obj/item/storage/firstaid/emergency/Initialize(mapload)
 	. = ..()
 	create_storage(max_slots = 12, max_total_storage = 12, max_specific_storage = WEIGHT_CLASS_SMALL)
 
