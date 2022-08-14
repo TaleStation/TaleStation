@@ -38,7 +38,7 @@
 	else
 		icon_state = "extinguisher_empty_open"
 
-/obj/item/extinguisher/Initialize()
+/obj/item/extinguisher/Initialize(mapload)
 	. = ..()
 	random_overlay = rand(1, 6)
 	update_icon()

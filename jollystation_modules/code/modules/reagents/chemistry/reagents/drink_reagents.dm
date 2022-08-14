@@ -84,7 +84,7 @@
 	overdosed_human.update_hair()
 	..()
 
-/obj/item/reagent_containers/food/drinks/mug/green_tea //admin-only because there's no way to obtain a cup version of green tea
+/obj/item/reagent_containers/cup/glass/mug/green_tea //admin-only because there's no way to obtain a cup version of green tea
 	name = "Bonzai Zen tea"
 	desc = "A cup of traditional Space Japanese green tea. It is said that it soothes the soul, if drank properly."
 	icon_state = "green_tea_cup" //actually unused because of how mugs work... ...for now.

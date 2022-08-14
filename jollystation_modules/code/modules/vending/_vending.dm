@@ -7,7 +7,7 @@
 	/// Assoc list of premium items you want to add (typepath - amount)
 	var/list/added_premium
 
-/obj/machinery/vending/Initialize()
+/obj/machinery/vending/Initialize(mapload)
 	add_module_items(products, added_products)
 	add_module_items(contraband, added_contraband)
 	add_module_items(premium, added_premium)
