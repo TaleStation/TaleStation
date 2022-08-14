@@ -103,7 +103,7 @@
 /datum/reagent/medicine/painkiller/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
 	if(current_cycle >= 5)
-		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_medium, name)
+		M.add_mood_event("numb", /datum/mood_event/narcotic_medium, name)
 
 	var/highest_boozepwr = 0
 	for(var/datum/reagent/consumable/ethanol/alcohol in M.reagents.reagent_list)
@@ -348,7 +348,7 @@
 
 /datum/reagent/medicine/oxycodone/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	if(current_cycle >= 9)
-		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "numb", /datum/mood_event/narcotic_heavy, name)
+		M.add_mood_event("numb", /datum/mood_event/narcotic_heavy, name)
 	M.adjustBruteLoss(-0.3 * REM * delta_time, FALSE)
 	M.adjustFireLoss(-0.2 * REM * delta_time, FALSE)
 	M.cause_pain(BODY_ZONES_ALL, -0.6 * REM * delta_time)

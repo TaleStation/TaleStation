@@ -209,6 +209,5 @@
 
 // Supervisor
 #define SUPERVISOR_COMMAND "the Heads of Staff and the Captain"
-#define SUPERVISOR_HOP_HOS "the Head of Personnel and Security"
 
 //NON-MODULAR CHANGES END

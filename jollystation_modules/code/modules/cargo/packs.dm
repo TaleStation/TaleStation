@@ -9,7 +9,7 @@
 	cost = PAYCHECK_COMMAND * 15
 	contraband = TRUE
 	contains = list(
-		/obj/item/reagent_containers/glass/bottle/luciferium,
+		/obj/item/reagent_containers/cup/bottle/luciferium,
 		)
 
 /datum/supply_pack/medical/luciferium_bottles
@@ -20,9 +20,9 @@
 	contraband = TRUE
 	crate_name = "luciferium Shipment"
 	contains = list(
-		/obj/item/reagent_containers/glass/bottle/luciferium,
-		/obj/item/reagent_containers/glass/bottle/luciferium,
-		/obj/item/reagent_containers/glass/bottle/luciferium,
+		/obj/item/reagent_containers/cup/bottle/luciferium,
+		/obj/item/reagent_containers/cup/bottle/luciferium,
+		/obj/item/reagent_containers/cup/bottle/luciferium,
 		)
 
 /datum/supply_pack/goody/go_juice_bottle
@@ -32,7 +32,7 @@
 	cost = PAYCHECK_COMMAND * 10
 	contraband = TRUE
 	contains = list(
-		/obj/item/reagent_containers/glass/bottle/gojuice,
+		/obj/item/reagent_containers/cup/bottle/gojuice,
 		)
 
 /datum/supply_pack/medical/go_juice_bottles
@@ -43,9 +43,9 @@
 	access = ACCESS_ARMORY
 	crate_name = "go-juice Shipment"
 	contains = list(
-		/obj/item/reagent_containers/glass/bottle/gojuice,
-		/obj/item/reagent_containers/glass/bottle/gojuice,
-		/obj/item/reagent_containers/glass/bottle/gojuice,
+		/obj/item/reagent_containers/cup/bottle/gojuice,
+		/obj/item/reagent_containers/cup/bottle/gojuice,
+		/obj/item/reagent_containers/cup/bottle/gojuice,
 		)
 
 /datum/supply_pack/medical/psychoids
@@ -55,10 +55,10 @@
 	access = ACCESS_MEDICAL
 	crate_name = "psychoid shipment"
 	contains = list(
-		/obj/item/reagent_containers/glass/bottle/flake,
-		/obj/item/reagent_containers/glass/bottle/yayo,
-		/obj/item/reagent_containers/food/drinks/mug/psychite_tea,
-		/obj/item/reagent_containers/food/drinks/mug/psychite_tea,
+		/obj/item/reagent_containers/cup/bottle/flake,
+		/obj/item/reagent_containers/cup/bottle/yayo,
+		/obj/item/reagent_containers/cup/glass/mug/psychite_tea,
+		/obj/item/reagent_containers/cup/glass/mug/psychite_tea,
 		)
 
 /datum/supply_pack/medical/psychoids/fill(obj/structure/closet/crate/spawned_crate)
@@ -72,8 +72,8 @@
 	group = GROUP_DRUGS
 	cost = PAYCHECK_COMMAND * 8
 	contains = list(
-		/obj/item/reagent_containers/food/drinks/mug/psychite_tea,
-		/obj/item/reagent_containers/food/drinks/mug/psychite_tea,
+		/obj/item/reagent_containers/cup/glass/mug/psychite_tea,
+		/obj/item/reagent_containers/cup/glass/mug/psychite_tea,
 		)
 
 /datum/supply_pack/goody/oxycodone_syringe

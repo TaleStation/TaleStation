@@ -6,8 +6,23 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 /datum/species/skrell
 	name = "Skrell"
 	id = SPECIES_SKRELL
-	species_traits = list(MUTCOLORS, EYECOLOR, LIPS, HAS_FLESH, HAS_BONE)
-	inherent_traits = list(TRAIT_ADVANCEDTOOLUSER, TRAIT_CAN_STRIP, TRAIT_LIGHT_DRINKER)
+
+	species_traits = list(
+		MUTCOLORS,
+		EYECOLOR,
+		LIPS,
+		HAS_FLESH,
+		HAS_BONE,
+		)
+
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_LIGHT_DRINKER,
+		TRAIT_CAN_USE_FLIGHT_POTION,
+		TRAIT_LITERATE,
+		)
+
 	external_organs = list(/obj/item/organ/external/head_tentacles = "Long")
 	toxic_food = MEAT | RAW | DAIRY | TOXIC | SEAFOOD
 	disliked_food = GROSS
@@ -22,6 +37,7 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	species_speech_sounds_exclaim = list('jollystation_modules/sound/voice/huff_ask.ogg' = 120)
 	species_speech_sounds_ask = list('jollystation_modules/sound/voice/huff_exclaim.ogg' = 120)
 	species_pain_mod = 0.80
+
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm/skrell,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/skrell,
@@ -75,3 +91,12 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 
 /obj/item/organ/external/head_tentacles/get_global_feature_list()
 	return GLOB.head_tentacles_list
+
+// Description and lore
+/datum/species/skrell/get_species_description()
+	return "Work in Progress."
+
+/datum/species/skrell/get_species_lore()
+	return list(
+		"Work in Progress.",
+	)
