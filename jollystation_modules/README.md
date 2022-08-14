@@ -33,7 +33,7 @@ If you're adding a new file, please add a comment (example below) with a short e
 
 VERY IMPORTANT:
 
-After you make your new folder with your new .dm file, you need to add it to OUR dme. DO NOT ADD IT TO TGSTATION.DME. You need to add it to jollystation.dme in alphabetical order - VSCODE will do this automatically if you tick the file.
+After you make your new folder with your new .dm file, you need to add it to tgstation.dme in alphabetical order - VSCODE will do this automatically if you tick the file.
 
 ALWAYS make sure to comment your code, especially if you're overwriting procs and/or code from main files. 
 
