@@ -9,7 +9,7 @@
 #define DOAFTER_SOURCE_BLANKET "doafter_blanket"
 
 // Holding a beer to your busted arm, now that's classic
-/obj/item/reagent_containers/food/drinks/beer/Initialize(mapload)
+/obj/item/reagent_containers/cup/glass/beer/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/temperature_pack, pain_heal_rate = 0.3, pain_modifier_on_limb = 0.9, temperature_change = -2)
 
