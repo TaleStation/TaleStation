@@ -1,36 +1,17 @@
 // -- Ordnance Tech job & outfit datum --
-/datum/job/ordnance_tech
-	title = "Ordnance Technician"
+/datum/job/scientist/ordnance_tech
+	title = JOB_ORDNANCE_TECH
 	description = "Complete your bomb in the first half hour of the \
 		shift, make the station shake repeatedly as you refine cores, \
 		then sit around as you have nothing else to do."
-	department_head = list(JOB_RESEARCH_DIRECTOR)
-	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 3
-	supervisors = SUPERVISOR_RD
-	selection_color = "#ffeeff"
-	exp_requirements = 300
-	exp_required_type = EXP_TYPE_SCIENCE
-	exp_granted_type = EXP_TYPE_SCIENCE
-
-//most likely can be subtyped later
+	//most likely can be subtyped later //too late
 
 	outfit = /datum/outfit/job/scientist/ordnance_tech
 	plasmaman_outfit = /datum/outfit/plasmaman/science
 
-	paycheck = PAYCHECK_CREW
-	paycheck_department = ACCOUNT_SCI
-
 	display_order = JOB_DISPLAY_ORDER_ORDNANCE_TECH
-	bounty_types = CIV_JOB_SCI
-
-	departments_list = list(
-		/datum/job_department/science,
-		)
-
-	family_heirlooms = list(/obj/item/toy/nuke)
-
 	mail_goodies = list(
 		/obj/item/analyzer = 50,
 		/obj/item/raw_anomaly_core/random = 15,
@@ -41,7 +22,6 @@
 		/obj/item/transfer_valve = 1,
 	)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 	rpg_title = "Dwarven Miner"
 
 /datum/outfit/job/scientist/ordnance_tech
@@ -49,5 +29,5 @@
 	suit = /obj/item/clothing/suit/toggle/labcoat/toxic
 	uniform = /obj/item/clothing/under/rank/rnd/ordnance_tech
 	belt = /obj/item/modular_computer/tablet/pda/science/ordnance_tech
-	jobtype = /datum/job/ordnance_tech
+	jobtype = /datum/job/scientist/ordnance_tech
 	id_trim = /datum/id_trim/job/ordnance_tech

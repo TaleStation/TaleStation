@@ -221,6 +221,9 @@ GLOBAL_DATUM_INIT(welding_sparks, /mutable_appearance, mutable_appearance('icons
 	if(species_exception)
 		species_exception = string_list(species_exception)
 
+	if(sharpness && force > 5) //give sharp objects butchering functionality, for consistency
+		AddComponent(/datum/component/butchering, speed = 8 SECONDS * toolspeed)
+
 	. = ..()
 
 	// Handle adding item associated actions
@@ -320,14 +323,6 @@ GLOBAL_DATUM_INIT(welding_sparks, /mutable_appearance, mutable_appearance('icons
 	if(B && B.loc == loc)
 		atom_destruction(MELEE)
 
-/obj/item/ComponentInitialize()
-	. = ..()
-
-	if(sharpness && force > 5) //give sharp objects butchering functionality, for consistency
-		AddComponent(/datum/component/butchering, \
-		speed = 8 SECONDS * toolspeed, \
-		)
-
 /**Makes cool stuff happen when you suicide with an item
  *
  *Outputs a creative message and then return the damagetype done
@@ -353,10 +348,10 @@ GLOBAL_DATUM_INIT(welding_sparks, /mutable_appearance, mutable_appearance('icons
 		return
 	if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
-	// NON-MODULE EDIT START
+	// NON-MODULAR EDIT START
 	if(greyscale_config_worn_digitigrade)
 		worn_icon_digitigrade = SSgreyscale.GetColoredIconByType(greyscale_config_worn_digitigrade, greyscale_colors)
-	// NON-MODULE EDIT END
+	// NON-MODULAR EDIT END
 	if(greyscale_config_inhand_left)
 		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
 	if(greyscale_config_inhand_right)

@@ -22,6 +22,12 @@ GLOBAL_LIST_EMPTY(fax_machines)
 #define VV_SEND_FAX "send_fax"
 #define VV_SEND_MARKED_FAX "send_marked_fax"
 
+// Deletes TGs fax machines
+/obj/machinery/fax/Initialize(mapload)
+	. = ..()
+	new /obj/machinery/fax_machine/recieving_disabled(get_turf(src))
+	return INITIALIZE_HINT_QDEL
+
 /// Fax machine design, for techwebs.
 /datum/design/board/fax_machine
 	name = "Machine Design (Fax Machine Board)"
@@ -79,7 +85,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	/// Cooldown between sending faxes
 	COOLDOWN_DECLARE(fax_cooldown)
 
-/obj/machinery/fax_machine/Initialize()
+/obj/machinery/fax_machine/Initialize(mapload)
 	. = ..()
 	GLOB.fax_machines += src
 	set_room_tag(TRUE)
@@ -103,7 +109,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 /obj/machinery/fax_machine/recieving_disabled
 	can_receive_paperwork = FALSE
 
-/obj/machinery/fax_machine/full/Initialize()
+/obj/machinery/fax_machine/full/Initialize(mapload)
 	. = ..()
 	for(var/i in 1 to max_paperwork)
 		if(LAZYLEN(received_paperwork) >= max_paperwork)

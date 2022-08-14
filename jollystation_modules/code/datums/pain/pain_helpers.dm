@@ -4,13 +4,11 @@
 	/// Only initialized on humans, but this variable is on carbons for ease.
 	var/datum/pain/pain_controller
 
-/mob/living/carbon/human/Initialize()
+/mob/living/carbon/Initialize(mapload)
 	. = ..()
-	var/datum/pain/new_pain_controller = new(src)
-	if(!QDELETED(new_pain_controller))
-		pain_controller = new_pain_controller
+	pain_controller = new /datum/pain(src)
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/Destroy()
 	if(pain_controller)
 		QDEL_NULL(pain_controller)
 	return ..()

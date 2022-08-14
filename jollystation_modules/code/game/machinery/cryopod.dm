@@ -149,10 +149,11 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 	COOLDOWN_DECLARE(last_no_computer_message)
 
 /obj/machinery/cryopod/Initialize(mapload)
-	..()
+	. = ..()
 	return INITIALIZE_HINT_LATELOAD //Gotta populate the cryopod computer GLOB first
 
 /obj/machinery/cryopod/LateInitialize()
+	. = ..()
 	update_icon()
 	find_control_computer()
 
@@ -180,7 +181,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 /obj/machinery/cryopod/JoinPlayerHere(mob/M, buckle)
 	close_machine(M, TRUE)
 
-/obj/machinery/cryopod/latejoin/Initialize()
+/obj/machinery/cryopod/latejoin/Initialize(mapload)
 	. = ..()
 	new /obj/effect/landmark/latejoin(src)
 
