@@ -1162,7 +1162,7 @@
 		use_power(50)
 		playsound(src, doorOpen, 30, TRUE)
 	else
-		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULE REMOVAL: Asthetics
+		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULAR REMOVAL: Asthetics
 		playsound(src, forcedOpen, 30, TRUE) // NON-MODULAR CHANGES: Asthetics
 
 	if(autoclose)
@@ -1231,7 +1231,7 @@
 		playsound(src, doorClose, 30, TRUE)
 
 	else
-		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULE REMOVAL: Asthetics
+		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULAR REMOVAL: Asthetics
 		playsound(src, forcedClosed, 30, TRUE) // NON-MODULAR CHANGES: Asthetics
 
 	var/obj/structure/window/killthis = (locate(/obj/structure/window) in get_turf(src))

@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
-	item_path = /obj/item/reagent_containers/glass/rag
+	item_path = /obj/item/reagent_containers/cup/rag
 
 /datum/loadout_item/pocket_items/gum_pack
 	name = "Pack of Gum"

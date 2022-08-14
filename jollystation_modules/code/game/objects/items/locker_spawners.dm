@@ -60,12 +60,12 @@
 	spawned_locker_path = /obj/structure/closet/secure_closet/asset_protection
 	icon_state = "gangtool-blue"
 
-// XenoBiologist locker summoner
+// Xenobiologist locker summoner
 /obj/item/locker_spawner/xenobotany
 	name = "xenobotany equipment beacon"
 	desc = "A beacon handed out for upcoming xenobiologists being assigned to stations without proper \
 		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
 		for use when you want to overrun the station with kuduz, the botanist way."
-	requires_job_path = /datum/job/xenobiologist
+	requires_job_path = /datum/job/scientist
 	spawned_locker_path = /obj/structure/closet/secure_closet/xeno_botany
 	icon_state = "gangtool-purple"

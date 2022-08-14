@@ -140,7 +140,7 @@
 	list_reagents = list(/datum/reagent/medicine/luciferium = 5)
 	rename_with_volume = TRUE
 
-/obj/item/reagent_containers/glass/bottle/luciferium
+/obj/item/reagent_containers/cup/bottle/luciferium
 	name = "luciferium bottle"
 	desc = "A bottle of luciferium, an extremely effective but dangerous medicine that can save someone from the brink of death \
 		at the cost of permanent reliance on the drug to maintain the mechanite structure it creates."
@@ -193,7 +193,7 @@
 /datum/reagent/drug/gojuice/on_mob_metabolize(mob/living/carbon/user)
 	. = ..()
 	user.add_movespeed_modifier(/datum/movespeed_modifier/reagent/gojuice)
-	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, type, /datum/mood_event/gojuice)
+	user.add_mood_event(type, /datum/mood_event/gojuice)
 	ADD_TRAIT(user, TRAIT_NIGHT_VISION, type)
 	ADD_TRAIT(user, TRAIT_NOSOFTCRIT, type)
 
@@ -229,7 +229,7 @@
  */
 /datum/reagent/drug/gojuice/proc/stop_effects(mob/living/user)
 	user.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/gojuice)
-	SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, type)
+	user.clear_mood_event(type)
 	REMOVE_TRAIT(user, TRAIT_NIGHT_VISION, type)
 	REMOVE_TRAIT(user, TRAIT_NOSOFTCRIT, type)
 
@@ -238,7 +238,7 @@
 	required_reagents = list(/datum/reagent/neutroamine = 1, /datum/reagent/medicine/synaptizine = 1, /datum/reagent/drug/methamphetamine, /datum/reagent/fuel/oil = 1, /datum/reagent/consumable/sugar = 1)
 	reaction_tags = REACTION_TAG_MODERATE | REACTION_TAG_DRUG | REACTION_TAG_ORGAN | REACTION_TAG_DAMAGING
 
-/obj/item/reagent_containers/glass/bottle/gojuice
+/obj/item/reagent_containers/cup/bottle/gojuice
 	name = "go-juice bottle"
 	desc = "A small bottle of Go-Juice, an effective but addictive combat stimulant."
 	volume = 20
@@ -257,13 +257,13 @@
 
 /datum/reagent/drug/flake/on_mob_metabolize(mob/living/carbon/user)
 	. = ..()
-	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, type, /datum/mood_event/flake)
+	user.add_mood_event(type, /datum/mood_event/flake)
 
 /datum/reagent/drug/flake/on_mob_end_metabolize(mob/living/user)
 	. = ..()
-	SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, type)
+	user.clear_mood_event(type)
 
-/obj/item/reagent_containers/glass/bottle/flake
+/obj/item/reagent_containers/cup/bottle/flake
 	name = "flake bottle"
 	desc = "A small bottle that contains Flake, a very addictive and often smoked drug produced from psychoid leaves that causes temporary euphoria."
 	volume = 20
@@ -285,12 +285,12 @@
 
 /datum/reagent/drug/yayo/on_mob_metabolize(mob/living/carbon/user)
 	. = ..()
-	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, type, /datum/mood_event/yayo)
+	user.add_mood_event(type, /datum/mood_event/yayo)
 	user.add_movespeed_modifier(/datum/movespeed_modifier/reagent/yayo)
 
 /datum/reagent/drug/yayo/on_mob_end_metabolize(mob/living/user)
 	. = ..()
-	SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, type)
+	user.clear_mood_event(type)
 	user.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/yayo)
 
 /datum/reagent/drug/yayo/on_mob_life(mob/living/carbon/user, delta_time, times_fired)
@@ -302,7 +302,7 @@
 	. = ..()
 	return TRUE
 
-/obj/item/reagent_containers/glass/bottle/yayo
+/obj/item/reagent_containers/cup/bottle/yayo
 	name = "yayo bottle"
 	desc = "A small bottle that contains Yayo, a powdery drug produced from psychoid leaves snorted to produce a high, suppress pain, and prevent tiredness."
 	volume = 20
@@ -324,11 +324,11 @@
 
 /datum/reagent/psychite_tea/on_mob_metabolize(mob/living/carbon/user)
 	. = ..()
-	SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, type, /datum/mood_event/psychite_tea)
+	user.add_mood_event(type, /datum/mood_event/psychite_tea)
 
 /datum/reagent/psychite_tea/on_mob_end_metabolize(mob/living/user)
 	. = ..()
-	SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, type)
+	user.clear_mood_event(type)
 
 /datum/reagent/psychite_tea/on_mob_life(mob/living/carbon/user, delta_time, times_fired)
 	user.drowsyness = max(user.drowsyness - (3 * REM * delta_time), 0)
@@ -339,7 +339,7 @@
 	. = ..()
 	return TRUE
 
-/obj/item/reagent_containers/food/drinks/mug/psychite_tea
+/obj/item/reagent_containers/cup/glass/mug/psychite_tea
 	name = "psychite tea"
 	desc = "A type of Psychite tea brewed from psychoid leaves. Mildly addictive, but improves mood and reduces pain slightly."
 	list_reagents = list(/datum/reagent/psychite_tea = 30)
