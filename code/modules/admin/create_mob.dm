@@ -28,25 +28,7 @@
 
 	human.dna.blood_type = random_blood_type()
 	human.dna.features["mcolor"] = "#[random_color()]"
-<<<<<<< HEAD
-	human.dna.features["ethcolor"] = GLOB.color_list_ethereal[pick(GLOB.color_list_ethereal)]
-	human.dna.features["tail_cat"] = pick(GLOB.tails_list_human)
-	human.dna.features["tail_lizard"] = pick(GLOB.tails_list_lizard)
-	human.dna.features["snout"] = pick(GLOB.snouts_list)
-	human.dna.features["horns"] = pick(GLOB.horns_list)
-	human.dna.features["frills"] = pick(GLOB.frills_list)
-	human.dna.features["spines"] = pick(GLOB.spines_list)
-	human.dna.features["body_markings"] = pick(GLOB.body_markings_list)
-	human.dna.features["moth_wings"] = pick(GLOB.moth_wings_list)
-	human.dna.features["moth_antennae"] = pick(GLOB.moth_antennae_list)
-	human.dna.features["pod_hair"] = pick(GLOB.pod_hair_list)
-	human.dna.features["head_tentacles"] = pick(GLOB.head_tentacles_list) // NON-MODULAR CHANGE: Skrells
-	human.dna.features["tajaran_markings"] = pick(GLOB.tajaran_body_markings_list) // NON-MODULAR CHANGE: Tajarans
-	human.dna.features["tajaran_tail"] = pick(GLOB.tajaran_tail_list) // NON-MODULAR CHANGE: Tajarans
-	human.dna.features["tajaran_snout"] = pick(GLOB.tajaran_snout_list) // NON-MODULAR CHANGE: Tajarans
-=======
 	human.dna.species.randomize_active_underwear(human)
->>>>>>> aa2eee2ded13 (De-hardcodes randomize_human() and fixes some related issues along the way (#68876))
 
 	for(var/datum/species/species_path as anything in subtypesof(/datum/species))
 		var/datum/species/new_species = new species_path
