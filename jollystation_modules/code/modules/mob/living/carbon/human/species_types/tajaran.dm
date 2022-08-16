@@ -69,19 +69,9 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		fish.toxpwr = 0
 
 // Randomize tajaran
-/datum/species/tajaran/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
-	var/snout = pick(GLOB.tajaran_snout_list)
-	mutant_bodyparts["tajaran_snout"] = snout
-	human_mob.dna.features["tajaran_snout"] = snout
-	human_mob.dna.features["mcolor"] = COLOR_GRAY
-
-	var/obj/item/organ/internal/ears/tajaran_ears/tajaran_ears = human_mob.getorgan(/obj/item/organ/internal/ears/tajaran_ears)
-	if (tajaran_ears)
-		tajaran_ears.color = human_mob.hair_color
-		human_mob.update_body()
-
-	human_mob.update_body()
-	human_mob.update_body_parts(update_limb_data = TRUE)
+/datum/species/tajaran/randomize_features(mob/living/carbon/human/human_mob)
+	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
+	randomize_external_organs(human_mob)
 
 // Tajaran species preview in tgui
 /datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
