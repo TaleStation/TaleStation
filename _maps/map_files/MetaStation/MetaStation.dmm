@@ -1158,6 +1158,7 @@
 	dir = 5
 	},
 /obj/machinery/light/directional/east,
+/obj/machinery/photocopier,
 /turf/open/floor/iron/white,
 /area/station/medical/office)
 "awy" = (
@@ -5581,7 +5582,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/item/radio/intercom/directional/west,
-/obj/machinery/photocopier,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "cdp" = (
@@ -10966,6 +10966,11 @@
 /obj/machinery/door/window/brigdoor/right/directional/north{
 	req_access = list("brig_entrance")
 	},
+/obj/item/folder/red{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/paper,
 /turf/open/floor/plating,
 /area/station/security/checkpoint/medical)
 "dZY" = (
@@ -29271,6 +29276,9 @@
 /obj/structure/table,
 /obj/effect/turf_decal/siding/white/corner,
 /obj/machinery/firealarm/directional/north,
+/obj/item/clipboard,
+/obj/item/paper,
+/obj/item/pen,
 /turf/open/floor/iron/dark,
 /area/station/medical/office)
 "kud" = (
@@ -36325,6 +36333,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/medical/office)
 "mWd" = (
@@ -42064,6 +42073,16 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/brig)
+"oYp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/holopad,
+/obj/effect/turf_decal/box/white{
+	color = "#52B4E9"
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/office)
 "oYM" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -43630,6 +43649,7 @@
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/south,
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/white,
 /area/station/medical/office)
 "pCa" = (
@@ -49075,6 +49095,10 @@
 /obj/machinery/door/window/brigdoor/left/directional/north{
 	req_access = list("security")
 	},
+/obj/structure/desk_bell{
+	pixel_x = -3;
+	pixel_y = 2
+	},
 /turf/open/floor/plating,
 /area/station/security/checkpoint/medical)
 "rxc" = (
@@ -51375,11 +51399,6 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/table/glass,
-/obj/machinery/fax{
-	name = "Medical Fax Machine";
-	fax_name = "Medical"
-	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "shg" = (
@@ -53437,6 +53456,10 @@
 	c_tag = "Medbay Paramedic Dispatch";
 	name = "medical camera";
 	network = list("ss13","medical")
+	},
+/obj/machinery/fax{
+	name = "Medical Fax Machine";
+	fax_name = "Medical"
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/office)
@@ -91618,7 +91641,7 @@ gDv
 xFp
 iPM
 eRX
-wOz
+oYp
 wOz
 mvY
 rne
