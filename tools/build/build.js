@@ -69,7 +69,7 @@ export const DmTarget = new Juke.Target({
     "html/**",
     "icons/**",
     "interface/**",
-    "jollystation_modules/**", // NON-MODULAR CHANGE: BUILD OUR FILES!
+    "talestation_modules/**", // NON-MODULAR CHANGE: BUILD OUR FILES!
     `${DME_NAME}.dme`,
   ],
   outputs: [`${DME_NAME}.dmb`, `${DME_NAME}.rsc`],
