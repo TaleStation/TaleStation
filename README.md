@@ -1,4 +1,4 @@
-## JollyStation, a /TG/ Station downstream.
+## talestation, a /TG/ Station downstream.
 
 A work in progress.
 
