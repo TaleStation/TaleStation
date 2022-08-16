@@ -66,7 +66,7 @@
 
 	// Sets our icon to the "off" state.
 	icon_state = "[base_icon_state]_0"
-	source.update_inv_glasses()
+	source.update_worn_glasses()
 	addtimer(CALLBACK(src, .proc/reset_icon, source), 10 SECONDS)
 
 	if(anti_cult_magic_check(target, source))
@@ -81,7 +81,7 @@
 /// Resets the icon to the "on" state.
 /obj/item/clothing/glasses/judicial_visor/proc/reset_icon(mob/living/carbon/human/source)
 	icon_state = "[base_icon_state]_1"
-	source.update_inv_glasses()
+	source.update_worn_glasses()
 
 // Visual effect for the visor.
 /obj/effect/temp_visual/clock/marker
