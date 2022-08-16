@@ -2,9 +2,9 @@ Please read /TG/Stations contributing.md first before reading ours,
 
 https://github.com/tgstation/tgstation/blob/master/.github/CONTRIBUTING.md
 
-## Welcome to talestation!
+## Welcome to TaleStation!
 
-talestation is a never-ending project with a simple goal, to create an enjoyable RP experience using /TG/ code. Together, we'll make an experience everyone can enjoy.
+TaleStation is a never-ending project with a simple goal, to create an enjoyable RP experience using /TG/ code. Together, we'll make an experience everyone can enjoy.
 
 To get started, please review the following segements (after reading /TG/s).
 
@@ -19,7 +19,7 @@ All code should be kept modular in nature if possible. If unable to, your code M
 If adding to a check in the main games files, try to (if possible) put your code at the end. This isn't always feesible, do it where applicable and if it works.
 Images are NOT to be added to the main .dmi files. Don't do it. If you need to overwrite something, make a new .dmi file, and copy the master file if needed.
 
-When adding files, trying to follow a similar file path as the main game. For example, if you need to extend certain vars or procs in /code/modules/carbon/, you would do the same file format in talestation_modules/code/modules/carbon/, this way its somewhat easier to flow through the folders and code if needed. Always start a new file with a comment stating what it is.
+When adding files, trying to follow a similar file path as the main game. For example, if you need to extend certain vars or procs in /code/modules/carbon/, you would do the same file format in TaleStation_modules/code/modules/carbon/, this way its somewhat easier to flow through the folders and code if needed. Always start a new file with a comment stating what it is.
 
 ## Contributing
 
@@ -33,7 +33,7 @@ As a rule of thumb, **do not port assets from Goon, even with permissions**. Goo
 
 ### Sprites
 
-As mentioned in the Modualirty section, sprites added to the main games imags (/icons/) will be required to be modularized. Failure to do so will result in your PR being closed. All images should be added to /talestation_modules/icons/. 
+As mentioned in the Modualirty section, sprites added to the main games imags (/icons/) will be required to be modularized. Failure to do so will result in your PR being closed. All images should be added to /TaleStation_modules/icons/. 
 
 ### Maps
 

@@ -1,4 +1,4 @@
-# talestation Icons and YOU!
+# TaleStation Icons and YOU!
 Most of the information about adding, removing and modifying icons can be found in the talestation_modules folder's README.md.
 
 ## Before porting, read the following:

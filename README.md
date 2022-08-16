@@ -1,4 +1,4 @@
-## talestation, a /TG/ Station downstream.
+## TaleStation, a /TG/ Station downstream.
 
 A work in progress.
 
