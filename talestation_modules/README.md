@@ -101,6 +101,26 @@ Defines can only be seen by files if it's been compiled beforehand.
 
 - Add any defines you need to use in core files to their respective core define files, but be sure to comment it.
 
+# Remvoing Content
+
+Removing ANY content from this codebase goes one of two ways:
+
+## Non-Modularly
+
+These are commented out removals. There should be sufficent backings as to why this is being removed.
+Trying to remove/delete TG master files will not be accepted. Take your reasoning upstream if thats the case.
+
+## Modularly
+
+These are removals that are on our code. Any removals of our code should be archived here: https://github.com/TaleStation/TaleStation-Archive
+Things you can archive are:
+
+- Any sort of code
+- Sprites
+- Maps (and any associated code)
+
+Please make sure everything is properly accounted for.
+
 # Important other notes:
 
 This module system edits the launch.json and the build.bat files so VSCODE can compile with this codebase. This might cause problems in the future if either are edited to any extent. Luckily the vscode edits are not necessary for compiling the project and and arer easy to redo, so just overwrite the changes if it causes conflicts.
