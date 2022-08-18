@@ -10,7 +10,7 @@
 	job_rank = ROLE_BLOODSUCKER
 	antag_hud_name = "vassal"
 	show_in_roundend = FALSE
-	hud_icon = 'jollystation_modules/icons/bloodsuckers/bloodsucker_icons.dmi'
+	hud_icon = 'talestation_modules/icons/bloodsuckers/bloodsucker_icons.dmi'
 
 	/// The Master Bloodsucker's antag datum.
 	var/datum/antagonist/bloodsucker/master

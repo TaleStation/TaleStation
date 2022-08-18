@@ -18,7 +18,7 @@ GLOBAL_LIST_EMPTY(bloodsucker_clan_members)
 	///The clan objective that is required to greentext.
 	var/clan_objective
 	///The icon of the radial icon to join this clan.
-	var/join_icon = 'jollystation_modules/icons/bloodsuckers/clan_icons.dmi'
+	var/join_icon = 'talestation_modules/icons/bloodsuckers/clan_icons.dmi'
 	///Same as join_icon, but the state
 	var/join_icon_state = "caitiff"
 	///Description shown when trying to join the clan.

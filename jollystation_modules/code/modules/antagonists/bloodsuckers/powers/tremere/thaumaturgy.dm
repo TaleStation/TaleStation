@@ -169,10 +169,10 @@
 	name = "blood shield"
 	desc = "A shield made out of blood, requiring blood to sustain hits."
 	item_flags = ABSTRACT | DROPDEL
-	icon = 'jollystation_modules/icons/bloodsuckers/vamp_obj.dmi'
+	icon = 'talestation_modules/icons/bloodsuckers/vamp_obj.dmi'
 	icon_state = "blood_shield"
-	lefthand_file = 'jollystation_modules/icons/bloodsuckers/bs_leftinhand.dmi'
-	righthand_file = 'jollystation_modules/icons/bloodsuckers/bs_rightinhand.dmi'
+	lefthand_file = 'talestation_modules/icons/bloodsuckers/bs_leftinhand.dmi'
+	righthand_file = 'talestation_modules/icons/bloodsuckers/bs_rightinhand.dmi'
 	block_chance = 75
 
 /obj/item/shield/bloodsucker/Initialize()

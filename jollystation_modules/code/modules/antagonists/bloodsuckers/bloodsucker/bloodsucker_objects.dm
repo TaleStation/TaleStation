@@ -162,11 +162,11 @@
 /obj/item/stake
 	name = "wooden stake"
 	desc = "A simple wooden stake carved to a sharp point."
-	icon = 'jollystation_modules/icons/bloodsuckers/stakes.dmi'
+	icon = 'talestation_modules/icons/bloodsuckers/stakes.dmi'
 	icon_state = "wood"
 	inhand_icon_state = "wood"
-	lefthand_file = 'jollystation_modules/icons/bloodsuckers/bs_leftinhand.dmi'
-	righthand_file = 'jollystation_modules/icons/bloodsuckers/bs_rightinhand.dmi'
+	lefthand_file = 'talestation_modules/icons/bloodsuckers/bs_leftinhand.dmi'
+	righthand_file = 'talestation_modules/icons/bloodsuckers/bs_rightinhand.dmi'
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -277,9 +277,9 @@
 	name = "\improper Archive of the Kindred"
 	starting_title = "the Archive of the Kindred"
 	desc = "Cryptic documents explaining hidden truths behind Undead beings. It is said only Curators can decipher what they really mean."
-	icon = 'jollystation_modules/icons/bloodsuckers/vamp_obj.dmi'
-	lefthand_file = 'jollystation_modules/icons/bloodsuckers/bs_leftinhand.dmi'
-	righthand_file = 'jollystation_modules/icons/bloodsuckers/bs_rightinhand.dmi'
+	icon = 'talestation_modules/icons/bloodsuckers/vamp_obj.dmi'
+	lefthand_file = 'talestation_modules/icons/bloodsuckers/bs_leftinhand.dmi'
+	righthand_file = 'talestation_modules/icons/bloodsuckers/bs_rightinhand.dmi'
 	icon_state = "kindred_book"
 	starting_author = "dozens of generations of Curators"
 	unique = TRUE

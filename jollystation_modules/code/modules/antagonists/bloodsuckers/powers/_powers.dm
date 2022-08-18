@@ -2,10 +2,10 @@
 	name = "Vampiric Gift"
 	desc = "A vampiric gift."
 	//This is the FILE for the background icon
-	button_icon = 'jollystation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
+	button_icon = 'talestation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
 	//This is the ICON_STATE for the background icon
 	background_icon_state = "vamp_power_off"
-	icon_icon = 'jollystation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
+	icon_icon = 'talestation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
 	button_icon_state = "power_feed"
 	buttontooltipstyle = "cult"
 	transparent_when_unavailable = TRUE

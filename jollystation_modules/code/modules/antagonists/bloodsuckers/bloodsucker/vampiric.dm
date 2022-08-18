@@ -18,4 +18,4 @@
 		)
 
 	icon_state = "bloodsucker"
-	icon = 'jollystation_modules/icons/bloodsuckers/vampiric.dmi'
+	icon = 'talestation_modules/icons/bloodsuckers/vampiric.dmi'

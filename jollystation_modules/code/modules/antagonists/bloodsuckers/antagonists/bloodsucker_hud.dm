@@ -12,7 +12,7 @@
 
 
 /atom/movable/screen/bloodsucker
-	icon = 'jollystation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
+	icon = 'talestation_modules/icons/bloodsuckers/actions_bloodsucker.dmi'
 
 /atom/movable/screen/bloodsucker/blood_counter
 	name = "Blood Consumed"
