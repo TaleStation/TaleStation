@@ -393,7 +393,7 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/switchblade/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
+	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
 	AddComponent(/datum/component/butchering, \
 	speed = 7 SECONDS, \
 	effectiveness = 100, \
@@ -960,11 +960,11 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 
 /obj/item/highfrequencyblade/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-
-/obj/item/highfrequencyblade/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/two_handed, wield_callback = CALLBACK(src, .proc/on_wield), unwield_callback = CALLBACK(src, .proc/on_unwield))
+	AddComponent(/datum/component/two_handed, \
+		wield_callback = CALLBACK(src, .proc/on_wield), \
+		unwield_callback = CALLBACK(src, .proc/on_unwield), \
+	)
+	AddElement(/datum/element/update_icon_updates_onmob, ITEM_SLOT_HANDS)
 
 /obj/item/highfrequencyblade/update_icon_state()
 	icon_state = "hfrequency[HAS_TRAIT(src, TRAIT_WIELDED)]"

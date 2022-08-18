@@ -48,8 +48,8 @@ SUBSYSTEM_DEF(job)
 		JOB_CHIEF_MEDICAL_OFFICER = 5,
 		JOB_HEAD_OF_SECURITY = 6,
 		JOB_QUARTERMASTER = 7,
-		JOB_BRIDGE_OFFICER = 8, //Non-Module edit
-		JOB_ASSET_PROTECTION = 9, //Non-Module edit
+		JOB_BRIDGE_OFFICER = 8, //NON-MODULAR CHANGES: Chain of Command define
+		JOB_ASSET_PROTECTION = 9, //NON-MODULAR CHANGES: Chain of Command define
 	)
 
 	/// If TRUE, some player has been assigned Captaincy or Acting Captaincy at some point during the shift and has been given the spare ID safe code.

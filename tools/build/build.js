@@ -22,7 +22,7 @@ Juke.setup({ file: import.meta.url }).then((code) => {
   process.exit(code);
 });
 
-const DME_NAME = "jollystation";
+const DME_NAME = "tgstation";
 
 export const DefineParameter = new Juke.Parameter({
   type: "string[]",
@@ -69,7 +69,7 @@ export const DmTarget = new Juke.Target({
     "html/**",
     "icons/**",
     "interface/**",
-    "jollystation_modules/**", // NON-MODULAR CHANGE: BUILD OUR FILES!
+    "talestation_modules/**", // NON-MODULAR CHANGE: BUILD OUR FILES!
     `${DME_NAME}.dme`,
   ],
   outputs: [`${DME_NAME}.dmb`, `${DME_NAME}.rsc`],
