@@ -80,8 +80,9 @@
 		return
 
 	if(bloodbag)
-		var/mob/living/living_owner = owner
-		living_owner.blood_volume -= 150
+		var/mob/living/carbon/carbon_owner = owner
+		carbon_owner.blood_volume -= 120
+		carbon_owner.cause_pain(pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM), 20)
 		QDEL_NULL(bloodbag)
 		var/obj/item/reagent_containers/blood/o_minus/bloodsucker/new_bag = new(owner.loc)
 		owner.put_in_active_hand(new_bag)

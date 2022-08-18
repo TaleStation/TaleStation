@@ -112,6 +112,9 @@
 /datum/antagonist/bloodsucker/apply_innate_effects(mob/living/mob_override)
 	. = ..()
 	var/mob/living/current_mob = mob_override || owner.current
+	if(iscarbon(current_mob))
+		var/mob/living/carbon/carbon_mob = current_mob
+		carbon_mob.pain_controller.pain_modifier = 0.2 //hard set to 0.2
 	RegisterSignal(current_mob, COMSIG_LIVING_LIFE, .proc/LifeTick)
 	handle_clown_mutation(current_mob, mob_override ? null : "As a vampiric clown, you are no longer a danger to yourself. Your clownish nature has been subdued by your thirst for blood.")
 	add_team_hud(current_mob)
@@ -138,6 +141,9 @@
 	. = ..()
 	var/mob/living/current_mob = mob_override || owner.current
 	UnregisterSignal(current_mob, COMSIG_LIVING_LIFE)
+	if(iscarbon(current_mob))
+		var/mob/living/carbon/carbon_mob = current_mob
+		carbon_mob.pain_controller.pain_modifier = initial(carbon_mob.pain_controller.pain_modifier)
 	handle_clown_mutation(current_mob, removing = FALSE)
 	if(current_mob.hud_used)
 		var/datum/hud/hud_used = current_mob.hud_used

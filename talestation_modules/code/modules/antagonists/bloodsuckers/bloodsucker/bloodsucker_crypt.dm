@@ -268,7 +268,7 @@
  *	Step Three: Blood Ritual
  */
 
-/obj/structure/bloodsucker/vassalrack/proc/torture_victim(mob/living/user, mob/living/target)
+/obj/structure/bloodsucker/vassalrack/proc/torture_victim(mob/living/user, mob/living/carbon/target)
 	var/datum/antagonist/bloodsucker/bloodsuckerdatum = user.mind.has_antag_datum(/datum/antagonist/bloodsucker)
 	if(target in bloodsuckerdatum.vassals)
 		return
@@ -378,6 +378,11 @@
 	INVOKE_ASYNC(target, /mob.proc/emote, "scream")
 	target.set_timed_status_effect(5 SECONDS, /datum/status_effect/jitter, only_if_higher = TRUE)
 	target.apply_damages(brute = torture_dmg_brute, burn = torture_dmg_burn, def_zone = (selected_bodypart ? selected_bodypart.body_zone : null)) // take_overall_damage(6,0)
+	target.sharp_pain(target_zones = selected_bodypart.body_zone, \
+		amount = ((torture_dmg_burn + torture_dmg_brute) SECONDS), \
+		dam_type = (torture_dmg_burn >= 5 ? BURN : BRUTE), \
+		duration = 5 SECONDS)
+
 	return TRUE
 
 /// Offer them the oppertunity to join now.
@@ -512,12 +517,12 @@
 /obj/structure/bloodsucker/candelabrum/process()
 	if(!lit)
 		return
-	for(var/mob/living/carbon/nearly_people in viewers(7, src))
+	for(var/mob/living/carbon/nearby_people in viewers(7, src))
 		/// We dont want Bloodsuckers or Vassals affected by this
-		if(IS_VASSAL(nearly_people) || IS_BLOODSUCKER(nearly_people))
+		if(IS_VASSAL(nearby_people) || IS_BLOODSUCKER(nearby_people))
 			continue
-		nearly_people.hallucination += 5
-		SEND_SIGNAL(nearly_people, COMSIG_ADD_MOOD_EVENT, "vampcandle", /datum/mood_event/vampcandle)
+		nearby_people.hallucination += 5
+		nearby_people.add_mood_event("vampcandle", /datum/mood_event/vampcandle)
 
 /*
  *	# Candelabrum Ventrue Stuff
