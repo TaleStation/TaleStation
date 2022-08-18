@@ -3,38 +3,31 @@
 /obj/item/bodypart/head/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
-	uses_mutcolor = TRUE
 	is_dimorphic = TRUE
 
 /obj/item/bodypart/chest/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = SPECIES_TAJARAN
 	is_dimorphic = TRUE
 
 /obj/item/bodypart/l_arm/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = SPECIES_TAJARAN
 
 /obj/item/bodypart/r_arm/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = SPECIES_TAJARAN
 
 /obj/item/bodypart/l_leg/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = SPECIES_TAJARAN
 
 /obj/item/bodypart/r_leg/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = SPECIES_TAJARAN
 
 /obj/item/bodypart/l_leg/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = BODYPART_TYPE_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
@@ -57,7 +50,6 @@
 
 /obj/item/bodypart/r_leg/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	uses_mutcolor = TRUE
 	limb_id = BODYPART_TYPE_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
