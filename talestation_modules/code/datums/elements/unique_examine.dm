@@ -30,6 +30,8 @@
 	var/special_desc_req
 	/// If this is a toy / the real name of the object. Toys display a message if you fail the check.
 	var/toy_name
+	// What IS this thing anyways?
+	var/thing = "null"
 
 /datum/element/unique_examine/Attach(atom/thing, desc, requirement = EXAMINE_CHECK_NONE, requirement_list, affiliation, hint = TRUE, real_name = "")
 	. = ..()
@@ -65,9 +67,7 @@
 	. = ..()
 	UnregisterSignal(thing, list(COMSIG_PARENT_EXAMINE, COMSIG_PARENT_EXAMINE_MORE))
 
-/datum/element/unique_examine/proc/hint_at(datum/source, mob/examiner, list/examine_list)
-	// What IS this thing anyways?
-	var/thing = "thing"
+/datum/element/unique_examine/proc/hint_at(datum/source, mob/examiner)
 	if(ismob(source))
 		thing = "creature"
 	if(isanimal(source))
@@ -84,8 +84,6 @@
 		thing = "machine"
 	if(isstructure(source))
 		thing = "structure"
-
-	examine_list += span_smallnoticeital("This [thing] might have additional information if you [EXAMINE_CLOSER_BOLD].")
 
 /datum/element/unique_examine/proc/examine(datum/source, mob/examiner, list/examine_list)
 	SIGNAL_HANDLER
