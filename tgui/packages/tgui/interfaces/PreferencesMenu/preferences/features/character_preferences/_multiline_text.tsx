@@ -1,4 +1,4 @@
-import { Feature, FeatureValueProps } from '../base';
+import { Feature, FeatureValueProps, FeatureShortTextInput } from '../base';
 import { Stack, TextArea } from '../../../../../components';
 
 export const MultilineText = (props: FeatureValueProps<string, string>) => {
@@ -42,4 +42,23 @@ export const security_records: Feature<string, string> = {
 export const medical_records: Feature<string, string> = {
   name: 'Flavor - Medical Records',
   component: MultilineText,
+};
+
+export const silicon_flavor_text: Feature<string> = {
+  name: 'Flavor Text (Silicon)',
+  description: 'Describe your cyborg/AI shell!',
+  component: MultilineText,
+};
+
+export const ooc_notes: Feature<string> = {
+  name: 'OOC Notes',
+  description: 'Give some OOC information.',
+  component: MultilineText,
+};
+
+export const headshot: Feature<string> = {
+  name: 'Headshot',
+  description:
+    'Add an image to your character, visible on close examination. Requires it be formatted properly.',
+  component: FeatureShortTextInput,
 };
