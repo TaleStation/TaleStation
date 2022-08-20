@@ -10,17 +10,16 @@ export const ExaminePanel = (props, context) => {
     obscured,
     assigned_map,
     flavor_text,
-    /* ooc_notes,
+    ooc_notes,
     custom_species,
     custom_species_lore,
-    */
     headshot,
   } = data;
   return (
     <Window title="Examine Panel" width={900} height={670} theme="admin">
       <Window.Content>
         <Stack fill>
-          <Stack.Item>
+          <Stack.Item width="30%">
             {!headshot ? (
               <Section fill title="Character Preview">
                 {!obscured && (
@@ -70,6 +69,34 @@ export const ExaminePanel = (props, context) => {
                   preserveWhitespace>
                   {flavor_text}
                 </Section>
+              </Stack.Item>
+              <Stack.Item grow>
+                <Stack fill>
+                  <Stack.Item grow basis={0}>
+                    <Section
+                      scrollable
+                      fill
+                      title="OOC Notes"
+                      preserveWhitespace>
+                      {ooc_notes}
+                    </Section>
+                  </Stack.Item>
+                  <Stack.Item grow basis={0}>
+                    <Section
+                      scrollable
+                      fill
+                      title={
+                        custom_species
+                          ? 'Species: ' + custom_species
+                          : 'No Custom Species!'
+                      }
+                      preserveWhitespace>
+                      {custom_species
+                        ? custom_species_lore
+                        : 'Just a normal space dweller.'}
+                    </Section>
+                  </Stack.Item>
+                </Stack>
               </Stack.Item>
             </Stack>
           </Stack.Item>
