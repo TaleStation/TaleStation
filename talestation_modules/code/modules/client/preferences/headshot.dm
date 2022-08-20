@@ -17,22 +17,23 @@
 
 // Apply the headshot to people
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target?.dna.features["headshot"] = value
+	target?.dna.features["headshot"] = preferences?.headshot
 
 // Probably sanity checks for headshots, this code was ported idfk, it wasn't fucking documented
 // So why am I doing it? Because I want to, fuck you
 /datum/preference/text/headshot/is_valid(value)
-	if(!length(value)) //Just to get blank ones out of the way
-		return FALSE
+	if(!length(value)) // Just to get blank ones out of the way
+		usr?.client?.prefs?.headshot = null
+		return TRUE
 	if(!findtext(value, "https://", 1, 9))
 		to_chat(usr, span_warning("You need \"https://\" in the link!"))
-		return FALSE
+		return
 	if(!findtext(value, end_regex, abs(LENGTH_LONGEST_EXTENSION - length(value)), length(value)))
 		to_chat(usr, span_warning("You need either \".png\", \".jpg\", or \".jpeg\" in the link!"))
-		return FALSE
+		return
 	if(!findtext(value, link_regex, 1, LENGTH_LONGEST_LINK))
 		to_chat(usr, span_warning("The link needs to be an unshortened Gyazo or Discordapp link!"))
-		return FALSE
+		return
 	if(!stored_link[usr?.ckey])
 		stored_link[usr?.ckey] = null
 	if(stored_link[usr?.ckey] != value)
@@ -41,6 +42,7 @@
 		to_chat(usr, span_notice("Keep in mind that the photo will be downsized to 250x250 pixels, so the more square the photo, the better it will look."))
 		log_game("[usr] has set their Headshot image to '[value]'.")
 	stored_link[usr?.ckey] = value
+	usr?.client?.prefs.headshot = value
 	return TRUE
 
 /datum/preference/text/headshot/is_accessible(datum/preferences/preferences)
