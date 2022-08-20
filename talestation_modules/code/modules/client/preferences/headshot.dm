@@ -43,5 +43,10 @@
 	stored_link[usr?.ckey] = value
 	return TRUE
 
+/datum/preference/text/headshot/is_accessible(datum/preferences/preferences)
+	if(isnull(usr)) // Joining at roundstart
+		return ..()
+	return ..()
+
 #undef LENGTH_LONGEST_LINK
 #undef LENGTH_LONGEST_EXTENSION
