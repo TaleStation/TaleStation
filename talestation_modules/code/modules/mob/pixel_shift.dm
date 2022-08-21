@@ -1,6 +1,7 @@
 /// -- Pixelshifting UI and component. --
 /// Keybinding hotkey signal.
 #define COMSIG_KB_MOVEMENT_PIXELSHIFT_DOWN "keybinding_movement_pixelshift_down"
+#define COMSIG_KB_MOVEMENT_PIXELSHIFT_TOGGLE_DOWN "keybinding_movement_pixelshift_toggle_down"
 #define COMSIG_KB_MOVEMENT_PIXELSHIFT_RESET_DOWN "keybinding_movement_pixelshift_reset_down"
 
 /// Defines for mins and maxs of x and y shifts.
