@@ -126,11 +126,20 @@
 
 /datum/keybinding/mob/living/pixel_shift
 	hotkey_keys = list("'")
-	name = "pixelshift"
+	name = "pixelshifthold"
 	full_name = "Hold Pixel Shift"
 	description = "Hold to activate pixel shifting. ITS IMPORTANT THAT THIS IS A SINGLE KEY AND DOES NOT CONFLICT WITH ANYTHING ELSE"
 	keybind_signal = COMSIG_KB_MOVEMENT_PIXELSHIFT_DOWN
 	category = CATEGORY_MOVEMENT
+
+/datum/keybinding/mob/living/pixel_shift_toggle
+	hotkey_keys = list("\[")
+	name = "pixelshifttoggle"
+	full_name = "Toggle Pixel Shift"
+	description = "Press to toggle pixel shifting. ITS IMPORTANT THAT THIS IS A SINGLE KEY AND DOES NOT CONFLICT WITH ANYTHING ELSE"
+	keybind_signal = COMSIG_KB_MOVEMENT_PIXELSHIFT_TOGGLE_DOWN
+	category = CATEGORY_MOVEMENT
+
 
 /datum/keybinding/mob/living/pixel_shift_reset
 	hotkey_keys = list(";")
@@ -139,12 +148,6 @@
 	description = "Press to reset your pixel shift."
 	keybind_signal = COMSIG_KB_MOVEMENT_PIXELSHIFT_RESET_DOWN
 	category = CATEGORY_MOVEMENT
-
-/datum/keybinding/mob/living/pixel_shift_reset/down(client/user)
-	. = ..()
-	var/mob/living/user_mob = user.mob
-	if(istype(user_mob))
-		user_mob.reset_pixelshift()
 
 /datum/keybinding/mob/living/pixel_shift/down(client/user)
 	. = ..()
@@ -156,35 +159,32 @@
 	// prevents accidental movements right after releasing
 	user.next_move_dir_sub = ALL
 
+/datum/keybinding/mob/living/pixel_shift_toggle/down(client/user)
+	. = ..()
+	user.pixelshifting = !user.pixelshifting
+	if(!user.pixelshifting)
+		user.next_move_dir_sub = ALL
+	to_chat(user, span_notice("Pixel Shifting is now [(user.pixelshifting ? "enabled" : "disabled")]"))
+
+/datum/keybinding/mob/living/pixel_shift_reset/down(client/user)
+	. = ..()
+	var/mob/living/user_mob = user.mob
+	if(istype(user_mob))
+		user_mob.reset_pixelshift()
+
 /mob/living/keyLoop(client/user)
 	if(!user.pixelshifting)
 		return ..()
-	return
+	var/mob/living/living_mob = user.mob
+	if(!istype(living_mob))
+		return
 
-/datum/keybinding/movement/north/down(client/user)
-	if(!user.pixelshifting)
-		return ..()
-	var/mob/living/user_mob = user.mob
-	if(istype(user_mob))
-		user_mob.pixelshift_north()
-
-/datum/keybinding/movement/south/down(client/user)
-	if(!user.pixelshifting)
-		return ..()
-	var/mob/living/user_mob = user.mob
-	if(istype(user_mob))
-		user_mob.pixelshift_south()
-
-/datum/keybinding/movement/east/down(client/user)
-	if(!user.pixelshifting)
-		return ..()
-	var/mob/living/user_mob = user.mob
-	if(istype(user_mob))
-		user_mob.pixelshift_east()
-
-/datum/keybinding/movement/west/down(client/user)
-	if(!user.pixelshifting)
-		return ..()
-	var/mob/living/user_mob = user.mob
-	if(istype(user_mob))
-		user_mob.pixelshift_west()
+	var/movement = user.next_move_dir_add & ~user.next_move_dir_sub
+	if(movement & NORTH)
+		living_mob.pixelshift_north()
+	if(movement & SOUTH)
+		living_mob.pixelshift_south()
+	if(movement & EAST)
+		living_mob.pixelshift_east()
+	if(movement & WEST)
+		living_mob.pixelshift_west()
