@@ -180,7 +180,9 @@
 	if(!istype(living_mob))
 		return
 
-	var/movement = user.next_move_dir_add & ~user.next_move_dir_sub
+	var/movement
+	for(var/_key in user?.keys_held)
+		movement = movement | user.movement_keys[_key]
 	if(movement & NORTH)
 		living_mob.pixelshift_north()
 	if(movement & SOUTH)
