@@ -25,13 +25,25 @@
 		update_pixelshift()
 	return ..()
 
-/mob/living/Initialize(mapload)
-	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), .verb/reset_pixelshift)
-	return ..()
+/mob/living/on_restrained_trait_gain(datum/source)
+	. = ..()
+	reset_pixelshift()
 
-/mob/living/Destroy()
-	UnregisterSignal(SIGNAL_ADDTRAIT(TRAIT_RESTRAINED))
-	return ..()
+/mob/living/on_incapacitated_trait_gain(datum/source)
+	. = ..()
+	reset_pixelshift()
+
+/mob/living/on_floored_trait_gain(datum/source)
+	. = ..()
+	reset_pixelshift()
+
+/mob/living/on_immobilized_trait_gain(datum/source)
+	. = ..()
+	reset_pixelshift()
+
+/mob/living/on_knockedout_trait_gain(datum/source)
+	. = ..()
+	reset_pixelshift()
 
 /mob/living/proc/allow_pixelshifting()
 	if(stat)
@@ -39,6 +51,14 @@
 	if(IsStun())
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_FLOORED))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT))
 		return FALSE
 	return TRUE
 
