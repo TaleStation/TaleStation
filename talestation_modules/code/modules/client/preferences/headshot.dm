@@ -16,8 +16,8 @@
 
 
 // Apply the headshot to people
-/datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	target?.dna.features["headshot"] = preferences?.headshot
+/datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value)
+	target?.dna.features["headshot"] = value
 
 // Probably sanity checks for headshots, this code was ported idfk, it wasn't fucking documented
 // So why am I doing it? Because I want to, fuck you
