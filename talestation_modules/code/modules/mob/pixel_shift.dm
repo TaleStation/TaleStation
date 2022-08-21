@@ -25,6 +25,37 @@
 		update_pixelshift()
 	return ..()
 
+/mob/living/Initialize(mapload)
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), .proc/reset_pixelshift)
+	return ..()
+
+/mob/living/Destroy()
+	UnregisterSignal(SIGNAL_ADDTRAIT(TRAIT_RESTRAINED))
+	return ..()
+
+/mob/living/proc/allow_pixelshifting()
+	if(stat)
+		return FALSE
+	if(IsStun())
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
+		return FALSE
+	return TRUE
+
+/mob/living/set_stat(new_stat)
+	. = ..()
+	if(!allow_pixelshifting())
+		reset_pixelshift()
+
+/mob/living/SetStun(amount, ignore_canstun)
+	. = ..()
+	if(!allow_pixelshifting())
+		reset_pixelshift()
+
+/mob/living/_add_trait(datum/thing, trait, source)
+	. = ..()
+
+
 /mob/living/verb/reset_pixelshift()
 	set name = "Reset Pixelshift"
 	set category = "Pixelshift"
@@ -74,8 +105,8 @@
 	update_pixelshift()
 
 /mob/living/proc/update_pixelshift()
-	pixel_x = base_pixel_x + pixelshift_x
-	pixel_y = base_pixel_y + pixelshift_y
+	pixel_x = base_pixel_x + pixelshift_x + body_position_pixel_x_offset
+	pixel_y = base_pixel_y + pixelshift_y + body_position_pixel_y_offset
 
 /datum/keybinding/mob/living/pixel_shift
 	hotkey_keys = list("'")
