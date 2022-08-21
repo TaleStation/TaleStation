@@ -13,9 +13,16 @@
 /mob/living/var/pixelshift_x = 0
 /mob/living/var/pixelshift_y = 0
 
+/datum/config_entry/flag/pixelshift_toggle_allow
+	default = FALSE
+
 /mob/living/verb/toggle_pixelshift_movement_reset()
 	set name = "Toggle Pixelshift Reset on Movement"
 	set category = "Pixelshift"
+
+	if(!CONFIG_GET(/datum/config_entry/flag/pixelshift_toggle_allow))
+		to_chat(src, span_warning("This feature is disabled via config."))
+		return
 
 	pixelshift_movement_reset = !pixelshift_movement_reset
 	to_chat(src, span_notice("Pixelshifts will [(pixelshift_movement_reset ? "now" : "no longer")] reset on movements."))
