@@ -26,7 +26,7 @@
 	return ..()
 
 /mob/living/Initialize(mapload)
-	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), .proc/reset_pixelshift)
+	RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_RESTRAINED), .verb/reset_pixelshift)
 	return ..()
 
 /mob/living/Destroy()
@@ -51,10 +51,6 @@
 	. = ..()
 	if(!allow_pixelshifting())
 		reset_pixelshift()
-
-/mob/living/_add_trait(datum/thing, trait, source)
-	. = ..()
-
 
 /mob/living/verb/reset_pixelshift()
 	set name = "Reset Pixelshift"
