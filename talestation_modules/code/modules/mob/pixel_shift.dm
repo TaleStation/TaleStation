@@ -20,7 +20,7 @@
 	set name = "Toggle Pixelshift Reset on Movement"
 	set category = "Pixelshift"
 
-	if(!CONFIG_GET(/datum/config_entry/flag/pixelshift_toggle_allow))
+	if(!CONFIG_GET(flag/pixelshift_toggle_allow))
 		to_chat(src, span_warning("This feature is disabled via config."))
 		return
 
