@@ -18,9 +18,6 @@
 #define span_heavy_alloy(str) ("<font color = [ALLOY_COLOR]><b><i>" + str + "</i></b></font>")
 //ratvar: color: #BE8700; font-size: 370%; font-weight: bold; font-style: italic;
 
-// Simple macro for a bold text that says 'examine closer'
-#define EXAMINE_CLOSER_BOLD span_bold("examine closer")
-
 /// The color for LOOC chat.
 #define LOOC_SPAN_COLOR "#00a8c5"
 /// The color the prefix for LOOC uses.

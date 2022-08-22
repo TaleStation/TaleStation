@@ -67,24 +67,6 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 		linked_species = "simple"
 
 /*
- * Get the flavor text formatted.
- *
- * examiner - who's POV we're gettting this flavor text from
- * shorten - whether to cut it off at [EXAMINE_FLAVOR_MAX_DISPLAYED]
- *
- * returns a string
- */
-/datum/flavor_text/proc/get_flavor_text(mob/living/carbon/human/examiner, shorten = TRUE)
-	. = flavor_text
-
-	if(shorten && length(.) > EXAMINE_FLAVOR_MAX_DISPLAYED)
-		. = TextPreview(., EXAMINE_FLAVOR_MAX_DISPLAYED)
-		. += " <a href='?src=[REF(src)];flavor_text=1'>\[More\]</a>"
-
-	if(.)
-		. += "\n"
-
-/*
  * Get the href buttons for all the mob's records, formatted.
  *
  * examiner - who's POV we're gettting the records from
@@ -134,13 +116,6 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 	// Whether or not we would have additional info on `examine_more()`.
 	var/list/added_info = list()
 
-	// If the client has flavor text set.
-	if(flavor_text)
-		var/found_flavor_text = get_flavor_text(examiner, shorten)
-		. += found_flavor_text
-		if(length(found_flavor_text) > EXAMINE_FLAVOR_MAX_DISPLAYED)
-			added_info += "longer flavor text"
-
 	// Antagonists can see expoitable information.
 	if(expl_info && examiner.mind?.antag_datums)
 		for(var/datum/antagonist/antag_datum as anything in examiner.mind.antag_datums)
@@ -154,8 +129,6 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 	else if(examiner.check_sec_hud_and_access() && sec_records)
 		added_info += "past records"
 
-	if(added_info.len && shorten)
-		. += span_smallnoticeital("This individual may have [english_list(added_info, and_text = " or ", final_comma_text = ",")] available if you [EXAMINE_CLOSER_BOLD].\n")
 	else
 		. += get_records_text(examiner)
 
@@ -195,3 +168,45 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 			popup.set_content(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", "[name]'s exploitable information", replacetext(expl_info, "\n", "<BR>")))
 			popup.open()
 			return
+
+// Flavor text pref datums for prefs
+/datum/preference/text/flavor_text
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "flavor_text"
+
+/datum/preference/text/flavor_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["flavor_text"] = value
+
+/datum/preference/text/silicon_flavor_text
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "silicon_flavor_text"
+	// This does not get a apply_to_human proc, this is read directly in silicon/robot/examine.dm
+
+/datum/preference/text/silicon_flavor_text/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	return FALSE // To prevent the not-implemented runtime
+
+/datum/preference/text/ooc_notes
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "ooc_notes"
+
+/datum/preference/text/ooc_notes/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["ooc_notes"] = value
+
+/datum/preference/text/custom_species
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "custom_species"
+
+/datum/preference/text/custom_species/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["custom_species"] = value
+
+/datum/preference/text/custom_species_lore
+	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "custom_species_lore"
+
+/datum/preference/text/custom_species_lore/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["custom_species_lore"] = value

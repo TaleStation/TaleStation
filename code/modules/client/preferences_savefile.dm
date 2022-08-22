@@ -314,6 +314,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Quirks
 	READ_FILE(S["all_quirks"], all_quirks)
 
+	// NON-MODULAR CHANGES: Read our prefs
+	load_talestation_prefs(S)
+
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
 	if(needs_update >= 0)
@@ -371,6 +374,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	WRITE_FILE(S["all_quirks"] , all_quirks)
+
+	// NON-MODULAR CHANGES: Load out prefs
+	load_talestation_prefs(S)
 
 	return TRUE
 

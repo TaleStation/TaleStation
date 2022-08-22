@@ -29,13 +29,6 @@
 
 	return target.linked_flavor || add_or_get_mob_flavor_text(target)
 
-/datum/preference/multiline_text/flavor_datum/flavor
-	savefile_key = "flavor_text"
-
-/datum/preference/multiline_text/flavor_datum/flavor/apply_to_human(mob/living/carbon/human/target, value)
-	var/datum/flavor_text/our_flavor = ..()
-	our_flavor?.flavor_text = value
-
 /datum/preference/multiline_text/flavor_datum/exploitable
 	savefile_key = "exploitable_info"
 
