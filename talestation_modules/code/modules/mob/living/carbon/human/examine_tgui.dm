@@ -26,15 +26,10 @@
 
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
-		dummy_holder = generate_dummy_lookalike(REF(holder), holder)
-		var/datum/job/job_ref = SSjob.GetJob(holder.job)
-		if(job_ref && job_ref.outfit)
-			var/datum/outfit/outfit_ref = new()
-			outfit_ref.copy_outfit_from_target(holder)
-			outfit_ref.equip(dummy_holder, visualsOnly = TRUE)
-
 		examine_panel_screen = new
-		examine_panel_screen.vis_contents += user
+		var/mutable_appearance/current_mob_appearance = new(user)
+		current_mob_appearance.setDir(SOUTH)
+		examine_panel_screen.add_overlay(current_mob_appearance)
 		examine_panel_screen.name = "screen"
 		examine_panel_screen.assigned_map = "examine_panel_[REF(holder)]_map"
 		examine_panel_screen.del_on_map_removal = FALSE
