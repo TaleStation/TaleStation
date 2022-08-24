@@ -30,9 +30,9 @@ GLOBAL_PROTECT(exp_to_update)
 
 /datum/job/proc/get_exp_req_amount()
 	if(exp_required_type_department)
-		var/config_minimum_time = CONFIG_GET(number/use_exp_restrictions_heads_hours)
-		if(config_minimum_time)
-			return config_minimum_time * (1 HOURS)
+		var/uerhh = CONFIG_GET(number/use_exp_restrictions_heads_hours)
+		if(uerhh)
+			return uerhh * 60
 	return exp_requirements
 
 
