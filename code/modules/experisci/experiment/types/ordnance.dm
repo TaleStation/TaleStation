@@ -7,8 +7,13 @@
 	name = "Toxin Research"
 	description = "An experiment conducted in the ordnance subdepartment."
 	exp_tag = "ordnance"
+<<<<<<< HEAD
 	performance_hint = "Perform research experiments in the ordnance lab and publish them with NT Frontier."
 	/// Lookup experiments are initialized using subtypes,
+=======
+	performance_hint = "Perform research experiments in the ordnance lab using the specified equipment, print them unto a data disk, and publish them with the NT Frontier app."
+	/// Lookup experiments are initialized using subtypes, 
+>>>>>>> cfddfb5c8ca9 ([NO GBP] Fix NT Frontier Partner Typo & Better Experiment Descriptions For Ordnance (#69408))
 	/// this lets us ignore the ones made for subtyping.
 	var/experiment_proper = FALSE
 	/// Projected gain from an experiment. In list form, indexed = tier.
