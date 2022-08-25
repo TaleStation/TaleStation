@@ -1,5 +1,7 @@
 ## TaleStation, a /TG/ Station downstream.
 
+Our server; talestation.ddns.net:5856
+
 An eternal work in progress.
 
 Welcome to TaleStation! A SS13 server thats a downstream of /TG/station. For now.
