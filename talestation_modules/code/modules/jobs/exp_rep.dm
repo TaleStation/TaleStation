@@ -127,7 +127,7 @@
 	exp_granted_type = EXP_TYPE_SUPPLY
 
 /datum/job/station_engineer
-	exp_requirements = 300
+	exp_requirements = 0
 	exp_required_type = EXP_TYPE_SERVICE
 	exp_granted_type = EXP_TYPE_ENGINEERING
 
