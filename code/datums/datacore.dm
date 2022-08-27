@@ -291,17 +291,11 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 		else if(H.gender == "female")
 			G.fields["gender"]  = "Female"
 		else
-<<<<<<< HEAD
-			G.fields["gender"]  = "Other"
-		G.fields["photo_front"] = photo_front
-		G.fields["photo_side"] = photo_side
+			G.fields["gender"] = "Other"
+		G.fields["character_appearance"] = character_appearance
 		// NON-MODULAR CHANGES:
 		G.fields["past_records"] = H.linked_flavor?.gen_records
 		// NON-MODULAR CHANGES END
-=======
-			G.fields["gender"] = "Other"
-		G.fields["character_appearance"] = character_appearance
->>>>>>> bc83fc1e9f42 (Makes the game start faster by optimizing round-start manifest injections (#69393))
 		general += G
 
 		//Medical Record
