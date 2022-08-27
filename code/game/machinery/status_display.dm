@@ -370,16 +370,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/status_display/evac, 32)
 			set_picture(last_picture)
 			return PROCESS_KILL
 
-<<<<<<< HEAD
-/obj/machinery/status_display/evac/examine(mob/user)
-	. = ..()
-	if(current_mode == SD_EMERGENCY)
-		. += examine_shuttle(user, SSshuttle.emergency)
-	else if(!message1_overlay && !message2_overlay)
-		. += "The display is blank."
-
-=======
->>>>>>> e9d4eb45d1f7 ([MDB IGNORE] Improves status display even more, makes the brig door timers based on status displays (#69153))
 /obj/machinery/status_display/evac/receive_signal(datum/signal/signal)
 	switch(signal.data["command"])
 		if("blank")
