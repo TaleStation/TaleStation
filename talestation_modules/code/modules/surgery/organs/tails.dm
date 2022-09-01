@@ -30,6 +30,8 @@
 	desc = "A severed tajaran tail. What poor bastard would do such a thing?"
 	feature_key = "tajaran_tail"
 	preference = "feature_tajaran_tail"
+	icon = 'talestation_modules/icons/obj/surgery.dmi'
+	icon_state = "severedtailtaj"
 	wag_flags = WAG_ABLE
 
 /obj/item/organ/external/tail/tajaran_tail/can_draw_on_bodypart(mob/living/carbon/human/human)

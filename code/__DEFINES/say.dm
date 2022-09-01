@@ -92,7 +92,12 @@
 #define MAX_NAME_LEN 42
 #define MAX_BROADCAST_LEN 512
 #define MAX_CHARTER_LEN 80
-#define MAX_FLAVOR_LEN 2048 // NON-MODULAR CHANGES
+// NON-MODULAR CHANGES: Better flavor text
+#define MAX_FLAVOR_LEN 4096
+
+/// How many characters will be displayed in the flavor text preview before we cut it off?
+#define FLAVOR_PREVIEW_LIMIT 110
+// NON-MODULAR CHANGES END
 
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
 #define MSG_VISUAL (1<<0)
