@@ -1,16 +1,17 @@
 ## TaleStation, a /TG/ Station downstream.
 
-A work in progress.
+Our server; talestation.ddns.net:5856
 
-A sever with a HRP end goal, and fun for everyone.
+An eternal work in progress.
 
-Join our DevBus for more information about development, or our main Discord for information about the game itself.
+Welcome to TaleStation! A SS13 server thats a downstream of /TG/station. For now.
 
-## Discords
+We're a server with a roleplay over mechanics end goal in mind, where people can come to make and tell stories.
+Come make a story to share with friends and foes alike.
 
-Main - https://discord.gg/fUVZ8np4ty
+## Links
 
-DevBus - https://discord.gg/XYNzVa2KKG
+Main - https://discord.gg/24Q2rKzgR3
 
 ## LICENSE
 

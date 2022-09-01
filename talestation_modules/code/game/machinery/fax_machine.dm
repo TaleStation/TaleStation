@@ -5,7 +5,7 @@
 GLOBAL_LIST_EMPTY(fax_machines)
 
 /// Cooldown for fax time between faxes.
-#define FAX_COOLDOWN_TIME 3 MINUTES
+#define FAX_COOLDOWN_TIME 1 MINUTES
 
 /// The time between alerts that the machine contains an unread message.
 #define FAX_UNREAD_ALERT_TIME 3 MINUTES
@@ -206,7 +206,13 @@ GLOBAL_LIST_EMPTY(fax_machines)
 			obj_flags &= ~EMAGGED
 
 		if("toggle_recieving")
-			can_receive_paperwork = !can_receive_paperwork
+			if(allowed(usr))
+				can_receive_paperwork = !can_receive_paperwork
+				balloon_alert(usr, span_notice("Reciving toggled."))
+				playsound(src, 'sound/machines/terminal_processing.ogg', 50, FALSE)
+			else
+				balloon_alert(usr, span_notice("No access!"))
+				playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 
 		if("read_last_received")
 			unread_message = FALSE

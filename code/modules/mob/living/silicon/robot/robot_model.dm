@@ -12,8 +12,8 @@
 	icon_state = "std_mod"
 	w_class = WEIGHT_CLASS_GIGANTIC
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	flags_1 = CONDUCT_1
 	///Host of this model
 	var/mob/living/silicon/robot/robot
@@ -84,7 +84,7 @@
 			. += module
 
 /obj/item/robot_model/proc/add_module(obj/item/added_module, nonstandard, requires_rebuild)
-	if(istype(added_module, /obj/item/stack))
+	if(isstack(added_module))
 		var/obj/item/stack/sheet_module = added_module
 		if(ispath(sheet_module.source, /datum/robot_energy_storage))
 			sheet_module.source = get_or_create_estorage(sheet_module.source)
@@ -143,7 +143,7 @@
 
 /obj/item/robot_model/proc/respawn_consumable(mob/living/silicon/robot/cyborg, coeff = 1)
 	SHOULD_CALL_PARENT(TRUE)
-	
+
 	for(var/datum/robot_energy_storage/storage_datum in storages)
 		storage_datum.energy = min(storage_datum.max_energy, storage_datum.energy + coeff * storage_datum.recharge_rate)
 
@@ -410,7 +410,7 @@
 	wash_audio = new(owner)
 
 /datum/action/toggle_buffer/IsAvailable()
-	if(!istype(owner, /mob/living/silicon/robot))
+	if(!iscyborg(owner))
 		return FALSE
 	return ..()
 

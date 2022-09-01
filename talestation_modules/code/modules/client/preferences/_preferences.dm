@@ -1,5 +1,10 @@
 // -- Base preferences exentions. --
 
+// Modular prefs access
+/datum/preferences
+	// Var for headshots
+	var/headshot = ""
+
 /*
  * Post preference transfer handling, done after quirks are assigned. (TODO: FIND A BETTER WAY TO DO THIS, maybe.)
  *

@@ -231,7 +231,7 @@
 	set category = "Object"
 	set src in usr
 	var/mob/M = usr
-	if (istype(M, /mob/dead/))
+	if (isdead(M))
 		return
 	if (!can_use(M))
 		return
@@ -321,8 +321,7 @@
 				return adjusted
 			for(var/zone in list(BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM)) // ugly check to make sure we don't reenable protection on a disabled part
 				if(damage_by_parts[zone] > limb_integrity)
-					for(var/part in body_zone2cover_flags(zone))
-						body_parts_covered &= part
+					body_parts_covered &= body_zone2cover_flags(zone)
 	return adjusted
 
 /obj/item/clothing/under/rank

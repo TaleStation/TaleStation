@@ -69,7 +69,7 @@ SUBSYSTEM_DEF(crewtransfer)
 		return FALSE
 
 	message_admins("Automatic crew transfer vote initiated.")
-	SSvote.initiate_vote("transfer", "the server", TRUE)
+	SSvote.initiate_vote(/datum/vote/transfer_vote, "the server", forced = TRUE)
 	return TRUE
 
 /// initiates the shuttle call and logs it.
