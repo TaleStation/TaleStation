@@ -154,7 +154,7 @@
 #define TRAIT_COLDBLOODED "coldblooded"
 
 /**
- * Sources5
+ * Sources
  */
 /// Source trait for Bloodsuckers-related traits
 #define BLOODSUCKER_TRAIT "bloodsucker_trait"

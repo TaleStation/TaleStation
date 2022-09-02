@@ -97,7 +97,7 @@
 #define ROLE_BATTLECRUISER_CAPTAIN "Battlecruiser Captain"
 #define ROLE_VENUSHUMANTRAP "Venus Human Trap"
 
-//  NON-MODULAR CHANGES: Bloodsuckers
+// NON-MODULAR CHANGES: Bloodsuckers
 #define ROLE_BLOODSUCKER "Bloodsucker"
 #define ROLE_VAMPIRICACCIDENT "Vampiric Accident"
 #define ROLE_BLOODSUCKERBREAKOUT "Bloodsucker Breakout"
@@ -147,11 +147,11 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_PAI = 0,
 	ROLE_SENTIENCE = 0,
 
-//  NON-MODULAR CHANGES: Blood suckers
+// NON-MODULAR CHANGES: Blood suckers
 	ROLE_BLOODSUCKER = 0,
 	ROLE_VAMPIRICACCIDENT = 0,
 	ROLE_BLOODSUCKERBREAKOUT = 0,
-	//  NON-MODULAR CHANGES END
+// NON-MODULAR CHANGES END
 ))
 
 //Job defines for what happens when you fail to qualify for any job during job selection

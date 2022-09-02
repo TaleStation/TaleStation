@@ -3,28 +3,25 @@
 //////////////////////
 
 /// Taken from drinks.dm
-/obj/item/reagent_containers/blood/attack(mob/user, mob/user, def_zone)
-	if(reagents.total_volume > 0)
-		if(user != user)
-			user.visible_message(
-				span_notice("[user] forces [user] to drink from the [src]."),
-				span_notice("You put the [src] up to [user]'s mouth."),
-			)
-			if(!do_mob(user, user, 5 SECONDS))
-				return
-		else
-			if(!do_mob(user, user, 1 SECONDS))
-				return
-			user.visible_message(
-				span_notice("[user] puts the [src] up to their mouth."),
-				span_notice("You take a sip from the [src]."),
-			)
-		// Safety: In case you spam clicked the blood bag on yourself, and it is now empty (below will divide by zero)
-		if(reagents.total_volume <= 0)
+/obj/item/reagent_containers/blood/attack(mob/target_mob, mob/user, def_zone)
+	if(!reagents.total_volume)
+		return ..()
+	if(target_mob != user)
+		user.visible_message(
+			span_notice("[user] forces [target_mob] to drink from the [src]."),
+			span_notice("You put the [src] up to [target_mob]'s mouth."),
+		)
+		if(!do_mob(user, target_mob, 5 SECONDS))
 			return
-		var/gulp_size = 5
-		reagents.trans_to(user, gulp_size, transfered_by = user, methods = INGEST)
-		playsound(user.loc, 'sound/items/drink.ogg', rand(10,50), 1)
+	else
+		if(!do_mob(user, target_mob, 1 SECONDS))
+			return
+		user.visible_message(
+			span_notice("[user] puts the [src] up to their mouth."),
+			span_notice("You take a sip from the [src]."),
+		)
+	reagents.trans_to(target_mob, 5, transfered_by = user, methods = INGEST)
+	playsound(target_mob.loc, 'sound/items/drink.ogg', rand(10,50), 1)
 	return ..()
 
 ///Bloodbag of Bloodsucker blood (used by Vassals only)
@@ -43,7 +40,7 @@
 //////////////////////
 
 /// Do I have any parts that need replacing?
-/* // Removed - Replaced with HealVampireOrgans()
+/* // Removed - Replaced with heal_vampire_organs()
 /datum/antagonist/bloodsucker/proc/CheckVampOrgans()
 	var/obj/item/organ/heart/vampiricheart = owner.current.getorganslot(ORGAN_SLOT_HEART)
 	if(!istype(vampiricheart, /obj/item/organ/internal/heart/vampheart) || !istype(vampiricheart, /obj/item/organ/heart/demon) || !istype(vampiricheart, /obj/item/organ/heart/cursed))
@@ -110,37 +107,36 @@
 
 /// Crafting
 /obj/item/stack/sheet/mineral/wood/attackby(obj/item/item, mob/user, params)
-	if(item.get_sharpness())
-		user.visible_message(
-			span_notice("[user] begins whittling [src] into a pointy object."),
-			span_notice("You begin whittling [src] into a sharp point at one end."),
-			span_hear("You hear wood carving."),
-		)
-		// 5 Second Timer
-		if(!do_after(user, 5 SECONDS, src, NONE, TRUE))
-			return
-		// Make Stake
-		var/obj/item/stake/new_item = new(user.loc)
-		user.visible_message(
-			span_notice("[user] finishes carving a stake out of [src]."),
-			span_notice("You finish carving a stake out of [src]."),
-		)
-		// Prepare to Put in Hands (if holding wood)
-		var/obj/item/stack/sheet/mineral/wood/wood_stack = src
-		var/replace = (user.get_inactive_held_item() == wood_stack)
-		// Use Wood
-		wood_stack.use(1)
-		// If stack depleted, put item in that hand (if it had one)
-		if(!wood_stack && replace)
-			user.put_in_hands(new_item)
+	if(!item.get_sharpness())
+		return ..()
+	user.visible_message(
+		span_notice("[user] begins whittling [src] into a pointy object."),
+		span_notice("You begin whittling [src] into a sharp point at one end."),
+		span_hear("You hear wood carving."),
+	)
+	// 5 Second Timer
+	if(!do_after(user, 5 SECONDS, src, NONE, TRUE))
 		return
-	return ..()
+	// Make Stake
+	var/obj/item/stake/new_item = new(user.loc)
+	user.visible_message(
+		span_notice("[user] finishes carving a stake out of [src]."),
+		span_notice("You finish carving a stake out of [src]."),
+	)
+	// Prepare to Put in Hands (if holding wood)
+	var/obj/item/stack/sheet/mineral/wood/wood_stack = src
+	var/replace = (user.get_inactive_held_item() == wood_stack)
+	// Use Wood
+	wood_stack.use(1)
+	// If stack depleted, put item in that hand (if it had one)
+	if(!wood_stack && replace)
+		user.put_in_hands(new_item)
 
 /// Do I have a stake in my heart?
-/mob/proc/AmStaked()
+/mob/proc/am_staked()
 	return FALSE
 
-/mob/living/AmStaked()
+/mob/living/am_staked()
 	var/obj/item/bodypart/chosen_bodypart = get_bodypart(BODY_ZONE_CHEST)
 	if(!chosen_bodypart)
 		return FALSE
@@ -319,9 +315,9 @@
 		// Are we a Bloodsucker | Are we on Masquerade. If one is true, they will fail.
 		if(IS_BLOODSUCKER(target) && !HAS_TRAIT(target, TRAIT_MASQUERADE) && bloodsuckerdatum.my_clan)
 			if(bloodsuckerdatum.broke_masquerade)
-				to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.ReturnFullName()]', is indeed a Bloodsucker, but you already knew this."))
+				to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.return_full_name()]', is indeed a Bloodsucker, but you already knew this."))
 				return
-			to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.ReturnFullName()]', is part of the [bloodsuckerdatum.my_clan]! You quickly note this information down, memorizing it."))
+			to_chat(user, span_warning("[target], also known as '[bloodsuckerdatum.return_full_name()]', is part of the [bloodsuckerdatum.my_clan]! You quickly note this information down, memorizing it."))
 			bloodsuckerdatum.break_masquerade()
 		else
 			to_chat(user, span_notice("You fail to draw any conclusions to [target] being a Bloodsucker."))
