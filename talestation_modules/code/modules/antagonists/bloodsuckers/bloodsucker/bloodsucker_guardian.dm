@@ -6,6 +6,7 @@
 	var/list/guardians = user.get_all_linked_holoparasites()
 	if(length(guardians)) //we do not want, under any case, several bloodsucker guardians
 		to_chat(user, span_holoparasite("You already have a [mob_name]!"))
+		used = FALSE
 		return
 
 	var/mob/living/simple_animal/hostile/guardian/punch/timestop/bloodsucker_guardian = new (user, theme)
