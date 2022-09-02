@@ -8,7 +8,7 @@
 	earliest_start = 20 MINUTES
 
 /datum/round_event/solar_flare
-	announceWhen = 5
+	announce_when = 5
 
 	/// Whether the event was announced or hidden
 	var/was_announced = TRUE
@@ -20,8 +20,8 @@
 	var/list/area/impacted_areas
 
 /datum/round_event/solar_flare/setup()
-	startWhen = rand(45, 90) // 1 == 1 second.
-	endWhen = startWhen + rand(90, 150)
+	start_when = rand(45, 90) // 1 == 1 second.
+	end_when = start_when + rand(90, 150)
 	time_between_flares += rand(-1, 1)
 
 	var/static/list/possible_choices = list(
