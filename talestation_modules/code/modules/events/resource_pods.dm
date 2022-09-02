@@ -37,7 +37,7 @@
 							[num_pods] of the resource caches are being shared with your station. They'll arrive shortly in: [impact_area.name].", "Nanotrasen News Network")
 
 /datum/round_event/resource_pods/setup()
-	startWhen = rand(10, 25)
+	start_when = rand(10, 25)
 	impact_area = find_event_area()
 	if(!impact_area)
 		stack_trace("Resource pods: No valid areas for cargo pod found.")
