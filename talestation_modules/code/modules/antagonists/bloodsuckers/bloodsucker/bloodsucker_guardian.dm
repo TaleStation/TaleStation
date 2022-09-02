@@ -1,30 +1,26 @@
 ///Bloodsuckers spawning a Guardian will get the Bloodsucker one instead.
 /obj/item/guardiancreator/spawn_guardian(mob/living/user, mob/dead/candidate)
+	if(!IS_BLOODSUCKER(user))
+		return ..()
+
 	var/list/guardians = user.get_all_linked_holoparasites()
-	if(length(guardians) && !allowmultiple)
-		to_chat(user, span_holoparasite("You already have a [mob_name]!"))
-		return
+	if(length(guardians))
+		return ..() //parent will deal with errors.
 
-	if(IS_BLOODSUCKER(user))
-		var/pickedtype = /mob/living/simple_animal/hostile/guardian/punch/timestop
-		var/mob/living/simple_animal/hostile/guardian/punch/timestop/bloodsucker_guardian = new pickedtype(user, theme)
-		bloodsucker_guardian.name = mob_name
-		bloodsucker_guardian.summoner = user
-		bloodsucker_guardian.key = candidate.key
-		bloodsucker_guardian.mind.enslave_mind_to_creator(user)
-		log_game("[key_name(user)] has summoned [key_name(bloodsucker_guardian)], a Timestop holoparasite.")
-		add_verb(user, list(
-			/mob/living/proc/guardian_comm,
-			/mob/living/proc/guardian_recall,
-			/mob/living/proc/guardian_reset,
-		))
-		to_chat(user, "[bloodsucker_guardian.magic_fluff_string]")
-		to_chat(user, span_holoparasite("<b>[bloodsucker_guardian.real_name]</b> has been summoned!"))
-		bloodsucker_guardian?.client.init_verbs()
-		return
-
-	// Call parent to deal with everyone else
-	return ..()
+	var/mob/living/simple_animal/hostile/guardian/punch/timestop/bloodsucker_guardian = new (user, theme)
+	bloodsucker_guardian.name = mob_name
+	bloodsucker_guardian.summoner = user
+	bloodsucker_guardian.key = candidate.key
+	bloodsucker_guardian.mind.enslave_mind_to_creator(user)
+	log_game("[key_name(user)] has summoned [key_name(bloodsucker_guardian)], a Timestop holoparasite.")
+	add_verb(user, list(
+		/mob/living/proc/guardian_comm,
+		/mob/living/proc/guardian_recall,
+		/mob/living/proc/guardian_reset,
+	))
+	to_chat(user, "[bloodsucker_guardian.magic_fluff_string]")
+	to_chat(user, span_holoparasite("<b>[bloodsucker_guardian.real_name]</b> has been summoned!"))
+	bloodsucker_guardian.client.init_verbs()
 
 ///The Guardian
 /mob/living/simple_animal/hostile/guardian/punch/timestop
