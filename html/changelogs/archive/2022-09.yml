@@ -18,3 +18,58 @@
   itseasytosee:
   - bugfix: The monkey and human rudimentary transform commands now function as intended.
   - bugfix: Monkeys won't stay on combat mode forever after getting pissed off.
+2022-09-02:
+  Fikou, thgvr, Snakebitten:
+  - balance: makes the standard quick carry modsuit module have nitrile level carrying
+      speed instead of latex level
+  - rscadd: adds a medical version of the prisoner capture modsuit module, for patient
+      transport, prisoner capture and patient transport now use new medical/security
+      hardlight bodybags, medical one deploying them faster. and security one being
+      able to be locked down. when you move too far out of range the holobag dissipates
+  - rscadd: adds a defibrillator modsuit module, extends shock paddles
+  - rscadd: adds a thread ripper modsuit module, this module temporarily rips away
+      the matter of clothing, to allow stuff like injections, surgery, defibrillation
+      etc through it
+  - rscadd: adds a surgery processor modsuit module, essentially a portable surgery
+      computer like borgs have
+  - bugfix: fixes a bug where you can unwield defibrillator paddles just after starting
+      the do_after to defib onehanded
+  - bugfix: fixes a bug where the modsuit gps would have a broken name when renamed
+  Melbert:
+  - bugfix: Wabbajacking a shapeshifted mob no longer runtimes horribly. When a shapeshifted
+      mob is wabbajacked, they'll now be removed from their shapeshift and stunned.
+  - bugfix: Transforming via a shapeshift should no longer rob you of your hearing
+      / runechat awareness.
+  - bugfix: Shapeshifting plays nicer with holoparasites.
+  - bugfix: Being polymorphed from a xeno to a non-xeno correctly makes you a non-xeno
+  - refactor: Refactored shapeshifting, the shapeshift holder is now a status effect
+      instead of an object.
+  - refactor: Heretic worm form is a shapeshift spell now, this might have some minor
+      behavioral changes but should overall be the same.
+  - refactor: Refactored Wabbajack (+ cursed pool). Overall a bit more clean / consistent
+      behavior.
+  ShizCalev:
+  - bugfix: Supplypods can no longer be destroyed by explosions BEFORE they land.
+  - bugfix: Monkeys can now actually resist things!
+  TaleStationBot:
+  - bugfix: Fixed autonamed/newly-built security cameras in areas using \improper
+      in their name showing up as static in security camera consoles. No, this is
+      the first attempt to do so, why do you ask?
+  - rscadd: A new kind of anomaly which transforms the area into some other kind of
+      material.
+  - bugfix: Supermatter delaminations can spawn bioscramblers again.
+  - rscadd: added an animation for using the *cry emote
+  - rscadd: getting peppersprayed causes you to cry
+  - code_imp: the blush overlay is now affected by the face offset
+  - bugfix: Monkeys can correctly find weapons again
+  - bugfix: Fix legion dead miners not spawning species
+  - bugfix: Fixes a couple of hard-deletes related to lua signal handlers.
+  - admin: The lua function `SS13.await` can now await non-sleeping, but extremely
+      expensive procs, such as `getFlatIcon`
+  - bugfix: fixed plasma mat ignition spitting room temperature plasma.
+  - bugfix: An APC and a Television Monitor in MetaStation Engineering Hallway will
+      no longer conflict visually.
+  - bugfix: Fix slimepeople soft landing showing message for stairs and self
+  itseasytosee:
+  - admin: Fixed quick admin spawned humans from observes not keeping preferences
+      (sorry)
