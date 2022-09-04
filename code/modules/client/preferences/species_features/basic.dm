@@ -1,11 +1,7 @@
 /proc/generate_possible_values_for_sprite_accessories_on_head(accessories)
 	var/list/values = possible_values_for_sprite_accessory_list(accessories)
 
-<<<<<<< HEAD
 	var/icon/head_icon = icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_head_m") // NON-MODULAR CHANGE - Uses our GS dmi
-=======
-	var/icon/head_icon = icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_head_m")
->>>>>>> be0e6efdf6b1 ([IDB IGNORE] [MDB IGNORE] Makes the icons/mob folder sane (#69302))
 	head_icon.Blend(skintone2hex("caucasian1"), ICON_MULTIPLY)
 
 	for (var/name in values)
