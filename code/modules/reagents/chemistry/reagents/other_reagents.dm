@@ -1433,6 +1433,7 @@
 		M.adjust_timed_status_effect(2 SECONDS, /datum/status_effect/confusion, max_duration = 5 SECONDS)
 	..()
 
+<<<<<<< HEAD
 /datum/reagent/nitrium_high_metabolization
 	name = "Nitrosyl plasmide"
 	description = "A highly reactive byproduct that stops you from sleeping, while dealing increasing toxin damage over time."
@@ -1583,6 +1584,8 @@
 	breather.adjustToxLoss(2 * REM * delta_time, FALSE)
 	..()
 	return TRUE
+=======
+>>>>>>> a9e4aae9004f (Breathing Pluox while sleeping slowly heals organ damage Take 2: No broken github edition. (#69320))
 /////////////////////////Colorful Powder////////////////////////////
 //For colouring in /proc/mix_color_from_reagents
 
