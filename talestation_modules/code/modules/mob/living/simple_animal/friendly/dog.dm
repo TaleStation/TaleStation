@@ -3,7 +3,7 @@
 	maxHealth = 100
 	name = "King Dufresne"
 	desc = "A cute, magical corgi! They say, his coat changes each time you see him!"
-	icon = 'icons/mob/pets.dmi'
+	icon = 'icons/mob/simple/pets.dmi'
 	icon_state = "corgigrey"
 	icon_living = "corgigrey"
 	icon_dead = "corgigrey_dead"

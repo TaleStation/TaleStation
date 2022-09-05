@@ -4,7 +4,7 @@
 
 	var/icon/tajaran = icon('talestation_modules/icons/mob/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
 
-	var/icon/eyes = icon('icons/mob/human_face.dmi', "eyes", EAST)
+	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
 	tajaran.Blend(eyes, ICON_OVERLAY)
 
