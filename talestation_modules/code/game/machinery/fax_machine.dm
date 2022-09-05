@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	. = ..()
 	GLOB.fax_machines += src
 	set_room_tag(TRUE)
-	wires = new /datum/wires/fax(src)
+	wires = new /datum/wires/fax_machine(src)
 
 /obj/machinery/fax_machine/Destroy()
 	QDEL_NULL(stored_paper)
@@ -778,11 +778,11 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	return PAPERWORK_SUCCESS
 
 /// Wires for the fax machine
-/datum/wires/fax
+/datum/wires/fax_machine
 	holder_type = /obj/machinery/fax_machine
 	proper_name = "Fax Machine"
 
-/datum/wires/fax/New(atom/holder)
+/datum/wires/fax_machine/New(atom/holder)
 	wires = list(
 		WIRE_SEND_FAXES,
 		WIRE_RECEIVE_FAXES,
@@ -791,7 +791,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	add_duds(1)
 	return ..()
 
-/datum/wires/fax/get_status()
+/datum/wires/fax_machine/get_status()
 	var/obj/machinery/fax_machine/machine = holder
 	var/list/status = list()
 	var/service_light_intensity
@@ -806,7 +806,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	status += "The bluespace transceiver is glowing [machine.can_receive_paperwork ? "blue" : "red"]."
 	return status
 
-/datum/wires/fax/on_pulse(wire, user)
+/datum/wires/fax_machine/on_pulse(wire, user)
 	var/obj/machinery/fax_machine/machine = holder
 	switch(wire)
 		if(WIRE_SEND_FAXES)
@@ -818,7 +818,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 				machine.receiving_enabled = FALSE
 				addtimer(VARSET_CALLBACK(machine, receiving_enabled, TRUE), 30 SECONDS)
 
-/datum/wires/fax/on_cut(wire, mend)
+/datum/wires/fax_machine/on_cut(wire, mend)
 	var/obj/machinery/fax_machine/machine = holder
 	switch(wire)
 		if(WIRE_SEND_FAXES)
