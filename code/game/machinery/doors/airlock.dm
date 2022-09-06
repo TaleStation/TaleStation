@@ -161,7 +161,6 @@
 	vis_contents += vis_overlay2
 	//NON-MODULAR CHANGES END
 	. = ..()
-<<<<<<< HEAD
 	//NON-MODULAR CHANGES: Aesthetic
 /* Multi tile doors, add these later - Jolly
 	if(multi_tile)
@@ -172,9 +171,7 @@
 	update_overlays()
 */
 	//NON-MODULAR CHANGES END
-=======
 	init_network_id(NETWORK_DOOR_AIRLOCKS)
->>>>>>> 930c5e635e9b (Moves "catch this var/flag" code from obj/init and datum/new into the types that use it  (#69634))
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
