@@ -75,14 +75,9 @@
 	sunlight_display.maptext = FORMAT_BLOODSUCKER_SUNLIGHT_TEXT(valuecolor, value_string)
 	sunlight_display.icon_state = sunlight_display_icon
 
-/// 1 tile down
 #undef UI_BLOOD_DISPLAY
-/// 2 tiles down
 #undef UI_VAMPRANK_DISPLAY
-/// 6 pixels to the right, zero tiles & 5 pixels DOWN.
 #undef UI_SUNLIGHT_DISPLAY
 
-///Maptext define for Bloodsucker HUDs
 #undef FORMAT_BLOODSUCKER_HUD_TEXT
-///Maptext define for Bloodsucker Sunlight HUDs
 #undef FORMAT_BLOODSUCKER_SUNLIGHT_TEXT
