@@ -149,8 +149,6 @@
 	flags_1 = HTML_USE_INITAL_ICON_1
 	rad_insulation = RAD_MEDIUM_INSULATION
 
-	network_id = NETWORK_DOOR_AIRLOCKS
-
 /obj/machinery/door/airlock/Initialize(mapload)
 	//NON-MODULAR CHANGES: Aesthetic
 	vis_overlay1 = new()
@@ -173,6 +171,7 @@
 	update_overlays()
 */
 	//NON-MODULAR CHANGES END
+	init_network_id(NETWORK_DOOR_AIRLOCKS)
 	wires = set_wires()
 	if(frequency)
 		set_frequency(frequency)
