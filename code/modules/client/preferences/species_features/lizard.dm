@@ -3,12 +3,12 @@
 
 	var/icon/lizard = icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "lizard_head_m", EAST) // NON-MODULAR CHANGE - Uses our GS dmi
 
-	var/icon/eyes = icon('icons/mob/human_face.dmi', "eyes", EAST)
+	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_GRAY, ICON_MULTIPLY)
 	lizard.Blend(eyes, ICON_OVERLAY)
 
 	if (include_snout)
-		lizard.Blend(icon('icons/mob/mutant_bodyparts.dmi', "m_snout_round_ADJ", EAST), ICON_OVERLAY)
+		lizard.Blend(icon('icons/mob/species/mutant_bodyparts.dmi', "m_snout_round_ADJ", EAST), ICON_OVERLAY)
 
 	for (var/name in sprite_accessories)
 		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
@@ -47,7 +47,7 @@
 
 		if (sprite_accessory.icon_state != "none")
 			var/icon/body_markings_icon = icon(
-				'icons/mob/mutant_bodyparts.dmi',
+				'icons/mob/species/mutant_bodyparts.dmi',
 				"m_body_markings_[sprite_accessory.icon_state]_ADJ",
 			)
 
