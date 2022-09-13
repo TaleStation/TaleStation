@@ -1,8 +1,8 @@
 GLOBAL_LIST_INIT(brass_recipes, list ( \
-	new /datum/stack_recipe("tinker's cache (can make replica fabricators, wraith specs, and truesight lenses)", /obj/structure/destructible/cult/item_dispenser/tinkers_cache, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("daemon forge (can make judicial visors, ratvarian spears, and brass hardened armor)", /obj/structure/destructible/cult/item_dispenser/daemon_forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("brass door (stuns non-cultists who attempt entry)", /obj/machinery/door/airlock/cult/brass, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
-	new /datum/stack_recipe("brass girder (can be destroyed by slabs in one hit)", /obj/structure/girder/brass, 1, time = 5 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
+	new /datum/stack_recipe("tinker's cache (can make replica fabricators, wraith specs, and truesight lenses)", /obj/structure/destructible/cult/item_dispenser/tinkers_cache, 3, time = 4 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new /datum/stack_recipe("daemon forge (can make judicial visors, ratvarian spears, and brass hardened armor)", /obj/structure/destructible/cult/item_dispenser/daemon_forge, 3, time = 4 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new /datum/stack_recipe("brass door (stuns non-cultists who attempt entry)", /obj/machinery/door/airlock/cult/brass, 1, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE), \
+	new /datum/stack_recipe("brass girder (can be destroyed by slabs in one hit)", /obj/structure/girder/brass, 1, time = 5 SECONDS, one_per_turf = TRUE, on_solid_ground = TRUE), \
 	))
 
 /datum/material/brass
