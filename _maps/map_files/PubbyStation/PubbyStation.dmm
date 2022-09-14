@@ -2278,6 +2278,7 @@
 "azx" = (
 /obj/structure/table/wood,
 /obj/item/pai_card,
+/obj/structure/cable,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "azy" = (
@@ -2285,6 +2286,7 @@
 /obj/item/toy/cards/deck{
 	pixel_x = 2
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "azG" = (
@@ -11504,9 +11506,14 @@
 /area/station/medical/medbay/central)
 "cON" = (
 /obj/effect/landmark/start/hangover,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "cOP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -12607,8 +12614,15 @@
 /area/station/maintenance/disposal/incinerator)
 "dqx" = (
 /obj/machinery/light/directional/east,
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/obj/item/radio/intercom/directional/east,
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "dqO" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -13024,6 +13038,13 @@
 /obj/structure/chair/stool/bar/directional/north,
 /turf/open/floor/carpet,
 /area/station/service/abandoned_gambling_den)
+"dEr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
 "dEJ" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -14759,6 +14780,14 @@
 /obj/effect/landmark/secequipment,
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/lockers)
+"enQ" = (
+/obj/structure/chair/comfy{
+	dir = 4
+	},
+/obj/effect/landmark/start/assistant,
+/obj/structure/cable,
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
 "eoo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -19516,9 +19545,13 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "gAv" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "gAz" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/blue,
@@ -21014,6 +21047,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "hjv" = (
@@ -21405,6 +21439,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "hvv" = (
@@ -22126,6 +22161,17 @@
 /obj/effect/mapping_helpers/airlock/access/any/service/bar,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
+"hPk" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/machinery/airalarm/directional/west,
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "hPT" = (
 /obj/machinery/door/airlock{
 	name = "Dining Room"
@@ -23406,6 +23452,14 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
+"iuh" = (
+/obj/structure/table,
+/obj/item/training_toolbox{
+	pixel_y = 5
+	},
+/obj/item/training_toolbox,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
 "iuy" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -26314,7 +26368,7 @@
 "jNg" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/closed/wall,
-/area/station/commons/fitness/recreation)
+/area/station/commons/cryopods)
 "jNt" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 1
@@ -26658,6 +26712,10 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den)
+"jXv" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
 "jXA" = (
 /obj/structure/table,
 /obj/item/stack/ore/iron,
@@ -28340,7 +28398,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/iron,
+/obj/structure/training_machine,
+/obj/item/target,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
 /area/station/commons/fitness/recreation)
 "kPm" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -32596,6 +32661,14 @@
 /obj/machinery/bluespace_beacon,
 /turf/open/floor/iron,
 /area/station/command/teleporter)
+"mFT" = (
+/obj/machinery/computer/cryopod/directional/north,
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "mGb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -33716,6 +33789,15 @@
 	luminosity = 2
 	},
 /area/station/maintenance/department/science)
+"niQ" = (
+/obj/machinery/cryopod{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "niU" = (
 /turf/open/floor/plating/airless,
 /area/station/ai_monitored/turret_protected/aisat_interior)
@@ -33738,7 +33820,16 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
+	},
 /area/station/commons/fitness/recreation)
 "nja" = (
 /obj/structure/sign/departments/restroom/directional/south,
@@ -35952,9 +36043,11 @@
 	dir = 4
 	},
 /obj/structure/closet/lasertag/blue,
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/iron/white/corner{
+/obj/effect/turf_decal/tile/green{
 	dir = 4
+	},
+/turf/open/floor/iron/white/corner{
+	dir = 1
 	},
 /area/station/commons/fitness/recreation)
 "okz" = (
@@ -38090,6 +38183,15 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
+"pls" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "plu" = (
 /obj/effect/spawner/random/contraband/prison,
 /obj/structure/closet/crate,
@@ -39390,10 +39492,18 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "pNN" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/door/airlock/public/glass{
+	name = "Cryopods"
+	},
+/obj/structure/cable,
+/obj/effect/landmark/navigate_destination,
+/obj/machinery/door/firedoor,
 /turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/area/station/commons/cryopods)
 "pOa" = (
 /obj/structure/table,
 /obj/item/storage/medkit/fire{
@@ -41426,10 +41536,11 @@
 /turf/open/floor/iron,
 /area/station/medical/medbay/lobby)
 "qKP" = (
-/obj/item/target,
-/obj/structure/training_machine,
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/structure/window/spawner/east,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/obj/structure/flora/bush/flowers_br/style_random,
+/turf/open/floor/grass,
+/area/station/commons/cryopods)
 "qLf" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -43590,12 +43701,16 @@
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "rKN" = (
-/obj/structure/closet/athletic_mixed,
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/iron/white/corner{
-	dir = 4
+/obj/machinery/cryopod{
+	dir = 8
 	},
-/area/station/commons/fitness/recreation)
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "rLv" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/telecomms,
@@ -45108,13 +45223,10 @@
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "szM" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/status_display/evac/directional/west,
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/station/commons/cryopods)
 "szT" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -46079,6 +46191,15 @@
 /obj/structure/disposalpipe/junction,
 /turf/closed/wall/r_wall,
 /area/station/science/xenobiology)
+"sYu" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
 "sYG" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
@@ -46617,6 +46738,12 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
+"tkJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness/recreation)
 "tla" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -49850,6 +49977,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "uJv" = (
@@ -51053,8 +51181,15 @@
 /area/station/hallway/secondary/entry)
 "vjU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/green/opposingcorners{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/cryopods)
 "vkd" = (
 /turf/closed/wall,
 /area/station/maintenance/department/science)
@@ -51843,13 +51978,9 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/security/lockers)
 "vEF" = (
-/obj/structure/closet/lasertag/red,
-/obj/effect/turf_decal/tile/blue,
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/white/corner{
-	dir = 4
-	},
-/area/station/commons/fitness/recreation)
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/station/commons/cryopods)
 "vEK" = (
 /obj/machinery/shower/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -52096,6 +52227,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "vKU" = (
@@ -53783,6 +53915,9 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/ordnance)
+"wyn" = (
+/turf/closed/wall,
+/area/station/commons/cryopods)
 "wys" = (
 /obj/effect/turf_decal/tile/purple{
 	dir = 8
@@ -55889,13 +56024,15 @@
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "xsE" = (
-/obj/structure/table,
-/obj/item/training_toolbox,
-/obj/item/training_toolbox{
-	pixel_y = 5
+/obj/item/toy/plush/lizard_plushie{
+	desc = "With real wheelchair action! Comes with a blindfold accessory.";
+	name = "Tends-The-Garden"
 	},
-/turf/open/floor/iron,
-/area/station/commons/fitness/recreation)
+/obj/structure/window/spawner/east,
+/obj/structure/flora/bush/flowers_yw/style_random,
+/obj/structure/flora/bush/flowers_pp/style_random,
+/turf/open/floor/grass,
+/area/station/commons/cryopods)
 "xsJ" = (
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
@@ -96495,7 +96632,7 @@ gKY
 aws
 ukG
 ukG
-ukG
+sYu
 qkS
 gLn
 gLn
@@ -96752,7 +96889,7 @@ luf
 awv
 ten
 azv
-azv
+enQ
 rlR
 com
 fLK
@@ -98030,9 +98167,9 @@ aaa
 aaa
 aaa
 aaa
-atn
-atn
-atn
+wyn
+wyn
+wyn
 jNg
 awv
 com
@@ -98286,11 +98423,11 @@ aaa
 aaa
 aaa
 aaa
-atn
-atn
+wyn
+wyn
 xsE
 qKP
-atn
+wyn
 aww
 axv
 kXy
@@ -98543,15 +98680,15 @@ aiT
 aiT
 aiS
 aiS
-aiS
-rmg
+wyn
+hPk
 cON
-pfF
+pls
 szM
 kPh
 xZZ
 xZZ
-pfF
+dEr
 pfF
 aBT
 atn
@@ -98800,15 +98937,15 @@ sFK
 sFK
 sFK
 sFK
-aiS
-rmg
+wyn
+mFT
 gAv
 vjU
 pNN
 niX
-vjU
+tkJ
 huJ
-rmg
+jXv
 pfF
 aBU
 atn
@@ -99057,8 +99194,8 @@ aiT
 aiT
 aiS
 sFK
-aiS
-rmg
+wyn
+niQ
 dqx
 rKN
 vEF
@@ -99314,14 +99451,14 @@ aaa
 aaa
 aiS
 sFK
-aiS
-aiS
-aiS
-aiS
-aiS
+wyn
+wyn
+wyn
+wyn
+wyn
 iYG
 plj
-rmg
+iuh
 caY
 pfF
 vLG
