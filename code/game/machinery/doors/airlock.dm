@@ -479,16 +479,6 @@
 	airlock_state = state
 
 	. = ..()
-<<<<<<< HEAD
-/* NON-MODULAR CHANGES: Aesthetics
-	if(hasPower() && unres_sides)
-		set_light(2, 1)
-	else
-		set_light(0)
-*/ //NON-MODULAR CHANGES END
-
-=======
->>>>>>> 4de3fc7d2106 (Removes light from airlocks with an unrestricted side, makes the overlay glow in the dark (#69758))
 
 /obj/machinery/door/airlock/update_icon_state()
 	. = ..()
@@ -498,10 +488,10 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
-/* NON-MODULAR CHANGES: Aesthetics
+
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
-
+/* NON-MODULAR CHANGES: Aesthetics
 	var/frame_state
 	var/light_state
 	switch(airlock_state)
@@ -557,27 +547,8 @@
 
 	if(frame_state == AIRLOCK_FRAME_CLOSED && seal)
 		. += get_airlock_overlay("sealed", overlays_file, em_block = TRUE)
-
+*/
 	if(hasPower() && unres_sides)
-<<<<<<< HEAD
-		if(unres_sides & NORTH)
-			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_n")
-			I.pixel_y = 32
-			. += I
-		if(unres_sides & SOUTH)
-			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_s")
-			I.pixel_y = -32
-			. += I
-		if(unres_sides & EAST)
-			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_e")
-			I.pixel_x = 32
-			. += I
-		if(unres_sides & WEST)
-			var/image/I = image(icon='icons/obj/doors/airlocks/station/overlays.dmi', icon_state="unres_w")
-			I.pixel_x = -32
-			. += I
-*/ //NON-MODULAR CHANGES END
-=======
 		for(var/heading in list(NORTH,SOUTH,EAST,WEST))
 			if(!(unres_sides & heading))
 				continue
@@ -597,7 +568,6 @@
 					floorlight.pixel_x = -32
 					floorlight.pixel_y = 0
 			. += floorlight
->>>>>>> 4de3fc7d2106 (Removes light from airlocks with an unrestricted side, makes the overlay glow in the dark (#69758))
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
