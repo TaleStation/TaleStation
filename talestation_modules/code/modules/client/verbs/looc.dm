@@ -18,9 +18,6 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 
 	// Run through some checks for non-admins
 	if(!holder)
-		if(!GLOB.ooc_allowed) // If OOC is disabled LOOC probably should be, too
-			to_chat(src, span_danger("All OOC is globally muted."))
-			return
 		if(!GLOB.looc_allowed)
 			to_chat(src, span_danger("LOOC is globally muted."))
 			return
