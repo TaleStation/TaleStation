@@ -88,7 +88,12 @@
 		return
 	var/atom/drop_loc = owner.drop_location()
 
+<<<<<<< HEAD
 	SEND_SIGNAL(owner, COMSIG_CARBON_REMOVE_LIMB, src, dismembered, special) // NON-MODULAR CHANGE
+=======
+	SEND_SIGNAL(owner, COMSIG_CARBON_REMOVE_LIMB, src, dismembered)
+	SEND_SIGNAL(src, COMSIG_BODYPART_REMOVED, owner, dismembered)
+>>>>>>> 6baebf47a129 (Completely refactors hallucinations, and also adds a few  (#69706))
 	update_limb(1)
 	owner.remove_bodypart(src)
 
