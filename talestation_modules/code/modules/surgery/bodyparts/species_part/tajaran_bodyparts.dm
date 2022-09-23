@@ -28,7 +28,7 @@
 
 /obj/item/bodypart/l_leg/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	limb_id = BODYPART_TYPE_DIGITIGRADE
+	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/l_leg/tajaran/digitigrade/tajaran/update_limb(dropping_limb = FALSE, is_creating = FALSE)
@@ -43,14 +43,14 @@
 			suit_compatible = TRUE
 
 		if((uniform_compatible && suit_compatible) || (suit_compatible && human_owner.wear_suit?.flags_inv & HIDEJUMPSUIT)) //If the uniform is hidden, it doesnt matter if its compatible
-			limb_id = BODYPART_TYPE_DIGITIGRADE
+			limb_id = BODYPART_ID_DIGITIGRADE
 
 		else
 			limb_id = SPECIES_TAJARAN
 
 /obj/item/bodypart/r_leg/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	limb_id = BODYPART_TYPE_DIGITIGRADE
+	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
 /obj/item/bodypart/r_leg/tajaran/digitigrade/tajaran/update_limb(dropping_limb = FALSE, is_creating = FALSE)
@@ -65,7 +65,7 @@
 			suit_compatible = TRUE
 
 		if((uniform_compatible && suit_compatible) || (suit_compatible && human_owner.wear_suit?.flags_inv & HIDEJUMPSUIT)) //If the uniform is hidden, it doesnt matter if its compatible
-			limb_id = BODYPART_TYPE_DIGITIGRADE
+			limb_id = BODYPART_ID_DIGITIGRADE
 
 		else
 			limb_id = SPECIES_TAJARAN
