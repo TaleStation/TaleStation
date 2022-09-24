@@ -614,3 +614,57 @@
   TaleStationBot:
   - admin: Antag panels now properly show team antagonists, instead of showing them
       as empty.
+2022-09-24:
+  Melbert:
+  - rscadd: Added a few new hallucinations. Find them all, but don't lose your head!
+  - refactor: Refactored most existing hallucinations. Let me know if any of them
+      are acting funky.
+  - refactor: RDS quirk is now a brain trauma. The hallucinations brain trauma can
+      now be paused with Mindbreaker, like RDS.
+  - refactor: Refactored hallucination into a status effect. This means cyborgs and
+      simplemobs can (hypothetically) hallucinate now. In most cases they shouldn't
+      though.
+  - refactor: Refactored fake hud into a status effect.
+  - bugfix: Fixes some hallucinations acting improperly. There were multiple cases
+      of hallucinations using incorrect icon states which made them completely un-noticable.
+  - admin: You can now force specific mass hallucinations.
+  - admin: You can now force specific outcomes of some hallucinations, such as delusions,
+      fake alerts, fake sounds, and more. Check the VV dropdown.
+  - code_imp: Changed some shocked flags into one shocked trait
+  Pizzie11:
+  - bugfix: Important Documents received in the mail are now visible
+  ShizCalev:
+  - imageadd: Tablets and PDAs now have inhand icons.
+  - bugfix: Fixed a bunch of cult abilities not working.
+  - bugfix: Fixed crowbars hitting ovens during deconstruction.
+  - admin: Moved signal overriden stack_trace warnings to it's own log file.
+  TaleStationBot:
+  - imageadd: Nanotrasen Grilling Jorts have received a cosmetic upgrade
+  - refactor: Maploading has been optimized significantly, as has ruin generation
+      and other lavaland stuff. Let me know if anything goes fucky
+  - spellcheck: corrects plural spelling when slicing objects
+  - admin: When a voice analyzer is attached to a bomb or a chemical grenade, the
+      respective logs to game as well as the message_admins will contain the recorded
+      phrase on that voice analyzer.
+  - bugfix: Voice analyzers should now properly trigger TTVs to blow up.
+  - bugfix: The air vent outside RnD on Icebox is no longer hidden by the Experimental
+      Destructive Scanner
+  - bugfix: Robotic limbs are once again style-able using a spraycan.
+  - bugfix: You no longer keep items you shouldn't be wearing (collars) when changing
+      into a species that can't wear them anymore.
+  - bugfix: Adds Missing GPSs to Icebox Public Mining.
+  - bugfix: Fixed non-printed airlock shells from not triggering the 'Airlock Access
+      Event' circuit component.
+  - bugfix: fixed two broken sprites for drinking and shot glasses.
+  - admin: Admins can now View Notes directly from a Ticket Panel.
+  - balance: AI restorer app now requires RD access to download.
+  - bugfix: Nukie tablets now properly show when a nuke is going off in their examine.
+  - balance: Tablet's charge and AI holder parts have been removed entirely. Tablets
+      now only have a cell, and computers only use their area's APC.
+  - code_imp: Modular computer's power handling, the AI restorer app's functionality,
+      and modular computer's examining has been refactored, please report any bugs
+      you might find.
+  - bugfix: cutting onions actually makes you cry (better put some goggles on!)
+  - bugfix: The radio in icebox tool storage is no longer an implant
+  VexingRaven:
+  - bugfix: Mortar and pestle no longer create infinite reagents
