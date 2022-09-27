@@ -563,6 +563,51 @@
 /obj/structure/door_assembly/door_assembly_hydro
 	icon = 'talestation_modules/icons/obj/doors/airlocks/station/botany.dmi'
 
+/*
+*
+* Firelock related items
+*
+*/
+
+/obj/machinery/door/firedoor
+	name = "emergency shutter"
+	desc = "Emergency air-tight shutter, capable of sealing off breached areas. This one has a glass panel. It has a mechanism to open it with just your hands."
+	icon = 'talestation_modules/icons/obj/doors/firedoor_glass.dmi'
+
+/obj/machinery/door/firedoor/heavy
+	name = "heavy emergency shutter"
+	desc = "Emergency air-tight shutter, capable of sealing off breached areas. It has a mechanism to open it with just your hands."
+	icon = 'talestation_modules/icons/obj/doors/firedoor.dmi'
+
+/obj/effect/spawner/structure/window/reinforced/no_firelock
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile)
+
+/obj/machinery/door/firedoor/closed
+	alarm_type = FIRELOCK_ALARM_TYPE_GENERIC
+
+/*
+*
+* Pod door related items
+*
+*/
+
+/obj/machinery/door/poddoor
+	icon = 'talestation_modules/icons/obj/doors/blast_door.dmi'
+	var/door_sound = 'talestation_modules/sound/machines/blastdoors/blast_door.ogg'
+
+/obj/machinery/door/poddoor/shutters
+	var/door_open_sound = 'talestation_modules/sound/machines/blastdoors/shutters_open.ogg'
+	var/door_close_sound = 'talestation_modules/sound/machines/blastdoors/shutters_close.ogg'
+
+/obj/machinery/door/poddoor/shutters/do_animate(animation)
+	switch(animation)
+		if("opening")
+			flick("opening", src)
+			playsound(src, door_open_sound, 30, TRUE)
+		if("closing")
+			flick("closing", src)
+			playsound(src, door_close_sound, 30, TRUE)
+
 #undef AIRLOCK_LIGHT_POWER
 #undef AIRLOCK_LIGHT_RANGE
 
