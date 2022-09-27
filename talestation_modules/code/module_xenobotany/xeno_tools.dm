@@ -1,6 +1,3 @@
-// Modular hydro items
-
-// - - XenoBotany Items - -
 
 //XenoBotany Analyzer
 /obj/item/xeno_analyzer

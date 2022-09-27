@@ -1,4 +1,9 @@
-// Modular seed extractor stuff
+
+// Xeno seed extractor
+/obj/item/circuitboard/machine/seed_extractor/xeno
+	name = "XenoBotany Seed Extractor (Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_SCIENCE
+	build_path = /obj/machinery/seed_extractor/xeno
 
 // Var overrides
 /obj/machinery/seed_extractor

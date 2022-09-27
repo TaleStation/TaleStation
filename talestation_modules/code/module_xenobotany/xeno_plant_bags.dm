@@ -1,4 +1,3 @@
-// Modular bag items
 
 // Var addition to plant bags for XenoBotany
 /obj/item/storage/bag/plants

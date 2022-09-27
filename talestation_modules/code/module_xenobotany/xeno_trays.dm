@@ -1,5 +1,10 @@
-// Modular machine circuit boards
 
+// Adds var to typepath
+/obj/machinery/hydroponics
+	//Determines if we want to accept alien seeds
+	var/accepts_alien_seeds = FALSE
+
+// Xeno hydroponics tray
 /obj/item/circuitboard/machine/hydroponics/xeno
 	name = "XenoBotany Hydroponics Tray (Machine Board)"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
@@ -10,7 +15,8 @@
 		/obj/item/stack/sheet/glass = 2,
 		/obj/item/stack/cable_coil = 4)
 
-/obj/item/circuitboard/machine/seed_extractor/xeno
-	name = "XenoBotany Seed Extractor (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
-	build_path = /obj/machinery/seed_extractor/xeno
+//Xenobotany trays; we grow weird shit
+/obj/machinery/hydroponics/xeno_tray
+	circuit = /obj/item/circuitboard/machine/hydroponics/xeno
+	accepts_alien_seeds = TRUE
+	icon_state = "hydrotray2"
