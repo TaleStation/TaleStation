@@ -353,7 +353,6 @@ to avoid an untimely and sudden death by fire or suffocation at the start of the
 	preferences.apply_prefs_to(body, TRUE)
 	body.equip_outfit_and_loadout(loadout, preferences, TRUE)
 
-	COMPILE_OVERLAYS(body)
 	appearance = body.appearance
 
 /*
