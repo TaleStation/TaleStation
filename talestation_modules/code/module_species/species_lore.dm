@@ -1,12 +1,5 @@
-// Modular humans
 
-// Adds tails and ears to humans
-/datum/species/human
-	mutant_bodyparts = list("wings" = "None", "ears" = "None", "tail" = "None")
-	external_organs = list(
-		/obj/item/organ/external/tail/cat = "None",
-	)
-
+// Human lore + perk
 /datum/species/human/create_pref_unique_perks()
 	var/list/to_add = list()
 
@@ -31,3 +24,21 @@
 		))
 
 	return to_add
+
+// Jelly lore
+/datum/species/jelly/get_species_description()
+	return "Work in Progress."
+
+/datum/species/jelly/get_species_lore()
+	return list(
+		"Work in Progress.",
+	)
+
+// Pod lore
+/datum/species/pod/get_species_description()
+	return "Work in Progress."
+
+/datum/species/pod/get_species_lore()
+	return list(
+		"Work in Progress.",
+	)

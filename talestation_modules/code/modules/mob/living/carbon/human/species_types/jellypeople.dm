@@ -20,11 +20,3 @@
 	human.update_body()
 	human.update_body_parts(update_limb_data = TRUE)
 
-// Description and lore
-/datum/species/jelly/get_species_description()
-	return "Work in Progress."
-
-/datum/species/jelly/get_species_lore()
-	return list(
-		"Work in Progress.",
-	)

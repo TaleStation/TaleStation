@@ -1,4 +1,3 @@
-// Modular ears
 
 /obj/item/organ/internal/ears/cat/cybernetic
 	name = "cybernetic cat ears"

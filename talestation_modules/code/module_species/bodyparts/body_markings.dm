@@ -1,4 +1,3 @@
-// Modular body markings
 
 // Tajaran markings
 /datum/preference/choiced/tajaran_body_markings

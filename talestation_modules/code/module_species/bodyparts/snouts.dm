@@ -1,5 +1,3 @@
-// Modular snouts
-// Furries gross
 
 // Tajaran snouts
 /obj/item/organ/external/snout/tajaran_snout
