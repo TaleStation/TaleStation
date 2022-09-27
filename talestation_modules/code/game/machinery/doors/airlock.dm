@@ -149,7 +149,7 @@
 		. += get_airlock_overlay(get_note_state(frame_state), note_overlay_file, em_block = TRUE)
 
 	if(frame_state == AIRLOCK_FRAME_CLOSED && seal)
-		. += get_airlock_overlay("sealed", overlays_file, em_block = TRUE)
+		. += get_airlock_overlay("sealed", overlays_file, src, em_block = TRUE)
 
 	if(hasPower() && unres_sides)
 		if(unres_sides & NORTH)

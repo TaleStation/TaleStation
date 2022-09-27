@@ -393,12 +393,8 @@ GLOBAL_LIST_INIT(gas_id_to_canister, init_gas_id_to_canister())
 			. += emissive_appearance(canister_overlay_file, "can-1-light", src, alpha = src.alpha)
 		if((10) to (5 * ONE_ATMOSPHERE))
 			. += mutable_appearance(canister_overlay_file, "can-0")
-<<<<<<< HEAD
-			. += emissive_appearance(canister_overlay_file, "can-0-light", alpha = src.alpha)
-=======
 			. += emissive_appearance(canister_overlay_file, "can-0-light", src, alpha = src.alpha)
 
->>>>>>> 23bfdec8f430 (Multiz Rework: Human Suffering Edition (Contains PLANE CUBE) (#69115))
 	update_window()
 
 /obj/machinery/portable_atmospherics/canister/update_greyscale()

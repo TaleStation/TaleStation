@@ -31,8 +31,6 @@
 #define VISOR_DARKNESSVIEW (1<<3)
 #define VISOR_INVISVIEW (1<<4)
 
-<<<<<<< HEAD
-=======
 // BYOND internal values for the sight flags
 // See [https://www.byond.com/docs/ref/#/mob/var/sight]
 /// can't see anything
@@ -59,4 +57,3 @@
 /// Bitfield of sight flags that show things "inside" the blackness plane
 /// We've gotta alpha it down if we get this, cause otherwise the sight flag won't work
 #define BLACKNESS_CUTTING (SEE_MOBS|SEE_OBJS|SEE_TURFS|SEE_TURFS|SEE_TURFS)
->>>>>>> 23bfdec8f430 (Multiz Rework: Human Suffering Edition (Contains PLANE CUBE) (#69115))

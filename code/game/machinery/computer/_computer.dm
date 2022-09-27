@@ -43,13 +43,8 @@
 	if(machine_stat & NOPOWER) // Your screen can't be on if you've got no damn charge
 		return
 
-	. += mutable_appearance(icon, icon_screen)
-<<<<<<< HEAD
-	. += emissive_appearance(icon, icon_screen)
-*/ // NON-MODULAR CHANGES END
-=======
 	. += emissive_appearance(icon, icon_screen, src)
->>>>>>> 23bfdec8f430 (Multiz Rework: Human Suffering Edition (Contains PLANE CUBE) (#69115))
+*/ // NON-MODULAR CHANGES END
 
 /obj/machinery/computer/power_change()
 	. = ..()

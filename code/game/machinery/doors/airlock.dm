@@ -549,13 +549,8 @@
 		. += get_airlock_overlay(get_note_state(frame_state), note_overlay_file, src, em_block = TRUE)
 
 	if(frame_state == AIRLOCK_FRAME_CLOSED && seal)
-<<<<<<< HEAD
-		. += get_airlock_overlay("sealed", overlays_file, em_block = TRUE)
-*/
-=======
 		. += get_airlock_overlay("sealed", overlays_file, src, em_block = TRUE)
-
->>>>>>> 23bfdec8f430 (Multiz Rework: Human Suffering Edition (Contains PLANE CUBE) (#69115))
+*/
 	if(hasPower() && unres_sides)
 		for(var/heading in list(NORTH,SOUTH,EAST,WEST))
 			if(!(unres_sides & heading))
