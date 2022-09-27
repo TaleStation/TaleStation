@@ -1,6 +1,3 @@
-// Modular computer.dm
-
-
 // Code from SkyRat
 
 /obj/machinery/computer
@@ -80,3 +77,51 @@
 	for(var/obj/machinery/computer/selected in range(1,src))
 		addtimer(CALLBACK(selected, .proc/callback_proc_issue), 2)
 	qdel(src)
+
+/*
+*
+* Vars added past this point
+*
+*/
+
+/obj/machinery/computer/arcade
+	connectable = FALSE
+
+/obj/machinery/computer/security/wooden_tv
+	connectable = FALSE
+
+/obj/machinery/computer/security/telescreen
+	connectable = FALSE
+
+/obj/machinery/computer/med_data/laptop
+	connectable = FALSE
+
+/obj/machinery/computer/pod/old
+	connectable = FALSE
+
+/obj/machinery/computer/secure_data/laptop
+	connectable = FALSE
+
+/obj/machinery/computer/camera_advanced/abductor
+	connectable = FALSE
+
+/obj/machinery/computer/libraryconsole
+	connectable = FALSE
+
+/obj/machinery/computer/libraryconsole/bookmanagement
+	connectable = FALSE
+
+/obj/machinery/computer/auxiliary_base
+	connectable = FALSE
+
+/obj/machinery/computer/pandemic
+	connectable = FALSE
+
+/obj/machinery/computer/shuttle/pod
+	connectable = FALSE
+
+/obj/machinery/computer/shuttle/syndicate/drop_pod
+	connectable = FALSE
+
+/obj/machinery/computer/slot_machine
+	connectable = FALSE

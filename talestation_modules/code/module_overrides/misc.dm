@@ -31,3 +31,15 @@
 // Foam tank icon override
 /obj/structure/reagent_dispensers/foamtank
 	icon = 'talestation_modules/icons/obj/chemical_tanks.dmi'
+
+// Camera icon override
+/obj/machinery/camera
+	icon = 'talestation_modules/icons/obj/machines/camera.dmi'
+
+// Camera wallframe icon override
+/obj/item/wallframe/camera
+	icon = 'talestation_modules/icons/obj/machines/camera.dmi'
+
+// Camera assembly icon override
+/obj/structure/camera_assembly
+	icon = 'talestation_modules/icons/obj/machines/camera.dmi'
