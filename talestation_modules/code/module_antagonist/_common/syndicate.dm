@@ -16,3 +16,7 @@
 
 /datum/job/clown_operative
 	faction_alignment = JOB_SYNDICATE
+
+/datum/job/infiltrator
+	title = ROLE_INFILTRATOR
+	faction_alignment = JOB_SYNDICATE
