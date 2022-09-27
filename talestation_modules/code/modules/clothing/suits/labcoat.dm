@@ -6,13 +6,6 @@
 	icon = 'talestation_modules/icons/obj/clothing/suit.dmi'
 	worn_icon = 'talestation_modules/icons/mob/clothing/suit.dmi'
 
-/obj/item/clothing/suit/toggle/labcoat/toxic
-	name = "ordnance technician labcoat"
-	desc = "A suit that protects against plasma exposure. Has a turquoise stripe on the shoulder."
-	icon_state = "labcoat_ordnance"
-	icon = 'talestation_modules/icons/obj/clothing/suit.dmi'
-	worn_icon = 'talestation_modules/icons/mob/clothing/suit.dmi'
-
 /// -- RD's Alternative Suit. Pretty much a labcoat without the toggle.
 /obj/item/clothing/suit/rd_robes
 	name = "research robes"

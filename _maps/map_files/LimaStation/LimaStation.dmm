@@ -1651,10 +1651,10 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
+/obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "aLS" = (
@@ -3441,6 +3441,14 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/station/commons/toilet)
+"bwh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/duct,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/white,
+/area/station/medical/cryo)
 "bwi" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -4853,7 +4861,7 @@
 /area/station/tcommsat/server)
 "bZd" = (
 /obj/docking_port/stationary/random{
-	id = "pod_lavaland2";
+	shuttle_id = "pod_lavaland2";
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
@@ -5542,10 +5550,10 @@
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/hop)
 "cpL" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "cpO" = (
@@ -6255,7 +6263,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/effect/landmark/start/ordnance_tech,
 /turf/open/floor/iron,
 /area/station/science/ordnance)
 "cDb" = (
@@ -9747,11 +9754,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
-"dVy" = (
-/obj/structure/lattice,
-/obj/effect/spawner/random/trash/grille_or_waste,
-/turf/open/space/openspace,
-/area/space/nearstation)
 "dVB" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
@@ -10177,7 +10179,7 @@
 /obj/docking_port/stationary{
 	dwidth = 2;
 	height = 13;
-	id = "ferry_home";
+	shuttle_id = "ferry_home";
 	name = "port bay 2";
 	width = 5
 	},
@@ -12480,6 +12482,7 @@
 /area/station/maintenance/fore)
 "eYo" = (
 /obj/effect/landmark/start/medical_doctor,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "eYy" = (
@@ -13755,7 +13758,7 @@
 	dir = 4;
 	dwidth = 3;
 	height = 5;
-	id = "mining_home";
+	shuttle_id = "mining_home";
 	name = "mining shuttle bay";
 	roundstart_template = /datum/map_template/shuttle/mining/lima;
 	width = 7
@@ -13815,11 +13818,21 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos/upper)
 "fvb" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /obj/machinery/status_display/evac/directional/north,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
+/obj/structure/table,
+/obj/item/reagent_containers/cup/beaker/cryoxadone{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/cup/beaker/cryoxadone{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/item/storage/pill_bottle/mannitol,
+/obj/item/wrench/medical,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "fvp" = (
@@ -14384,12 +14397,13 @@
 /area/station/engineering/atmos/hfr_room)
 "fIO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden{
+	dir = 4
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
@@ -15328,7 +15342,6 @@
 /turf/open/floor/iron/checker,
 /area/station/security/prison)
 "fZB" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/duct,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
@@ -20476,7 +20489,7 @@
 	dir = 8;
 	dwidth = 4;
 	height = 9;
-	id = "aux_base_zone";
+	shuttle_id = "aux_base_zone";
 	name = "aux base zone";
 	roundstart_template = /datum/map_template/shuttle/aux_base/default;
 	width = 9
@@ -20756,6 +20769,8 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/duct,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "icK" = (
@@ -23399,6 +23414,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "jfm" = (
@@ -26100,7 +26117,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/start/ordnance_tech,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron,
 /area/station/science/ordnance/testlab)
 "kbW" = (
@@ -26384,7 +26401,6 @@
 /area/station/science/ordnance/storage)
 "khk" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
@@ -26697,7 +26713,7 @@
 	dir = 8;
 	dwidth = 11;
 	height = 18;
-	id = "whiteship_home";
+	shuttle_id = "whiteship_home";
 	name = "SS13: Auxiliary Dock, Station-Fore";
 	width = 36
 	},
@@ -29282,7 +29298,7 @@
 	dir = 8;
 	dwidth = 11;
 	height = 18;
-	id = "whiteship_home";
+	shuttle_id = "whiteship_home";
 	name = "SS13: Auxiliary Dock, Station-Lower";
 	width = 30
 	},
@@ -29880,6 +29896,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "luh" = (
@@ -30576,7 +30594,7 @@
 /obj/docking_port/stationary{
 	dwidth = 3;
 	height = 15;
-	id = "arrivals_stationary";
+	shuttle_id = "arrival_stationary";
 	name = "arrivals";
 	roundstart_template = /datum/map_template/shuttle/arrival/box;
 	width = 7
@@ -32506,10 +32524,7 @@
 	c_tag = "Dormitory - Cryogenics";
 	dir = 5
 	},
-/obj/machinery/computer/cryopod{
-	dir = 1;
-	pixel_y = -25
-	},
+/obj/machinery/computer/cryopod/directional/south,
 /turf/open/floor/iron/freezer,
 /area/station/commons/cryopods)
 "mqn" = (
@@ -33527,10 +33542,6 @@
 /obj/effect/landmark/start/station_engineer,
 /turf/open/floor/iron/smooth,
 /area/station/engineering/main)
-"mKD" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/visible,
-/turf/closed/wall,
-/area/station/medical/cryo)
 "mKY" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -36319,6 +36330,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "nJi" = (
@@ -37190,18 +37203,10 @@
 	dir = 5;
 	network = list("ss13","medbay")
 	},
-/obj/structure/table,
-/obj/item/reagent_containers/cup/beaker/cryoxadone{
-	pixel_x = -7;
-	pixel_y = 1
-	},
-/obj/item/reagent_containers/cup/beaker/cryoxadone{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/wrench/medical,
-/obj/item/storage/pill_bottle/mannitol,
 /obj/effect/turf_decal/trimline/blue/filled/line,
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "ocQ" = (
@@ -38343,14 +38348,11 @@
 /area/station/medical/virology)
 "oyw" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/duct,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/trinary/filter/atmos/co2,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "oyC" = (
@@ -38425,7 +38427,7 @@
 	dir = 8;
 	dwidth = 2;
 	height = 5;
-	id = "laborcamp_home";
+	shuttle_id = "laborcamp_home";
 	name = "fore bay 1";
 	roundstart_template = /datum/map_template/shuttle/labour/lima;
 	width = 9
@@ -39517,8 +39519,8 @@
 /area/station/security/prison/garden)
 "oUo" = (
 /obj/structure/chair/office/light,
-/obj/effect/landmark/start/ordnance_tech,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/wood,
 /area/station/science/ordnance/office)
 "oUG" = (
@@ -40090,6 +40092,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/door/firedoor,
+/obj/effect/landmark/navigate_destination,
 /turf/open/floor/iron/freezer,
 /area/station/commons/cryopods)
 "peH" = (
@@ -40270,7 +40273,7 @@
 	dir = 2;
 	dwidth = 3;
 	height = 5;
-	id = "commonmining_home";
+	shuttle_id = "commonmining_home";
 	name = "SS13: Common Mining Dock";
 	roundstart_template = /datum/map_template/shuttle/mining_common/meta;
 	width = 7
@@ -40416,6 +40419,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "pme" = (
@@ -40490,7 +40494,7 @@
 	dir = 2;
 	dwidth = 14;
 	height = 17;
-	id = "emergency_home";
+	shuttle_id = "emergency_home";
 	name = "LimaStation emergency evac bay";
 	width = 35
 	},
@@ -40595,7 +40599,7 @@
 "ppH" = (
 /obj/docking_port/stationary/random{
 	dir = 4;
-	id = "pod_lavaland4";
+	shuttle_id = "pod_lavaland4";
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
@@ -41015,7 +41019,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/start/ordnance_tech,
 /turf/open/floor/iron,
 /area/station/science/ordnance/storage)
 "pyb" = (
@@ -42249,11 +42252,11 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/firealarm/directional/south,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
+/obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "pVj" = (
@@ -46650,9 +46653,11 @@
 /turf/open/floor/wood,
 /area/station/service/library)
 "rAN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
@@ -47668,6 +47673,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "rUu" = (
@@ -48530,7 +48536,7 @@
 /area/station/maintenance/port/lower)
 "sjY" = (
 /obj/docking_port/stationary/random{
-	id = "pod_2_lavaland";
+	shuttle_id = "pod_2_lavaland";
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
@@ -49598,10 +49604,6 @@
 /obj/machinery/computer/telecomms/monitor,
 /turf/open/floor/iron/showroomfloor,
 /area/station/tcommsat/computer)
-"sDa" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/closed/wall,
-/area/station/medical/storage)
 "sDg" = (
 /turf/closed/wall,
 /area/station/engineering/atmos/experiment_room)
@@ -49657,7 +49659,7 @@
 	},
 /obj/machinery/light/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/landmark/start/ordnance_tech,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron/dark,
 /area/station/science/ordnance)
 "sEj" = (
@@ -52350,7 +52352,7 @@
 "tDm" = (
 /obj/docking_port/stationary/random{
 	dir = 8;
-	id = "pod_lavaland1";
+	shuttle_id = "pod_lavaland1";
 	name = "lavaland"
 	},
 /turf/open/space/openspace,
@@ -57188,6 +57190,8 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "vyI" = (
@@ -59558,9 +59562,10 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "wvb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/duct,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/white,
 /area/station/medical/cryo)
 "wvd" = (
@@ -61955,7 +61960,6 @@
 	pixel_y = -32
 	},
 /obj/structure/sink/directional/west,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
@@ -63075,7 +63079,7 @@
 	dir = 8;
 	dwidth = 4;
 	height = 7;
-	id = "supply_home";
+	shuttle_id = "supply_home";
 	name = "Cargo Bay";
 	width = 10
 	},
@@ -64135,6 +64139,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/landmark/start/scientist,
 /turf/open/floor/iron,
 /area/station/science/ordnance/storage)
 "yiY" = (
@@ -168224,8 +168229,8 @@ vqK
 jtY
 aQO
 dwj
-sDa
-mKD
+hmb
+bbR
 fvb
 rAN
 cpL
@@ -168485,7 +168490,7 @@ hmb
 bzI
 plS
 wvb
-wvb
+bwh
 icF
 jfh
 ocL
@@ -177554,7 +177559,7 @@ hin
 wkj
 xzK
 jWW
-qQm
+jWW
 xzK
 xzK
 xzK
@@ -177810,7 +177815,7 @@ wkj
 wkj
 kkX
 xzK
-dVy
+jWW
 jWW
 xzK
 xzK

@@ -9,12 +9,6 @@ GLOBAL_LIST_EMPTY(locker_landmarks)
 	icon = 'talestation_modules/icons/mob/landmarks.dmi'
 	icon_state = "Xenobiologist"
 
-// Toxins start location
-/obj/effect/landmark/start/ordnance_tech
-	name = "Ordnance Technician"
-	icon = 'talestation_modules/icons/mob/landmarks.dmi'
-	icon_state = "Ordnance_Technician"
-
 // BO start location
 /obj/effect/landmark/start/bridge_officer
 	name = "Bridge Officer"
