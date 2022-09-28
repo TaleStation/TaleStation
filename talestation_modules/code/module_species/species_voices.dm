@@ -93,3 +93,8 @@
 	species_speech_sounds_exclaim = list('talestation_modules/sound/voice/skelly_ask.ogg' = 90)
 	species_speech_sounds_ask = list('talestation_modules/sound/voice/skelly_exclaim.ogg' = 90)
 	species_pain_mod = 0.4
+
+// Silicon voices
+/mob/living/silicon
+	mob_radio_sounds = list('talestation_modules/sound/voice/radio_ai.ogg' = 100)
+	mob_speech_sounds = list('talestation_modules/sound/voice/radio_ai.ogg' = 100)
