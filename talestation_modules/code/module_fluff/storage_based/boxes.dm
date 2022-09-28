@@ -1,4 +1,3 @@
-// Modular boxes + contents
 
 // Box of office supplies; goes in the BO locker
 /obj/item/storage/box/office_supplies

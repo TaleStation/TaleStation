@@ -68,3 +68,11 @@
 	. = ..()
 	var/mutable_appearance/rust = mutable_appearance(icon, "rust")
 	add_overlay(rust)
+
+// False wall icon override
+/obj/structure/falsewall
+	icon = 'talestation_modules/icons/turf/walls/wall.dmi'
+
+// False r-wall icon override
+/obj/structure/falsewall/reinforced
+	icon = 'talestation_modules/icons/turf/walls/reinforced_wall.dmi'
