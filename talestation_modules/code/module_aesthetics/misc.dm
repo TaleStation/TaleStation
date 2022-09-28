@@ -556,3 +556,11 @@
 // Wallmed icon override
 /obj/machinery/vending/wallmed
 	icon = 'talestation_modules/icons/obj/wallmed.dmi'
+
+// Newscaster icon override
+/obj/machinery/newscaster
+	icon = 'talestation_modules/icons/obj/newscaster.dmi'
+
+// Newscaster wall frame icon override
+/obj/item/wallframe/newscaster
+	icon = 'talestation_modules/icons/obj/newscaster.dmi'
