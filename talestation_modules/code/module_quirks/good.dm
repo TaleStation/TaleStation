@@ -86,4 +86,10 @@
 	if(istype(carbon_holder))
 		carbon_holder.unset_pain_mod(PAIN_MOD_QUIRK)
 
+/mob/living/carbon/CanContractDisease(datum/disease/D)
+	if(HAS_TRAIT(src, TRAIT_DISEASE_RESISTANT))
+		return FALSE
+	return ..()
+
+
 #undef LANGUAGE_QUIRK_RANDOM_BLACKLIST
