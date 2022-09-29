@@ -248,6 +248,8 @@ GLOBAL_LIST_EMPTY(lifts)
 
 	forceMove(locate(min_x, min_y, z))//move to the lower left corner
 	set_movement_registrations(locs - old_loc)
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+	update_appearance()
 	return TRUE
 
 ///returns an unordered list of all lift platforms adjacent to us. used so our lift_master_datum can control all connected platforms.
