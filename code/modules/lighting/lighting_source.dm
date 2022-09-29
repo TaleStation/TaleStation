@@ -195,6 +195,7 @@
 
 /// This is the define used to calculate falloff.
 /datum/light_source/proc/remove_lum()
+	SETUP_CORNERS_REMOVAL_CACHE(src)
 	applied = FALSE
 	for (var/datum/lighting_corner/corner as anything in effect_str)
 		REMOVE_CORNER(corner)
@@ -203,6 +204,7 @@
 	effect_str = null
 
 /datum/light_source/proc/recalc_corner(datum/lighting_corner/corner)
+	SETUP_CORNERS_CACHE(src)
 	LAZYINITLIST(effect_str)
 	if (effect_str[corner]) // Already have one.
 		REMOVE_CORNER(corner)
@@ -299,7 +301,6 @@
 		return //nothing's changed
 
 	var/list/datum/lighting_corner/corners = list()
-	var/list/turf/turfs = list()
 
 	if (source_turf)
 		var/uses_multiz = !!GET_LOWEST_STACK_OFFSET(source_turf.z)
@@ -342,8 +343,11 @@
 
 		source_turf.luminosity = oldlum
 
-	var/list/datum/lighting_corner/new_corners = (corners - effect_str)
-	LAZYINITLIST(effect_str)
+	SETUP_CORNERS_CACHE(src)
+
+	var/list/datum/lighting_corner/new_corners = (corners - src.effect_str)
+	LAZYINITLIST(src.effect_str)
+	var/list/effect_str = src.effect_str
 	if (needs_update == LIGHTING_VIS_UPDATE)
 		for (var/datum/lighting_corner/corner as anything in new_corners)
 			APPLY_CORNER(corner)
@@ -356,14 +360,15 @@
 			if (. != 0)
 				LAZYADD(corner.affecting, src)
 				effect_str[corner] = .
-
-		for (var/datum/lighting_corner/corner as anything in corners - new_corners) // Existing corners
-			APPLY_CORNER(corner)
-			if (. != 0)
-				effect_str[corner] = .
-			else
-				LAZYREMOVE(corner.affecting, src)
-				effect_str -= corner
+		// New corners are a subset of corners. so if they're both the same length, there are NO old corners!
+		if(length(corners) != length(new_corners))
+			for (var/datum/lighting_corner/corner as anything in corners - new_corners) // Existing corners
+				APPLY_CORNER(corner)
+				if (. != 0)
+					effect_str[corner] = .
+				else
+					LAZYREMOVE(corner.affecting, src)
+					effect_str -= corner
 
 	var/list/datum/lighting_corner/gone_corners = effect_str - corners
 	for (var/datum/lighting_corner/corner as anything in gone_corners)
@@ -375,9 +380,12 @@
 	applied_lum_g = lum_g
 	applied_lum_b = lum_b
 
-	UNSETEMPTY(effect_str)
+	UNSETEMPTY(src.effect_str)
 
 #undef EFFECT_UPDATE
 #undef LUM_FALLOFF
 #undef REMOVE_CORNER
 #undef APPLY_CORNER
+#undef SETUP_CORNERS_REMOVAL_CACHE
+#undef SETUP_CORNERS_CACHE
+#undef GENERATE_MISSING_CORNERS
