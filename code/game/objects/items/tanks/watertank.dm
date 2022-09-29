@@ -33,12 +33,8 @@
 	toggle_mister(user)
 
 /obj/item/watertank/item_action_slot_check(slot, mob/user)
-<<<<<<< HEAD
-	if(slot == user.getBackSlot() || slot == ITEM_SLOT_SUITSTORE)
-=======
-	if(slot & user.getBackSlot())
->>>>>>> 243231eb48a0 (Properly checks flags with & instead of == (#70130))
-		return 1
+	if(slot & user.getBackSlot() || slot & ITEM_SLOT_SUITSTORE)
+		return TRUE
 
 /obj/item/watertank/proc/toggle_mister(mob/living/user)
 	if(!istype(user))
