@@ -33,8 +33,8 @@
 	toggle_mister(user)
 
 /obj/item/watertank/item_action_slot_check(slot, mob/user)
-	if(slot == user.getBackSlot() || slot == ITEM_SLOT_SUITSTORE)
-		return 1
+	if(slot & user.getBackSlot() || slot & ITEM_SLOT_SUITSTORE)
+		return TRUE
 
 /obj/item/watertank/proc/toggle_mister(mob/living/user)
 	if(!istype(user))
@@ -73,7 +73,7 @@
 
 /obj/item/watertank/equipped(mob/user, slot)
 	..()
-	if(slot != ITEM_SLOT_BACK)
+	if(!(slot & ITEM_SLOT_BACK))
 		remove_noz()
 
 /obj/item/watertank/proc/remove_noz()
@@ -406,7 +406,7 @@
 	toggle_injection()
 
 /obj/item/reagent_containers/chemtank/item_action_slot_check(slot, mob/user)
-	if(slot == ITEM_SLOT_BACK)
+	if(slot & ITEM_SLOT_BACK)
 		return 1
 
 /obj/item/reagent_containers/chemtank/proc/toggle_injection()
