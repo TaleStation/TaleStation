@@ -21,7 +21,7 @@
 
 /obj/item/clothing/glasses/judicial_visor/equipped(mob/user, slot)
 	. = ..()
-	if(slot != ITEM_SLOT_EYES)
+	if(!(slot & ITEM_SLOT_EYES))
 		return
 	if(ishuman(user) && IS_CULTIST(user))
 		RegisterSignal(user, COMSIG_MOB_EXAMINATE, .proc/on_user_examinate)
