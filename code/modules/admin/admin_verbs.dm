@@ -79,16 +79,13 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/datum/admins/proc/paintings_manager,
 	/datum/admins/proc/display_tags,
 	/datum/admins/proc/fishing_calculator,
-<<<<<<< HEAD
-	/datum/admins/proc/togglelooc, // NON-MODULAR CHANGES: toggle LOOC verb  (this list isn't touched ever anyways)
-=======
 	/client/proc/list_bombers,
 	/client/proc/list_signalers,
 	/client/proc/list_law_changes,
 	/client/proc/show_manifest,
 	/client/proc/list_dna,
 	/client/proc/list_fingerprints,
->>>>>>> acd43427c982 (List Them Out - A Modern Revision On Extracting Global Lists (#70080))
+	/datum/admins/proc/togglelooc, // NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) // What a fat fucking lie that was #2644
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
