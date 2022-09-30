@@ -97,9 +97,6 @@
 	/// A list of all memories we've stolen through absorbs.
 	var/list/stolen_memories = list()
 
-	///	Keeps track of the currently selected profile.
-	var/datum/changeling_profile/current_profile
-
 /datum/antagonist/changeling/New()
 	. = ..()
 	hive_name = hive_name()
@@ -458,21 +455,10 @@
 	new_profile.name = target.real_name
 	new_profile.protected = protect
 
-	new_profile.age = target.age
-	new_profile.physique = target.physique
-
-	// Grab the target's quirks.
-	for(var/datum/quirk/target_quirk as anything in target.quirks)
-		LAZYADD(new_profile.quirks, new target_quirk.type)
-
 	// Clothes, of course
 	new_profile.underwear = target.underwear
 	new_profile.undershirt = target.undershirt
 	new_profile.socks = target.socks
-
-	// Hair and facial hair gradients, alongside their colours.
-	new_profile.grad_style = LAZYLISTDUPLICATE(target.grad_style)
-	new_profile.grad_color = LAZYLISTDUPLICATE(target.grad_color)
 
 	// Grab skillchips they have
 	new_profile.skillchips = target.clone_skillchip_list(TRUE)
