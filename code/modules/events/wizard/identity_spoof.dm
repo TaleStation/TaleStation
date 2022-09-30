@@ -7,14 +7,9 @@
 
 /datum/round_event_control/wizard/identity_spoof/canSpawnEvent(players_amt)
 	. = ..()
-<<<<<<< HEAD
-	if(.)
-		return FALSE
-=======
 	if(!.)
 		return .
 
->>>>>>> 1aa85b6f10ce (Makes wizard event not run when it isnt supposed to (#70178))
 	if(GLOB.current_anonymous_theme) //already anonymous, ABORT ABORT
 		return FALSE
 
