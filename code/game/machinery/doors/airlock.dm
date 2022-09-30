@@ -495,9 +495,9 @@
 			icon_state = "nonexistenticonstate" //MADNESS
 
 
+/* NON-MODULAR CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
-/* NON-MODULAR CHANGES: Aesthetics
 	var/frame_state
 	var/light_state
 	switch(airlock_state)
@@ -553,7 +553,6 @@
 
 	if(frame_state == AIRLOCK_FRAME_CLOSED && seal)
 		. += get_airlock_overlay("sealed", overlays_file, em_block = TRUE)
-*/
 	if(hasPower() && unres_sides)
 		for(var/heading in list(NORTH,SOUTH,EAST,WEST))
 			if(!(unres_sides & heading))
@@ -574,6 +573,7 @@
 					floorlight.pixel_x = -32
 					floorlight.pixel_y = 0
 			. += floorlight
+*/
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
