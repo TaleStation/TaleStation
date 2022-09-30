@@ -117,14 +117,11 @@
 	return ..()
 
 /datum/antagonist/changeling/on_gain()
-<<<<<<< HEAD
-	/// NON-MODULAR CHANGE: ADVANCED CHANGELINGS
-=======
 	generate_name()
 	create_emporium()
 	create_innate_actions()
 	create_initial_profile()
->>>>>>> 4e041ce765ed (The Link to the Changeling Hivemind has been Reestablished (#70193))
+	/// NON-MODULAR CHANGE: ADVANCED CHANGELINGS
 	if(give_objectives)
 		finalize_antag()
 		forge_objectives()
