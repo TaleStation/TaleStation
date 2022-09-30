@@ -95,56 +95,6 @@
 	maints_access_required = list(ACCESS_ROBOTICS, ACCESS_JANITOR, ACCESS_MEDICAL)
 	bot_mode_flags = ~(BOT_MODE_ON | BOT_MODE_REMOTE_ENABLED)
 
-<<<<<<< HEAD
-/mob/living/simple_animal/bot/cleanbot/proc/deputize(obj/item/W, mob/user)
-	if(in_range(src, user))
-		to_chat(user, span_notice("You attach \the [W] to \the [src]."))
-		user.transferItemToLoc(W, src)
-		weapon = W
-		weapon_orig_force = weapon.force
-		if(!(bot_cover_flags & BOT_COVER_EMAGGED))
-			weapon.force = weapon.force / 2
-		add_overlay(image(icon=weapon.lefthand_file,icon_state=weapon.inhand_icon_state))
-		return TRUE
-	balloon_alert(user, "couldn't attach!")
-	return FALSE
-
-/mob/living/simple_animal/bot/cleanbot/proc/update_titles()
-	var/working_title = ""
-
-	ascended = TRUE
-
-	for(var/all_prefixes as anything in prefixes)
-		for(var/prefix_titles as anything in all_prefixes)
-			if(prefix_titles in stolen_valor)
-				working_title += all_prefixes[prefix_titles] + " "
-				if(prefix_titles in officers_titles)
-					commissioned = TRUE
-			else
-				ascended = FALSE // we didn't have the first entry in the list if we got here, so we're not achievement worthy yet
-
-	working_title += chosen_name
-
-	for(var/suf in suffixes)
-		for(var/title in suf)
-			if(title in stolen_valor)
-				working_title += " " + suf[title]
-				break
-			else
-				ascended = FALSE
-
-	name = working_title
-
-/mob/living/simple_animal/bot/cleanbot/examine(mob/user)
-	. = ..()
-	if(weapon)
-		. += "[span_warning("Is that \a [weapon] taped to it...?")]"
-
-		if(ascended && user.stat == CONSCIOUS && user.client)
-			user.client.give_award(/datum/award/achievement/misc/cleanboss, user)
-
-=======
->>>>>>> abe15dea7f9e (Bot Code Improvement - Cleanbots (#69925))
 /mob/living/simple_animal/bot/cleanbot/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/cleaner, CLEANBOT_CLEANING_TIME, \
