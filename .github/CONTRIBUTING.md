@@ -110,13 +110,14 @@ Things you **CAN'T** do:
 
 #### Misc
 
-- [Visual Effects and Systems](./guides/VISUALS.md)
-- [Policy Configuration System](./guides/POLICYCONFIG.md)
-- [Hard Deletes](./guides/HARDDELETES.md)
-- [UI Development](../tgui/README.md)
 - [AI Datums](../code/datums/ai/making_your_ai.md)
-- [MC Tab Guide](./guides/MC_tab.md)
 - [Embedding TGUI Components in Chat](../tgui/docs/chat-embedded-components.md)
+- [Hard Deletes](./guides/HARDDELETES.md)
+- [MC Tab Guide](./guides/MC_tab.md)
+- [Policy Configuration System](./guides/POLICYCONFIG.md)
+- [Required Tests (Continuous Integration)](./guides/CI.md)
+- [UI Development](../tgui/README.md)
+- [Visual Effects and Systems](./guides/VISUALS.md)
 ## Pull Request Process
 
 There is no strict process when it comes to merging pull requests. Pull requests will sometimes take a while before they are looked at by a maintainer; the bigger the change, the more time it will take before they are accepted into the code. Every team member is a volunteer who is giving up their own time to help maintain and contribute, so please be courteous and respectful. Here are some helpful ways to make it easier for you and for the maintainers when making a pull request.
@@ -175,7 +176,7 @@ You can see each tag and their GBP values [Here](https://github.com/tgstation/tg
 If you are porting features/tools from other codebases, you must give them credit where it's due. Typically, crediting them in your pull request and the changelog is the recommended way of doing it. Take note of what license they use though, porting stuff from AGPLv3 and GPLv3 codebases are allowed.
 
 Regarding sprites & sounds, you must credit the artist and possibly the codebase. All /tg/station assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
-
+<
 ## Banned content
 Do not add any of the following in a Pull Request or risk getting the PR closed:
 * National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references
