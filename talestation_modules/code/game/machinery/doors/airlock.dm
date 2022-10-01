@@ -34,6 +34,9 @@
 	///Is this door external? E.g. does it lead to space? Shuttle docking systems bolt doors with this flag.
 	var/external = FALSE
 
+	// Var for multi-tile doors
+	var/multi_tile = FALSE
+
 /obj/machinery/door/airlock/external
 	external = TRUE
 
@@ -113,6 +116,9 @@
 
 	var/mutable_appearance/lights_appearance = image(overlays_file, lights_overlay)
 	SET_PLANE_EXPLICIT(lights_appearance, ABOVE_LIGHTING_PLANE, src)
+	if(multi_tile)
+		lights_appearance.dir = dir
+	. += lights_appearance
 
 	if(panel_open)
 		. += get_airlock_overlay("panel_[frame_state][security_level ? "_protected" : null]", overlays_file, src, em_block = TRUE)
