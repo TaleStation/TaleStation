@@ -40,8 +40,9 @@
 
 /// Initialize our character dummy.
 /datum/loadout_manager/proc/create_character_preview_view(mob/user)
-	character_preview_view = new(null, owner?.prefs, user.client)
-	reset_outfit()
+	character_preview_view = new(null, owner?.prefs)
+	character_preview_view.generate_view("character_preview_[REF(character_preview_view)]")
+	character_preview_view.update_body_from_loadout()
 	character_preview_view.display_to(user)
 
 	return character_preview_view
@@ -52,6 +53,7 @@
 /datum/loadout_manager/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "_LoadoutManager")
 		ui.open()
 
