@@ -274,7 +274,7 @@
 				missing_organs += "lungs"
 			if(!(TRAIT_NOMETABOLISM in the_dudes_species.species_traits) && !humantarget.getorganslot(ORGAN_SLOT_LIVER))
 				missing_organs += "liver"
-			if(!(TRAIT_NOHUNGER in the_dudes_species.species_traits) && !humantarget.getorganslot(ORGAN_SLOT_STOMACH))
+			if(!(NOSTOMACH in the_dudes_species.species_traits) && !humantarget.getorganslot(ORGAN_SLOT_STOMACH))
 				missing_organs += "stomach"
 			if(!humantarget.getorganslot(ORGAN_SLOT_EARS))
 				missing_organs += "ears"
