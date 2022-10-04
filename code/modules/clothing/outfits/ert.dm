@@ -119,6 +119,7 @@
 	glasses = /obj/item/clothing/glasses/hud/health
 	l_hand = /obj/item/storage/medkit/regular
 	r_hand = /obj/item/gun/energy/e_gun
+<<<<<<< HEAD
 
 /datum/outfit/centcom/ert/medic/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -129,6 +130,10 @@
 	var/obj/item/radio/R = H.ears
 	R.keyslot = new /obj/item/encryptionkey/heads/cmo
 	R.recalculateChannels()
+=======
+	l_pocket = /obj/item/healthanalyzer/advanced
+	additional_radio = /obj/item/encryptionkey/heads/cmo
+>>>>>>> 32c2e4ccd3ee (gives medical ert a health analyzer (#70244))
 
 /datum/outfit/centcom/ert/medic/alert
 	name = "ERT Medic - High Alert"
