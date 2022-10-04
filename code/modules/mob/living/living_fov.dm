@@ -91,7 +91,11 @@
 	icon = 'icons/effects/fov/fov_effects.dmi'
 	layer = FOV_EFFECTS_LAYER
 	appearance_flags = RESET_COLOR | RESET_TRANSFORM
+<<<<<<< HEAD
 	plane = FULLSCREEN_PLANE
+=======
+	plane = SOUND_EFFECT_VISUAL_PLANE
+>>>>>>> 087c74290b9b (Fixes FOV (blindness) effects and typing indicator while blind (#70276))
 
 /// Plays a visual effect representing a sound cue for people with vision obstructed by FOV or blindness
 /proc/play_fov_effect(atom/center, range, icon_state, dir = SOUTH, ignore_self = FALSE, angle = 0, list/override_list)
@@ -110,6 +114,10 @@
 		if(!fov_image) //Make the image once we found one recipient to receive it
 			fov_image = new()
 			fov_image.loc = anchor_point
+<<<<<<< HEAD
+=======
+			SET_PLANE(fov_image, SOUND_EFFECT_VISUAL_PLANE, anchor_point)
+>>>>>>> 087c74290b9b (Fixes FOV (blindness) effects and typing indicator while blind (#70276))
 			fov_image.icon_state = icon_state
 			fov_image.dir = dir
 			if(angle)
