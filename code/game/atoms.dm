@@ -235,7 +235,13 @@
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_INITIALIZED_ON, src) /// Sends a signal that the new atom `src`, has been created at `loc`
 
+<<<<<<< HEAD
 	if(greyscale_config && greyscale_colors)
+=======
+	SET_PLANE_IMPLICIT(src, plane)
+
+	if(greyscale_config && greyscale_colors) //we'll check again at item/init for inhand/belt/worn configs.
+>>>>>>> 1a32f60cf4ed ([ready] adds unit test for missing inhand icons. fixes a bunch of missing inhand icons (#70037))
 		update_greyscale()
 
 	//atom color stuff
@@ -1222,6 +1228,7 @@
 	switch(var_name)
 		if(NAMEOF(src, color))
 			add_atom_colour(color, ADMIN_COLOUR_PRIORITY)
+			update_appearance()
 
 
 /**
