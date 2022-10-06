@@ -7,7 +7,7 @@
  *
  * returns a list of strings
  */
-/proc/get_sec_and_command_jobs()
+/proc/get_jobs_who_would_feasibly_have_high_level_security_clearance()
 	RETURN_TYPE(/list)
 	. = list()
 
@@ -35,7 +35,7 @@
 	AddElement(/datum/element/unique_examine, \
 		"A large, dark colored dufflebag commonly used to transport ammunition, tools, and explosives. \
 		Its design makes it much lighter than other duffelbags without sacrificing any space.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs())
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance())
 
 /obj/item/clothing/under/syndicate
 	name = "suspicious turtleneck"
@@ -45,7 +45,7 @@
 	. = ..()
 	if(unique_description)
 		AddElement(/datum/element/unique_examine, unique_description, EXAMINE_CHECK_SYNDICATE, hint = FALSE)
-		AddElement(/datum/element/unique_examine, "A padded, armored outfit commonly used by syndicate operatives in the field.", EXAMINE_CHECK_JOB, get_sec_and_command_jobs())
+		AddElement(/datum/element/unique_examine, "A padded, armored outfit commonly used by syndicate operatives in the field.", EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance())
 
 /obj/item/clothing/under/syndicate/skirt
 	name = "suspicious skirtleneck"
@@ -147,7 +147,7 @@
 		"The Codex Cicatrix - the book of knowledge that supposedly holds all the secrets of the viel between the worlds.. \
 		Discovered by Wizard Federation long ago, but locked away deep in the shelving of the highest security libraries of the Spindward Galaxy, \
 		the book was recently stolen during a raid by the Cybersun Industries, copied, and widespread to aspiring seekers of power.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance(), hint = FALSE)
 
 /obj/item/toy/eldritch_book
 	name = "suspicious purple book"
@@ -231,7 +231,7 @@
 		"A refitted revolver that takes .357 caliber, the Mateba Model 6 Unica - \
 		or as it's commonly known shorthand, either the Mateba or the Unica - \
 		has been the weapon of choice for Nanotrasen commanding officers in the field for decades.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs())
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance())
 
 /obj/item/gun/energy/laser/captain/Initialize(mapload)
 	. = ..()
@@ -335,7 +335,7 @@
 		"A Xenomorph - an alien species designed to hunt live prey. \
 		Weak to flames and laser fire. Facial coverage in the form of biosuits, hardsuits, or riot helmets are of utmost importance \
 		when facing these creatures to avoid being 'facehugged' by their offspring.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance(), hint = FALSE)
 
 /mob/living/simple_animal/hostile/alien/Initialize(mapload)
 	. = ..()
@@ -348,7 +348,7 @@
 		"A xenomorph - an alien species designed to hunt live prey. \
 		Weak to flames and laser fire. Facial coverage in the form of biosuits, hardsuits, or riot helmets are of utmost importance \
 		when facing these creatures to avoid being 'facehugged' by their offspring.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance(), hint = FALSE)
 
 /mob/living/carbon/alien/humanoid/royal/queen/Initialize(mapload)
 	. = ..()
@@ -365,7 +365,7 @@
 		killing the queen is important in killing the hive. \
 		When slain, releases a psychic scream along the alien hivemind, \
 		confusing and disorienting their kin and offspring.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance(), hint = FALSE)
 
 /mob/living/simple_animal/hostile/alien/queen/Initialize(mapload)
 	. = ..()
@@ -381,7 +381,7 @@
 		Leads the nest through their xenomorph hivemind. The source of the xeno menace - \
 		killing the queen is crucial in killing the hive. \
 		When slain, releases a psychic scream along the alien hivemind, confusing and disorienting their kin and offspring.", \
-		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
+		EXAMINE_CHECK_JOB, get_jobs_who_would_feasibly_have_high_level_security_clearance(), hint = FALSE)
 
 /mob/living/simple_animal/pet/dog/corgi/exoticcorgi/dufresne/Initialize(mapload)
 	. = ..()
