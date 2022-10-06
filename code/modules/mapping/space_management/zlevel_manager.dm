@@ -4,6 +4,8 @@
 		return
 
 	z_list = list()
+	z_level_to_plane_offset = list()
+	z_level_to_lowest_plane_offset = list()
 	var/list/default_map_traits = DEFAULT_MAP_TRAITS
 
 	if (default_map_traits.len != world.maxz)
@@ -26,7 +28,7 @@
 		CHECK_TICK
 	// TODO: sleep here if the Z level needs to be cleared
 	var/datum/space_level/S = new z_type(new_z, name, traits)
-	z_list += S
+	manage_z_level(S)
 	generate_linkages_for_z_level(new_z)
 	calculate_z_level_gravity(new_z)
 	adding_new_zlevel = FALSE

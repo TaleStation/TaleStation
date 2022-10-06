@@ -34,7 +34,7 @@
 
 /obj/item/clothing/glasses/wraith_specs/equipped(mob/user, slot)
 	. = ..()
-	if(slot != ITEM_SLOT_EYES)
+	if(!(slot & ITEM_SLOT_EYES))
 		return
 	if(ishuman(user) && !up)
 		enable_glasses(user)
