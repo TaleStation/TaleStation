@@ -79,7 +79,7 @@
 	show_in_antagpanel = TRUE
 	count_against_dynamic_roll_chance = TRUE
 	/// Our changeling ID before we lost everything.
-	var/previous_changeling_id = ""
+	var/previous_changelingID = ""
 	/// Weakref to the mind of the changeling that stole our powers.
 	var/datum/weakref/changeling_who_robbed_us
 
@@ -91,9 +91,9 @@
 
 	result += printplayer(owner)
 	if(robber_ling_datum)
-		result += "<b>[owner]</b> was <b>[previous_changeling_id]</b>, a changeling who had their powers stolen by <b>[robber_ling_datum.changeling_id]</b> ([robber_mind])!"
+		result += "<b>[owner]</b> was <b>[previous_changelingID]</b>, a changeling who had their powers stolen by <b>[robber_ling_datum.changelingID]</b> ([robber_mind])!"
 	else
-		result += "<b>[owner]</b> was <b>[previous_changeling_id]</b>, a changeling who had their powers stolen!"
+		result += "<b>[owner]</b> was <b>[previous_changelingID]</b>, a changeling who had their powers stolen!"
 
 	return result.Join("<br>")
 
@@ -127,7 +127,7 @@
 	var/datum/antagonist/changeling/parent_ling_datum = parent_ling?.has_antag_datum(/datum/antagonist/changeling)
 
 	result += printplayer(owner)
-	result += "<b>[owner]</b> was <b>[changeling_id]</b>, a freshly born changeling created by <b>[parent_ling_datum.changeling_id]</b> ([parent_ling])."
+	result += "<b>[owner]</b> was <b>[changelingID]</b>, a freshly born changeling created by <b>[parent_ling_datum.changelingID]</b> ([parent_ling])."
 
 	return result.Join("<br>")
 
