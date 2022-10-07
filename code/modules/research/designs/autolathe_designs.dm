@@ -156,8 +156,16 @@
 	id = "welding_helmet"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 1750, /datum/material/glass = 400)
+<<<<<<< HEAD
 	build_path = /obj/item/clothing/head/welding
 	category = list(RND_CATEGORY_INITIAL, RND_CATEGORY_TOOLS, RND_CATEGORY_EQUIPMENT)
+=======
+	build_path = /obj/item/clothing/head/utility/welding
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING
+	)
+>>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/cable_coil
@@ -618,8 +626,16 @@
 	id = "tinfoil_hat"
 	build_type = AUTOLATHE
 	materials = list(/datum/material/iron = 5500)
+<<<<<<< HEAD
 	build_path = /obj/item/clothing/head/foilhat
 	category = list(RND_CATEGORY_HACKED, RND_CATEGORY_MISC)
+=======
+	build_path = /obj/item/clothing/head/costume/foilhat
+	category = list(
+		RND_CATEGORY_HACKED,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_JOKE
+	)
+>>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
 
 /datum/design/blood_filter
 	name = "Blood Filter"

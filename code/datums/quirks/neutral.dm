@@ -277,6 +277,10 @@
 	value = 0
 	medical_record_text = "Fucking creep kept staring at me the whole damn checkup. I'm only diagnosing this because it's less awkward than thinking it was on purpose."
 	mob_trait = TRAIT_SHIFTY_EYES
+<<<<<<< HEAD
+=======
+	mail_goodies = list(/obj/item/clothing/head/costume/papersack, /obj/item/clothing/head/costume/papersack/smiley)
+>>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
 
 /datum/quirk/item_quirk/bald
 	name = "Smooth-Headed"

@@ -93,9 +93,17 @@
 	id = "bright_helmet"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = 4000, /datum/material/glass = 1000, /datum/material/plastic = 3000, /datum/material/silver = 500)
+<<<<<<< HEAD
 	build_path = /obj/item/clothing/head/hardhat/red/upgraded
 	category = list(RND_CATEGORY_EQUIPMENT)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CARGO
+=======
+	build_path = /obj/item/clothing/head/utility/hardhat/red/upgraded
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
+>>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
 
 /datum/design/mauna_mug
 	name = "Mauna Mug"

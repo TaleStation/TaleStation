@@ -245,6 +245,17 @@
 	lose_text = "<span class='notice'>You feel awake again.</span>"
 	medical_record_text = "Patient has abnormal sleep study results and is difficult to wake up."
 	hardcore_value = 2
+<<<<<<< HEAD
+=======
+	mail_goodies = list(
+		/obj/item/clothing/glasses/blindfold,
+		/obj/item/bedsheet/random,
+		/obj/item/clothing/under/misc/pj/red,
+		/obj/item/clothing/head/costume/nightcap/red,
+		/obj/item/clothing/under/misc/pj/blue,
+		/obj/item/clothing/head/costume/nightcap/blue,
+	)
+>>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
 
 /datum/quirk/hypersensitive
 	name = "Hypersensitive"
@@ -919,7 +930,7 @@
 	if(istype(possible_saint_nick.back, /obj/item/storage/backpack/santabag))
 		return TRUE
 
-	if(istype(possible_saint_nick.head, /obj/item/clothing/head/santa))
+	if(istype(possible_saint_nick.head, /obj/item/clothing/head/costume/santa))
 		return TRUE
 
 	if(istype(possible_saint_nick.wear_suit, /obj/item/clothing/suit/space/santa))
