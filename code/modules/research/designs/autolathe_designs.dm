@@ -444,8 +444,6 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO
 
-<<<<<<< HEAD
-=======
 /datum/design/boxcutter
 	name = "Boxcutter"
 	id = "boxcutter"
@@ -458,7 +456,6 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_CARGO
 
->>>>>>> 14c96d05b82c (TGUI for Techfabs II: The Great Recategorizing (AND ICONS) (AND MECHFABS) (AND AUTOLATHES) (#69990))
 /datum/design/iron
 	name = "Iron"
 	id = "iron"
