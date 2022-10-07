@@ -223,6 +223,7 @@
 	design_ids = list(
 		"airlock_painter",
 		"analyzer",
+		"boxcutter",
 		"cable_coil",
 		"cable_coil",
 		"crowbar",

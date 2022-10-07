@@ -35,7 +35,7 @@
 		if(LING_HIVE_LING, LING_HIVE_OUTSIDER)
 			var/datum/antagonist/changeling/valid_antag = is_any_changeling(user)
 			var/datum/antagonist/other_valid_antag = is_fallen_changeling(user)
-			send_mind_message(user, span_changeling("[span_bold("[valid_antag || other_valid_antag || "Outsider"] [user.mind]")] [valid_antag?.changeling_id ? "([span_italics(valid_antag.changeling_id)])" : ""]: [message]"))
+			send_mind_message(user, span_changeling("[span_bold("[valid_antag || other_valid_antag || "Outsider"] [user.mind]")] [valid_antag?.changelingID ? "([span_italics(valid_antag.changelingID)])" : ""]: [message]"))
 			user.log_talk(message, LOG_SAY, tag = "changeling hivemind")
 
 		if(LING_HIVE_NOT_AWOKEN)
