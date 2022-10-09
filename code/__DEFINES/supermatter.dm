@@ -26,7 +26,10 @@
 #define DAMAGE_HARDCAP 0.002
 #define DAMAGE_INCREASE_MULTIPLIER 0.25
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> db83f6498da3 (Simplifies SM damage calculation, tweaks the numbers. (#70347))
 #define THERMAL_RELEASE_MODIFIER 4 //Higher == less heat released during reaction, not to be confused with the above values
 #define PLASMA_RELEASE_MODIFIER 650 //Higher == less plasma released by reaction
 #define OXYGEN_RELEASE_MODIFIER 340 //Higher == less oxygen released at high temperature/power

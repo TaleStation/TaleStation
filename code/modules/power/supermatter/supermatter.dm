@@ -408,6 +408,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/turf/local_turf = pick(orange(anomalyrange, anomalycenter))
 	if(!local_turf)
 		return
+<<<<<<< HEAD
 	switch(type)
 		if(FLUX_ANOMALY)
 			var/explosive = has_changed_lifespan ? FLUX_NO_EXPLOSION : FLUX_LOW_EXPLOSIVE
@@ -424,6 +425,219 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			new /obj/effect/anomaly/bioscrambler(local_turf, null, FALSE)
 		if(DIMENSIONAL_ANOMALY)
 			new /obj/effect/anomaly/dimensional(local_turf, null, FALSE)
+=======
+
+	var/total_moles = absorbed_gasmix.total_moles()
+
+	for (var/gas_path in absorbed_gasmix.gases)
+		gas_percentage[gas_path] = absorbed_gasmix.gases[gas_path][MOLES] / total_moles
+		var/datum/sm_gas/sm_gas = GLOB.sm_gas_behavior[gas_path]
+		if(!sm_gas)
+			continue
+		gas_power_transmission += sm_gas.power_transmission * gas_percentage[gas_path]
+		gas_heat_modifier += sm_gas.heat_modifier * gas_percentage[gas_path]
+		gas_heat_resistance += sm_gas.heat_resistance * gas_percentage[gas_path]
+		gas_heat_power_generation += sm_gas.heat_power_generation * gas_percentage[gas_path]
+		gas_powerloss_inhibition += sm_gas.powerloss_inhibition * gas_percentage[gas_path]
+
+	gas_heat_power_generation = clamp(gas_heat_power_generation, 0, 1)
+	gas_powerloss_inhibition = clamp(gas_powerloss_inhibition, 0, 1)
+
+/**
+ * Perform calculation for power lost and gained this tick.
+ * Description of each factors can be found in the defines.
+ *
+ * Updates:
+ * [/obj/machinery/power/supermatter_crystal/var/internal_energy]
+ * [/obj/machinery/power/supermatter_crystal/var/external_power_trickle]
+ * [/obj/machinery/power/supermatter_crystal/var/external_power_immediate]
+ *
+ * Returns: The factors that have influenced the calculation. list[FACTOR_DEFINE] = number
+ */
+/obj/machinery/power/supermatter_crystal/proc/calculate_internal_energy()
+	if(disable_power_change)
+		return
+	var/list/additive_power = list()
+
+	/// If we have a small amount of external_power_trickle we just round it up to 40.
+	additive_power[SM_POWER_EXTERNAL_TRICKLE] = external_power_trickle ? max(external_power_trickle/MATTER_POWER_CONVERSION, 40) : 0
+	external_power_trickle -= min(additive_power[SM_POWER_EXTERNAL_TRICKLE], external_power_trickle)
+	additive_power[SM_POWER_EXTERNAL_IMMEDIATE] = external_power_immediate
+	external_power_immediate = 0
+	additive_power[SM_POWER_HEAT] = gas_heat_power_generation * absorbed_gasmix.temperature / 6
+
+	// I'm sorry for this, but we need to calculate power lost immediately after power gain.
+	// Helps us prevent cases when someone dumps superhothotgas into the SM and shoots the power to the moon for one tick.
+	/// Power if we dont have decay. Used for powerloss calc.
+	var/momentary_power = internal_energy
+	for(var/powergain_type in additive_power)
+		momentary_power += additive_power[powergain_type]
+	if(internal_energy < powerloss_linear_threshold) // Negative numbers
+		additive_power[SM_POWER_POWERLOSS] = -1 * (momentary_power / POWERLOSS_CUBIC_DIVISOR) ** 3
+	else
+		additive_power[SM_POWER_POWERLOSS] = -1 * (momentary_power * POWERLOSS_LINEAR_RATE + powerloss_linear_offset)
+	// Positive number
+	additive_power[SM_POWER_POWERLOSS_GAS] = -1 * gas_powerloss_inhibition *  additive_power[SM_POWER_POWERLOSS]
+	additive_power[SM_POWER_POWERLOSS_SOOTHED] = -1 * min(1-gas_powerloss_inhibition , 0.2 * psy_coeff) *  additive_power[SM_POWER_POWERLOSS]
+
+	for(var/powergain_types in additive_power)
+		internal_energy += additive_power[powergain_types]
+	internal_energy = max(internal_energy, 0)
+	return additive_power
+
+/**
+ * Perform calculation for the main zap power multiplier.
+ * Description of each factors can be found in the defines.
+ *
+ * Updates:
+ * [/obj/machinery/power/supermatter_crystal/var/zap_multiplier]
+ *
+ * Returns: The factors that have influenced the calculation. list[FACTOR_DEFINE] = number
+ */
+/obj/machinery/power/supermatter_crystal/proc/calculate_zap_multiplier()
+	var/list/additive_transmission = list()
+	additive_transmission[SM_ZAP_BASE] = 1
+	additive_transmission[SM_ZAP_GAS] = gas_power_transmission
+
+	zap_multiplier = 0
+	for (var/transmission_types in additive_transmission)
+		zap_multiplier += additive_transmission[transmission_types]
+	zap_multiplier = max(zap_multiplier, 0)
+	return additive_transmission
+
+/**
+ * Perform calculation for the waste multiplier.
+ * This number affects the temperature, plasma, and oxygen of the waste gas.
+ * Multiplier is applied to energy for plasma and temperature but temperature for oxygen.
+ *
+ * Description of each factors can be found in the defines.
+ *
+ * Updates:
+ * [/obj/machinery/power/supermatter_crystal/var/waste_multiplier]
+ *
+ * Returns: The factors that have influenced the calculation. list[FACTOR_DEFINE] = number
+ */
+/obj/machinery/power/supermatter_crystal/proc/calculate_waste_multiplier()
+	waste_multiplier = 0
+	if(disable_gas)
+		return
+	/// Tell people the heat output in energy. More informative than telling them the heat multiplier.
+	var/additive_waste_multiplier = list()
+	additive_waste_multiplier[SM_WASTE_BASE] = 1
+	additive_waste_multiplier[SM_WASTE_GAS] = gas_heat_modifier
+	additive_waste_multiplier[SM_WASTE_SOOTHED] = -0.2 * psy_coeff
+
+	for (var/waste_type in additive_waste_multiplier)
+		waste_multiplier += additive_waste_multiplier[waste_type]
+	waste_multiplier = clamp(waste_multiplier, 0.5, INFINITY)
+	return additive_waste_multiplier
+
+/**
+ * Calculate at which temperature the sm starts taking damage.
+ * heat limit is given by: (T0C+40) * (1 + gas heat res + psy_coeff)
+ *
+ * Description of each factors can be found in the defines.
+ *
+ * Updates:
+ * [/obj/machinery/power/supermatter_crystal/var/temp_limit]
+ *
+ * Returns: The factors that have influenced the calculation. list[FACTOR_DEFINE] = number
+ */
+/obj/machinery/power/supermatter_crystal/proc/calculate_temp_limit()
+	var/list/additive_temp_limit = list()
+	additive_temp_limit[SM_TEMP_LIMIT_BASE] = T0C + HEAT_PENALTY_THRESHOLD
+	additive_temp_limit[SM_TEMP_LIMIT_GAS] = gas_heat_resistance *  (T0C + HEAT_PENALTY_THRESHOLD)
+	additive_temp_limit[SM_TEMP_LIMIT_SOOTHED] = psy_coeff * 45
+	additive_temp_limit[SM_TEMP_LIMIT_LOW_MOLES] =  clamp(2 - absorbed_gasmix.total_moles() / 100, 0, 1) * (T0C + HEAT_PENALTY_THRESHOLD)
+
+	temp_limit = 0
+	for (var/resistance_type in additive_temp_limit)
+		temp_limit += additive_temp_limit[resistance_type]
+	temp_limit = max(temp_limit, TCMB)
+
+	return additive_temp_limit
+
+/**
+ * Perform calculation for the damage taken or healed.
+ * Description of each factors can be found in the defines.
+ *
+ * Updates:
+ * [/obj/machinery/power/supermatter_crystal/var/damage]
+ *
+ * Returns: The factors that have influenced the calculation. list[FACTOR_DEFINE] = number
+ */
+/obj/machinery/power/supermatter_crystal/proc/calculate_damage()
+	if(disable_damage)
+		return
+
+	var/list/additive_damage = list()
+	var/total_moles = absorbed_gasmix.total_moles()
+
+	// We dont let external factors deal more damage than the emergency point.
+	// Only cares about the damage before this proc is run. We ignore soon-to-be-applied damage.
+	additive_damage[SM_DAMAGE_EXTERNAL] = external_damage_immediate * clamp((emergency_point - damage) / emergency_point, 0, 1)
+	external_damage_immediate = 0
+
+	additive_damage[SM_DAMAGE_HEAT] = clamp((absorbed_gasmix.temperature - temp_limit) / 2400, 0, 1.5)
+	additive_damage[SM_DAMAGE_POWER] = clamp((internal_energy - POWER_PENALTY_THRESHOLD) / 4000, 0, 1)
+	additive_damage[SM_DAMAGE_MOLES] = clamp((total_moles - MOLE_PENALTY_THRESHOLD) / 320, 0, 1)
+
+	var/is_spaced = FALSE
+	if(isturf(src.loc))
+		var/turf/local_turf = src.loc
+		for (var/turf/open/space/turf in ((local_turf.atmos_adjacent_turfs || list()) + local_turf))
+			additive_damage[SM_DAMAGE_SPACED] = clamp(internal_energy * 0.00125, 0, 10)
+			is_spaced = TRUE
+			break
+
+	if(total_moles > 0 && !is_spaced)
+		additive_damage[SM_DAMAGE_HEAL_HEAT] = clamp((absorbed_gasmix.temperature - temp_limit) / 600, -1, 0)
+
+	var/total_damage = 0
+	for (var/damage_type in additive_damage)
+		total_damage += additive_damage[damage_type]
+
+	damage_archived = damage
+	damage += total_damage
+	damage = max(damage, 0)
+	return additive_damage
+
+/**
+ * Sets the delam of our sm.
+ *
+ * Arguments:
+ * * priority: Truthy values means a forced delam. If current forced_delam is higher than priority we dont run.
+ * Set to a number higher than [SM_DELAM_PRIO_IN_GAME] to fully force an admin delam.
+ * * delam_path: Typepath of a [/datum/sm_delam]. [SM_DELAM_STRATEGY_PURGE] means reset and put prio back to zero.
+ *
+ * Returns: Not used for anything, just returns true on succesful set, manual and automatic. Helps admins check stuffs.
+ */
+/obj/machinery/power/supermatter_crystal/proc/set_delam(priority = SM_DELAM_PRIO_NONE, manual_delam_path = SM_DELAM_STRATEGY_PURGE)
+	if(priority < delam_priority)
+		return FALSE
+	var/datum/sm_delam/new_delam = null
+
+	if(manual_delam_path == SM_DELAM_STRATEGY_PURGE)
+		for (var/delam_path in GLOB.sm_delam_list)
+			var/datum/sm_delam/delam = GLOB.sm_delam_list[delam_path]
+			if(!delam.can_select(src))
+				continue
+			if(delam == delamination_strategy)
+				return FALSE
+			new_delam = delam
+			break
+		delam_priority = SM_DELAM_PRIO_NONE
+	else
+		new_delam = GLOB.sm_delam_list[manual_delam_path]
+		delam_priority = priority
+
+	if(!new_delam)
+		return FALSE
+	delamination_strategy?.on_deselect(src)
+	delamination_strategy = new_delam
+	delamination_strategy.on_select(src)
+	return TRUE
+>>>>>>> db83f6498da3 (Simplifies SM damage calculation, tweaks the numbers. (#70347))
 
 /obj/machinery/proc/supermatter_zap(atom/zapstart = src, range = 5, zap_str = 4000, zap_flags = ZAP_SUPERMATTER_FLAGS, list/targets_hit = list(), zap_cutoff = 1500, power_level = 0, zap_icon = DEFAULT_ZAP_ICON_STATE, color = null)
 	if(QDELETED(zapstart))
