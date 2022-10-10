@@ -1337,6 +1337,7 @@
 	log_combat(shover, target, "shoved", addition = "into [name]")
 	return COMSIG_CARBON_SHOVE_HANDLED
 
+<<<<<<< HEAD
 // Checks to see how many hands this person has to sign with.
 /mob/living/carbon/proc/check_signables_state()
 	var/obj/item/bodypart/left_arm = get_bodypart(BODY_ZONE_L_ARM)
@@ -1355,6 +1356,8 @@
 	if(length(empty_indexes) == 1 || exit_left || exit_right) // One arm gone
 		return SIGN_ONE_HAND
 
+=======
+>>>>>>> ced20c8e6391 (Converts `silent` to status effect + small cleanup of `can_speak` / `can_speak_basic` / `IsVocal`, and sign language (#69963))
 /**
  * This proc is a helper for spraying blood for things like slashing/piercing wounds and dismemberment.
  *
