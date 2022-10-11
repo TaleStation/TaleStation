@@ -219,20 +219,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	QDEL_NULL(soundloop)
 	return ..()
 
-<<<<<<< HEAD
-/obj/machinery/power/supermatter_crystal/proc/update_constants()
-	pressure_bonus_derived_steepness = (1 - 1 / pressure_bonus_max_multiplier) / (pressure_bonus_max_pressure ** pressure_bonus_curve_angle)
-	pressure_bonus_derived_constant = 1 / pressure_bonus_max_multiplier - pressure_bonus_derived_steepness
-	powerloss_linear_threshold = sqrt(POWERLOSS_LINEAR_RATE / 3 * POWERLOSS_CUBIC_DIVISOR ** 3)
-	powerloss_linear_offset = -1 * powerloss_linear_threshold * POWERLOSS_LINEAR_RATE + (powerloss_linear_threshold / POWERLOSS_CUBIC_DIVISOR) ** 3
-=======
 /obj/machinery/power/supermatter_crystal/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
 	. = ..()
 	if(same_z_layer)
 		return
 	if(warp)
 		SET_PLANE_EXPLICIT(warp, PLANE_TO_TRUE(warp.plane), src)
->>>>>>> 99b8d6b4947b (Changed Supermatter Internal Math + UI Additions (#69240))
 
 /obj/machinery/power/supermatter_crystal/examine(mob/user)
 	. = ..()
@@ -433,10 +425,6 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 /obj/machinery/power/supermatter_crystal/update_overlays()
 	. = ..()
-<<<<<<< HEAD
-	. += delamination_strategy.overlays(src)
-	return .
-=======
 	if(psy_coeff > 0)
 		var/mutable_appearance/psy_overlay = mutable_appearance(icon, "[base_icon_state]-psy", FLOAT_LAYER - 1)
 		psy_overlay.alpha = psy_coeff * 255
@@ -451,7 +439,6 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 		icon_state = "[base_icon_state]-glow"
 	else
 		icon_state = base_icon_state
->>>>>>> 99b8d6b4947b (Changed Supermatter Internal Math + UI Additions (#69240))
 
 /obj/machinery/power/supermatter_crystal/proc/force_delam()
 	SIGNAL_HANDLER
@@ -681,39 +668,29 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 /obj/machinery/power/supermatter_crystal/proc/calculate_damage()
 	if(disable_damage)
 		return
-	/// Multiplier to our mole and power damage limits.
-	var/list/additive_damage = list()
-	var/mole_power_damage_limit = delamination_strategy.mole_power_damage_limit()
-	var/total_moles = absorbed_gasmix.total_moles()
-	additive_damage[SM_DAMAGE_HEAT] = max((absorbed_gasmix.temperature - temp_limit) * max(total_moles / 350, 0.25) / 600, 0)
-	additive_damage[SM_DAMAGE_POWER] = max((internal_energy - POWER_PENALTY_THRESHOLD * mole_power_damage_limit) / 2000, 0)
-	additive_damage[SM_DAMAGE_MOLES] = max((total_moles - MOLE_PENALTY_THRESHOLD * mole_power_damage_limit) / 320, 0)
-	if(total_moles)
-		additive_damage[SM_DAMAGE_HEAL_HEAT] = clamp((absorbed_gasmix.temperature - temp_limit) / 300, -2, 0)
 
-	/// Damage from internal factors.
-	var/total_internal_damage = 0
-	for (var/damage_type in additive_damage)
-		total_internal_damage += additive_damage[damage_type]
-	if(total_internal_damage > DAMAGE_HARDCAP)
-		// Scale each of the damages according to the hardcap.
-		// This means we lie a bit about each of the factors, but the final addition is honest.
-		for (var/damage_type in additive_damage)
-			// shorter way of writing damage = damage / total_internal_damage * damage_hardcap.
-			additive_damage[damage_type] *= DAMAGE_HARDCAP / total_internal_damage
-		total_internal_damage = DAMAGE_HARDCAP
+	var/list/additive_damage = list()
+	var/total_moles = absorbed_gasmix.total_moles()
 
 	// We dont let external factors deal more damage than the emergency point.
-	// Evaluates the current damage and not the damage + internal damage though.
-	// Helps us decouple this and make it discrete.
+	// Only cares about the damage before this proc is run. We ignore soon-to-be-applied damage.
 	additive_damage[SM_DAMAGE_EXTERNAL] = external_damage_immediate * clamp((emergency_point - damage) / emergency_point, 0, 1)
 	external_damage_immediate = 0
 
-	for(var/turf/open/space/turf_to_check in RANGE_TURFS(1, loc))
-		if(LAZYLEN(turf_to_check.atmos_adjacent_turfs))
+	additive_damage[SM_DAMAGE_HEAT] = clamp((absorbed_gasmix.temperature - temp_limit) / 2400, 0, 1.5)
+	additive_damage[SM_DAMAGE_POWER] = clamp((internal_energy - POWER_PENALTY_THRESHOLD) / 4000, 0, 1)
+	additive_damage[SM_DAMAGE_MOLES] = clamp((total_moles - MOLE_PENALTY_THRESHOLD) / 320, 0, 1)
+
+	var/is_spaced = FALSE
+	if(isturf(src.loc))
+		var/turf/local_turf = src.loc
+		for (var/turf/open/space/turf in ((local_turf.atmos_adjacent_turfs || list()) + local_turf))
 			additive_damage[SM_DAMAGE_SPACED] = clamp(internal_energy * 0.00125, 0, 10)
-			additive_damage[SM_DAMAGE_HEAL_HEAT] = 0
+			is_spaced = TRUE
 			break
+
+	if(total_moles > 0 && !is_spaced)
+		additive_damage[SM_DAMAGE_HEAL_HEAT] = clamp((absorbed_gasmix.temperature - temp_limit) / 600, -1, 0)
 
 	var/total_damage = 0
 	for (var/damage_type in additive_damage)
