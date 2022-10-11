@@ -53,7 +53,11 @@
 	name = "bulletproof helmet"
 	desc = "A bulletproof combat helmet that excels in protecting the wearer against traditional projectile weaponry and explosives to a minor extent."
 	icon_state = "helmetalt"
+<<<<<<< HEAD
 	inhand_icon_state = "helmetalt"
+=======
+	inhand_icon_state = "helmet"
+>>>>>>> d1582bf1b41a (Sec Resprite Fixes (#70030))
 	armor = list(MELEE = 15, BULLET = 60, LASER = 10, ENERGY = 10, BOMB = 40, BIO = 0, FIRE = 50, ACID = 50, WOUND = 5)
 	dog_fashion = null
 
