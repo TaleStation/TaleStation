@@ -85,3 +85,104 @@
       start of a round now.
   - admin: Admin's power check mapping verb now actually works.
   - bugfix: Icemoon is no longer considered part of the station.
+2022-10-06:
+  TaleStationBot:
+  - refactor: Refactored... well a lot really. Map views, anything to do with planes,
+      multiz, a shit ton of rendering stuff. Basically if you see anything off visually
+      report it
+  - admin: VV a mob, and hit View/Edit Planes in the dropdown to steal their view,
+      and modify it as you like. You can do the same to yourself using the Edit/Debug
+      Planes verb
+2022-10-07:
+  Gamer025:
+  - admin: Expanded mob_tag logging. Logs spawn renames, typepaths and species changes
+      now!
+  Melbert:
+  - bugfix: 'Kilostation: No more firedoors in telecomms'
+  PKPenguin321:
+  - balance: Railings take twice as many rods and twice as much time to make
+  TaleStationBot:
+  - rscadd: Added boxcutter to cargo.
+  - spellcheck: wall clocks no longer have a desc talking about bluespace
+  - spellcheck: Junkmail message types have more than doubled, you should expect more
+      diverse junkmail now.
+  - bugfix: the security office, kitchen and genetics can now receive disposals deliveries
+      on icebox
+  - spellcheck: Fixed some grammar errors related to handcuffs
+  - bugfix: After a recent bureaucratic error, CentCom orbit labels are now correctly
+      colored.
+  VexingRaven:
+  - bugfix: Multi-Z Ruins work again (Ice Moon Mining Site spawns again with the Demonic
+      Frost Miner)
+  Vishenka0704:
+  - bugfix: if payday free, don't send you extra message where "payday aborted"
+  - code_imp: clarity to "account.dm" code
+  Wallem:
+  - imageadd: Resprites the Fulton Recovery Beacon
+2022-10-08:
+  ATHATH:
+  - bugfix: Self-respiration now makes you no longer need to breath at stage 4 again.
+  Melbert:
+  - rscdel: Unused "Mapgenerator" landmarks
+  TaleStationBot:
+  - admin: Messages regarding a random event triggering will no longer message you
+      twice.
+  - bugfix: Commiting suicide using a box stampled by a clown now does what the description
+      says it will do.
+  - rscadd: Changelings once again have reestablished their changeling hivemind, and
+      can secretly communicate between each other.
+  - bugfix: Fixed up the Changeling UI a bit, like for example some dimmers would
+      never render.
+  - bugfix: Fix xeno hivemind talk causing hissing sound
+  - admin: Gibtonite logging has been improved to actually pass the name of the user
+      when a user blows it up.
+  - bugfix: abandoned airlocks will no longer leave doors on top of walls
+  - bugfix: Airlocks no longer project light into the 4th dimension.
+2022-10-10:
+  TaleStationBot:
+  - refactor: mechfabs, autolathes, component printers, and module duplicators now
+      use techfab tgui components
+  - refactor: every single design is now categorized and subcategorized
+  - refactor: mechfabs and autolathes are now in typescript
+  - balance: some designs that were formerly autolathe exclusive can now be printed
+      at some departmental techfabs
+2022-10-11:
+  ATHATH:
+  - balance: Half of the speed boost from wearing flagellant's robes has been moved
+      to wearing the hoods that come with said robes.
+  - balance: Flagellant's hoods now have the same (negative) armor values as the robes
+      they're attached to.
+  - spellcheck: The descriptions of flagellant's robes and hoods have been updated.
+  TaleStationBot:
+  - bugfix: Medical ERT rejoice! You now have a health analyzer.
+  - bugfix: 'Alcoholics rejoice: the stun from vomiting no longer makes you fall on
+      the floor'
+  - rscdel: Removed the broken pressure power multiplier which always evaluates to
+      2. Multiplied base SM power production by 2.
+  - rscdel: SM will no longer gain power when exposed to space. It actually used to
+      do that, but only when the tile it's on has gas so you don't really notice it.
+  - code_imp: Instead of showing the environment breakdown of the SM tile, the NT
+      CIMS will show you the exact gas mixture that it uses for calculation.
+  - code_imp: Total moles in NT CIMS will now be substituted with absorbed moles,
+      which is the thing we use to calculate scrung delams. Scrungs at 1800.
+  - balance: Unified the SM taking damage on space (last modified 2018) with SM taking
+      damage around space (added 2020, last modified 2022). Chose the latter formula,
+      it's significantly stronger.
+  - balance: SM will start healing at the same damage at which it stops taking heat
+      damage. Instead of the old fixed healing at ~313K.
+  - balance: made the low mole heat resistance thing on SM not scale with heat resistant
+      gases.
+  - balance: Made the supermatter temperature power gain multiplier thing linear at
+      1/6 instead of 50/273 or 30/273.
+  - balance: Psychologist heat reduction is weaker on high heat gas.
+  - refactor: rerouted how external damage (bullets) and external power (emitter)
+      is applied to SM.
+  - refactor: restructured the internal power calculations for SM. Power should be
+      applied on each atmos tick instead of separately.
+  - refactor: restructured how the SM calculates the damage that it takes. No changes
+      expected except for the low mole temp limit multiplier thing.
+  - refactor: Restructured SM pluox generation and miasma consumption. No changes
+      expected though.
+  - balance: ERT suit storage oxygen tanks have been removed. Instead, the survival
+      box in their backpack now contains a double extended emergency tank and a pocket
+      crowbar.

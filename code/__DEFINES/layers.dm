@@ -2,23 +2,20 @@
 //KEEP THESE IN A NICE ACSCENDING ORDER, PLEASE
 
 //NEVER HAVE ANYTHING BELOW THIS PLANE ADJUST IF YOU NEED MORE SPACE
-#define LOWEST_EVER_PLANE -200
+#define LOWEST_EVER_PLANE -100
 
-#define FIELD_OF_VISION_BLOCKER_PLANE -199
+#define FIELD_OF_VISION_BLOCKER_PLANE -90
 #define FIELD_OF_VISION_BLOCKER_RENDER_TARGET "*FIELD_OF_VISION_BLOCKER_RENDER_TARGET"
 
-#define CLICKCATCHER_PLANE -99
+#define CLICKCATCHER_PLANE -80
 
-#define PLANE_SPACE -95
-#define PLANE_SPACE_PARALLAX -90
+#define PLANE_SPACE -25
+#define PLANE_SPACE_PARALLAX -20
 
 #define GRAVITY_PULSE_PLANE -12
 #define GRAVITY_PULSE_RENDER_TARGET "*GRAVPULSE_RENDER_TARGET"
 
-#define TRANSPARENT_FLOOR_PLANE -11 //Transparent plane that shows openspace underneath the floor
-#define OPENSPACE_PLANE -10 //Openspace plane below all turfs
-#define OPENSPACE_BACKDROP_PLANE -9 //Black square just over openspace plane to guaranteed cover all in openspace turf
-
+#define RENDER_PLANE_TRANSPARENT -9 //Transparent plane that shows openspace underneath the floor
 
 #define FLOOR_PLANE -8
 
@@ -28,11 +25,9 @@
 #define GAME_PLANE_UPPER_FOV_HIDDEN -4
 
 ///Slightly above the game plane but does not catch mouse clicks. Useful for certain visuals that should be clicked through, like seethrough trees
-#define ABOVE_GAME_NO_MOUSE_PLANE -3
+#define SEETHROUGH_PLANE -3
 #define ABOVE_GAME_PLANE -2
 
-<<<<<<< HEAD
-=======
 #define RENDER_PLANE_GAME_WORLD -1
 
 #define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
@@ -101,11 +96,11 @@
 /// The range unique planes can be in
 #define PLANE_RANGE (HIGHEST_EVER_PLANE - LOWEST_EVER_PLANE)
 
->>>>>>> 087c74290b9b (Fixes FOV (blindness) effects and typing indicator while blind (#70276))
 // PLANE_SPACE layer(s)
 #define SPACE_LAYER 1.8
 
 //#define TURF_LAYER 2 //For easy recordkeeping; this is a byond define. Most floors (FLOOR_PLANE) and walls (GAME_PLANE) use this.
+#define OPENSPACE_LAYER 600 //Openspace layer over all turfs
 
 // GAME_PLANE layers
 #define CULT_OVERLAY_LAYER 2.01
@@ -191,60 +186,26 @@
 #define GASFIRE_LAYER 5.05
 #define RIPPLE_LAYER 5.1
 
-#define OPENSPACE_LAYER 600 //Openspace layer over all
-
-#define BLACKNESS_PLANE 0 //To keep from conflicts with SEE_BLACKNESS internals
-
-#define AREA_PLANE 60
-#define MASSIVE_OBJ_PLANE 70
-#define GHOST_PLANE 80
-#define POINT_PLANE 90
-
 //---------- LIGHTING -------------
-///Normal 1 per turf dynamic lighting underlays
-#define LIGHTING_PLANE 100
-
-///Lighting objects that are "free floating"
-#define O_LIGHTING_VISUAL_PLANE 110
-#define O_LIGHTING_VISUAL_RENDER_TARGET "O_LIGHT_VISUAL_PLANE"
-
-///Things that should render ignoring lighting
-#define ABOVE_LIGHTING_PLANE 120
 
 #define LIGHTING_PRIMARY_LAYER 15	//The layer for the main lights of the station
 #define LIGHTING_PRIMARY_DIMMER_LAYER 15.1	//The layer that dims the main lights of the station
 #define LIGHTING_SECONDARY_LAYER 16	//The colourful, usually small lights that go on top
 
 
-///visibility + hiding of things outside of light source range
-#define BYOND_LIGHTING_PLANE 130
 
 
 //---------- EMISSIVES -------------
 //Layering order of these is not particularly meaningful.
 //Important part is the seperation of the planes for control via plane_master
 
-/// This plane masks out lighting to create an "emissive" effect, ie for glowing lights in otherwise dark areas.
-#define EMISSIVE_PLANE 150
 /// The render target used by the emissive layer.
 #define EMISSIVE_RENDER_TARGET "*EMISSIVE_PLANE"
 /// The layer you should use if you _really_ don't want an emissive overlay to be blocked.
 #define EMISSIVE_LAYER_UNBLOCKABLE 9999
 
-///---------------- MISC -----------------------
-
-///Pipecrawling images
-#define PIPECRAWL_IMAGES_PLANE 180
-
-///AI Camera Static
-#define CAMERA_STATIC_PLANE 200
-
-///Debug Atmos Overlays
-#define ATMOS_GROUP_PLANE 450
-
 ///--------------- FULLSCREEN IMAGES ------------
 
-#define FULLSCREEN_PLANE 500
 #define FLASH_LAYER 1
 #define FULLSCREEN_LAYER 2
 #define UI_DAMAGE_LAYER 3
@@ -252,24 +213,10 @@
 #define CRIT_LAYER 5
 #define CURSE_LAYER 6
 
-<<<<<<< HEAD
-///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
-
-///Popup Chat Messages
-#define RUNECHAT_PLANE 501
-/// Plane for balloon text (text that fades up)
-#define BALLOON_CHAT_PLANE 502
-=======
 ///--------------- SOUND EFFECT VISUALS ------------
->>>>>>> 087c74290b9b (Fixes FOV (blindness) effects and typing indicator while blind (#70276))
 /// Bubble for typing indicators
 #define TYPING_LAYER 1
 #define FOV_EFFECTS_LAYER 2 //Blindness effects are not layer 4, they lie to you
-
-//-------------------- HUD ---------------------
-//HUD layer defines
-#define HUD_PLANE 1000
-#define ABOVE_HUD_PLANE 1100
 
 #define RADIAL_BACKGROUND_LAYER 0
 ///1000 is an unimportant number, it's just to normalize copied layers
@@ -280,14 +227,6 @@
 ///Layer for screentips
 #define SCREENTIP_LAYER 4
 
-///Plane of the "splash" icon used that shows on the lobby screen. only render plate planes should be above this
-#define SPLASHSCREEN_PLANE 9900
-
-//-------------------- Rendering ---------------------
-#define RENDER_PLANE_GAME 9990
-#define RENDER_PLANE_NON_GAME 9995
-#define RENDER_PLANE_MASTER 9999
-//----------------------------------------------------
 
 #define LOBBY_BACKGROUND_LAYER 3
 #define LOBBY_BUTTON_LAYER 4

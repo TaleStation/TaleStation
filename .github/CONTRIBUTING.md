@@ -63,11 +63,6 @@ Maintainers SHOULD,
 1. Be following /TG/s [precendets](https://github.com/tgstation/tgstation/blob/master/.github/CONTRIBUTING.md#maintainers) on how to act as a maintainer.
 2. Be reviewing PRs in a constructive, helpful way, provide feedback when needed, and helping contributors through problems they may encounter.
 
-<<<<<<< HEAD
-Maintainers SHOULDN'T,
-1. Be self merging their own PRs, unless its a fix, or they have permission.
-2. Be merging PRs or encouraging contributors to break the GitHub ToS or submit [banned content](https://github.com/tgstation/tgstation/blob/master/.github/CONTRIBUTING.md#banned-content).
-=======
 - Do not merge PRs you create.
 - Do not merge PRs until 24 hours have passed since it was opened. Exceptions include:
   - Emergency fixes.
@@ -181,7 +176,7 @@ You can see each tag and their GBP values [Here](https://github.com/tgstation/tg
 If you are porting features/tools from other codebases, you must give them credit where it's due. Typically, crediting them in your pull request and the changelog is the recommended way of doing it. Take note of what license they use though, porting stuff from AGPLv3 and GPLv3 codebases are allowed.
 
 Regarding sprites & sounds, you must credit the artist and possibly the codebase. All /tg/station assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated.
-
+<
 ## Banned content
 Do not add any of the following in a Pull Request or risk getting the PR closed:
 * National Socialist Party of Germany content, National Socialist Party of Germany related content, or National Socialist Party of Germany references
@@ -204,4 +199,3 @@ Github actions that require additional configuration are disabled on the reposit
 This role `@Maintainer` is pingable as a compromise reached with the server host MrStonedOne over the auto-stale system we presently have in the codebase. It should be used only to ping Maintainers when your PR has had the "Stale" label applied. Using it before then can be met with escalating timeouts and referral to /tg/station's Discord moderators for further infractions.
 
 Feel free to engage and obtain general feedback in the Coding General channel without the role ping before your PR goes stale to build interest and get reviews.
->>>>>>> b9c9ad31e1da (Add documentation for CI (#70196))

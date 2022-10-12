@@ -11,7 +11,7 @@
 	/// The current selected loadout list.
 	var/list/loadout_on_open
 	/// The preview dummy. //TODO: closing makes the main menu wonky
-	var/atom/movable/screen/character_preview_view/character_preview_view
+	var/atom/movable/screen/map_view/char_preview/character_preview_view
 	/// Whether we see our favorite job's clothes on the dummy
 	var/view_job_clothes = TRUE
 	/// Whether we see tutorial text in the UI
@@ -40,9 +40,10 @@
 
 /// Initialize our character dummy.
 /datum/loadout_manager/proc/create_character_preview_view(mob/user)
-	character_preview_view = new(null, owner?.prefs, user.client)
-	reset_outfit()
-	character_preview_view.register_to_client(user.client)
+	character_preview_view = new(null, owner?.prefs)
+	character_preview_view.generate_view("character_preview_[REF(character_preview_view)]")
+	character_preview_view.update_body_from_loadout()
+	character_preview_view.display_to(user)
 
 	return character_preview_view
 
@@ -52,10 +53,11 @@
 /datum/loadout_manager/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		character_preview_view = create_character_preview_view(user)
 		ui = new(user, src, "_LoadoutManager")
 		ui.open()
 
-		addtimer(CALLBACK(character_preview_view, /atom/movable/screen/character_preview_view/proc/update_body), 1 SECONDS)
+		addtimer(CALLBACK(character_preview_view, /atom/movable/screen/map_view/char_preview/proc/update_body), 1 SECONDS)
 
 /datum/loadout_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -226,11 +228,6 @@
 /datum/loadout_manager/ui_data(mob/user)
 	var/list/data = list()
 
-	if (isnull(character_preview_view))
-		character_preview_view = create_character_preview_view(user)
-	else if (character_preview_view.client != owner)
-		character_preview_view.register_to_client(owner)
-
 	var/list/all_selected_paths = list()
 	for(var/path in owner.prefs.read_preference(/datum/preference/loadout))
 		all_selected_paths += path
@@ -338,7 +335,7 @@ to avoid an untimely and sudden death by fire or suffocation at the start of the
  *
  * loadout - an instantiated outfit datum to be applied to the dummy
  */
-/atom/movable/screen/character_preview_view/proc/update_body_from_loadout(datum/outfit/loadout)
+/atom/movable/screen/map_view/char_preview/proc/update_body_from_loadout(datum/outfit/loadout)
 	var/datum/job/preview_job = preferences.get_highest_priority_job()
 	if(preview_job)
 		if (istype(preview_job,/datum/job/ai) || istype(preview_job,/datum/job/cyborg))
