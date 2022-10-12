@@ -91,11 +91,11 @@
 			span_notice("[user] successfully locates and neuters the headslug within [target]'s chest!"),
 			span_notice("[user] finishes working within [target]'s chest."))
 
-		var/ling_id = old_ling_datum.changeling_id
+		var/ling_id = old_ling_datum.changelingID
 
 		target.mind.remove_antag_datum(/datum/antagonist/changeling)
 		var/datum/antagonist/changeling/new_ling_datum = target.mind.add_antag_datum(/datum/antagonist/changeling/neutered)
-		new_ling_datum.changeling_id = ling_id
+		new_ling_datum.changelingID = ling_id
 
 		target.do_jitter_animation(30)
 
