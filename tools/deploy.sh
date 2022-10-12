@@ -11,6 +11,7 @@ fi
 
 mkdir -p \
     $1/_maps \
+	$1talestation_modules/icons/mob/inhands \
     $1/icons/mob/inhands \
     $1/icons/runtime \
     $1/sound/runtime \
