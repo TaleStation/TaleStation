@@ -43,8 +43,7 @@
 	if(machine_stat & NOPOWER) // Your screen can't be on if you've got no damn charge
 		return
 
-	. += mutable_appearance(icon, icon_screen)
-	. += emissive_appearance(icon, icon_screen)
+	. += emissive_appearance(icon, icon_screen, src)
 */ // NON-MODULAR CHANGES END
 
 /obj/machinery/computer/power_change()
@@ -124,7 +123,7 @@
 	. = ..()
 	if(!can_interact(user))
 		return
-	if(!user.canUseTopic(src, !issilicon(user)) || !is_operational)
+	if(!user.canUseTopic(src, be_close = !issilicon(user)) || !is_operational)
 		return
 
 /obj/machinery/computer/ui_interact(mob/user, datum/tgui/ui)
