@@ -112,8 +112,6 @@
 	minimize_when_attached = TRUE
 	attachment_slot = null
 
-<<<<<<< HEAD
-=======
 /obj/item/clothing/accessory/maidcorset
 	name = "maid corset"
 	desc = "The final touch that holds it all together."
@@ -124,7 +122,6 @@
 	minimize_when_attached = FALSE
 	attachment_slot = null
 
->>>>>>> 1a32f60cf4ed ([ready] adds unit test for missing inhand icons. fixes a bunch of missing inhand icons (#70037))
 /obj/item/clothing/accessory/maidapron
 	name = "maid apron"
 	desc = "The best part of a maid costume."
@@ -467,7 +464,6 @@
 	name = "pride pin"
 	desc = "A Nanotrasen Diversity & Inclusion Center-sponsored holographic pin to show off your sexuality, reminding the crew of their unwavering commitment to equity, diversity, and inclusion!"
 	icon_state = "pride"
-	above_suit = TRUE
 	obj_flags = UNIQUE_RENAME
 	unique_reskin = list("Rainbow Pride" = "pride",
 						"Bisexual Pride" = "pride_bi",
