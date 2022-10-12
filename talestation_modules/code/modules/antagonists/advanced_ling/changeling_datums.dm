@@ -2,18 +2,11 @@
 /datum/antagonist/changeling
 	/// Whether we give innates to this ling.
 	var/give_innates = TRUE
-	/// Our changeling ID.
-	var/changeling_id
 	/// Whether this changeling can talk in the hivemind.
 	/// Fresh / neutered changelings need to have the hivemind awoken by another ling.
 	var/hivemind_link_awoken = TRUE
 	/// The number of changeling this changeling has uplifted using "Uplift Human".
 	var/changeling_uplifts = 0
-
-/datum/antagonist/changeling/on_gain()
-	. = ..()
-	if(!changeling_id)
-		generate_name()
 
 /datum/antagonist/changeling/finalize_antag()
 	owner.current.grant_all_languages(FALSE, FALSE, TRUE) //Grants omnitongue. We are able to transform our body after all.
@@ -28,21 +21,6 @@
 /// The sound that plays when our changeling is finalized.
 /datum/antagonist/changeling/proc/play_changeling_sound()
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
-
-/// Generate a changeling name for our ling, if they don't have their own.
-/datum/antagonist/changeling/proc/generate_name()
-	var/honorific
-	if(owner.current.gender == FEMALE)
-		honorific = "Ms."
-	else if(owner.current.gender == MALE)
-		honorific = "Mr."
-	else
-		honorific = "Mx."
-
-	if(GLOB.possible_abductor_names.len)
-		changeling_id = "[honorific] [pick_n_take(GLOB.possible_abductor_names)]"
-	else
-		changeling_id = "[honorific] [rand(1, 999)]"
 
 /datum/antagonist/changeling/headslug
 	hivemind_link_awoken = FALSE
@@ -93,7 +71,7 @@
 	var/list/result = list()
 
 	result += printplayer(owner)
-	result += "<b>[owner]</b> was <b>[changeling_id]</b>, a changeling who had their powers neutered!"
+	result += "<b>[owner]</b> was <b>[changelingID]</b>, a changeling who had their powers neutered!"
 
 	return result.Join("<br>")
 
@@ -101,7 +79,7 @@
 	show_in_antagpanel = TRUE
 	count_against_dynamic_roll_chance = TRUE
 	/// Our changeling ID before we lost everything.
-	var/previous_changeling_id = ""
+	var/previous_changelingID = ""
 	/// Weakref to the mind of the changeling that stole our powers.
 	var/datum/weakref/changeling_who_robbed_us
 
@@ -113,9 +91,9 @@
 
 	result += printplayer(owner)
 	if(robber_ling_datum)
-		result += "<b>[owner]</b> was <b>[previous_changeling_id]</b>, a changeling who had their powers stolen by <b>[robber_ling_datum.changeling_id]</b> ([robber_mind])!"
+		result += "<b>[owner]</b> was <b>[previous_changelingID]</b>, a changeling who had their powers stolen by <b>[robber_ling_datum.changelingID]</b> ([robber_mind])!"
 	else
-		result += "<b>[owner]</b> was <b>[previous_changeling_id]</b>, a changeling who had their powers stolen!"
+		result += "<b>[owner]</b> was <b>[previous_changelingID]</b>, a changeling who had their powers stolen!"
 
 	return result.Join("<br>")
 
@@ -149,7 +127,7 @@
 	var/datum/antagonist/changeling/parent_ling_datum = parent_ling?.has_antag_datum(/datum/antagonist/changeling)
 
 	result += printplayer(owner)
-	result += "<b>[owner]</b> was <b>[changeling_id]</b>, a freshly born changeling created by <b>[parent_ling_datum.changeling_id]</b> ([parent_ling])."
+	result += "<b>[owner]</b> was <b>[changelingID]</b>, a freshly born changeling created by <b>[parent_ling_datum.changelingID]</b> ([parent_ling])."
 
 	return result.Join("<br>")
 

@@ -31,7 +31,7 @@ export const _AdvancedChangelingPanel = (props, context) => {
 
 export const AdvancedChangelingBackground = (props, context) => {
   const { act, data } = useBackend(context);
-  const { name, employer, backstory, changeling_id, goals_finalized } = data;
+  const { name, employer, backstory, changelingID, goals_finalized } = data;
   return (
     <Stack vertical>
       <Stack.Item>
@@ -68,12 +68,12 @@ export const AdvancedChangelingBackground = (props, context) => {
             <LabeledList align="center">
               <LabeledList.Item label="Changeling ID">
                 <Input
-                  value={changeling_id}
-                  placeholder={changeling_id}
+                  value={changelingID}
+                  placeholder={changelingID}
                   disabled={goals_finalized}
                   onInput={(e, value) =>
                     act('set_ling_id', {
-                      changeling_id: value,
+                      changelingID: value,
                     })
                   }
                 />
