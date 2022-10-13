@@ -17,3 +17,11 @@
 
 /obj/item/clothing/head/welding/attack_self(mob/user)
 	weldingvisortoggle(user)
+<<<<<<< HEAD
+=======
+
+/obj/item/clothing/head/utility/welding/visor_toggling()
+	. = ..()
+	inhand_icon_state = "[initial(inhand_icon_state)][up ? "off" : ""]"
+
+>>>>>>> 9c330bd44beb (Fixes some broken pathing for welding helmets (#70466))
