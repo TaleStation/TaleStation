@@ -88,7 +88,7 @@
 
 	set_listening(listening)
 	set_broadcasting(broadcasting)
-	set_frequency(sanitize_frequency(frequency, freerange))
+	set_frequency(sanitize_frequency(frequency, freerange, syndie))
 	set_on(on)
 
 	AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
@@ -406,7 +406,7 @@
 				tune = tune * 10
 				. = TRUE
 			if(.)
-				set_frequency(sanitize_frequency(tune, freerange))
+				set_frequency(sanitize_frequency(tune, freerange, syndie))
 		if("listen")
 			set_listening(!listening)
 			. = TRUE
