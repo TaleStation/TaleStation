@@ -565,8 +565,6 @@
 
 /obj/item/vending_refill/wardrobe/det_wardrobe
 	machine_name = "DetDrobe"
-<<<<<<< HEAD
-=======
 
 /obj/machinery/vending/wardrobe/cent_wardrobe
 	name = "\improper CentDrobe"
@@ -596,4 +594,3 @@
 /obj/item/vending_refill/wardrobe/cent_wardrobe
 	machine_name = "CentDrobe"
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
->>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
