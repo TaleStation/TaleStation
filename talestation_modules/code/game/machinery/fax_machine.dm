@@ -30,12 +30,15 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 /// Fax machine design, for techwebs.
 /datum/design/board/fax_machine
-	name = "Machine Design (Fax Machine Board)"
+	name = "Machine Design"
 	desc = "The circuit board for a Fax Machine."
 	id = "fax_machine"
 	build_path = /obj/item/circuitboard/machine/fax_machine
-	category = list(RND_CATEGORY_MISC)
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_SERVICE
+	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CARGO
+
 
 /// Fax machine circuit.
 /obj/item/circuitboard/machine/fax_machine
