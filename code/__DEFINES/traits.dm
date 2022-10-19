@@ -844,6 +844,13 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define ITEM_SCALING_TRAIT "item_scaling"
 /// Trait given by Objects that provide blindsight
 #define ITEM_BLIND_TRAIT "blind_item_trait"
+<<<<<<< HEAD
+=======
+/// Trait given by choking
+#define CHOKING_TRAIT "choking_trait"
+/// Trait given by hallucinations
+#define HALLUCINATION_TRAIT "hallucination_trait"
+>>>>>>> cd3a77891534 (PKP Mind Virus: Glorfing Cigs edition (#69904))
 
 /**
 * Trait granted by [/mob/living/carbon/Initialize] and
