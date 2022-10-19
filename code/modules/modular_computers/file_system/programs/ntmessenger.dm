@@ -208,6 +208,7 @@
 
 	return data
 
+<<<<<<< HEAD
 ////////////////////////
 // MESSAGE HANDLING
 ////////////////////////
@@ -218,8 +219,17 @@
 
 /datum/computer_file/program/messenger/proc/msg_input(mob/living/U = usr, rigged = FALSE)
 	var/t = null
+=======
+//////////////////////
+// MESSAGE HANDLING //
+//////////////////////
+>>>>>>> d23e95b3bcbe (Curator and Mime PDAs now start with their ringer off (#70604))
 
+///Gets an input message from user and returns the sanitized message.
+/datum/computer_file/program/messenger/proc/msg_input(mob/living/user, target_name, rigged = FALSE)
+	var/input_message
 	if(mime_mode)
+<<<<<<< HEAD
 		t = emoji_sanitize(tgui_input_text(U, "Enter emojis", "NT Messaging"))
 	else
 		t = tgui_input_text(U, "Enter a message", "NT Messaging")
@@ -229,6 +239,17 @@
 	if(!U.canUseTopic(computer, be_close = TRUE))
 		return
 	return sanitize(t)
+=======
+		input_message = emoji_sanitize(tgui_input_text(user, "Enter emojis", "NT Messaging[target_name ? " ([target_name])" : ""]"))
+	else
+		input_message = tgui_input_text(user, "Enter a message", "NT Messaging[target_name ? " ([target_name])" : ""]")
+
+	if (!input_message || !sending_and_receiving)
+		return
+	if(!user.canUseTopic(computer, be_close = TRUE))
+		return
+	return sanitize(input_message)
+>>>>>>> d23e95b3bcbe (Curator and Mime PDAs now start with their ringer off (#70604))
 
 /datum/computer_file/program/messenger/proc/send_message(mob/living/user, list/obj/item/modular_computer/targets, everyone = FALSE, rigged = FALSE, fake_name = null, fake_job = null)
 	var/message = msg_input(user, rigged)
