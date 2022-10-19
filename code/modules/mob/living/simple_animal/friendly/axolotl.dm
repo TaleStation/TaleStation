@@ -23,13 +23,9 @@
 	can_be_held = TRUE
 	held_w_class = WEIGHT_CLASS_TINY
 	worn_slot_flags = ITEM_SLOT_HEAD
-<<<<<<< HEAD
-	head_icon = 'icons/mob/clothing/head/animal_item_head.dmi'
-=======
 	held_lh = 'icons/mob/inhands/animal_item_lefthand.dmi'
 	held_rh = 'icons/mob/inhands/animal_item_righthand.dmi'
 	head_icon = 'icons/mob/clothing/head/pets_head.dmi'
->>>>>>> c7dde066687a ([MDB Ignore]Hats DMI split (#70060))
 
 /mob/living/simple_animal/axolotl/Initialize(mapload)
 	. = ..()
