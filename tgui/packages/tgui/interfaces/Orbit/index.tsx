@@ -1,5 +1,5 @@
-import { useBackend, useLocalState } from '../backend';
 import { filter, sortBy } from 'common/collections';
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
 import { capitalizeFirst, multiline } from 'common/string';
 import { Button, Collapsible, Icon, Input, Section, Stack } from '../components';
 import { Window } from '../layouts';
@@ -62,13 +62,23 @@ enum THREAT {
   Medium = 'blue',
   Large = 'violet',
 }
+=======
+import { flow } from 'common/fp';
+import { capitalizeFirst, multiline } from 'common/string';
+import { useBackend, useLocalState } from 'tgui/backend';
+import { Button, Collapsible, Icon, Input, LabeledList, NoticeBox, Section, Stack } from 'tgui/components';
+import { Window } from 'tgui/layouts';
+import { collateAntagonists, getDisplayColor, getDisplayName, isJobOrNameMatch } from './helpers';
+import { ANTAG2COLOR, JOB2ICON } from './constants';
+import type { AntagGroup, Observable, OrbitData } from './types';
+>>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
 
 export const Orbit = (props, context) => {
   return (
     <Window title="Orbit" width={400} height={550}>
       <Window.Content scrollable>
         <Stack fill vertical>
-          <Stack.Item mt={0}>
+          <Stack.Item>
             <ObservableSearch />
           </Stack.Item>
           <Stack.Item mt={0.2} grow>
@@ -84,7 +94,7 @@ export const Orbit = (props, context) => {
 
 /** Controls filtering out the list of observables via search */
 const ObservableSearch = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend<OrbitData>(context);
   const {
     alive = [],
     antagonists = [],
@@ -98,13 +108,23 @@ const ObservableSearch = (props, context) => {
     'autoObserve',
     false
   );
+  const [heatMap, setHeatMap] = useLocalState<boolean>(
+    context,
+    'heatMap',
+    false
+  );
   const [searchQuery, setSearchQuery] = useLocalState<string>(
     context,
     'searchQuery',
     ''
   );
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
   /** Gets a list of Observable[], then filters the most relevant to orbit */
   const orbitMostRelevant = (searchQuery: string): void => {
+=======
+  /** Gets a list of Observables, then filters the most relevant to orbit */
+  const orbitMostRelevant = (searchQuery: string) => {
+>>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
     /** Returns the most orbited observable that matches the search. */
     const mostRelevant: Observable = flow([
       // Filters out anything that doesn't match search
@@ -142,6 +162,16 @@ const ObservableSearch = (props, context) => {
         <Stack.Divider />
         <Stack.Item>
           <Button
+            color="transparent"
+            icon={!heatMap ? 'heart' : 'ghost'}
+            onClick={() => setHeatMap(!heatMap)}
+            tooltip={multiline`Toggles between highlighting health or
+            orbiters.`}
+            tooltipPosition="bottom-start"
+          />
+        </Stack.Item>
+        <Stack.Item>
+          <Button
             color={autoObserve ? 'good' : 'transparent'}
             icon={autoObserve ? 'toggle-on' : 'toggle-off'}
             onClick={() => setAutoObserve(!autoObserve)}
@@ -152,12 +182,11 @@ const ObservableSearch = (props, context) => {
         </Stack.Item>
         <Stack.Item>
           <Button
-            inline
             color="transparent"
-            tooltip="Refresh"
-            tooltipPosition="bottom-start"
             icon="sync-alt"
             onClick={() => act('refresh')}
+            tooltip="Refresh"
+            tooltipPosition="bottom-start"
           />
         </Stack.Item>
       </Stack>
@@ -171,7 +200,7 @@ const ObservableSearch = (props, context) => {
  * observable group.
  */
 const ObservableContent = (props, context) => {
-  const { data } = useBackend<Data>(context);
+  const { data } = useBackend<OrbitData>(context);
   const {
     alive = [],
     antagonists = [],
@@ -197,7 +226,7 @@ const ObservableContent = (props, context) => {
           />
         );
       })}
-      <ObservableSection color="good" section={alive} title="Alive" />
+      <ObservableSection color="blue" section={alive} title="Alive" />
       <ObservableSection section={dead} title="Dead" />
       <ObservableSection section={ghosts} title="Ghosts" />
       <ObservableSection section={misc} title="Misc" />
@@ -210,8 +239,20 @@ const ObservableContent = (props, context) => {
  * Displays a collapsible with a map of observable items.
  * Filters the results if there is a provided search query.
  */
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
 const ObservableSection = (props: SectionProps, context) => {
   const { color = 'grey', section = [], title } = props;
+=======
+const ObservableSection = (
+  props: {
+    color?: string;
+    section: Array<Observable>;
+    title: string;
+  },
+  context
+) => {
+  const { color, section = [], title } = props;
+>>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
   if (!section.length) {
     return null;
   }
@@ -224,7 +265,15 @@ const ObservableSection = (props: SectionProps, context) => {
     filter<Observable>((poi) =>
       poi.name?.toLowerCase().includes(searchQuery?.toLowerCase())
     ),
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
     sortBy<Observable>((poi) => poi.name.toLowerCase()),
+=======
+    sortBy<Observable>((observable) =>
+      getDisplayName(observable.full_name, observable.name)
+        .replace(/^"/, '')
+        .toLowerCase()
+    ),
+>>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
   ])(section);
   if (!filteredSection.length) {
     return null;
@@ -234,8 +283,8 @@ const ObservableSection = (props: SectionProps, context) => {
     <Stack.Item>
       <Collapsible
         bold
-        color={color}
-        open={color !== 'grey'}
+        color={color ?? 'grey'}
+        open={!!color}
         title={title + ` - (${filteredSection.length})`}>
         {filteredSection.map((poi, index) => {
           return <ObservableItem color={color} item={poi} key={index} />;
@@ -247,9 +296,10 @@ const ObservableSection = (props: SectionProps, context) => {
 
 /** Renders an observable button */
 const ObservableItem = (
-  props: { color: string; item: Observable },
+  props: { color?: string; item: Observable },
   context
 ) => {
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
   const { act } = useBackend<Data>(context);
   const {
     color,
@@ -272,12 +322,34 @@ const ObservableItem = (
           {' '}
           ({orbiters?.toString()}{' '}
           <Icon mr={0} name={threat === THREAT.Large ? 'skull' : 'ghost'} />)
+=======
+  const { act } = useBackend<OrbitData>(context);
+  const { color, item } = props;
+  const { extra, full_name, job, job_icon, health, name, orbiters, ref } = item;
+  const [autoObserve] = useLocalState<boolean>(context, 'autoObserve', false);
+  const [heatMap] = useLocalState<boolean>(context, 'heatMap', false);
+
+  return (
+    <Button
+      color={getDisplayColor(item, heatMap, color)}
+      icon={job_icon || (job && JOB2ICON[job]) || null}
+      onClick={() => act('orbit', { auto_observe: autoObserve, ref: ref })}
+      tooltip={(!!health || !!extra) && <ObservableTooltip item={item} />}
+      tooltipPosition="bottom-start">
+      {capitalizeFirst(getDisplayName(full_name, name))}
+      {!!orbiters && (
+        <>
+          {' '}
+          <Icon mr={0} name={'ghost'} />
+          {orbiters}
+>>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
         </>
       )}
     </Button>
   );
 };
 
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
 /**
  * Collates antagonist groups into their own separate sections.
  * Some antags are grouped together lest they be listed separately,
@@ -311,4 +383,40 @@ const getThreat = (orbiters: number): THREAT => {
   } else {
     return THREAT.Large;
   }
+=======
+/** Displays some info on the mob as a tooltip. */
+const ObservableTooltip = (props: { item: Observable }) => {
+  const {
+    item: { extra, full_name, job, health },
+  } = props;
+  const extraInfo = extra?.split(':');
+  const displayHealth = !!health && health >= 0 ? `${health}%` : 'Critical';
+
+  return (
+    <>
+      <NoticeBox textAlign="center" nowrap>
+        Last Known Data
+      </NoticeBox>
+      <LabeledList>
+        {extraInfo ? (
+          <LabeledList.Item label={extraInfo[0]}>
+            {extraInfo[1]}
+          </LabeledList.Item>
+        ) : (
+          <>
+            {!!full_name && (
+              <LabeledList.Item label="Name">{full_name}</LabeledList.Item>
+            )}
+            {!!job && <LabeledList.Item label="Job">{job}</LabeledList.Item>}
+            {!!health && (
+              <LabeledList.Item label="Health">
+                {displayHealth}
+              </LabeledList.Item>
+            )}
+          </>
+        )}
+      </LabeledList>
+    </>
+  );
+>>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
 };
