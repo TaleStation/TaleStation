@@ -92,7 +92,9 @@
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
 	icon_state = "waistcoat"
-	inhand_icon_state = "waistcoat"
+	inhand_icon_state = "wcoat"
+	lefthand_file = 'icons/mob/inhands/clothing/suits_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
 	minimize_when_attached = FALSE
 	attachment_slot = null
 	greyscale_config = /datum/greyscale_config/waistcoat
@@ -108,6 +110,16 @@
 	righthand_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
 	inhand_icon_state = "vest_sheriff"
 	minimize_when_attached = TRUE
+	attachment_slot = null
+
+/obj/item/clothing/accessory/maidcorset
+	name = "maid corset"
+	desc = "The final touch that holds it all together."
+	icon_state = "maidcorset"
+	inhand_icon_state = "maidapron"
+	lefthand_file = 'icons/mob/inhands/clothing/suits_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
+	minimize_when_attached = FALSE
 	attachment_slot = null
 
 /obj/item/clothing/accessory/maidapron
@@ -452,7 +464,6 @@
 	name = "pride pin"
 	desc = "A Nanotrasen Diversity & Inclusion Center-sponsored holographic pin to show off your sexuality, reminding the crew of their unwavering commitment to equity, diversity, and inclusion!"
 	icon_state = "pride"
-	above_suit = TRUE
 	obj_flags = UNIQUE_RENAME
 	unique_reskin = list("Rainbow Pride" = "pride",
 						"Bisexual Pride" = "pride_bi",
