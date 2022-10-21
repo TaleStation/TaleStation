@@ -4,7 +4,9 @@
 	icon = 'icons/obj/radio.dmi'
 	name = "station bounced radio"
 	icon_state = "walkietalkie"
-	inhand_icon_state = "walkietalkie"
+	inhand_icon_state = "radio"
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	worn_icon_state = "radio"
 	desc = "A basic handheld radio that communicates with local telecommunication networks."
 	dog_fashion = /datum/dog_fashion/back
@@ -88,7 +90,7 @@
 
 	set_listening(listening)
 	set_broadcasting(broadcasting)
-	set_frequency(sanitize_frequency(frequency, freerange))
+	set_frequency(sanitize_frequency(frequency, freerange, syndie))
 	set_on(on)
 
 	AddElement(/datum/element/empprotection, EMP_PROTECT_WIRES)
@@ -406,7 +408,7 @@
 				tune = tune * 10
 				. = TRUE
 			if(.)
-				set_frequency(sanitize_frequency(tune, freerange))
+				set_frequency(sanitize_frequency(tune, freerange, syndie))
 		if("listen")
 			set_listening(!listening)
 			. = TRUE
