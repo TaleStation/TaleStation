@@ -16,6 +16,11 @@
 	var/intern_alt_name = null
 	/// The icon_state associated with this trim, as it will show on the security HUD.
 	var/sechud_icon_state = SECHUD_UNKNOWN
+<<<<<<< HEAD
+=======
+	/// Icons to be displayed in the orbit ui. Source: FontAwesome v6 Free Edition.
+	var/orbit_icon
+>>>>>>> 6e2a8fb593da (Fixes autodoc for orbit_icon (#70695))
 
 	/// Accesses that this trim unlocks on a card it is imprinted on. These accesses never take wildcard slots and can be added and removed at will.
 	var/list/access = list()
