@@ -87,15 +87,28 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	/// Allow people with chunky fingers to use?
 	var/allow_chunky = FALSE
 
-<<<<<<< HEAD
-	var/honkamnt = 0 /// honk honk honk honk honk honkh onk honkhnoohnk
-=======
 	///If hit by a Clown virus, remaining honks left until it stops.
 	var/honkvirus_amount = 0
 	///Whether the PDA can still use NTNet while out of NTNet's reach.
 	var/long_ranged = FALSE
->>>>>>> 218a153464bd (Removes a ton of unused tablet vars, re-organizes the rest (#70344))
+	///Whether the PDA can still use NTNet while out of NTNet's reach.
+	var/long_ranged = FALSE
 
+	var/list/idle_threads // Idle programs on background. They still receive process calls but can't be interacted with.
+	var/obj/physical = null // Object that represents our computer. It's used for Adjacent() and UI visibility checks.
+	var/has_light = FALSE //If the computer has a flashlight/LED light/what-have-you installed
+
+	/// How far the computer's light can reach, is not editable by players.
+	var/comp_light_luminosity = 3
+	/// The built-in light's color, editable by players.
+	var/comp_light_color = "#FFFFFF"
+
+	var/invisible = FALSE // whether or not the tablet is invisible in messenger and other apps
+
+	var/datum/picture/saved_image // the saved image used for messaging purpose like come on dude
+
+	/// Stored pAI in the computer
+	var/obj/item/pai_card/inserted_pai = null
 	///The amount of paper currently stored in the PDA
 	var/stored_paper = 10
 	///The max amount of paper that can be held at once.
@@ -324,10 +337,17 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 /obj/item/modular_computer/examine(mob/user)
 	. = ..()
-	if(atom_integrity <= integrity_failure * max_integrity)
-		. += span_danger("It is heavily damaged!")
-	else if(atom_integrity < max_integrity)
-		. += span_warning("It is damaged.")
+	var/healthpercent = round((atom_integrity/max_integrity) * 100, 1)
+	switch(healthpercent)
+		if(50 to 99)
+			. += span_info("It looks slightly damaged.")
+		if(25 to 50)
+			. += span_info("It appears heavily damaged.")
+		if(0 to 25)
+			. += span_warning("It's falling apart!")
+
+	if(long_ranged)
+		. += "It is upgraded with an experimental long-ranged network capabilities, picking up NTNet frequencies while further away."
 
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
 	var/obj/item/computer_hardware/card_slot/card_slot2 = all_components[MC_CARD2]
@@ -624,7 +644,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return NTNET_GOOD_SIGNAL
 	else if(is_mining_level(current_turf.z))
 		return NTNET_LOW_SIGNAL
-
+	else if(long_ranged)
+		return NTNET_LOW_SIGNAL
 	return NTNET_NO_SIGNAL
 
 /obj/item/modular_computer/proc/add_log(text)
@@ -682,6 +703,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	return TRUE
 
 /obj/item/modular_computer/proc/UpdateDisplay()
+	if(!saved_identification && !saved_job)
+		name = initial(name)
+		return
 	name = "[saved_identification] ([saved_job])"
 
 /obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user, params)
