@@ -5,7 +5,7 @@
 	desc = "A yellow lens created by Rat'varian worshippers to spy great distances."
 	icon = 'icons/obj/clockwork_objects.dmi'
 	icon_state = "truesight_lens"
-	inhand_icon_state = "none"
+	inhand_icon_state = "blankplaque" // NOTE: Yeah we should probably add a real sprite - Jolly
 	worn_icon_state = "none"
 	slot_flags = NONE
 	zoom_out_amt = 0
