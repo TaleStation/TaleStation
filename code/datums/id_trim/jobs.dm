@@ -701,10 +701,7 @@
 /datum/id_trim/job/prisoner
 	assignment = "Prisoner"
 	trim_state = "trim_warden"
-<<<<<<< HEAD
-=======
 	orbit_icon = "lock"
->>>>>>> 83c22210c38a (Fixes prisoner icon on orbit ui (#70671))
 	department_color = COLOR_PRISONER_BLACK
 	subdepartment_color = COLOR_PRISONER_ORANGE
 	sechud_icon_state = SECHUD_PRISONER
