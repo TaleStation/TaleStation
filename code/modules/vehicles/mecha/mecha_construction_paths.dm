@@ -603,10 +603,7 @@
 	if(istype(I, /obj/item/bikehorn))
 		playsound(parent, 'sound/items/bikehorn.ogg', 50, TRUE)
 		user.balloon_alert_to_viewers("HONK!")
-<<<<<<< HEAD
-=======
 		return TRUE
->>>>>>> 6e3ee074c79c (The H.O.N.K. can be built again. (#70714))
 
 	//TODO: better messages.
 	switch(index)
