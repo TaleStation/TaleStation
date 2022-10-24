@@ -1,68 +1,4 @@
 import { filter, sortBy } from 'common/collections';
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
-import { capitalizeFirst, multiline } from 'common/string';
-import { Button, Collapsible, Icon, Input, Section, Stack } from '../components';
-import { Window } from '../layouts';
-import { flow } from 'common/fp';
-
-type AntagGroup = [string, Observable[]];
-
-type Data = {
-  alive: Observable[];
-  antagonists: Observable[];
-  dead: Observable[];
-  ghosts: Observable[];
-  misc: Observable[];
-  npcs: Observable[];
-};
-
-type Observable = {
-  ref: string;
-  antag?: string;
-  name: string;
-  orbiters?: number;
-};
-
-type SectionProps = {
-  color?: string;
-  section: Observable[];
-  title: string;
-};
-
-const ANTAG2COLOR = {
-  'Abductors': 'pink',
-  'Ash Walkers': 'olive',
-  'Biohazards': 'brown',
-  'CentCom': 'teal',
-} as const;
-
-const ANTAG2GROUP = {
-  'Abductor Agent': 'Abductors',
-  'Abductor Scientist': 'Abductors',
-  'Ash Walker': 'Ash Walkers',
-  'Blob': 'Biohazards',
-  'Sentient Disease': 'Biohazards',
-  'CentCom Commander': 'CentCom',
-  'CentCom Head Intern': 'CentCom',
-  'CentCom Intern': 'CentCom',
-  'CentCom Official': 'CentCom',
-  'Central Command': 'CentCom',
-  'Clown Operative': 'Clown Operatives',
-  'Clown Operative Leader': 'Clown Operatives',
-  'Nuclear Operative': 'Nuclear Operatives',
-  'Nuclear Operative Leader': 'Nuclear Operatives',
-  'Space Wizard': 'Wizard Federation',
-  'Wizard Apprentice': 'Wizard Federation',
-  'Wizard Minion': 'Wizard Federation',
-} as const;
-
-enum THREAT {
-  None,
-  Small = 'teal',
-  Medium = 'blue',
-  Large = 'violet',
-}
-=======
 import { flow } from 'common/fp';
 import { capitalizeFirst, multiline } from 'common/string';
 import { useBackend, useLocalState } from 'tgui/backend';
@@ -71,7 +7,6 @@ import { Window } from 'tgui/layouts';
 import { collateAntagonists, getDisplayColor, getDisplayName, isJobOrNameMatch } from './helpers';
 import { ANTAG2COLOR, JOB2ICON } from './constants';
 import type { AntagGroup, Observable, OrbitData } from './types';
->>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
 
 export const Orbit = (props, context) => {
   return (
@@ -118,22 +53,17 @@ const ObservableSearch = (props, context) => {
     'searchQuery',
     ''
   );
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
-  /** Gets a list of Observable[], then filters the most relevant to orbit */
-  const orbitMostRelevant = (searchQuery: string): void => {
-=======
   /** Gets a list of Observables, then filters the most relevant to orbit */
   const orbitMostRelevant = (searchQuery: string) => {
->>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
     /** Returns the most orbited observable that matches the search. */
     const mostRelevant: Observable = flow([
       // Filters out anything that doesn't match search
       filter<Observable>((observable) =>
-        observable.name?.toLowerCase().includes(searchQuery?.toLowerCase())
+        isJobOrNameMatch(observable, searchQuery)
       ),
       // Sorts descending by orbiters
-      sortBy<Observable>((poi) => -(poi.orbiters || 0)),
-      // Makes a single Observable[] list for an easy search
+      sortBy<Observable>((observable) => -(observable.orbiters || 0)),
+      // Makes a single Observables list for an easy search
     ])([alive, antagonists, dead, ghosts, misc, npcs].flat())[0];
     if (mostRelevant !== undefined) {
       act('orbit', {
@@ -209,7 +139,7 @@ const ObservableContent = (props, context) => {
     misc = [],
     npcs = [],
   } = data;
-  let collatedAntagonists: AntagGroup[] = [];
+  let collatedAntagonists: Array<AntagGroup> = [];
   if (antagonists.length) {
     collatedAntagonists = collateAntagonists(antagonists);
   }
@@ -239,10 +169,6 @@ const ObservableContent = (props, context) => {
  * Displays a collapsible with a map of observable items.
  * Filters the results if there is a provided search query.
  */
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
-const ObservableSection = (props: SectionProps, context) => {
-  const { color = 'grey', section = [], title } = props;
-=======
 const ObservableSection = (
   props: {
     color?: string;
@@ -252,28 +178,19 @@ const ObservableSection = (
   context
 ) => {
   const { color, section = [], title } = props;
->>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
   if (!section.length) {
     return null;
   }
-  const [searchQuery, setSearchQuery] = useLocalState<string>(
-    context,
-    'searchQuery',
-    ''
-  );
-  const filteredSection: Observable[] = flow([
-    filter<Observable>((poi) =>
-      poi.name?.toLowerCase().includes(searchQuery?.toLowerCase())
+  const [searchQuery] = useLocalState<string>(context, 'searchQuery', '');
+  const filteredSection: Array<Observable> = flow([
+    filter<Observable>((observable) =>
+      isJobOrNameMatch(observable, searchQuery)
     ),
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
-    sortBy<Observable>((poi) => poi.name.toLowerCase()),
-=======
     sortBy<Observable>((observable) =>
       getDisplayName(observable.full_name, observable.name)
         .replace(/^"/, '')
         .toLowerCase()
     ),
->>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
   ])(section);
   if (!filteredSection.length) {
     return null;
@@ -294,35 +211,11 @@ const ObservableSection = (
   );
 };
 
-/** Renders an observable button */
+/** Renders an observable button that has tooltip info for living Observables*/
 const ObservableItem = (
   props: { color?: string; item: Observable },
   context
 ) => {
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
-  const { act } = useBackend<Data>(context);
-  const {
-    color,
-    item: { name, orbiters, ref },
-  } = props;
-  const [autoObserve, setAutoObserve] = useLocalState<boolean>(
-    context,
-    'autoObserve',
-    false
-  );
-  const threat = getThreat(orbiters || 0);
-
-  return (
-    <Button
-      color={threat || color}
-      onClick={() => act('orbit', { auto_observe: autoObserve, ref: ref })}>
-      {capitalizeFirst(name).slice(0, 44) /** prevents it from overflowing */}
-      {!!orbiters && (
-        <>
-          {' '}
-          ({orbiters?.toString()}{' '}
-          <Icon mr={0} name={threat === THREAT.Large ? 'skull' : 'ghost'} />)
-=======
   const { act } = useBackend<OrbitData>(context);
   const { color, item } = props;
   const { extra, full_name, job, job_icon, health, name, orbiters, ref } = item;
@@ -342,48 +235,12 @@ const ObservableItem = (
           {' '}
           <Icon mr={0} name={'ghost'} />
           {orbiters}
->>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
         </>
       )}
     </Button>
   );
 };
 
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Orbit.tsx
-/**
- * Collates antagonist groups into their own separate sections.
- * Some antags are grouped together lest they be listed separately,
- * ie: Nuclear Operatives. See: ANTAG_GROUPS.
- */
-const collateAntagonists = (antagonists: Observable[]): AntagGroup[] => {
-  const collatedAntagonists = {};
-  for (const antagonist of antagonists) {
-    const { antag } = antagonist;
-    const resolvedName = ANTAG2GROUP[antag!] || antag;
-    if (collatedAntagonists[resolvedName] === undefined) {
-      collatedAntagonists[resolvedName] = [];
-    }
-    collatedAntagonists[resolvedName].push(antagonist);
-  }
-  const sortedAntagonists = sortBy<AntagGroup>((antagonist) => antagonist[0])(
-    Object.entries(collatedAntagonists)
-  );
-
-  return sortedAntagonists;
-};
-
-/** Takes the amount of orbiters and returns some style options */
-const getThreat = (orbiters: number): THREAT => {
-  if (!orbiters || orbiters <= 2) {
-    return THREAT.None;
-  } else if (orbiters === 3) {
-    return THREAT.Small;
-  } else if (orbiters <= 6) {
-    return THREAT.Medium;
-  } else {
-    return THREAT.Large;
-  }
-=======
 /** Displays some info on the mob as a tooltip. */
 const ObservableTooltip = (props: { item: Observable }) => {
   const {
@@ -418,5 +275,4 @@ const ObservableTooltip = (props: { item: Observable }) => {
       </LabeledList>
     </>
   );
->>>>>>> 03f2f3e2b0cd (Orbit refactor + features part dos: Icons, health bars. (#70580)):tgui/packages/tgui/interfaces/Orbit/index.tsx
 };
