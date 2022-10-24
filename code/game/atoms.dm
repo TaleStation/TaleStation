@@ -241,7 +241,7 @@
 
 	SET_PLANE_IMPLICIT(src, plane)
 
-	if(greyscale_config && greyscale_colors)
+	if(greyscale_config && greyscale_colors) //we'll check again at item/init for inhand/belt/worn configs.
 		update_greyscale()
 
 	//atom color stuff
@@ -294,7 +294,7 @@
  *
  * To have your LateIntialize proc be called, your atoms [Initalization][/atom/proc/Initialize]
  *  proc must return the hint
- * [INITIALIZE_HINT_LATELOAD] otherwise you will never be called.
+ * [INITIALIZE_HINT_LATELOAD] otherwise it will never be called.
  *
  * useful for doing things like finding other machines on GLOB.machines because you can guarantee
  * that all atoms will actually exist in the "WORLD" at this time and that all their Intialization
@@ -374,7 +374,8 @@
 	atom_storage = new cloning.type(src, cloning.max_slots, cloning.max_specific_storage, cloning.max_total_storage, cloning.numerical_stacking, cloning.allow_quick_gather, cloning.collection_mode, cloning.attack_hand_interact)
 
 	if(cloning.can_hold || cloning.cant_hold)
-		atom_storage.set_holdable(cloning.can_hold, cloning.cant_hold)
+		if(!atom_storage.can_hold && !atom_storage.cant_hold) //In the event that the can/can't hold lists are already in place (such as from storage objects added on initialize).
+			atom_storage.set_holdable(cloning.can_hold, cloning.cant_hold)
 
 	return atom_storage
 
@@ -1228,6 +1229,7 @@
 	switch(var_name)
 		if(NAMEOF(src, color))
 			add_atom_colour(color, ADMIN_COLOUR_PRIORITY)
+			update_appearance()
 
 
 /**
