@@ -38,6 +38,9 @@
 	shown_body = make_body_image(picked)
 
 	hallucinator.client?.images |= shown_body
+	return queue_cleanup()
+
+/datum/hallucination/body/proc/queue_cleanup()
 	QDEL_IN(src, rand(3 SECONDS, 5 SECONDS)) //Only seen for a brief moment.
 	return TRUE
 
