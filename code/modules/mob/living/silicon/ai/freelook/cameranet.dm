@@ -71,18 +71,10 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 		if(eye.loc)
 			// 0xf = 15
 			var/static_range = eye.static_visibility_range
-<<<<<<< HEAD
-			var/x1 = max(0, eye.x - static_range) & ~(CHUNK_SIZE - 1)
-			var/y1 = max(0, eye.y - static_range) & ~(CHUNK_SIZE - 1)
-			var/x2 = min(world.maxx, eye.x + static_range) & ~(CHUNK_SIZE - 1)
-			var/y2 = min(world.maxy, eye.y + static_range) & ~(CHUNK_SIZE - 1)
-=======
 			var/x1 = max(1, eye_turf.x - static_range)
 			var/y1 = max(1, eye_turf.y - static_range)
 			var/x2 = min(world.maxx, eye_turf.x + static_range)
 			var/y2 = min(world.maxy, eye_turf.y + static_range)
->>>>>>> b1ed2d03f252 (Fixes AI camera static not updating when the AI enters a mecha (#70385))
-
 			for(var/x = x1; x <= x2; x += CHUNK_SIZE)
 				for(var/y = y1; y <= y2; y += CHUNK_SIZE)
 					visibleChunks |= getCameraChunk(x, y, eye_turf.z)
