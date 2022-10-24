@@ -9,11 +9,8 @@
 	supervisors = SUPERVISOR_HOP
 	selection_color = "#bbe291"
 	exp_granted_type = EXP_TYPE_CREW
-<<<<<<< HEAD
-=======
 	config_tag = "CHAPLAIN"
 
->>>>>>> 901662f59b15 (Changes job config format to use TOML, and add tools for migrating existing format (#70199))
 	outfit = /datum/outfit/job/chaplain
 	plasmaman_outfit = /datum/outfit/plasmaman/chaplain
 
