@@ -267,6 +267,44 @@
 /datum/quirk/monochromatic/remove()
 	quirk_holder.remove_client_colour(/datum/client_colour/monochrome)
 
+/datum/quirk/nonviolent
+	name = "Pacifist"
+	desc = "The thought of violence makes you sick. So much so, in fact, that you can't hurt anyone."
+	icon = "peace"
+	value = -8
+	mob_trait = TRAIT_PACIFISM
+	gain_text = "<span class='danger'>You feel repulsed by the thought of violence!</span>"
+	lose_text = "<span class='notice'>You think you can defend yourself again.</span>"
+	medical_record_text = "Patient is unusually pacifistic and cannot bring themselves to cause physical harm."
+	hardcore_value = 6
+
+/datum/quirk/paraplegic
+	name = "Paraplegic"
+	desc = "Your legs do not function. Nothing will ever fix this. But hey, free wheelchair!"
+	icon = "wheelchair"
+	value = -12
+	human_only = TRUE
+	gain_text = null // Handled by trauma.
+	lose_text = null
+	medical_record_text = "Patient has an untreatable impairment in motor function in the lower extremities."
+	hardcore_value = 15
+	mail_goodies = list(/obj/vehicle/ridden/wheelchair/motorized) //yes a fullsized unfolded motorized wheelchair does fit
+
+/datum/quirk/paraplegic/add_unique()
+	if(quirk_holder.buckled) // Handle late joins being buckled to arrival shuttle chairs.
+		quirk_holder.buckled.unbuckle_mob(quirk_holder)
+
+	var/turf/holder_turf = get_turf(quirk_holder)
+	var/obj/structure/chair/spawn_chair = locate() in holder_turf
+
+	var/obj/vehicle/ridden/wheelchair/wheels
+	if(quirk_holder.client?.get_award_status(/datum/award/score/hardcore_random) >= 5000) //More than 5k score? you unlock the gamer wheelchair.
+		wheels = new /obj/vehicle/ridden/wheelchair/gold(holder_turf)
+	else
+		wheels = new(holder_turf)
+	if(spawn_chair) // Makes spawning on the arrivals shuttle more consistent looking
+		wheels.setDir(spawn_chair.dir)
+
 /datum/quirk/phobia
 	name = "Phobia"
 	desc = "You are irrationally afraid of something."
