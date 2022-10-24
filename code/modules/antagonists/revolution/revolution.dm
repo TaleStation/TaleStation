@@ -507,8 +507,8 @@
 	var/total_revs = ex_revs.len + ex_headrevs.len
 	var/total_candidates = 0
 
-	for (var/mob/player as anything in GLOB.player_list)
-		if (player.mind.has_antag_datum(/datum/antagonist/enemy_of_the_revolution))
+	for (var/datum/mind/crewmember as anything in get_crewmember_minds())
+		if (crewmember.has_antag_datum(/datum/antagonist/enemy_of_the_revolution))
 			continue
 
 		total_candidates += 1
@@ -642,7 +642,7 @@
 	name = "Revolutionary (Preview only)"
 
 	uniform = /obj/item/clothing/under/costume/soviet
-	head = /obj/item/clothing/head/ushanka
+	head = /obj/item/clothing/head/costume/ushanka
 	gloves = /obj/item/clothing/gloves/color/black
 	l_hand = /obj/item/spear
 	r_hand = /obj/item/assembly/flash
