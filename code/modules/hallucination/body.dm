@@ -48,14 +48,10 @@
 
 /// Makes the image of the body to show at the location passed.
 /datum/hallucination/body/proc/make_body_image(turf/location)
-<<<<<<< HEAD
-	return image(body_image_file, location, body_image_state, TURF_LAYER)
-=======
 	var/image/created_image = image(body_image_file, location, body_image_state, body_layer)
 	if(body_floats)
 		DO_FLOATING_ANIM(created_image)
 	return created_image
->>>>>>> bc9ba6371770 (Adds a few (very) basic hallucinations, to keep people on their toes (#70251))
 
 /datum/hallucination/body/husk
 	random_hallucination_weight = 8
@@ -130,8 +126,6 @@
 /datum/hallucination/body/weird/alien
 	body_image_file = 'icons/mob/nonhuman-player/alien.dmi'
 	body_image_state = "alienother"
-<<<<<<< HEAD
-=======
 	body_floats = TRUE
 
 /datum/hallucination/body/weird/mini_bubblegum
@@ -194,4 +188,3 @@
 	// Spook 'em before we delete
 	shown_body.pixel_x = (shown_body.pixel_x / 2)
 	shown_body.pixel_y = (shown_body.pixel_y / 2)
->>>>>>> bc9ba6371770 (Adds a few (very) basic hallucinations, to keep people on their toes (#70251))
