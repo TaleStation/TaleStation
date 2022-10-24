@@ -7,15 +7,12 @@
 	var/body_image_state
 	/// The actual image we made and showed show.
 	var/image/shown_body
-<<<<<<< HEAD
-=======
 	/// Whether we apply the floating anim to the body
 	var/body_floats = FALSE
 	/// The layer this body will be drawn on, in case we want to bypass lighting
 	var/body_layer = TURF_LAYER
 	/// if TRUE, spawns the body under the hallucinator instead of somewhere in view
 	var/spawn_under_hallucinator = FALSE
->>>>>>> bc9ba6371770 (Adds a few (very) basic hallucinations, to keep people on their toes (#70251))
 
 /datum/hallucination/body/start()
 	// This hallucination is purely visual, so we don't need to bother for clientless mobs
@@ -23,10 +20,6 @@
 		return FALSE
 
 	var/list/possible_points = list()
-<<<<<<< HEAD
-	for(var/turf/open/floor/open_floor in view(hallucinator))
-		possible_points += open_floor
-=======
 	if(spawn_under_hallucinator)
 		possible_points += get_turf(hallucinator)
 	else
@@ -34,7 +27,6 @@
 			if(open_turf.is_blocked_turf())
 				continue
 			possible_points += open_turf
->>>>>>> bc9ba6371770 (Adds a few (very) basic hallucinations, to keep people on their toes (#70251))
 
 	if(!length(possible_points))
 		return FALSE
