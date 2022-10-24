@@ -118,18 +118,12 @@
 	qdel(src)
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
-<<<<<<< HEAD
-	target.add_overlay(GLOB.welding_sparks)
-	. = ..()
-	target.cut_overlay(GLOB.welding_sparks)
-=======
 	var/mutable_appearance/sparks = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE)
 	target.add_overlay(sparks)
 	LAZYADD(update_overlays_on_z, sparks)
 	. = ..()
 	LAZYREMOVE(update_overlays_on_z, sparks)
 	target.cut_overlay(sparks)
->>>>>>> 1a536ed0003b (Fixes Type Mismatch Causing Infinite Irrevocable Welding (#70670))
 
 /obj/item/weldingtool/attack(mob/living/carbon/human/attacked_humanoid, mob/living/user)
 	if(!istype(attacked_humanoid))

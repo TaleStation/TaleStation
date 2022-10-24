@@ -176,18 +176,12 @@
 /obj/item/gun/energy/plasmacutter/use_tool(atom/target, mob/living/user, delay, amount=1, volume=0, datum/callback/extra_checks)
 
 	if(amount)
-<<<<<<< HEAD
-		target.add_overlay(GLOB.welding_sparks)
-		. = ..()
-		target.cut_overlay(GLOB.welding_sparks)
-=======
 		var/mutable_appearance/sparks = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE)
 		target.add_overlay(sparks)
 		LAZYADD(update_overlays_on_z, sparks)
 		. = ..()
 		LAZYREMOVE(update_overlays_on_z, sparks)
 		target.cut_overlay(sparks)
->>>>>>> 1a536ed0003b (Fixes Type Mismatch Causing Infinite Irrevocable Welding (#70670))
 	else
 		. = ..(amount=1)
 
