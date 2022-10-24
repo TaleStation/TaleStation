@@ -674,12 +674,7 @@
 	if(!alt_click_can_use_id(user))
 		return
 	if(registered_account.adjust_money(-amount_to_remove, "System: Withdrawal"))
-<<<<<<< HEAD
-		var/commission_amount = amount_to_remove < 100 ? commission_minimal : round(amount_to_remove * commission)
-		var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove - commission_amount)
-=======
 		var/obj/item/holochip/holochip = new (user.drop_location(), amount_to_remove)
->>>>>>> 943e6fba3b81 (Back reason to withdrawal in ntpay. Remove all about commission (#70549))
 		user.put_in_hands(holochip)
 		to_chat(user, span_notice("You withdraw [amount_to_remove - commission_amount] credits into a holochip. Commission was [commission_amount] credits"))
 		SSblackbox.record_feedback("amount", "credits_removed", amount_to_remove)
