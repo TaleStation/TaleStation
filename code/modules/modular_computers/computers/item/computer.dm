@@ -65,6 +65,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/allow_chunky = FALSE
 
 	var/honkamnt = 0 /// honk honk honk honk honk honkh onk honkhnoohnk
+	///Whether the PDA can still use NTNet while out of NTNet's reach.
+	var/long_ranged = FALSE
 
 	var/list/idle_threads // Idle programs on background. They still receive process calls but can't be interacted with.
 	var/obj/physical = null // Object that represents our computer. It's used for Adjacent() and UI visibility checks.
@@ -167,7 +169,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		if(!istype(src, /obj/item/modular_computer/tablet))
 			return FALSE
 
-// Gets IDs/access levels from card slot. Would be useful when/if PDAs would become modular PCs.
+// Gets IDs/access levels from card slot. Would be useful when/if PDAs would become modular PCs. //guess what
 /obj/item/modular_computer/GetAccess()
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
 	if(card_slot)
@@ -310,10 +312,17 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 /obj/item/modular_computer/examine(mob/user)
 	. = ..()
-	if(atom_integrity <= integrity_failure * max_integrity)
-		. += span_danger("It is heavily damaged!")
-	else if(atom_integrity < max_integrity)
-		. += span_warning("It is damaged.")
+	var/healthpercent = round((atom_integrity/max_integrity) * 100, 1)
+	switch(healthpercent)
+		if(50 to 99)
+			. += span_info("It looks slightly damaged.")
+		if(25 to 50)
+			. += span_info("It appears heavily damaged.")
+		if(0 to 25)
+			. += span_warning("It's falling apart!")
+
+	if(long_ranged)
+		. += "It is upgraded with an experimental long-ranged network capabilities, picking up NTNet frequencies while further away."
 
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
 	var/obj/item/computer_hardware/card_slot/card_slot2 = all_components[MC_CARD2]
@@ -406,7 +415,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			to_chat(user, span_notice("You press the power button and start up \the [src]."))
 		if(looping_sound)
 			soundloop.start()
-		enabled = 1
+		enabled = TRUE
 		update_appearance()
 		if(open_ui)
 			ui_interact(user)
@@ -429,26 +438,23 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return
 
 	if(active_program && active_program.requires_ntnet && !get_ntnet_status(active_program.requires_ntnet_feature))
-		active_program.event_networkfailure(0) // Active program requires NTNet to run but we've just lost connection. Crash.
+		active_program.event_networkfailure(FALSE) // Active program requires NTNet to run but we've just lost connection. Crash.
 
-	for(var/I in idle_threads)
-		var/datum/computer_file/program/P = I
-		if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature))
-			P.event_networkfailure(1)
+	for(var/datum/computer_file/program/idle_programs as anything in idle_threads)
+		if(idle_programs.program_state == PROGRAM_STATE_KILLED)
+			idle_threads.Remove(idle_programs)
+			continue
+		idle_programs.process_tick(delta_time)
+		idle_programs.ntnet_status = get_ntnet_status(idle_programs.requires_ntnet_feature)
+		if(idle_programs.requires_ntnet && !idle_programs.ntnet_status)
+			idle_programs.event_networkfailure(TRUE)
 
 	if(active_program)
-		if(active_program.program_state != PROGRAM_STATE_KILLED)
+		if(active_program.program_state == PROGRAM_STATE_KILLED)
+			active_program = null
+		else
 			active_program.process_tick(delta_time)
 			active_program.ntnet_status = get_ntnet_status()
-		else
-			active_program = null
-
-	for(var/datum/computer_file/program/P as anything in idle_threads)
-		if(P.program_state != PROGRAM_STATE_KILLED)
-			P.process_tick(delta_time)
-			P.ntnet_status = get_ntnet_status()
-		else
-			idle_threads.Remove(P)
 
 	handle_power(delta_time) // Handles all computer power interaction
 	//check_update_ui_need()
@@ -489,6 +495,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	var/obj/item/computer_hardware/battery/battery_module = all_components[MC_CELL]
 
+	data["PC_showbatteryicon"] = !!battery_module
 	if(battery_module && battery_module.battery)
 		switch(battery_module.battery.percent())
 			if(80 to 200) // 100 should be maximal but just in case..
@@ -504,11 +511,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			else
 				data["PC_batteryicon"] = "batt_5.gif"
 		data["PC_batterypercent"] = "[round(battery_module.battery.percent())]%"
-		data["PC_showbatteryicon"] = 1
 	else
 		data["PC_batteryicon"] = "batt_5.gif"
 		data["PC_batterypercent"] = "N/C"
-		data["PC_showbatteryicon"] = battery_module ? 1 : 0
 
 	switch(get_ntnet_status())
 		if(NTNET_NO_SIGNAL)
@@ -522,19 +527,15 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(length(idle_threads))
 		var/list/program_headers = list()
-		for(var/I in idle_threads)
-			var/datum/computer_file/program/P = I
-			if(!P.ui_header)
+		for(var/datum/computer_file/program/idle_programs as anything in idle_threads)
+			if(!idle_programs.ui_header)
 				continue
-			program_headers.Add(list(list(
-				"icon" = P.ui_header
-			)))
+			program_headers.Add(list(list("icon" = idle_programs.ui_header)))
 
 		data["PC_programheaders"] = program_headers
 
 	data["PC_stationtime"] = station_time_timestamp()
-	data["PC_hasheader"] = 1
-	data["PC_showexitprogram"] = active_program ? 1 : 0 // Hides "Exit Program" button on mainscreen
+	data["PC_showexitprogram"] = !!active_program // Hides "Exit Program" button on mainscreen
 	return data
 
 ///Wipes the computer's current program. Doesn't handle any of the niceties around doing this
@@ -561,9 +562,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		to_chat(user, span_danger("\The [src]'s screen shows \"I/O ERROR - Unable to run program\" warning."))
 		return FALSE
 
-	if(!program.is_supported_by_hardware(hardware_flag, 1, user))
-		return FALSE
-
 	// The program is already running. Resume it.
 	if(program in idle_threads)
 		program.program_state = PROGRAM_STATE_ACTIVE
@@ -573,6 +571,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		update_appearance()
 		updateUsrDialog()
 		return TRUE
+
+	if(!program.is_supported_by_hardware(hardware_flag, 1, user))
+		return FALSE
 
 	if(idle_threads.len > max_idle_programs)
 		to_chat(user, span_danger("\The [src] displays a \"Maximal CPU load reached. Unable to run another program.\" error."))
@@ -596,7 +597,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(!SSnetworks.station_network || !SSnetworks.station_network.check_function(specific_action)) // NTNet is down and we are not connected via wired connection. No signal.
 		return NTNET_NO_SIGNAL
 
-
 	// computers are connected through ethernet
 	if(hardware_flag & PROGRAM_CONSOLE)
 		return NTNET_ETHERNET_SIGNAL
@@ -610,7 +610,8 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		return NTNET_GOOD_SIGNAL
 	else if(is_mining_level(current_turf.z))
 		return NTNET_LOW_SIGNAL
-
+	else if(long_ranged)
+		return NTNET_LOW_SIGNAL
 	return NTNET_NO_SIGNAL
 
 /obj/item/modular_computer/proc/add_log(text)
@@ -668,6 +669,9 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	return TRUE
 
 /obj/item/modular_computer/proc/UpdateDisplay()
+	if(!saved_identification && !saved_job)
+		name = initial(name)
+		return
 	name = "[saved_identification] ([saved_job])"
 
 /obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user, params)
