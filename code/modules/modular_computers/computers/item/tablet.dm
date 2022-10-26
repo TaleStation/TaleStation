@@ -36,6 +36,19 @@
 		icon_state = icon_state_powered = icon_state_unpowered = "[base_icon_state]-[finish_color]"
 	return ..()
 
+/obj/item/modular_computer/tablet/attack_self(mob/user)
+	// bypass literacy checks to access syndicate uplink
+	var/datum/component/uplink/hidden_uplink = GetComponent(/datum/component/uplink)
+	if(hidden_uplink?.owner && HAS_TRAIT(user, TRAIT_ILLITERATE))
+		if(hidden_uplink.owner != user.key)
+			return ..()
+
+		hidden_uplink.locked = FALSE
+		hidden_uplink.interact(null, user)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
+	return ..()
+
 /obj/item/modular_computer/tablet/interact(mob/user)
 	. = ..()
 	if(HAS_TRAIT(src, TRAIT_PDA_MESSAGE_MENU_RIGGED))
@@ -45,22 +58,28 @@
 /obj/item/modular_computer/tablet/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 
-	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Remove pen"
+	if(inserted_item)
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Remove [inserted_item]"
+		. = CONTEXTUAL_SCREENTIP_SET
+	else if(istype(held_item) && is_type_in_list(held_item, contained_item))
+		context[SCREENTIP_CONTEXT_LMB] = "Insert [held_item]"
+		. = CONTEXTUAL_SCREENTIP_SET
 
-	return CONTEXTUAL_SCREENTIP_SET
+	return . || NONE
 
 /obj/item/modular_computer/tablet/attackby(obj/item/W, mob/user)
 	. = ..()
 
 	if(is_type_in_list(W, contained_item))
 		if(W.w_class >= WEIGHT_CLASS_SMALL) // Anything equal to or larger than small won't work
+			user.balloon_alert(user, "too big!")
 			return
 		if(inserted_item)
-			to_chat(user, span_warning("There is already \a [inserted_item] in \the [src]!"))
+			balloon_alert(user, "no room!")
 		else
 			if(!user.transferItemToLoc(W, src))
 				return
-			to_chat(user, span_notice("You insert \the [W] into \the [src]."))
+			balloon_alert(user, "inserted [W]")
 			inserted_item = W
 			playsound(src, 'sound/machines/pda_button1.ogg', 50, TRUE)
 
@@ -99,13 +118,13 @@
 		return
 
 	if(inserted_item)
-		to_chat(user, span_notice("You remove [inserted_item] from [src]."))
+		balloon_alert(user, "removed [inserted_item]")
 		user.put_in_hands(inserted_item)
 		inserted_item = null
 		update_appearance()
 		playsound(src, 'sound/machines/pda_button2.ogg', 50, TRUE)
 	else
-		to_chat(user, span_warning("This tablet does not have a pen in it!"))
+		balloon_alert(user, "nothing to remove!")
 
 // Tablet 'splosion..
 
