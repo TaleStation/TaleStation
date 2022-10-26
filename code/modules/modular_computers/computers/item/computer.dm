@@ -14,17 +14,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	light_system = MOVABLE_LIGHT_DIRECTIONAL
 
-<<<<<<< HEAD
-	var/bypass_state = FALSE // bypassing the set icon state
-
-	var/enabled = 0 // Whether the computer is turned on.
-	var/upgradable = TRUE // whether or not the computer can be upgraded
-	var/deconstructable = TRUE // whether or not the computer can be deconstructed
-	var/screen_on = 1 // Whether the computer is active/opened/it's screen is on.
-	var/device_theme = "ntos" // Sets the theme for the main menu, hardware config, and file browser apps. Overridden by certain non-NT devices.
-	var/datum/computer_file/program/active_program = null // A currently active program running on the computer.
-	///The type of device this computer is, as a flag
-=======
 	///The disk in this PDA. If set, this will be inserted on Initialize.
 	var/obj/item/computer_disk/inserted_disk
 
@@ -45,7 +34,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	)
 
 	///Flag of the type of device the modular computer is, deciding what types of apps it can run.
->>>>>>> f1f46275f03c (Removes tablet hard drives entirely (HDD & SSD) (#70678))
 	var/hardware_flag = NONE
 //	Options: PROGRAM_ALL PROGRAM_CONSOLE | | PROGRAM_LAPTOP | PROGRAM_TABLET
 	var/last_power_usage = 0
@@ -84,8 +72,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	var/saved_identification = null // next two values are the currently imprinted id and job values
 	var/saved_job = null
 
-<<<<<<< HEAD
-=======
 	///The program currently active on the tablet.
 	var/datum/computer_file/program/active_program
 	///Idle programs on background. They still receive process calls but can't be interacted with.
@@ -100,7 +86,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	///A pAI currently loaded into the modular computer.
 	var/obj/item/pai_card/inserted_pai
->>>>>>> f1f46275f03c (Removes tablet hard drives entirely (HDD & SSD) (#70678))
 	/// Allow people with chunky fingers to use?
 	var/allow_chunky = FALSE
 
@@ -214,8 +199,19 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(user.canUseTopic(src, be_close = TRUE))
 		var/obj/item/computer_hardware/card_slot/card_slot2 = all_components[MC_CARD2]
 		var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
-		if(card_slot2?.try_eject(user) || card_slot?.try_eject(user))
+
+		if(istype(card_slot) && card_slot.stored_card && card_slot?.try_eject(user))
 			return TRUE
+
+		if(istype(card_slot2) && card_slot2?.stored_card && card_slot2?.try_eject(user))
+			return TRUE
+
+		if(istype(inserted_pai)) // Remove pAI
+			user.put_in_hands(inserted_pai)
+			balloon_alert(user, "removed pAI")
+			inserted_pai = null
+			return TRUE
+
 		if(!istype(src, /obj/item/modular_computer/tablet))
 			return FALSE
 
@@ -401,15 +397,23 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 	if(Adjacent(user))
 		. += span_notice("Paper level: [stored_paper] / [max_paper].")
 
-/obj/item/modular_computer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+/obj/item/modular_computer/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove ID"
-	context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Remove Disk"
+	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
+	var/obj/item/computer_hardware/card_slot/card_slot2 = all_components[MC_CARD2]
 
-<<<<<<< HEAD
-	return CONTEXTUAL_SCREENTIP_SET
-=======
+	if(card_slot?.stored_card || card_slot2?.stored_card) // IDs get removed first before pAIs
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove ID"
+		. = CONTEXTUAL_SCREENTIP_SET
+	else if(inserted_pai)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove pAI"
+		. = CONTEXTUAL_SCREENTIP_SET
+
+	if(all_components[MC_SDD])
+		context[SCREENTIP_CONTEXT_CTRL_SHIFT_LMB] = "Remove SSD"
+		. = CONTEXTUAL_SCREENTIP_SET
+
 	if(card_slot?.stored_card || card_slot2?.stored_card) // IDs get removed first before pAIs
 		context[SCREENTIP_CONTEXT_ALT_LMB] = "Remove ID"
 		. = CONTEXTUAL_SCREENTIP_SET
@@ -422,7 +426,6 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		. = CONTEXTUAL_SCREENTIP_SET
 
 	return . || NONE
->>>>>>> f1f46275f03c (Removes tablet hard drives entirely (HDD & SSD) (#70678))
 
 /obj/item/modular_computer/update_icon_state()
 	if(!bypass_state)
@@ -754,7 +757,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 		if(!user.transferItemToLoc(attacking_item, src))
 			return
 		inserted_pai = attacking_item
-		to_chat(user, span_notice("You slot \the [attacking_item] into [src]."))
+		balloon_alert(user, "inserted pai")
 		return
 
 	// Check if any Applications need it
@@ -764,18 +767,18 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 
 	if(istype(attacking_item, /obj/item/paper))
 		if(stored_paper >= max_paper)
-			to_chat(user, span_warning("You try to add \the [attacking_item] into [src], but it can't hold any more!"))
+			balloon_alert(user, "no more room!")
 			return
 		if(!user.temporarilyRemoveItemFromInventory(attacking_item))
 			return FALSE
-		to_chat(user, span_notice("You insert \the [attacking_item] into [src]'s paper recycler."))
+		balloon_alert(user, "inserted paper")
 		qdel(attacking_item)
 		stored_paper++
 		return
 	if(istype(attacking_item, /obj/item/paper_bin))
 		var/obj/item/paper_bin/bin = attacking_item
 		if(bin.total_paper <= 0)
-			to_chat(user, span_notice("\The [bin] is empty!"))
+			balloon_alert(user, "empty bin!")
 			return
 		var/papers_added //just to keep track
 		while((bin.total_paper > 0) && (stored_paper < max_paper))
@@ -784,6 +787,7 @@ GLOBAL_LIST_EMPTY(TabletMessengers) // a list of all active messengers, similar 
 			bin.remove_paper()
 		if(!papers_added)
 			return
+		balloon_alert(user, "inserted paper")
 		to_chat(user, span_notice("Added in [papers_added] new sheets. You now have [stored_paper] / [max_paper] printing paper stored."))
 		bin.update_appearance()
 		return
