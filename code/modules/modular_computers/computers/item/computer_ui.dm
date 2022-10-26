@@ -33,6 +33,7 @@
 		active_program.ui_interact(user)
 		return
 
+<<<<<<< HEAD
 	// We are still here, that means there is no program loaded. Load the BIOS/ROM/OS/whatever you want to call it.
 	// This screen simply lists available programs and user may select them.
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
@@ -42,6 +43,10 @@
 
 	if(honkamnt > 0) // EXTRA annoying, huh!
 		honkamnt--
+=======
+	if(honkvirus_amount > 0) // EXTRA annoying, huh!
+		honkvirus_amount--
+>>>>>>> f1f46275f03c (Removes tablet hard drives entirely (HDD & SSD) (#70678))
 		playsound(src, 'sound/items/bikehorn.ogg', 30, TRUE)
 
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -55,7 +60,7 @@
 	. = ..()
 	var/list/data = list()
 
-	data["show_imprint"] = istype(src, /obj/item/modular_computer/tablet/)
+	data["show_imprint"] = istype(src, /obj/item/modular_computer/tablet)
 
 	return data
 
@@ -85,12 +90,10 @@
 			IDJob = cardholder.current_job,
 		)
 
-	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
-
 	data["removable_media"] = list()
-	if(all_components[MC_SDD])
+	if(inserted_disk)
 		data["removable_media"] += "Eject Disk"
-	var/datum/computer_file/program/ai_restorer/airestore_app = locate() in hard_drive.stored_files
+	var/datum/computer_file/program/ai_restorer/airestore_app = locate() in stored_files
 	if(airestore_app?.stored_card)
 		data["removable_media"] += "intelliCard"
 	var/obj/item/computer_hardware/card_slot/secondarycardholder = all_components[MC_CARD2]
@@ -98,7 +101,7 @@
 		data["removable_media"] += "secondary RFID card"
 
 	data["programs"] = list()
-	for(var/datum/computer_file/program/P in hard_drive.stored_files)
+	for(var/datum/computer_file/program/P in stored_files)
 		var/running = FALSE
 		if(P in idle_threads)
 			running = TRUE
@@ -124,7 +127,6 @@
 	if(.)
 		return
 
-	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
 	switch(action)
 		if("PC_exit")
 			kill_program()
@@ -149,8 +151,7 @@
 			var/prog = params["name"]
 			var/datum/computer_file/program/P = null
 			var/mob/user = usr
-			if(hard_drive)
-				P = hard_drive.find_file_by_name(prog)
+			P = find_file_by_name(prog)
 
 			if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
 				return
@@ -159,7 +160,7 @@
 			to_chat(user, span_notice("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 
 		if("PC_runprogram")
-			open_program(usr, hard_drive.find_file_by_name(params["name"]))
+			open_program(usr, find_file_by_name(params["name"]))
 
 		if("PC_toggle_light")
 			return toggle_flashlight()
@@ -181,14 +182,13 @@
 			var/mob/user = usr
 			switch(param)
 				if("Eject Disk")
-					var/obj/item/computer_hardware/hard_drive/portable/portable_drive = all_components[MC_SDD]
-					if(!portable_drive)
+					if(!inserted_disk)
 						return
-					if(uninstall_component(portable_drive, usr))
-						user.put_in_hands(portable_drive)
-						playsound(src, 'sound/machines/card_slide.ogg', 50)
+					user.put_in_hands(inserted_disk)
+					inserted_disk = null
+					playsound(src, 'sound/machines/card_slide.ogg', 50)
 				if("intelliCard")
-					var/datum/computer_file/program/ai_restorer/airestore_app = locate() in hard_drive.stored_files
+					var/datum/computer_file/program/ai_restorer/airestore_app = locate() in stored_files
 					if(!airestore_app)
 						return
 					if(airestore_app.try_eject(user))
