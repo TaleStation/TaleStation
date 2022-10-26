@@ -409,6 +409,9 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 /// `do_teleport` will not allow this atom to teleport
 #define TRAIT_NO_TELEPORT "no-teleport"
+/// This atom is a secluded location, which is counted as out of bounds.
+/// Anything that enters this atom's contents should react if it wants to stay in bounds.
+#define TRAIT_SECLUDED_LOCATION "secluded_loc"
 
 /// Trait used by fugu glands to avoid double buffing
 #define TRAIT_FUGU_GLANDED "fugu_glanded"
@@ -855,6 +858,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define ITEM_SCALING_TRAIT "item_scaling"
 /// Trait given by Objects that provide blindsight
 #define ITEM_BLIND_TRAIT "blind_item_trait"
+/// Trait given by hallucinations
+#define HALLUCINATION_TRAIT "hallucination_trait"
 
 /**
 * Trait granted by [/mob/living/carbon/Initialize] and
