@@ -11,11 +11,8 @@ fi
 
 mkdir -p \
     $1/_maps \
-<<<<<<< HEAD
 	$1talestation_modules/icons/mob/inhands \
-=======
 	$1/icons/mob/clothing \
->>>>>>> f9c07743d4d3 (Adds unit test for items that can be equipped to suit storage slots that are missing sprites (#70643))
     $1/icons/mob/inhands \
     $1/icons/runtime \
     $1/sound/runtime \
