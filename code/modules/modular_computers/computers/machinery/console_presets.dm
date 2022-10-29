@@ -122,6 +122,7 @@
 	chatprogram.program_state = PROGRAM_STATE_ACTIVE
 	cpu.active_program = chatprogram
 
+<<<<<<< HEAD
 //ONE PER MAP PLEASE, IT MAKES A CARGOBUS FOR EACH ONE OF THESE
 /obj/machinery/modular_computer/console/preset/cargochat/cargo
 	console_department = "Cargo"
@@ -156,6 +157,8 @@
 		cargochat_console.chatprogram.active_channel = chatprogram.active_channel
 		cargochat.add_client(cargochat_console.chatprogram, silent = TRUE)
 
+=======
+>>>>>>> 6202f65661df (Fixes & Improves ntnrc client & ntnet conversations (#70854))
 /obj/machinery/modular_computer/console/preset/cargochat/service
 	console_department = "Service"
 
@@ -170,3 +173,23 @@
 
 /obj/machinery/modular_computer/console/preset/cargochat/medical
 	console_department = "Medical"
+
+
+//ONE PER MAP PLEASE, IT MAKES A CARGOBUS FOR EACH ONE OF THESE
+/obj/machinery/modular_computer/console/preset/cargochat/cargo
+	console_department = "Cargo"
+	name = "department chatroom console"
+	desc = "A stationary computer. This one comes preloaded with a chatroom for incoming cargo requests. You may moderate it from this computer."
+
+/obj/machinery/modular_computer/console/preset/cargochat/cargo/LateInitialize()
+	. = ..()
+	var/datum/computer_file/program/chatclient/chatprogram = cpu.find_file_by_name("ntnrc_client")
+	chatprogram.username = "cargo_requests_operator"
+
+	var/datum/ntnet_conversation/cargochat = chatprogram.create_new_channel("#cargobus", strong = TRUE)
+	for(var/obj/machinery/modular_computer/console/preset/cargochat/cargochat_console in GLOB.machines)
+		if(cargochat_console == src)
+			continue
+		var/datum/computer_file/program/chatclient/other_chatprograms = cargochat_console.cpu.find_file_by_name("ntnrc_client")
+		other_chatprograms.active_channel = chatprogram.active_channel
+		cargochat.add_client(other_chatprograms, silent = TRUE)
