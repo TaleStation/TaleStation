@@ -122,16 +122,16 @@
 	switch(animation)
 		if("opening")
 			flick("opening", src)
-			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
+			playsound(src, 'talestation_modules/sound/machines/blastdoors/blast_door.ogg', 30, TRUE) // NON-MODULAR CHANGE: Aesthetics
 		if("closing")
 			flick("closing", src)
-			playsound(src, 'sound/machines/blastdoor.ogg', 30, TRUE)
+			playsound(src, 'talestation_modules/sound/machines/blastdoors/blast_door.ogg', 30, TRUE) // NON-MODULAR CHANGE: Aesthetics
 
 /obj/machinery/door/poddoor/update_icon_state()
 	. = ..()
 	icon_state = density ? "closed" : "open"
 
-/obj/machinery/door/poddoor/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
+/obj/machinery/door/poddoor/attack_alien(mob/living/carbon/alien/humanoid/user, list/modifiers)
 	if(density & !(resistance_flags & INDESTRUCTIBLE))
 		add_fingerprint(user)
 		user.visible_message(span_warning("[user] begins prying open [src]."),\

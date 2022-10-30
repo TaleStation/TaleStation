@@ -106,7 +106,7 @@ There are several things that need to be remembered:
 		if(!uniform_overlay)
 			//BEGIN SPECIES HANDLING
 			if((dna?.species.bodytype & BODYTYPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-				icon_file = DIGITIGRADE_UNIFORM_FILE
+				icon_file = uniform.worn_icon_digitigrade || 'talestation_modules/icons/mob/clothing/under/digi_under.dmi' //NON-MODULAR CHANGE - Enables digi uniform
 			if((dna?.species.bodytype & BODYTYPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
 				icon_file = MONKEY_UNIFORM_FILE
 
@@ -314,10 +314,10 @@ There are several things that need to be remembered:
 		update_hud_shoes(worn_item)
 
 		//(Currently) unused digitigrade handling
-		/*if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
+		if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
 			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
-				icon_file = DIGITIGRADE_SHOES_FILE*/
+				icon_file = 'talestation_modules/icons/mob/clothing/shoes/digi_shoes.dmi' //NON-MODULAR CHANGE - Enables digi shoes
 
 		if(!(icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item))))
 			icon_file = DEFAULT_SHOES_FILE
@@ -426,9 +426,9 @@ There are several things that need to be remembered:
 		var/icon_file
 
 		//More currently unused digitigrade handling
-		/*if(dna.species.bodytype & BODYTYPE_DIGITIGRADE)
+		if(dna.species.bodytype & BODYTYPE_DIGITIGRADE)
 			if(worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)
-				icon_file = DIGITIGRADE_SUIT_FILE*/
+				icon_file = wear_suit.worn_icon_digitigrade || 'talestation_modules/icons/mob/clothing/suit/digi_suit.dmi' //NON-MODULAR CHANGES - Enables digi suits
 
 		if(!(icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item))))
 			icon_file = DEFAULT_SUIT_FILE
