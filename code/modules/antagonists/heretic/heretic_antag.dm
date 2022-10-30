@@ -171,10 +171,13 @@
 	if(give_objectives)
 		forge_primary_objectives()
 
-	// NON-MODULAR CHANGE: ADVANCED HERETICS
-	if(finalize_antag)
-		finalize_antag()
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ecult_op.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)//subject to change
 
+	for(var/starting_knowledge in GLOB.heretic_start_knowledge)
+		gain_knowledge(starting_knowledge)
+
+	GLOB.reality_smash_track.add_tracked_mind(owner)
+	addtimer(CALLBACK(src, .proc/passive_influence_gain), passive_gain_timer) // Gain +1 knowledge every 20 minutes.
 	return ..()
 
 /datum/antagonist/heretic/on_removal()

@@ -496,7 +496,7 @@
 				var/counter = 1
 				while(active2.fields[text("com_[]", counter)])
 					counter++
-				active2.fields[text("com_[]", counter)] = text("Made by [] ([]) on [] [], []<BR>[]", authenticated, rank, station_time_timestamp(), time2text(world.realtime, "MMM DD"), GLOB.year_integer+540, t1)
+				active2.fields[text("com_[]", counter)] = text("Made by [] ([]) on [] [], []<BR>[]", authenticated, rank, station_time_timestamp(), time2text(world.realtime, "MMM DD"), CURRENT_STATION_YEAR, t1)
 
 			else if(href_list["del_c"])
 				if((istype(active2, /datum/data/record) && active2.fields[text("com_[]", href_list["del_c"])]))
@@ -536,34 +536,10 @@
 						final_paper_text += text("Name: [] ID: []<BR>\nGender: []<BR>\nAge: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["gender"], active1.fields["age"])
 						final_paper_text += "\nSpecies: [active1.fields["species"]]<BR>"
 						final_paper_text += text("\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"])
-						if(!(active1.fields["past_records"] == "")) // NON-MODULAR CHANGES: Meical records
-							final_paper_text += "\nGeneral Records:\n[active1.fields["past_records"]]\n" // NON-MODULAR CHANGES: Medical records
 					else
 						final_paper_text += "<B>General Record Lost!</B><BR>"
 					if(active2 in GLOB.data_core.medical)
-						final_paper_text += "<BR>\n<CENTER><B>Medical Data</B></CENTER>"
-						// NON MODULAR CHANGES: Medical records
-						if(!(active2.fields["past_records"] == ""))
-							final_paper_text += "\nMedical Records:\n[active2.fields["past_records"]]<BR>\n"
-						final_paper_text += "<BR>\nBlood Type: [active2.fields["blood_type"]]"
-						final_paper_text += "<BR>\nDNA: [active2.fields["b_dna"]]"
-						final_paper_text += "<BR>\n"
-						final_paper_text += "<BR>\nMinor Disabilities: [active2.fields["mi_dis"]]"
-						final_paper_text += "<BR>\nDetails: [active2.fields["mi_dis_d"]]"
-						final_paper_text += "<BR>\n"
-						final_paper_text += "<BR>\nMajor Disabilities: [active2.fields["ma_dis"]]"
-						final_paper_text += "<BR>\nDetails: [active2.fields["ma_dis_d"]]"
-						final_paper_text += "<BR>\n"
-						final_paper_text += "<BR>\nAllergies: [active2.fields["alg"]]"
-						final_paper_text += "<BR>\nDetails: [active2.fields["alg_d"]]"
-						final_paper_text += "<BR>\n"
-						final_paper_text += "<BR>\nCurrent Diseases: [active2.fields["cdi"]] (per disease info placed in log/comment section)"
-						final_paper_text += "<BR>\nDetails: [active2.fields["cdi_d"]]"
-						final_paper_text += "<BR>\n"
-						final_paper_text += "<BR>\nImportant Notes:"
-						final_paper_text += "<BR>\n\t[active2.fields["notes"]]"
-						final_paper_text += "<BR>\n"
-						//NON MODULAR CHANGES END
+						final_paper_text += text("<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\nBlood Type: []<BR>\nDNA: []<BR>\n<BR>\nMinor Disabilities: []<BR>\nDetails: []<BR>\n<BR>\nMajor Disabilities: []<BR>\nDetails: []<BR>\n<BR>\nAllergies: []<BR>\nDetails: []<BR>\n<BR>\nCurrent Diseases: [] (per disease info placed in log/comment section)<BR>\nDetails: []<BR>\n<BR>\nImportant Notes:<BR>\n\t[]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>", active2.fields["blood_type"], active2.fields["b_dna"], active2.fields["mi_dis"], active2.fields["mi_dis_d"], active2.fields["ma_dis"], active2.fields["ma_dis_d"], active2.fields["alg"], active2.fields["alg_d"], active2.fields["cdi"], active2.fields["cdi_d"], active2.fields["notes"])
 						var/counter = 1
 						while(active2.fields[text("com_[]", counter)])
 							final_paper_text += text("[]<BR>", active2.fields[text("com_[]", counter)])

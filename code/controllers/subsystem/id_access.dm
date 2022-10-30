@@ -194,21 +194,6 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
-		//NON-MODULAR CHANGES START
-		"[ACCESS_BO]" = list(
-			"regions" = list(REGION_COMMAND),
-			"head" = JOB_CAPTAIN,
-			"templates" = list(),
-			"pdas" = list(),
-		),
-		"[ACCESS_AP]" = list(
-			"regions" = list(REGION_COMMAND),
-			"head" = JOB_CAPTAIN,
-			"templates" = list(),
-			"pdas" = list(),
-		),
-		//NON-MODULAR CHANGES END
-
 	)
 
 	var/list/station_job_trims = subtypesof(/datum/id_trim/job)
