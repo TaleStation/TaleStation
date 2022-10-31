@@ -55,10 +55,15 @@
 	var/christmas_tree = /obj/structure/flora/tree/pine/xmas/presents
 
 /obj/effect/spawner/xmastree/Initialize(mapload)
+<<<<<<< HEAD
 	..()
 	if((CHRISTMAS in SSevents.holidays) && christmas_tree)
+=======
+	. = ..()
+	if(check_holidays(CHRISTMAS) && christmas_tree)
+>>>>>>> a1ab0201ffd7 (Fix halloweens races (#70874))
 		new christmas_tree(get_turf(src))
-	else if((FESTIVE_SEASON in SSevents.holidays) && festive_tree)
+	else if(check_holidays(FESTIVE_SEASON) && festive_tree)
 		new festive_tree(get_turf(src))
 
 	return INITIALIZE_HINT_QDEL
