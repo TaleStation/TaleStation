@@ -8,7 +8,11 @@ export BYOND_MAJOR=514
 export BYOND_MINOR=1588
 
 #rust_g git tag
+<<<<<<< HEAD
 export RUST_G_VERSION=1.0.2
+=======
+export RUST_G_VERSION=1.2.0
+>>>>>>> 17c4749dbe3a (Updates rustg to 1.2.0 (#70911))
 
 #node version
 export NODE_VERSION=14
