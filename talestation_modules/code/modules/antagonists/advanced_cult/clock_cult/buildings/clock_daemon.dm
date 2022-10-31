@@ -30,7 +30,7 @@
 	. = ..()
 	START_PROCESSING(SSmachines, src)
 	if(!glow)
-		glow = mutable_appearance(icon, "tinkerglow", FLOAT_PLANE, src, alpha = src.alpha)
+		glow = mutable_appearance(icon, "tinkerglow", GAME_PLANE, src, alpha = src.alpha)
 		glow.color = COLOR_YELLOW
 		glow.overlays += emissive_appearance(icon, "tinkerglow", glow, alpha = glow.alpha)
 	add_overlay(glow)
@@ -51,7 +51,7 @@
 		rune_cache[picked] = rune
 
 	if(!glow)
-		glow = mutable_appearance(icon, FLOAT_PLANE, "tinkerglow", alpha = 175)
+		glow = mutable_appearance(icon, "tinkerglow", GAME_PLANE, alpha = 175)
 		glow.color = COLOR_YELLOW
 		glow.overlays += emissive_appearance(icon, "tinkerglow", glow, alpha = glow.alpha)
 

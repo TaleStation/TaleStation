@@ -71,7 +71,7 @@
 	var/mob/living/dogtag_owner
 	if(ismob(loc))
 		dogtag_owner = loc
-	else if(ismob(loc.loc))
+	else if(ismob(loc?.loc))
 		dogtag_owner = loc?.loc
 
 	if(dogtag_owner)
