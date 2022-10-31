@@ -141,6 +141,7 @@
 #include "outfit_sanity.dm"
 #include "paintings.dm"
 #include "pills.dm"
+#include "plane_double_transform.dm"
 #include "plane_dupe_detector.dm"
 #include "plantgrowth_tests.dm"
 #include "preference_species.dm"
@@ -164,6 +165,7 @@
 #include "security_officer_distribution.dm"
 #include "security_levels.dm"
 #include "serving_tray.dm"
+//#include "simple_animal_freeze.dm" // NON-MODULAR REMOVAL: These is an upstream freeze we don't care about.
 #include "siunit.dm"
 #include "slips.dm"
 #include "spawn_humans.dm"
@@ -189,6 +191,7 @@
 #include "timer_sanity.dm"
 #include "traitor.dm"
 #include "unit_test.dm"
+#include "verify_config_tags.dm"
 #include "wizard_loadout.dm"
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"

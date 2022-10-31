@@ -417,6 +417,8 @@
 	if((HAS_TRAIT(src, TRAIT_NOHUNGER) || HAS_TRAIT(src, TRAIT_TOXINLOVER)) && !force)
 		return TRUE
 
+	SEND_SIGNAL(src, COMSIG_CARBON_VOMITED, distance, force)
+	var/starting_dir = dir
 	if(nutrition < 100 && !blood && !force)
 		if(message)
 			visible_message(span_warning("[src] dry heaves!"), \
@@ -455,7 +457,7 @@
 		else
 			if(T)
 				T.add_vomit_floor(src, vomit_type, purge_ratio) //toxic barf looks different || call purge when doing detoxicfication to pump more chems out of the stomach.
-		T = get_step(T, dir)
+		T = get_step(T, starting_dir)
 		if (T?.is_blocked_turf())
 			break
 	return TRUE
@@ -1336,24 +1338,6 @@
 	to_chat(src, span_danger("You shove [target.name] into [name]!"))
 	log_combat(shover, target, "shoved", addition = "into [name]")
 	return COMSIG_CARBON_SHOVE_HANDLED
-
-// Checks to see how many hands this person has to sign with.
-/mob/living/carbon/proc/check_signables_state()
-	var/obj/item/bodypart/left_arm = get_bodypart(BODY_ZONE_L_ARM)
-	var/obj/item/bodypart/right_arm = get_bodypart(BODY_ZONE_R_ARM)
-	var/empty_indexes = get_empty_held_indexes()
-	var/exit_right = (!right_arm || right_arm.bodypart_disabled)
-	var/exit_left = (!left_arm || left_arm.bodypart_disabled)
-	if(length(empty_indexes) == 0 || (length(empty_indexes) < 2 && (exit_left || exit_right)))//All existing hands full, can't sign
-		return SIGN_HANDS_FULL // These aren't booleans
-	if(exit_left && exit_right)//Can't sign with no arms!
-		return SIGN_ARMLESS
-	if(handcuffed) // Cuffed, usually will show visual effort to sign
-		return SIGN_CUFFED
-	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED) || HAS_TRAIT(src, TRAIT_EMOTEMUTE))
-		return SIGN_TRAIT_BLOCKED
-	if(length(empty_indexes) == 1 || exit_left || exit_right) // One arm gone
-		return SIGN_ONE_HAND
 
 /**
  * This proc is a helper for spraying blood for things like slashing/piercing wounds and dismemberment.
