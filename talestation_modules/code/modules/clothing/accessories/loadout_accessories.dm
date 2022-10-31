@@ -72,7 +72,7 @@
 	if(ismob(loc))
 		dogtag_owner = loc
 	else if(ismob(loc.loc))
-		dogtag_owner = loc.loc
+		dogtag_owner = loc?.loc
 
 	if(dogtag_owner)
 		display_name = dogtag_owner.real_name
