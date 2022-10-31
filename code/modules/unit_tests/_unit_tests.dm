@@ -165,7 +165,7 @@
 #include "security_officer_distribution.dm"
 #include "security_levels.dm"
 #include "serving_tray.dm"
-#include "simple_animal_freeze.dm"
+//#include "simple_animal_freeze.dm" // NON-MODULAR REMOVAL: These is an upstream freeze we don't care about.
 #include "siunit.dm"
 #include "slips.dm"
 #include "spawn_humans.dm"
