@@ -187,15 +187,6 @@
 	//Special, for anything that's basically internal
 #define ACCESS_BLOODCULT "bloodcult"
 
-// NON-MODULAR CHANGES: Psuedo Command Defines
-#define ACCESS_AP "ap"
-#define ACCESS_BO "bo"
-
-// NON-MODULAR CHANGES: XenoBotany access define
-#define ACCESS_XENOBOTANY "xenobot"
-
-// NON-MODULAR CHANGES END
-
 /// - - - END ACCESS IDS - - -
 
 /// A list of access levels that, when added to an ID card, will warn admins.
@@ -581,3 +572,14 @@
 #define FORCE_ADD_ALL 2
 /// Used in ID card access adding procs. Will stack trace on fail.
 #define ERROR_ON_FAIL 3
+
+// NON-MODULAR STUFF
+
+// NON-MODULAR CHANGES: Psuedo Command Defines
+#define ACCESS_AP "ap"
+#define ACCESS_BO "bo"
+
+// NON-MODULAR CHANGES: XenoBotany access define
+#define ACCESS_XENOBOTANY "xenobot"
+
+// NON-MODULAR CHANGES END
