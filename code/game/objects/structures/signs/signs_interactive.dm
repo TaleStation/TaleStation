@@ -19,13 +19,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/calendar, 32)
 
 /obj/structure/sign/calendar/examine(mob/user)
 	. = ..()
-<<<<<<< HEAD
-	. += span_info("The current date is: [time2text(world.realtime, "DDD, MMM DD")], [GLOB.year_integer+540].")
-	if(SSevents.holidays)
-=======
 	. += span_info("The current date is: [time2text(world.realtime, "DDD, MMM DD")], [CURRENT_STATION_YEAR].")
 	if(length(GLOB.holidays))
->>>>>>> a1ab0201ffd7 (Fix halloweens races (#70874))
 		. += span_info("Events:")
 		for(var/holidayname in GLOB.holidays)
 			. += span_info("[holidayname]")
