@@ -1,3 +1,6 @@
+#define REVENANT_DEFILE_MIN_DAMAGE 30
+#define REVENANT_DEFILE_MAX_DAMAGE 50
+
 
 /mob/living/simple_animal/revenant/ClickOn(atom/A, params) //revenants can't interact with the world directly.
 	var/list/modifiers = params2list(params)
@@ -302,8 +305,9 @@
 	for(var/obj/machinery/dna_scannernew/dna in victim)
 		dna.open_machine()
 	for(var/obj/structure/window/window in victim)
-		window.take_damage(rand(30, 80))
-		if(window?.fulltile)
+		if(window.get_integrity() > REVENANT_DEFILE_MAX_DAMAGE)
+			window.take_damage(rand(REVENANT_DEFILE_MIN_DAMAGE, REVENANT_DEFILE_MAX_DAMAGE))
+		if(window.fulltile)
 			new /obj/effect/temp_visual/revenant/cracks(window.loc)
 	for(var/obj/machinery/light/light in victim)
 		light.flicker(20) //spooky
@@ -400,7 +404,6 @@
 		tray.set_weedlevel(rand(8, 10))
 		tray.set_toxic(rand(45, 55))
 
-
 /datum/action/cooldown/spell/aoe/revenant/haunt_object
 	name = "Haunt Object"
 	desc = "Empower nearby objects to you with ghostly energy, causing them to attack nearby mortals. \
@@ -451,3 +454,6 @@
 		spawn_message = span_revenwarning("[victim] begins to float and twirl into the air as it glows a ghastly purple!"), \
 		despawn_message = span_revenwarning("[victim] falls back to the ground, stationary once more."), \
 	)
+
+#undef REVENANT_DEFILE_MIN_DAMAGE
+#undef REVENANT_DEFILE_MAX_DAMAGE
