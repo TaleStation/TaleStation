@@ -208,6 +208,8 @@
 	desc = "Every captain's greatest ally when exploring the vast emptiness of space, now with a color display!"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "captainsaid_off"
+	custom_price = PAYCHECK_COMMAND * 1.25
+
 	/// List of modes it can cycle through
 	var/list/modes = list(
 		"off",
@@ -402,6 +404,13 @@
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, .proc/on_transform)
 	AddElement(/datum/element/update_icon_updates_onmob)
 
+	var/static/list/tool_behaviors = list(
+		TOOL_SCREWDRIVER = list(
+			SCREENTIP_CONTEXT_LMB = "Change blade color"
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /*
  * Signal proc for [COMSIG_TRANSFORMING_ON_TRANSFORM].
  *
@@ -413,6 +422,26 @@
 	playsound(user ? user : src, active ? 'sound/weapons/saberon.ogg' : 'sound/weapons/saberoff.ogg', 20, TRUE)
 	update_appearance(UPDATE_ICON)
 	return COMPONENT_NO_DEFAULT_MESSAGE
+
+/obj/item/toy/sword/examine(mob/user)
+	. = ..()
+	. += span_notice("It has a lighting dial currently set to [saber_color] which looks like it can be turned with a <b>screwdriver</b>.")
+
+/obj/item/toy/sword/screwdriver_act(mob/living/user, obj/item/tool)
+	switch(saber_color)
+		if("red")
+			saber_color = "blue"
+		if("blue")
+			saber_color = "green"
+		if("green")
+			saber_color = "purple"
+		if("purple")
+			saber_color = "red"
+		else
+			return TOOL_ACT_TOOLTYPE_SUCCESS
+	balloon_alert(user, "changed to [saber_color]")
+	update_appearance(UPDATE_ICON)
+	return TOOL_ACT_TOOLTYPE_SUCCESS
 
 /obj/item/toy/sword/vv_edit_var(vname, vval)
 	. = ..()
@@ -1347,6 +1376,8 @@ GLOBAL_LIST_EMPTY(intento_players)
 	desc = "Fundamentally useless for all intentsive purposes."
 	icon = 'icons/obj/toys/intents.dmi'
 	icon_state = "blank"
+	custom_price = PAYCHECK_COMMAND * 1.25
+
 	/// Current sequence of intents
 	var/list/current_sequence = list()
 	/// Sequence player inputs
