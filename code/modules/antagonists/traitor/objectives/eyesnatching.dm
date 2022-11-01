@@ -160,18 +160,7 @@
 	var/obj/item/organ/internal/eyes/eyeballies = victim.getorganslot(ORGAN_SLOT_EYES)
 	var/obj/item/bodypart/head/head = victim.get_bodypart(BODY_ZONE_HEAD)
 
-<<<<<<< HEAD
-	if(!eyeballies || victim.is_eyes_covered())
-		return ..()
-
-	if((head && head.eyes != eyeballies) || eyeballies.zone != BODY_ZONE_PRECISE_EYES)
-		to_chat(user, span_warning("You don't know how to apply [src] to the abomination that [victim] is!"))
-		return ..()
-
-	if(!head || !istype(head))
-=======
 	if(!head || !eyeballies || victim.is_eyes_covered())
->>>>>>> fc34ff5ebefd (Fixes and updates the eyesnatching objective (#70917))
 		return ..()
 
 	user.do_attack_animation(victim, used_item = src)
