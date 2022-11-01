@@ -299,6 +299,7 @@
 			n2o_euphoria = EUPHORIA_INACTIVE
 			breather.clear_alert(ALERT_TOO_MUCH_N2O)
 
+
 		on_anesthetic = check_anesthetic(n2o_pp, n2o_sleep_min) // NON-MODULAR CHANGE
 	// BZ
 
@@ -350,7 +351,8 @@
 			breather.adjustFireLoss(15)
 			if (prob(freon_pp/2))
 				to_chat(breather, span_alert("Your throat closes up!"))
-				breather.silent = max(breather.silent, 3)
+				breather.set_silence_if_lower(6 SECONDS)
+
 		else
 			breather.adjustFireLoss(freon_pp/4)
 		gas_breathed = breath_gases[/datum/gas/freon][MOLES]
