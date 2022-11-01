@@ -5,6 +5,7 @@
 		Leave after two hours as an unkillable god with an army of monsters."
 	total_positions = 2
 	spawn_positions = 3
+	config_tag = "XENOBIOLOGIST"
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	plasmaman_outfit = /datum/outfit/plasmaman/science
