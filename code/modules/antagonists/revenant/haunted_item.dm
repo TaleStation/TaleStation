@@ -96,5 +96,6 @@
 	if(!is_type_in_list(attacking_item, types_which_dispell_us))
 		return
 
+	attacker.visible_message(span_warning("[attacker] dispells the ghostly energy from [source]!"), span_warning("You dispel the ghostly energy from [source]!"))
 	clear_haunting()
 	return COMPONENT_NO_AFTERATTACK

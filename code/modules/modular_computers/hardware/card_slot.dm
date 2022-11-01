@@ -17,8 +17,7 @@
 		if(holder)
 			if(holder.active_program)
 				holder.active_program.event_idremoved(0)
-			for(var/p in holder.idle_threads)
-				var/datum/computer_file/program/computer_program = p
+			for(var/datum/computer_file/program/computer_program as anything in holder.idle_threads)
 				computer_program.event_idremoved(1)
 
 			holder.update_slot_icon()
@@ -106,7 +105,7 @@
 	balloon_alert(user, "removed ID")
 	to_chat(user, span_notice("You remove the card from \the [src]."))
 	playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50, FALSE)
-	holder.update_appearance()
+	holder?.update_appearance()
 
 	stored_card = null
 	current_identification = null
