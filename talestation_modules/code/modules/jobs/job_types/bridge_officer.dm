@@ -16,6 +16,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_COMMAND
+	config_tag = "BRIDGE_OFFICER"
 
 	outfit = /datum/outfit/job/bridge_officer
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_personnel
