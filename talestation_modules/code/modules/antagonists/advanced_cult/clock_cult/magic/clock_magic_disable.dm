@@ -65,7 +65,7 @@
 			if(!final_hit)
 				to_chat(user, span_brass("[victim] is enveloped in a white flash, preventing them from speaking!"))
 				to_chat(victim, span_userdanger("A bright white light washes over you, sapping you of energy and voice!"))
-			carbon_target.silent += 4
+			carbon_target.adjust_silence(4 SECONDS)
 
 		carbon_target.adjust_timed_status_effect(16 SECONDS, /datum/status_effect/speech/stutter)
 		carbon_target.adjust_timed_status_effect(8 SECONDS, /datum/status_effect/jitter)
