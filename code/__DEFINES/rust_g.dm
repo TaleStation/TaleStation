@@ -170,10 +170,6 @@
 	else
 		CRASH(output["content"])
 
-<<<<<<< HEAD
-#define rustg_url_encode(text) call(RUST_G, "url_encode")("[text]")
-#define rustg_url_decode(text) call(RUST_G, "url_decode")(text)
-=======
 #define rustg_raw_toml_encode(value) json_decode(RUSTG_CALL(RUST_G, "toml_encode")(json_encode(value)))
 
 /proc/rustg_toml_encode(value)
@@ -185,10 +181,8 @@
 
 #define rustg_url_encode(text) RUSTG_CALL(RUST_G, "url_encode")("[text]")
 #define rustg_url_decode(text) RUSTG_CALL(RUST_G, "url_decode")(text)
->>>>>>> 17c4749dbe3a (Updates rustg to 1.2.0 (#70911))
 
 #ifdef RUSTG_OVERRIDE_BUILTINS
 	#define url_encode(text) rustg_url_encode(text)
 	#define url_decode(text) rustg_url_decode(text)
 #endif
-

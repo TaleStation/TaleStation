@@ -29,6 +29,7 @@
 		"network" = network,
 		"error" = error_message
 	)
+
 	switch(screen)
 		if(MAIN_VIEW)
 			// If there are servers in the buffer, send them
