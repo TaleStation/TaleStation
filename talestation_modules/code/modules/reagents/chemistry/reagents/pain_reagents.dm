@@ -155,7 +155,7 @@
 		M.adjust_disgust(3 * REM * delta_time)
 	// ...Hallucinations after a while...
 	if(current_cycle >= 15 && DT_PROB(75 * max(1 - creation_purity, 0.5), delta_time))
-		M.hallucination = clamp(M.hallucination + 3 * REM * delta_time, 0, 20)
+		M.adjust_hallucinations_up_to(3 SECONDS * REM * delta_time, 20 SECONDS)
 	// ...Dizziness after a longer while...
 	if(current_cycle >= 20 && DT_PROB(50 * max(1 - creation_purity, 0.5), delta_time))
 		M.set_timed_status_effect(2 SECONDS * REM * delta_time, only_if_higher = TRUE)
