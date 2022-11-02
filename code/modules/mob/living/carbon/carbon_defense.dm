@@ -37,6 +37,7 @@
 		return wear_mask
 	if(check_glasses && glasses && (glasses.flags_cover & GLASSESCOVERSEYES))
 		return glasses
+
 /mob/living/carbon/is_pepper_proof(check_head = TRUE, check_mask = TRUE)
 	if(check_head &&(head?.flags_cover & PEPPERPROOF))
 		return head
@@ -403,7 +404,7 @@
 		to_chat(helper, span_warning("You can't put [p_them()] out with just your bare hands!"))
 		return
 
-	if(SEND_SIGNAL(src, COMSIG_CARBON_PRE_HELP_ACT, helper) & COMPONENT_BLOCK_HELP_ACT)
+	if(SEND_SIGNAL(src, COMSIG_CARBON_PRE_MISC_HELP, helper) & COMPONENT_BLOCK_MISC_HELP)
 		return
 
 	if(helper == src)
