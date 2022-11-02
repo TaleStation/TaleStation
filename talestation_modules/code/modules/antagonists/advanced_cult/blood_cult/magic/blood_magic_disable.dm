@@ -111,7 +111,7 @@
 		to_chat(user, span_cultitalic("[target] is enveloped in a briliant flash of blue, preventing them from speaking!"))
 		to_chat(target, span_userdanger("A cold wave of light washes over you, sapping you of energy!"))
 
-		carbon_target.silent += 8
+		carbon_target.adjust_silence(8 SECONDS)
 		carbon_target.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/stutter)
 		carbon_target.adjust_timed_status_effect(30 SECONDS, /datum/status_effect/speech/slurring/cult)
 		carbon_target.adjust_timed_status_effect(6 SECONDS, /datum/status_effect/jitter)
