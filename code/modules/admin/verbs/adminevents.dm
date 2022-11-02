@@ -385,3 +385,4 @@
 	message_admins("[key_name_admin(usr)] removed ability [ability_name] from mob [marked_mob].")
 	log_admin("[key_name(usr)] removed mob ability [ability_name] from mob [marked_mob].")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Remove Mob Ability") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+

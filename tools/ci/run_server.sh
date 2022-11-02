@@ -17,6 +17,7 @@ cp _maps/$MAP.json ci_test/data/next_map.json
 
 cd ci_test
 DreamDaemon tgstation.dmb -close -trusted -verbose -params "log-directory=ci"
+
 cd ..
 
 mkdir -p data/screenshots_new
