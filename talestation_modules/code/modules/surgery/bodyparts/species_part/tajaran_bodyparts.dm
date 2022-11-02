@@ -34,12 +34,12 @@
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
 
-/obj/item/bodypart/l_leg/tajaran/digitigrade/tajaran
+/obj/item/bodypart/leg/left/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
-/obj/item/bodypart/l_leg/tajaran/digitigrade/tajaran/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+/obj/item/bodypart/leg/left/tajaran/digitigrade/tajaran/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
@@ -56,12 +56,12 @@
 		else
 			limb_id = SPECIES_TAJARAN
 
-/obj/item/bodypart/r_leg/tajaran/digitigrade/tajaran
+/obj/item/bodypart/leg/right/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
-/obj/item/bodypart/r_leg/tajaran/digitigrade/tajaran/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+/obj/item/bodypart/leg/right/tajaran/digitigrade/tajaran/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
@@ -84,8 +84,8 @@
 	new_species ||= target.dna.species
 
 	if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == "Digitigrade Legs") || new_species.digitigrade_customization == DIGITIGRADE_FORCED)
-		new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/r_leg/tajaran/digitigrade/tajaran
-		new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/l_leg/tajaran/digitigrade/tajaran
+		new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/tajaran/digitigrade/tajaran
+		new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/tajaran/digitigrade/tajaran
 
 	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
 		if(old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES)

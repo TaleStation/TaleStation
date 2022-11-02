@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/tajaran,
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/tajaran,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/tajaran,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/right/tajaran,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/tajaran,
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/tajaran,
 	)
 
