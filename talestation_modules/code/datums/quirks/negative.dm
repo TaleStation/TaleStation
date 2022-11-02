@@ -143,19 +143,19 @@
 /datum/quirk/prosthetic_limb/targeted/left_arm
 	name = "Prosthetic Limb - Left Arm"
 	desc = "Your left arm is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/l_arm/robot/surplus
+	replacement = /obj/item/bodypart/arm/left/robot/surplus
 
 /datum/quirk/prosthetic_limb/targeted/right_arm
 	name = "Prosthetic Limb - Right Arm"
 	desc = "Your right arm is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/r_arm/robot/surplus
+	replacement = /obj/item/bodypart/arm/right/robot/surplus
 
 /datum/quirk/prosthetic_limb/targeted/left_leg
 	name = "Prosthetic Limb - Left Leg"
 	desc = "Your left leg is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/l_leg/robot/surplus
+	replacement = /obj/item/bodypart/leg/left/robot/surplus
 
 /datum/quirk/prosthetic_limb/targeted/right_leg
 	name = "Prosthetic Limb - Right Leg"
 	desc = "Your right leg is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/r_leg/robot/surplus
+	replacement = /obj/item/bodypart/leg/left/robot/surplus

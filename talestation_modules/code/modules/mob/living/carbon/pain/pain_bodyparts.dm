@@ -284,15 +284,15 @@
 	return TRUE
 
 // --- Right Leg ---
-/obj/item/bodypart/r_leg/robot
+/obj/item/bodypart/leg/right/robot
 	pain = PAIN_LIMB_MAX
 	bodypart_pain_modifier = 0.5
 
-/obj/item/bodypart/r_leg/robot/surplus
+/obj/item/bodypart/leg/left/robot/surplus
 	pain = 40
 	bodypart_pain_modifier = 0.8
 
-/obj/item/bodypart/r_leg/processed_pain_effects(delta_time)
+/obj/item/bodypart/leg/right/processed_pain_effects(delta_time)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -304,15 +304,15 @@
 	return TRUE
 
 // --- Left Leg ---
-/obj/item/bodypart/l_leg/robot
+/obj/item/bodypart/leg/left/robot
 	pain = PAIN_LIMB_MAX
 	bodypart_pain_modifier = 0.5
 
-/obj/item/bodypart/l_leg/robot/surplus
+/obj/item/bodypart/leg/left/robot/surplus
 	pain = 40
 	bodypart_pain_modifier = 0.8
 
-/obj/item/bodypart/l_leg/processed_pain_effects(delta_time)
+/obj/item/bodypart/leg/left/processed_pain_effects(delta_time)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -324,19 +324,19 @@
 	return TRUE
 
 // --- Right Arm ---
-/obj/item/bodypart/r_arm/robot
+/obj/item/bodypart/arm/right/robot
 	pain = PAIN_LIMB_MAX
 	bodypart_pain_modifier = 0.5
 
-/obj/item/bodypart/r_arm/robot/surplus
+/obj/item/bodypart/arm/right/robot/surplus
 	pain = 40
 	bodypart_pain_modifier = 0.8
 
 // --- Left Arm ---
-/obj/item/bodypart/l_arm/robot
+/obj/item/bodypart/arm/left/robot
 	pain = PAIN_LIMB_MAX
 	bodypart_pain_modifier = 0.5
 
-/obj/item/bodypart/l_arm/robot/surplus
+/obj/item/bodypart/arm/left/robot/surplus
 	pain = 40
 	bodypart_pain_modifier = 0.8

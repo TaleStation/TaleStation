@@ -10,18 +10,18 @@
 	limb_id = SPECIES_SKRELL
 	is_dimorphic = TRUE
 
-/obj/item/bodypart/l_arm/skrell
+/obj/item/bodypart/arm/left/skrell
 	icon_greyscale = 'talestation_modules/icons/mob/species/skrell/bodyparts.dmi'
 	limb_id = SPECIES_SKRELL
 
-/obj/item/bodypart/r_arm/skrell
+/obj/item/bodypart/arm/right/skrell
 	icon_greyscale = 'talestation_modules/icons/mob/species/skrell/bodyparts.dmi'
 	limb_id = SPECIES_SKRELL
 
-/obj/item/bodypart/l_leg/skrell
+/obj/item/bodypart/leg/left/skrell
 	icon_greyscale = 'talestation_modules/icons/mob/species/skrell/bodyparts.dmi'
 	limb_id = SPECIES_SKRELL
 
-/obj/item/bodypart/r_leg/skrell
+/obj/item/bodypart/leg/right/skrell
 	icon_greyscale = 'talestation_modules/icons/mob/species/skrell/bodyparts.dmi'
 	limb_id = SPECIES_SKRELL
