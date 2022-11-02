@@ -42,7 +42,7 @@
 
 	victim.set_handcuffed(new /obj/item/restraints/handcuffs/energy/clock(victim))
 	victim.update_handcuffed()
-	victim.silent += 5
+	victim.adjust_silence(5 SECONDS)
 	to_chat(user, span_notice("You shackle [victim]."))
 	log_combat(user, victim, "shackled")
 	after_successful_spell(user)

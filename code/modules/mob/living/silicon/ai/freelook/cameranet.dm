@@ -40,17 +40,17 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 
 /// Checks if a chunk has been Generated in x, y, z.
 /datum/cameranet/proc/chunkGenerated(x, y, z)
-	var/turf/lowest = get_lowest_turf(locate(max(x, 1), max(y, 1), z))
-	x &= ~(CHUNK_SIZE - 1)
-	y &= ~(CHUNK_SIZE - 1)
+	x = GET_CHUNK_COORD(x)
+	y = GET_CHUNK_COORD(y)
+	var/turf/lowest = get_lowest_turf(locate(x, y, z))
 	return chunks["[x],[y],[lowest.z]"]
 
 // Returns the chunk in the x, y, z.
 // If there is no chunk, it creates a new chunk and returns that.
 /datum/cameranet/proc/getCameraChunk(x, y, z)
+	x = GET_CHUNK_COORD(x)
+	y = GET_CHUNK_COORD(y)
 	var/turf/lowest = get_lowest_turf(locate(x, y, z))
-	x &= ~(CHUNK_SIZE - 1)
-	y &= ~(CHUNK_SIZE - 1)
 	var/key = "[x],[y],[lowest.z]"
 	. = chunks[key]
 	if(!.)
@@ -70,12 +70,12 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 		///Get the eye's turf in case it's located in an object like a mecha
 		var/turf/eye_turf = get_turf(eye)
 		if(eye.loc)
-			// 0xf = 15
 			var/static_range = eye.static_visibility_range
 			var/x1 = max(1, eye_turf.x - static_range)
 			var/y1 = max(1, eye_turf.y - static_range)
 			var/x2 = min(world.maxx, eye_turf.x + static_range)
 			var/y2 = min(world.maxy, eye_turf.y + static_range)
+
 			for(var/x = x1; x <= x2; x += CHUNK_SIZE)
 				for(var/y = y1; y <= y2; y += CHUNK_SIZE)
 					visibleChunks |= getCameraChunk(x, y, eye_turf.z)
@@ -123,15 +123,15 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
  * If you want to update the chunks around an object, without adding/removing a camera, use choice 2.
  */
 /datum/cameranet/proc/majorChunkChange(atom/c, choice)
-	if(!c)
-		return
+	if(QDELETED(c) && choice == 1)
+		CRASH("Tried to add a qdeleting camera to the net")
 
 	var/turf/T = get_turf(c)
 	if(T)
-		var/x1 = max(0, T.x - (CHUNK_SIZE / 2)) & ~(CHUNK_SIZE - 1)
-		var/y1 = max(0, T.y - (CHUNK_SIZE / 2)) & ~(CHUNK_SIZE - 1)
-		var/x2 = min(world.maxx, T.x + (CHUNK_SIZE / 2)) & ~(CHUNK_SIZE - 1)
-		var/y2 = min(world.maxy, T.y + (CHUNK_SIZE / 2)) & ~(CHUNK_SIZE - 1)
+		var/x1 = max(1, T.x - (CHUNK_SIZE / 2))
+		var/y1 = max(1, T.y - (CHUNK_SIZE / 2))
+		var/x2 = min(world.maxx, T.x + (CHUNK_SIZE / 2))
+		var/y2 = min(world.maxy, T.y + (CHUNK_SIZE / 2))
 		for(var/x = x1; x <= x2; x += CHUNK_SIZE)
 			for(var/y = y1; y <= y2; y += CHUNK_SIZE)
 				var/datum/camerachunk/chunk = chunkGenerated(x, y, T.z)

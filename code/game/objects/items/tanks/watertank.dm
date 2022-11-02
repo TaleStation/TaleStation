@@ -33,8 +33,8 @@
 	toggle_mister(user)
 
 /obj/item/watertank/item_action_slot_check(slot, mob/user)
-	if(slot & user.getBackSlot() || slot & ITEM_SLOT_SUITSTORE)
-		return TRUE
+	if(slot & user.getBackSlot())
+		return 1
 
 /obj/item/watertank/proc/toggle_mister(mob/living/user)
 	if(!istype(user))
