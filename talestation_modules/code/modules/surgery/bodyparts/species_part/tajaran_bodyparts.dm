@@ -10,19 +10,27 @@
 	limb_id = SPECIES_TAJARAN
 	is_dimorphic = TRUE
 
-/obj/item/bodypart/l_arm/tajaran
+/obj/item/bodypart/arm/left/tajaran
+	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
+	limb_id = SPECIES_TAJARAN
+	unarmed_attack_verb = "slash"
+	unarmed_attack_effect = ATTACK_EFFECT_CLAW
+	unarmed_attack_sound = 'sound/weapons/slash.ogg'
+	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+
+/obj/item/bodypart/arm/right/tajaran
+	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
+	limb_id = SPECIES_TAJARAN
+	unarmed_attack_verb = "slash"
+	unarmed_attack_effect = ATTACK_EFFECT_CLAW
+	unarmed_attack_sound = 'sound/weapons/slash.ogg'
+	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+
+/obj/item/bodypart/leg/left/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
 
-/obj/item/bodypart/r_arm/tajaran
-	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	limb_id = SPECIES_TAJARAN
-
-/obj/item/bodypart/l_leg/tajaran
-	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
-	limb_id = SPECIES_TAJARAN
-
-/obj/item/bodypart/r_leg/tajaran
+/obj/item/bodypart/leg/right/tajaran
 	icon_greyscale = 'talestation_modules/icons/mob/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
 
