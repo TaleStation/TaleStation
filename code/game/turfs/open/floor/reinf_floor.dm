@@ -203,9 +203,6 @@
 
 /turf/open/floor/engine/cult/Initialize(mapload)
 	. = ..()
-<<<<<<< HEAD
-	make_culty() // NON-MODULAR CHANGE
-=======
 	icon_state = "plating" //we're redefining the base icon_state here so that the Conceal/Reveal Presence spell works for cultists
 
 	if (!mapload)
@@ -213,7 +210,6 @@
 
 	realappearance = new /obj/effect/cult_turf/overlay/floor/bloodcult(src)
 	realappearance.linked = src
->>>>>>> 910b97cd3732 (Save 0.4s by shaving off a lot of smaller init costs (#71007))
 
 /turf/open/floor/engine/cult/Destroy()
 	be_removed()
