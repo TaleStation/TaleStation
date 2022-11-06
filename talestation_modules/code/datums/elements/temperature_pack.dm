@@ -4,7 +4,7 @@
  * limbs experiencing pain to reduce it.
  */
 /datum/element/temperature_pack
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
+	element_flags = ELEMENT_BESPOKE
 	id_arg_index = 2
 	/// Amount of pain we restore every tick in the targeted limb.
 	var/pain_heal_rate = 0
@@ -25,13 +25,6 @@
 
 	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, .proc/try_apply_to_limb)
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/get_examine_text)
-
-/datum/element/temperature_pack/Detach(obj/target)
-	. = ..()
-	UnregisterSignal(target, list(
-		COMSIG_ITEM_ATTACK_SECONDARY,
-		COMSIG_PARENT_EXAMINE,
-	))
 
 /*
  * Edit the examine text to show the item can be used as a temperature pack.
