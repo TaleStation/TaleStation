@@ -17,7 +17,7 @@
  */
 
 /datum/element/unique_examine
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
+	element_flags = ELEMENT_BESPOKE
 	id_arg_index = 2
 	/// The requirement setting for special descriptions. See examine_defines.dm for more info.
 	var/desc_requirement = EXAMINE_CHECK_NONE
@@ -62,10 +62,6 @@
 	if(hint)
 		RegisterSignal(thing, COMSIG_PARENT_EXAMINE, .proc/hint_at)
 	RegisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE, .proc/examine)
-
-/datum/element/unique_examine/Detach(atom/thing)
-	. = ..()
-	UnregisterSignal(thing, list(COMSIG_PARENT_EXAMINE, COMSIG_PARENT_EXAMINE_MORE))
 
 /datum/element/unique_examine/proc/hint_at(datum/source, mob/examiner)
 	if(ismob(source))
