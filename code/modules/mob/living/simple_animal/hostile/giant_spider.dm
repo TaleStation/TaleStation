@@ -456,9 +456,6 @@
 			casing.icon_state = pick("cocoon_large1", "cocoon_large2", "cocoon_large3")
 
 	if(istype(animal_owner))
-<<<<<<< HEAD
-		animal_owner.stop_automated_movement = TRUE
-=======
 		animal_owner.stop_automated_movement = FALSE
 
 /datum/action/cooldown/wrap/proc/wrap_target(atom/movable/to_wrap)
@@ -486,7 +483,6 @@
 	to_wrap.forceMove(casing)
 	if(to_wrap.density || ismob(to_wrap))
 		casing.icon_state = pick("cocoon_large1", "cocoon_large2", "cocoon_large3")
->>>>>>> ad5debaaa1d8 (Add investigate_deaths (#71112))
 
 /datum/action/innate/spider/lay_eggs
 	name = "Lay Eggs"
