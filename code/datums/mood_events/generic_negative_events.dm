@@ -398,8 +398,6 @@
 	description = "I ripped their tail right off, what have I done!"
 	mood_change = -5
 	timeout = 30 SECONDS
-<<<<<<< HEAD
-=======
 
 /datum/mood_event/sabrage_fail
 	description = "Blast it! That stunt didn't go as planned!"
@@ -411,4 +409,3 @@
 
 /datum/mood_event/body_purist/add_effects(power)
 	mood_change = power
->>>>>>> d402ce4ee214 (New Station Trait: Cybernetic Revolution + Body Purist Quirk (#71229))
