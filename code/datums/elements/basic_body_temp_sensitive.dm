@@ -19,15 +19,23 @@
 	if(!isbasicmob(target))
 		return ELEMENT_INCOMPATIBLE
 
-	if(min_body_temp)
+	if(isnum(min_body_temp))
 		src.min_body_temp = min_body_temp
-	if(max_body_temp)
+
+	if(isnum(max_body_temp))
 		src.max_body_temp = max_body_temp
-	if(cold_damage)
+
+	if(isnum(cold_damage))
 		src.cold_damage = cold_damage
-	if(heat_damage)
+
+	if(isnum(heat_damage))
 		src.heat_damage = heat_damage
+<<<<<<< HEAD
 	RegisterSignal(target, COMSIG_LIVING_LIFE, .proc/on_life)
+=======
+
+	RegisterSignal(target, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+>>>>>>> 1d256b5506b1 (Refactors Rabbits to be a Basic Mob (#71205))
 
 /datum/element/basic_body_temp_sensitive/Detach(datum/source)
 	if(source)
