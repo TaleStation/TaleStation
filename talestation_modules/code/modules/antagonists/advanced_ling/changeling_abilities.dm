@@ -306,7 +306,7 @@
 			linked_non_ling = null
 		ADD_TRAIT(target, TRAIT_LING_LINKED, "[owner]-[CHANGELING_ABILITY]")
 		to_chat(target, span_bold(span_changeling("You can now temporarily communicate in the changeling hivemind using \"[MODE_TOKEN_CHANGELING]\".")))
-		addtimer(CALLBACK(src, .proc/unlink_target, target), HIVELINK_DURATION)
+		addtimer(CALLBACK(src, PROC_REF(unlink_target), target), HIVELINK_DURATION)
 		linked_non_ling = WEAKREF(target)
 
 

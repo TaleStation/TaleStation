@@ -86,7 +86,7 @@
 
 /obj/item/clothing/accessory/cosmetic_dogtag/on_uniform_equip(obj/item/clothing/under/attached_clothes, user)
 	. = ..()
-	RegisterSignal(attached_clothes, COMSIG_PARENT_EXAMINE,.proc/on_examine)
+	RegisterSignal(attached_clothes, COMSIG_PARENT_EXAMINE,PROC_REF(on_examine))
 
 /obj/item/clothing/accessory/cosmetic_dogtag/on_uniform_dropped(obj/item/clothing/under/attached_clothes, user)
 	. = ..()
