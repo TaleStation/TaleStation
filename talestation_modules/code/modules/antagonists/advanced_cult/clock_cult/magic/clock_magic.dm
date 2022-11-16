@@ -251,7 +251,7 @@
 	active_overlay_lhand_file = 'icons/mob/inhands/antag/clockwork_lefthand.dmi'
 	active_overlay_rhand_file = 'icons/mob/inhands/antag/clockwork_righthand.dmi'
 
-/datum/action/item_action/cult/clock_spell/IsAvailable()
+/datum/action/item_action/cult/clock_spell/IsAvailable(feedback = FALSE)
 	if(owner)
 		if(!IS_CULTIST(owner) || owner.incapacitated() || charges <= 0)
 			return FALSE
@@ -282,7 +282,7 @@
 		all_magic = null
 	return ..()
 
-/datum/action/innate/cult/clock_spell/IsAvailable()
+/datum/action/innate/cult/clock_spell/IsAvailable(feedback = FALSE)
 	if(!IS_CULTIST(owner) || owner.incapacitated() || charges <= 0)
 		return FALSE
 	return ..()
