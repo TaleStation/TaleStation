@@ -60,8 +60,8 @@
 				return ELEMENT_INCOMPATIBLE
 
 	if(hint)
-		RegisterSignal(thing, COMSIG_PARENT_EXAMINE, .proc/hint_at)
-	RegisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE, .proc/examine)
+		RegisterSignal(thing, COMSIG_PARENT_EXAMINE, PROC_REF(hint_at))
+	RegisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE, PROC_REF(examine))
 
 /datum/element/unique_examine/proc/hint_at(datum/source, mob/examiner)
 	if(ismob(source))
