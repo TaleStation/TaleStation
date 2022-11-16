@@ -47,8 +47,8 @@
 	if(istype(carbon_holder))
 		carbon_holder.set_pain_mod(PAIN_MOD_QUIRK, 1.2)
 	ADD_TRAIT(quirk_holder, TRAIT_EXTRA_PAIN, ROUNDSTART_TRAIT)
-	RegisterSignal(quirk_holder, list(COMSIG_LIVING_GET_PULLED, COMSIG_CARBON_HELP_ACT), .proc/cause_body_pain)
-	RegisterSignal(quirk_holder, .proc/cause_head_pain)
+	RegisterSignal(quirk_holder, list(COMSIG_LIVING_GET_PULLED, COMSIG_CARBON_HELP_ACT), PROC_REF(cause_body_pain))
+	RegisterSignal(quirk_holder, PROC_REF(cause_head_pain))
 
 /datum/quirk/allodynia/remove()
 	var/mob/living/carbon/carbon_holder = quirk_holder
@@ -108,7 +108,7 @@
 
 	new /obj/effect/temp_visual/annoyed(quirk_holder.loc)
 	carbon_holder.cause_pain(zone, amount)
-	INVOKE_ASYNC(quirk_holder, /mob.proc/emote, pick(PAIN_EMOTES))
+	INVOKE_ASYNC(quirk_holder, TYPE_PROC_REF(/mob, emote), pick(PAIN_EMOTES))
 	quirk_holder.add_mood_event("bad_touch", /datum/mood_event/very_bad_touch)
 	COOLDOWN_START(src, time_since_last_touch, 30 SECONDS)
 

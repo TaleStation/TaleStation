@@ -102,7 +102,7 @@
 		else
 			landing_turf = pick(valid_turfs)
 
-		addtimer(CALLBACK(src, .proc/launch_pod, landing_turf, crate), (2 SECONDS * num_pods--))
+		addtimer(CALLBACK(src, PROC_REF(launch_pod), landing_turf, crate), (2 SECONDS * num_pods--))
 
 /*
  * Launch the supplied crate path [crate] via pod to the target turf [landing_turf].

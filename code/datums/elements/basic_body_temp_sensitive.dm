@@ -30,12 +30,8 @@
 
 	if(isnum(heat_damage))
 		src.heat_damage = heat_damage
-<<<<<<< HEAD
-	RegisterSignal(target, COMSIG_LIVING_LIFE, .proc/on_life)
-=======
 
 	RegisterSignal(target, COMSIG_LIVING_LIFE, PROC_REF(on_life))
->>>>>>> 1d256b5506b1 (Refactors Rabbits to be a Basic Mob (#71205))
 
 /datum/element/basic_body_temp_sensitive/Detach(datum/source)
 	if(source)
