@@ -54,7 +54,6 @@
 	emote_hear = list("bleats.")
 	emote_see = list("shakes her head.", "stares into the distance.")
 
-<<<<<<< HEAD
 /datum/ai_planning_subtree/random_speech/mothroach
 	speech_chance = 15
 	emote_hear = list("flutters.")
@@ -64,7 +63,7 @@
 	speak = list("baaa","baaaAAAAAH!","baaah")
 	emote_hear = list("bleats.")
 	emote_see = list("shakes her head.", "stares into the distance.")
-=======
+
 /datum/ai_planning_subtree/random_speech/rabbit
 	speech_chance = 10
 	speak = list("Mrrp.", "CHIRP!", "Mrrp?") // rabbits make some weird noises dude i don't know what to tell you
@@ -86,7 +85,6 @@
 		"Mmphe mmphe mmphe!",
 		"Hmm mmm mmm!",
 	)
->>>>>>> 1d256b5506b1 (Refactors Rabbits to be a Basic Mob (#71205))
 
 /datum/ai_planning_subtree/random_speech/cow
 	speech_chance = 1
