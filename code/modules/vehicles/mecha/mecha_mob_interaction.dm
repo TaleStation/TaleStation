@@ -155,7 +155,7 @@
 	setDir(SOUTH)
 	return ..()
 
-/obj/vehicle/sealed/mecha/add_occupant(mob/M, control flags)
+/obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
 	RegisterSignal(M, COMSIG_LIVING_DEATH, PROC_REF(mob_exit), TRUE)
 	RegisterSignal(M, COMSIG_MOB_CLICKON, PROC_REF(on_mouseclick), TRUE)
 	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble), TR
