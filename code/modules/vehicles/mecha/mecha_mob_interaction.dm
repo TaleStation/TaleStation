@@ -155,15 +155,10 @@
 	setDir(SOUTH)
 	return ..()
 
-/obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
-<<<<<<< HEAD
-	RegisterSignal(M, COMSIG_LIVING_DEATH, .proc/mob_exit, TRUE)
-	RegisterSignal(M, COMSIG_MOB_CLICKON, .proc/on_mouseclick, TRUE)
-	RegisterSignal(M, COMSIG_MOB_SAY, .proc/display_speech_bubble, TRUE)
-=======
+/obj/vehicle/sealed/mecha/add_occupant(mob/M, control flags)
+	RegisterSignal(M, COMSIG_LIVING_DEATH, PROC_REF(mob_exit), TRUE)
 	RegisterSignal(M, COMSIG_MOB_CLICKON, PROC_REF(on_mouseclick), TRUE)
-	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble), TRUE)
->>>>>>> 43bf6e266588 (mech bustin update 2022 (#70891))
+	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble), TR
 	. = ..()
 	update_appearance()
 
