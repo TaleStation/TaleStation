@@ -93,7 +93,7 @@
  * Activate [src] from [user], making it into a temperature pack that can be used, that expires in 5 minutes.
  */
 /obj/item/temperature_pack/proc/activate_pack(mob/user)
-	addtimer(CALLBACK(src, .proc/deactivate_pack), 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(deactivate_pack)), 5 MINUTES)
 	to_chat(user, span_notice("You crack [src], [temperature_change > 0 ? "heating it up" : "cooling it down"]."))
 	AddElement(/datum/element/temperature_pack, pain_heal_amount, pain_limb_modifier, temperature_change)
 	active = TRUE
@@ -369,8 +369,8 @@
 	. = ..()
 	if(slot_flags & slot)
 		enable_protection(user)
-		RegisterSignal(user, list(COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_SET_BUCKLED), .proc/check_protection)
-		RegisterSignal(user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_PRE_MOVE), .proc/disable_protection)
+		RegisterSignal(user, list(COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_SET_BUCKLED), PROC_REF(check_protection))
+		RegisterSignal(user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_PRE_MOVE), PROC_REF(disable_protection))
 
 /obj/item/shock_blanket/dropped(mob/user, silent)
 	. = ..()

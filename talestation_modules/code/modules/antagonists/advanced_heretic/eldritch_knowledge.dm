@@ -29,7 +29,7 @@
 	master_heretic = user
 	if(!GLOB.heretic_sacrifice_landmarks.len)
 		message_admins("Generating z-level for heretic sacrifices...")
-		INVOKE_ASYNC(src, .proc/generate_heretic_z_level)
+		INVOKE_ASYNC(src, PROC_REF(generate_heretic_z_level))
 
 /datum/eldritch_knowledge/spell/basic/on_lose(mob/user)
 	master_heretic = null
@@ -76,8 +76,8 @@
 	sac_target.update_handcuffed()
 	sac_target.adjustOrganLoss(ORGAN_SLOT_BRAIN, 85, 150)
 	sac_target.do_jitter_animation(100)
-	addtimer(CALLBACK(sac_target, /mob/living/carbon.proc/do_jitter_animation, 100), 4 SECONDS)
-	addtimer(CALLBACK(sac_target, /mob/living/carbon.proc/do_jitter_animation, 100), 8 SECONDS)
+	addtimer(CALLBACK(sac_target, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), 100), 4 SECONDS)
+	addtimer(CALLBACK(sac_target, TYPE_PROC_REF(/mob/living/carbon, do_jitter_animation), 100), 8 SECONDS)
 
 	if(!sac_target.heal_and_revive(50, span_danger("[sac_target]'s heart begins to beat with an unholy force as they return from death!"))) // If our target is dead, and we fail to revive them, just disembowel them and be done
 		disembowel_target(sac_target)
@@ -93,9 +93,9 @@
 	message_admins("[sac_target] was non-lethally sacrificed by a heretic at [ADMIN_VERBOSEJMP(sac_loc)].")
 	log_attack("[sac_target] was non-lethally sacrificed by a heretic at [loc_name(sac_loc)].")
 
-	addtimer(CALLBACK(src, .proc/after_target_sleep, sac_target), sleeping_time / 2) // Teleport to the minigame
-	addtimer(CALLBACK(src, .proc/after_target_awaken, sac_target), sleeping_time) // Begin the minigame
-	addtimer(CALLBACK(src, .proc/return_target, sac_target, FALSE), 3 MINUTES) // Win condition
+	addtimer(CALLBACK(src, PROC_REF(after_target_sleep), sac_target), sleeping_time / 2) // Teleport to the minigame
+	addtimer(CALLBACK(src, PROC_REF(after_target_awaken), sac_target), sleeping_time) // Begin the minigame
+	addtimer(CALLBACK(src, PROC_REF(return_target), sac_target, FALSE), 3 MINUTES) // Win condition
 
 /*
  * This proc is called from [proc/sacrifice_process] after the [sac_target] falls asleep, shortly after the sacrifice occurs.
@@ -131,8 +131,8 @@
 	log_attack("[sac_target] was non-lethally sacrificed by a heretic at [loc_name(sac_loc)].")
 	to_chat(sac_target, span_big(span_hypnophrase("Unnatural forces begin to claw at your every being from beyond the veil.")))
 
-	RegisterSignal(sac_target, COMSIG_MOVABLE_Z_CHANGED, .proc/target_lost)
-	RegisterSignal(sac_target, COMSIG_LIVING_DEATH, .proc/return_target) // Loss condition
+	RegisterSignal(sac_target, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(target_lost))
+	RegisterSignal(sac_target, COMSIG_LIVING_DEATH, PROC_REF(return_target)) // Loss condition
 
 /*
  * This proc is called from [proc/sacrifice_process] after the [sac_target] wakes up.
@@ -146,7 +146,7 @@
 	sac_target.reagents?.add_reagent(/datum/reagent/unholy_determination, 12)
 	sac_target.reagents?.add_reagent(/datum/reagent/inverse/helgrasp, helgrasp_time / 20) // 1 metab a tick = helgrasp_time / 2 ticks (so, 1 minute = 60 seconds = 30 ticks)
 
-	addtimer(CALLBACK(src, .proc/after_helgrasp_ends, sac_target), helgrasp_time)
+	addtimer(CALLBACK(src, PROC_REF(after_helgrasp_ends), sac_target), helgrasp_time)
 	SEND_SIGNAL(sac_target, COMSIG_ADD_MOOD_EVENT, "shadow_realm", /datum/mood_event/shadow_realm)
 
 	sac_target.apply_necropolis_curse(CURSE_BLINDING | CURSE_GRASPING)
@@ -207,10 +207,10 @@
 	SEND_SIGNAL(sac_target, COMSIG_CLEAR_MOOD_EVENT, "shadow_realm")
 	SEND_SIGNAL(sac_target, COMSIG_ADD_MOOD_EVENT, "shadow_realm_survived_sadness", /datum/mood_event/shadow_realm_live_sad)
 	if(sac_target.stat == DEAD)
-		INVOKE_ASYNC(src, .proc/after_return_dead_target, sac_target, safe_turf)
+		INVOKE_ASYNC(src, PROC_REF(after_return_dead_target), sac_target, safe_turf)
 		composed_return_message += span_red("dead. ")
 	else
-		INVOKE_ASYNC(src, .proc/after_return_live_target, sac_target, safe_turf)
+		INVOKE_ASYNC(src, PROC_REF(after_return_live_target), sac_target, safe_turf)
 		composed_return_message += span_green("alive, but with a shattered mind. ")
 	composed_return_message += span_notice("You hear a whisper... ")
 	composed_return_message += span_hypnophrase(get_area_name(safe_turf, TRUE))
@@ -262,7 +262,7 @@
  * After 1 to 2 minutes, a centcom announcement is sent detailing where the person landed.
  */
 /datum/eldritch_knowledge/spell/basic/proc/after_return_dead_target(mob/living/carbon/human/sac_target, turf/landing_turf)
-	addtimer(CALLBACK(src, .proc/announce_dead_target, landing_turf), rand(1 MINUTES, 2 MINUTES))
+	addtimer(CALLBACK(src, PROC_REF(announce_dead_target), landing_turf), rand(1 MINUTES, 2 MINUTES))
 	sac_target?.reagents?.del_reagent(/datum/reagent/unholy_determination)
 	sac_target?.reagents?.del_reagent(/datum/reagent/inverse/helgrasp)
 	var/obj/effect/broken_illusion/illusion = new /obj/effect/broken_illusion(landing_turf)

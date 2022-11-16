@@ -149,12 +149,12 @@
 	icon_icon = 'talestation_modules/icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "ascend_eyes"
 
-/datum/action/innate/cult/arise_the_cult/IsAvailable()
+/datum/action/innate/cult/arise_the_cult/IsAvailable(feedback = FALSE)
 	var/datum/antagonist/advanced_cult/cultist = owner.mind.has_antag_datum(/datum/antagonist/advanced_cult)
 	var/datum/team/advanced_cult/cultist_team = cultist?.get_team()
 	return !cultist_team?.cult_risen
 
-/datum/action/innate/cult/arise_the_cult/Activate()
+/datum/action/innate/cult/arise_the_cult/Activate(feedback = FALSE)
 	var/datum/antagonist/advanced_cult/cultist = owner.mind.has_antag_datum(/datum/antagonist/advanced_cult)
 	var/datum/team/advanced_cult/cultist_team = cultist?.get_team()
 	if(!cultist_team)
@@ -169,7 +169,7 @@
 	icon_icon = 'talestation_modules/icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "ascend_halo"
 
-/datum/action/innate/cult/ascend_the_cult/IsAvailable()
+/datum/action/innate/cult/ascend_the_cult/IsAvailable(feedback = FALSE)
 	var/datum/antagonist/advanced_cult/cultist = owner.mind.has_antag_datum(/datum/antagonist/advanced_cult)
 	var/datum/team/advanced_cult/cultist_team = cultist?.get_team()
 	return cultist_team?.cult_risen && !cultist_team?.cult_ascendent
