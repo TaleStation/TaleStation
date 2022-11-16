@@ -10,7 +10,7 @@
 
 /obj/machinery/computer/Destroy()
 	for(var/obj/machinery/computer/selected in range(1, src) - src)
-		addtimer(CALLBACK(selected, .proc/callback_proc_issue), 0.2 SECONDS)
+		addtimer(CALLBACK(selected, PROC_REF(callback_proc_issue)), 0.2 SECONDS)
 	return ..()
 
 /obj/machinery/computer/proc/callback_proc_issue()
@@ -78,5 +78,5 @@
 		for(var/obj/C in src)
 			C.forceMove(loc)
 	for(var/obj/machinery/computer/selected in range(1,src))
-		addtimer(CALLBACK(selected, .proc/callback_proc_issue), 2)
+		addtimer(CALLBACK(selected, PROC_REF(callback_proc_issue)), 2)
 	qdel(src)

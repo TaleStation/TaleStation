@@ -102,7 +102,7 @@
 /obj/effect/rune/clock_trap/proc/daze_victim(mob/living/carbon/victim)
 	// Keep track of the people we hit for later. But also don't hard-delete
 	LAZYADD(people_we_dazed, victim)
-	RegisterSignal(victim, COMSIG_PARENT_QDELETING, .proc/clear_references)
+	RegisterSignal(victim, COMSIG_PARENT_QDELETING, PROC_REF(clear_references))
 
 	to_chat(victim, span_userdanger("A bright yellow flash obscures your vision and dazes you!"))
 
