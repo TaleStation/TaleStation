@@ -60,7 +60,7 @@
 	for(var/i in 0 to rand(2, 4))
 		if(!LAZYLEN(our_areas))
 			return
-		addtimer(CALLBACK(src, .proc/trigger_flare, pick_n_take(our_areas)), i SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(trigger_flare), pick_n_take(our_areas)), i SECONDS)
 
 /*
  * Trigger a solar flare effect at a random non-dense turf in [chosen_area].

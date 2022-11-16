@@ -15,7 +15,7 @@
 
 	var/mob/living/carbon/carbon_target = victim
 	if(carbon_target.canBeHandcuffed())
-		INVOKE_ASYNC(src, .proc/cuff_victim, victim, user)
+		INVOKE_ASYNC(src, PROC_REF(cuff_victim), victim, user)
 	else
 		to_chat(user, span_warning("This victim doesn't have enough arms to complete the restraint!"))
 
