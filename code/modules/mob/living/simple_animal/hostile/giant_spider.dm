@@ -310,7 +310,17 @@
 	check_flags = AB_CHECK_CONSCIOUS
 	button_icon_state = "lay_web"
 
-/datum/action/innate/spider/lay_web/IsAvailable()
+/datum/action/innate/spider/lay_web/Grant(mob/grant_to)
+	. = ..()
+	if (!owner)
+		return
+	RegisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_DO_AFTER_BEGAN, COMSIG_DO_AFTER_ENDED), PROC_REF(update_icon_on_signal))
+
+/datum/action/innate/spider/lay_web/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, list(COMSIG_MOVABLE_MOVED, COMSIG_DO_AFTER_BEGAN, COMSIG_DO_AFTER_ENDED))
+
+/datum/action/innate/spider/lay_web/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -370,7 +380,17 @@
 	/// The time it takes to wrap something.
 	var/wrap_time = 5 SECONDS
 
-/datum/action/cooldown/wrap/IsAvailable()
+/datum/action/cooldown/wrap/Grant(mob/grant_to)
+	. = ..()
+	if (!owner)
+		return
+	RegisterSignal(owner, list(COMSIG_DO_AFTER_BEGAN, COMSIG_DO_AFTER_ENDED), PROC_REF(update_icon_on_signal))
+
+/datum/action/cooldown/wrap/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, list(COMSIG_DO_AFTER_BEGAN, COMSIG_DO_AFTER_ENDED))
+
+/datum/action/cooldown/wrap/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
@@ -419,7 +439,7 @@
 		return FALSE
 
 	StartCooldown(wrap_time)
-	INVOKE_ASYNC(src, .proc/cocoon, to_wrap)
+	INVOKE_ASYNC(src, PROC_REF(cocoon), to_wrap)
 	return TRUE
 
 /datum/action/cooldown/wrap/proc/cocoon(atom/movable/to_wrap)
@@ -494,7 +514,17 @@
 	///The type of egg we create
 	var/egg_type = /obj/effect/mob_spawn/ghost_role/spider
 
-/datum/action/innate/spider/lay_eggs/IsAvailable()
+/datum/action/innate/spider/lay_eggs/Grant(mob/grant_to)
+	. = ..()
+	if (!owner)
+		return
+	RegisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_DO_AFTER_BEGAN, COMSIG_DO_AFTER_ENDED), PROC_REF(update_icon_on_signal))
+
+/datum/action/innate/spider/lay_eggs/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, list(COMSIG_MOVABLE_MOVED, COMSIG_DO_AFTER_BEGAN, COMSIG_DO_AFTER_ENDED))
+
+/datum/action/innate/spider/lay_eggs/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!.)
 		return FALSE
