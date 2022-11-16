@@ -37,7 +37,7 @@
 		to_chat(caster, span_cultitalic("You are not in the right dimension!"))
 		return
 
-	INVOKE_ASYNC(src, .proc/try_teleport, potential_runes, caster, teleported_person)
+	INVOKE_ASYNC(src, PROC_REF(try_teleport), potential_runes, caster, teleported_person)
 
 
 /datum/action/item_action/cult/clock_spell/teleport/proc/try_teleport(list/potential_runes, mob/living/caster, mob/living/teleported_person)
@@ -58,7 +58,7 @@
 		else
 			caster.stop_pulling()
 
-	if(!do_after(caster, teleport_time, teleported_person, extra_checks = CALLBACK(src, .proc/can_teleport, caster, teleported_person)))
+	if(!do_after(caster, teleport_time, teleported_person, extra_checks = CALLBACK(src, PROC_REF(can_teleport), caster, teleported_person)))
 		return
 
 	if(!can_teleport(caster, teleported_person))

@@ -18,13 +18,8 @@
 
 	x_offset = x
 	y_offset = y
-<<<<<<< HEAD
-	rotation_degree = rotation
-	RegisterSignal(target, COMSIG_ITEM_ATTACK_OBJ, .proc/tuck_into_bed)
-=======
 	starting_angle = rotation
 	RegisterSignal(target, COMSIG_ITEM_ATTACK_OBJ, PROC_REF(tuck_into_bed))
->>>>>>> 4f47f87165ff (Bedsheet Improvements (#70576))
 
 /datum/element/bed_tuckable/Detach(obj/target)
 	. = ..()
@@ -53,7 +48,7 @@
 	if(starting_angle)
 		rotation_degree = target_bed.dir & EAST ? starting_angle + 180 : starting_angle
 		tucked.transform = turn(tucked.transform, rotation_degree)
-		RegisterSignal(tucked, COMSIG_ITEM_PICKUP, .proc/untuck)
+		RegisterSignal(tucked, COMSIG_ITEM_PICKUP, PROC_REF(untuck))
 
 	return COMPONENT_NO_AFTERATTACK
 

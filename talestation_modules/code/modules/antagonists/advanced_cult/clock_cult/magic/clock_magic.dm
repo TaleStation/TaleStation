@@ -74,15 +74,15 @@
 			return
 
 	active = TRUE
-	RegisterSignal(target, COMSIG_ITEM_PRE_ATTACK, .proc/try_spell_effects)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/on_examine)
-	RegisterSignal(target, COMSIG_ITEM_EQUIPPED, .proc/on_equipped)
+	RegisterSignal(target, COMSIG_ITEM_PRE_ATTACK, PROC_REF(try_spell_effects))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(target, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))
 	if(active_overlay_name)
-		RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_item_update_overlays)
+		RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_item_update_overlays))
 		target_item.update_icon(UPDATE_OVERLAYS)
 	if(active_overlay_held_name)
-		RegisterSignal(magic_source.owner, COMSIG_ATOM_UPDATE_OVERLAYS, .proc/on_mob_update_overlays)
-		RegisterSignal(target, COMSIG_ITEM_DROPPED, .proc/on_dropped)
+		RegisterSignal(magic_source.owner, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(on_mob_update_overlays))
+		RegisterSignal(target, COMSIG_ITEM_DROPPED, PROC_REF(on_dropped))
 		magic_source.owner.update_icon(UPDATE_OVERLAYS)
 
 	if(!silent)
@@ -205,7 +205,7 @@
 			. = COMPONENT_NO_AFTERATTACK
 
 	if(!manually_handle_charges && . == COMPONENT_NO_AFTERATTACK)
-		INVOKE_ASYNC(src, .proc/after_successful_spell, user)
+		INVOKE_ASYNC(src, PROC_REF(after_successful_spell), user)
 
 
 /*
