@@ -104,8 +104,6 @@
 	bucket_obj.forceMove(src)
 
 	. = ..()
-	AddComponent(/datum/component/cleaner, CLEANBOT_CLEANING_TIME, \
-		on_cleaned_callback = CALLBACK(src, /atom/.proc/update_appearance, UPDATE_ICON))
 
 	AddComponent(/datum/component/cleaner, CLEANBOT_CLEANING_TIME, \
 		on_cleaned_callback = CALLBACK(src, TYPE_PROC_REF(/atom/, update_appearance), UPDATE_ICON))
@@ -414,7 +412,9 @@
 					current_floor.MakeSlippery(TURF_WET_WATER, min_wet_time = 20 SECONDS, wet_time_to_add = 15 SECONDS)
 			else
 				visible_message(span_danger("[src] whirs and bubbles violently, before releasing a plume of froth!"))
-				new /obj/effect/particle_effect/fluid/foam(loc)
+				var/datum/effect_system/fluid_spread/foam/foam = new
+				foam.set_up(2, holder = src, location = loc)
+				foam.start()
 
 /mob/living/simple_animal/bot/cleanbot/explode()
 	var/atom/drop_loc = drop_location()
