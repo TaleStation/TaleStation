@@ -24,7 +24,7 @@
 	if(!(slot & ITEM_SLOT_EYES))
 		return
 	if(ishuman(user) && IS_CULTIST(user))
-		RegisterSignal(user, COMSIG_MOB_EXAMINATE, .proc/on_user_examinate)
+		RegisterSignal(user, COMSIG_MOB_EXAMINATE, PROC_REF(on_user_examinate))
 
 /obj/item/clothing/glasses/judicial_visor/dropped(mob/user)
 	. = ..()
@@ -67,7 +67,7 @@
 	// Sets our icon to the "off" state.
 	icon_state = "[base_icon_state]_0"
 	source.update_worn_glasses()
-	addtimer(CALLBACK(src, .proc/reset_icon, source), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(reset_icon), source), 10 SECONDS)
 
 	if(anti_cult_magic_check(target, source))
 		return
