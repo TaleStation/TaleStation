@@ -333,3 +333,63 @@
       and airlocks.
   tattle:
   - bugfix: mimes no longer swear when using the *swear emote
+2022-11-18:
+  Fikou, sprites by Halcyon:
+  - refactor: fire axe cabinets support items that aren't fire axes
+  - balance: mechs no longer eject you when you die in them
+  - rscadd: Adds a giant crowbar to robotics, it can break open mechs to eject their
+      pilots.
+  Jolly:
+  - bugfix: On most station maps, crew can now properly see the computer monitors
+      for library consoles and the like. We don't know how you guys saw the screens
+      before, but you did. Good on you, I suppose?
+  LT3:
+  - qol: Tram destination sign is expanded and now properly says Central and Not In
+      Service.
+  - qol: Tram doors now open faster on arrival and mid travel, so you don't have to
+      wait, and can also make a daring high speed escape from a tram in motion.
+  - bugfix: Improved tram door logic so they don't end up open/closed at the wrong
+      place.
+  - bugfix: Tram doors are now their own subtype, it was backwards for some reason.
+  - bugfix: Tram doors while idle at a station can only be interacted with by Engineering
+      staff.
+  - rscadd: Tram controls are now a responsive touchscreen.
+  - rscadd: Tram crossings have their own holobarrier instead of using the generic
+      atmos fire barrier.
+  - rscadd: Tram now has a new set of doors in shiny titanium glass.
+  - rscadd: Tram is now powered by linear induction motors.
+  - bugfix: Deltastation's EVA windoor for magboots are no longer tram doors.
+  Melbert:
+  - balance: Attacking a shocked door with an item that isn't conductive will not
+      shock you.
+  - balance: Attacking a shocked grille with any item that isn't conductive (not just
+      glass shards) will not shock you.
+  - balance: Attacking grilles with items no longer leaves behind a fingerprint on
+      the grille (?).
+  - balance: Fire axe is now conductive.
+  - refactor: Fully heal can be passed a series of flags. As a result, some things
+      which previously did a full heal might heal slightly less, or some things which
+      did partial full heals might do slightly more.
+  - bugfix: Adminordrazine will no longer completely break every facet of a person
+  - admin: Ahealing a changeling will refill all of their chems.
+  TaleStationBot:
+  - bugfix: Containers visually update after crafting.
+  - spellcheck: Corrected a miswording in the power monitor UI.
+  - bugfix: Roundstart PDAs can once again be used by people with chunky fingers.
+  - bugfix: Raw dimensional cores can now be refined properly
+  - code_imp: Move plasma lava turf code to be in lava.dm file instead of snowdin
+      mission code
+  - bugfix: flick_overlay is an atom proc
+  - bugfix: lesser dragon form can now spit fire again
+  - bugfix: Fix snow legions not having plasma lava and snowstorm immunity
+  - bugfix: Syndicate Cyborgs no longer have the PDA messaging app.
+  - spellcheck: Fixed a spelling error in some fluff
+  - bugfix: fresh laundry mood is functional again
+  - code_imp: new component for controlling wearables granting mood
+  - rscdel: Nuke missing the station no longer locks down the shuttle
+  - rscadd: New radio uplink! Simply speak your codeword into the :d channel to unlock
+      it
+  - code_imp: new COMSIG_RADIO_NEW_MESSAGE signal
+  - rscadd: Pubby whiteship replaced with a new one.
+  - bugfix: You can no longer deconstruct the chess pieces or cut the trees in the
+      holodeck for free mats
