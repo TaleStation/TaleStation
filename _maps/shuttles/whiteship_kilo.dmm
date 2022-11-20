@@ -21,7 +21,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/general/visible,
 /obj/item/bikehorn/rubberducky,
 /obj/structure/closet/crate/trashcart/filled,
-/obj/item/bodypart/r_arm/robot/surplus{
+/obj/item/bodypart/arm/right/robot/surplus{
 	name = "rusty robotic arm";
 	desc = "A rusted and decayed robotic arm. Probably still works... Probably."
 	},
@@ -45,14 +45,6 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
-"dp" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
-/obj/machinery/door/poddoor{
-	id = "whiteship_windows";
-	name = "Exterior Window Blast Door"
-	},
-/turf/open/floor/plating,
-/area/shuttle/abandoned/bar)
 "dP" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/decal/cleanable/dirt,
@@ -116,6 +108,9 @@
 /turf/open/floor/iron/white/corner{
 	dir = 4
 	},
+/area/shuttle/abandoned/bar)
+"gk" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/abandoned/bar)
 "gA" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -210,7 +205,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/shuttle/engine/propulsion/left{
+/obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -251,16 +246,12 @@
 	callTime = 250;
 	can_move_docking_ports = 1;
 	dir = 2;
-	dwidth = 7;
-	height = 17;
 	shuttle_id = "whiteship";
 	launch_status = 0;
 	movement_force = list("KNOCKDOWN"=0,"THROW"=0);
 	name = "Mining Shuttle";
 	port_direction = 4;
-	preferred_direction = 8;
-	width = 13;
-	dheight = 7
+	preferred_direction = 8
 	},
 /turf/open/floor/plating,
 /area/shuttle/abandoned/cargo)
@@ -337,7 +328,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/shuttle/engine/propulsion{
+/obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -365,7 +356,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/shuttle/engine/propulsion/right{
+/obj/machinery/power/shuttle_engine/propulsion/right{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -426,7 +417,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/shuttle/engine/propulsion/right{
+/obj/machinery/power/shuttle_engine/propulsion/right{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -796,8 +787,13 @@
 /obj/machinery/power/smes/engineering,
 /turf/open/floor/plating,
 /area/shuttle/abandoned/engine)
-"Kt" = (
-/turf/closed/wall/mineral/titanium,
+"Kx" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor{
+	id = "whiteship_windows";
+	name = "Exterior Window Blast Door"
+	},
+/turf/open/floor/plating,
 /area/shuttle/abandoned/bar)
 "KS" = (
 /obj/effect/decal/cleanable/dirt,
@@ -872,7 +868,7 @@
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/shuttle/abandoned/engine)
 "MI" = (
-/obj/structure/shuttle/engine/heater{
+/obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -915,7 +911,7 @@
 /turf/open/floor/bamboo,
 /area/shuttle/abandoned/bar)
 "OZ" = (
-/obj/structure/shuttle/engine/heater{
+/obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -943,7 +939,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/shuttle/engine/propulsion/left{
+/obj/machinery/power/shuttle_engine/propulsion/left{
 	dir = 8
 	},
 /turf/open/floor/plating,
@@ -1115,9 +1111,6 @@
 /obj/structure/cable,
 /turf/open/floor/mineral/titanium/tiled/yellow,
 /area/shuttle/abandoned/engine)
-"VX" = (
-/turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/abandoned/bar)
 "Wj" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/netherworld{
@@ -1129,6 +1122,9 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron,
+/area/shuttle/abandoned/bar)
+"Xk" = (
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/abandoned/bar)
 "XL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden{
@@ -1371,8 +1367,8 @@ YV
 nN
 lg
 ig
-VX
-VX
+gk
+gk
 "}
 (11,1,1) = {"
 Rr
@@ -1387,7 +1383,7 @@ NV
 fL
 zJ
 sz
-dp
+Kx
 "}
 (12,1,1) = {"
 xh
@@ -1417,7 +1413,7 @@ id
 jM
 QR
 kY
-dp
+Kx
 "}
 (14,1,1) = {"
 Gu
@@ -1432,7 +1428,7 @@ RF
 eE
 rX
 Xe
-VX
+gk
 "}
 (15,1,1) = {"
 Gu
@@ -1444,9 +1440,9 @@ TP
 ZW
 HD
 id
-VX
+gk
 Lj
-VX
+gk
 ry
 "}
 (16,1,1) = {"
@@ -1458,10 +1454,10 @@ uA
 FW
 FW
 FW
-VX
+gk
 hN
 mt
-VX
+gk
 Gu
 "}
 (17,1,1) = {"
@@ -1473,9 +1469,9 @@ Gu
 Gu
 Gu
 Gu
-Kt
+Xk
 ik
-VX
-Kt
+gk
+Xk
 Gu
 "}

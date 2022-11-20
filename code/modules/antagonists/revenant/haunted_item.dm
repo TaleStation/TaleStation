@@ -39,7 +39,7 @@
 		return COMPONENT_INCOMPATIBLE
 
 	if(!isnull(haunt_duration))
-		addtimer(CALLBACK(src, .proc/clear_haunting), haunt_duration)
+		addtimer(CALLBACK(src, PROC_REF(clear_haunting)), haunt_duration)
 
 	if(!isnull(spawn_message))
 		haunted_item.visible_message(spawn_message)
@@ -75,7 +75,7 @@
 	return ..()
 
 /datum/component/haunted_item/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/on_hit_by_holy_tool)
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(on_hit_by_holy_tool))
 
 /datum/component/haunted_item/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_PARENT_ATTACKBY)
@@ -96,5 +96,6 @@
 	if(!is_type_in_list(attacking_item, types_which_dispell_us))
 		return
 
+	attacker.visible_message(span_warning("[attacker] dispells the ghostly energy from [source]!"), span_warning("You dispel the ghostly energy from [source]!"))
 	clear_haunting()
 	return COMPONENT_NO_AFTERATTACK

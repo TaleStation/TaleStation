@@ -53,7 +53,7 @@
 	var/datum/advanced_antag_datum/changeling/our_ling = linked_advanced_datum
 
 	result += printplayer(owner)
-	result += "<b>[owner]</b> was <b>[changeling_id]</b>, a/an <b>[our_ling.name]</b>[our_ling.employer? " employed by <b>[our_ling.employer]</b>":""]."
+	result += "<b>[owner]</b> was <b>[changelingID]</b>, a/an <b>[our_ling.name]</b>[our_ling.employer? " employed by <b>[our_ling.employer]</b>":""]."
 	if(our_ling.backstory)
 		result += "<b>[owner]'s</b> backstory was the following: <br>[our_ling.backstory]"
 
@@ -138,13 +138,13 @@
 
 /datum/advanced_antag_datum/changeling/greet_message_two(mob/antagonist)
 	to_chat(antagonist, span_danger("You are a mysterious changeling sent to [station_name()]! You can set your goals to whatever you think would make an interesting story or round. You have access to your goal panel via verb in your IC tab."))
-	addtimer(CALLBACK(src, .proc/greet_message_three, antagonist), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(greet_message_three), antagonist), 3 SECONDS)
 
 /datum/advanced_antag_datum/changeling/ui_data(mob/user)
 	. = ..()
 	var/datum/antagonist/changeling/our_changeling = linked_antagonist
 	.["cannot_absorb"] = no_hard_absorb
-	.["changeling_id"] = our_changeling.changeling_id
+	.["changelingID"] = our_changeling.changelingID
 
 /datum/advanced_antag_datum/changeling/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -155,7 +155,7 @@
 	switch(action)
 		if("set_ling_id")
 			var/datum/antagonist/changeling/our_changeling = linked_antagonist
-			our_changeling.changeling_id = params["changeling_id"]
+			our_changeling.changelingID = params["changelingID"]
 
 		if("toggle_absorb")
 			if(finalized)

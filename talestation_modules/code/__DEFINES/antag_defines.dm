@@ -85,11 +85,6 @@
 #define LING_HIVE_NOT_AWOKEN 2 // Is a ling, but no hivemind
 #define LING_HIVE_OUTSIDER 3 // Not a ling, but linglinked
 
-/// Changeling hivemind mode stuff.
-#define MODE_CHANGELING "changeling"
-#define MODE_KEY_CHANGELING "g"
-#define MODE_TOKEN_CHANGELING ":g"
-
 /// Max amount of goals an advanced traitor can add.
 #define ADV_TRAITOR_MAX_GOALS 5
 /// Max amount of similar objectives an advanced traitor can add.

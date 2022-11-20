@@ -34,6 +34,10 @@ GLOBAL_VAR(restart_counter)
  * All atoms in both compiled and uncompiled maps are initialized()
  */
 /world/New()
+#ifdef USE_BYOND_TRACY
+	#warn USE_BYOND_TRACY is enabled
+	init_byond_tracy()
+#endif
 
 	log_world("World loaded at [time_stamp()]!")
 
@@ -100,11 +104,11 @@ GLOBAL_VAR(restart_counter)
 	CONFIG_SET(number/round_end_countdown, 0)
 	var/datum/callback/cb
 #ifdef UNIT_TESTS
-	cb = CALLBACK(GLOBAL_PROC, /proc/RunUnitTests)
+	cb = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(RunUnitTests))
 #else
 	cb = VARSET_CALLBACK(SSticker, force_ending, TRUE)
 #endif
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/_addtimer, cb, 10 SECONDS))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
 
 
 /world/proc/SetupLogs()
@@ -303,8 +307,9 @@ GLOBAL_VAR(restart_counter)
 	AUXTOOLS_FULL_SHUTDOWN(AUXLUA)
 	var/debug_server = world.GetConfig("env", "AUXTOOLS_DEBUG_DLL")
 	if (debug_server)
-		call(debug_server, "auxtools_shutdown")()
+		LIBCALL(debug_server, "auxtools_shutdown")()
 	. = ..()
+/* NON-MODULAR REMOVAL: Removes Hub proc for modular stuff
 
 /world/proc/update_status()
 
@@ -328,14 +333,6 @@ GLOBAL_VAR(restart_counter)
 	if (CONFIG_GET(flag/station_name_in_hub_entry))
 		new_status += " &#8212; <b>[station_name()]</b>"
 
-		// NON-MODULAR CHANGES: Puts the Discord link back in the fucking hub
-		new_status += " ("
-		new_status += "<a href=\"https://discord.gg/24Q2rKzgR3\">" //Change this to wherever you want the hub to link to.
-		new_status += "Discord"  //Replace this with something else. Or ever better, delete it and uncomment the game version.
-		new_status += "</a>"
-		new_status += ")"
-		// NON-MODULAR CHANGES END
-
 	var/players = GLOB.clients.len
 
 	game_state = (CONFIG_GET(number/extreme_popcap) && players >= CONFIG_GET(number/extreme_popcap)) //tells the hub if we are full
@@ -354,6 +351,7 @@ GLOBAL_VAR(restart_counter)
 		new_status += "<br>Alert: <b>[capitalize(alert_text)]</b>"
 
 	status = new_status
+*/// NON-MODULAR CHANGES END
 
 /world/proc/update_hub_visibility(new_visibility)
 	if(new_visibility == GLOB.hub_visibility)
@@ -392,6 +390,22 @@ GLOBAL_VAR(restart_counter)
 
 /world/proc/on_tickrate_change()
 	SStimer?.reset_buckets()
+
+/world/proc/init_byond_tracy()
+	var/library
+
+	switch (system_type)
+		if (MS_WINDOWS)
+			library = "prof.dll"
+		if (UNIX)
+			library = "libprof.so"
+		else
+			CRASH("Unsupported platform: [system_type]")
+
+	var/init_result = LIBCALL(library, "init")()
+	if (init_result != "0")
+		CRASH("Error initializing byond-tracy: [init_result]")
+
 
 /world/Profile(command, type, format)
 	if((command & PROFILE_STOP) || !global.config?.loaded || !CONFIG_GET(flag/forbid_all_profiling))

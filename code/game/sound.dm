@@ -68,11 +68,6 @@
 		if(below_turf && istransparentturf(turf_source))
 			listeners += SSmobs.clients_by_zlevel[below_turf.z]
 
-		for(var/mob/listening_mob as anything in listeners)
-			if(get_dist(listening_mob, turf_source) <= maxdistance)
-				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
-				. += listening_mob
-
 	else //these sounds don't carry through walls
 		listeners = get_hearers_in_view(maxdistance, turf_source)
 
@@ -82,10 +77,10 @@
 		if(below_turf && istransparentturf(turf_source))
 			listeners += get_hearers_in_view(maxdistance, below_turf)
 
-		for(var/mob/listening_mob in listeners | SSmobs.dead_players_by_zlevel[source_z])//observers always hear through walls
-			if(get_dist(listening_mob, turf_source) <= maxdistance)
-				listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
-				. += listening_mob
+	for(var/mob/listening_mob in listeners | SSmobs.dead_players_by_zlevel[source_z])//observers always hear through walls
+		if(get_dist(listening_mob, turf_source) <= maxdistance)
+			listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)
+			. += listening_mob
 
 /mob/proc/playsound_local(turf/turf_source, soundin, vol as num, vary, frequency, falloff_exponent = SOUND_FALLOFF_EXPONENT, channel = 0, pressure_affected = TRUE, sound/sound_to_use, max_distance, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, distance_multiplier = 1, use_reverb = TRUE)
 	if(!client || !can_hear())
@@ -180,7 +175,7 @@
 	set waitfor = FALSE
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 
-	if(prefs && (prefs.toggles & SOUND_LOBBY) && !CONFIG_GET(flag/disallow_title_music))
+	if(prefs && (prefs.read_preference(/datum/preference/toggle/sound_lobby)) && !CONFIG_GET(flag/disallow_title_music))
 		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = vol, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /proc/get_rand_frequency()

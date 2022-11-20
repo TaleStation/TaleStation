@@ -90,7 +90,7 @@
 			W.play_tool_sound(src)
 			balloon_alert(user, "board unfastened")
 		else
-			balloon_alert(user, "no board to faster!")
+			balloon_alert(user, "no board to fasten!")
 			return
 	update_appearance()
 
@@ -203,7 +203,7 @@
 	environ = APC_CHANNEL_OFF
 	update_appearance()
 	update()
-	addtimer(CALLBACK(src, .proc/reset, APC_RESET_EMP), 600)
+	addtimer(CALLBACK(src, PROC_REF(reset), APC_RESET_EMP), 600)
 
 /obj/machinery/power/apc/proc/togglelock(mob/living/user)
 	if(obj_flags & EMAGGED)

@@ -36,7 +36,7 @@
 	if (deconstruction != BLASTDOOR_FINISHED)
 		return
 	var/change_id = tgui_input_number(user, "Set the door controllers ID", "Door Controller ID", id, 100)
-	if(!change_id || QDELETED(usr) || QDELETED(src) || !usr.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+	if(!change_id || QDELETED(usr) || QDELETED(src) || !usr.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE))
 		return
 	id = change_id
 	to_chat(user, span_notice("You change the ID to [id]."))
@@ -168,9 +168,9 @@
 /obj/machinery/door/poddoor/shuttledock/proc/check()
 	var/turf/turf = get_step(src, checkdir)
 	if(!istype(turf, turftype))
-		INVOKE_ASYNC(src, .proc/open)
+		INVOKE_ASYNC(src, PROC_REF(open))
 	else
-		INVOKE_ASYNC(src, .proc/close)
+		INVOKE_ASYNC(src, PROC_REF(close))
 
 /obj/machinery/door/poddoor/incinerator_ordmix
 	name = "combustion chamber vent"

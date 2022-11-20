@@ -26,7 +26,7 @@
 	attached_to = A
 	var/turf/loc_turf = get_turf(A)
 	if(!loc_turf)
-		RegisterSignal(attached_to, COMSIG_MOVABLE_MOVED, .proc/retry_attach, TRUE)
+		RegisterSignal(attached_to, COMSIG_MOVABLE_MOVED, PROC_REF(retry_attach), TRUE)
 	else
 		forceMove(loc_turf)
 
@@ -140,6 +140,8 @@
 	var/obj/effect/anomaly/A = attached_to
 	if(!istype(A))
 		return
+	else if(A.immortal) //we can't die, why are we still here? just to suffer?
+		stop()
 	else
 		var/time_left = max(0, (A.death_time - world.time) / 10)
 		return round(time_left)

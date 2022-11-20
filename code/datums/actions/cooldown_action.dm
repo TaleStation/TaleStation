@@ -59,7 +59,7 @@
 	UpdateButtons()
 	if(next_use_time > world.time)
 		START_PROCESSING(SSfastprocess, src)
-	RegisterSignal(granted_to, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, .proc/handle_melee_attack)
+	RegisterSignal(granted_to, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(handle_melee_attack))
 	for(var/datum/action/cooldown/ability as anything in initialized_actions)
 		ability.Grant(granted_to)
 
@@ -71,7 +71,7 @@
 		ability.Remove(removed_from)
 	return ..()
 
-/datum/action/cooldown/IsAvailable()
+/datum/action/cooldown/IsAvailable(feedback = FALSE)
 	return ..() && (next_use_time <= world.time)
 
 /// Initializes any sequence actions
@@ -160,7 +160,7 @@
 
 /// Intercepts client owner clicks to activate the ability
 /datum/action/cooldown/proc/InterceptClickOn(mob/living/caller, params, atom/target)
-	if(!IsAvailable())
+	if(!IsAvailable(feedback = TRUE))
 		return FALSE
 	if(!target)
 		return FALSE
@@ -179,7 +179,8 @@
 /datum/action/cooldown/proc/PreActivate(atom/target)
 	if(SEND_SIGNAL(owner, COMSIG_MOB_ABILITY_STARTED, src) & COMPONENT_BLOCK_ABILITY_START)
 		return
-	StartCooldown(360 SECONDS, 360 SECONDS)
+	// Note, that PreActivate handles no cooldowns at all by default.
+	// Be sure to call StartCooldown() in Activate() where necessary.
 	. = Activate(target)
 	// There is a possibility our action (or owner) is qdeleted in Activate().
 	if(!QDELETED(src) && !QDELETED(owner))
@@ -191,7 +192,7 @@
 	for(var/datum/action/cooldown/ability as anything in initialized_actions)
 		if(LAZYLEN(ability.initialized_actions) > 0)
 			ability.initialized_actions = list()
-		addtimer(CALLBACK(ability, .proc/Activate, target), total_delay)
+		addtimer(CALLBACK(ability, PROC_REF(Activate), target), total_delay)
 		total_delay += initialized_actions[ability]
 	StartCooldown()
 

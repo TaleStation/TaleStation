@@ -57,7 +57,9 @@
 	changeling.adjust_chemicals(10)
 	changeling.can_respec = TRUE
 
-	target.death(0)
+	if(target.stat != DEAD)
+		target.investigate_log("has died from being changeling absorbed.", INVESTIGATE_DEATHS)
+	target.death(FALSE)
 	target.Drain()
 	return TRUE
 
@@ -144,7 +146,7 @@
 		target.mind.remove_antag_datum(/datum/antagonist/changeling)
 		/// NON-MODULAR CHANGE: Advanced lings
 		var/datum/antagonist/fallen_changeling/fallen = target.mind.add_antag_datum(/datum/antagonist/fallen_changeling)
-		fallen.previous_changeling_id = target_ling.changeling_id
+		fallen.previous_changelingID = target_ling.changelingID
 		fallen.changeling_who_robbed_us = WEAKREF(owner.mind)
 		target.mind.remove_antag_datum(/datum/antagonist/changeling)
 		// NON-MODULAR CHANGE END

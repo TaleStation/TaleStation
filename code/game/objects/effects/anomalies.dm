@@ -52,7 +52,17 @@
 	countdown = new(src)
 	if(countdown_colour)
 		countdown.color = countdown_colour
+	if(immortal)
+		return
 	countdown.start()
+
+/obj/effect/anomaly/vv_edit_var(vname, vval)
+	. = ..()
+	if(vname == NAMEOF(src, immortal))
+		if(vval)
+			countdown.stop()
+		else
+			countdown.start()
 
 /obj/effect/anomaly/process(delta_time)
 	anomalyEffect(delta_time)
@@ -119,7 +129,7 @@
 /obj/effect/anomaly/grav/Initialize(mapload, new_lifespan, drops_core)
 	. = ..()
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -130,6 +140,13 @@
 	vis_contents -= warp
 	warp = null
 	return ..()
+
+/obj/effect/anomaly/grav/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
+	. = ..()
+	if(same_z_layer)
+		return
+	if(warp)
+		SET_PLANE(warp, PLANE_TO_TRUE(warp.plane), new_turf)
 
 /obj/effect/anomaly/grav/anomalyEffect(delta_time)
 	..()
@@ -178,7 +195,7 @@
 
 /obj/effect/anomaly/grav/high/Initialize(mapload, new_lifespan)
 	. = ..()
-	INVOKE_ASYNC(src, .proc/setup_grav_field)
+	INVOKE_ASYNC(src, PROC_REF(setup_grav_field))
 
 /obj/effect/anomaly/grav/high/proc/setup_grav_field()
 	grav_field = new(src, 7, TRUE, rand(0, 3))
@@ -207,7 +224,7 @@
 	. = ..()
 	src.explosive = explosive
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -219,7 +236,7 @@
 
 /obj/effect/anomaly/flux/update_overlays()
 	. = ..()
-	. += emissive_appearance(icon, icon_state, alpha=src.alpha)
+	. += emissive_appearance(icon, icon_state, src, alpha=src.alpha)
 
 /obj/effect/anomaly/flux/proc/on_entered(datum/source, atom/movable/AM)
 	SIGNAL_HANDLER
@@ -313,7 +330,7 @@
 
 /obj/effect/anomaly/bluespace/proc/blue_effect(mob/make_sparkle)
 	make_sparkle.overlay_fullscreen("bluespace_flash", /atom/movable/screen/fullscreen/bluespace_sparkle, 1)
-	addtimer(CALLBACK(make_sparkle, /mob/.proc/clear_fullscreen, "bluespace_flash"), 2 SECONDS)
+	addtimer(CALLBACK(make_sparkle, TYPE_PROC_REF(/mob/, clear_fullscreen), "bluespace_flash"), 2 SECONDS)
 
 /////////////////////
 
@@ -337,7 +354,7 @@
 		T.atmos_spawn_air("o2=5;plasma=5;TEMP=1000")
 
 /obj/effect/anomaly/pyro/detonate()
-	INVOKE_ASYNC(src, .proc/makepyroslime)
+	INVOKE_ASYNC(src, PROC_REF(makepyroslime))
 
 /obj/effect/anomaly/pyro/proc/makepyroslime()
 	var/turf/open/T = get_turf(src)
@@ -454,13 +471,13 @@
 	if(!heads)
 		heads = typesof(/obj/item/bodypart/head)
 	if(!l_arms)
-		l_arms = typesof(/obj/item/bodypart/l_arm)
+		l_arms = typesof(/obj/item/bodypart/arm/left)
 	if(!r_arms)
-		r_arms = typesof(/obj/item/bodypart/r_arm)
+		r_arms = typesof(/obj/item/bodypart/arm/right)
 	if(!l_legs)
-		l_legs = typesof(/obj/item/bodypart/l_leg)
+		l_legs = typesof(/obj/item/bodypart/leg/left)
 	if(!r_legs)
-		r_legs = typesof(/obj/item/bodypart/r_leg)
+		r_legs = typesof(/obj/item/bodypart/leg/right)
 
 /obj/effect/anomaly/bioscrambler/anomalyEffect(delta_time)
 	. = ..()

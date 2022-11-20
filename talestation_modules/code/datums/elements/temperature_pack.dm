@@ -4,7 +4,7 @@
  * limbs experiencing pain to reduce it.
  */
 /datum/element/temperature_pack
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DETACH
+	element_flags = ELEMENT_BESPOKE
 	id_arg_index = 2
 	/// Amount of pain we restore every tick in the targeted limb.
 	var/pain_heal_rate = 0
@@ -23,15 +23,8 @@
 	src.pain_modifier_on_limb = pain_modifier_on_limb
 	src.temperature_change = temperature_change
 
-	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, .proc/try_apply_to_limb)
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, .proc/get_examine_text)
-
-/datum/element/temperature_pack/Detach(obj/target)
-	. = ..()
-	UnregisterSignal(target, list(
-		COMSIG_ITEM_ATTACK_SECONDARY,
-		COMSIG_PARENT_EXAMINE,
-	))
+	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, PROC_REF(try_apply_to_limb))
+	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(get_examine_text))
 
 /*
  * Edit the examine text to show the item can be used as a temperature pack.
@@ -77,7 +70,7 @@
 
 	. = SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN // And past THIS point, no attack
 
-	INVOKE_ASYNC(src, .proc/apply_to_limb, source, target, user, targeted_zone)
+	INVOKE_ASYNC(src, PROC_REF(apply_to_limb), source, target, user, targeted_zone)
 
 /*
  * Actually apply [parent] temperature pack to [targeted_zone] limb on [target] mob from [user].

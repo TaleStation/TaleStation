@@ -1,3 +1,6 @@
+#define REVENANT_DEFILE_MIN_DAMAGE 30
+#define REVENANT_DEFILE_MAX_DAMAGE 50
+
 
 /mob/living/simple_animal/revenant/ClickOn(atom/A, params) //revenants can't interact with the world directly.
 	var/list/modifiers = params2list(params)
@@ -100,7 +103,9 @@
 					target.visible_message(span_warning("[target] slumps onto the ground."), \
 										   span_revenwarning("Violets lights, dancing in your vision, getting clo--"))
 					drained_mobs += REF(target)
-					target.death(0)
+					if(target.stat != DEAD)
+						target.investigate_log("has died from revenant harvest.", INVESTIGATE_DEATHS)
+					target.death(FALSE)
 				else
 					to_chat(src, span_revenwarning("[target ? "[target] has":"[target.p_theyve(TRUE)]"] been drawn out of your grasp. The link has been broken."))
 					if(target) //Wait, target is WHERE NOW?
@@ -192,7 +197,7 @@
 /datum/action/cooldown/spell/aoe/revenant/before_cast(mob/living/simple_animal/revenant/cast_on)
 	. = ..()
 	if(. & SPELL_CANCEL_CAST)
-		return FALSE
+		return
 
 	if(locked)
 		if(!cast_on.unlock(unlock_amount))
@@ -245,7 +250,7 @@
 		light_sparks.set_up(4, 0, light)
 		light_sparks.start()
 		new /obj/effect/temp_visual/revenant(get_turf(light))
-		addtimer(CALLBACK(src, .proc/overload_shock, light, caster), 20)
+		addtimer(CALLBACK(src, PROC_REF(overload_shock), light, caster), 20)
 
 /datum/action/cooldown/spell/aoe/revenant/overload/proc/overload_shock(obj/machinery/light/to_shock, mob/living/simple_animal/revenant/caster)
 	flick("[to_shock.base_state]2", to_shock)
@@ -302,8 +307,9 @@
 	for(var/obj/machinery/dna_scannernew/dna in victim)
 		dna.open_machine()
 	for(var/obj/structure/window/window in victim)
-		window.take_damage(rand(30, 80))
-		if(window?.fulltile)
+		if(window.get_integrity() > REVENANT_DEFILE_MAX_DAMAGE)
+			window.take_damage(rand(REVENANT_DEFILE_MIN_DAMAGE, REVENANT_DEFILE_MAX_DAMAGE))
+		if(window.fulltile)
 			new /obj/effect/temp_visual/revenant/cracks(window.loc)
 	for(var/obj/machinery/light/light in victim)
 		light.flicker(20) //spooky
@@ -400,7 +406,6 @@
 		tray.set_weedlevel(rand(8, 10))
 		tray.set_toxic(rand(45, 55))
 
-
 /datum/action/cooldown/spell/aoe/revenant/haunt_object
 	name = "Haunt Object"
 	desc = "Empower nearby objects to you with ghostly energy, causing them to attack nearby mortals. \
@@ -451,3 +456,6 @@
 		spawn_message = span_revenwarning("[victim] begins to float and twirl into the air as it glows a ghastly purple!"), \
 		despawn_message = span_revenwarning("[victim] falls back to the ground, stationary once more."), \
 	)
+
+#undef REVENANT_DEFILE_MIN_DAMAGE
+#undef REVENANT_DEFILE_MAX_DAMAGE

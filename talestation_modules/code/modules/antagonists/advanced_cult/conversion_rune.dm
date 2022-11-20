@@ -28,7 +28,7 @@
 	visible_message(span_warning("[src] pulses a mesmerizing shade!"))
 	var/mob/living/convertee = pick(myriad_targets)
 
-	INVOKE_ASYNC(src, .proc/invoke_wrapper, convertee, user)
+	INVOKE_ASYNC(src, PROC_REF(invoke_wrapper), convertee, user)
 
 	. = ..()
 

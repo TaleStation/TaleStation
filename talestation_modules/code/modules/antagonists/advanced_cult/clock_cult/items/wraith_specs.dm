@@ -20,7 +20,7 @@
 
 /obj/item/clothing/glasses/wraith_specs/Initialize(mapload)
 	. = ..()
-	INVOKE_ASYNC(src, .proc/weldingvisortoggle)
+	INVOKE_ASYNC(src, PROC_REF(weldingvisortoggle))
 
 /obj/item/clothing/glasses/wraith_specs/examine(mob/user)
 	. = ..()
@@ -30,11 +30,11 @@
 
 /obj/item/clothing/glasses/wraith_specs/attack_self(mob/user, modifiers)
 	. = ..()
-	INVOKE_ASYNC(src, .proc/weldingvisortoggle, user)
+	INVOKE_ASYNC(src, PROC_REF(weldingvisortoggle), user)
 
 /obj/item/clothing/glasses/wraith_specs/equipped(mob/user, slot)
 	. = ..()
-	if(slot != ITEM_SLOT_EYES)
+	if(!(slot & ITEM_SLOT_EYES))
 		return
 	if(ishuman(user) && !up)
 		enable_glasses(user)
@@ -100,7 +100,7 @@
 		new_hud.show_to(user)
 	ADD_TRAIT(user, TRAIT_MEDICAL_HUD, GLASSES_TRAIT)
 	ADD_TRAIT(user, TRAIT_DIAGNOSTIC_HUD, GLASSES_TRAIT)
-	RegisterSignal(user, COMSIG_MOB_EXAMINATE, .proc/on_user_examinate)
+	RegisterSignal(user, COMSIG_MOB_EXAMINATE, PROC_REF(on_user_examinate))
 
 	darkness_view = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE

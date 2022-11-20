@@ -159,12 +159,6 @@
 			if(occupants)
 				SSexplosions.low_mov_atom += occupants
 
-/obj/vehicle/sealed/mecha/handle_atom_del(atom/A)
-	if(A in occupants) //todo does not work and in wrong file
-		LAZYREMOVE(occupants, A)
-		icon_state = initial(icon_state)+"-open"
-		setDir(dir_in)
-
 /obj/vehicle/sealed/mecha/emp_act(severity)
 	. = ..()
 	if (. & EMP_PROTECT_SELF)
@@ -176,7 +170,7 @@
 
 	if(!equipment_disabled && LAZYLEN(occupants)) //prevent spamming this message with back-to-back EMPs
 		to_chat(occupants, span_warning("Error -- Connection to equipment control unit has been lost."))
-	addtimer(CALLBACK(src, /obj/vehicle/sealed/mecha.proc/restore_equipment), 3 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/vehicle/sealed/mecha, restore_equipment)), 3 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 	equipment_disabled = TRUE
 	set_mouse_pointer()
 
@@ -306,6 +300,10 @@
 /obj/vehicle/sealed/mecha/crowbar_act(mob/living/user, obj/item/I)
 	..()
 	. = TRUE
+	if(istype(I, /obj/item/crowbar/mechremoval))
+		var/obj/item/crowbar/mechremoval/remover = I
+		remover.empty_mech(src, user)
+		return
 	if(construction_state == MECHA_LOOSE_BOLTS)
 		construction_state = MECHA_OPEN_HATCH
 		to_chat(user, span_notice("You open the hatch to the power unit."))
@@ -318,15 +316,14 @@
 	if(user.combat_mode)
 		return
 	. = TRUE
-	if(LAZYFIND(repairing_mobs, user))
-		balloon_alert(user, "you're already repairing it!")
+	if(DOING_INTERACTION(user, src))
+		balloon_alert(user, "you're already repairing this!")
 		return
 	if(atom_integrity >= max_integrity)
 		balloon_alert(user, "it's not damaged!")
 		return
 	if(!W.tool_start_check(user, amount=1))
 		return
-	LAZYADD(repairing_mobs, user)
 	user.balloon_alert_to_viewers("started welding [src]", "started repairing [src]")
 	audible_message(span_hear("You hear welding."))
 	var/did_the_thing
@@ -341,7 +338,6 @@
 		user.balloon_alert_to_viewers("[(atom_integrity >= max_integrity) ? "fully" : "partially"] repaired [src]")
 	else
 		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
-	LAZYREMOVE(repairing_mobs, user)
 
 
 /obj/vehicle/sealed/mecha/proc/full_repair(charge_cell)

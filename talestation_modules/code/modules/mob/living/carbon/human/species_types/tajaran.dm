@@ -33,10 +33,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		)
 
 	mutantears = /obj/item/organ/internal/ears/tajaran_ears
-	attack_verb = "slash"
-	attack_effect = ATTACK_EFFECT_CLAW
-	attack_sound = 'sound/weapons/slash.ogg'
-	miss_sound = 'sound/weapons/slashmiss.ogg'
 	disliked_food = CLOTH
 	liked_food = GRAIN | MEAT | SEAFOOD
 	payday_modifier = 0.75
@@ -49,10 +45,10 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/tajaran,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/tajaran,
-		BODY_ZONE_L_ARM = /obj/item/bodypart/l_arm/tajaran,
-		BODY_ZONE_R_ARM = /obj/item/bodypart/r_arm/tajaran,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/l_leg/tajaran,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/r_leg/tajaran,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/tajaran,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/tajaran,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/tajaran,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/tajaran,
 	)
 
 	// Body temp effects

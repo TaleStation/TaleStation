@@ -208,10 +208,10 @@
 //Health doll screws for human mobs
 #define SCREWYDOLL_HEAD /obj/item/bodypart/head
 #define SCREWYDOLL_CHEST /obj/item/bodypart/chest
-#define SCREWYDOLL_L_ARM /obj/item/bodypart/l_arm
-#define SCREWYDOLL_R_ARM /obj/item/bodypart/r_arm
-#define SCREWYDOLL_L_LEG /obj/item/bodypart/l_leg
-#define SCREWYDOLL_R_LEG /obj/item/bodypart/r_leg
+#define SCREWYDOLL_L_ARM /obj/item/bodypart/arm/left
+#define SCREWYDOLL_R_ARM /obj/item/bodypart/arm/right
+#define SCREWYDOLL_L_LEG /obj/item/bodypart/leg/left
+#define SCREWYDOLL_R_LEG /obj/item/bodypart/leg/right
 
 //Threshold levels for beauty for humans
 #define BEAUTY_LEVEL_HORRID -66
@@ -362,18 +362,12 @@
 #define SHOCK_ILLUSION (1 << 2)
 ///The shock doesn't stun.
 #define SHOCK_NOSTUN (1 << 3)
+/// No default message is sent from the shock
+#define SHOCK_SUPPRESS_MESSAGE (1 << 4)
 
 #define INCORPOREAL_MOVE_BASIC 1 /// normal movement, see: [/mob/living/var/incorporeal_move]
 #define INCORPOREAL_MOVE_SHADOW 2 /// leaves a trail of shadows
 #define INCORPOREAL_MOVE_JAUNT 3 /// is blocked by holy water/salt
-
-//Secbot and ED209 judgement criteria bitflag values
-#define JUDGE_EMAGGED (1<<0)
-#define JUDGE_IDCHECK (1<<1)
-#define JUDGE_WEAPONCHECK (1<<2)
-#define JUDGE_RECORDCHECK (1<<3)
-//ED209's ignore monkeys
-#define JUDGE_IGNOREMONKEYS (1<<4)
 
 #define SHADOW_SPECIES_LIGHT_THRESHOLD 0.2
 
@@ -603,13 +597,6 @@
 #define GRADIENT_APPLIES_TO_HAIR (1<<0)
 #define GRADIENT_APPLIES_TO_FACIAL_HAIR (1<<1)
 
-/// Sign Language defines
-#define SIGN_ONE_HAND 0
-#define SIGN_HANDS_FULL 1
-#define SIGN_ARMLESS 2
-#define SIGN_TRAIT_BLOCKED 3
-#define SIGN_CUFFED 4
-
 // Mob Overlays Indexes
 /// Total number of layers for mob overlays
 #define TOTAL_LAYERS 32 //KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
@@ -702,16 +689,6 @@
 /// The layer above mutant body parts
 #define ABOVE_BODY_FRONT_LAYER (BODY_FRONT_LAYER-1)
 
-//used by canUseTopic()
-/// If silicons need to be next to the atom to use this
-#define BE_CLOSE TRUE
-/// If other mobs (monkeys, aliens, etc) can use this
-#define NO_DEXTERITY TRUE // I had to change 20+ files because some non-dnd-playing fuckchumbis can't spell "dexterity"
-// If telekinesis you can use it from a distance
-#define NO_TK TRUE
-/// If mobs can use this while resting
-#define FLOOR_OKAY TRUE
-
 /// The default mob sprite size (used for shrinking or enlarging the mob sprite to regular size)
 #define RESIZE_DEFAULT_SIZE 1
 
@@ -726,7 +703,60 @@
 /// Possible value of [/atom/movable/buckle_lying]. If set to a different (positive-or-zero) value than this, the buckling thing will force a lying angle on the buckled.
 #define NO_BUCKLE_LYING -1
 
+// Flags for fully_heal().
+
+/// Special flag that means this heal is an admin heal and goes above and beyond
+/// Note, this includes things like removing suicide status and handcuffs / legcuffs, use with slight caution.
+#define HEAL_ADMIN (1<<0)
+/// Heals all brute damage.
+#define HEAL_BRUTE (1<<1)
+/// Heals all burn damage.
+#define HEAL_BURN (1<<2)
+/// Heals all toxin damage, slime people included.
+#define HEAL_TOX (1<<3)
+/// Heals all oxyloss.
+#define HEAL_OXY (1<<4)
+/// Heals all cellular damage.
+#define HEAL_CLONE (1<<5)
+/// Heals all stamina damage.
+#define HEAL_STAM (1<<6)
+/// Restore all limbs to their initial state.
+#define HEAL_LIMBS (1<<7)
+/// Heals all organs from failing. If done as a part of an admin heal, will instead restore all organs to their initial state.
+#define HEAL_ORGANS (1<<8)
+/// Removes all wounds.
+#define HEAL_WOUNDS (1<<9)
+/// Removes all brain traumas, not including permanent ones.
+#define HEAL_TRAUMAS (1<<10)
+/// Removes all reagents present.
+#define HEAL_ALL_REAGENTS (1<<11)
+/// Removes all non-positive diseases.
+#define HEAL_NEGATIVE_DISEASES (1<<12)
+/// Restores body temperature back to nominal.
+#define HEAL_TEMP (1<<13)
+/// Restores blood levels to normal.
+#define HEAL_BLOOD (1<<14)
+/// Removes all non-positive mutations (neutral included).
+#define HEAL_NEGATIVE_MUTATIONS (1<<15)
+/// Removes status effects with this flag set that also have remove_on_fullheal = TRUE.
+#define HEAL_STATUS (1<<16)
+/// Same as above, removes all CC related status effects with this flag set that also have remove_on_fullheal = TRUE.
+#define HEAL_CC_STATUS (1<<17)
+/// Deletes any restraints on the mob (handcuffs / legcuffs)
+#define HEAL_RESTRAINTS (1<<18)
+
+/// Combination flag to only heal the main damage types.
+#define HEAL_DAMAGE (HEAL_BRUTE|HEAL_BURN|HEAL_TOX|HEAL_OXY|HEAL_CLONE|HEAL_STAM)
+/// Combination flag to only heal things messed up things about the mob's body itself.
+#define HEAL_BODY (HEAL_LIMBS|HEAL_ORGANS|HEAL_WOUNDS|HEAL_TRAUMAS|HEAL_BLOOD|HEAL_TEMP)
+/// Combination flag to heal negative things affecting the mob.
+#define HEAL_AFFLICTIONS (HEAL_NEGATIVE_DISEASES|HEAL_NEGATIVE_MUTATIONS|HEAL_ALL_REAGENTS|HEAL_STATUS|HEAL_CC_STATUS)
+
+/// Full heal that isn't admin forced
+#define HEAL_ALL ~(HEAL_ADMIN|HEAL_RESTRAINTS)
+/// Heals everything and is as strong as / is an admin heal
+#define ADMIN_HEAL_ALL ALL
+
 /// Checking flags for [/mob/proc/can_read()]
 #define READING_CHECK_LITERACY (1<<0)
 #define READING_CHECK_LIGHT (1<<1)
-

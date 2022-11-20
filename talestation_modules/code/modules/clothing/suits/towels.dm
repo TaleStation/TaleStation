@@ -308,8 +308,8 @@
 	set_greyscale(our_towel.greyscale_colors)
 
 	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_entered,
-		COMSIG_ATOM_EXITED = .proc/on_exited,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exited),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
@@ -368,7 +368,7 @@
  * return FALSE if we cannot pick up the towel and TRUE otherwise
  */
 /obj/structure/beach_towel/proc/try_pick_up(mob/living/carbon/picker_up)
-	if(!picker_up.canUseTopic(src, BE_CLOSE, FALSE, NO_TK, TRUE, FALSE))
+	if(!picker_up.canUseTopic(src, be_close = TRUE, no_dexterity = FALSE, no_tk = TRUE, need_hands = TRUE))
 		return FALSE
 
 	var/turf/our_turf = get_turf(src)

@@ -206,6 +206,12 @@ ALLOW_VOTE_MAP
 ## the number of times you wish to allow players to rock the vote in a given shift
 MAX_ROCKING_VOTES 1
 
+## allow players to rock the vote, or to vote on the map again if they didn't like the last results
+#ALLOW_ROCK_THE_VOTE
+
+## the number of times you wish to allow players to rock the vote in a given shift
+MAX_ROCKING_VOTES 1
+
 ## min delay (deciseconds) between voting sessions (default 10 minutes)
 VOTE_DELAY 6000
 
@@ -296,8 +302,12 @@ USEWHITELIST
 INVOKE_YOUTUBEDL youtube-dl
 
 ## In-game features
-##Toggle for having jobs load up from the .txt
-# LOAD_JOBS_FROM_TXT
+
+## Toggle for having jobs load up from the jobconfig.toml (or jobs.txt) file. Will use codebase defaults if commented out.
+## Jobs have specific "keys" tied to their in-game datums, those should sync up otherwise it will fail to load.
+## Setting Total/Spawn Positions to -1 will open unlimited join slots for it.
+## Playtime Requirements is in minutes, Required Account Age is in days.
+#LOAD_JOBS_FROM_TXT
 
 ## Uncomment this to forbid admins from possessing the singularity.
 #FORBID_SINGULO_POSSESSION
@@ -639,3 +649,9 @@ TRANSFER_TIME_MIN_ALLOWED 54000
 
 ## amount of time between automatic transfer votes. (default 18000 = 30 minutes)
 TRANSFER_TIME_BETWEEN_AUTO_VOTES 18000
+
+## Server tagline: This will appear right below the server's title.
+# SERVERTAGLINE A generic TG-based server
+
+## Discord Link: This is the link to Skyrat's discord server
+# DISCORD_LINK https://discord.gg/hYDcGH9VXA

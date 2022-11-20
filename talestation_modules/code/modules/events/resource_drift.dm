@@ -65,7 +65,7 @@
 
 	// Now, spawn the caches and yeet them towards the station
 	for(var/crate in picked_crates)
-		addtimer(CALLBACK(src, .proc/spawn_and_throw_crate, crate, pick_n_take(spawn_locations)), (4 SECONDS * num_caches--))
+		addtimer(CALLBACK(src, PROC_REF(spawn_and_throw_crate), crate, pick_n_take(spawn_locations)), (4 SECONDS * num_caches--))
 
 /*
  * Spawns the supplied crate path [selected_cache_path] at [spawn_loc].
