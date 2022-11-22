@@ -178,9 +178,24 @@
 	if(processing_time)
 		processing = TRUE
 		update_appearance()
+<<<<<<< HEAD
 		playsound(loc, 'sound/machines/blender.ogg', 50, TRUE)
 		use_power(processing_time * active_power_usage * 0.1) // .1 needed here to convert time (in deciseconds) to seconds such that watts * seconds = joules
 		sleep(processing_time + 15 / productivity)
+=======
+		for(var/obj/item/food/object in contents)
+			var/nutriments = 0
+			for(var/nutriment in typesof(/datum/reagent/consumable/nutriment))
+				nutriments += object.reagents.get_reagent_amount(nutriment)
+			qdel(object)
+			var/potential_biomass = max(1, nutriments) * productivity
+			while(processing && potential_biomass > 0)
+				use_power(active_power_usage * (0.01 SECONDS)) // Seconds needed here to convert time (in deciseconds) to seconds such that watts * seconds = joules)
+				potential_biomass -= 1
+				biomass += 1
+				stoplag(2 / productivity)
+				update_appearance(UPDATE_ICON)
+>>>>>>> 75377fbcd3fb ([NO GBP] Biogen power usage hotfix (#71443))
 		processing = FALSE
 		update_appearance()
 
