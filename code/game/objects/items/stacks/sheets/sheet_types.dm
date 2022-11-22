@@ -301,8 +301,13 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("picture frame", /obj/item/wallframe/picture, 1, time = 10),\
 	new/datum/stack_recipe("painting frame", /obj/item/wallframe/painting, 1, time = 10),\
 	new/datum/stack_recipe("display case chassis", /obj/structure/displaycase_chassis, 5, one_per_turf = TRUE, on_solid_ground = TRUE), \
+<<<<<<< HEAD
 	new/datum/stack_recipe("wooden buckler", /obj/item/shield/riot/buckler, 20, time = 40), \
 	new/datum/stack_recipe("apiary", /obj/structure/beebox, 40, time = 50),\
+=======
+	new/datum/stack_recipe("wooden buckler", /obj/item/shield/buckler, 20, time = 4 SECONDS), \
+	new/datum/stack_recipe("apiary", /obj/structure/beebox, 40, time = 5 SECONDS),\
+>>>>>>> 71b63d92338c (Moves the bulk of shield code from the riot subtype into the core shield. (#71066))
 	new/datum/stack_recipe("tiki mask", /obj/item/clothing/mask/gas/tiki_mask, 2), \
 	new/datum/stack_recipe("honey frame", /obj/item/honey_frame, 5, time = 10),\
 	new/datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/cup/bucket/wooden, 3, time = 10),\
