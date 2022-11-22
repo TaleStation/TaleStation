@@ -5,7 +5,7 @@
  */
 /datum/element/temperature_pack
 	element_flags = ELEMENT_BESPOKE
-	id_arg_index = 2
+	argument_hash_start_idx = 2
 	/// Amount of pain we restore every tick in the targeted limb.
 	var/pain_heal_rate = 0
 	/// Pain modifier put on the limb we're targeting.
