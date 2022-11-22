@@ -127,12 +127,8 @@
 	var/mutable_appearance/high_bubble = mutable_appearance('icons/effects/effects.dmi', "bubbles", FLOOR_CLEAN_LAYER, target, ABOVE_GAME_PLANE)
 	target.cut_overlay(low_bubble)
 	target.cut_overlay(high_bubble)
-<<<<<<< HEAD
-	REMOVE_TRAIT(target, CURRENTLY_CLEANING, src)
-=======
 	UnregisterSignal(target, COMSIG_MOVABLE_Z_CHANGED)
 	REMOVE_TRAIT(target, TRAIT_CURRENTLY_CLEANING, REF(src))
->>>>>>> ce71f2dc69bf (Replaces some bad trait sources and updates two trait names (#71375))
 
 /datum/component/cleaner/proc/cleaning_target_moved(atom/movable/source, turf/old_turf, turf/new_turf, same_z_layer)
 	if(same_z_layer)
