@@ -106,6 +106,42 @@
 
 	return TRUE
 
+<<<<<<< HEAD
+=======
+/*
+ * Proc to make the bottle spill some of its contents out in a froth geyser of varying intensity/height
+ * Arguments:
+ * * offset_x = pixel offset by x from where the froth animation will start
+ * * offset_y = pixel offset by y from where the froth animation will start
+ * * intensity = how strong the effect is, both visually and in the amount of reagents lost. comes in three flavours
+*/
+/obj/item/reagent_containers/cup/glass/bottle/proc/make_froth(offset_x, offset_y, intensity)
+	if(!intensity)
+		return
+
+	if(!reagents.total_volume)
+		return
+
+	var/amount_lost = intensity * 5
+	reagents.remove_any(amount_lost)
+
+	visible_message(span_warning("Some of [name]'s contents are let loose!"))
+	var/intensity_state = null
+	switch(intensity)
+		if(1)
+			intensity_state = "low"
+		if(2)
+			intensity_state = "medium"
+		if(3)
+			intensity_state = "high"
+	///The froth fountain that we are sticking onto the bottle
+	var/mutable_appearance/froth = mutable_appearance(icon, "froth_bottle_[intensity_state]")
+	froth.pixel_x = offset_x
+	froth.pixel_y = offset_y
+	add_overlay(froth)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), froth), 2 SECONDS)
+
+>>>>>>> 84f69359a078 (More horrible 515 proc compatibility. (#71333))
 //Keeping this here for now, I'll ask if I should keep it here.
 /obj/item/broken_bottle
 	name = "broken bottle"
@@ -479,7 +515,62 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
+<<<<<<< HEAD
 		return pop_cork(user)
+=======
+		return pop_cork(user, sabrage = FALSE, froth_severity = pick(0, 1))
+
+/obj/item/reagent_containers/cup/glass/bottle/champagne/attackby(obj/item/attacking_item, mob/living/user, params)
+	. = ..()
+
+	if(spillable)
+		return
+
+	if(attacking_item.sharpness != SHARP_EDGED)
+		return
+
+	if(attacking_item != user.get_active_held_item()) //no TK allowed
+		to_chat(user, span_userdanger("Such a feat is beyond your skills of telekinesis!"))
+		return
+
+	if(attacking_item.force < 5)
+		balloon_alert(user, "not strong enough!")
+		return
+
+	playsound(user, 'sound/items/unsheath.ogg', 25, TRUE)
+	balloon_alert(user, "preparing to swing...")
+	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
+		return
+
+	///The bonus to success chance that the user gets for being a command role
+	var/command_bonus = user.mind?.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND ? 20 : 0
+	///The bonus to success chance that the user gets for having a sabrage skillchip installed/otherwise having the trait through other means
+	var/skillchip_bonus = HAS_TRAIT(user, TRAIT_SABRAGE_PRO) ? 35 : 0
+	//calculate success chance. example: captain's sabre - 15 force = 75% chance
+	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + command_bonus + skillchip_bonus
+
+	if(prob(sabrage_chance))
+		///Severity of the resulting froth to pass to make_froth()
+		var/severity_to_pass
+		if(sabrage_chance > 100)
+			severity_to_pass = 0
+		else
+			switch(sabrage_chance) //the less likely we were to succeed, the more of the drink will end up wasted in froth
+				if(1 to 33)
+					severity_to_pass = 3
+				if(34 to 66)
+					severity_to_pass = 2
+				if(67 to 99)
+					severity_to_pass = 1
+		return pop_cork(user, sabrage = TRUE, froth_severity = severity_to_pass)
+	else //you dun goofed
+		user.visible_message(
+			span_danger("[user] fumbles the sabrage and cuts [src] in half, spilling it over themselves!"),
+			span_danger("You fail your stunt and cut [src] in half, spilling it over you!"),
+			)
+		user.add_mood_event("sabrage_fail", /datum/mood_event/sabrage_fail)
+		return smash(target = user, ranged = FALSE, break_top = TRUE)
+>>>>>>> 84f69359a078 (More horrible 515 proc compatibility. (#71333))
 
 /obj/item/reagent_containers/cup/glass/bottle/champagne/update_icon_state()
 	. = ..()
