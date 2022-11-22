@@ -7,11 +7,7 @@
 #define CHANNEL_AMBIENCE 1019
 #define CHANNEL_BUZZ 1018
 #define CHANNEL_TRAITOR 1017
-<<<<<<< HEAD
-#define CHANNEL_MBOX 1016
-=======
 #define CHANNEL_CHARGED_SPELL 1016
->>>>>>> 7dde8a5e6627 (Adds 5 new Heretic spells. Rebalances some aspects of Heretics. Refactors some spells as well, and makes it so emote spells require free hands. (#71044))
 
 ///Default range of a sound.
 #define SOUND_RANGE 17
