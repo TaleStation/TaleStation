@@ -38,3 +38,6 @@
 
 /obj/machinery/computer/slot_machine
 	connectable = FALSE
+
+/obj/machinery/computer/camera_advanced/abductor
+	connectable = FALSE
