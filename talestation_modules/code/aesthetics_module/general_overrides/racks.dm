@@ -55,6 +55,3 @@
 			our_gun.place_on_rack()
 			our_gun.pixel_x = rand(-10, 10)
 		return TRUE
-
-/obj/structure/table/optable
-	icon = 'talestation_modules/icons/obj/surgery.dmi'

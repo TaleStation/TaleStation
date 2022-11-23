@@ -110,9 +110,3 @@
 	icon_state = "doublesheetCMO"
 	icon = 'talestation_modules/icons/obj/bedsheets.dmi'
 	slot_flags = null
-
-/obj/structure/bed/roller
-	icon = 'talestation_modules/icons/obj/rollerbed.dmi'
-
-/obj/item/roller
-	icon = 'talestation_modules/icons/obj/rollerbed.dmi'
