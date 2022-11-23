@@ -38,7 +38,7 @@
 	target_mobtypes = list(/mob/living/carbon/human)
 	possible_locs = list(BODY_ZONE_CHEST)
 	requires_bodypart_type = 0
-	ignore_clothes = TRUE
+	surgery_flags = SURGERY_IGNORE_CLOTHES
 
 /datum/surgery/advanced/neuter_ling/can_start(mob/user, mob/living/carbon/target)
 	. = ..()

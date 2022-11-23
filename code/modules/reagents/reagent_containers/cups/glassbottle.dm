@@ -31,14 +31,14 @@
 	volume = 50
 	custom_price = PAYCHECK_CREW * 0.9
 
-/obj/item/reagent_containers/cup/glass/bottle/smash(mob/living/target, mob/thrower, ranged = FALSE)
+/obj/item/reagent_containers/cup/glass/bottle/smash(mob/living/target, mob/thrower, ranged = FALSE, break_top)
 	if(bartender_check(target) && ranged)
 		return
 	SplashReagents(target, ranged, override_spillable = TRUE)
-	var/obj/item/broken_bottle/B = new(loc)
+	var/obj/item/broken_bottle/B = new(drop_location())
 	if(!ranged && thrower)
 		thrower.put_in_hands(B)
-	B.mimic_broken(src, target)
+	B.mimic_broken(src, target, break_top)
 
 	qdel(src)
 	target.Bumped(B)
@@ -158,7 +158,10 @@
 	attack_verb_continuous = list("stabs", "slashes", "attacks")
 	attack_verb_simple = list("stab", "slash", "attack")
 	sharpness = SHARP_EDGED
+	///The mask image for mimicking a broken-off bottom of the bottle
 	var/static/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
+	///The mask image for mimicking a broken-off neck of the bottle
+	var/static/icon/flipped_broken_outline = icon('icons/obj/drinks.dmi', "broken-flipped")
 
 /obj/item/broken_bottle/Initialize(mapload)
 	. = ..()
@@ -170,10 +173,14 @@
 
 /// Mimics the appearance and properties of the passed in bottle.
 /// Takes the broken bottle to mimic, and the thing the bottle was broken agaisnt as args
-/obj/item/broken_bottle/proc/mimic_broken(obj/item/reagent_containers/cup/glass/to_mimic, atom/target)
+/obj/item/broken_bottle/proc/mimic_broken(obj/item/reagent_containers/cup/glass/to_mimic, atom/target, break_top)
 	icon_state = to_mimic.icon_state
 	var/icon/drink_icon = new(to_mimic.icon, icon_state)
-	drink_icon.Blend(broken_outline, ICON_OVERLAY, rand(5), 1)
+	if(break_top) //if the bottle breaks its top off instead of the bottom
+		desc = "A bottle with its neck smashed off."
+		drink_icon.Blend(flipped_broken_outline, ICON_OVERLAY, rand(5), 0)
+	else
+		drink_icon.Blend(broken_outline, ICON_OVERLAY, rand(5), 1)
 	drink_icon.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
 	icon = drink_icon
 
@@ -506,6 +513,13 @@
 	reagent_flags = TRANSPARENT
 	spillable = FALSE
 	list_reagents = list(/datum/reagent/consumable/ethanol/champagne = 100)
+	///Used for sabrage; increases the chance of success per 1 force of the attacking sharp item
+	var/sabrage_success_percentile = 5
+	///Whether this bottle was a victim of a successful sabrage attempt
+	var/sabraged = FALSE
+
+/obj/item/reagent_containers/cup/glass/bottle/champagne/cursed
+	sabrage_success_percentile = 0 //force of the sharp item used to sabrage will not increase success chance
 
 /obj/item/reagent_containers/cup/glass/bottle/champagne/attack_self(mob/user)
 	if(spillable)
@@ -568,19 +582,42 @@
 /obj/item/reagent_containers/cup/glass/bottle/champagne/update_icon_state()
 	. = ..()
 	if(spillable)
-		icon_state = "[base_icon_state]_popped"
+		if(sabraged)
+			icon_state = "[base_icon_state]_sabrage"
+		else
+			icon_state = "[base_icon_state]_popped"
 	else
 		icon_state = base_icon_state
 
-/obj/item/reagent_containers/cup/glass/bottle/champagne/proc/pop_cork(mob/user)
-	user.visible_message(span_danger("[user] loosens the cork of [src] causing it to pop out of the bottle with great force."), \
-		span_nicegreen("You elegantly loosen the cork of [src] causing it to pop out of the bottle with great force."))
+/obj/item/reagent_containers/cup/glass/bottle/champagne/proc/pop_cork(mob/living/user, sabrage, froth_severity)
+	if(!sabrage)
+		user.visible_message(
+			span_danger("[user] loosens the cork of [src], causing it to pop out of the bottle with great force."),
+			span_nicegreen("You elegantly loosen the cork of [src], causing it to pop out of the bottle with great force."),
+			)
+	else
+		sabraged = TRUE
+		user.visible_message(
+			span_danger("[user] cleanly slices off the cork of [src], causing it to fly off the bottle with great force."),
+			span_nicegreen("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."),
+			)
+		for(var/mob/living/carbon/stunt_witness in view(7, user))
+			stunt_witness.clear_mood_event("sabrage_success")
+			if(stunt_witness == user)
+				stunt_witness.add_mood_event("sabrage_success", /datum/mood_event/sabrage_success)
+				continue
+			stunt_witness.add_mood_event("sabrage_witness", /datum/mood_event/sabrage_witness)
+
 	reagents.flags |= OPENCONTAINER
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
 	spillable = TRUE
 	update_appearance()
-	var/obj/projectile/bullet/reusable/champagne_cork/popped_cork = new (get_turf(src))
-	popped_cork.firer =  user
+	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
+	///Type of cork to fire away
+	var/obj/projectile/bullet/reusable/cork_to_fire = sabraged ? /obj/projectile/bullet/reusable/champagne_cork/sabrage : /obj/projectile/bullet/reusable/champagne_cork
+	///Our resulting cork projectile
+	var/obj/projectile/bullet/reusable/champagne_cork/popped_cork = new cork_to_fire (drop_location())
+	popped_cork.firer = user
 	popped_cork.fired_from = src
 	popped_cork.fire(dir2angle(user.dir) + rand(-30, 30))
 
@@ -600,10 +637,20 @@
 	knockdown = 2 SECONDS
 	ammo_type = /obj/item/trash/champagne_cork
 
+/obj/projectile/bullet/reusable/champagne_cork/sabrage
+	icon_state = "champagne_cork_sabrage"
+	damage = 12
+	ricochets_max = 2 //bit heavier
+	range = 6
+	ammo_type = /obj/item/trash/champagne_cork/sabrage
+
 /obj/item/trash/champagne_cork
 	name = "champagne cork"
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "champagne_cork"
+
+/obj/item/trash/champagne_cork/sabrage
+	icon_state = "champagne_cork_sabrage"
 
 /obj/item/reagent_containers/cup/glass/bottle/blazaam
 	name = "Ginbad's Blazaam"
