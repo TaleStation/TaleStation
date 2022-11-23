@@ -369,8 +369,8 @@
 	. = ..()
 	if(slot_flags & slot)
 		enable_protection(user)
-		RegisterSignal(user, list(COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_SET_BUCKLED), PROC_REF(check_protection))
-		RegisterSignal(user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_PRE_MOVE), PROC_REF(disable_protection))
+		RegisterSignals(user, list(COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_SET_BUCKLED), PROC_REF(check_protection))
+		RegisterSignals(user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_PRE_MOVE), PROC_REF(disable_protection))
 
 /obj/item/shock_blanket/dropped(mob/user, silent)
 	. = ..()
