@@ -106,8 +106,6 @@
 
 	return TRUE
 
-<<<<<<< HEAD
-=======
 /*
  * Proc to make the bottle spill some of its contents out in a froth geyser of varying intensity/height
  * Arguments:
@@ -141,7 +139,6 @@
 	add_overlay(froth)
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), froth), 2 SECONDS)
 
->>>>>>> 84f69359a078 (More horrible 515 proc compatibility. (#71333))
 //Keeping this here for now, I'll ask if I should keep it here.
 /obj/item/broken_bottle
 	name = "broken bottle"
@@ -515,9 +512,6 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
-<<<<<<< HEAD
-		return pop_cork(user)
-=======
 		return pop_cork(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
 /obj/item/reagent_containers/cup/glass/bottle/champagne/attackby(obj/item/attacking_item, mob/living/user, params)
@@ -570,7 +564,6 @@
 			)
 		user.add_mood_event("sabrage_fail", /datum/mood_event/sabrage_fail)
 		return smash(target = user, ranged = FALSE, break_top = TRUE)
->>>>>>> 84f69359a078 (More horrible 515 proc compatibility. (#71333))
 
 /obj/item/reagent_containers/cup/glass/bottle/champagne/update_icon_state()
 	. = ..()
