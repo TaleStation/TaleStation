@@ -9,5 +9,6 @@
 		var/datum/preference/preference_entry = GLOB.preference_entries[/datum/preference/loadout]
 		var/list/save_data = get_save_data_for_savefile_identifier(preference_entry.savefile_identifier)
 		var/list/loadout_list = save_data[preference_entry.savefile_key]
+
 		if (LAZYLEN(loadout_list))
 			write_preference(preference_entry, update_loadout_list(loadout_list))
