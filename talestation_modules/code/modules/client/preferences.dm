@@ -7,11 +7,7 @@
 		// If the list is deserealized, the sanitization proc removes
 		// all the values we want to update, defeating the point of trying to update.
 		var/datum/preference/preference_entry = GLOB.preference_entries[/datum/preference/loadout]
-		var/savefile/our_file = get_save_data_for_savefile_identifier(preference_entry.savefile_identifier)
-		var/list/loadout_list
-
-		if (!isnull(our_file))
-			READ_FILE(our_file[preference_entry.savefile_key], loadout_list)
-
+		var/list/save_data = get_save_data_for_savefile_identifier(preference_entry.savefile_identifier)
+		var/list/loadout_list = save_data[preference_entry.savefile_key]
 		if (LAZYLEN(loadout_list))
 			write_preference(preference_entry, update_loadout_list(loadout_list))
