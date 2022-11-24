@@ -15,13 +15,20 @@
 
 // Adds pain paper to medicals outfits
 /datum/outfit/job/cmo
-	r_hand = /obj/item/paper/fluff/doctors_pain
+	backpack_contents = list(
+		/obj/item/paper/fluff/doctors_pain = 1,
+		/obj/item/melee/baton/telescopic = 1,
+	)
 
 /datum/outfit/job/doctor
-	r_pocket = /obj/item/paper/fluff/doctors_pain
+	backpack_contents = list(
+		/obj/item/paper/fluff/doctors_pain = 1,
+	)
 
 /datum/outfit/job/paramedic
-	r_pocket = /obj/item/paper/fluff/doctors_pain
+	backpack_contents = list(
+		/obj/item/paper/fluff/doctors_pain = 1,
+	)
 
 /datum/outfit/job/chemist
 	backpack_contents = list(
