@@ -174,7 +174,7 @@
 	icon = 'talestation_modules/icons/obj/doors/airlocks/station/command.dmi'
 
 /obj/machinery/door/airlock/security
-	icon = 'talestation_modules/icons/obj/doors/airlocks/station/security.dmi'
+	icon = 'talestation_modules/icons/obj/doors/airlocks/station/security2.dmi'
 
 /obj/machinery/door/airlock/security/old
 	icon = 'talestation_modules/icons/obj/doors/airlocks/station/security2.dmi'
