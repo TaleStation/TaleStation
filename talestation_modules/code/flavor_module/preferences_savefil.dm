@@ -1,11 +1,11 @@
 // Modular savefile stuff for our prefs shit
 
-/datum/preferences/proc/load_talestation_prefs(savefile/S)
+/datum/preferences/proc/load_talestation_prefs(list/save_data)
 
 	// Headshot saves
-	READ_FILE(S["headshot"], headshot)
+	headshot = save_data?["headshot"]
 
-/datum/preferences/proc/save_talestation_prefs(savefile/S)
+/datum/preferences/proc/save_talestation_prefs(list/save_data)
 
 	// Headshot saves
-	WRITE_FILE(S["headshot"], headshot)
+	save_data["headshot"] = headshot
