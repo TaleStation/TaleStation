@@ -13,6 +13,17 @@
 						<b>Other Notes</b><br><br>Miners may be a concern, but they're fortunate enough to have a skillchip to mitigate pain on them! \
 						When they're not on the station, of course.<br><br>If you have any further questions, don't hesitate to contact the head of your ward."
 
-// Adds pain paper to MDs outfit
+// Adds pain paper to medicals outfits
+/datum/outfit/job/cmo
+	r_hand = /obj/item/paper/fluff/doctors_pain
+
 /datum/outfit/job/doctor
 	r_pocket = /obj/item/paper/fluff/doctors_pain
+
+/datum/outfit/job/paramedic
+	r_pocket = /obj/item/paper/fluff/doctors_pain
+
+/datum/outfit/job/chemist
+	backpack_contents = list(
+		/obj/item/paper/fluff/doctors_pain = 1,
+	)
