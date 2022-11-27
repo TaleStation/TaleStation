@@ -99,33 +99,15 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = "None"
 	target.dna.features["tail_lizard"] = "Smooth"
 	target.dna.features["pod_hair"] = "Ivy"
+	// NON-MODULAR CHANGES: Modular dna.features
+	dna.features["head_tentacles"] = "Long"
+	dna.features["tajaran_snout"] = "Long"
+	dna.features["tajaran_body_markings"] = "Default"
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent
 
 /mob/living/carbon/human/dummy/consistent/setup_human_dna()
-<<<<<<< HEAD
-	create_dna(src)
-	dna.initialize_dna(skip_index = TRUE)
-	dna.features["body_markings"] = "None"
-	dna.features["ears"] = "None"
-	dna.features["ethcolor"] = COLOR_WHITE
-	dna.features["frills"] = "None"
-	dna.features["horns"] = "None"
-	dna.features["mcolor"] = COLOR_VIBRANT_LIME
-	dna.features["moth_antennae"] = "Plain"
-	dna.features["moth_markings"] = "None"
-	dna.features["moth_wings"] = "Plain"
-	dna.features["snout"] = "Round"
-	dna.features["spines"] = "None"
-	dna.features["tail_cat"] = "None"
-	dna.features["tail_lizard"] = "Smooth"
-	dna.features["pod_hair"] = "Ivy"
-	// NON-MODULAR CHANGES: Modular dna.features
-	dna.features["head_tentacles"] = "Long"
-	dna.features["tajaran_snout"] = "Long"
-	dna.features["tajaran_body_markings"] = "Default"
-=======
 	create_consistent_human_dna(src)
 
 /// Provides a dummy for unit_tests that functions like a normal human, but with a standardized appearance
@@ -139,7 +121,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	..()
 	if(is_creating)
 		fully_replace_character_name(real_name, "John Doe")
->>>>>>> 1900eb9484dd (Unit Tests use a consistent human subtype (#71515))
 
 //Inefficient pooling/caching way.
 GLOBAL_LIST_EMPTY(human_dummy_list)
