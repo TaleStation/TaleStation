@@ -213,6 +213,10 @@
 /datum/client_colour/rave
 	priority = PRIORITY_LOW
 
+// NON-MODULAR CHANGES: Monochrome lizard
+/datum/client_colour/monochrome/lizard
+	priority = PRIORITY_NORMAL
+
 #undef PRIORITY_ABSOLUTE
 #undef PRIORITY_HIGH
 #undef PRIORITY_NORMAL
