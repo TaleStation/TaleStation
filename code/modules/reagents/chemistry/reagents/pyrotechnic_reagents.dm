@@ -237,11 +237,13 @@
 
 /datum/reagent/cryostylane/on_mob_add(mob/living/consumer, amount)
 	. = ..()
+	// NON-MODULAR CHANGES: Lizards
 	consumer.mob_surgery_speed_mod -= ((CRYO_SPEED_PREFACTOR * (1 - creation_purity))+CRYO_SPEED_CONSTANT) //10% - 30% slower
 	consumer.color = COLOR_CYAN
 
 /datum/reagent/cryostylane/on_mob_delete(mob/living/consumer)
 	. = ..()
+	// NON-MODULAR CHANGES: Lizards
 	consumer.mob_surgery_speed_mod += ((CRYO_SPEED_PREFACTOR * (1 - creation_purity))+CRYO_SPEED_CONSTANT)
 	consumer.color = COLOR_WHITE
 

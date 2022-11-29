@@ -1387,9 +1387,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			else
 				H.adjustFireLoss(damage_amount)
 		if(TOX)
+		// NON-MODULAR CHANGES: Lizards
 			var/damage_amount = forced ? damage : damage * hit_percent * toxmod * H.physiology.tox_mod
 			H.adjustToxLoss(damage_amount)
 		if(OXY)
+		// NON-MODULAR CHANGES: Lizards
 			var/damage_amount = forced ? damage : damage * hit_percent * oxymod * H.physiology.oxy_mod
 			H.adjustOxyLoss(damage_amount)
 		if(CLONE)
