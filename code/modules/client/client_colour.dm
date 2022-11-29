@@ -213,6 +213,12 @@
 /datum/client_colour/rave
 	priority = PRIORITY_LOW
 
+
+/datum/client_colour/psyker
+	priority = PRIORITY_ABSOLUTE
+	override = TRUE
+	colour = list(0.8,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
+
 // NON-MODULAR CHANGES: Monochrome lizard
 /datum/client_colour/monochrome/lizard
 	priority = PRIORITY_NORMAL
