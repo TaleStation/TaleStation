@@ -845,3 +845,86 @@
   - qol: quantum keycards are custom renamable w/ pen, to help keep em organized
   - refactor: Moves wall smashing out of simple mob code and into an element we can
       reuse for basic mobs later
+2022-11-30:
+  Capybara Holly:
+  - refactor: Allows datum AI to create new plans while a plan is still executing
+  - refactor: Datum AI can now switch to different movement datums in their behavior.
+  Capybara holly:
+  - bugfix: After rigorous training excercises monkeys now understand how to defend
+      themselves from vile greytiders again
+  Fikou, EOBGames:
+  - rscadd: lizards gain a second heart organ, acting as an additional blood generator
+      while their blood gain from nutrition is halved, giving them more blood generation
+      on average
+  - rscadd: lizard stomachs have faster metabolism, faster transferring stuff to the
+      liver
+  - rscadd: lizards naturally regenerate brute damage when well fed, unless they become
+      fatasses
+  - balance: lizards have a lower threshold to purge toxins, so they are more effective
+      on them
+  - rscadd: lizards losing their tongue gives them monochromacy with their loss of
+      finer senses
+  - balance: lizards take more damage from toxin and have slower surgery times due
+      to their scales
+  Fikou, sprites from Halcyon, some old code from Basilman and Armhulen.:
+  - refactor: Honorbound and Burdened mutations are brain traumas now.
+  - rscadd: Psykers. Become a psyker through the path of the burdened, or a genetic
+      breakdown.
+  - rscadd: Echolocation Component.
+  GoldenAlpharex:
+  - refactor: Went through and refactored a lot of the old code of the biogenerator,
+      and made multiple improvements to its logic, which should hopefully make it
+      behave more consistently. Nearly all of it is now also fully documented, so
+      as to make it easier for anyone else that has to sift through it in the future.
+  - qol: The biogenerator now processes items five times faster, up to 20 times faster
+      if properly upgraded!
+  - qol: The biogenerator is no longer capped on biomass. Its visuals will change
+      up until 5000 biomass, but you're free to go as high as you'd like with it!
+      Sky's the limit!
+  - bugfix: Fixed the logic of the biogenerator that would make it so the amount of
+      biomass used for recipes was wildly inconsistent. Now, there's no more back-end
+      rounding up, it's all on the front end when it needs to be, so there's no loss
+      or gain of biomass when there shouldn't be.
+  - spellcheck: Fixed a capitalization issue with the seaweed sheets in the biogenerator
+      recipes.
+  - spellcheck: Fixed multiple inconsistencies between the messages sent to your chat
+      by the biogenerator.
+  LT3:
+  - bugfix: Tram platform is now entirely built with tram tiles.
+  - bugfix: All the parts of the tram are now on a correct layer/plane.
+  Melbert:
+  - bugfix: VVing an edible comp's food flags pulls up the bitfield ui correctly
+  ShizCalev:
+  - bugfix: Full mugs no longer appear empty in the map editor.
+  TaleStationBot:
+  - bugfix: Fixed reactions being broken in the EXPERIMENTOR or something I don't
+      actually know what this thing does
+  - bugfix: IV drip can be zeroed via UI, not just alt-clicking
+  - rscadd: robotics now has access to a mech camera add-on, which installs a security
+      camera into the mech. bodycam footage from the big leagues!
+  - qol: cyborg cameras should be more active with updating static when moving (ideally
+      down from 2.5 seconds to 0.5 between updates), make sure to report any jank
+      if you happen on some
+  - bugfix: You no longer cut into mechs with wreckages with crowbars, you pry parts
+      from them. Duh.
+  - bugfix: Mech material salvage matches their construction materials.
+  - rscadd: You can now reinforce plating to protect your department from the troublemakers
+      upstairs. Station builders might find these useful to put the stations most
+      secure locations on the lower floors.
+  - imageadd: added sprites for reinforced plating
+  - code_imp: RCD proofing has been variablized and can now be applied to any floor
+      type instead of just reinforced floors.
+  - bugfix: Fix unnecessary mole scaling with gas turbine gas thermal energy loss
+      from work done.
+  - bugfix: The gas turbine no longer creates power from thermal energy it can't take.
+  - bugfix: normal toolboxes can't hold fishing rods anymore
+  - bugfix: fixed lizard markings incorrectly displaying when strapped to a guillotine
+  - code_imp: guillotine's blade drop sound is now a variable
+  - qol: in metastation engineering, the plumbing water tank has been replaced with
+      a proper water tank, and shower water is now plumbed in from the engine maintenance
+  - bugfix: Rather than having two surgery B's on icebox you get a Surgery North and
+      a Surgery South
+  Tralezab code, Azlan + Azarak (Az gaaang) for the organs:
+  - rscadd: Added the DNA infuser to genetics! Person goes in, corpse goes in, and
+      they combine!
+  - rscadd: Try not to turn yourself into a fly, OK?
