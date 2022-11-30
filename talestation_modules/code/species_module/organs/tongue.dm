@@ -8,21 +8,6 @@
 	languages_possible_base |= languages_possible_modular
 	. = ..()
 
-// Skrell Tongue. Could use a sprite.
-/obj/item/organ/internal/tongue/skrell
-	name = "skrellian tongue"
-	desc = "The source of the Skrellian people's warbling voice."
-	say_mod = "warbles"
-	languages_native = /datum/language/skrell
-	var/static/list/languages_possible_skrell
-
-/obj/item/organ/internal/tongue/skrell/Initialize(mapload)
-	. = ..()
-	if(!LAZYLEN(languages_possible_skrell))
-		languages_possible_skrell = languages_possible_base.Copy()
-	languages_possible_skrell |= typecacheof(/datum/language/skrell)
-	languages_possible = languages_possible_skrell
-
 /obj/item/organ/internal/tongue/lizard
 	languages_native = list(/datum/language/draconic, /datum/language/impdraconic)
 	var/static/list/languages_possible_lizard

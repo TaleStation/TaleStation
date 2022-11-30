@@ -8,7 +8,7 @@
 	value = -2
 
 /datum/quirk/light_drinker
-	desc = "You just can't handle your drinks and get drunk very quickly. (Unallowed: Skrell)"
+	desc = "You just can't handle your drinks and get drunk very quickly. (Disallowed: Skrell)"
 
 // Modular quirks
 // More vulnerabile to pain (increased pain modifier)
