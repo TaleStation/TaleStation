@@ -41,3 +41,6 @@
 
 /// Modular traits
 #define TRAIT_DISEASE_RESISTANT "disease_resistant"
+
+// Lizard taste sensitivty
+#define LIZARD_TASTE_SENSITIVITY 10

@@ -117,12 +117,26 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/brutemod = 1
 	///multiplier for burn damage
 	var/burnmod = 1
+
+	// NON-MODULAR CHANGES: Lizards
+	///multiplier for toxin damage
+	var/toxmod = 1
+	///multiplier for oxygen damage
+	var/oxymod = 1
+	// NON-MODULAR CHANGES END
+
 	///multiplier for damage from cold temperature
 	var/coldmod = 1
 	///multiplier for damage from hot temperature
 	var/heatmod = 1
 	///multiplier for stun durations
 	var/stunmod = 1
+
+	// NON-MODULAR CHANGES: Lizard
+	///Multiplier for blood regeneration
+	var/blood_gain_multiplier = 1
+	// NON-MODULAR CHANGES END
+
 	///multiplier for money paid at payday
 	var/payday_modifier = 1
 	///Base electrocution coefficient.  Basically a multiplier for damage from electrocutions.
@@ -1373,10 +1387,12 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			else
 				H.adjustFireLoss(damage_amount)
 		if(TOX)
-			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.tox_mod
+		// NON-MODULAR CHANGES: Lizards
+			var/damage_amount = forced ? damage : damage * hit_percent * toxmod * H.physiology.tox_mod
 			H.adjustToxLoss(damage_amount)
 		if(OXY)
-			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.oxy_mod
+		// NON-MODULAR CHANGES: Lizards
+			var/damage_amount = forced ? damage : damage * hit_percent * oxymod * H.physiology.oxy_mod
 			H.adjustOxyLoss(damage_amount)
 		if(CLONE)
 			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.clone_mod

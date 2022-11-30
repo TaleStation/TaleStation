@@ -218,6 +218,10 @@
 	override = TRUE
 	colour = list(0.8,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
 
+// NON-MODULAR CHANGES: Monochrome lizard
+/datum/client_colour/monochrome/lizard
+	priority = PRIORITY_NORMAL
+
 #undef PRIORITY_ABSOLUTE
 #undef PRIORITY_HIGH
 #undef PRIORITY_NORMAL
