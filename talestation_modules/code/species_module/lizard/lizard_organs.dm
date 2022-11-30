@@ -32,20 +32,6 @@
 	/// How much blood we regenerate
 	var/regen_modifier = 0.5
 
-/obj/item/organ/internal/heart/second_heart/on_life(delta_time, times_fired)
-	..()
-	if(!owner.needs_heart() || owner.blood_volume >= BLOOD_VOLUME_NORMAL)
-		return
-	if(organ_flags & ORGAN_FAILING)
-		var/bleed_amount = 0
-		for(var/mob/living/carbon/part as anything in owner.bodyparts)
-			bleed_amount += part.get_bleed_rate() * delta_time
-		if(bleed_amount)
-			owner.bleed(bleed_amount)
-			owner.bleed_warn(bleed_amount)
-	else
-		owner.blood_volume = min(owner.blood_volume + (BLOOD_REGEN_FACTOR * regen_modifier * delta_time), BLOOD_VOLUME_NORMAL)
-
 /obj/item/organ/internal/liver/lizard
 	name = "lizard liver"
 	icon = 'talestation_modules/icons/obj/surgery.dmi'
@@ -59,6 +45,21 @@
 	icon_state = "stomach-l"
 	desc = "Lizards have evolved highly efficient stomachs, made to get nutrients out of what they eat as fast as possible."
 	metabolism_efficiency = 0.07
+
+// Organ functions
+/obj/item/organ/internal/heart/second_heart/on_life(delta_time, times_fired)
+	..()
+	if(!owner.needs_heart() || owner.blood_volume >= BLOOD_VOLUME_NORMAL)
+		return
+	if(organ_flags & ORGAN_FAILING)
+		var/bleed_amount = 0
+		for(var/mob/living/carbon/part as anything in owner.bodyparts)
+			bleed_amount += part.get_bleed_rate() * delta_time
+		if(bleed_amount)
+			owner.bleed(bleed_amount)
+			owner.bleed_warn(bleed_amount)
+	else
+		owner.blood_volume = min(owner.blood_volume + (BLOOD_REGEN_FACTOR * regen_modifier * delta_time), BLOOD_VOLUME_NORMAL)
 
 /obj/item/organ/internal/stomach/lizard/handle_hunger(mob/living/carbon/human/human, delta_time, times_fired)
 	. = ..()
@@ -83,44 +84,3 @@
 		return
 	unceiver.add_client_colour(/datum/client_colour/monochrome/lizard)
 
-// Perks for TGUI
-/datum/species/lizard/create_pref_unique_perks()
-	var/list/to_add = list()
-
-	to_add += list(list(
-		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
-			SPECIES_PERK_ICON = "drumstick-bite",
-			SPECIES_PERK_NAME = "Nutritious Regeneration",
-			SPECIES_PERK_DESC = "Lizards heal brute damage when well fed.",
-	))
-
-	to_add += list(list(
-		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
-			SPECIES_PERK_ICON = "heart",
-			SPECIES_PERK_NAME = "Second Heart",
-			SPECIES_PERK_DESC = "Lizards have a secondary heart, which acts as the majority of their better-than-average blood regeneration.",
-	))
-
-	to_add += list(list(
-		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
-			SPECIES_PERK_ICON = "allergies",
-			SPECIES_PERK_NAME = "Scaled Body",
-			SPECIES_PERK_DESC = "Lizards have a harder time being cut up due to their scales, so surgery on them takes longer.",
-	))
-
-	to_add += list(list(
-		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
-			SPECIES_PERK_ICON = "wind",
-			SPECIES_PERK_NAME = "Finer Senses",
-			SPECIES_PERK_DESC = "Lizards who lose their tongue will become monochromatic! Better hold onto your tongues if you know whats good for you. \
-								You specifically need a forked tongue for your senses to return.",
-	))
-
-	to_add += list(list(
-		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
-			SPECIES_PERK_ICON = "biohazard",
-			SPECIES_PERK_NAME = "Toxin Weakness",
-			SPECIES_PERK_DESC = "Lizards have a weakness to toxins, taking additional damage from them, and being worse at purging them from their body.",
-	))
-
-	return to_add
