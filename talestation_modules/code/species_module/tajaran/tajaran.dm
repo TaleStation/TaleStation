@@ -1,3 +1,112 @@
+// Tajarans, the REAL cat people
+// GLOB list for the species sprites shit
+GLOBAL_LIST_EMPTY(tajaran_snout_list)
+GLOBAL_LIST_EMPTY(tajaran_tail_list)
+GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
+
+/datum/species/tajaran
+	name = "Tajaran"
+	id = SPECIES_TAJARAN
+	say_mod = "meows"
+
+	species_traits = list(
+		MUTCOLORS,
+		EYECOLOR,
+		LIPS,
+		HAS_FLESH,
+		HAS_BONE,
+		HAIR,
+	)
+
+	inherent_traits = list(
+		TRAIT_ADVANCEDTOOLUSER,
+		TRAIT_CAN_STRIP,
+		TRAIT_CAN_USE_FLIGHT_POTION,
+		TRAIT_LITERATE,
+	)
+
+	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
+	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Tajaran", "tajaran_body_markings" = "default")
+	external_organs = list(
+		/obj/item/organ/external/snout/tajaran_snout = "Regular",
+		/obj/item/organ/external/tail/tajaran_tail = "Regular",
+		)
+
+	mutantears = /obj/item/organ/internal/ears/tajaran_ears
+	disliked_food = CLOTH
+	liked_food = GRAIN | MEAT | SEAFOOD
+	payday_modifier = 0.75
+	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
+	examine_limb_id = SPECIES_MAMMAL
+	coldmod = 0.67
+	heatmod = 1.5
+	species_pain_mod = 1
+
+	bodypart_overrides = list(
+		BODY_ZONE_HEAD = /obj/item/bodypart/head/tajaran,
+		BODY_ZONE_CHEST = /obj/item/bodypart/chest/tajaran,
+		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/tajaran,
+		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/tajaran,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/tajaran,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/tajaran,
+	)
+
+	// Body temp effects
+	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT - 10)
+	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + 10)
+
+	digitigrade_customization = DIGITIGRADE_OPTIONAL
+
+	// Say sounds
+	species_speech_sounds = list('talestation_modules/sound/voice/meow1.ogg' = 50, \
+									'talestation_modules/sound/voice/meow2.ogg' = 50,
+									'talestation_modules/sound/voice/meow3.ogg' = 50)
+	species_speech_sounds_ask = list()
+	species_speech_sounds_exclaim = list()
+
+// Taken from felinids - Immunity to carpotoxin
+/datum/species/tajaran/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
+	. = ..()
+	if(istype(chem, /datum/reagent/toxin/carpotoxin))
+		var/datum/reagent/toxin/carpotoxin/fish = chem
+		fish.toxpwr = 0
+
+// Randomize tajaran
+/datum/species/tajaran/randomize_features(mob/living/carbon/human/human_mob)
+	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
+	randomize_external_organs(human_mob)
+
+// Tajaran species preview in tgui
+/datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	human_for_preview.hair_color = "#918787"
+	human_for_preview.dna.features["mcolor"] = COLOR_GRAY
+	human_for_preview.dna.features["ears"] = "Tajaran"
+
+	var/obj/item/organ/external/snout/tajaran_snout/snout = human_for_preview.getorgan(/obj/item/organ/external/snout/tajaran_snout)
+	snout?.set_sprite("Short")
+
+	var/obj/item/organ/internal/ears/tajaran_ears/tajaran_ears = human_for_preview.getorgan(/obj/item/organ/internal/ears/tajaran_ears)
+	if (tajaran_ears)
+		tajaran_ears.color = human_for_preview.hair_color
+		human_for_preview.update_body()
+
+	human_for_preview.update_body()
+	human_for_preview.update_body_parts(update_limb_data = TRUE)
+
+/datum/species/tajaran/random_name(gender,unique,lastname)
+	var/randname
+	if(gender == MALE)
+		randname = pick(GLOB.first_names_male_taj)
+	else
+		randname = pick(GLOB.first_names_female_taj)
+
+	if(lastname)
+		randname += " [lastname]"
+	else
+		randname += " [pick(GLOB.last_names_taj)]"
+
+	return randname
+
 // Generates tajaran side profile for prefs
 /proc/generate_tajaran_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
@@ -27,34 +136,3 @@
 		values[name] = final_icon
 
 	return values
-
-// Tajaran snouts
-/datum/preference/choiced/tajaran_snout
-	savefile_key = "feature_tajaran_snout"
-	savefile_identifier = PREFERENCE_CHARACTER
-	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Snout"
-	should_generate_icons = TRUE
-
-/datum/preference/choiced/tajaran_snout/init_possible_values()
-	return generate_tajaran_side_shots(GLOB.tajaran_snout_list, "tajaran_snout", include_snout = FALSE)
-
-/datum/preference/choiced/tajaran_snout/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tajaran_snout"] = value
-
-// Tajaran tails
-/datum/preference/choiced/tajaran_tail
-	savefile_key = "feature_tajaran_tail"
-	savefile_identifier = PREFERENCE_CHARACTER
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_external_organ = /obj/item/organ/external/tail/tajaran_tail
-
-/datum/preference/choiced/tajaran_tail/init_possible_values()
-	return assoc_to_keys(GLOB.tajaran_tail_list)
-
-/datum/preference/choiced/tajaran_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tajaran_tail"] = value
-
-/datum/preference/choiced/tajaran_tail/create_default_value()
-	var/datum/sprite_accessory/tail/tajaran_tail/tail = /datum/sprite_accessory/tail/tajaran_tail
-	return initial(tail.name)

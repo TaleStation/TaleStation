@@ -22,26 +22,6 @@
 		reciever.dna.species.mutant_bodyparts -= "tail_cat"
 		reciever.update_body()
 
-// Tajaran tail
-/obj/item/organ/external/tail/tajaran_tail
-	slot = ORGAN_SLOT_EXTERNAL_TAIL
-	dna_block = DNA_TAJARAN_TAIL_BLOCK
-	name = "tajaran tail"
-	desc = "A severed tajaran tail. What poor bastard would do such a thing?"
-	feature_key = "tajaran_tail"
-	preference = "feature_tajaran_tail"
-	icon = 'talestation_modules/icons/obj/surgery.dmi'
-	icon_state = "severedtailtaj"
-	wag_flags = WAG_ABLE
-
-/obj/item/organ/external/tail/tajaran_tail/can_draw_on_bodypart(mob/living/carbon/human/human)
-	if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
-		return FALSE
-	return TRUE
-
-/obj/item/organ/external/tail/tajaran_tail/get_global_feature_list()
-	return GLOB.tajaran_tail_list
-
 // Tail icon overrides
 /obj/item/organ/external/tail/monkey
 	icon = 'talestation_modules/icons/obj/surgery.dmi'

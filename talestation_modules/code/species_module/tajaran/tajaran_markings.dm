@@ -1,5 +1,3 @@
-// Modular body markings
-
 // Tajaran markings
 /datum/preference/choiced/tajaran_body_markings
 	savefile_key = "feature_tajaran_markings"

@@ -26,9 +26,3 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	damage += 40/severity
-
-// Tajaran ears
-/obj/item/organ/internal/ears/tajaran_ears
-	name = "tajaran ears"
-	visual = TRUE
-	damage_multiplier = 2
