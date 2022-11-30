@@ -11,6 +11,8 @@
 // On-species gain surgery mod
 /datum/species/lizard/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	. = .. ()
+	RegisterSignal(C, COMSIG_CARBON_GAIN_ORGAN, .proc/on_gained_organ)
+	RegisterSignal(C, COMSIG_CARBON_LOSE_ORGAN, .proc/on_removed_organ)
 	C.mob_surgery_speed_mod -= 0.50
 
 /datum/species/lizard/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
@@ -66,6 +68,20 @@
 /obj/item/organ/internal/tongue/lizard
 	taste_sensitivity = LIZARD_TASTE_SENSITIVITY // combined nose + tongue, extra sensitive
 
+/datum/species/lizard/proc/on_gained_organ(mob/living/receiver, obj/item/organ/internal/tongue/tongue)
+	SIGNAL_HANDLER
+
+	if(!istype(tongue) || !(tongue.taste_sensitivity <= LIZARD_TASTE_SENSITIVITY))
+		return
+	receiver.remove_client_colour(/datum/client_colour/monochrome/lizard)
+
+/datum/species/lizard/proc/on_removed_organ(mob/living/unceiver, obj/item/organ/internal/tongue/tongue)
+	SIGNAL_HANDLER
+
+	if(!istype(tongue) || tongue.taste_sensitivity > LIZARD_TASTE_SENSITIVITY)
+		return
+	unceiver.add_client_colour(/datum/client_colour/monochrome/lizard)
+
 // Perks for TGUI
 /datum/species/lizard/create_pref_unique_perks()
 	var/list/to_add = list()
@@ -87,8 +103,16 @@
 	to_add += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 			SPECIES_PERK_ICON = "allergies",
-			SPECIES_PERK_NAME = "Scaled body",
+			SPECIES_PERK_NAME = "Scaled Body",
 			SPECIES_PERK_DESC = "Lizards have a harder time being cut up due to their scales, so surgery on them takes longer.",
+	))
+
+	to_add += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = "wind",
+			SPECIES_PERK_NAME = "Finer Senses",
+			SPECIES_PERK_DESC = "Lizards who lose their tongue will become monochromatic! Better hold onto your tongues if you know whats good for you. \
+								You specifically need a forked tongue for your senses to return.",
 	))
 
 	to_add += list(list(

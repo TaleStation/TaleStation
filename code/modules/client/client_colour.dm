@@ -213,7 +213,6 @@
 /datum/client_colour/rave
 	priority = PRIORITY_LOW
 
-
 /datum/client_colour/psyker
 	priority = PRIORITY_ABSOLUTE
 	override = TRUE
