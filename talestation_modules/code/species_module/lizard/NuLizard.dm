@@ -68,6 +68,7 @@
 /obj/item/organ/internal/tongue/lizard
 	taste_sensitivity = LIZARD_TASTE_SENSITIVITY // combined nose + tongue, extra sensitive
 
+// Losing your tongue related procs
 /datum/species/lizard/proc/on_gained_organ(mob/living/receiver, obj/item/organ/internal/tongue/tongue)
 	SIGNAL_HANDLER
 
