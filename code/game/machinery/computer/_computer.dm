@@ -43,8 +43,14 @@
 	if(machine_stat & NOPOWER) // Your screen can't be on if you've got no damn charge
 		return
 
+<<<<<<< HEAD
 	. += emissive_appearance(icon, icon_screen, src)
 */ // NON-MODULAR CHANGES END
+=======
+	if(icon_screen)
+		. += mutable_appearance(icon, icon_screen)
+		. += emissive_appearance(icon, icon_screen, src)
+>>>>>>> fd19f6d5a0ff (The Mining vendor now works like the Chef produce console (has to go through Cargo) (#71023))
 
 /obj/machinery/computer/power_change()
 	. = ..()
