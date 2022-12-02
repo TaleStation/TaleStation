@@ -1,5 +1,5 @@
 
 // Adds painkillers to mining vendors
-/obj/machinery/mineral/equipment_vendor/Initialize(mapload)
-	prize_list += new /datum/data/mining_equipment("Painkiller Medipen", /obj/item/reagent_containers/hypospray/medipen/survival/painkiller, 500)
-	return ..()
+/datum/orderable_item/mining/painkiller_medipen
+	item_path = /obj/item/reagent_containers/hypospray/medipen/survival/painkiller
+	cost_per_order = 500
