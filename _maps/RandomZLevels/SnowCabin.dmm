@@ -272,6 +272,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/awaymission/cabin)
+"aS" = (
+/obj/structure/sink/kitchen/directional/south{
+	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
+	name = "sink"
+	},
+/obj/structure/mop_bucket/janitorialcart,
+/obj/item/mop,
+/obj/item/reagent_containers/cup/bucket,
+/obj/item/clothing/suit/caution,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/awaymission/cabin)
 "aT" = (
 /obj/machinery/door/window/left/directional/east{
 	name = "Fireplace"
@@ -418,6 +430,22 @@
 /obj/machinery/vending/coffee,
 /turf/open/floor/carpet,
 /area/awaymission/cabin)
+"bu" = (
+/obj/item/clothing/suit/hooded/wintercoat/hydro{
+	name = "service winter coat";
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/hooded/wintercoat/hydro{
+	name = "service winter coat";
+	pixel_y = 4
+	},
+/obj/item/clothing/suit/hooded/wintercoat/hydro{
+	name = "service winter coat";
+	pixel_y = 4
+	},
+/obj/structure/table/wood,
+/turf/open/floor/wood,
+/area/awaymission/cabin)
 "bv" = (
 /obj/structure/table/wood,
 /obj/machinery/chem_dispenser/drinks/beer{
@@ -434,8 +462,8 @@
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/cabin)
 "by" = (
-/obj/structure/table,
-/obj/machinery/reagentgrinder,
+/obj/machinery/oven,
+/obj/item/plate/oven_tray,
 /turf/open/floor/iron/cafeteria,
 /area/awaymission/cabin)
 "bz" = (
@@ -601,6 +629,10 @@
 /obj/structure/chair/wood,
 /turf/open/floor/wood,
 /area/awaymission/cabin)
+"cj" = (
+/obj/machinery/griddle,
+/turf/open/floor/iron/cafeteria,
+/area/awaymission/cabin)
 "ck" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -708,6 +740,11 @@
 /obj/machinery/light/directional/north,
 /obj/structure/cable,
 /turf/open/floor/wood,
+/area/awaymission/cabin)
+"cF" = (
+/obj/structure/table,
+/obj/machinery/reagentgrinder,
+/turf/open/floor/iron/cafeteria,
 /area/awaymission/cabin)
 "cG" = (
 /obj/structure/closet/secure_closet/freezer/meat/open,
@@ -1848,15 +1885,6 @@
 	name = "dirty water"
 	},
 /area/awaymission/cabin/caves/mountain)
-"gi" = (
-/obj/structure/table/reinforced,
-/obj/item/modular_computer/tablet/pda/syndicate{
-	desc = "A portable microcomputer by Thinktronic Systems, LTD.";
-	inserted_disk = /obj/item/computer_disk/virus/mime;
-	name = "soviet tablet"
-	},
-/turf/open/floor/plating/snowed/snow_cabin,
-/area/awaymission/cabin/snowforest/sovietsurface)
 "go" = (
 /obj/effect/light_emitter{
 	name = "outdoor light";
@@ -3550,18 +3578,6 @@
 	},
 /turf/open/floor/plating,
 /area/awaymission/cabin)
-"oB" = (
-/obj/effect/turf_decal/weather/snow,
-/obj/item/modular_computer/tablet/pda/syndicate{
-	desc = "A portable microcomputer by Thinktronic Systems, LTD.";
-	inserted_disk = /obj/item/computer_disk/virus/clown;
-	name = "soviet tablet"
-	},
-/obj/effect/decal/remains/human{
-	color = "#72e4fa"
-	},
-/turf/open/floor/iron/dark/snowdin,
-/area/awaymission/cabin/caves)
 "oC" = (
 /obj/effect/light_emitter{
 	name = "outdoor light";
@@ -3833,6 +3849,18 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
+"vD" = (
+/obj/effect/turf_decal/weather/snow,
+/obj/item/modular_computer/pda/syndicate{
+	desc = "A portable microcomputer by Thinktronic Systems, LTD.";
+	inserted_disk = /obj/item/computer_disk/virus/clown;
+	name = "soviet tablet"
+	},
+/obj/effect/decal/remains/human{
+	color = "#72e4fa"
+	},
+/turf/open/floor/iron/dark/snowdin,
+/area/awaymission/cabin/caves)
 "vG" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/grenade/chem_grenade/large,
@@ -3968,9 +3996,44 @@
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/indestructible,
 /area/awaymission/cabin/caves/mountain)
+"yR" = (
+/obj/structure/table/reinforced,
+/obj/item/modular_computer/pda/syndicate{
+	desc = "A portable microcomputer by Thinktronic Systems, LTD.";
+	inserted_disk = /obj/item/computer_disk/virus/mime;
+	name = "soviet tablet"
+	},
+/turf/open/floor/plating/snowed/snow_cabin,
+/area/awaymission/cabin/snowforest/sovietsurface)
 "yY" = (
 /obj/vehicle/ridden/atv{
 	dir = 4
+	},
+/turf/open/misc/asteroid/snow/snow_cabin,
+/area/awaymission/cabin/snowforest)
+"zd" = (
+/obj/structure/statue/snow/snowman{
+	anchored = 1;
+	name = "Who"
+	},
+/obj/item/clothing/head/helmet/knight/yellow{
+	armor = list("melee" = 11, "bullet" = 2, "laser" = 1, "energy" = 1, "bomb" = 5, "bio" = 2, "fire" = 0, "acid" = 10);
+	desc = "A classic metal helmet. The cold has made it unreliable though.";
+	name = "old medieval helmet";
+	pixel_y = 7
+	},
+/obj/item/claymore/weak/ceremonial{
+	desc = "Brought to you by the guys in charge of making replica katana toys!";
+	force = 1;
+	layer = 3.01;
+	name = "replica claymore";
+	pixel_x = 5;
+	pixel_y = 8;
+	throwforce = 2
+	},
+/obj/item/shield/roman/fake{
+	layer = 3.01;
+	pixel_x = -7
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/snowforest)
@@ -4135,32 +4198,6 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/snowforest)
-"FF" = (
-/obj/structure/statue/snow/snowman{
-	anchored = 1;
-	name = "Who"
-	},
-/obj/item/clothing/head/helmet/knight/yellow{
-	armor = list("melee" = 11, "bullet" = 2, "laser" = 1, "energy" = 1, "bomb" = 5, "bio" = 2, "fire" = 0, "acid" = 10);
-	desc = "A classic metal helmet. The cold has made it unreliable though.";
-	name = "old medieval helmet";
-	pixel_y = 7
-	},
-/obj/item/claymore/weak/ceremonial{
-	desc = "Brought to you by the guys in charge of making replica katana toys!";
-	force = 1;
-	layer = 3.01;
-	name = "replica claymore";
-	pixel_x = 5;
-	pixel_y = 8;
-	throwforce = 2
-	},
-/obj/item/shield/roman/fake{
-	layer = 3.01;
-	pixel_x = -7
-	},
-/turf/open/misc/asteroid/snow/snow_cabin,
-/area/awaymission/cabin/snowforest)
 "FL" = (
 /obj/structure/statue/snow/snowman{
 	anchored = 1;
@@ -4181,10 +4218,6 @@
 /obj/structure/light_construct/directional/south,
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
-"FV" = (
-/obj/machinery/griddle,
-/turf/open/floor/iron/cafeteria,
-/area/awaymission/cabin)
 "FW" = (
 /obj/effect/decal/remains/human,
 /obj/structure/light_construct/directional/south,
@@ -4218,22 +4251,6 @@
 	slowdown = 0
 	},
 /area/awaymission/cabin/snowforest)
-"Hw" = (
-/obj/item/clothing/suit/hooded/wintercoat/hydro{
-	name = "service winter coat";
-	pixel_y = 4
-	},
-/obj/item/clothing/suit/hooded/wintercoat/hydro{
-	name = "service winter coat";
-	pixel_y = 4
-	},
-/obj/item/clothing/suit/hooded/wintercoat/hydro{
-	name = "service winter coat";
-	pixel_y = 4
-	},
-/obj/structure/table/wood,
-/turf/open/floor/wood,
-/area/awaymission/cabin)
 "HY" = (
 /obj/structure/fence/door/opened,
 /obj/structure/barricade/wooden/crude/snow,
@@ -4501,18 +4518,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/awaymission/cabin/caves/mountain)
-"Ql" = (
-/obj/structure/sink/kitchen/directional/south{
-	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
-	name = "sink"
-	},
-/obj/structure/mop_bucket/janitorialcart,
-/obj/item/mop,
-/obj/item/reagent_containers/cup/bucket,
-/obj/item/clothing/suit/caution,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/awaymission/cabin)
 "QA" = (
 /obj/item/gun/ballistic/automatic/toy{
 	anchored = 1;
@@ -4898,11 +4903,6 @@
 	},
 /turf/open/misc/asteroid/snow/snow_cabin,
 /area/awaymission/cabin/caves)
-"Zq" = (
-/obj/machinery/oven,
-/obj/item/plate/oven_tray,
-/turf/open/floor/iron/cafeteria,
-/area/awaymission/cabin)
 "ZY" = (
 /obj/structure/fence/door,
 /turf/open/misc/asteroid/snow/snow_cabin,
@@ -18263,7 +18263,7 @@ mU
 mU
 mU
 mJ
-oB
+vD
 mW
 mW
 ab
@@ -26652,7 +26652,7 @@ an
 an
 an
 an
-Ql
+aS
 hg
 aq
 ht
@@ -28140,7 +28140,7 @@ ab
 jm
 Oe
 RC
-FF
+zd
 RC
 nE
 RC
@@ -30001,7 +30001,7 @@ an
 an
 an
 an
-Hw
+bu
 an
 eo
 an
@@ -30515,7 +30515,7 @@ an
 bx
 bO
 cJ
-by
+cF
 cJ
 hz
 an
@@ -30769,7 +30769,7 @@ hy
 aq
 eg
 an
-Zq
+by
 bO
 bO
 bO
@@ -31030,7 +31030,7 @@ bz
 bO
 bW
 ck
-FV
+cj
 hz
 an
 aq
@@ -42380,7 +42380,7 @@ Xa
 Xa
 Xa
 dc
-gi
+yR
 di
 dG
 dP
