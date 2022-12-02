@@ -82,14 +82,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	human_for_preview.dna.features["mcolor"] = COLOR_GRAY
 	human_for_preview.dna.features["ears"] = "Tajaran"
 
-	var/obj/item/organ/external/snout/tajaran_snout/snout = human_for_preview.getorgan(/obj/item/organ/external/snout/tajaran_snout)
-	snout?.set_sprite("Short")
-
-	var/obj/item/organ/internal/ears/tajaran_ears/tajaran_ears = human_for_preview.getorgan(/obj/item/organ/internal/ears/tajaran_ears)
-	if (tajaran_ears)
-		tajaran_ears.color = human_for_preview.hair_color
-		human_for_preview.update_body()
-
 	human_for_preview.update_body()
 	human_for_preview.update_body_parts(update_limb_data = TRUE)
 
