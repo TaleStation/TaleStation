@@ -1,6 +1,5 @@
 // Modular computer.dm
 
-
 // Code from SkyRat
 
 /obj/machinery/computer
