@@ -542,7 +542,7 @@
 						final_paper_text += "<B>General Record Lost!</B><BR>"
 					if(active2 in GLOB.data_core.medical)
 						final_paper_text += "<BR>\n<CENTER><B>Medical Data</B></CENTER>"
-						// NON MODULAR CHANGES: Medical records
+						// NON-MODULAR CHANGES: Medical records
 						if(!(active2.fields["past_records"] == ""))
 							final_paper_text += "\nMedical Records:\n[active2.fields["past_records"]]<BR>\n"
 						final_paper_text += "<BR>\nBlood Type: [active2.fields["blood_type"]]"
@@ -563,7 +563,7 @@
 						final_paper_text += "<BR>\nImportant Notes:"
 						final_paper_text += "<BR>\n\t[active2.fields["notes"]]"
 						final_paper_text += "<BR>\n"
-						//NON MODULAR CHANGES END
+						//NON-MODULAR CHANGES END
 						var/counter = 1
 						while(active2.fields[text("com_[]", counter)])
 							final_paper_text += text("[]<BR>", active2.fields[text("com_[]", counter)])
