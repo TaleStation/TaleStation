@@ -30,7 +30,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	payday_modifier = 0.75
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	species_language_holder = /datum/language_holder/skrell
-	say_mod = "warbles"
 	exotic_bloodtype = "S"
 	mutanttongue = /obj/item/organ/internal/tongue/skrell
 	species_speech_sounds = list('talestation_modules/sound/voice/huff.ogg' = 120)

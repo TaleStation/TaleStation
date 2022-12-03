@@ -41,3 +41,9 @@
 
 /obj/item/organ/external/snout/tajaran_snout/get_global_feature_list()
 	return GLOB.tajaran_snout_list
+
+/obj/item/organ/internal/tongue/tajaran
+	name = "tajaram tongue"
+	desc = "Tajaran tongues are known for their rough patch of connective tissue.\
+				They don't make great kissers."
+	say_mod = "meows"
