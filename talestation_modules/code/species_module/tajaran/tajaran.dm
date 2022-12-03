@@ -7,7 +7,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 /datum/species/tajaran
 	name = "Tajaran"
 	id = SPECIES_TAJARAN
-	say_mod = "meows"
 
 	species_traits = list(
 		MUTCOLORS,
@@ -33,6 +32,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		)
 
 	mutantears = /obj/item/organ/internal/ears/tajaran_ears
+	mutanttongue = /obj/item/organ/internal/tongue/tajaran
 	disliked_food = CLOTH
 	liked_food = GRAIN | MEAT | SEAFOOD
 	payday_modifier = 0.75
