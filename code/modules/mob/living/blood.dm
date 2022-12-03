@@ -306,7 +306,7 @@
 		"O-" = list("O-"),
 		"O+" = list("O-", "O+"),
 		"L" = list("L"),
-		"S" = list("S"), // NON_MODULE CHANGE: S type blood
+		"S" = list("S"), // NON-MODULAR CHANGE: S type blood
 		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U", "S") // NON-MODULAR CHANGE: S type blood
 	)
 
