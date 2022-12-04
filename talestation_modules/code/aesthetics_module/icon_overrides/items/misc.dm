@@ -21,6 +21,9 @@
 /obj/item/radio/intercom
 	icon = 'talestation_modules/icons/obj/intercom.dmi'
 
+/obj/item/radio/intercom/command
+	icon_state = "intercom"
+
 /obj/item/wallframe/intercom
 	icon = 'talestation_modules/icons/obj/intercom.dmi'
 
