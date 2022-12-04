@@ -19,7 +19,7 @@
 
 	SEND_SOUND(owner, sound(curr_sound, 0, 1, 25))
 	after_successful_spell(owner)
-	UpdateButtons()
+	build_all_button_icons()
 
 /datum/action/item_action/cult/clock_spell/conceal/proc/reveal_nearby()
 	owner.visible_message(

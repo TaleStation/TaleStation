@@ -130,7 +130,7 @@
 	if(!active || !active_overlay_name)
 		return
 
-	overlays += mutable_appearance(active_overlay_file || icon_icon, active_overlay_name, ABOVE_OBJ_LAYER)
+	overlays += mutable_appearance(active_overlay_file || button_icon, active_overlay_name, ABOVE_OBJ_LAYER)
 
 /*
  * Signal proc for [COMSIG_ATOM_UPDATE_OVERLAYS], for the mob holding the slab.
