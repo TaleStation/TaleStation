@@ -3,7 +3,7 @@
 	name = "Slab: Conceal"
 	desc = "Alternates between hiding and revealing nearby cult structures and runes."
 	invocation = "Erg'hea Gb Error!"
-	icon_icon = 'icons/mob/actions/actions_cult.dmi'
+	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "gone"
 	charges = 10
 	/// The sound that will play on next invocation.

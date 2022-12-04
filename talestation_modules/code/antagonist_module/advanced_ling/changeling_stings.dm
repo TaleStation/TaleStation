@@ -119,7 +119,7 @@
 		of the sting when complete, and will be able to call for help or attempt to run for a short period of time until falling asleep. \
 		The chemical takes about 20 seconds to kick in, and lasts for roughly 1 minute."
 	hud_icon = 'talestation_modules/icons/hud/screen_changeling.dmi'
-	icon_icon = 'talestation_modules/icons/mob/actions/actions_changeling.dmi'
+	button_icon = 'talestation_modules/icons/mob/actions/actions_changeling.dmi'
 	button_icon_state = "sting_sleep"
 	chemical_cost = 40
 	dna_cost = 2
@@ -160,7 +160,7 @@
 		dealing roughly 50 toxins damage to the victim over time, as well as fatiguing them and causing brain damage. Costs 30 chemicals."
 	helptext = "The sting takes a second to prepare, during which you must remain in range of the victim. \
 		The target will feel the toxins entering their body when the sting is complete, but will be unaware the sting itself occured."
-	icon_icon = 'talestation_modules/icons/mob/actions/actions_changeling.dmi'
+	button_icon = 'talestation_modules/icons/mob/actions/actions_changeling.dmi'
 	button_icon_state = "sting_poison"
 	chemical_cost = 30
 	dna_cost = 2
