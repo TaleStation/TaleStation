@@ -32,15 +32,10 @@
 /datum/action/cooldown/spell/pointed/projectile/cryo
 	name = "Cryobeam"
 	desc = "This power fires a frozen bolt at a target."
-<<<<<<< HEAD
-	button_icon_state = "icebeam0"
-	cooldown_time = 15 SECONDS
-=======
 	button_icon_state = "icebeam"
 	base_icon_state = "icebeam"
 	active_overlay_icon_state = "bg_spell_border_active_blue"
 	cooldown_time = 16 SECONDS
->>>>>>> 329921639a93 (Rewrites how action buttons icons are generated, makes them layer nicer. Allows observers to see a mob's action buttons.  (#71339))
 	spell_requirements = NONE
 	antimagic_flags = NONE
 
