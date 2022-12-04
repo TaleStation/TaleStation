@@ -8,12 +8,12 @@
 	icon = 'talestation_modules/icons/obj/bureaucracy.dmi'
 
 // Asset Protection stamper
-/obj/item/stamp/js/ap
+/obj/item/stamp/ap
 	name = "the asset protection's rubber stamp"
 	icon_state = "stamp-ap"
 
 // Bridge Officer stamper
-/obj/item/stamp/js/bo
+/obj/item/stamp/bo
 	name = "the bridge officer's rubber stamp"
 	icon_state = "stamp-bo"
 
