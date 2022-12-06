@@ -21,6 +21,7 @@
 /obj/item/radio/intercom
 	icon = 'talestation_modules/icons/obj/intercom.dmi'
 
+// This could use an icon someday, just borrowing it
 /obj/item/radio/intercom/command
 	icon_state = "intercom"
 
