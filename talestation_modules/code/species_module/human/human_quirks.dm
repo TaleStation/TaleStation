@@ -1,12 +1,3 @@
-// Modular humans
-
-// Adds tails and ears to humans
-/datum/species/human
-	mutant_bodyparts = list("wings" = "None", "ears" = "None", "tail" = "None")
-	external_organs = list(
-		/obj/item/organ/external/tail/cat = "None",
-	)
-
 /datum/species/human/create_pref_unique_perks()
 	var/list/to_add = list()
 
