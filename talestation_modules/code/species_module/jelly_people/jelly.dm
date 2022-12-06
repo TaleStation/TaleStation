@@ -1,6 +1,4 @@
-// -- Various slime people additions. --
 /datum/species/jelly
-	species_pain_mod = 0.5
 	// Changes the default jellyperson to look like slimepeople instead of stargazers
 	// (Because slimepeople are more customizable / less ugly)
 	hair_color = "mutcolor"
@@ -19,12 +17,3 @@
 	human.update_hair()
 	human.update_body()
 	human.update_body_parts(update_limb_data = TRUE)
-
-// Description and lore
-/datum/species/jelly/get_species_description()
-	return "Work in Progress."
-
-/datum/species/jelly/get_species_lore()
-	return list(
-		"Work in Progress.",
-	)
