@@ -1,4 +1,4 @@
-/mob/living/simple_animal/pet/dog/corgi/exoticcorgi/dufresne
+/mob/living/basic/pet/dog/corgi/exoticcorgi/dufresne
 	health = 100
 	maxHealth = 100
 	name = "King Dufresne"
@@ -7,5 +7,4 @@
 	icon_state = "corgigrey"
 	icon_living = "corgigrey"
 	icon_dead = "corgigrey_dead"
-	animal_species = /mob/living/simple_animal/pet/dog/corgi/exoticcorgi
 	nofur = TRUE

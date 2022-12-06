@@ -383,7 +383,7 @@
 		When slain, releases a psychic scream along the alien hivemind, confusing and disorienting their kin and offspring.", \
 		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
 
-/mob/living/simple_animal/pet/dog/corgi/exoticcorgi/dufresne/Initialize(mapload)
+/mob/living/basic/pet/dog/corgi/exoticcorgi/dufresne/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
 		"A peculiar and unusual corgi. You don't know if this corgi comes from Nar'Sie, \
