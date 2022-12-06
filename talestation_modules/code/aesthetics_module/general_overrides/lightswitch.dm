@@ -6,5 +6,5 @@
 
 /obj/machinery/light_switch/LateInitialize()
 	. = ..()
-	if(prob(50)) //50% chance for an area to have their lights flipped.
+	if(prob(66)) //66% chance for an area to have their lights flipped.
 		set_lights(!area.lightswitch)
