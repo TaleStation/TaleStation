@@ -5,6 +5,7 @@
 	//Icon file for mob worn overlays, if the user is digitigrade.
 	var/icon/worn_icon_digitigrade
 	var/greyscale_config_worn_digitigrade
+
 /obj/item/clothing/under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 

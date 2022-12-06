@@ -1,7 +1,7 @@
 //Beach Episode item
 // Sprite ported from baystation.
 /obj/item/clothing/suit/duck_tube
-	name = "Ducking Innertube"
+	name = "ducking innertube"
 	desc = "You got a sinking feeling you'll be perfectly fine."
 	icon = 'talestation_modules/icons/mob/clothing/eventitems.dmi'
 	icon_state = "inflatable"
