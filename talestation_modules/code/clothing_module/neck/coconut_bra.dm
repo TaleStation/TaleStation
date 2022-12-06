@@ -1,7 +1,7 @@
 //Beach Episode item
 /obj/item/clothing/neck/cocobruh
 	name = "coconut bra"
-	desc = "You've seen these in those cheesy Space Films with Space Hawaiians. The coconuts are fake, don't even think about biting them.
+	desc = "You've seen these in those cheesy Space Films with Space Hawaiians. The coconuts are fake, don't even think about biting them."
 	icon = 'talestation_modules/icons/mob/clothing/eventitems.dmi'
 	icon_state = "cocobra"
 	worn_icon = 'talestation_modules/icons/mob/clothing/eventitems.dmi'
