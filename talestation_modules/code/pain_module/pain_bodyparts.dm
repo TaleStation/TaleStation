@@ -1,5 +1,8 @@
 // -- Bodypart and Organ pain definitions. --
 
+#define COMSIG_ANESTHETIC "anesthetic"
+#define COMSIG_N2O_BREATHED "n2o_breathed"
+
 /obj/item/organ/internal/lungs
 	/// Whether we are currently breathing enough N2O to be considered asleep.
 	var/on_anesthetic = FALSE
@@ -7,8 +10,19 @@
 /*
  * Returns TRUE if we are breathing enough [partial_pressure] of N2O to be asleep.
  */
-/obj/item/organ/internal/lungs/proc/check_anesthetic(partial_pressure, min_sleep)
+/obj/item/organ/internal/lungs/proc/check_anesthetic(datum/source, n2o_breathed, partial_pressure, min_sleep)
 	return partial_pressure > min_sleep
+
+/obj/item/organ/internal/lungs/check_breath(datum/gas_mixture/breath, mob/living/carbon/human/breather)
+	breath.assert_gas(/datum/gas/nitrous_oxide)
+	var/n2o_pp = breath.get_breath_partial_pressure(breath.gases[/datum/gas/nitrous_oxide][MOLES])
+
+	if(n2o_pp > 0)
+		SEND_SIGNAL(src, COMSIG_N2O_BREATHED, n2o_pp)
+
+/obj/item/organ/internal/lungs/Initialize()
+	..()
+	RegisterSignal(src, COMSIG_ANESTHETIC, PROC_REF(check_anesthetic))
 
 /obj/item/bodypart
 	/// The amount of pain this limb is experiencing (A bit for default)

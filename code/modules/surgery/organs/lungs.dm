@@ -300,7 +300,7 @@
 			breather.clear_alert(ALERT_TOO_MUCH_N2O)
 
 
-		on_anesthetic = check_anesthetic(n2o_pp, n2o_sleep_min) // NON-MODULAR CHANGE
+		//on_anesthetic = check_anesthetic(n2o_pp, n2o_sleep_min) // NON-MODULAR CHANGE
 	// BZ
 
 		var/bz_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/bz][MOLES])
