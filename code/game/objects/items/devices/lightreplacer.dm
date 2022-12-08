@@ -147,11 +147,7 @@
 	to_chat(user, status_string())
 
 /obj/item/lightreplacer/update_icon_state()
-<<<<<<< HEAD
-	icon_state = "lightreplacer[(obj_flags & EMAGGED ? 1 : 0)]"
-=======
 	icon_state = "[initial(icon_state)][(obj_flags & EMAGGED ? "-emagged" : "")]"
->>>>>>> 591bbf9bf144 (Fixes invisible light replacers (#71766))
 	return ..()
 
 /obj/item/lightreplacer/proc/status_string()
