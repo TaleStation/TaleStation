@@ -26,6 +26,7 @@
 	trim_state = "trim_assetprotection"
 	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudassetprotection"
+	orbit_icon = "shield"
 	extra_access = list(ACCESS_ENGINEERING, ACCESS_SHIPPING)
 	minimal_access = list(ACCESS_BRIG, ACCESS_CARGO, ACCESS_CONSTRUCTION, ACCESS_COURT, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS,
 					ACCESS_DETECTIVE, ACCESS_COMMAND, ACCESS_KEYCARD_AUTH, ACCESS_LAWYER, ACCESS_MAINT_TUNNELS,
@@ -42,6 +43,7 @@
 	trim_state = "trim_bridgeofficer"
 	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudbridgeofficer"
+	orbit_icon = "briefcase"
 	extra_access = list(ACCESS_RESEARCH, ACCESS_SCIENCE)
 	extra_wildcard_access = list(ACCESS_ARMORY)
 	minimal_access = list(ACCESS_BRIG, ACCESS_CARGO, ACCESS_CONSTRUCTION, ACCESS_COURT, ACCESS_COMMAND, ACCESS_KEYCARD_AUTH,
@@ -51,6 +53,8 @@
 	template_access = list(ACCESS_CAPTAIN, ACCESS_HOP, ACCESS_CHANGE_IDS)
 	job = /datum/job/bridge_officer
 
+
+
 // Xenobiologist
 /datum/id_trim/job/xenobiologist
 	assignment = "Xenobiologist"
@@ -58,6 +62,7 @@
 	trim_state = "trim_xenobiologist"
 	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudxenobiologist"
+	orbit_icon = "biohazard"
 	extra_access = list(ACCESS_GENETICS, ACCESS_ROBOTICS, ACCESS_ORDNANCE, ACCESS_ORDNANCE_STORAGE)
 	minimal_access = list(ACCESS_MECH_SCIENCE, ACCESS_MINERAL_STOREROOM, ACCESS_RESEARCH, ACCESS_SCIENCE, ACCESS_XENOBIOLOGY,
 					ACCESS_XENOBOTANY)
