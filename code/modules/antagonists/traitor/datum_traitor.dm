@@ -37,9 +37,8 @@
 /datum/antagonist/traitor/on_gain()
 	owner.special_role = job_rank
 
-<<<<<<< HEAD
 	// NON-MODULAR CHANGE: ADV TRAITORS
-=======
+/*
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
 
@@ -70,8 +69,7 @@
 					uplink_items += item
 					continue
 		uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, -1, uplink_items)
-
->>>>>>> 54cfbcce2e6d (Replaces Traitor Greentext Objectives with Assassination/Escape Objectives (#71349))
+*/
 	if(give_objectives)
 		forge_traitor_objectives()
 
