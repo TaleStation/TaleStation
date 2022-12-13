@@ -67,27 +67,14 @@
 
 	///A mutiplication of the burn and brute damage that the limb's stored damage contributes to its attached mob's overall wellbeing.
 	var/body_damage_coeff = 1
-<<<<<<< HEAD
-	///Multiplier of the limb's stamina damage that gets applied to the mob. Why is this 0.75 by default? Good question!
-	var/stam_damage_coeff = 0.75
-=======
 	///Used in determining overlays for limb damage states. As the mob receives more burn/brute damage, their limbs update to reflect.
->>>>>>> a3e7c70f6da0 (Bodypart code cleanup, robotic limbs can actually be disabled through damage again. (#71739))
 	var/brutestate = 0
 	var/burnstate = 0
 	///The current amount of brute damage the limb has
 	var/brute_dam = 0
 	///The current amount of burn damage the limb has
 	var/burn_dam = 0
-<<<<<<< HEAD
-	///The current amount of stamina damage the limb has
-	var/stamina_dam = 0
-	///The maximum stamina damage a bodypart can take
-	var/max_stamina_damage = 0
-	///The maximum "physical" damage a bodypart can take. Set by children
-=======
 	///The maximum brute OR burn damage a bodypart can take. Once we hit this cap, no more damage of either type!
->>>>>>> a3e7c70f6da0 (Bodypart code cleanup, robotic limbs can actually be disabled through damage again. (#71739))
 	var/max_damage = 0
 
 	///Gradually increases while burning when at full damage, destroys the limb when at 100
