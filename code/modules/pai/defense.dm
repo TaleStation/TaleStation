@@ -72,13 +72,20 @@
 		to_chat(src, span_userdanger("The impact degrades your holochassis!"))
 	return amount
 
+<<<<<<< HEAD
 /mob/living/silicon/pai/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE)
 	return take_holo_damage(amount)
 
 /mob/living/silicon/pai/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE)
+=======
+/mob/living/silicon/pai/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
 	return take_holo_damage(amount)
 
-/mob/living/silicon/pai/adjustStaminaLoss(amount, updating_stamina, forced = FALSE)
+/mob/living/silicon/pai/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
+>>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
+	return take_holo_damage(amount)
+
+/mob/living/silicon/pai/adjustStaminaLoss(amount, updating_stamina, forced = FALSE, required_biotype)
 	if(forced)
 		take_holo_damage(amount)
 	else
