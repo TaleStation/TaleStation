@@ -291,3 +291,97 @@
       now once again purchase trigger guards at market rate.
   - bugfix: Romerol now successfully converts zombies into the living dead, rather
       than the uglier but still dead dead.
+2022-12-12:
+  A.C.M.O.:
+  - bugfix: Fixed the DNA Infuser's Space Carp infusion, which was not properly granting
+      its organ set bonus. Having all 4 carp organs infused now makes you space-proof
+      as expected.
+  Melbert:
+  - bugfix: Corrects the look of pinned modules
+  Rhials:
+  - admin: You can now select which type of shuttle loan offer will by made when triggering
+      the shuttle loan event.
+  ShizCalev:
+  - bugfix: Fixed a bunch of missing lattices underneath grilles on Delta.
+  TaleStationBot:
+  - qol: Changed the reputation cap of 'Legendary' on the UI to be at 1400 reputation.
+      This is the point at which you unlock Final Objectives. This is purely a visual
+      change.
+  - code_imp: there can now be more than one grey tide event running at once.
+  - bugfix: The respawn verb now alerts players if respawning is disabled
+  - refactor: The logic of how we well, render things has changed. Make an issue report
+      if anything looks funky, particularly layers. PLEASE USE YOUR EYES
+  - rscadd: Fermented drinks give mood buffs according to the stats of fermented fruit
+  - bugfix: Made the external smartfridge in the Tramstation pharmacy accessible from
+      inside.
+  - rscadd: holiday specific posters (only a few now)
+  - rscadd: forensics scanner can read id access
+  - balance: forensics scanner can detect transforming items
+  - code_imp: forensics scanner was rewritten, items can add their own data to the
+      log
+  - bugfix: Fix hypnosis, mind echo trauma, phobia trauma, hypnotic trigger trauma,
+      split personality brainwashing trauma, codeword hearing, and impure inacusiate
+      reagent all bypassing language and hearing checks.  If you try to give commands
+      to a victim in a language they don't understand, they will no longer magically
+      understand the words.
+  - bugfix: Fix sign language having accent modifications
+  - refactor: Refactored saycode to be more robust, readable, and have more unit tests.
+  - bugfix: When you examine a mecha, you should now no longer see two integrity messages.
+  - imagedel: non parallax space is now black
+  - qol: Biogenenerator biomass overlay uses sine instead of linear interpolation
+  - bugfix: Teleporters work properly now with circuits
+  - bugfix: RPED part display information
+  - bugfix: RPED incorrectly exchanging parts with the wrong tier for datum stock
+      parts
+  - bugfix: RPED unable to install datum stock parts in incomplete machine frames
+  - bugfix: RPED unable to exchange parts for newly constructed machines
+  - qol: allowed stacking machine input, output rotation via console
+  - balance: Rush Gland and Brimdust Sac can be used more frequently when implanted.
+  - balance: An implanted Brimdust Sac will stack the buff on you automatically while
+      on lavaland. Triggering the buff on the station will make you walk slower for
+      a short duration.
+  - balance: Implanted Bimrdust Sacs no longer set you on fire, nor do they explode
+      if you catch fire.
+  - bugfix: Admin removal of Heretic status no longer makes a sound.
+  - bugfix: Nanotrasen will now no longer mount the HoPline's Ticket Machines on windows
+      for Meta, IceBox, and Tram.
+  - bugfix: fixed a building a rack with telekinesis results in it being built at
+      your feet. Now it will be built at where the rack part is
+  - refactor: Refactored and overhauled the ForceEvent UI
+  - balance: Traitors now have two kill and an escape objective for Greentext purposes,
+      though completing a Final Objective will Greentext too.
+  - rscadd: Custom print button for protolathe just like the autolathe
+  - spellcheck: Improved "Steal Heirloom" objective description.
+  - bugfix: F.R.A.M.E. cartridges work again
+  - bugfix: fixe all art decal giving you bad art moodlet on examine
+  Tattle:
+  - balance: the foam used in the scrubber overflow has a lifetime of 1s instead of
+      8s
+  - bugfix: lockboxes' and wrapped crates' invisibility spell has worn off
+  - admin: investigate logs include ckey of source (if applicable)
+  Zergspower:
+  - imageadd: Containers - New Interdyne Container with new mapping default icon
+  - bugfix: Containers - unified the apperance of each one, fixed blemishes and stray
+      pixels
+  - bugfix: MetaStation - Removes stray pipe found under the courtroom door
+  - bugfix: Tram Station - Fixes the stray Disposal pipes in Medbay
+2022-12-13:
+  LT3:
+  - balance: Getting hit by the tram may now break some of your bones, or more. Be
+      careful!
+  TaleStationBot:
+  - rscdel: Removed object rotation related verbs, overwhelmingly overshadowed by
+      the click shortcuts anyway.
+  - rscadd: Tell your crew how much you care by ordering a shuttle where half of the
+      seats have been removed so that you can get some angling done before you clock
+      out.
+  - rscadd: TGUI for RCD Just like Rapid Pipe Dispenser
+  - rscadd: Radial menu for RLD
+  - code_imp: silo link upgrades for both RLD & Plumbing RCD
+  - rscdel: Switch Mode, Window Glass, Airlock action icons for construction console
+  - refactor: FURNISHING , FRAMES & SIMPLE_CIRCUITS are banned upgrades for RLD &
+      Plumbing RCD
+  - qol: creating a shard is possible
+  - bugfix: fixed Advanced Scanning Modules Calibration Experiment not registering
+      upgraded machines to its progress
+  - bugfix: Forced speech from brain damage will no longer trigger the world filter

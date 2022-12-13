@@ -21,7 +21,7 @@
 								'talestation_modules/sound/voice/radio_2.ogg' = 75)
 
 /// Extend say so we can have talking make sounds.
-/mob/living/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
+/mob/living/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)
 	. = ..()
 
 	// If say failed for some reason we should probably fail
