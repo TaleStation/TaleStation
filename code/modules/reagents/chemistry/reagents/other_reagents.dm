@@ -1023,15 +1023,9 @@
 	color = "#606060" //pure iron? let's make it violet of course
 	ph = 6
 
-<<<<<<< HEAD
 /datum/reagent/iron/on_mob_life(mob/living/carbon/C, delta_time, times_fired)
 	if((C.blood_volume < BLOOD_VOLUME_NORMAL) && !(isskrell(C))) // NON-MODULAR CHANGE - Skrell do not benefit from iron.
 		C.blood_volume += 0.25 * delta_time
-=======
-/datum/reagent/iron/on_mob_life(mob/living/carbon/affected_mob, delta_time, times_fired)
-	if(affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
-		affected_mob.blood_volume += 0.25 * delta_time
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 	..()
 
 /datum/reagent/gold

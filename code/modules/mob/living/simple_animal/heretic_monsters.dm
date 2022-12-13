@@ -205,21 +205,13 @@
 	prev.icon_state = "armsy_end"
 	prev.icon_living = "armsy_end"
 
-<<<<<<< HEAD
-/mob/living/simple_animal/hostile/heretic_summon/armsy/adjustBruteLoss(amount, updating_health, forced)
-=======
 /mob/living/simple_animal/hostile/heretic_summon/armsy/adjustBruteLoss(amount, updating_health, forced, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 	if(back)
 		return back.adjustBruteLoss(amount, updating_health, forced)
 
 	return ..()
 
-<<<<<<< HEAD
-/mob/living/simple_animal/hostile/heretic_summon/armsy/adjustFireLoss(amount, updating_health, forced)
-=======
 /mob/living/simple_animal/hostile/heretic_summon/armsy/adjustFireLoss(amount, updating_health, forced, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 	if(back)
 		return back.adjustFireLoss(amount, updating_health, forced)
 

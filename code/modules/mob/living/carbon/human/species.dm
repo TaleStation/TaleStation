@@ -1691,11 +1691,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		// Very high pressure, show an alert and take damage
 		if(HAZARD_HIGH_PRESSURE to INFINITY)
 			if(!HAS_TRAIT(H, TRAIT_RESISTHIGHPRESSURE))
-<<<<<<< HEAD
-				H.adjustBruteLoss(min(((adjusted_pressure / HAZARD_HIGH_PRESSURE) - 1) * PRESSURE_DAMAGE_COEFFICIENT, MAX_HIGH_PRESSURE_DAMAGE) * H.physiology.pressure_mod * delta_time)
-=======
 				H.adjustBruteLoss(min(((adjusted_pressure / HAZARD_HIGH_PRESSURE) - 1) * PRESSURE_DAMAGE_COEFFICIENT, MAX_HIGH_PRESSURE_DAMAGE) * H.physiology.pressure_mod * delta_time, required_bodytype = BODYTYPE_ORGANIC)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 				H.throw_alert(ALERT_PRESSURE, /atom/movable/screen/alert/highpressure, 2)
 			else
 				H.clear_alert(ALERT_PRESSURE)
@@ -1726,11 +1722,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				H.adjustBruteLoss(LOW_PRESSURE_DAMAGE * H.physiology.pressure_mod * delta_time)
 =======
 				H.adjustBruteLoss(LOW_PRESSURE_DAMAGE * H.physiology.pressure_mod * delta_time, required_bodytype = BODYTYPE_ORGANIC)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
-				H.throw_alert(ALERT_PRESSURE, /atom/movable/screen/alert/lowpressure, 2)
-
-
-//////////
 // FIRE //
 //////////
 

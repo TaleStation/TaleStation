@@ -58,59 +58,33 @@
 	if(!forced && (status_flags & GODMODE))
 		return FALSE
 	if(amount > 0)
-<<<<<<< HEAD
-		take_overall_damage(amount, 0, 0, updating_health, required_status)
-	else
-		heal_overall_damage(abs(amount), 0, required_status ? required_status : BODYTYPE_ORGANIC, updating_health)
-	return amount
-
-/mob/living/carbon/setBruteLoss(amount, updating_health = TRUE, forced = FALSE)
-=======
 		take_overall_damage(amount, 0, updating_health, required_bodytype)
 	else
 		heal_overall_damage(abs(amount), 0, required_bodytype, updating_health)
 	return amount
 
 /mob/living/carbon/setBruteLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 	var/current = getBruteLoss()
 	var/diff = amount - current
 	if(!diff)
 		return
-<<<<<<< HEAD
-	adjustBruteLoss(diff, updating_health, forced)
-=======
 	adjustBruteLoss(diff, updating_health, forced, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 
 /mob/living/carbon/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
 	if(!forced && (status_flags & GODMODE))
 		return FALSE
 	if(amount > 0)
-<<<<<<< HEAD
-		take_overall_damage(0, amount, 0, updating_health, required_status)
-	else
-		heal_overall_damage(0, abs(amount), required_status ? required_status : BODYTYPE_ORGANIC, updating_health)
-	return amount
-
-/mob/living/carbon/setFireLoss(amount, updating_health = TRUE, forced = FALSE)
-=======
 		take_overall_damage(0, amount, updating_health, required_bodytype)
 	else
 		heal_overall_damage(0, abs(amount), required_bodytype, updating_health)
 	return amount
 
 /mob/living/carbon/setFireLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 	var/current = getFireLoss()
 	var/diff = amount - current
 	if(!diff)
 		return
-<<<<<<< HEAD
-	adjustFireLoss(diff, updating_health, forced)
-=======
 	adjustFireLoss(diff, updating_health, forced, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 
 /mob/living/carbon/adjustToxLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype)
 	if(required_biotype && !(mob_biotypes & required_biotype))
@@ -287,11 +261,7 @@
 		var/burn_was = picked.burn_dam
 
 
-<<<<<<< HEAD
-		update |= picked.receive_damage(brute_per_part, burn_per_part, FALSE, required_status, wound_bonus = CANT_WOUND) // disabling wounds from these for now cuz your entire body snapping cause your heart stopped would suck
-=======
 		update |= picked.receive_damage(brute_per_part, burn_per_part, FALSE, updating_health, required_bodytype, wound_bonus = CANT_WOUND) // disabling wounds from these for now cuz your entire body snapping cause your heart stopped would suck
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 
 		brute = round(brute - (picked.brute_dam - brute_was), DAMAGE_PRECISION)
 		burn = round(burn - (picked.burn_dam - burn_was), DAMAGE_PRECISION)

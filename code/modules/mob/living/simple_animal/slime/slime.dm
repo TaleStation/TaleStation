@@ -241,11 +241,7 @@
 			. += "Power Level: [powerlevel]"
 
 
-<<<<<<< HEAD
-/mob/living/simple_animal/slime/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE)
-=======
 /mob/living/simple_animal/slime/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
->>>>>>> a847f0970cde (Fix: Robotic Damage / Reagents Refactor (#71937))
 	if(!forced)
 		amount = -abs(amount)
 	return ..() //Heals them
