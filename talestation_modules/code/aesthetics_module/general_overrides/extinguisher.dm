@@ -15,6 +15,7 @@
 // This stuff will be nuked in time
 /obj/item/extinguisher/crafted
 	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+	icon_state = "coolant0"
 
 /obj/structure/extinguisher_cabinet/Initialize(mapload, ndir, building)
 	. = ..()
