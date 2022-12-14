@@ -245,6 +245,7 @@
 /obj/structure/closet/crate/resource_cache/lizard_things
 	name = "\improper lizard empire trade goods"
 	desc = "A rough hide crate. This one was made by the Lizard Empire, and contains various trade goods of their people."
+	icon = 'icons/obj/storage/crates.dmi'
 	icon_state = "necrocrate"
 	resources = list(
 		/obj/item/stack/sheet/sinew = 5,
