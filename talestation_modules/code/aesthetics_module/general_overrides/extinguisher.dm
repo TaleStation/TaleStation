@@ -33,13 +33,3 @@
 			icon_state = "extinguisher_standard_open"
 	else
 		icon_state = "extinguisher_empty_open"
-
-/obj/item/extinguisher/Initialize(mapload)
-	. = ..()
-	random_overlay = rand(1, 6)
-	update_icon()
-
-/obj/item/extinguisher/update_overlays()
-	. = ..()
-	if(!istype(src, /obj/item/extinguisher/mini) && !istype(src, /obj/item/extinguisher/advanced))
-		. += "ex_overlay_[random_overlay]"
