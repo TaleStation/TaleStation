@@ -11,6 +11,11 @@
 	icon = 'talestation_modules/icons/obj/extinguisher.dmi'
 	var/random_overlay = 0
 
+// I have mega overrides but c'est la vie
+// This stuff will be nuked in time
+/obj/item/extinguisher/crafted
+	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+
 /obj/structure/extinguisher_cabinet/Initialize(mapload, ndir, building)
 	. = ..()
 	update_icon()
