@@ -21,7 +21,7 @@
 		SEND_SIGNAL(src, COMSIG_N2O_BREATHED, n2o_pp)
 
 /obj/item/organ/internal/lungs/Initialize()
-	..()
+	. = ..()
 	RegisterSignal(src, COMSIG_ANESTHETIC, PROC_REF(check_anesthetic))
 
 /obj/item/bodypart
