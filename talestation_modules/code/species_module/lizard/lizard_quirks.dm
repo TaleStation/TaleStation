@@ -1,4 +1,13 @@
 // Lizard perks for TGUI
+/datum/species/lizard/get_species_description()
+	return "Work in Progress."
+
+/datum/species/lizard/get_species_lore()
+	return list(
+		"Work in Progress.",
+	)
+
+
 /datum/species/lizard/create_pref_unique_perks()
 	var/list/to_add = list()
 

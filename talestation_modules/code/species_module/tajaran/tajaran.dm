@@ -20,6 +20,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
+		TRAIT_NIGHT_VISION,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_LITERATE,
 	)
@@ -78,7 +79,8 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 // Tajaran species preview in tgui
 /datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	human_for_preview.hair_color = "#918787"
+	human_for_preview.hairstyle = "Business Hair"
+	human_for_preview.hair_color = "#504444"
 	human_for_preview.dna.features["mcolor"] = COLOR_GRAY
 	human_for_preview.dna.features["ears"] = "Tajaran"
 
