@@ -25,6 +25,18 @@
 			SPECIES_PERK_DESC = "Unfortunately, due to Tajarans thick fur, they're prone to overheating easier.",
 	))
 
+	return to_add
+
+/datum/species/tajaran/create_pref_unique_perks()
+	var/list/to_add = list()
+
+	to_add += list(list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "eye",
+			SPECIES_PERK_NAME = "Adapted Eyes",
+			SPECIES_PERK_DESC = "Tajarans have special, adapted eyes that enable them to see better in the dark!.",
+	))
+
 	to_add += list(list(
 			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 			SPECIES_PERK_ICON = "fish",

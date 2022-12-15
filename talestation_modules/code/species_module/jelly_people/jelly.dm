@@ -9,11 +9,11 @@
 	. = ..()
 	species_traits += list(HAIR, FACEHAIR)
 
-/datum/species/jelly/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = sanitize_hexcolor(COLOR_PINK)
-	human.hairstyle = "Bob Hair 2"
-	human.hair_color = "mutcolor"
+/datum/species/jelly/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	human_for_preview.dna.features["mcolor"] = sanitize_hexcolor(COLOR_PINK)
+	human_for_preview.hairstyle = "Bob Hair 2"
+	human_for_preview.hair_color = "mutcolor"
 
-	human.update_hair()
-	human.update_body()
-	human.update_body_parts(update_limb_data = TRUE)
+	human_for_preview.update_hair()
+	human_for_preview.update_body()
+	human_for_preview.update_body_parts(update_limb_data = TRUE)
