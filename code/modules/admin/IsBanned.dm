@@ -43,7 +43,7 @@
 					addclientmessage(ckey,span_adminnotice("You have been allowed to bypass the whitelist"))
 			else
 				log_access("Failed Login: [key] - Not on whitelist")
-				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
+				return list("reason"="whitelist", "desc" = "\nReason: You must be whitelisted to play here. To whitelist, apply on our Discord; discord.gg/24Q2rKzgR3") // NON-MODULAR CHANGES: Yeah I don't know chief
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))
