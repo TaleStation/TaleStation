@@ -4,9 +4,10 @@
 
 // Flavor text panel itself
 /datum/examine_panel
-	var/mob/living/holder //client of whoever is using this datum
-	var/atom/movable/screen/examine_panel_dummy/dummy_holder
-	var/atom/movable/screen/examine_panel_dummy/examine_panel_screen
+	/// Mob that the examine panel belongs to.
+	var/mob/living/holder
+	/// The screen containing the appearance of the mob
+	var/atom/movable/screen/map_view/examine_panel_screen/examine_panel_screen
 
 /datum/examine_panel/ui_state(mob/user)
 	return GLOB.always_state
@@ -14,28 +15,31 @@
 /datum/examine_panel/ui_close(mob/user)
 	user.client.clear_map(examine_panel_screen.assigned_map)
 
-// Creates a dummy for the flavor text panel
-/atom/movable/screen/examine_panel_dummy
-	name = "examine panel dummy"
-
-/datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "ExaminePanel")
-		ui.open()
+/atom/movable/screen/map_view/examine_panel_screen
+	name = "examine panel screen"
 
 /datum/examine_panel/ui_interact(mob/user, datum/tgui/ui)
 	if(!examine_panel_screen)
 		examine_panel_screen = new
-		var/mutable_appearance/current_mob_appearance = new(user)
-		current_mob_appearance.setDir(SOUTH)
-		examine_panel_screen.add_overlay(current_mob_appearance)
 		examine_panel_screen.name = "screen"
 		examine_panel_screen.assigned_map = "examine_panel_[REF(holder)]_map"
 		examine_panel_screen.del_on_map_removal = FALSE
 		examine_panel_screen.screen_loc = "[examine_panel_screen.assigned_map]:1,1"
+
+	var/mutable_appearance/current_mob_appearance = new(holder)
+	current_mob_appearance.setDir(SOUTH)
+	current_mob_appearance.transform = matrix() // We reset their rotation, in case they're lying down.
+
+	// In case they're pixel-shifted, we bring 'em back!
+	current_mob_appearance.pixel_x = 0
+	current_mob_appearance.pixel_y = 0
+
+	examine_panel_screen.cut_overlays()
+	examine_panel_screen.add_overlay(current_mob_appearance)
+
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
+		examine_panel_screen.display_to(user)
 		user.client.register_map_obj(examine_panel_screen)
 		ui = new(user, src, "ExaminePanel")
 		ui.open()
