@@ -25,7 +25,7 @@
 	paycheck_department = ACCOUNT_SEC
 	bounty_types = CIV_JOB_SEC
 
-	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM) // QM normally has this, but since they're a head of staff now I put it here. C'est la vie.
+	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_ASSET_PROTECTION
 	department_for_prefs = /datum/job_department/command
@@ -43,10 +43,10 @@
 		/obj/item/food/donut/berry = 5,
 		/obj/item/food/donut/matcha = 5,
 		/obj/item/storage/fancy/donut_box = 1,
-		/obj/item/melee/baton/security/boomerang/loaded = 1
+		/obj/item/melee/baton/security/boomerang/loaded = 1,
 	)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_BOLD_SELECT_TEXT | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
 	voice_of_god_power = 1.2 // Not quite command staff.
 	rpg_title = "Paladin"
 
@@ -74,3 +74,41 @@
 	// If the map we're on doesn't have a ap locker, add in a way to get one
 	if(!(locate(/obj/effect/landmark/locker_spawner/asset_protection_equipment) in GLOB.locker_landmarks))
 		LAZYADD(backpack_contents, /obj/item/locker_spawner/asset_protection)
+
+// PDA
+/obj/item/modular_computer/pda/heads/ap
+	name = "asset protections PDA"
+	greyscale_config = /datum/greyscale_config/tablet/head
+	greyscale_colors = "#d91a40#3F1514"
+
+// Headset encryption key
+/obj/item/encryptionkey/heads/hos/asset_protection
+	name = "\proper the asset protection's encryption key"
+	channels = list(RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
+
+// Headsets
+/obj/item/radio/headset/heads/asset_protection
+	name = "\proper the asset protection officer's headset"
+	desc = "The headset of the man or woman in charge of assisting and protecting the heads of staff."
+	icon_state = "com_headset"
+	keyslot = new /obj/item/encryptionkey/heads/hos/asset_protection
+
+// Asset Protection's bowman
+/obj/item/radio/headset/heads/asset_protection/alt
+	name = "\proper the asset protection officer's bowman headset"
+	desc = "The headset of the man or woman in charge of assisting and protecting the heads of staff. Protects ears from flashbangs."
+	icon_state = "com_headset_alt"
+
+/obj/item/radio/headset/heads/asset_protection/alt/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
+
+// Locker summoner
+/obj/item/locker_spawner/asset_protection
+	name = "asset protection equipment beacon"
+	desc = "A beacon handed out for stalwart asset protection officers being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when protecting the command staff of Nanotrasen research stations."
+	requires_job_path = /datum/job/asset_protection
+	spawned_locker_path = /obj/structure/closet/secure_closet/asset_protection
+	icon_state = "gangtool-blue"

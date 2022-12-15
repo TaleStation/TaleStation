@@ -25,7 +25,7 @@
 	paycheck_department = ACCOUNT_SRV
 	bounty_types = CIV_JOB_RANDOM
 
-	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM) // QM normally has this, but since they're a head of staff now I put it here. C'est la vie.
+	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_BRIDGE_OFFICER
 	department_for_prefs = /datum/job_department/command
@@ -50,7 +50,7 @@
 		/obj/item/storage/box/office_supplies = 1,
 	)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS
 	rpg_title = "Guildperson"
 
 /datum/outfit/job/bridge_officer
@@ -91,3 +91,31 @@
 			r_pocket = /obj/item/assembly/flash/memorizer
 		else
 			r_pocket = /obj/item/assembly/flash
+
+// PDA
+/obj/item/modular_computer/pda/heads/bo
+	name = "bridge officer PDA"
+	greyscale_config = /datum/greyscale_config/tablet/head
+	greyscale_colors = "#99ccff#000099"
+
+// Headset encryption key
+/obj/item/encryptionkey/heads/hop/bridge_officer
+	name = "\proper the bridge officer's encryption key"
+	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_COMMAND = 1)
+
+// Headsets
+/obj/item/radio/headset/heads/bridge_officer
+	name = "\proper the bridge officer's headset"
+	desc = "The headset of the man or woman in charge of filing paperwork for the heads of staff."
+	icon_state = "com_headset"
+	keyslot = new /obj/item/encryptionkey/heads/hop/bridge_officer
+
+// Locker summoner
+/obj/item/locker_spawner/bridge_officer
+	name = "bridge officer equipment beacon"
+	desc = "A beacon handed out for enterprising bridge officers being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when manning the bridge of Nanotrasen research stations."
+	requires_job_path = /datum/job/bridge_officer
+	spawned_locker_path = /obj/structure/closet/secure_closet/bridge_officer
+	icon_state = "gangtool-blue"

@@ -42,3 +42,18 @@
 	// If the map we're on doesn't have a xenobotany locker, add in a way to get one
 	if(!(locate(/obj/effect/landmark/locker_spawner/xenobotany_equipment) in GLOB.locker_landmarks))
 		LAZYADD(backpack_contents, /obj/item/locker_spawner/xenobotany)
+
+// PDA
+/obj/item/modular_computer/pda/science/xenobiologist
+	name = "xenobiologist PDA"
+	greyscale_colors = "#e2e2e2#000099#6eaec8"
+
+// Locker summoner
+/obj/item/locker_spawner/xenobotany
+	name = "xenobotany equipment beacon"
+	desc = "A beacon handed out for upcoming xenobiologists being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when you want to overrun the station with kuduz, the botanist way."
+	requires_job_path = /datum/job/scientist
+	spawned_locker_path = /obj/structure/closet/secure_closet/xeno_botany
+	icon_state = "gangtool-purple"

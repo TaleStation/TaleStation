@@ -1,3 +1,8 @@
+// -- Infiltrator Job Datum --
+/datum/job/infiltrator
+	title = ROLE_INFILTRATOR
+	faction_alignment = JOB_SYNDICATE
+
 // -- Syndicate job definitions. --
 /datum/job/lavaland_syndicate
 	faction_alignment = JOB_SYNDICATE
