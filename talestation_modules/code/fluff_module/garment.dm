@@ -26,6 +26,7 @@
 	new /obj/item/clothing/head/beret/black/bridge_officer(src)
 	new /obj/item/clothing/glasses/sunglasses/gar(src)
 	new /obj/item/clothing/suit/armor/vest/bridge_officer(src)
+	new /obj/item/radio/headset/heads/bridge_officer(src)
 
 /obj/item/storage/bag/garment/asset_protection
 	name = "asset protection officer's garment bag"
@@ -41,6 +42,9 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/gars(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch(src)
+	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
+	new /obj/item/radio/headset/heads/asset_protection(src)
+	new /obj/item/radio/headset/heads/asset_protection/alt (src)
 
 // This here's a special subtype that'll vacuum up all clothing items in the locker and put it in the bag roundstart.
 /obj/item/storage/bag/garment/magic

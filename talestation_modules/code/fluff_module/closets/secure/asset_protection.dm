@@ -9,8 +9,6 @@
 
 /obj/structure/closet/secure_closet/asset_protection/PopulateContents()
 	new /obj/item/storage/bag/garment/asset_protection(src)
-	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
-	new /obj/item/radio/headset/heads/asset_protection(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/storage/photo_album/ap(src)

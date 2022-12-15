@@ -58,7 +58,7 @@
 	belt = /obj/item/modular_computer/pda/heads/ap
 	ears = /obj/item/radio/headset/heads/asset_protection/alt
 	glasses = /obj/item/clothing/glasses/sunglasses
-	neck = /obj/item/clothing/neck/tie/black
+	neck = /obj/item/clothing/neck/tie/black/tied
 	gloves = /obj/item/clothing/gloves/color/black
 	uniform = /obj/item/clothing/under/rank/security/officer/blueshirt/asset_protection
 	shoes = /obj/item/clothing/shoes/jackboots
