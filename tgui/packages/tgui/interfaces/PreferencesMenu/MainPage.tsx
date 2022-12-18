@@ -221,6 +221,17 @@ const GenderButton = (
   );
 };
 
+// NON-MODULAR CHANGES: Loadouts
+const LoadoutsButton = (context) => {
+  const { act, data } = useBackend(context);
+  <Button
+    onClick={() => act('open_loadout_manager')}
+    icon="briefcase"
+    tooltip="Loadouts"
+    tooltipPosition="top"
+  />;
+};
+
 const MainFeature = (
   props: {
     catalog: FeatureChoicedServerData & {
