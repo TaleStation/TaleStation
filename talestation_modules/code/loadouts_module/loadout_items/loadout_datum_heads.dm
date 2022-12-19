@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	item_path = /obj/item/clothing/head/costume/rabbitears
 
 /datum/loadout_item/head/bandana
-	name = "Bandana"
+	name = "Pirate Bandana"
 	item_path = /obj/item/clothing/head/costume/pirate/bandana
 
 /datum/loadout_item/head/rastafarian
@@ -219,3 +219,31 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
 	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
+
+/datum/loadout_item/head/pirate_hat
+	name = "Pirate Hat"
+	item_path = /obj/item/clothing/head/costume/pirate
+
+/datum/loadout_item/head/sherrif_hat
+	name = "Sheriff Hat"
+	item_path = /obj/item/clothing/head/cowboy/brown
+
+/datum/loadout_item/head/deputy_hat
+	name = "Deputy Hat"
+	item_path = /obj/item/clothing/head/cowboy/red
+
+/datum/loadout_item/head/desperado_hat
+	name = "Desperado Hat"
+	item_path = /obj/item/clothing/head/cowboy/black
+
+/datum/loadout_item/head/sombrero_green
+	name = "Sombrero"
+	item_path = /obj/item/clothing/head/costume/sombrero/green
+
+/datum/loadout_item/head/snowman_hat
+	name = "Snowman Head Piece"
+	item_path = /obj/item/clothing/head/costume/snowman
+
+/datum/loadout_item/head/jackbros_hat
+	name = "Frosty Hat"
+	item_path = /obj/item/clothing/head/costume/jackbros

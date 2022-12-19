@@ -74,6 +74,18 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Lollipop"
 	item_path = /obj/item/food/lollipop
 
+/datum/loadout_item/mask/owl_mask
+	name = "Owl Mask"
+	item_path = /obj/item/clothing/mask/gas/owl_mask
+
+/datum/loadout_item/mask/griffin_mask
+	name = "Griffin Mask"
+	item_path = /obj/item/clothing/head/costume/griffin
+
+/datum/loadout_item/mask/whistle
+	name = "Whistle"
+	item_path = /obj/item/clothing/mask/whistle
+
 ///datum/loadout_item/mask/gum
 	//name = "Gum"
 	//item_path = /obj/item/food/bubblegum

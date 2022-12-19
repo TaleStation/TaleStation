@@ -453,3 +453,30 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/pj_blue
 	name = "Blue PJs"
 	item_path = /obj/item/clothing/under/misc/pj/blue
+/datum/loadout_item/under/miscellaneous/nurse_outfit
+	name = "Nurse Oufit"
+	item_path = /obj/item/clothing/under/rank/medical/doctor/nurse
+
+/datum/loadout_item/under/miscellaneous/owl_costume
+	name = "Owl Costume"
+	item_path = /obj/item/clothing/under/costume/owl
+
+/datum/loadout_item/under/miscellaneous/griffin_costume
+	name = "Griffin Costume"
+	item_path = /obj/item/clothing/under/costume/griffin
+
+/datum/loadout_item/under/miscellaneous/pirate_costume
+	name = "First Mate Costume"
+	item_path = /obj/item/clothing/under/costume/pirate
+
+/datum/loadout_item/under/miscellaneous/ref
+	name = "Referee Outfit"
+	item_path = /obj/item/clothing/under/costume/referee
+
+/datum/loadout_item/under/miscellaneous/jackbros_outfit
+	name = "Jack Bros Outfit"
+	item_path = /obj/item/clothing/under/costume/jackbros
+
+/datum/loadout_item/under/miscellaneous/deckers_outfit
+	name = "Deckers Outfit"
+	item_path = /obj/item/clothing/under/costume/deckers

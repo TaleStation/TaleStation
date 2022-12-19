@@ -136,3 +136,23 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/grass_skirt
 	name = "Grass Skirt"
 	item_path = /obj/item/clothing/suit/grasskirt
+
+/datum/loadout_item/suit/owl_wings
+	name = "Owl Wings"
+	item_path = /obj/item/clothing/suit/toggle/owlwings
+
+/datum/loadout_item/suit/griffin_wings
+	name = "Griffin Wings"
+	item_path = /obj/item/clothing/suit/toggle/owlwings/griffinwings
+
+/datum/loadout_item/suit/pirate_suit
+	name = "Pirate Coat"
+	item_path = /obj/item/clothing/suit/costume/pirate
+
+/datum/loadout_item/suit/snowman_costume
+	name = "Snowman Costume"
+	item_path = /obj/item/clothing/suit/costume/snowman
+
+/datum/loadout_item/suit/henchmen_suit
+	name = "Henchmen Suit"
+	item_path = /obj/item/clothing/under/suit/henchmen

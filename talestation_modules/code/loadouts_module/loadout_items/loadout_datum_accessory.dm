@@ -78,3 +78,13 @@ GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/a
 	name = "Heirloom Skull Codpiece"
 	item_path = /obj/item/clothing/accessory/armorless_skullcodpiece
 	additional_tooltip_contents = list(TOOLTIP_NO_ARMOR)
+
+/datum/loadout_item/accessory/sheriff_vest
+	name = "Sheriff Vest"
+	item_path = /obj/item/clothing/accessory/vest_sheriff
+
+/* NOTE: Our Loadouts currently do not give players back their items, and more importantly, this is a backpack item
+/datum/loadout_item/accessory/henchmen_wings
+	name = "Henchmen Wings"
+	item_path = /obj/item/storage/backpack/henchmen
+*/
