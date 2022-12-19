@@ -156,3 +156,27 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/henchmen_suit
 	name = "Henchmen Suit"
 	item_path = /obj/item/clothing/under/suit/henchmen
+
+/datum/loadout_item/suit/imperium_monk
+	name = "Imperium Monk Outfit"
+	item_path = /obj/item/clothing/suit/costume/imperium_monk
+
+/datum/loadout_item/suit/holiday_priest
+	name = "Holiday Priest Outfit"
+	item_path = /obj/item/clothing/suit/chaplainsuit/holidaypriest
+
+/datum/loadout_item/suit/white_robes
+	name = "White Robes"
+	item_path = /obj/item/clothing/suit/chaplainsuit/whiterobe
+
+/datum/loadout_item/suit/witch_robes
+	name = "Witch Robes"
+	item_path = /obj/item/clothing/suit/wizrobe/marisa/fake
+
+/datum/loadout_item/suit/wizard_robes
+	name = "Wizard Robes"
+	item_path = /obj/item/clothing/suit/wizrobe/fake
+
+/datum/loadout_item/suit/maiden_outfit
+	name = "Shrine Maiden Outfit"
+	item_path = /obj/item/clothing/suit/costume/shrine_maiden

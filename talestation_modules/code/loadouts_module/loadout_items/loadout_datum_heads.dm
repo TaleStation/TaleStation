@@ -247,3 +247,19 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/jackbros_hat
 	name = "Frosty Hat"
 	item_path = /obj/item/clothing/head/costume/jackbros
+
+/datum/loadout_item/head/marisa_hat
+	name = "Witch Hat"
+	item_path = /obj/item/clothing/head/wizard/marisa/fake
+
+/datum/loadout_item/head/witch_hat_wig
+	name = "Witch Hat with Wig"
+	item_path = /obj/item/clothing/head/costume/witchwig
+
+/datum/loadout_item/head/wizard_hat
+	name = "Wizard Hat"
+	item_path = /obj/item/clothing/head/wizard/fake
+
+/datum/loadout_item/head/maiden_wig
+	name = "Shrine Madien Wig"
+	item_path = /obj/item/clothing/head/costume/shrine_wig
