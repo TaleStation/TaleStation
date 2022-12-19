@@ -86,6 +86,14 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Whistle"
 	item_path = /obj/item/clothing/mask/whistle
 
+/datum/loadout_item/mask/sexy_clown_mask
+	name = "Sexy Clown Mask"
+	item_path = /obj/item/clothing/mask/gas/sexyclown
+
+/datum/loadout_item/mask/sexy_mime_mask
+	name = "Sexy Mime Mask"
+	item_path = /obj/item/clothing/mask/gas/sexymime
+
 ///datum/loadout_item/mask/gum
 	//name = "Gum"
 	//item_path = /obj/item/food/bubblegum

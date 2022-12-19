@@ -480,3 +480,55 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/deckers_outfit
 	name = "Deckers Outfit"
 	item_path = /obj/item/clothing/under/costume/deckers
+
+/datum/loadout_item/under/miscellaneous/blue_clown
+	name = "Blue Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/blue
+
+/datum/loadout_item/under/miscellaneous/green_clown
+	name = "Green Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/green
+
+/datum/loadout_item/under/miscellaneous/yellow_clown
+	name = "Yellow Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/yellow
+
+/datum/loadout_item/under/miscellaneous/orange_clown
+	name = "Orange Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/orange
+
+/datum/loadout_item/under/miscellaneous/purple_clown
+	name = "Purple Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/purple
+
+/datum/loadout_item/under/miscellaneous/sexy_clown_outfit
+	name = "Sexy Clown Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/sexy
+
+/datum/loadout_item/under/miscellaneous/sexy_mime_outfit
+	name = "Sexy Mime Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/mime/sexy
+
+/datum/loadout_item/under/miscellaneous/sexy_mime_skirt
+	name = "Sexy Mime Skirt"
+	item_path = /obj/item/clothing/under/rank/civilian/mime/skirt
+
+/datum/loadout_item/under/miscellaneous/jester_outfit
+	name = "Jester Outfit"
+	item_path = /obj/item/clothing/under/rank/civilian/clown/jester
+
+/datum/loadout_item/under/miscellaneous/robbie_rotten_outfit
+	name = "Villain Outfit"
+	item_path = /obj/item/clothing/under/costume/villain
+
+/datum/loadout_item/under/miscellaneous/comedian_outfit
+	name = "Comedian Outfit"
+	item_path = /obj/item/clothing/under/costume/joker
+
+/datum/loadout_item/under/miscellaneous/preformers_outfit_yellow
+	name = "Yellow Preformer's Outfit"
+	item_path = /obj/item/clothing/under/costume/singer/yellow
+
+/datum/loadout_item/under/miscellaneous/preformers_outfit_blue
+	name = "Blue Preformer's Outfit"
+	item_path = /obj/item/clothing/under/costume/singer/blue

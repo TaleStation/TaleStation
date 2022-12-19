@@ -180,3 +180,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/maiden_outfit
 	name = "Shrine Maiden Outfit"
 	item_path = /obj/item/clothing/suit/costume/shrine_maiden
+
+/datum/loadout_item/suit/comedian_coat
+	name = "Comedian Coat"
+	item_path = /obj/item/clothing/suit/costume/joker

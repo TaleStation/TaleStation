@@ -263,3 +263,11 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/maiden_wig
 	name = "Shrine Madien Wig"
 	item_path = /obj/item/clothing/head/costume/shrine_wig
+
+/datum/loadout_item/head/jester_hat
+	name = "Jester Hat"
+	item_path = /obj/item/clothing/head/costume/jester
+
+/datum/loadout_item/head/cueball_hat
+	name = "Cueball Hat"
+	item_path = /obj/item/clothing/head/costume/cueball
