@@ -44,9 +44,6 @@
 
 // Aesthetics stuff
 
-/obj/structure/closet/crate
-	icon = 'talestation_modules/icons/obj/crates.dmi'
-
 /obj/structure/big_delivery
 	icon = 'talestation_modules/icons/obj/crates.dmi'
 
