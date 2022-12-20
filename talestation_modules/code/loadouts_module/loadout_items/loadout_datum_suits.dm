@@ -212,3 +212,7 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/corgi_costume
 	name = "Corgi Costume"
 	item_path = /obj/item/clothing/suit/hooded/ian_costume
+
+/datum/loadout_item/suit/apron
+	name = "Apron"
+	item_path = /obj/item/clothing/suit/apron

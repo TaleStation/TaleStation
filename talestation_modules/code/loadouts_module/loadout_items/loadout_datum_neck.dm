@@ -97,3 +97,7 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 /datum/loadout_item/neck/stethoscope
 	name = "Stethoscope"
 	item_path = /obj/item/clothing/neck/stethoscope
+
+/datum/loadout_item/neck/maid_neck_cover
+	name = "Maid Neck Cover"
+	item_path = /obj/item/clothing/neck/maid
