@@ -279,3 +279,8 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/maid_headband
 	name = "Maid Headband"
 	item_path = /obj/item/clothing/head/costume/maidheadband
+
+/datum/loadout_item/head/wig
+	name = "Wig"
+	item_path = /obj/item/clothing/head/wig/random
+	additional_tooltip_contents = list("This wig is randomized when you get it. Stylize it to your hearts content!")

@@ -137,6 +137,23 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 /datum/loadout_item/mask/horse_mask
 	name = "Horse Mask"
 	item_path = /obj/item/clothing/mask/animal/horsehead
-///datum/loadout_item/mask/gum
-	//name = "Gum"
-	//item_path = /obj/item/food/bubblegum
+
+/datum/loadout_item/mask/cyborg_visor
+	name = "Cyborg Visor"
+	item_path = /obj/item/clothing/mask/gas/cyborg
+
+/datum/loadout_item/mask/prop_gas_mask
+	name = "Prop Gas Mask"
+	item_path = /obj/item/clothing/mask/gas/prop
+
+/datum/loadout_item/mask/prop_atmos_mask
+	name = "Prop Atmospheric Gas Mask"
+	item_path = /obj/item/clothing/mask/gas/atmosprop
+
+/datum/loadout_item/mask/tribal_mask
+	name = "Tribal Mask"
+	item_path = /obj/item/clothing/mask/animal/small/tribal
+
+/datum/loadout_item/mask/bubblegum
+	name = "Bubblegum"
+	item_path = /obj/item/food/bubblegum
