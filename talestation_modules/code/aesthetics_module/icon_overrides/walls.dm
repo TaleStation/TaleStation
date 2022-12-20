@@ -2,7 +2,6 @@
 
 /turf/closed/wall
 	icon = 'talestation_modules/icons/turf/walls/wall.dmi'
-	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_AIRLOCK)
 
 /turf/closed/wall/r_wall
 	icon = 'talestation_modules/icons/turf/walls/reinforced_wall.dmi'
