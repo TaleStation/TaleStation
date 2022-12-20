@@ -271,3 +271,7 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 /datum/loadout_item/head/cueball_hat
 	name = "Cueball Hat"
 	item_path = /obj/item/clothing/head/costume/cueball
+
+/datum/loadout_item/head/chicken_suit_head
+	name = "Chicken Suit Head"
+	item_path = /obj/item/clothing/head/costume/chicken

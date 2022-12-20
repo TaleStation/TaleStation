@@ -532,3 +532,27 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/miscellaneous/preformers_outfit_blue
 	name = "Blue Preformer's Outfit"
 	item_path = /obj/item/clothing/under/costume/singer/blue
+
+/datum/loadout_item/under/miscellaneous/captains_suit
+	name = "Captains Suit"
+	item_path = /obj/item/clothing/under/rank/captain/suit
+
+/datum/loadout_item/under/miscellaneous/captains_suit_skirt
+	name = "Captains Suit Skirt"
+	item_path = /obj/item/clothing/under/rank/captain/suit/skirt
+
+/datum/loadout_item/under/miscellaneous/school_uniform_blue
+	name = "Blue Schoolgirl Uniform"
+	item_path = /obj/item/clothing/under/costume/schoolgirl
+
+/datum/loadout_item/under/miscellaneous/school_uniform_red
+	name = "Red Schoolgirl Uniform"
+	item_path = /obj/item/clothing/under/costume/schoolgirl/red
+
+/datum/loadout_item/under/miscellaneous/school_uniform_green
+	name = "Green Schoolgirl Uniform"
+	item_path = /obj/item/clothing/under/costume/schoolgirl/green
+
+/datum/loadout_item/under/miscellaneous/school_uniform_orange
+	name = "Orange Schoolgirl Uniform"
+	item_path = /obj/item/clothing/under/costume/schoolgirl/orange

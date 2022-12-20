@@ -69,6 +69,11 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 	name = "Zebra Scarf"
 	item_path = /obj/item/clothing/neck/scarf/zebra
 
+/datum/loadout_item/neck/necktie
+	name = "Necktie"
+	can_be_greyscale = TRUE
+	item_path = /obj/item/clothing/neck/tie
+
 /datum/loadout_item/neck/necktie_black
 	name = "Black Necktie"
 	item_path = /obj/item/clothing/neck/tie/black

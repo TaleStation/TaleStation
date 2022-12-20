@@ -94,6 +94,49 @@ GLOBAL_LIST_INIT(loadout_masks, generate_loadout_items(/datum/loadout_item/mask)
 	name = "Sexy Mime Mask"
 	item_path = /obj/item/clothing/mask/gas/sexymime
 
+/datum/loadout_item/mask/bat_mask
+	name = "Bat Mask"
+	item_path = /obj/item/clothing/mask/animal/small/bat
+
+/datum/loadout_item/mask/bee_mask
+	name = "Bee Mask"
+	item_path = /obj/item/clothing/mask/animal/small/bee
+
+/datum/loadout_item/mask/bear_mask
+	name = "Bear Mask"
+	item_path = /obj/item/clothing/mask/animal/small/bear
+
+/datum/loadout_item/mask/raven_mask
+	name = "Raven Mask"
+	item_path = /obj/item/clothing/mask/animal/small/raven
+
+/datum/loadout_item/mask/jackal_mask
+	name = "Jackal Mask"
+	item_path = /obj/item/clothing/mask/animal/small/jackal
+
+/datum/loadout_item/mask/fox_mask
+	name = "Fox Mask"
+	item_path = /obj/item/clothing/mask/animal/small/fox
+
+/datum/loadout_item/mask/rat_mask
+	name = "Rat Mask"
+	item_path = /obj/item/clothing/mask/animal/small/rat
+
+/datum/loadout_item/mask/frog_mask
+	name = "Frog Mask"
+	item_path = /obj/item/clothing/mask/animal/frog
+
+/datum/loadout_item/mask/pig_mask
+	name = "Pig Mask"
+	item_path = /obj/item/clothing/mask/animal/pig
+
+/datum/loadout_item/mask/cow_mask
+	name = "Cow Mask"
+	item_path = /obj/item/clothing/mask/animal/cowmask
+
+/datum/loadout_item/mask/horse_mask
+	name = "Horse Mask"
+	item_path = /obj/item/clothing/mask/animal/horsehead
 ///datum/loadout_item/mask/gum
 	//name = "Gum"
 	//item_path = /obj/item/food/bubblegum

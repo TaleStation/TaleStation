@@ -184,3 +184,31 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 /datum/loadout_item/suit/comedian_coat
 	name = "Comedian Coat"
 	item_path = /obj/item/clothing/suit/costume/joker
+
+/datum/loadout_item/suit/changshan_red
+	name = "Red Changshan"
+	item_path = /obj/item/clothing/suit/costume/changshan_red
+
+/datum/loadout_item/suit/changshan_blue
+	name = "Blue Changshan"
+	item_path = /obj/item/clothing/suit/costume/changshan_blue
+
+/datum/loadout_item/suit/cheongsam_red
+	name = "Red Cheongsam"
+	item_path = /obj/item/clothing/suit/costume/cheongsam_red
+
+/datum/loadout_item/suit/cheongsam_blue
+	name = "Blue Cheongsam"
+	item_path = /obj/item/clothing/suit/costume/cheongsam_blue
+
+/datum/loadout_item/suit/checkien_suit
+	name = "Chicken Suit"
+	item_path = /obj/item/clothing/suit/costume/chickensuit
+
+/datum/loadout_item/suit/carp_costume
+	name = "Carp Costume"
+	item_path = /obj/item/clothing/suit/hooded/carp_costume
+
+/datum/loadout_item/suit/corgi_costume
+	name = "Corgi Costume"
+	item_path = /obj/item/clothing/suit/hooded/ian_costume
