@@ -88,11 +88,8 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/message_pda, /*send a message to somebody on PDA*/
 	/client/proc/fax_panel, /*send a paper to fax*/
 	/datum/admins/proc/trophy_manager,
-<<<<<<< HEAD
-	/datum/admins/proc/togglelooc, // NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) // What a fat fucking lie that was #2644
-=======
 	/client/proc/force_load_lazy_template,
->>>>>>> b182d6f320a8 (Lazy Template Loading - Nukie/Wiz (#71785))
+	/datum/admins/proc/togglelooc, // NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) // What a fat fucking lie that was #2644
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
