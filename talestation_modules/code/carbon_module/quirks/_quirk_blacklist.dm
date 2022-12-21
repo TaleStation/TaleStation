@@ -4,6 +4,10 @@
 	var/static/list/module_blacklist = list(
 		list("Allodynia", "Hyperalgesia", "Hypoalgesia"),
 		list("Allodynia", "Bad Touch"),
+		list("Body Purist", "Prosthetic Limb - Left Arm"),
+		list("Body Purist", "Prosthetic Limb - Left Leg"),
+		list("Body Purist", "Prosthetic Limb - Right Arm"),
+		list("Body Purist", "Prosthetic Limb - Right Leg"),
 	)
 	/// Species blacklist. Quirks cannot be added to species in the supplied list.
 	var/static/list/species_blacklist = list(
