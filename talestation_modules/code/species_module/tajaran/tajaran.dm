@@ -12,8 +12,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
-		HAS_FLESH,
-		HAS_BONE,
 		HAIR,
 	)
 
