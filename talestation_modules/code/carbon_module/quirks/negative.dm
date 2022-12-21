@@ -159,3 +159,19 @@
 	name = "Prosthetic Limb - Right Leg"
 	desc = "Your right leg is replaced with a prosthetic."
 	replacement = /obj/item/bodypart/leg/left/robot/surplus
+
+// Personally, the head being more prone to pain is a cool idea
+/datum/quirk/glass_jaw
+	desc = "Your jaw is weak and susceptible to knockouts if ample damage is applied. Its also much weaker to pain."
+
+/datum/quirk/glass_jaw/add()
+	var/mob/living/carbon/carbon_holder = quirk_holder
+	if(istype(carbon_holder))
+		carbon_holder.set_pain_mod(BODY_ZONE_HEAD, 1.50)
+	RegisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(punch_out))
+
+/datum/quirk/glass_jaw/add()
+	var/mob/living/carbon/carbon_holder = quirk_holder
+	if(istype(carbon_holder))
+		carbon_holder.unset_pain_mod(PAIN_MOD_QUIRK)
+	UnregisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE)

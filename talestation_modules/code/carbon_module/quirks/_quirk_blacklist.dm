@@ -2,7 +2,7 @@
 /datum/controller/subsystem/processing/quirks
 	/// Modular quirk blacklist. This is added into the master blacklist on Initialize.
 	var/static/list/module_blacklist = list(
-		list("Allodynia", "Hyperalgesia", "Hypoalgesia"),
+		list("Allodynia", "Hyperalgesia", "Hypoalgesia", "Glass Jaw"),
 		list("Allodynia", "Bad Touch"),
 	)
 	/// Species blacklist. Quirks cannot be added to species in the supplied list.
