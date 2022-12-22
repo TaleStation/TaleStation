@@ -7,10 +7,6 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /datum/loadout_item/under/miscellaneous
 
-/datum/loadout_item/under/miscellaneous/amish_suit
-	name = "Amish Suit"
-	item_path = /obj/item/clothing/under/suit/sl
-
 /datum/loadout_item/under/miscellaneous/camo
 	name = "Camo Pants"
 	item_path = /obj/item/clothing/under/pants/camo
