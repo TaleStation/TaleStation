@@ -75,7 +75,7 @@ export const DmTarget = new Juke.Target({
     'html/**',
     'icons/**',
     'interface/**',
-    'talestation_modules/**', // NON-MODULAR CHANGE: BUILD OUR FILES!
+    'talestation_modules/**', // NON-MODULAR CHANGES: BUILD OUR FILES!
     `${DME_NAME}.dme`,
     NamedVersionFile,
   ],

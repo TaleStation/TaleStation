@@ -37,7 +37,7 @@
 /datum/antagonist/traitor/on_gain()
 	owner.special_role = job_rank
 
-	// NON-MODULAR CHANGE: ADV TRAITORS
+	// NON-MODULAR CHANGES: ADV TRAITORS
 /*
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
@@ -75,7 +75,7 @@
 
 	if(finalize_antag)
 		finalize_antag()
-	// NON-MODULAR CHANGE END
+	// NON-MODULAR CHANGES END
 
 	return ..()
 

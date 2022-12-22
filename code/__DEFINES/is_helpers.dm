@@ -90,8 +90,8 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 #define isdullahan(A) (is_species(A, /datum/species/dullahan))
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
-#define isskrell(A) (is_species(A, /datum/species/skrell)) // NON-MODULAR CHANGE, check for Skrell
-#define istajaran(A) (is_species(A, /datum/species/tajaran)) // NON-MODULAR CHANGE, check for Tajaran
+#define isskrell(A) (is_species(A, /datum/species/skrell)) // NON-MODULAR CHANGES, check for Skrell
+#define istajaran(A) (is_species(A, /datum/species/tajaran)) // NON-MODULAR CHANGES, check for Tajaran
 
 //More carbon mobs
 #define isalien(A) (istype(A, /mob/living/carbon/alien))

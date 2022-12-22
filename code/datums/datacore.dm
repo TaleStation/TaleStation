@@ -374,8 +374,8 @@ GLOBAL_DATUM_INIT(data_core, /datum/datacore, new)
 		final_paper_text += "<B>General Record Lost!</B><BR>"
 	if((istype(security, /datum/data/record) && GLOB.data_core.security.Find(security)))
 		final_paper_text += text("<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: []", security.fields["criminal"])
-		if(!(general_data.fields["past_records"] == "")) // NON-MODULAR CHANGE
-			final_paper_text += "\nSecurity Records:\n[general_data.fields["past_records"]]\n" // NON-MODULAR CHANGE
+		if(!(general_data.fields["past_records"] == "")) // NON-MODULAR CHANGES
+			final_paper_text += "\nSecurity Records:\n[general_data.fields["past_records"]]\n" // NON-MODULAR CHANGES
 
 		final_paper_text += "<BR>\n<BR>\nCrimes:<BR>\n"
 		final_paper_text +={"<table style="text-align:center;" border="1" cellspacing="0" width="100%">

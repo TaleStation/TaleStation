@@ -15,7 +15,7 @@ To get started, please review the following segements (after reading /TG/s).
 
 ## Modularity
 
-All code should be kept modular in nature if possible. If unable to, your code MUST include the following comment(s): //NON-MODULAR CHANGE/EDIT/START/END.
+All code should be kept modular in nature if possible. If unable to, your code MUST include the following comment(s): //NON-MODULAR CHANGES/EDIT/START/END.
 If adding to a check in the main games files, try to (if possible) put your code at the end. This isn't always feesible, do it where applicable and if it works.
 Images are NOT to be added to the main .dmi files. Don't do it. If you need to overwrite something, make a new .dmi file, and copy the master file if needed.
 

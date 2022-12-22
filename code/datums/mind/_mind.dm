@@ -50,7 +50,7 @@
 	var/datum/job/assigned_role
 	var/special_role
 	var/list/restricted_roles = list()
-	var/list/datum/objective/objectives = list() // NON-MODULAR CHANGE: Cryopods
+	var/list/datum/objective/objectives = list() // NON-MODULAR CHANGES: Cryopods
 
 	/// Martial art on this mind
 	var/datum/martial_art/martial_art
