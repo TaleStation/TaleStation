@@ -5,10 +5,6 @@ GLOBAL_LIST_INIT(loadout_costume, generate_loadout_items(/datum/loadout_item/sui
 
 /datum/loadout_item/suit/costume
 
-/datum/loadout_item/suit/costume/bee
-	name = "Bee Costume"
-	item_path = /obj/item/clothing/suit/hooded/bee_costume
-
 /datum/loadout_item/suit/costume/changshan_red
 	name = "Red Changshan"
 	item_path = /obj/item/clothing/suit/costume/changshan_red
@@ -24,6 +20,10 @@ GLOBAL_LIST_INIT(loadout_costume, generate_loadout_items(/datum/loadout_item/sui
 /datum/loadout_item/suit/costume/cheongsam_blue
 	name = "Blue Cheongsam"
 	item_path = /obj/item/clothing/suit/costume/cheongsam_blue
+
+/datum/loadout_item/suit/costume/bee
+	name = "Bee Costume"
+	item_path = /obj/item/clothing/suit/hooded/bee_costume
 
 /datum/loadout_item/suit/costume/carp_costume
 	name = "Carp Costume"
