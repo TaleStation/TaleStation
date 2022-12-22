@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 
 /obj/machinery/announcement_system/screwdriver_act(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
-	panel_open = !panel_open
+	toggle_panel_open()
 	to_chat(user, span_notice("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_appearance()
 	return TRUE
@@ -86,7 +86,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	else if(message_type == "NEWHEAD" && newheadToggle)
 		message = CompileText(newhead, user, rank)
 	else if(message_type == "CRYOSTORAGE")
-		message = "[user][rank ? ", [rank]" : ""] has been moved to cryo storage." // NON-MODULAR CHANGE: Cryopods
+		message = "[user][rank ? ", [rank]" : ""] has been moved to cryo storage." // NON-MODULAR CHANGES: Cryopods
 	else if(message_type == "ARRIVALS_BROKEN")
 		message = "The arrivals shuttle has been damaged. Docking for repairs..."
 

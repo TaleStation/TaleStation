@@ -454,7 +454,7 @@ What a mess.*/
 	if(usr.contents.Find(src) || (in_range(src, usr) && isturf(loc)) || issilicon(usr) || isAdminGhostAI(usr))
 		usr.set_machine(src)
 		switch(href_list["choice"])
-			// NON-MODULAR CHANGE:
+			// NON-MODULAR CHANGES:
 			if("View Past Security")
 				if(istype(active2, /datum/data/record))
 					temp = "<h5>Security Records:</h5>"
@@ -469,7 +469,7 @@ What a mess.*/
 					temp += "<ul>"
 					temp += "<li>[active1.fields["past_records"]]</li>"
 					temp += "</ul>"
-			// NON-MODULAR CHANGE END
+			// NON-MODULAR CHANGES END
 // SORTING!
 			if("Sorting")
 				// Reverse the order if clicked twice

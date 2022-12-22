@@ -42,7 +42,7 @@
 #define DNA_TAJARAN_SNOUT_STYLE 9 // NON-MODULAR CHANGES: TAJARAN
 
 /// This number needs to equal the total number of DNA blocks
-#define DNA_FEATURE_BLOCKS 21 //NON-MODULAR CHANGE
+#define DNA_FEATURE_BLOCKS 21 //NON-MODULAR CHANGES
 #define DNA_MUTANT_COLOR_BLOCK 1
 #define DNA_ETHEREAL_COLOR_BLOCK 2
 #define DNA_LIZARD_MARKINGS_BLOCK 3
@@ -59,10 +59,10 @@
 #define DNA_MUSHROOM_CAPS_BLOCK 14
 #define DNA_MONKEY_TAIL_BLOCK 15
 #define DNA_POD_HAIR_BLOCK 16
-#define DNA_HEAD_TENTACLES_BLOCK 17 // NON-MODULAR CHANGE: Skrell head tentacles
-#define DNA_TAJARAN_SNOUT_BLOCK 18 // NON-MODULAR CHANGE: Tajarans
-#define DNA_TAJARAN_MARKINGS_BLOCK 19 // NON-MODULAR CHANGE: Tajarans
-#define DNA_TAJARAN_TAIL_BLOCK 21 // NON-MODULAR CHANGE: Tajarans
+#define DNA_HEAD_TENTACLES_BLOCK 17 // NON-MODULAR CHANGES: Skrell head tentacles
+#define DNA_TAJARAN_SNOUT_BLOCK 18 // NON-MODULAR CHANGES: Tajarans
+#define DNA_TAJARAN_MARKINGS_BLOCK 19 // NON-MODULAR CHANGES: Tajarans
+#define DNA_TAJARAN_TAIL_BLOCK 21 // NON-MODULAR CHANGES: Tajarans
 
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8
@@ -86,22 +86,17 @@
 #define AGENDER 14
 /// Do not draw eyes or eyeless overlay
 #define NOEYESPRITES 15
-/// Used for determining which wounds are applicable to this species.
-/// if we have flesh (can suffer slash/piercing/burn wounds, requires they don't have NOBLOOD)
-#define HAS_FLESH 16
-/// if we have bones (can suffer bone wounds)
-#define HAS_BONE 17
 ///If we have a limb-specific overlay sprite
-#define HAS_MARKINGS 18
+#define HAS_MARKINGS 16
 /// Do not draw blood overlay
-#define NOBLOODOVERLAY 19
+#define NOBLOODOVERLAY 17
 ///No augments, for monkeys in specific because they will turn into fucking freakazoids https://cdn.discordapp.com/attachments/326831214667235328/791313258912153640/102707682-fa7cad80-4294-11eb-8f13-8c689468aeb0.png
-#define NOAUGMENTS 20
+#define NOAUGMENTS 18
 ///will be assigned a universal vampire themed last name shared by their department. this is preferenced!
-#define BLOOD_CLANS 21
+#define BLOOD_CLANS 19
 /// Stops species from spawning with tongue. Doesn't actually make the species able to talk with no tongue
-#define NO_TONGUE 22
-#define NOAPPENDIX 23
+#define NO_TONGUE 20
+#define NOAPPENDIX 21
 
 //organ slots
 #define ORGAN_SLOT_ADAMANTINE_RESONATOR "adamantine_resonator"
@@ -138,9 +133,9 @@
 #define ORGAN_SLOT_EXTERNAL_ANTENNAE "antennae"
 #define ORGAN_SLOT_EXTERNAL_BODYMARKINGS "bodymarkings"
 #define ORGAN_SLOT_EXTERNAL_POD_HAIR "pod_hair"
-#define ORGAN_SLOT_EXTERNAL_HEAD_TENTACLES "head_tentacles" // NON-MODULAR CHANGE: Skrell
-#define ORGAN_SLOT_EXTERNAL_TAJARAN_MARKINGS "tajaran_markings" // NON-MODULAR CHANGE: Tajarans
-#define ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT "tajaran_snout" // NON-MODULAR CHANGE: Tajarans
+#define ORGAN_SLOT_EXTERNAL_HEAD_TENTACLES "head_tentacles" // NON-MODULAR CHANGES: Skrell
+#define ORGAN_SLOT_EXTERNAL_TAJARAN_MARKINGS "tajaran_markings" // NON-MODULAR CHANGES: Tajarans
+#define ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT "tajaran_snout" // NON-MODULAR CHANGES: Tajarans
 
 /// Xenomorph organ slots
 #define ORGAN_SLOT_XENO_ACIDGLAND "acid_gland"

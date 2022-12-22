@@ -11,12 +11,16 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 		LAZYADD(outfit.backpack_contents, outfit.belt)
 	outfit.belt = item_path
 
+/datum/loadout_item/belts/candle_box
+	name = "Candle Box"
+	item_path = /obj/item/storage/fancy/candle_box
+
 /datum/loadout_item/belts/fanny_pack_black
 	name = "Black Fannypack"
 	item_path = /obj/item/storage/belt/fannypack/black
 
 /datum/loadout_item/belts/fanny_pack_blue
-	name = "Blu Fannypack"
+	name = "Blue Fannypack"
 	item_path = /obj/item/storage/belt/fannypack/blue
 
 /datum/loadout_item/belts/fanny_pack_brown
@@ -58,7 +62,3 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 /datum/loadout_item/belts/lantern
 	name = "Lantern"
 	item_path = /obj/item/flashlight/lantern
-
-/datum/loadout_item/belts/candle_box
-	name = "Candle Box"
-	item_path = /obj/item/storage/fancy/candle_box

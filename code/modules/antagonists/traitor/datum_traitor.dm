@@ -37,7 +37,7 @@
 /datum/antagonist/traitor/on_gain()
 	owner.special_role = job_rank
 
-	// NON-MODULAR CHANGE: ADV TRAITORS
+	// NON-MODULAR CHANGES: ADV TRAITORS
 /*
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
@@ -75,7 +75,7 @@
 
 	if(finalize_antag)
 		finalize_antag()
-	// NON-MODULAR CHANGE END
+	// NON-MODULAR CHANGES END
 
 	return ..()
 
@@ -280,7 +280,7 @@
 	result += objectives_text
 
 	if(uplink_handler)
-		result += "<br>The traitor had a total of [uplink_handler.progression_points] Reputation and [uplink_handler.telecrystals] Unused Telecrystals."
+		result += "<br>The traitor had a total of [DISPLAY_PROGRESSION(uplink_handler.progression_points)] Reputation and [uplink_handler.telecrystals] Unused Telecrystals."
 
 	var/special_role_text = lowertext(name)
 

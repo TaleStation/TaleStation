@@ -199,7 +199,7 @@ GLOBAL_LIST_INIT(ai_employers, list(
 #define UPLINK_THEME_UNDERWORLD_MARKET "neutral"
 
 /// Checks if the given mob is a blood cultist
-#define IS_CULTIST(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/cult) || mob?.mind?.has_antag_datum(/datum/antagonist/advanced_cult)) // NON-MODULAR CHANGE
+#define IS_CULTIST(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/cult) || mob?.mind?.has_antag_datum(/datum/antagonist/advanced_cult)) // NON-MODULAR CHANGES
 
 /// Checks if the given mob is a nuclear operative
 #define IS_NUKE_OP(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/nukeop))
@@ -248,6 +248,12 @@ GLOBAL_LIST_INIT(ai_employers, list(
 /// TC to charge someone if they get a free implant through choice or
 /// because they have nothing else that supports an implant.
 #define UPLINK_IMPLANT_TELECRYSTAL_COST 4
+
+/// Items with this stock key do not share stock with other items
+#define UPLINK_SHARED_STOCK_UNIQUE "uplink_shared_stock_unique"
+/// Stock keys for items that share inventory stock
+#define UPLINK_SHARED_STOCK_KITS "uplink_shared_stock_kits"
+#define UPLINK_SHARED_STOCK_SURPLUS "uplink_shared_stock_surplus"
 
 // Used for traitor objectives
 /// If the objective hasn't been taken yet

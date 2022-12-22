@@ -11,8 +11,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 		MUTCOLORS,
 		EYECOLOR,
 		LIPS,
-		HAS_FLESH,
-		HAS_BONE,
 		)
 
 	inherent_traits = list(

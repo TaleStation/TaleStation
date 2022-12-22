@@ -62,8 +62,3 @@
 			continue
 
 		src.atom_storage?.attempt_insert(src, locker_clothing, null, TRUE, TRUE)
-
-/obj/item/storage/bag/garment/magic/quartermaster
-	name = "quartermaster's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the quartermaster."
-	blacklisted_types = list(/obj/item/clothing/suit/utility/fire/firefighter, /obj/item/clothing/mask/gas)

@@ -53,7 +53,7 @@
 	var/quirk_name = params["quirk"]
 
 	var/list/new_quirks = preferences.all_quirks | quirk_name
-	if (length(SSquirks.filter_invalid_quirks(new_quirks, preferences)) != length(new_quirks)) // NON-MODULAR CHANGE
+	if (length(SSquirks.filter_invalid_quirks(new_quirks, preferences)) != length(new_quirks)) // NON-MODULAR CHANGES
 		// If the client is sending an invalid give_quirk, that means that
 		// something went wrong with the client prediction, so we should
 		// catch it back up to speed.
@@ -71,7 +71,7 @@
 	var/list/new_quirks = preferences.all_quirks - quirk_name
 	if ( \
 		!(quirk_name in preferences.all_quirks) \
-		|| length(SSquirks.filter_invalid_quirks(new_quirks, preferences)) != length(new_quirks) /* NON-MODULAR CHANGE */ \
+		|| length(SSquirks.filter_invalid_quirks(new_quirks, preferences)) != length(new_quirks) /* NON-MODULAR CHANGES */ \
 	)
 		preferences.all_quirks -= quirk_name
 		// If the client is sending an invalid remove_quirk, that means that
