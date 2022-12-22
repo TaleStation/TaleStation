@@ -38,6 +38,8 @@
 #define TOOLTIP_RANDOM_COLOR "RANDOM COLOR -This item has a random color and will change every round."
 #define TOOLTIP_GREYSCALE "GREYSCALED - This item can be customized via the greyscale modification UI."
 #define TOOLTIP_RENAMABLE "RENAMABLE - This item can be given a custom name."
+#define TOOLTIP_UNTIED "This tie is UNTIED. It'll be draped around your neck. Alt click in-game to tie your tie."
+#define TOOLTIP_TIED "This tie is TIED. It'll be tied around your neck. Alt click in-game to untie your tie."
 
 /// Modular traits
 #define TRAIT_DISEASE_RESISTANT "disease_resistant"

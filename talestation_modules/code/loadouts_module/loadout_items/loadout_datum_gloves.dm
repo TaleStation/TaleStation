@@ -14,9 +14,10 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 	else
 		outfit.gloves = item_path
 
-/datum/loadout_item/gloves/fingerless
-	name = "Fingerless Gloves"
-	item_path = /obj/item/clothing/gloves/fingerless
+/datum/loadout_item/gloves/bone
+	name = "Heirloom Bone Bracers"
+	item_path = /obj/item/clothing/gloves/armorless_bracer
+	additional_tooltip_contents = list(TOOLTIP_NO_ARMOR)
 
 /datum/loadout_item/gloves/black
 	name = "Black Gloves"
@@ -30,6 +31,10 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 	name = "Brown Gloves"
 	item_path = /obj/item/clothing/gloves/color/brown
 
+/datum/loadout_item/gloves/light_brown
+	name = "Light Brown Gloves"
+	item_path = /obj/item/clothing/gloves/color/light_brown
+
 /datum/loadout_item/gloves/green
 	name = "Green Gloves"
 	item_path = /obj/item/clothing/gloves/color/green
@@ -37,10 +42,6 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 /datum/loadout_item/gloves/grey
 	name = "Grey Gloves"
 	item_path = /obj/item/clothing/gloves/color/grey
-
-/datum/loadout_item/gloves/light_brown
-	name = "Light Brown Gloves"
-	item_path = /obj/item/clothing/gloves/color/light_brown
 
 /datum/loadout_item/gloves/orange
 	name = "Orange Gloves"
@@ -67,10 +68,9 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 	name = "White Gloves"
 	item_path = /obj/item/clothing/gloves/color/white
 
-/datum/loadout_item/gloves/bone
-	name = "Heirloom Bone Bracers"
-	item_path = /obj/item/clothing/gloves/armorless_bracer
-	additional_tooltip_contents = list(TOOLTIP_NO_ARMOR)
+/datum/loadout_item/gloves/fingerless
+	name = "Fingerless Gloves"
+	item_path = /obj/item/clothing/gloves/fingerless
 
 /datum/loadout_item/gloves/maid_arm_covers
 	name = "Maid Arm Covers"
