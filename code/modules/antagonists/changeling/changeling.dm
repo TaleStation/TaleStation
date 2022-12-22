@@ -126,7 +126,7 @@
 	create_emporium()
 	create_innate_actions()
 	create_initial_profile()
-	/// NON-MODULAR CHANGE: ADVANCED CHANGELINGS
+	/// NON-MODULAR CHANGES: ADVANCED CHANGELINGS
 	if(give_objectives)
 		finalize_antag()
 		forge_objectives()

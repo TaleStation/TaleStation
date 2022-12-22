@@ -32,7 +32,7 @@
 	if(give_objectives)
 		forge_ai_objectives()
 
-	if(finalize_antag) // NON-MODULAR CHANGE
+	if(finalize_antag) // NON-MODULAR CHANGES
 		finalize_antag()
 
 	return ..()

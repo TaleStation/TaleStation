@@ -65,13 +65,13 @@ Something like so:
 
 ```
 
-var/epic_variable = 3 // NON-MODULAR CHANGE
+var/epic_variable = 3 // NON-MODULAR CHANGES
 
 ```
 
 ```
 
-// NON-MODULAR CHANGE START
+// NON-MODULAR CHANGES START
 
 /obj/foo/bar/proc/do_thing()
 
@@ -79,13 +79,13 @@ to_chat(world, "I added a proc to something")
 
 qdel(src)
 
-// NON-MODULAR CHANGE END
+// NON-MODULAR CHANGES END
 
 ```
 
 - What DOES matter: The formatting of the first part of the comment! The comment MUST start with `// NON-MODULAR`, space included, exact number of forward slashes, capitalized.
 
-- What doesn't matter: what follows above. `// NON-MODULAR CHANGE`, `// NON-MODULAR CHANGE START`, `// NON-MODULAR CHANGES`, `// NON-MODULAR CHANGE: I did stuff`
+- What doesn't matter: what follows above. `// NON-MODULAR CHANGES`, `// NON-MODULAR CHANGES START`, `// NON-MODULAR CHANGES`, `// NON-MODULAR CHANGES: I did stuff`
 
 ## Adding to Vendors:
 
