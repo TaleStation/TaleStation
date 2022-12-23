@@ -1,7 +1,16 @@
 /// -- Advanced Antag Datum for Infiltrator. --
 /datum/advanced_antag_datum/traitor/infiltrator
 	name = "Advanced Infiltrator"
-	hijack_speed_modifier = 0.05
+	var/hijack_speed_modifier = 0.05
+
+/datum/advanced_antag_datum/traitor/infiltrator/modify_antag_points()
+	var/datum/component/uplink/made_uplink = linked_antagonist.owner.find_syndicate_uplink()
+	if(!made_uplink)
+		return
+
+	starting_points = get_antag_points_from_goals()
+	made_uplink.uplink_handler.telecrystals = starting_points
+	linked_antagonist.hijack_speed = (starting_points * hijack_speed_modifier) // 20 tc traitor = 0.5 (default traitor hijack speed)
 
 /datum/advanced_antag_datum/traitor/infiltrator/get_finalize_text()
 	return "Finalizing will grant you an uplink implant with [get_antag_points_from_goals()] telecrystals. You can still edit your goals after finalizing!"

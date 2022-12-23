@@ -3,12 +3,15 @@
 	name = "Infiltrator"
 	ui_name = null
 	hijack_speed = 1
-	advanced_antag_path = /datum/advanced_antag_datum/traitor/infiltrator
+	var/advanced_antag_path = /datum/advanced_antag_datum/traitor/infiltrator
 	antag_hud_name = "synd"
 
 /datum/antagonist/traitor/advanced/intiltrator/on_gain()
 	equip_infiltrator_outfit()
 	return ..()
+
+/datum/antagonist/traitor/advanced/intiltrator/proc/set_name_on_add()
+	name = "Traitor"
 
 /datum/antagonist/traitor/advanced/intiltrator/set_name_on_add()
 	name = "Infiltrator"
@@ -84,6 +87,41 @@
 
 /datum/antagonist/traitor/advanced/intiltrator/roundend_report_footer()
 	return "<br>And thus ends another attempted Syndicate infiltration on board [station_name()]."
+
+/datum/antagonist/traitor/proc/handle_uplink()
+	var/datum/component/uplink/uplink = owner.find_syndicate_uplink()
+	if(!uplink)
+		CRASH("handle_uplink() has been called on someone with no apparent syndicate uplink. Weird!")
+
+	uplink_ref = WEAKREF(uplink)
+
+	if(uplink_handler)
+		uplink.uplink_handler = uplink_handler
+	else
+		uplink_handler = uplink.uplink_handler
+
+	if(!linked_advanced_datum)
+		uplink_handler.has_progression = TRUE
+		SStraitor.register_uplink_handler(uplink_handler)
+
+		uplink_handler.has_objectives = TRUE
+		uplink_handler.generate_objectives()
+
+		if(uplink_handler.progression_points < SStraitor.current_global_progression)
+			uplink_handler.progression_points = SStraitor.current_global_progression * SStraitor.newjoin_progression_coeff
+
+	var/list/uplink_items = list()
+	for(var/datum/uplink_item/item as anything in SStraitor.uplink_items)
+		if(item.item && !item.cant_discount && (item.purchasable_from & uplink_handler.uplink_flag) && item.cost > 1)
+			if(!length(item.restricted_roles) && !length(item.restricted_species))
+				uplink_items += item
+				continue
+			if((uplink_handler.assigned_role in item.restricted_roles) || (uplink_handler.assigned_species in item.restricted_species))
+				uplink_items += item
+				continue
+
+	uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, -1, uplink_items)
+
 
 /datum/antagonist/traitor/advanced/intiltrator/finalize_antag()
 	var/mob/living/carbon/human/traitor_mob = owner.current
@@ -177,3 +215,4 @@
 /datum/id_trim/syndicom/infiltrator
 	assignment = "Syndicate Infiltrator"
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
+
