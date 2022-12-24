@@ -85,18 +85,13 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/list_law_changes,
 	/client/proc/list_signalers,
 	/client/proc/message_pda, /*send a message to somebody on PDA*/
-<<<<<<< HEAD
-	/client/proc/fax_panel, /*send a paper to fax*/
-	/datum/admins/proc/trophy_manager,
-	/client/proc/force_load_lazy_template,
-	/datum/admins/proc/togglelooc, // NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) // What a fat fucking lie that was #2644
-=======
 	/client/proc/respawn_character,
 	/client/proc/show_manifest,
 	/client/proc/toggle_AI_interact, /*toggle admin ability to interact with machines as an AI*/
 	/client/proc/toggle_combo_hud, /* toggle display of the combination pizza antag and taco sci/med/eng hud */
 	/client/proc/toggle_view_range, /*changes how far we can see*/
->>>>>>> 62a6c75e537f (Organizes the lists in `admin_verbs.dm` because I got sick and tired of looking at them, and one in particular (#72151))
+// MODULAR STUFF
+	/datum/admins/proc/togglelooc, /* NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) - What a fat fucking lie that was #2644*/
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
