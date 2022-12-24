@@ -278,13 +278,23 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	armor = list(MELEE = 0, BULLET = 0, LASER = 20, ENERGY = 20, BOMB = 20, BIO = 10, FIRE = 100, ACID = 50)
 	equip_delay_self = 2 SECONDS
 	slowdown = 1.5
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 2
 	custom_price = PAYCHECK_CREW
+	armor_type = /datum/armor/item_pain_blanket
+
+/datum/armor/item_pain_blanket //lol
+	melee = 0
+	bullet = 0
+	laser = 20
+	energy = 20
+	bomb = 20
+	bio = 10
+	fire = 100
+	acid = 50
 
 /obj/item/shock_blanket/Initialize(mapload)
 	. = ..()

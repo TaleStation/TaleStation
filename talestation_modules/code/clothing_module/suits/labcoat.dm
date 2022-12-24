@@ -36,5 +36,15 @@
 		/obj/item/tank/internals/plasmaman,
 		/obj/item/storage/bag/bio,
 		)
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 50, FIRE = 50, ACID = 50)
+	armor_type = /datum/armor/robes_rd
 	species_exception = list(/datum/species/golem)
+
+/datum/armor/robes_rd
+	melee = 0
+	bullet = 0
+	laser = 0
+	energy = 0
+	bomb = 0
+	bio = 50
+	fire = 50
+	acid = 50

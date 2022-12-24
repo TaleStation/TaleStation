@@ -5,11 +5,21 @@
 	name = "bridge officer uniform"
 	desc = "A formal blue suit and tie kitted out with padding for protection worn by the officers that work the bridge. Someone owes you a beer..."
 	icon_state = "blueshift"
-	armor = list(MELEE = 5, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 5)
 	sensor_mode = SENSOR_COORDS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	armor_type = /datum/armor/under_bridge_officer
 
+/datum/armor/under_bridge_officer
+	melee = 5
+	bullet = 0
+	laser = 0
+	energy = 0
+	bomb = 0
+	bio = 0
+	fire = 50
+	acid = 50
+	wound = 5
 
 /obj/item/clothing/under/rank/security/bridge_officer/black
 	name = "bridge officer suit"
@@ -35,13 +45,24 @@
 	name = "asset protection suit"
 	desc = "A formal blue suit and tie kitted out with padding for protection worn by the protection units assisting command."
 	icon_state = "blueshift"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 5)
 	sensor_mode = SENSOR_COORDS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	armor_type = /datum/armor/under_asset_protection
+
+/datum/armor/under_asset_protection
+	melee = 10
+	bullet = 0
+	laser = 0
+	energy = 0
+	bomb = 0
+	bio = 0
+	fire = 50
+	acid = 50
+	wound = 5
 
 /obj/item/clothing/under/rank/security/officer/grey/asset_protection
 	name = "asset protection uniform"
 	desc = "It gives you unease, the grey. But hey, that tie looks swanky! ..Is it even a tie?"
-	armor = list(MELEE = 10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50, WOUND = 5)
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	armor_type = /datum/armor/under_asset_protection
