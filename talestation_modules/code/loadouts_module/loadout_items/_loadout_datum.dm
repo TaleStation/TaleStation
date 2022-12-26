@@ -55,12 +55,17 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 	if(can_be_greyscale == DONT_GREYSCALE)
 		// Explicitly be false if we don't want this to greyscale
 		can_be_greyscale = FALSE
+/*
 	else if(initial(item_path.flags_1) & IS_PLAYER_COLORABLE_1)
 		// Otherwise set this automatically to true if it is actually colorable
 		can_be_greyscale = TRUE
 		// This means that one can add a greyscale item that does not have player colorable set
 		// but is still modifyable as a greyscale item in the loadout menu by setting it to true manually
 		// Why? I HAVE NO IDEA why you would do that but you sure can
+*/
+// Theres literally 0 reason to have this code, it makes having colored items nigh redudnant
+// You either get to have all the colored stuff, or a greyscale, or both
+// I want both
 
 	if(can_be_named)
 		// If we're a renamable item, insert the "renamable" tooltip at the beginning of the list.
