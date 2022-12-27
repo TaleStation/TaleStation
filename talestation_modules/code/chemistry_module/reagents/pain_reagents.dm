@@ -273,7 +273,7 @@
 		M.adjust_disgust(3 * REM * delta_time)
 	// ...Drowsyness...
 	if(DT_PROB(75 * max(1 - creation_purity, 0.5), delta_time))
-		M.drowsyness += 1 * REM * delta_time
+		M.adjust_drowsiness(1 * REM * delta_time)
 	// ...And dizziness
 	if(DT_PROB(85 * max(1 - creation_purity, 0.5), delta_time))
 		M.set_timed_status_effect (4 SECONDS * REM * delta_time, /datum/status_effect/dizziness, only_if_higher = TRUE)
@@ -443,7 +443,7 @@
 /datum/reagent/medicine/ondansetron/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
 	if(DT_PROB(8, delta_time))
-		M.drowsyness++
+		M.adjust_drowsiness(1 SECONDS)
 	if(DT_PROB(15, delta_time) && M.get_bodypart_pain(BODY_ZONE_HEAD) <= PAIN_HEAD_MAX / 4)
 		M.cause_pain(BODY_ZONE_HEAD, 4)
 	M.adjust_disgust(-10 * REM * delta_time)
