@@ -14,6 +14,12 @@ GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/u
 	else
 		outfit.uniform = item_path
 
+/datum/loadout_item/under/jumpsuit/random/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
+	return
+
+/datum/loadout_item/under/jumpsuit/random_skirt/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
+	return
+
 // jumpsuit undersuits
 /datum/loadout_item/under/jumpsuit
 

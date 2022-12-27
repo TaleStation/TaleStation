@@ -28,9 +28,14 @@
 
 #define INFO_GREYSCALE "greyscale"
 #define INFO_NAMED "name"
+#define INFO_RESKIN "reskin"
+#define INFO_LAYER "layer"
 
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3
+
+/// Used to make something not recolorable even if it's capable
+#define DONT_GREYSCALE -1
 
 /// Defines for extra info blurbs, for loadout items.
 #define TOOLTIP_NO_ARMOR "ARMORLESS - This item has no armor and is entirely cosmetic."
@@ -38,6 +43,7 @@
 #define TOOLTIP_RANDOM_COLOR "RANDOM COLOR -This item has a random color and will change every round."
 #define TOOLTIP_GREYSCALE "GREYSCALED - This item can be customized via the greyscale modification UI."
 #define TOOLTIP_RENAMABLE "RENAMABLE - This item can be given a custom name."
+#define TOOLTIP_RESKINNABLE "RESKINNABLE - This item can be reskinned."
 #define TOOLTIP_UNTIED "This tie is UNTIED. It'll be draped around your neck. Alt click in-game to tie your tie."
 #define TOOLTIP_TIED "This tie is TIED. It'll be tied around your neck. Alt click in-game to untie your tie."
 
