@@ -29,9 +29,5 @@
 	languages_native = /datum/language/skrell
 	var/static/list/languages_possible_skrell
 
-/obj/item/organ/internal/tongue/skrell/Initialize(mapload)
-	. = ..()
-	if(!LAZYLEN(languages_possible_skrell))
-		languages_possible_skrell = languages_possible_base.Copy()
-	languages_possible_skrell |= typecacheof(/datum/language/skrell)
-	languages_possible = languages_possible_skrell
+/obj/item/organ/internal/tongue/skrell/get_possible_languages()
+	return ..() + /datum/language/skrell
