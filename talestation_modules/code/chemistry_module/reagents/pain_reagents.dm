@@ -443,7 +443,7 @@
 /datum/reagent/medicine/ondansetron/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	. = ..()
 	if(DT_PROB(8, delta_time))
-		M.adjust_drowsiness(1 SECONDS)
+		M.adjust_drowsiness_up_to(20 SECONDS, 120 SECONDS)
 	if(DT_PROB(15, delta_time) && M.get_bodypart_pain(BODY_ZONE_HEAD) <= PAIN_HEAD_MAX / 4)
 		M.cause_pain(BODY_ZONE_HEAD, 4)
 	M.adjust_disgust(-10 * REM * delta_time)
