@@ -471,15 +471,16 @@
 /datum/pain/proc/check_pain_modifiers(delta_time)
 
 	var/parent_drunkenness = parent.get_drunk_amount()
+	var/datum/status_effect/parent_drowsy = parent.has_status_effect(/datum/status_effect/drowsiness)
 
-	if(parent_drunkenness )
+	if(parent_drunkenness)
 		if(parent_drunkenness > 10)
 			set_pain_modifier(PAIN_MOD_DRUNK, 0.9)
 		else
 			unset_pain_modifier(PAIN_MOD_DRUNK)
 
-	if(parent.drowsyness)
-		if(parent.drowsyness > 8)
+	if(parent_drowsy)
+		if(parent_drowsy.duration > world.time + 8)
 			set_pain_modifier(PAIN_MOD_DROWSY, 0.95)
 		else
 			unset_pain_modifier(PAIN_MOD_DROWSY)

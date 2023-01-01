@@ -89,7 +89,7 @@
 
 		to_chat(user, span_danger("[src] shines brightly directly into your eyes, burning them!"))
 		user.flash_act()
-		user.blur_eyes(5 SECONDS)
+		user.set_eye_blur_if_lower(10 SECONDS)
 		eyes.applyOrganDamage(25)
 		user.apply_damage(10, BURN, BODY_ZONE_HEAD)
 		user.pain_emote("scream", 6 SECONDS)
@@ -150,7 +150,7 @@
 
 	to_chat(source, span_danger("Your eyes burn as you fixate on [examined]!"))
 	human_source.flash_act(visual = TRUE)
-	human_source.blur_eyes(0.5 SECONDS)
+	human_source.set_eye_blur_if_lower(1 SECONDS)
 	eyes.applyOrganDamage(10)
 
 #undef SPEC_HUDS
