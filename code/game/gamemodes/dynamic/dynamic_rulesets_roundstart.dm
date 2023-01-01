@@ -273,11 +273,7 @@
 	weight = 2
 	cost = 20
 	requirements = list(90,90,90,80,60,40,30,20,10,10)
-<<<<<<< HEAD
-	var/list/roundstart_wizards = list()
-=======
 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_WIZARDDEN)
->>>>>>> 8a8b4a37c4d9 (Adds support for Rulesets having intrinsic template requirements (#72339))
 
 /datum/dynamic_ruleset/roundstart/wizard/ready(forced = FALSE)
 	if(!check_candidates())
