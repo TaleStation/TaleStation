@@ -1,12 +1,12 @@
 // -- Modular grown food --
 // you wanted leema beens, you're getting leema beens.
-/obj/item/seeds/leemabeens
+/obj/item/seeds/lima_beans
 	name = "pack of leemabeen seeds"
 	desc = "These seeds grow into something called leema beans?"
 	icon_state = "seed-soybean"
 	species = "soybean"
 	plantname = "Leemabeen Plants"
-	product = /obj/item/food/grown/leemabeens
+	product = /obj/item/food/grown/lima_beans
 	maturation = 4
 	production = 4
 	potency = 15
@@ -17,8 +17,8 @@
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.05)
 
-/obj/item/food/grown/leemabeens
-	seed = /obj/item/seeds/leemabeens
+/obj/item/food/grown/lima_beans
+	seed = /obj/item/seeds/lima_beans
 	name = "leema beens"
 	desc = "What exactly are these supposed to be, anyway?"
 	gender = PLURAL
@@ -31,4 +31,4 @@
 
 // Added to vending machines
 /obj/machinery/vending/hydroseeds
-	added_products = list(/obj/item/seeds/leemabeens = 3)
+	added_products = list(/obj/item/seeds/lima_beans = 3)
