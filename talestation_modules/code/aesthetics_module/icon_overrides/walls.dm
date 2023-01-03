@@ -16,6 +16,12 @@
 	icon_state = "reinforced_wall-0"
 	base_icon_state = "reinforced_wall"
 
+/obj/structure/falsewall
+	icon = 'talestation_modules/icons/turf/walls/wall.dmi'
+
+/obj/structure/falsewall/reinforced
+	icon = 'talestation_modules/icons/turf/walls/reinforced_wall.dmi'
+
 /turf/closed/wall/rust/New(loc, ...)
 	. = ..()
 	var/mutable_appearance/rust = mutable_appearance(icon, "rust")

@@ -1,8 +1,5 @@
 // Paperwork related icon overrides
 
-/obj/item/hand_labeler
-	icon = 'talestation_modules/icons/obj/bureaucracy.dmi'
-
 // Asset Protection stamper
 /obj/item/stamp/ap
 	name = "the asset protection's rubber stamp"
