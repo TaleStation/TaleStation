@@ -153,14 +153,6 @@
 
 /obj/machinery/door/airlock/Initialize(mapload)
 	. = ..()
-	//NON-MODULAR CHANGES: Aesthetic
-/* Multi tile doors, add these later - Jolly
-	if(multi_tile)
-		SetBounds()
-	update_overlays()
-*/
-	//NON-MODULAR CHANGES END
-	init_network_id(NETWORK_DOOR_AIRLOCKS)
 	wires = set_wires()
 	if(glass)
 		airlock_material = "glass"
@@ -180,7 +172,6 @@
 	diag_hud_set_electrified()
 
 	RegisterSignal(src, COMSIG_MACHINERY_BROKEN, PROC_REF(on_break))
-	RegisterSignal(src, COMSIG_COMPONENT_NTNET_RECEIVE, PROC_REF(ntnet_receive))
 
 	// Click on the floor to close airlocks
 	var/static/list/connections = list(
@@ -231,56 +222,6 @@
 			cyclelinkairlock()
 		if (NAMEOF(src, secondsElectrified))
 			set_electrified(vval < MACHINE_NOT_ELECTRIFIED ? MACHINE_ELECTRIFIED_PERMANENT : vval) //negative values are bad mkay (unless they're the intended negative value!)
-
-
-/obj/machinery/door/airlock/check_access_ntnet(datum/netdata/data)
-	return !requiresID() || ..()
-
-/obj/machinery/door/airlock/proc/ntnet_receive(datum/source, datum/netdata/data)
-	SIGNAL_HANDLER
-
-	// Check if the airlock is powered and can accept control packets.
-	if(!hasPower() || !canAIControl())
-		return
-
-	// Handle received packet.
-	var/command = data.data["data"]
-	var/command_value = data.data["data_secondary"]
-	switch(command)
-		if("open")
-			if(command_value == "on" && !density)
-				return
-
-			if(command_value == "off" && density)
-				return
-
-			if(density)
-				INVOKE_ASYNC(src, PROC_REF(open))
-			else
-				INVOKE_ASYNC(src, PROC_REF(close))
-
-		if("bolt")
-			if(command_value == "on" && locked)
-				return
-
-			if(command_value == "off" && !locked)
-				return
-
-			if(locked)
-				unbolt()
-			else
-				bolt()
-
-		if("emergency")
-			if(command_value == "on" && emergency)
-
-				return
-
-			if(command_value == "off" && !emergency)
-				return
-
-			emergency = !emergency
-			update_appearance()
 
 /obj/machinery/door/airlock/lock()
 	bolt()
@@ -484,7 +425,6 @@
 		if(AIRLOCK_DENY, AIRLOCK_OPENING, AIRLOCK_CLOSING, AIRLOCK_EMAG)
 			icon_state = "nonexistenticonstate" //MADNESS
 
-/* NON-MODULAR CHANGES: Aesthetics
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
 
@@ -563,7 +503,6 @@
 					floorlight.pixel_x = -32
 					floorlight.pixel_y = 0
 			. += floorlight
-*/
 
 /obj/machinery/door/airlock/do_animate(animation)
 	switch(animation)
@@ -1152,8 +1091,7 @@
 		use_power(50)
 		playsound(src, doorOpen, 30, TRUE)
 	else
-		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULAR REMOVAL: Asthetics
-		playsound(src, forcedOpen, 30, TRUE) // NON-MODULAR CHANGES: Asthetics
+		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 
 	if(autoclose)
 		autoclose_in(normalspeed ? 8 SECONDS : 1.5 SECONDS)
@@ -1221,8 +1159,7 @@
 		playsound(src, doorClose, 30, TRUE)
 
 	else
-		// playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE) NON-MODULAR REMOVAL: Asthetics
-		playsound(src, forcedClosed, 30, TRUE) // NON-MODULAR CHANGES: Asthetics
+		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
 
 	var/obj/structure/window/killthis = (locate(/obj/structure/window) in get_turf(src))
 	if(killthis)
@@ -1309,7 +1246,7 @@
 		loseMainPower()
 		loseBackupPower()
 
-/obj/machinery/door/airlock/attack_alien(mob/living/carbon/alien/humanoid/user, list/modifiers)
+/obj/machinery/door/airlock/attack_alien(mob/living/carbon/alien/adult/user, list/modifiers)
 	if(isElectrified() && shock(user, 100)) //Mmm, fried xeno!
 		add_fingerprint(user)
 		return

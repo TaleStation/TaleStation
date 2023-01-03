@@ -1,8 +1,6 @@
 // While not entierly aeshetic, this file handles a handful of light related bullshit
 
 /obj/machinery/light
-	icon = 'talestation_modules/icons/obj/lighting.dmi'
-	overlay_icon = 'talestation_modules/icons/obj/lighting_overlay.dmi'
 	var/maploaded = FALSE //So we don't have a lot of stress on startup.
 	var/turning_on = FALSE //More stress stuff.
 	var/constant_flickering = FALSE // Are we always flickering?
@@ -91,6 +89,3 @@
 
 	if(roundstart_flicker)
 		start_flickering()
-
-/obj/item/light/tube
-	icon = 'talestation_modules/icons/obj/lighting.dmi'
