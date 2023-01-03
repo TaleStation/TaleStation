@@ -11,10 +11,8 @@
 	maturation = 4
 	production = 4
 	potency = 15
-	growthstages = 4
+	growthstages = 5
 	growing_icon = 'talestation_modules/icons/obj/hydroponics/growing_vegetables.dmi'
-	icon_grow = "lima-grow"
-	icon_dead = "lima-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.05)
 
