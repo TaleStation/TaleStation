@@ -4,17 +4,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/client/parent
 	/// The path to the general savefile for this datum
 	var/path
-<<<<<<< HEAD
-	var/default_slot = 1 //Holder so it doesn't default to slot 1, rather the last one used
-	var/max_save_slots = 6 // NON-MODULAR CHANGES
-=======
 	/// Whether or not we allow saving/loading. Used for guests, if they're enabled
 	var/load_and_save = TRUE
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 3
->>>>>>> a95e2f0b3f85 (Preference support for Guests (#72332))
+	var/max_save_slots = 6 // NON-MODULAR CHANGES: More save slots!
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
