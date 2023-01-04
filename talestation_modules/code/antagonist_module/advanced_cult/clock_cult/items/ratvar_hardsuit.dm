@@ -3,6 +3,7 @@
 	name = "\improper Rat'varian clockwork suit"
 	desc = "A heavily-armored helmet worn by warriors of the Rat'varian cult. It can withstand hard vacuum."
 	icon = 'icons/obj/clothing/head/chaplain.dmi'
+	worn_icon = 'icons/mob/clothing/head/chaplain.dmi'
 	icon_state = "clockwork_helmet"
 	clothing_flags = STOPSPRESSUREDAMAGE | THICKMATERIAL | SNUG_FIT | PLASMAMAN_HELMET_EXEMPT
 	flags_inv = HIDEMASK | HIDEEARS | HIDEEYES | HIDEFACE | HIDEHAIR | HIDEFACIALHAIR | HIDESNOUT
@@ -28,6 +29,7 @@
 	name = "\improper Rat'varian clockwork suit"
 	desc = "A heavily-armored exosuit worn by warriors of the Rat'varian cult. It can withstand hard vacuum."
 	icon = 'icons/obj/clothing/suits/chaplain.dmi'
+	worn_icon = 'icons/mob/clothing/suits/chaplain.dmi'
 	icon_state = "clockwork_cuirass"
 	worn_icon_state = "clockwork_cuirass"
 	inhand_icon_state = null
