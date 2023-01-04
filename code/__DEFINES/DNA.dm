@@ -77,15 +77,7 @@
 #define NOTRANSSTING 7
 #define NOZOMBIE 8
 #define NO_UNDERWEAR 9
-<<<<<<< HEAD
-#define NOSTOMACH 10
-#define NO_DNA_COPY 11
-#define DRINKSBLOOD 12
-=======
 #define NO_DNA_COPY 10
-#define DRINKSBLOOD 11
-
->>>>>>> 27f09dd015ed (Cutting the Burdened Cheese Part 1: Removes free burden points from removing unnecessary or cosmetic organs. (#71938))
 /// Use this if you want to change the race's color without the player being able to pick their own color. AKA special color shifting
 #define DYNCOLORS 12
 #define AGENDER 13
