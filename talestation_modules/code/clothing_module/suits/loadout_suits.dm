@@ -10,6 +10,7 @@
 /obj/item/clothing/head/hooded/cloakhood/goliath_heirloom
 	name = "heirloom goliath cloak hood"
 	icon = 'icons/obj/clothing/head/helmet.dmi'
+	worn_icon = 'icons/mob/clothing/head/helmet.dmi'
 	icon_state = "golhood"
 	desc = "A snug hood made out of materials from goliaths and watchers. This hood is quite worn and offers very little protection now."
 	clothing_flags = SNUG_FIT
