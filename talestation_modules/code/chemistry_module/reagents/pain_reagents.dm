@@ -298,8 +298,8 @@
 	results = list(/datum/reagent/propionic_acid = 3)
 	required_reagents = list(/datum/reagent/carbon = 1, /datum/reagent/oxygen = 1, /datum/reagent/hydrogen = 1)
 	required_catalysts = list(/datum/reagent/toxin/acid = 1)
-	required_temp = 250
 	is_cold_recipe = TRUE
+	required_temp = 250
 	optimal_temp = 200
 	overheat_temp = 50
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL
