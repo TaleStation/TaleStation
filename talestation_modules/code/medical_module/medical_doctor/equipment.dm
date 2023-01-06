@@ -9,7 +9,9 @@
 						Simple!<br><br>The most common way is to use pain killers. Don't know how to make them? They're easy!<br><br> \
 						<b>Recipies</B><br><br> Aspirin - 1u Salyclic Acid, Acetone and Oxygen. Don't forget your catalyst of Sulfuric Acid! (1u). \
 						<br><br>Paracetamol - 1u Phenol, Acetone, Hydrogen, Oxygen and Nitric Acid.<br><br>Ibuprofen - 1u Propionic Acid, Phenol, Oyxgen and Hydrogen. \
-						<br><br>To make Propinoic Acid you will need 1u Carbon, Oxygen and Hydrogen. This is a key component don't forget it!<br><br> \
+						<br><br>To make Propinoic Acid you will need 1u Carbon, Oxygen and Hydrogen and your catalyst of Sulfuric Acid. \
+						You'll need to heat this up to about 225 K. \
+						This is a key component don't forget it!<br><br> \
 						<b>Other Notes</b><br><br>Miners may be a concern, but they're fortunate enough to have a skillchip to mitigate pain on them! \
 						When they're not on the station, of course.<br><br>If you have any further questions, don't hesitate to contact the head of your ward."
 
