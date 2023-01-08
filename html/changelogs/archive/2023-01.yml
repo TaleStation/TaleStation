@@ -196,3 +196,93 @@
       flour from a flour sack into a bowl.
   - bugfix: Fixed the advanced mop displaying as a normal mop when held
   - qol: Xenomorphs can now pick up xenomorph action figures.
+2023-01-08:
+  LT3:
+  - imageadd: Hazard lights added to the tram collision counter
+  - bugfix: Hilbert's tram call button is now linked to the correct tram
+  Melbert:
+  - bugfix: People should be stuck in infinite stamcrit less often.
+  - admin: Adds a warning to "View Runtimes" informing you (yes, you) that it can
+      (and will) crash the server if you attempt to render 100,000 runtimes into the
+      UI at once
+  ShizCalev:
+  - bugfix: Fixed the gulag item reclaimer sometimes not giving you all your items
+      back.
+  - bugfix: Non-magic inclined mobs will no longer fire staffs while duel wielding.
+  TaleStationBot:
+  - rscadd: adds new type of glockroach, the mobroach
+  - rscadd: RTD Rapid Tiling Device
+  - imageadd: Sprite for RTD
+  - code_imp: moved update_overlays() from rcd to obj/item/construction so anyone
+      can use it
+  - rscdel: cooldown of 3 seconds when changing turf type
+  - soundadd: Candles will now use the match lighting sound when lit
+  - soundadd: Light sources that burn will now have a welding hitsound
+  - bugfix: Fix candle light behaving erratically
+  - bugfix: Fix burning items that are held in hand will now have an ignition effect
+      on the turf. (ex. lit welders in hand will now ignite plasma in the air)
+  - balance: Light sources that burn and are lit now do `BURN` damage while attacking
+  - balance: Light sources fuel amounts were rounded to exact numbers (ex. instead
+      of 32.3333 minutes, it's now 35 minutes)
+  - qol: Light items that burn can now be extinguished by a fire extinguisher (except
+      flares), used to ignite another object on fire, and will now leave a trash item
+      once fuel is used
+  - qol: Add burnt flares and melted candles to trash spawners
+  - refactor: Refactor lighting items that use fuel to be more robust
+  - rscadd: Minor detectives now spawn with a candy cigarette and a flask full of
+      apple juice.
+  - balance: Candy Cigarettes added to the detective vendor.
+  - bugfix: Minor detectives no longer spawn with real cigarettes or real alcohol,
+      you'll need to ask you colleagues to buy you some, hopefully they wont arrest
+      you for trying.
+  - bugfix: You can right-click microwaves again.
+  - bugfix: Beer nukes no longer runtime on detonation.
+  - admin: Admins can now modify what reagent beer nukes produce, now your parties
+      can be alcohol free!
+  - admin: Admins can now creature custom reagent scrubber overflows, TC trade 20TC
+      for superlube flood?
+  - qol: Rapid Part Exchange Devices and their bluespace variants now automatically
+      drop their current lowest tier of parts, instead of all of their parts.
+  - balance: Moved the account console board to the service lathe
+  - qol: made the threshold page of air alarm use colloquial terms instead of code
+      terms. Added reset and disable buttons.
+  - qol: Air alarm's gas breakdown now displays the moles, percentage, and partial
+      pressure.
+  - bugfix: operating mode selection in air alarm will be red if the selected mode
+      is dangerous.
+  - bugfix: fixed the area atmosphere alarm button on air alarm not working.
+  - code_imp: told the game that hyper nob isn't dangerous.
+  - refactor: refactored the threshold values and operating mode of air alarms in
+      the backend. No changes expected except the ones stated above.
+  - qol: agent id now has screentips when you can attempt to steal access for it
+  - rscadd: Introducing a new holodeck map, the TGC Arena, featuring hologram projectors
+      for your trading cards.
+  - bugfix: Janitor and Intern TGC cards are now considered creatures rather than
+      just humans.
+  - balance: The price of card packs has been reduced from double a paycheck to 3
+      quarters of one.
+  - balance: The number of cards available in the good clean fun vendor has been doubled.
+  - code_imp: Ghosts are now basic mobs! You might not notice any difference, but...
+  - code_imp: Ghost mobs now spawn with hair and sometimes facial hair.
+  - bugfix: Fix inconsistent runtime spam from baseturf on startup
+  - qol: Medipen refillers now use balloon alerts and progress bars instead of to
+      chat messages and invisible timers
+  - code_imp: Medipen refillers now refill your pen instead of delete it and create
+      a new one. This also means that refilling them will leave the medipen in your
+      hand instead of drop it at the refiller's tile.
+  - balance: While Ian still enjoys being petted, his heart will now most closely
+      belong to anyone who gives him an expensive luxury dog bone.
+  - code_imp: Using an item which _can_ deal damage on a mob tracking hostile actions
+      (such as a dog) won't automatically be considered to be a hostile action if
+      you aren't actually hitting it with the item.
+  - qol: A few recipes that were microwave only (like boiling rice, heating ready
+      donk, so on) can now also be made in an oven
+  - bugfix: Fixes being able to instantly create dense grilles
+  - rscadd: Space Carp seem to have begun associating the station with food and attempting
+      to enter from the outside, rather than simply congregating around solar panels.
+      Employees are advised that these are wild animals, and should not be fed.
+  - rscadd: Space Carp can intermittently teleport short distances, leaving a short
+      lived rift which other nearby carp will be attracted to follow them through.
+  - bugfix: Autosurgeon overlays now correctly update when removing organs.
+  - bugfix: Autosurgeons now say what organ is removed from them when screwdrivered.
+  - bugfix: Single use auto-surgeons cannot be reloaded again.
