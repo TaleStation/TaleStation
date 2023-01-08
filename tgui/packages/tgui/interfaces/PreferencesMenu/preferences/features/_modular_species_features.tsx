@@ -24,3 +24,8 @@ export const tajaran_body_markings_color: Feature<string> = {
   name: 'Tajaran Body Markings Color',
   component: FeatureColorInput,
 };
+
+export const feature_avian_tail: FeatureChoiced = {
+  name: 'Tail',
+  component: FeatureDropdownInput,
+};

@@ -102,6 +102,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["head_tentacles"] = "Long"
 	target.dna.features["tajaran_snout"] = "Long"
 	target.dna.features["tajaran_body_markings"] = "Default"
+	target.dna.features["avian_beak"] = "Short"
+	target.dna.features["avian_tail"] = "Wide"
+	target.dna.features["avian_talon_l"] = "Talon"
+	target.dna.features["avian_talon_r"] = "Talon"
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent

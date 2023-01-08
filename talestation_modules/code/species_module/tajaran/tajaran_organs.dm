@@ -43,7 +43,7 @@
 	return GLOB.tajaran_snout_list
 
 /obj/item/organ/internal/tongue/tajaran
-	name = "tajaram tongue"
+	name = "tajaran tongue"
 	desc = "Tajaran tongues are known for their rough patch of connective tissue.\
 				They don't make great kissers."
 	say_mod = "meows"
