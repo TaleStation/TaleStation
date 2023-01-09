@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(avian_talon_r_list)
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
+		TRAIT_EASILY_WOUNDED,
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
@@ -69,6 +70,8 @@ GLOBAL_LIST_EMPTY(avian_talon_r_list)
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
 	human_for_preview.dna.features["avian_beak"] = "short"
 	human_for_preview.dna.features["avian_tail"] = "wide"
+	human_for_preview.dna.features["avian_talon_l"] = "talon"
+	human_for_preview.dna.features["avian_talon_r"] = "talon"
 
 	human_for_preview.update_body()
 	human_for_preview.update_body_parts(update_limb_data = TRUE)

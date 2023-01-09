@@ -25,20 +25,12 @@
 	name = "Short"
 	icon_state = "short"
 
-/datum/sprite_accessory/leg/avian_talon/left
-	name = "Talon"
+/datum/sprite_accessory/leg/avian_talon/left/planti
+	name = "Left Plantigrade Talon"
 	icon_state = "avian_talon_l"
 	color_src = 0
 
-/datum/sprite_accessory/leg/avian_talon/right
-	name = "Talon"
+/datum/sprite_accessory/leg/avian_talon/right/planti
+	name = "Right Plantigrade Talon"
 	icon_state = "avian_talon_r"
 	color_src = 0
-
-/datum/sprite_accessory/leg/avian_talon/left/digi
-	name = "Digi Talon"
-	icon_state = "talon"
-
-/datum/sprite_accessory/leg/avian_talon/right/digi
-	name = "Digi Talon"
-	icon_state = "talon"
