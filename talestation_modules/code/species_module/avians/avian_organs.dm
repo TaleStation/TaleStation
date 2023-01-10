@@ -54,7 +54,7 @@
 	zone = BODY_ZONE_L_LEG
 	slot = ORGAN_SLOT_EXTERNAL_AVIAN_TALON_L
 	dna_block = DNA_AVIAN_TALON_L_BLOCK
-	layers = ALL_EXTERNAL_OVERLAYS
+	layers = EXTERNAL_ADJACENT
 
 	feature_key = "avian_talon_l"
 	preference = "feature_avian_talon_l"
@@ -67,7 +67,7 @@
 	zone = BODY_ZONE_R_LEG
 	slot = ORGAN_SLOT_EXTERNAL_AVIAN_TALON_R
 	dna_block = DNA_AVIAN_TALON_R_BLOCK
-	layers = ALL_EXTERNAL_OVERLAYS
+	layers = EXTERNAL_ADJACENT
 
 	feature_key = "avian_talon_r"
 	preference = "feature_avian_talon_r"

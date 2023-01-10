@@ -43,7 +43,7 @@
 	target.dna.features["avian_talon_l"] = value
 
 /datum/preference/choiced/avian_talon_left/create_default_value()
-	var/datum/sprite_accessory/leg/avian_talon/talon = /datum/sprite_accessory/leg/avian_talon
+	var/datum/sprite_accessory/leg/talon = /datum/sprite_accessory/leg
 	return initial(talon.name)
 
 /datum/preference/choiced/avian_talon_right
@@ -59,5 +59,5 @@
 	target.dna.features["avian_talon_r"] = value
 
 /datum/preference/choiced/avian_talon_right/create_default_value()
-	var/datum/sprite_accessory/leg/avian_talon/talon = /datum/sprite_accessory/leg/avian_talon
+	var/datum/sprite_accessory/leg/talon = /datum/sprite_accessory/leg
 	return initial(talon.name)
