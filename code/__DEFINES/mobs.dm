@@ -409,15 +409,9 @@
 #define OFFSET_NECK "neck"
 
 //MINOR TWEAKS/MISC
-<<<<<<< HEAD
 #define AGE_MIN 18 //youngest a character can be, - NON-MODULAR CHANGES: Ups min age
 #define AGE_MAX 100 //oldest a character can be, NON-MODULAR CHANGES: Ups max age
 #define AGE_MINOR 20  //legal age of space drinking and smoking
-=======
-#define AGE_MIN 17 //youngest a character can be
-#define AGE_MAX 85 //oldest a character can be
-#define AGE_MINOR 20 //legal age of space drinking and smoking
->>>>>>> 2f7e70d11d44 (Removes double spaces in defines and removes some unused ones (#72466))
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
 #define SHOES_SLOWDOWN 0 //How much shoes slow you down by default. Negative values speed you up
