@@ -27,8 +27,8 @@ GLOBAL_LIST_EMPTY(avian_talon_r_list)
 	external_organs = list(
 		/obj/item/organ/external/snout/avian_beak = "Short",
 		/obj/item/organ/external/tail/avian_tail = "Wide",
-		/obj/item/organ/external/leg/avian_talon/left_leg = "Talon",
-		/obj/item/organ/external/leg/avian_talon/right_leg = "Talon",
+		/obj/item/organ/external/leg/avian_talon/left_leg = "Left Plantigrade Talon",
+		/obj/item/organ/external/leg/avian_talon/right_leg = "Right Plantigrade Talon",
 		)
 
 	mutanttongue = /obj/item/organ/internal/tongue/avian
@@ -70,8 +70,8 @@ GLOBAL_LIST_EMPTY(avian_talon_r_list)
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
 	human_for_preview.dna.features["avian_beak"] = "short"
 	human_for_preview.dna.features["avian_tail"] = "wide"
-	human_for_preview.dna.features["avian_talon_l"] = "talon"
-	human_for_preview.dna.features["avian_talon_r"] = "talon"
+	human_for_preview.dna.features["avian_talon_l"] = "Left Plantigrade Talon"
+	human_for_preview.dna.features["avian_talon_r"] = "Right Plantigrade Talon"
 
 	human_for_preview.update_body()
 	human_for_preview.update_body_parts(update_limb_data = TRUE)
