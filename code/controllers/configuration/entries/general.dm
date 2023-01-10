@@ -646,6 +646,8 @@
 
 /datum/config_entry/string/morgue_cadaver_override_species
 
+/datum/config_entry/flag/toast_notification_on_init
+
 // Modular stuff
 /datum/config_entry/string/servertagline
 	config_entry_value = "We forgot to set the server's tagline in config.txt"
