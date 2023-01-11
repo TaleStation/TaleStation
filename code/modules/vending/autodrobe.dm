@@ -52,6 +52,9 @@
 				/obj/item/clothing/under/costume/deckers = 5,
 				/obj/item/clothing/under/costume/sailor = 1,
 				/obj/item/clothing/head/costume/delinquent = 1,
+				/obj/item/clothing/suit/costume/dracula = 1,
+				/obj/item/clothing/under/costume/draculass = 1,
+				/obj/item/clothing/suit/costume/gothcoat = 1,
 			),
 		),
 		list(
@@ -197,6 +200,8 @@
 		/obj/item/clothing/shoes/clown_shoes/ducky_shoes = 1,
 		/obj/item/clothing/shoes/clown_shoes/meown_shoes = 1,
 		/obj/item/clothing/suit/costume/judgerobe = 1,
+		/obj/item/clothing/head/costume/lobsterhat = 1,
+		/obj/item/clothing/under/costume/lobster = 1,
 		/obj/item/gun/magic/wand/nothing = 2,
 	)
 	premium = list(
