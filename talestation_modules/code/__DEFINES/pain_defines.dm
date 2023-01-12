@@ -8,7 +8,6 @@
 #define COMSIG_TEMPERATURE_PACK_EXPIRED "temp_pack_expired"
 
 /// Various lists of body zones affected by pain.
-#define BODY_ZONES_ALL list(BODY_ZONE_HEAD, BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 #define BODY_ZONES_MINUS_HEAD list(BODY_ZONE_CHEST, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 #define BODY_ZONES_LIMBS list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 #define BODY_ZONES_MINUS_CHEST list(BODY_ZONE_HEAD, BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
@@ -26,21 +25,20 @@
 #define PAIN_CHEST_MAX 120
 #define PAIN_HEAD_MAX 100
 
+/// What pain modifier does a mob need to ignore pain from surgery?
+/// Anesthesia always ignores surgery, pain, even if the modifier doesn't meet this threshold.
+#define PAIN_MOD_TO_IGNORE_SURGERY 0.33
+
 /// Keys for pain modifiers
 #define PAIN_MOD_CHEMS "chems"
 #define PAIN_MOD_DRUNK "drunk"
-#define PAIN_MOD_SLEEP "asleep"
 #define PAIN_MOD_LYING "lying"
-#define PAIN_MOD_STASIS "stasis"
 #define PAIN_MOD_DROWSY "drowsy"
 #define PAIN_MOD_NEAR_DEATH "near-death"
 #define PAIN_MOD_RECENT_SHOCK "recently-shocked"
-#define PAIN_MOD_YOUTH "youth"
-#define PAIN_MOD_TENACITY "tenacity"
 #define PAIN_MOD_QUIRK "quirk"
 #define PAIN_MOD_SPECIES "species"
 #define PAIN_MOD_OFF_STATION "off-station-pain-resistance"
-#define PAIN_MOD_GENETICS "gene"
 
 /// ID for traits and modifiers gained by pain
 #define PAIN_LIMB_PARALYSIS "pain_paralysis"
@@ -61,3 +59,6 @@
 #define set_pain_mod(id, amount) pain_controller?.set_pain_modifier(id, amount)
 /// Unset [id] pain mod
 #define unset_pain_mod(id) pain_controller?.unset_pain_modifier(id)
+
+/// If the mob enters shock, they will have +1 cure condition (helps cure it faster)
+#define TRAIT_ABATES_SHOCK "shock_abated"
