@@ -290,19 +290,17 @@ There are several things that need to be remembered:
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_FEET)
 			return
 
-<<<<<<< HEAD
 		var/icon_file
-		//(Currently) unused digitigrade handling
+		// NON-MODULAR CHANGES - MSO deleted this upstream, but we rely on the handeling down here
+		// I'm not a coder and if this is shit code make it better/modular
 		if((dna.species.bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
 			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
-				icon_file = 'talestation_modules/icons/mob/clothing/shoes/digi_shoes.dmi' //NON-MODULAR CHANGES - Enables digi shoes
+				icon_file = 'talestation_modules/icons/mob/clothing/shoes/digi_shoes.dmi'
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
+		// NON-MODULAR CHANGES END
 			icon_file = DEFAULT_SHOES_FILE
-=======
-		var/icon_file = DEFAULT_SHOES_FILE
->>>>>>> 74069f815a75 (Removes cargo culting from human mob icon update (#72641))
 
 		var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file)
 		if(!shoes_overlay)
@@ -396,19 +394,16 @@ There are several things that need to be remembered:
 	if(wear_suit)
 		var/obj/item/worn_item = wear_suit
 		update_hud_wear_suit(worn_item)
-<<<<<<< HEAD
 		var/icon_file
 
-		//More currently unused digitigrade handling
+		// NON-MODULAR CHANGES - MSO deleted this, ditto from previous comments
 		if(dna.species.bodytype & BODYTYPE_DIGITIGRADE)
 			if(worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)
-				icon_file = wear_suit.worn_icon_digitigrade || 'talestation_modules/icons/mob/clothing/suit/digi_suit.dmi' //NON-MODULAR CHANGES - Enables digi suits
+				icon_file = wear_suit.worn_icon_digitigrade || 'talestation_modules/icons/mob/clothing/suit/digi_suit.dmi'
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
 			icon_file = DEFAULT_SUIT_FILE
-=======
-		var/icon_file = DEFAULT_SUIT_FILE
->>>>>>> 74069f815a75 (Removes cargo culting from human mob icon update (#72641))
+		// NON-MODULAR CHANGES END
 
 		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file)
 		if(OFFSET_SUIT in dna.species.offset_features)
