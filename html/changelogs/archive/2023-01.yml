@@ -415,3 +415,26 @@
   - bugfix: The walls of the luxury shuttle no longer bend in strange directions.
   - bugfix: Fix blood overlays on energy daggers
   - code_imp: Add `NO_BLOOD_ON_ITEM` bitfield for items
+2023-01-15:
+  Melbert:
+  - bugfix: Fixed not getting moodlet from freshly laundered clothing
+  TaleStationBot:
+  - bugfix: the examine text for damage now properly uses the most common examine
+      text out of all the mob's limbs
+  - bugfix: all robotic limbs now have the robotic damage descriptions (charring,
+      denting)
+  - code_imp: improved the get_majority_bodypart_damage_desc() proc to reduce redundancies
+      and add support for limb-based cellular damage
+  - code_imp: Removes double CAN_BE_INTERN flag in chaplain and cargo tech job flags
+  - code_imp: Replaces a string in chemist departamental head variable with a job
+      define.
+  - bugfix: Cyborgs turning their lights on and off can now be seen doing so.
+  - spellcheck: fixed grammar/typo in Nanotrasen Pay System add
+  - refactor: Duplicating mobs now should now give properly functioning mobs, as duplications
+      in general have been reworked. Admins can feel free to use the pod feature on
+      people.
+  - rscadd: Added atmos holofans to metastation's ordnance lab.
+  - code_imp: Anomaly effects now have their own files, rather than being crammed
+      into a single, probably-too-large file.
+  Tattle:
+  - admin: cyborg creation details (synced AI and default laws) are now logged
