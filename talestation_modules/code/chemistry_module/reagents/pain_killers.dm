@@ -63,20 +63,20 @@
 	switch(current_cycle)
 		if(16) //~3u
 			to_chat(M, span_warning("You start to feel tired..."))
-			M.set_eye_blur(4 SECONDS) // just a hint teehee
+			M.set_eye_blur(2 SECONDS) // just a hint teehee
 			if(prob(50))
 				M.emote("yawn")
 
 		if(24 to 36) // 5u to 7.5u
-			if(parent_drowsy && parent_drowsy <= 3 && DT_PROB(33, delta_time))
+			if(parent_drowsy && parent_drowsy.duration <= world.time + 3 && DT_PROB(33, delta_time))
 				M.adjust_drowsiness(1 * REM * delta_time)
 
 		if(36 to 48) // 7.5u to 10u
-			if(parent_drowsy && parent_drowsy <= 6 && DT_PROB(66, delta_time))
+			if(parent_drowsy && parent_drowsy.duration <= world.time + 6 && DT_PROB(66, delta_time))
 				M.adjust_drowsiness(1 * REM * delta_time)
 
 		if(48 to INFINITY) //10u onward
-			if(parent_drowsy && parent_drowsy <= 9)
+			if(parent_drowsy && parent_drowsy.duration <= world.time + 9)
 				M.adjust_drowsiness(1 * REM * delta_time)
 			M.Sleeping(4 SECONDS * REM * delta_time)
 
