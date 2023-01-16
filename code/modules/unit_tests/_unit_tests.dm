@@ -74,6 +74,7 @@
 /// A trait source when adding traits through unit tests
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
+#include "~pain.dm" // NON-MODULAR CHANGES: Modular unit tests
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
@@ -211,8 +212,6 @@
 #include "verify_emoji_names.dm"
 #include "wizard_loadout.dm"
 #include "worn_icons.dm"
-// NON-MODULAR CHANGES: Modular unit tests
-#include "~pain.dm"
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"
 #endif
