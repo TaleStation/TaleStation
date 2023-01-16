@@ -528,8 +528,10 @@
 /datum/pain/proc/check_pain_modifiers(delta_time)
 	// This sucks and should be replaced when drowsy is a status effect
 	// lol way ahead of you
-	if(parent.drowsyness)
-		if(parent.drowsyness > 8)
+	var/datum/status_effect/parent_drowsy = parent.has_status_effect(/datum/status_effect/drowsiness)
+
+	if(parent_drowsy)
+		if(parent_drowsy.duration > world.time + 8)
 			set_pain_modifier(PAIN_MOD_DROWSY, 0.95)
 		else
 			unset_pain_modifier(PAIN_MOD_DROWSY)

@@ -27,31 +27,25 @@
 
 // Morphine is the well known existing painkiller.
 // It's very strong but makes you sleepy. Also addictive.
-/datum/reagent/medicine/painkiller/morphine
+/datum/reagent/medicine/morphine
 	name = "Morphine"
 	description = "A painkiller that allows the patient to move at full speed even when injured. \
 		Causes drowsiness and eventually unconsciousness in high doses. \
 		Overdose causes minor dizziness and jitteriness."
-	reagent_state = LIQUID
-	color = "#A9FBFB"
-	metabolization_rate = 0.5 * REAGENTS_METABOLISM // 0.1 units per second
-	overdose_threshold = 30
-	ph = 8.96
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/opioids = 30) //5u = 100 progress, 25-30u = addiction
 	harmful = TRUE
 	// Morphine is THE painkiller
 	pain_modifier = 0.5
 
-/datum/reagent/medicine/painkiller/morphine/on_mob_metabolize(mob/living/L)
+/datum/reagent/medicine/morphine/on_mob_metabolize(mob/living/L)
 	. = ..()
 	L.add_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 
-/datum/reagent/medicine/painkiller/morphine/on_mob_end_metabolize(mob/living/L)
+/datum/reagent/medicine/morphine/on_mob_end_metabolize(mob/living/L)
 	L.remove_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 	return ..()
 
-/datum/reagent/medicine/painkiller/morphine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
+/datum/reagent/medicine/morphine/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	// Morphine heals a very tiny bit
 	M.adjustBruteLoss(-0.2 * REM * delta_time, FALSE)
 	M.adjustFireLoss(-0.1 * REM * delta_time, FALSE)
@@ -61,33 +55,35 @@
 	if(M.disgust < DISGUST_LEVEL_VERYGROSS && DT_PROB(50 * max(1 - creation_purity, 0.5), delta_time))
 		M.adjust_disgust(2 * REM * delta_time)
 
+	var/datum/status_effect/parent_drowsy = M.has_status_effect(/datum/status_effect/drowsiness)
+
 	// The longer we're metabolzing it, the more we get sleepy
 	// for reference: (with 0.1 metabolism rate)
 	// ~2.5 units = 12 cycles = ~30 seconds
 	switch(current_cycle)
 		if(16) //~3u
 			to_chat(M, span_warning("You start to feel tired..."))
-			M.blur_eyes(1) // just a hint teehee
+			M.set_eye_blur(4 SECONDS) // just a hint teehee
 			if(prob(50))
 				M.emote("yawn")
 
 		if(24 to 36) // 5u to 7.5u
-			if(M.drowsyness <= 3 && DT_PROB(33, delta_time))
-				M.adjust_drowsyness(1 * REM * delta_time)
+			if(parent_drowsy && parent_drowsy <= 3 && DT_PROB(33, delta_time))
+				M.adjust_drowsiness(1 * REM * delta_time)
 
 		if(36 to 48) // 7.5u to 10u
-			if(M.drowsyness <= 6 && DT_PROB(66, delta_time))
-				M.adjust_drowsyness(1 * REM * delta_time)
+			if(parent_drowsy && parent_drowsy <= 6 && DT_PROB(66, delta_time))
+				M.adjust_drowsiness(1 * REM * delta_time)
 
 		if(48 to INFINITY) //10u onward
-			if(M.drowsyness <= 9)
-				M.adjust_drowsyness(1 * REM * delta_time)
+			if(parent_drowsy && parent_drowsy <= 9)
+				M.adjust_drowsiness(1 * REM * delta_time)
 			M.Sleeping(4 SECONDS * REM * delta_time)
 
 	..()
 	return TRUE
 
-/datum/reagent/medicine/painkiller/morphine/overdose_process(mob/living/M, delta_time, times_fired)
+/datum/reagent/medicine/morphine/overdose_process(mob/living/M, delta_time, times_fired)
 	..()
 	if(DT_PROB(18, delta_time))
 		M.drop_all_held_items()
@@ -233,7 +229,7 @@
 		M.adjust_disgust(3 * REM * delta_time)
 	// ...Drowsyness...
 	if(DT_PROB(75 * max(1 - creation_purity, 0.5), delta_time))
-		M.drowsyness += 1 * REM * delta_time
+		M.adjust_drowsiness(1 * REM * delta_time)
 	// ...And dizziness
 	if(DT_PROB(85 * max(1 - creation_purity, 0.5), delta_time))
 		M.adjust_dizzy(4 SECONDS * REM * delta_time)

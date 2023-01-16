@@ -266,7 +266,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/painkiller/paracetamol = 10, // Heals ~10 pain (per limb)
 		/datum/reagent/medicine/painkiller/aspirin_para_coffee = 5, // Heals ~7.5 pain (per limb)
-		/datum/reagent/medicine/painkiller/morphine = 5, // Heals ~10 pain (per limb), causes drowsy
+		/datum/reagent/medicine/morphine = 5, // Heals ~10 pain (per limb), causes drowsy
 		/datum/reagent/medicine/synaptizine = 10, // Cures drowsy from morphine
 	)
 
@@ -282,7 +282,7 @@
 	amount_per_transfer_from_this = 25
 	list_reagents = list(
 		/datum/reagent/medicine/painkiller/oxycodone = 7.5, // Heals ~25 pain (per limb)
-		/datum/reagent/medicine/painkiller/morphine = 5, // Heals ~10 pain (per limb), causes drowsy
+		/datum/reagent/medicine/morphine = 5, // Heals ~10 pain (per limb), causes drowsy
 		/datum/reagent/medicine/synaptizine = 10, // Cures drowsyness from morphine
 	)
 
@@ -328,13 +328,21 @@
 	cold_protection = CHEST|GROIN|LEGS|ARMS
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	armor = list(MELEE = 0, BULLET = 0, LASER = 20, ENERGY = 20, BOMB = 20, BIO = 10, FIRE = 100, ACID = 50)
+	armor_type = /datum/armor/shock_blanket
 	equip_delay_self = 2 SECONDS
 	slowdown = 1.5
 	throwforce = 0
 	throw_speed = 1
 	throw_range = 2
 	custom_price = PAYCHECK_CREW * 2
+
+/datum/armor/shock_blanket
+	laser = 20
+	energy = 20
+	bomb = 20
+	bio = 10
+	fire = 100
+	acid = 50
 
 /obj/item/shock_blanket/Initialize(mapload)
 	. = ..()
