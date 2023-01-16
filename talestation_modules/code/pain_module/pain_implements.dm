@@ -180,7 +180,7 @@
 /obj/item/reagent_containers/syringe/morphine
 	name = "syringe (morphine)"
 	desc = "Contains three injections of Morphine. Used to treat major to severe pain. Causes moderate drowsiness. Mildly addictive."
-	list_reagents = list(/datum/reagent/medicine/morphine = 15) // NON-MODULE CHANGE
+	list_reagents = list(/datum/reagent/medicine/morphine = 15)
 
 /obj/item/reagent_containers/pill/oxycodone
 	name = "oxycodone pill"
