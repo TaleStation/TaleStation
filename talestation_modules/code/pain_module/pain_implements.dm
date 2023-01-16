@@ -584,41 +584,26 @@
 
 // Pain implements added to various vendors.
 /obj/machinery/vending/drugs/Initialize()
-	product_categories += list(list(
-		"name" = "Pain",
-		"icon" = "pills",
-		"products" = list(
+	products += list(
 			/obj/item/storage/pill_bottle/painkillers = 2,
-		),
-	),
 	)
 
 	. = ..()
 
 /obj/machinery/vending/medical/Initialize()
-	product_categories += list(list(
-		"name" = "Pain",
-		"icon" = "pills",
-		"products" = list(
+	products += list(
 			/obj/item/shock_blanket/emergency = 3,
 			/obj/item/temperature_pack/cold = 2,
 			/obj/item/temperature_pack/heat = 2,
-		),
-	),
 	)
 
 	. = ..()
 
 /obj/machinery/vending/wallmed/Initialize()
-	product_categories += list(list(
-		"name" = "Pain",
-		"icon" = "pills",
-		"products" = list(
+	products += list(
 			/obj/item/shock_blanket/emergency = 2,
 			/obj/item/temperature_pack/cold = 1,
 			/obj/item/temperature_pack/heat = 1,
-		),
-	),
 	)
 
 	. = ..()

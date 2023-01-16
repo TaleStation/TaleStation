@@ -129,13 +129,7 @@
 	if(!istype(human_holder))
 		return
 
-	var/obj/item/bodypart/old_part = human_holder.get_bodypart(initial(replacement.body_zone))
-	var/obj/item/bodypart/prosthetic = new replacement(human_holder)
-
-	prosthetic.replace_limb(human_holder, TRUE)
-	if(old_part)
-		qdel(old_part)
-	human_holder.regenerate_icons()
+	human_holder.del_and_replace_bodypart(new replacement(human_holder), TRUE)
 
 /datum/quirk/prosthetic_limb/targeted/post_add()
 	return
@@ -158,7 +152,7 @@
 /datum/quirk/prosthetic_limb/targeted/right_leg
 	name = "Prosthetic Limb - Right Leg"
 	desc = "Your right leg is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/leg/left/robot/surplus
+	replacement = /obj/item/bodypart/leg/right/robot/surplus
 
 // Personally, the head being more prone to pain is a cool idea
 /datum/quirk/glass_jaw
