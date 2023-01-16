@@ -78,7 +78,8 @@
 	RegisterSignal(parent, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(remove_all_pain))
 	RegisterSignal(parent, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(add_damage_pain))
 	RegisterSignal(parent, COMSIG_MOB_STATCHANGE, PROC_REF(on_parent_statchance))
-	RegisterSignal(parent, list(COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_SET_BUCKLED), PROC_REF(check_lying_pain_modifier))
+	RegisterSignal(parent, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(check_lying_pain_modifier))
+	RegisterSignal(parent, COMSIG_LIVING_SET_BUCKLED, PROC_REF(check_lying_pain_modifier))
 
 	if(ishuman(parent))
 		RegisterSignal(parent, COMSIG_HUMAN_BURNING, PROC_REF(on_burn_tick))
