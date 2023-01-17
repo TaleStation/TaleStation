@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 		equipper.update_glasses_color(equipped_glasses, TRUE)
 	if(equipped_glasses.tint)
 		equipper.update_tint()
-	if(equipped_glasses.vision_correction)
+	if(TRAIT_NEARSIGHTED_CORRECTED in equipped_glasses.clothing_traits)
 		equipper.clear_fullscreen("nearsighted")
 	if(equipped_glasses.vision_flags \
 		|| equipped_glasses.darkness_view \

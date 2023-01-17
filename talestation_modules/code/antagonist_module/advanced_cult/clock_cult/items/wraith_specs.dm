@@ -104,7 +104,7 @@
 
 	darkness_view = 8
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_INVISIBLE
-	vision_correction = TRUE
+	clothing_traits = TRAIT_NEARSIGHTED_CORRECTED
 	user.clear_fullscreen("nearsighted")
 	user.update_glasses_color(src, TRUE)
 	return TRUE
@@ -122,8 +122,8 @@
 
 	darkness_view = 2
 	lighting_alpha = null
-	vision_correction = FALSE
-	if(HAS_TRAIT(user, TRAIT_NEARSIGHT))
+	clothing_traits = TRAIT_NEARSIGHTED_CORRECTED
+	if(HAS_TRAIT(user, TRAIT_NEARSIGHTED_CORRECTED))
 		user.overlay_fullscreen("nearsighted", /atom/movable/screen/fullscreen/impaired, 1)
 	user.update_glasses_color(src, FALSE)
 	return TRUE
