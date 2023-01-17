@@ -77,8 +77,11 @@
 #define NOTRANSSTING 7
 #define NOZOMBIE 8
 #define NO_UNDERWEAR 9
-#define NO_DNA_COPY 10
-#define DRINKSBLOOD 11
+#define NOSTOMACH 10
+#define NO_DNA_COPY 11
+#define DRINKSBLOOD 12
+/// Stops species from spawning with tongue. Doesn't actually make the species able to talk with no tongue
+#define NOTONGUE 13
 
 /// Use this if you want to change the race's color without the player being able to pick their own color. AKA special color shifting
 #define DYNCOLORS 12
