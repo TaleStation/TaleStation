@@ -189,8 +189,7 @@ export const _FaxMachine = (props, context) => {
               tooltip={
                 (can_receive ? 'Disable' : 'Enable') +
                 ' the ability for this fax machine \
-                to receive paperwork every five minutes, \
-                if you have the access to do so.'
+                to receive paperwork every five minutes.'
               }
               onClick={() => act('toggle_recieving')}
             />
