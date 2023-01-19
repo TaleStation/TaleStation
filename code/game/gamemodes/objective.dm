@@ -298,7 +298,6 @@ GLOBAL_LIST_EMPTY(objectives) // NON-MODULAR CHANGES: Cryopods
 	var/target_role_type = FALSE
 	var/human_check = TRUE
 
-
 /datum/objective/protect/check_completion()
 	var/obj/item/organ/internal/brain/brain_target
 	if(human_check)
