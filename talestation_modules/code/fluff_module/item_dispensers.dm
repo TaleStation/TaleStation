@@ -160,7 +160,7 @@
 
 /obj/structure/item_dispenser/latex
 	icon_state = "dispenser_gloves"
-	stock = /obj/item/clothing/gloves/color/latex
+	stock = /obj/item/clothing/gloves/latex
 	stocked = TRUE
 
 /obj/structure/item_dispenser/mask
@@ -198,7 +198,7 @@
 
 /obj/structure/item_dispenser/latex/empty
 	icon_state = "dispenser_gloves"
-	stock = /obj/item/clothing/gloves/color/latex
+	stock = /obj/item/clothing/gloves/latex
 	stocked = FALSE
 
 /obj/structure/item_dispenser/mask/empty
