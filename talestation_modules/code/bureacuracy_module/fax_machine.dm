@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	id = "fax_machine"
 	build_path = /obj/item/circuitboard/machine/fax_machine
 	category = list(
-		"Misc. Machinery"
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_SERVICE
 	)
 
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_CARGO
@@ -63,7 +63,6 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 100
-	req_one_access = list(ACCESS_COMMAND, ACCESS_LAWYER)
 	circuit = /obj/item/circuitboard/machine/fax_machine
 	/// Whether this machine can send faxes
 	var/sending_enabled = TRUE
@@ -182,9 +181,9 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	data["emagged"] = emagged
 	data["unread_message"] = unread_message
 
-	var/admin_destination = (emagged ? SYNDICATE_FAX_MACHINE : CENTCOM_FAX_MACHINE)
+	//var/admin_destination = (emagged ? SYNDICATE_FAX_MACHINE : CENTCOM_FAX_MACHINE)
 	var/list/possible_destinations = list()
-	possible_destinations += admin_destination
+	//possible_destinations += admin_destination
 	for(var/obj/machinery/fax_machine/machine as anything in GLOB.fax_machines)
 		if(machine == src)
 			continue
@@ -194,7 +193,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 			continue
 		possible_destinations += machine.room_tag
 	data["destination_options"] = possible_destinations
-	data["default_destination"] = admin_destination
+	data["default_destination"] = possible_destinations
 
 	return data
 
@@ -209,7 +208,13 @@ GLOBAL_LIST_EMPTY(fax_machines)
 			obj_flags &= ~EMAGGED
 
 		if("toggle_recieving")
-			can_receive_paperwork = !can_receive_paperwork
+			if(allowed(usr))
+				can_receive_paperwork = !can_receive_paperwork
+				balloon_alert(usr, span_notice("Reciving toggled."))
+				playsound(src, 'sound/machines/terminal_processing.ogg', 50, FALSE)
+			else
+				balloon_alert(usr, span_notice("No access!"))
+				playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 
 		if("read_last_received")
 			unread_message = FALSE
