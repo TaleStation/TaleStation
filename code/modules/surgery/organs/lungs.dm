@@ -288,8 +288,12 @@
 		if(n2o_pp > n2o_para_min) // Enough to make us stunned for a bit
 			breather.throw_alert(ALERT_TOO_MUCH_N2O, /atom/movable/screen/alert/too_much_n2o)
 			breather.Unconscious(60) // 60 gives them one second to wake up and run away a bit!
-			if(n2o_pp > n2o_sleep_min) // Enough to make us sleep as well
-				breather.Sleeping(min(breather.AmountSleeping() + 100, 200))
+			// NON-MODULAR CHANGES
+			var/amount_of_sleep = min(breather.AmountSleeping() + 10 SECONDS, 20 SECONDS)
+			if(n2o_pp > n2o_sleep_min && breather.Sleeping(amount_of_sleep))
+				// If we got put to sleep we count as "on anesthetic"
+				breather.apply_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
+			// NON-MODULAR CHANGES END
 		else if(n2o_pp > 0.01) // There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 			breather.clear_alert(ALERT_TOO_MUCH_N2O)
 			if(prob(20))
@@ -298,9 +302,8 @@
 		else
 			n2o_euphoria = EUPHORIA_INACTIVE
 			breather.clear_alert(ALERT_TOO_MUCH_N2O)
-
-
-		on_anesthetic = check_anesthetic(n2o_pp, n2o_sleep_min) // NON-MODULAR CHANGES
+			// NON-MODULAR CHANGES
+			breather.remove_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
 	// BZ
 
 		var/bz_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/bz][MOLES])
