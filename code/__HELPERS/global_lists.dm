@@ -36,6 +36,10 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list) //NON-MODULAR CHANGES: Tajarans
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list) //NON-MODULAR CHANGES: Tajarans
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list) //NON-MODULAR CHANGES: Tajarans
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list) //NON-MODULAR CHANGES: Avians
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list) //NON-MODULAR CHANGES: Avians
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/leg/left/avian_talon, GLOB.avian_talon_l_list) //NON-MODULAR CHANGES: Avians
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/leg/right/avian_talon, GLOB.avian_talon_r_list) //NON-MODULAR CHANGES: Avians
 
 	//Species
 	for(var/spath in subtypesof(/datum/species))
@@ -183,6 +187,10 @@
 			for(var/atom/req_atom as anything in recipe.machinery)
 				if(!(req_atom in atom_lists[list_index]))
 					atom_lists[list_index] += req_atom
+			// Structures
+			for(var/atom/req_atom as anything in recipe.structures)
+				if(!(req_atom in atom_lists[list_index]))
+					atom_lists[list_index] += req_atom
 
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
@@ -219,7 +227,6 @@ GLOBAL_LIST_INIT(WALLITEMS_INTERIOR, typecacheof(list(
 	/obj/item/storage/secure/safe,
 	/obj/machinery/airalarm,
 	/obj/machinery/bluespace_vendor,
-	/obj/machinery/newscaster,
 	/obj/machinery/button,
 	/obj/machinery/computer/security/telescreen,
 	/obj/machinery/computer/security/telescreen/entertainment,
@@ -241,10 +248,11 @@ GLOBAL_LIST_INIT(WALLITEMS_INTERIOR, typecacheof(list(
 	/obj/structure/reagent_dispensers/wall,
 	/obj/structure/sign,
 	/obj/structure/sign/picture_frame,
-	/obj/structure/sign/poster/random,
 	/obj/structure/sign/poster/contraband/random,
 	/obj/structure/sign/poster/official/random,
-	)))
+	/obj/structure/sign/poster/random,
+	/obj/structure/urinal,
+)))
 
 // Wall mounted machinery which are visually coming out of the wall.
 // These do not conflict with machinery which are visually placed on the wall.
@@ -252,5 +260,5 @@ GLOBAL_LIST_INIT(WALLITEMS_EXTERIOR, typecacheof(list(
 	/obj/machinery/camera,
 	/obj/machinery/light,
 	/obj/structure/camera_assembly,
-	/obj/structure/light_construct
-	)))
+	/obj/structure/light_construct,
+)))

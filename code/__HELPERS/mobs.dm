@@ -97,6 +97,14 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list)
 	if(!GLOB.tajaran_body_markings_list.len) // NON-MODULAR CHANGES: Tajaran markings initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list)
+	if(!GLOB.avian_beak_list.len) // NON-MODULAR CHANGES: Avian beaks initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list)
+	if(!GLOB.avian_tail_list.len) // NON-MODULAR CHANGES: Avian tails initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list)
+	if(!GLOB.avian_talon_l_list.len) // NON-MODULAR CHANGES: Avian left talon initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/leg/left/avian_talon, GLOB.avian_talon_l_list)
+	if(!GLOB.avian_talon_r_list.len) // NON-MODULAR CHANGES: Avian right talon initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/leg/right/avian_talon, GLOB.avian_talon_r_list)
 
 	//For now we will always return none for tail_human and ears. | "For now" he says.
 	return(list(
@@ -119,9 +127,13 @@
 		"tail_monkey" = "None",
 		"pod_hair" = pick(GLOB.pod_hair_list),
 		"head_tentacles" =(pick(GLOB.head_tentacles_list)), //NON-MODULAR CHANGES: Skrell
-		"tajaran_tail" =(pick(GLOB.tajaran_tail_list)), //NON-MODULAR CHANGES: tajaran
-		"tajaran_markings" =(pick(GLOB.tajaran_body_markings_list)), //NON-MODULAR CHANGES: tajaran
-		"tajaran_snout" =(pick(GLOB.tajaran_snout_list)), //NON-MODULAR CHANGES: tajaran
+		"tajaran_tail" =(pick(GLOB.tajaran_tail_list)), //NON-MODULAR CHANGES: Tajaran
+		"tajaran_markings" =(pick(GLOB.tajaran_body_markings_list)), //NON-MODULAR CHANGES: Tajaran
+		"tajaran_snout" =(pick(GLOB.tajaran_snout_list)), //NON-MODULAR CHANGES: Tajaran
+		"avian_beak" =(pick(GLOB.avian_beak_list)), //NON-MODULAR CHANGES: Avian
+		"avian_tail" =(pick(GLOB.avian_tail_list)), //NON-MODULAR CHANGES: Avian
+		"avian_talon_l" =(pick(GLOB.avian_talon_l_list)), //NON-MODULAR CHANGES: Avian
+		"avian_talon_r" =(pick(GLOB.avian_talon_r_list)), //NON-MODULAR CHANGES: Avian
 	))
 
 /proc/random_hairstyle(gender)

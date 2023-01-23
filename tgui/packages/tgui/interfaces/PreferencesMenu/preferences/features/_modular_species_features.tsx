@@ -24,3 +24,18 @@ export const tajaran_body_markings_color: Feature<string> = {
   name: 'Tajaran Body Markings Color',
   component: FeatureColorInput,
 };
+
+export const feature_avian_tail: FeatureChoiced = {
+  name: 'Tail',
+  component: FeatureDropdownInput,
+};
+
+export const feature_avian_talon_l: FeatureChoiced = {
+  name: 'Left Talon',
+  component: FeatureDropdownInput,
+};
+
+export const feature_avian_talon_r: FeatureChoiced = {
+  name: 'Right Talon',
+  component: FeatureDropdownInput,
+};

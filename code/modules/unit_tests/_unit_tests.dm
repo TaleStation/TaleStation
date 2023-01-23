@@ -74,6 +74,7 @@
 /// A trait source when adding traits through unit tests
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
+#include "~pain.dm" // NON-MODULAR CHANGES: Modular unit tests
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
@@ -165,7 +166,7 @@
 #include "range_return.dm"
 #include "rcd.dm"
 #include "reagent_id_typos.dm"
-#include "reagent_mod_expose.dm"
+#include "reagent_mob_expose.dm"
 #include "reagent_mod_procs.dm"
 #include "reagent_names.dm"
 #include "reagent_recipe_collisions.dm"

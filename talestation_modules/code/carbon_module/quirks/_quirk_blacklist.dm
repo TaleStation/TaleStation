@@ -13,6 +13,7 @@
 	var/static/list/species_blacklist = list(
 		"Light Drinker" = list(/datum/species/skrell),
 		"Night Vision" = list(/datum/species/tajaran),
+		"Frail" = list(/datum/species/avian),
 	)
 	/// Species whitelist. Quirks can only be added to species in the supplied list.
 	var/static/list/species_whitelist = list(

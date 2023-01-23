@@ -228,6 +228,14 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_TAJARAN_MARKINGS_BLOCK] = construct_block(GLOB.tajaran_body_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_body_markings_list.len)
 	if(features["tajaran_snout"]) // NON-MODULAR CHANGES: Tajaran snout
 		L[DNA_TAJARAN_SNOUT_BLOCK] = construct_block(GLOB.tajaran_snout_list.Find(features["tajaran_snout"]), GLOB.tajaran_snout_list.len)
+	if(features["avian_beak"]) // NON-MODULAR CHANGES: Avian beak
+		L[DNA_AVIAN_BEAK_BLOCK] = construct_block(GLOB.avian_beak_list.Find(features["avian_beak"]), GLOB.avian_beak_list.len)
+	if(features["avian_tail"]) // NON-MODULAR CHANGES: Avian tail
+		L[DNA_AVIAN_TAIL_BLOCK] = construct_block(GLOB.avian_tail_list.Find(features["avian_tail"]), GLOB.avian_tail_list.len)
+	if(features["avian_talon_l"]) // NON-MODULAR CHANGES: Avian talons
+		L[DNA_AVIAN_TALON_L_BLOCK] = construct_block(GLOB.avian_talon_l_list.Find(features["avian_talon_l"]), GLOB.avian_talon_l_list.len)
+	if(features["avian_talon_r"]) // NON-MODULAR CHANGES: Avian talons
+		L[DNA_AVIAN_TALON_R_BLOCK] = construct_block(GLOB.avian_talon_r_list.Find(features["avian_talon_r"]), GLOB.avian_talon_r_list.len)
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
@@ -368,6 +376,14 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_body_markings_list.Find(features["tajaran_markings"]), GLOB.tajaran_body_markings_list.len))
 		if(DNA_TAJARAN_TAIL_BLOCK) // NON-MODULAR CHANGES: TAJARAN
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tajaran_tail_list.Find(features["tajaran_tail"]), GLOB.tajaran_tail_list.len))
+		if(DNA_AVIAN_BEAK_BLOCK) // NON-MODULAR CHANGES: Avian
+			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_beak_list.Find(features["avian_beak"]), GLOB.avian_beak_list.len))
+		if(DNA_AVIAN_TAIL_BLOCK) // NON-MODULAR CHANGES: Avian
+			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_tail_list.Find(features["avian_tail"]), GLOB.avian_tail_list.len))
+		if(DNA_AVIAN_TALON_L_BLOCK) // NON-MODULAR CHANGES: Avian
+			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_talon_l_list.Find(features["avian_talon_l"]), GLOB.avian_talon_l_list.len))
+		if(DNA_AVIAN_TALON_R_BLOCK) // NON-MODULAR CHANGES: Avian
+			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_talon_r_list.Find(features["avian_talon_r"]), GLOB.avian_talon_r_list.len))
 
 //Please use add_mutation or activate_mutation instead
 /datum/dna/proc/force_give(datum/mutation/human/HM)
@@ -636,6 +652,14 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		dna.features["tajaran_markings"] = GLOB.tajaran_body_markings_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_MARKINGS_BLOCK), GLOB.tajaran_body_markings_list.len)]
 	if(dna.features["tajaran_tail"]) // NON-MODULAR CHANGES: Tajaran
 		dna.features["tajaran_tail"] = GLOB.tajaran_tail_list[deconstruct_block(get_uni_feature_block(features, DNA_TAJARAN_TAIL_BLOCK), GLOB.tajaran_tail_list.len)]
+	if(dna.features["avian_beak"]) // NON-MODULAR CHANGES: Avian
+		dna.features["avian_beak"] = GLOB.avian_beak_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_BEAK_BLOCK), GLOB.avian_beak_list.len)]
+	if(dna.features["avian_tail"]) // NON-MODULAR CHANGES: Avian
+		dna.features["avian_tail"] = GLOB.avian_tail_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_TAIL_BLOCK), GLOB.avian_tail_list.len)]
+	if(dna.features["avian_talon_l"]) // NON-MODULAR CHANGES: Avian
+		dna.features["avian_talon_l"] = GLOB.avian_talon_l_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_TAIL_BLOCK), GLOB.avian_talon_l_list.len)]
+	if(dna.features["avian_talon_r"]) // NON-MODULAR CHANGES: Avian
+		dna.features["avian_talon_r"] = GLOB.avian_talon_r_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_TAIL_BLOCK), GLOB.avian_talon_r_list.len)]
 
 	for(var/obj/item/organ/external/external_organ as anything in external_organs)
 		external_organ.mutate_feature(features, src)

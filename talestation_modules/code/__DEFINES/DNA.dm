@@ -6,3 +6,4 @@
 // Species defines
 #define SPECIES_SKRELL "skrell"
 #define SPECIES_TAJARAN "tajaran"
+#define SPECIES_AVIAN "avian"
