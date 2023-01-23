@@ -84,6 +84,8 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	var/max_paperwork = 8
 	/// Cooldown between sending faxes
 	COOLDOWN_DECLARE(fax_cooldown)
+	/// Used for the command fax machine primarily
+	var/ui_name = "_FaxMachine"
 
 /obj/machinery/fax_machine/Initialize(mapload)
 	. = ..()
@@ -120,7 +122,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "_FaxMachine", name)
+		ui = new(user, src, ui_name, name)
 		ui.open()
 
 /obj/machinery/fax_machine/ui_state(mob/user)
@@ -820,17 +822,11 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	greyscale_colors = CIRCUIT_COLOR_COMMAND
 	build_path = /obj/machinery/fax_machine/command
 
-/obj/machinery/fax_machine/command/ui_interact(mob/user, datum/tgui/ui)
-	. = ..()
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "_FaxMachineCommand", name)
-		ui.open()
-
 /obj/machinery/fax_machine/command
 	name = "command fax machine"
 	desc = "A machine made to send faxes and process paperwork. You unbelievably boring person."
 	req_access = list(ACCESS_COMMAND)
+	ui_name = "_FaxMachineCommand"
 
 /obj/machinery/fax_machine/command/recieving_disabled
 	can_receive_paperwork = FALSE
