@@ -658,6 +658,14 @@ const RecipeContentCompact = ({ item, craftable, busy, mode }, context) => {
                     item.machinery
                       .map((item) => data.atom_data[(item as any) - 1]?.name)
                       .join(', ')}
+<<<<<<< HEAD
+=======
+                {item.structures &&
+                  ', ' +
+                    item.structures
+                      .map((item) => data.atom_data[(item as any) - 1]?.name)
+                      .join(', ')}
+>>>>>>> 4c50e64fb8a0a (Merge skew mondays second merge skew (#72908))
               </Box>
             </Stack.Item>
             <Stack.Item>
@@ -788,6 +796,17 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }, context) => {
                     ))}
                   </Box>
                 )}
+<<<<<<< HEAD
+=======
+                {item.structures && (
+                  <Box>
+                    <GroupTitle title="Structures" />
+                    {item.structures.map((atom_id) => (
+                      <AtomContent key={atom_id} atom_id={atom_id} amount={1} />
+                    ))}
+                  </Box>
+                )}
+>>>>>>> 4c50e64fb8a0a (Merge skew mondays second merge skew (#72908))
               </Box>
               {!!item.steps?.length && (
                 <Box>
