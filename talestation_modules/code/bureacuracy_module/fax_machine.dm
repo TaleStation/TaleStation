@@ -807,6 +807,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 /datum/design/board/fax_machine/command
 	name = "Command Fax Machine Board"
 	desc = "The circuit board for a Command Fax Machine."
+	id = "command_fax_machine"
 	build_path = /obj/item/circuitboard/machine/fax_machine/command
 
 /obj/item/circuitboard/machine/fax_machine/command
