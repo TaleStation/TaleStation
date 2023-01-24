@@ -23,7 +23,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 // Deletes TGs fax machines
 /obj/machinery/fax/Initialize(mapload)
 	. = ..()
-	new /obj/machinery/fax_machine/recieving_disabled(get_turf(src))
+	new /obj/machinery/fax_machine(get_turf(src))
 	return INITIALIZE_HINT_QDEL
 
 /// Fax machine design, for techwebs.
@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	/// Whether this fax machine is locked.
 	var/locked = TRUE
 	/// Whether this fax machine can receive paperwork to process on SSeconomy ticks.
-	var/can_receive_paperwork = TRUE
+	var/can_receive_paperwork = FALSE
 	/// Whether we have an unread message
 	var/unread_message = FALSE
 	/// The area string this fax machine is set to.
@@ -109,16 +109,6 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	eject_received_paper()
 
 	return ..()
-
-/obj/machinery/fax_machine/recieving_disabled
-	can_receive_paperwork = FALSE
-
-/obj/machinery/fax_machine/full/Initialize(mapload)
-	. = ..()
-	for(var/i in 1 to max_paperwork)
-		if(LAZYLEN(received_paperwork) >= max_paperwork)
-			continue
-		LAZYADD(received_paperwork, generate_paperwork(src))
 
 /obj/machinery/fax_machine/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -832,9 +822,14 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	base_icon_state = "command_fax"
 	icon_state = "command_fax"
 	fax_type = "command_fax"
+	can_receive_paperwork = TRUE
 
-/obj/machinery/fax_machine/command/recieving_disabled
-	can_receive_paperwork = FALSE
+/obj/machinery/fax_machine/command/full/Initialize(mapload)
+	. = ..()
+	for(var/i in 1 to max_paperwork)
+		if(LAZYLEN(received_paperwork) >= max_paperwork)
+			continue
+		LAZYADD(received_paperwork, generate_paperwork(src))
 
 /obj/machinery/fax_machine/command/Destroy()
 	QDEL_NULL(stored_paper)
