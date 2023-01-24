@@ -69,7 +69,7 @@ export const _FaxMachine = (props, context) => {
                   icon="copy"
                   selected={tab === 1}
                   onClick={() => setTab(1)}>
-                  <b>Send A Fax</b>
+                  <b>Send a Fax</b>
                 </Tabs.Tab>
                 <Tabs.Tab
                   width="50%"
@@ -81,7 +81,7 @@ export const _FaxMachine = (props, context) => {
                   }}>
                   <Stack>
                     <Stack.Item textAlign="left">
-                      <b>received Faxes </b>
+                      <b>Received Faxes </b>
                     </Stack.Item>
                     {received_paper && !!unread_message && (
                       <Stack.Item grow textAlign="right">
