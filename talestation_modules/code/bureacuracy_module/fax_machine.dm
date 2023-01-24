@@ -86,6 +86,8 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	COOLDOWN_DECLARE(fax_cooldown)
 	/// Used for the command fax machine primarily
 	var/ui_name = "_FaxMachine"
+	/// Used for the flick() animate
+	var/fax_type = "fax"
 
 /obj/machinery/fax_machine/Initialize(mapload)
 	. = ..()
@@ -376,7 +378,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	to_chat(user, span_notice("Fax sent. Dispensing paper for personal record keeping. Thank you for using the Nanotrasen Approved Faxing Device!"))
 	eject_stored_paper()
-	flick("fax_send", src)
+	flick("[fax_type]_send", src)
 	playsound(src, 'sound/machines/terminal_processing.ogg', 35, FALSE)
 	COOLDOWN_START(src, fax_cooldown, FAX_COOLDOWN_TIME)
 	use_power(active_power_usage)
@@ -615,7 +617,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		paper.forceMove(drop_location())
 	LAZYREMOVE(received_paperwork, paper)
 	if(!silent)
-		flick("fax_receive", src)
+		flick("[fax_type]_receive", src)
 		playsound(src, 'sound/machines/ding.ogg', 50, FALSE)
 		use_power(active_power_usage)
 
@@ -639,7 +641,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return
 
 	if(!silent)
-		flick("fax_receive", src)
+		flick("[fax_type]_receive", src)
 		balloon_alert_to_viewers("removed paper")
 	if(user && user.CanReach(src))
 		user.put_in_hands(stored_paper)
@@ -659,7 +661,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return
 
 	if(!silent)
-		flick("fax_receive", src)
+		flick("[fax_type]_receive", src)
 		balloon_alert_to_viewers("removed paper")
 	if(user && user.CanReach(src))
 		user.put_in_hands(received_paper)
@@ -827,6 +829,9 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	desc = "A machine made to send faxes and process paperwork. You unbelievably boring person."
 	req_access = list(ACCESS_COMMAND)
 	ui_name = "_FaxMachineCommand"
+	base_icon_state = "command_fax"
+	icon_state = "command_fax"
+	fax_type = "command_fax"
 
 /obj/machinery/fax_machine/command/recieving_disabled
 	can_receive_paperwork = FALSE
