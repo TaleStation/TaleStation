@@ -291,15 +291,6 @@
 	targetitem = /obj/item/aicard
 	difficulty = 20 //beyond the impossible
 
-<<<<<<< HEAD
-/obj/item/aicard/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/aicard)
-
-/datum/objective_item/steal/functionalai/check_special_completion(obj/item/aicard/C)
-	for(var/mob/living/silicon/ai/A in C)
-		if(isAI(A) && A.stat != DEAD) //See if any AI's are alive inside that card.
-			return TRUE
-=======
 /datum/objective_item/steal/functionalai/New()
 	. = ..()
 	altitems += typesof(/obj/item/mod/control) // only here so we can account for AIs tucked away in a MODsuit.
@@ -320,7 +311,6 @@
 	if(isAI(being) && being.stat != DEAD)
 		return TRUE
 
->>>>>>> 8c9970e1e8ae0 (Allows MODSuit AIs to count towards Steal AI Traitor Objective (#72902))
 	return FALSE
 
 /datum/objective_item/steal/blueprints
