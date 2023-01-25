@@ -1,8 +1,8 @@
 import { useBackend, useSharedState, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, Section, Stack, Tabs } from '../components';
+import { BlockQuote, Box, Button, Divider, Dropdown, Section, Stack, Tabs } from '../components';
 import { Window } from '../layouts';
 
-export const _FaxMachine = (props, context) => {
+export const _FaxMachineCommand = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     display_name,
@@ -44,7 +44,7 @@ export const _FaxMachine = (props, context) => {
     <Window width={550} height={630} theme={emagged ? 'syndicate' : 'ntos'}>
       <Window.Content>
         <Section
-          title="Nanotrasen Fax Device"
+          title="Nanotrasen Command-Issued Fax Device"
           height={6.5}
           buttons={
             !!emagged && (
@@ -58,7 +58,7 @@ export const _FaxMachine = (props, context) => {
           Hello, {display_name}!{' '}
           {emagged
             ? 'ERR- ERRoR. ERROR.'
-            : 'Welcome to the Nanotrasen Approved Faxing Device!'}
+            : 'Welcome to the Nanotrasen Approved Command-Issued Faxing Device!'}
         </Section>
         <Section title="Faxed Papers">
           <Stack vertical height={15}>
@@ -177,6 +177,128 @@ export const _FaxMachine = (props, context) => {
                   </Stack.Item>
                 </Stack>
               )}
+            </Stack.Item>
+          </Stack>
+        </Section>
+        <Section
+          title="Paperwork"
+          buttons={
+            <Button.Checkbox
+              checked={can_receive}
+              content="Toggle Incoming Paperwork"
+              tooltip={
+                (can_receive ? 'Disable' : 'Enable') +
+                ' the ability for this fax machine \
+                to receive paperwork every five minutes.'
+              }
+              onClick={() => act('toggle_recieving')}
+            />
+          }>
+          <Stack vertical grow>
+            <Stack.Item height={2}>
+              {received_paperwork && received_paperwork.length > 0 ? (
+                <Tabs>
+                  {received_paperwork.map((paper) => (
+                    <Tabs.Tab
+                      width="12.5%"
+                      key={paper}
+                      textAlign="center"
+                      selected={paper.ref === selectedPaperTab}
+                      onClick={() => setSelectedPaper(paper.ref)}>
+                      Paper {paper.num}
+                    </Tabs.Tab>
+                  ))}
+                </Tabs>
+              ) : (
+                'No stored paperwork to process.'
+              )}
+            </Stack.Item>
+            <Stack.Item height={8}>
+              {selectedPaper ? (
+                <BlockQuote fontSize="14px">
+                  {selectedPaper.contents}
+                </BlockQuote>
+              ) : (
+                received_paperwork &&
+                received_paperwork.length > 0 &&
+                'No paper selected.'
+              )}
+            </Stack.Item>
+            <Divider />
+            <Stack.Item height={3} mb={1}>
+              {!!selectedPaper && (
+                <Stack vertical align="center">
+                  <Stack.Item>
+                    <b>
+                      To fulfill this paperwork, stamp accurately and answer the
+                      following:
+                    </b>
+                  </Stack.Item>
+                  <Stack.Item>
+                    <BlockQuote>{selectedPaper.required_answer}</BlockQuote>
+                  </Stack.Item>
+                </Stack>
+              )}
+            </Stack.Item>
+            <Stack.Item align="center" height={2}>
+              <Stack>
+                <Stack.Item>
+                  <Button
+                    color="good"
+                    disabled={!selectedPaper}
+                    content="Print Paper"
+                    tooltip="Print the selected paperwork. \
+                      This is how you stamp and process the paperwork."
+                    onClick={() =>
+                      act('print_select_paperwork', {
+                        ref: selectedPaper.ref,
+                      })
+                    }
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    disabled={!selectedPaper || emagged}
+                    content="Send Paper For Processing"
+                    tooltip="Send the selected paperwork \
+                      to your employer to check its \
+                      validity and receive your payment."
+                    onClick={() =>
+                      act('check_paper', {
+                        ref: selectedPaper.ref,
+                      })
+                    }
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    color="bad"
+                    disabled={!selectedPaper}
+                    content="Delete Paper"
+                    tooltip="Delete the selected paperwork from the machine."
+                    onClick={() =>
+                      act('delete_select_paperwork', {
+                        ref: selectedPaper.ref,
+                      })
+                    }
+                  />
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    color={
+                      !received_paperwork || received_paperwork.length <= 0
+                        ? 'good'
+                        : 'caution'
+                    }
+                    disabled={
+                      !received_paperwork || received_paperwork.length <= 0
+                    }
+                    content="Print All Papers"
+                    tooltip="Print out all the paperwork stored in the machine."
+                    onClick={() => act('print_all_paperwork')}
+                  />
+                </Stack.Item>
+              </Stack>
             </Stack.Item>
           </Stack>
         </Section>

@@ -1,5 +1,3 @@
-/// --- Fax Machines. ---
-// Sprite ported from oldbases with fax machines (Paradise, baystaion, vgstation).
 
 /// GLOB list of all fax machines.
 GLOBAL_LIST_EMPTY(fax_machines)
@@ -25,7 +23,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 // Deletes TGs fax machines
 /obj/machinery/fax/Initialize(mapload)
 	. = ..()
-	new /obj/machinery/fax_machine/recieving_disabled(get_turf(src))
+	new /obj/machinery/fax_machine(get_turf(src))
 	return INITIALIZE_HINT_QDEL
 
 /// Fax machine design, for techwebs.
@@ -71,7 +69,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	/// Whether this fax machine is locked.
 	var/locked = TRUE
 	/// Whether this fax machine can receive paperwork to process on SSeconomy ticks.
-	var/can_receive_paperwork = TRUE
+	var/can_receive_paperwork = FALSE
 	/// Whether we have an unread message
 	var/unread_message = FALSE
 	/// The area string this fax machine is set to.
@@ -86,6 +84,10 @@ GLOBAL_LIST_EMPTY(fax_machines)
 	var/max_paperwork = 8
 	/// Cooldown between sending faxes
 	COOLDOWN_DECLARE(fax_cooldown)
+	/// Used for the command fax machine primarily
+	var/ui_name = "_FaxMachine"
+	/// Used for the flick() animate
+	var/fax_type = "fax"
 
 /obj/machinery/fax_machine/Initialize(mapload)
 	. = ..()
@@ -108,21 +110,11 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	return ..()
 
-/obj/machinery/fax_machine/recieving_disabled
-	can_receive_paperwork = FALSE
-
-/obj/machinery/fax_machine/full/Initialize(mapload)
-	. = ..()
-	for(var/i in 1 to max_paperwork)
-		if(LAZYLEN(received_paperwork) >= max_paperwork)
-			continue
-		LAZYADD(received_paperwork, generate_paperwork(src))
-
 /obj/machinery/fax_machine/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "_FaxMachine", name)
+		ui = new(user, src, ui_name, name)
 		ui.open()
 
 /obj/machinery/fax_machine/ui_state(mob/user)
@@ -376,7 +368,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	to_chat(user, span_notice("Fax sent. Dispensing paper for personal record keeping. Thank you for using the Nanotrasen Approved Faxing Device!"))
 	eject_stored_paper()
-	flick("fax_send", src)
+	flick("[fax_type]_send", src)
 	playsound(src, 'sound/machines/terminal_processing.ogg', 35, FALSE)
 	COOLDOWN_START(src, fax_cooldown, FAX_COOLDOWN_TIME)
 	use_power(active_power_usage)
@@ -615,7 +607,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		paper.forceMove(drop_location())
 	LAZYREMOVE(received_paperwork, paper)
 	if(!silent)
-		flick("fax_receive", src)
+		flick("[fax_type]_receive", src)
 		playsound(src, 'sound/machines/ding.ogg', 50, FALSE)
 		use_power(active_power_usage)
 
@@ -639,7 +631,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return
 
 	if(!silent)
-		flick("fax_receive", src)
+		flick("[fax_type]_receive", src)
 		balloon_alert_to_viewers("removed paper")
 	if(user && user.CanReach(src))
 		user.put_in_hands(stored_paper)
@@ -659,7 +651,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return
 
 	if(!silent)
-		flick("fax_receive", src)
+		flick("[fax_type]_receive", src)
 		balloon_alert_to_viewers("removed paper")
 	if(user && user.CanReach(src))
 		user.put_in_hands(received_paper)
@@ -667,15 +659,6 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		received_paper.forceMove(drop_location())
 	received_paper = null
 	SStgui.update_uis(src)
-
-/// Sends messages to the syndicate when emagged.
-/obj/machinery/fax_machine/emag_act(mob/user)
-	if(obj_flags & EMAGGED)
-		return
-
-	balloon_alert(user, "routing address overridden")
-	playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
-	obj_flags |= EMAGGED
 
 // ----- Paper definitions and subtypes for interactions with the fax machine. -----
 /obj/item/paper
@@ -811,6 +794,303 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 /datum/wires/fax_machine/on_cut(wire, mend)
 	var/obj/machinery/fax_machine/machine = holder
+	switch(wire)
+		if(WIRE_SEND_FAXES)
+			machine.sending_enabled = mend
+		if(WIRE_RECEIVE_FAXES)
+			machine.receiving_enabled = mend
+
+/* Command Fax Machines
+* You can send to CC with these fax machines
+* Regular ones you can't
+*/
+/datum/design/board/fax_machine/command
+	name = "Command Fax Machine Board"
+	desc = "The circuit board for a Command Fax Machine."
+	id = "command_fax_machine"
+	build_path = /obj/item/circuitboard/machine/fax_machine/command
+
+/obj/item/circuitboard/machine/fax_machine/command
+	name = "Fax Machine (Command Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_COMMAND
+	build_path = /obj/machinery/fax_machine/command
+
+/obj/machinery/fax_machine/command
+	name = "command fax machine"
+	desc = "A machine made to send faxes and process paperwork. You unbelievably boring person."
+	req_access = list(ACCESS_COMMAND)
+	ui_name = "_FaxMachineCommand"
+	base_icon_state = "command_fax"
+	icon_state = "command_fax"
+	fax_type = "command_fax"
+	can_receive_paperwork = TRUE
+
+/obj/machinery/fax_machine/command/full/Initialize(mapload)
+	. = ..()
+	for(var/i in 1 to max_paperwork)
+		if(LAZYLEN(received_paperwork) >= max_paperwork)
+			continue
+		LAZYADD(received_paperwork, generate_paperwork(src))
+
+/obj/machinery/fax_machine/command/Destroy()
+	QDEL_NULL(stored_paper)
+	QDEL_NULL(received_paper)
+	QDEL_LIST(received_paperwork)
+
+	GLOB.fax_machines -= src
+	return ..()
+
+/obj/machinery/fax_machine/command/on_deconstruction()
+	eject_stored_paper()
+	eject_all_paperwork()
+	eject_received_paper()
+
+	return ..()
+
+/obj/machinery/fax_machine/command/ui_state(mob/user)
+	if(!anchored)
+		return UI_DISABLED
+	return GLOB.physical_state
+
+/obj/machinery/fax_machine/command/ui_data(mob/user)
+	var/list/data = list()
+
+	var/emagged = obj_flags & EMAGGED
+	var/list/all_received_paperwork = list()
+	var/iterator = 1
+	for(var/obj/item/paper/processed/paper as anything in received_paperwork)
+		var/list/found_paper_data = list()
+		found_paper_data["title"] = paper.name
+		found_paper_data["contents"] = TextPreview(remove_all_tags(paper.get_raw_text()), MAX_DISPLAYED_PAPER_CHARS)
+		found_paper_data["required_answer"] = paper.required_question
+		found_paper_data["ref"] = REF(paper)
+		found_paper_data["num"] = iterator++
+		all_received_paperwork += list(found_paper_data)
+	if(all_received_paperwork.len)
+		data["received_paperwork"] = all_received_paperwork
+
+	if(stored_paper)
+		var/list/stored_paper_data = list()
+		stored_paper_data["title"] = stored_paper.name
+		stored_paper_data["contents"] = TextPreview(remove_all_tags(stored_paper.get_raw_text()), MAX_DISPLAYED_PAPER_CHARS)
+		stored_paper_data["ref"] = REF(stored_paper_data)
+		data["stored_paper"] = stored_paper_data
+
+	if(received_paper)
+		var/list/received_paper_data = list()
+		received_paper_data["title"] = received_paper.name
+		received_paper_data["contents"] = TextPreview(remove_all_tags(received_paper.get_raw_text()), MAX_DISPLAYED_PAPER_CHARS)
+		received_paper_data["source"] = received_paper.was_faxed_from
+		received_paper_data["ref"] = REF(received_paper)
+		data["received_paper"] = received_paper_data
+
+	if(emagged)
+		var/emagged_text = ""
+		for(var/i in 1 to rand(4, 7))
+			emagged_text += pick("!","@","#","$","%","^","&")
+		data["display_name"] = emagged_text
+	else if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		var/obj/item/card/id/our_id = human_user.wear_id?.GetID()
+		data["display_name"] = our_id?.registered_name || "\[REDACTED\]"
+	else if(issilicon(user))
+		data["display_name"] = user.real_name
+	else
+		data["display_name"] = "\[REDACTED\]"
+
+	data["can_send_cc_messages"] = (allowed(user) || emagged) && COOLDOWN_FINISHED(src, fax_cooldown)
+	data["can_receive"] = can_receive_paperwork
+	data["emagged"] = emagged
+	data["unread_message"] = unread_message
+
+	var/admin_destination = (emagged ? SYNDICATE_FAX_MACHINE : CENTCOM_FAX_MACHINE)
+	var/list/possible_destinations = list()
+	possible_destinations += admin_destination
+	for(var/obj/machinery/fax_machine/command/machine as anything in GLOB.fax_machines)
+		if(machine == src)
+			continue
+		if(!machine.room_tag)
+			continue
+		if(machine.room_tag in possible_destinations)
+			continue
+		possible_destinations += machine.room_tag
+	data["destination_options"] = possible_destinations
+	data["default_destination"] = admin_destination
+
+	return data
+
+/obj/machinery/fax_machine/command/ui_act(action, list/params)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
+		if("un_emag_machine")
+			to_chat(usr, span_notice("You restore [src]'s routing information to [CENTCOM_FAX_MACHINE]."))
+			obj_flags &= ~EMAGGED
+
+		if("toggle_recieving")
+			if(allowed(usr))
+				can_receive_paperwork = !can_receive_paperwork
+				balloon_alert(usr, span_notice("Reciving toggled."))
+				playsound(src, 'sound/machines/terminal_processing.ogg', 50, FALSE)
+			else
+				balloon_alert(usr, span_notice("No access!"))
+				playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
+
+		if("read_last_received")
+			unread_message = FALSE
+
+		if("send_stored_paper")
+			send_stored_paper(usr, params["destination_machine"])
+
+		if("print_received_paper")
+			eject_received_paper(usr, FALSE)
+
+		if("print_all_paperwork")
+			eject_all_paperwork_with_delay(usr)
+
+		if("print_select_paperwork")
+			var/obj/item/paper/processed/paper = locate(params["ref"]) in received_paperwork
+			eject_select_paperwork(usr, paper, FALSE)
+
+		if("delete_select_paperwork")
+			var/obj/item/paper/processed/paper = locate(params["ref"]) in received_paperwork
+			delete_select_paperwork(paper)
+
+		if("check_paper")
+			var/obj/item/paper/processed/paper = locate(params["ref"]) in received_paperwork
+			check_paperwork(paper, usr)
+
+	return TRUE
+
+/obj/machinery/fax_machine/command/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	var/is_user_robot = issilicon(user)
+	if(!panel_open && locked && !is_user_robot)
+		balloon_alert(user, "panel locked!")
+		return FALSE
+
+	. = ..()
+	if(. && panel_open && locked && is_user_robot)
+		balloon_alert(user, "panel lock bypassed")
+
+/obj/machinery/fax_machine/command/can_be_unfasten_wrench(mob/user, silent)
+	if(!panel_open)
+		if(!silent)
+			to_chat(user, span_warning("You need to open the maintenance panel to access the bolts!"))
+		return FAILED_UNFASTEN // "failed" instead of "cant", because failed stops afterattacks
+	return ..()
+
+/obj/machinery/fax_machine/command/default_unfasten_wrench(mob/user, obj/item/wrench, time = 20)
+	. = ..()
+	if(. == SUCCESSFUL_UNFASTEN)
+		set_room_tag(anchored) // Sets the room tag to NULL if unanchored, or the area name if anchored
+
+/obj/machinery/fax_machine/command/attackby(obj/item/weapon, mob/user, params)
+	if(!isliving(user))
+		return ..()
+
+	if(weapon.tool_behaviour == TOOL_SCREWDRIVER)
+		if(default_deconstruction_screwdriver(user, "[initial(icon_state)]_open", initial(icon_state), weapon))
+			update_appearance()
+		return TRUE
+
+	if(default_deconstruction_crowbar(weapon))
+		return TRUE
+
+	if(default_unfasten_wrench(user, weapon, 3 SECONDS))
+		return TRUE
+
+	if(panel_open && is_wire_tool(weapon))
+		wires.interact(user)
+		return TRUE
+
+	if(istype(weapon, /obj/item/paper/processed))
+		insert_processed_paper(weapon, user)
+		return TRUE
+
+	else if(istype(weapon, /obj/item/paper))
+		var/obj/item/paper/inserted_paper = weapon
+		if(inserted_paper.was_faxed_from in GLOB.admin_fax_destinations)
+			to_chat(user, span_warning("Papers from [inserted_paper.was_faxed_from] cannot be re-faxed."))
+			return TRUE
+		else
+			insert_paper(inserted_paper, user)
+			return TRUE
+
+	if(weapon.GetID())
+		if(check_access(weapon.GetID()) && !panel_open)
+			locked = !locked
+			playsound(src, 'sound/machines/terminal_eject.ogg', 30, FALSE)
+			balloon_alert(user, "panel [locked ? "locked" : "unlocked"]")
+			return TRUE
+
+	return ..()
+
+/obj/machinery/fax_machine/command/attack_hand(mob/user, list/modifiers)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		eject_stored_paper(user, FALSE)
+		return TRUE
+	return ..()
+
+/obj/machinery/fax_machine/command/examine(mob/user)
+	. = ..()
+	if(stored_paper)
+		. += span_notice("Right click to remove the stored fax.")
+	. += span_notice("The maintenance panel is [locked ? "locked" : "unlocked"]. Swipe your ID card to [locked ? "unlock" : "lock"] it.")
+
+/// Sends messages to the syndicate when emagged.
+/obj/machinery/fax_machine/command/emag_act(mob/user)
+	if(obj_flags & EMAGGED)
+		return
+
+	balloon_alert(user, "routing address overridden")
+	playsound(src, 'sound/machines/terminal_alert.ogg', 25, FALSE)
+	obj_flags |= EMAGGED
+
+/// Wires for the fax machine
+/datum/wires/fax_machine/command
+	holder_type = /obj/machinery/fax_machine/command
+	proper_name = "Fax Machine"
+
+/datum/wires/fax_machine/command/New(atom/holder)
+	wires = list(
+		WIRE_SEND_FAXES,
+		WIRE_RECEIVE_FAXES,
+		WIRE_PAPERWORK,
+	)
+	add_duds(1)
+	return ..()
+
+/datum/wires/fax_machine/command/get_status()
+	var/obj/machinery/fax_machine/command/machine = holder
+	var/list/status = list()
+	var/service_light_intensity
+	switch((machine.sending_enabled + machine.receiving_enabled))
+		if(0)
+			service_light_intensity = "off"
+		if(1)
+			service_light_intensity = "blinking"
+		if(2)
+			service_light_intensity = "on"
+	status += "The service light is [service_light_intensity]."
+	status += "The bluespace transceiver is glowing [machine.can_receive_paperwork ? "blue" : "red"]."
+	return status
+
+/datum/wires/fax_machine/command/on_pulse(wire, user)
+	var/obj/machinery/fax_machine/command/machine = holder
+	switch(wire)
+		if(WIRE_SEND_FAXES)
+			machine.send_stored_paper(user)
+		if(WIRE_PAPERWORK)
+			machine.can_receive_paperwork = !machine.can_receive_paperwork
+		if(WIRE_RECEIVE_FAXES)
+			if(machine.receiving_enabled)
+				machine.receiving_enabled = FALSE
+				addtimer(VARSET_CALLBACK(machine, receiving_enabled, TRUE), 30 SECONDS)
+
+/datum/wires/fax_machine/command/on_cut(wire, mend)
+	var/obj/machinery/fax_machine/command/machine = holder
 	switch(wire)
 		if(WIRE_SEND_FAXES)
 			machine.sending_enabled = mend
