@@ -325,8 +325,35 @@ Security HUDs! Basic mode shows only the job.
 				set_hud_image_active(WANTED_HUD)
 				return
 
+<<<<<<< HEAD
 	holder.icon_state = null
 	set_hud_image_inactive(WANTED_HUD)
+=======
+	if(!perp_name || !GLOB.manifest)
+		holder.icon_state = null
+		set_hud_image_inactive(WANTED_HUD)
+		return
+
+	var/datum/record/crew/target = find_record(perp_name)
+	if(!target || target.wanted_status == WANTED_NONE)
+		holder.icon_state = null
+		set_hud_image_inactive(WANTED_HUD)
+		return
+
+	switch(target.wanted_status)
+		if(WANTED_ARREST)
+			holder.icon_state = "hudwanted"
+		if(WANTED_PRISONER)
+			holder.icon_state = "hudincarcerated"
+		if(WANTED_SUSPECT)
+			holder.icon_state = "hudsuspected"
+		if(WANTED_PAROLE)
+			holder.icon_state = "hudparolled"
+		if(WANTED_DISCHARGED)
+			holder.icon_state = "huddischarged"
+>>>>>>> 6459d572a2bd1 (Hotfixes sechuds on records [NO GBP] (#72948))
+
+	set_hud_image_active(WANTED_HUD)
 
 /***********************************************
 Diagnostic HUDs!
