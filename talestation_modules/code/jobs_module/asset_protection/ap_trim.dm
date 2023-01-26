@@ -4,7 +4,7 @@
 	trim_state = "trim_assetprotection"
 	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudassetprotection"
-	orbit_icon = "shield"
+
 	extra_access = list(
 		ACCESS_ENGINEERING,
 		ACCESS_SHIPPING,
