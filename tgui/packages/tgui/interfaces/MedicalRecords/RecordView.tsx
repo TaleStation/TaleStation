@@ -26,6 +26,9 @@ export const MedicalRecordView = (props, context) => {
     quirk_notes,
     rank,
     species,
+    // NON-MODULAR CHANGES: Adds flavor text to med records
+    old_general_records,
+    old_medical_records,
   } = foundRecord;
 
   const minor_disabilities_array = getQuirkStrings(minor_disabilities);
@@ -122,6 +125,12 @@ export const MedicalRecordView = (props, context) => {
               {quirk_notes_array.map((quirk, index) => (
                 <Box key={index}>&#8226; {quirk}</Box>
               ))}
+            </LabeledList.Item>
+            <LabeledList.Item label="General Records">
+              <Box text={old_general_records} />
+            </LabeledList.Item>
+            <LabeledList.Item label="Previous Medical Records">
+              <Box text={old_medical_records} />
             </LabeledList.Item>
           </LabeledList>
         </Section>

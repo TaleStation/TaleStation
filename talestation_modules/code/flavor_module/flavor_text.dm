@@ -25,6 +25,19 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 
 	return found_text
 
+/*
+* Add our flavor text stuff to the records upstream
+* Yes its a single var now fuck off
+*/
+/datum/record
+	/// Flavor text for, well, flavor text
+	var/flavor_text = "Unknown"
+	/// Var used to pass general record information
+	var/old_general_records = "Unknown"
+	/// Var used to pass medical record information
+	var/old_medical_records = "Unknown"
+	/// Var used to pass security record information
+	var/old_security_records = "Unknown"
 
 /// Flavor text define for carbons.
 /mob/living
