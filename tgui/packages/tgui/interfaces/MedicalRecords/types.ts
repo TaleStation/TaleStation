@@ -19,7 +19,7 @@ export type MedicalRecord = {
   quirk_notes: string;
   rank: string;
   species: string;
-  // NON-MODULAR CHANGES: Adds records to med console tgui
+  // NON-MODULAR CHANGES: Adds med records to TGUI
   old_general_records: string;
   old_medical_records: string;
 };

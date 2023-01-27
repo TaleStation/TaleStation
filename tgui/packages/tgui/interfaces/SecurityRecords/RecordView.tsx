@@ -53,6 +53,8 @@ const RecordInfo = (props, context) => {
     rank,
     species,
     wanted_status,
+    // NON-MODULAR CHANGES: Adds sec records to TGUI
+    old_security_records,
   } = foundRecord;
 
   return (
@@ -164,6 +166,12 @@ const RecordInfo = (props, context) => {
             </LabeledList.Item>
             <LabeledList.Item label="Note">
               <EditableText field="note" target_ref={crew_ref} text={note} />
+            </LabeledList.Item>
+            {
+              // NON-MODULAR CHANGES: Adds sec records to TGUI
+            }
+            <LabeledList.Item label="Previous Security Records">
+              {old_security_records}
             </LabeledList.Item>
           </LabeledList>
         </Section>

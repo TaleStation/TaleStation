@@ -135,8 +135,5 @@
 	target.rank = "Unknown"
 	target.species = "Unknown"
 	target.trim = "Unknown"
-	// NON-MODULAR CHANGES: Adds records to med records
-	target.old_general_records = "Unknown"
-	target.old_medical_records = "Unknown"
 
 	return TRUE

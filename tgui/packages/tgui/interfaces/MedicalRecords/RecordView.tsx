@@ -26,7 +26,7 @@ export const MedicalRecordView = (props, context) => {
     quirk_notes,
     rank,
     species,
-    // NON-MODULAR CHANGES: Adds flavor text to med records
+    // NON-MODULAR CHANGES: Adds med records to TGUI
     old_general_records,
     old_medical_records,
   } = foundRecord;
@@ -126,6 +126,9 @@ export const MedicalRecordView = (props, context) => {
                 <Box key={index}>&#8226; {quirk}</Box>
               ))}
             </LabeledList.Item>
+            {
+              // NON-MODULAR CHANGES: Adds med records to TGUI
+            }
             <LabeledList.Item label="General Records">
               {old_general_records}
             </LabeledList.Item>

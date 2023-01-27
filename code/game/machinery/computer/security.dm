@@ -129,6 +129,8 @@
 			rank = target.rank,
 			species = target.species,
 			wanted_status = target.wanted_status,
+			// NON-MODULAR CHANGES: Adds sec flavor text to records
+			old_security_records = usr.client?.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/security),
 		))
 
 	data["records"] = records
