@@ -122,8 +122,6 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		// Locked specifics
 		dna_ref = person.dna,
 		mind_ref = person.mind,
-		// NON-MODULAR CHANGES: Adding flavor text to manifest
-		flavor_text = add_or_get_mob_flavor_text(person),
 	)
 
 	new /datum/record/crew(
@@ -145,8 +143,6 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		minor_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY),
 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
-		// NON-MODULAR CHANGES: Adding flavor text to crew records
-		flavor_text = add_or_get_mob_flavor_text(person),
 	)
 
 	return

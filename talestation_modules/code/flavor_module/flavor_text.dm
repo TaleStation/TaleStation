@@ -30,8 +30,6 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 * Yes its a single var now fuck off
 */
 /datum/record
-	/// Flavor text for, well, flavor text
-	var/flavor_text = "Unknown"
 	/// Var used to pass general record information
 	var/old_general_records = "Unknown"
 	/// Var used to pass medical record information

@@ -71,8 +71,8 @@
 			rank = target.rank,
 			species = target.species,
 			// NON-MODULAR CHANGES: Adds flavor records
-			old_general_records = flavor?.gen_records,
-			old_medical_records = flavor?.med_records,
+			old_general_records = usr.client?.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/general),
+			old_medical_records = usr.client?.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/medical),
 		))
 
 	data["records"] = records
@@ -135,7 +135,8 @@
 	target.rank = "Unknown"
 	target.species = "Unknown"
 	target.trim = "Unknown"
-	// NON-MODULAR CHANGES: Adds flavor text to med records
-	target.flavor_text = "Unknown"
+	// NON-MODULAR CHANGES: Adds records to med records
+	target.old_general_records = "Unknown"
+	target.old_medical_records = "Unknown"
 
 	return TRUE

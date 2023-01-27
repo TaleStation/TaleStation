@@ -127,10 +127,10 @@ export const MedicalRecordView = (props, context) => {
               ))}
             </LabeledList.Item>
             <LabeledList.Item label="General Records">
-              <Box text={old_general_records} />
+              {old_general_records}
             </LabeledList.Item>
             <LabeledList.Item label="Previous Medical Records">
-              <Box text={old_medical_records} />
+              {old_medical_records}
             </LabeledList.Item>
           </LabeledList>
         </Section>

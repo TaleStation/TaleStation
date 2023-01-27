@@ -96,8 +96,6 @@
 	minor_disabilities = "None",
 	minor_disabilities_desc = "No disabilities have been diagnosed at the moment.",
 	quirk_notes,
-	// NON-MODULAR CHANGES: Flavor text var passing
-	flavor_text = "None",
 )
 	. = ..()
 	src.lock_ref = lock_ref
@@ -137,8 +135,6 @@
 	/// Locked specific
 	datum/dna/dna_ref,
 	datum/mind/mind_ref,
-	// NON-MODULAR CHANGES: Flavor text var passing
-	flavor_text = "None",
 )
 	. = ..()
 	src.dna_ref = dna_ref
