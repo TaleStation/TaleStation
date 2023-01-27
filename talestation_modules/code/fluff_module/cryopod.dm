@@ -309,7 +309,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 	else
 		crew_member["job"] = "N/A"
 
-	// Delete them from datacore.
 	var/announce_rank = null
 
 	control_computer?.frozen_crew += list(crew_member)
