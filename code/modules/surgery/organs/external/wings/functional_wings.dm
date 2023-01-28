@@ -184,4 +184,14 @@
 /obj/item/organ/external/wings/functional/moth/megamoth
 	name = "megamoth wings"
 	desc = "Don't get murderous."
+<<<<<<< HEAD
 	stored_feature_id = "Megamoth"
+=======
+	sprite_accessory_override = /datum/sprite_accessory/wings/megamoth
+
+///fly wings, which relate to flies.
+/obj/item/organ/external/wings/functional/fly
+	name = "fly wings"
+	desc = "Fly as a fly."
+	sprite_accessory_override = /datum/sprite_accessory/wings/fly
+>>>>>>> a8fc20c6885ab (Adds wings from potion of flight for fly persons in game. (#72991))
