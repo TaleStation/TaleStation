@@ -68,8 +68,13 @@
 				if((uplink_handler.assigned_role in item.restricted_roles) || (uplink_handler.assigned_species in item.restricted_species))
 					uplink_items += item
 					continue
+<<<<<<< HEAD
 		uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, -1, uplink_items)
 */
+=======
+		uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, 1, uplink_items)
+
+>>>>>>> 2be2eb57b6ee8 (Returns limited stock for traitor discounts (#72981))
 	if(give_objectives)
 		forge_traitor_objectives()
 
