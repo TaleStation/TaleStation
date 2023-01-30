@@ -4,7 +4,6 @@
 	trim_state = "trim_bridgeofficer"
 	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudbridgeofficer"
-	orbit_icon = "briefcase"
 
 	extra_access = list(
 		ACCESS_RESEARCH,
