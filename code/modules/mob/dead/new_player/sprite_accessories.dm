@@ -1759,12 +1759,8 @@
 
 /datum/sprite_accessory/tails/human/cat
 	name = "Cat"
-<<<<<<< HEAD
-	icon_state = "cat"
-=======
 	icon = 'icons/mob/species/human/cat_features.dmi'
 	icon_state = "default"
->>>>>>> 10a344bde0d48 (External Organ Rework: new bodypart_overlay system (#72734))
 	color_src = HAIR
 
 /datum/sprite_accessory/tails/monkey
@@ -2206,7 +2202,7 @@
 /datum/sprite_accessory/moth_wings/plasmafire
 	name = "Plasmafire"
 	icon_state = "plasmafire"
-	
+
 /datum/sprite_accessory/moth_wings/moffra
 	name = "Moffra"
 	icon_state = "moffra"
@@ -2293,7 +2289,7 @@
 /datum/sprite_accessory/moth_antennae/plasmafire
 	name = "Plasmafire"
 	icon_state = "plasmafire"
-	
+
 /datum/sprite_accessory/moth_antennae/moffra
 	name = "Moffra"
 	icon_state = "moffra"
