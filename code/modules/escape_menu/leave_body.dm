@@ -11,9 +11,9 @@
 	page_holder.give_screen_object(new /atom/movable/screen/escape_menu/leave_body_button(
 		src,
 		"Suicide",
-		"Perform a dramatic suicide in game",
+		"Suicide is disabled on this server", // NON-MODULAR CHANGES: Rewords suicide button desc
 		/* pixel_offset = */ -105,
-		CALLBACK(src, PROC_REF(leave_suicide)),
+		// CALLBACK(src, PROC_REF(leave_suicide)), // NON-MODULAR CHANGES: Disables being able to properly use the button
 		/* button_overlay = */ dead_clown,
 	))
 
@@ -64,12 +64,14 @@
 	var/mob/living/living_user = client?.mob
 	living_user?.ghost()
 
+/* NON-MODULAR CHANGES: Suicide is disable
 /datum/escape_menu/proc/leave_suicide()
 	PRIVATE_PROC(TRUE)
 
 	// Not guaranteed to be human. Everything defines verb/suicide separately. Fuck you, still.
 	var/mob/living/carbon/human/human_user = client?.mob
 	human_user?.suicide()
+*/
 
 /atom/movable/screen/escape_menu/leave_body_button
 	icon = 'icons/hud/escape_menu_leave_body.dmi'
