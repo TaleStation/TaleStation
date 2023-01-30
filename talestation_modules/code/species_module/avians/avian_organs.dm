@@ -14,6 +14,11 @@
 /datum/bodypart_overlay/mutant/tail/avian_tail
 	feature_key = "avian_tail"
 
+/datum/bodypart_overlay/mutant/tail/avian_tail/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
+		return FALSE
+	return TRUE
+
 /datum/bodypart_overlay/mutant/tail/avian_tail/get_global_feature_list()
 	return GLOB.avian_tail_list
 
@@ -34,6 +39,11 @@
 /datum/bodypart_overlay/mutant/snout/avian_beak
 	layers = EXTERNAL_ADJACENT
 	feature_key = "avian_beak"
+
+/datum/bodypart_overlay/mutant/snout/avian_beak/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if(!(human.wear_mask?.flags_inv & HIDESNOUT) && !(human.head?.flags_inv & HIDESNOUT))
+		return TRUE
+	return FALSE
 
 /datum/bodypart_overlay/mutant/snout/avian_beak/get_global_feature_list()
 	return GLOB.avian_beak_list
@@ -77,8 +87,14 @@
 	layers = EXTERNAL_ADJACENT
 	feature_key = "avian_talon_r"
 
+/datum/bodypart_overlay/mutant/leg/avian_talon/left_leg/can_draw_on_bodypart(mob/living/carbon/human/human)
+	return TRUE
+
 /datum/bodypart_overlay/mutant/leg/avian_talon/left_leg/get_global_feature_list()
 	return GLOB.avian_talon_l_list
+
+/datum/bodypart_overlay/mutant/leg/avian_talon/right_leg/can_draw_on_bodypart(mob/living/carbon/human/human)
+	return TRUE
 
 /datum/bodypart_overlay/mutant/leg/avian_talon/right_leg/get_global_feature_list()
 	return GLOB.avian_talon_r_list

@@ -20,6 +20,11 @@
 /datum/bodypart_overlay/mutant/tail/tajaran_tail
 	feature_key = "tajaran_tail"
 
+/datum/bodypart_overlay/mutant/tail/tajaran_tail/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
+		return FALSE
+	return TRUE
+
 /datum/bodypart_overlay/mutant/tail/tajaran_tail/get_global_feature_list()
 	return GLOB.tajaran_tail_list
 
