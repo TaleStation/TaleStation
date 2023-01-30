@@ -71,10 +71,6 @@
 /datum/reagent/toxin/mutagen/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
 	. = ..()
 	mytray.mutation_roll(user)
-<<<<<<< HEAD
-=======
-
->>>>>>> fd85f5c67f79e (Buff scythes, goats, and plantbgone vs PLANT biotypes (#72889))
 	mytray.adjust_toxic(3) //It is still toxic, mind you, but not to the same degree.
 
 #define LIQUID_PLASMA_BP (50+T0C)
