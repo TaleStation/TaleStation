@@ -11,7 +11,7 @@
 	page_holder.give_screen_object(new /atom/movable/screen/escape_menu/leave_body_button(
 		src,
 		"Suicide",
-		"Suicide is disabled on this server", // NON-MODULAR CHANGES: Rewords suicide button desc
+		"Perform a dramatic suicide in game",
 		/* pixel_offset = */ -105,
 		// CALLBACK(src, PROC_REF(leave_suicide)), // NON-MODULAR CHANGES: Disables being able to properly use the button
 		/* button_overlay = */ dead_clown,
