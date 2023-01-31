@@ -48,16 +48,6 @@
 /datum/bodypart_overlay/mutant/snout/avian_beak/get_global_feature_list()
 	return GLOB.avian_beak_list
 
-/obj/item/organ/external/leg
-	name = "external leg organs"
-	desc = "Yeah, how'd you get these?"
-
-	bodypart_overlay = /datum/bodypart_overlay/mutant/leg
-
-/datum/bodypart_overlay/mutant/leg
-	layers = EXTERNAL_ADJACENT
-	feature_key = ""
-
 /obj/item/organ/internal/tongue/avian
 	name = "avian tongue"
 	desc = "Avian tongues are unsurprising. They're pretty basic."
