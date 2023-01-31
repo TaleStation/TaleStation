@@ -671,7 +671,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(dna.features["avian_talon_r"]) // NON-MODULAR CHANGES: Avian
 		dna.features["avian_talon_r"] = GLOB.avian_talon_r_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_TAIL_BLOCK), GLOB.avian_talon_r_list.len)]
 
-	for(var/obj/item/organ/external/external_organ as anything in external_organs)
+	for(var/obj/item/organ/external/external_organ in internal_organs)
 		external_organ.mutate_feature(features, src)
 
 	if(icon_update)

@@ -78,17 +78,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		else
 			qdel(replaced)
 
-<<<<<<< HEAD
-	SEND_SIGNAL(src, COMSIG_ORGAN_IMPLANTED, reciever)
-	SEND_SIGNAL(reciever, COMSIG_CARBON_GAIN_ORGAN, src, special)
-
-	owner = reciever
-=======
 	receiver.internal_organs |= src
 	receiver.internal_organs_slot[slot] = src
 	owner = receiver
 
->>>>>>> 5cf5037a97c5f (Fix: DNA Infuser & Unit Tests, Organs Bugfixes (#73003))
 	moveToNullspace()
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, PROC_REF(on_owner_examine))
 	update_organ_traits(receiver)
@@ -100,7 +93,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	return TRUE
 
-
 /*
  * Remove the organ from the select mob.
  *
@@ -110,6 +102,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/proc/Remove(mob/living/carbon/organ_owner, special = FALSE)
 
 	UnregisterSignal(organ_owner, COMSIG_PARENT_EXAMINE)
+
+	organ_owner.internal_organs -= src
+	if(organ_owner.internal_organs_slot[slot] == src)
+		organ_owner.internal_organs_slot.Remove(slot)
 
 	owner = null
 	for(var/datum/action/action as anything in actions)
