@@ -4,7 +4,6 @@
 	trim_state = "trim_xenobiologist"
 	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
 	sechud_icon_state = "hudxenobiologist"
-	orbit_icon = "biohazard"
 
 	extra_access = list(
 		ACCESS_GENETICS,
