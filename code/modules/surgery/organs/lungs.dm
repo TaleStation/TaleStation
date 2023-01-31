@@ -364,46 +364,8 @@
 	//-- TRACES --//
 	// If there's some other shit in the air lets deal with it here.
 
-<<<<<<< HEAD
-	if(breath) // If there's some other shit in the air lets deal with it here.
-
-	// Pluoxium
-		var/pluoxium_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/pluoxium][MOLES])
-		if(pluoxium_pp > gas_stimulation_min)
-			var/existing = breather.reagents.get_reagent_amount(/datum/reagent/pluoxium)
-			breather.reagents.add_reagent(/datum/reagent/pluoxium, max(0, 1 - existing))
-		gas_breathed = breath_gases[/datum/gas/pluoxium][MOLES]
-		breath_gases[/datum/gas/pluoxium][MOLES] -= gas_breathed
-
-	// N2O
-
-		var/n2o_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/nitrous_oxide][MOLES])
-		if(n2o_pp > n2o_para_min) // Enough to make us stunned for a bit
-			breather.throw_alert(ALERT_TOO_MUCH_N2O, /atom/movable/screen/alert/too_much_n2o)
-			breather.Unconscious(60) // 60 gives them one second to wake up and run away a bit!
-			// NON-MODULAR CHANGES
-			var/amount_of_sleep = min(breather.AmountSleeping() + 10 SECONDS, 20 SECONDS)
-			if(n2o_pp > n2o_sleep_min && breather.Sleeping(amount_of_sleep))
-				// If we got put to sleep we count as "on anesthetic"
-				breather.apply_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
-			// NON-MODULAR CHANGES END
-		else if(n2o_pp > 0.01) // There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
-			breather.clear_alert(ALERT_TOO_MUCH_N2O)
-			if(prob(20))
-				n2o_euphoria = EUPHORIA_ACTIVE
-				breather.emote(pick("giggle", "laugh"))
-		else
-			n2o_euphoria = EUPHORIA_INACTIVE
-			breather.clear_alert(ALERT_TOO_MUCH_N2O)
-			// NON-MODULAR CHANGES
-			breather.remove_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
-	// BZ
-
-		var/bz_pp = breath.get_breath_partial_pressure(breath_gases[/datum/gas/bz][MOLES])
-=======
 	//-- BZ --//
 	if(bz_pp)
->>>>>>> 8e4d86ec8f6fc (Refactor: Carp Infusion & Lungs (#71940))
 		if(bz_pp > BZ_trip_balls_min)
 			breather.adjust_hallucinations(20 SECONDS)
 			breather.reagents.add_reagent(/datum/reagent/bz_metabolites, 5)
@@ -539,6 +501,12 @@
 		// 60 gives them one second to wake up and run away a bit!
 		breather.Unconscious(6 SECONDS)
 		// Enough to make the mob sleep.
+		// NON-MODULAR CHANGES
+		var/amount_of_sleep = min(breather.AmountSleeping() + 10 SECONDS, 20 SECONDS)
+		if(n2o_pp > n2o_sleep_min && breather.Sleeping(amount_of_sleep))
+			// If we got put to sleep we count as "on anesthetic"
+			breather.apply_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
+		// NON-MODULAR CHANGES END
 		if(n2o_pp > n2o_sleep_min)
 			breather.Sleeping(min(breather.AmountSleeping() + 100, 200))
 	else if(n2o_pp > 0.01)
@@ -553,6 +521,8 @@
 		// Reset side-effects, for zero or extremely small amounts of N2O.
 		n2o_euphoria = EUPHORIA_INACTIVE
 		breather.clear_alert(ALERT_TOO_MUCH_N2O)
+		// NON-MODULAR CHANGES: Pain anesthetic
+		breather.remove_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
 
 	//-- NITRIUM --//
 	if (nitrium_pp)

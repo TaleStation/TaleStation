@@ -179,23 +179,9 @@
 		// Extra damage, let God sort ’em out!
 		adjustOxyLoss(2)
 
-<<<<<<< HEAD
-	//CRIT
-	if(!breath || (breath.total_moles() == 0) || !lungs)
-		if(reagents.has_reagent(/datum/reagent/medicine/epinephrine, needs_metabolizing = TRUE) && lungs)
-			return FALSE
-		adjustOxyLoss(1)
-
-		failed_last_breath = TRUE
-		throw_alert(ALERT_NOT_ENOUGH_OXYGEN, /atom/movable/screen/alert/not_enough_oxy)
-		return FALSE
-	
-	var/safe_oxy_min = 16
-=======
 	/// Minimum O2 before suffocation.
 	var/safe_oxygen_min = 16
 	/// Maximum CO2 before side-effects.
->>>>>>> 8e4d86ec8f6fc (Refactor: Carp Infusion & Lungs (#71940))
 	var/safe_co2_max = 10
 	/// Maximum Plasma before side-effects.
 	var/safe_plas_max = 0.05
