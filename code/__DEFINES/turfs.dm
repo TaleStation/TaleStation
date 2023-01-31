@@ -27,8 +27,6 @@
 
 #define TURF_FROM_COORDS_LIST(List) (locate(List[1], List[2], List[3]))
 
-<<<<<<< HEAD
-=======
 /// Returns a list of turfs in the rectangle specified by BOTTOM LEFT corner and height/width, checks for being outside the world border for you
 #define CORNER_BLOCK(corner, width, height) CORNER_BLOCK_OFFSET(corner, width, height, 0, 0)
 
@@ -45,7 +43,6 @@
 /// Returns a list of around us
 #define TURF_NEIGHBORS(turf) (CORNER_BLOCK_OFFSET(turf, 3, 3, -1, -1) - turf)
 
->>>>>>> a638536ee8c31 (fix error in neighbor define [no gbp] (#73069))
 /// The pipes, disposals, and wires are hidden
 #define UNDERFLOOR_HIDDEN 0
 /// The pipes, disposals, and wires are visible but cannot be interacted with
