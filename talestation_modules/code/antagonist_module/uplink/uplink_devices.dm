@@ -53,7 +53,7 @@
 			break_item(user)
 
 /obj/item/item_announcer/preset/proc/trigger_announcement(mob/user)
-	var/datum/round_event_control/falsealarm/triggered_event = new()
+	var/datum/round_event/falsealarm/triggered_event = new()
 	if(!fake_event)
 		return FALSE
 	triggered_event.forced_type = fake_event
