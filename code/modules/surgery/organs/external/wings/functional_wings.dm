@@ -29,6 +29,7 @@
 	///Are our wings open or closed?
 	var/wings_open = FALSE
 
+<<<<<<< HEAD
 /obj/item/organ/external/wings/functional/get_global_feature_list()
 	if(wings_open)
 		return GLOB.wings_open_list
@@ -36,11 +37,14 @@
 		return GLOB.wings_list
 
 /obj/item/organ/external/wings/functional/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
+=======
+/obj/item/organ/external/wings/functional/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+>>>>>>> 5cf5037a97c5f (Fix: DNA Infuser & Unit Tests, Organs Bugfixes (#73003))
 	. = ..()
 
 	if(isnull(fly))
 		fly = new
-		fly.Grant(reciever)
+		fly.Grant(receiver)
 
 /obj/item/organ/external/wings/functional/Remove(mob/living/carbon/organ_owner, special, moving)
 	. = ..()

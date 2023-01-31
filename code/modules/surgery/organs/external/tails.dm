@@ -19,6 +19,7 @@
 	///The original owner of this tail
 	var/original_owner //Yay, snowflake code!
 
+<<<<<<< HEAD
 /obj/item/organ/external/tail/Destroy()
 	original_owner = null
 	return ..()
@@ -33,14 +34,28 @@
 	if(.)
 		RegisterSignal(reciever, COMSIG_ORGAN_WAG_TAIL, PROC_REF(wag))
 		original_owner ||= reciever //One and done
+=======
+/obj/item/organ/external/tail/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+	. = ..()
+	if(.)
+		RegisterSignal(receiver, COMSIG_ORGAN_WAG_TAIL, PROC_REF(wag))
+		original_owner ||= WEAKREF(receiver)
+>>>>>>> 5cf5037a97c5f (Fix: DNA Infuser & Unit Tests, Organs Bugfixes (#73003))
 
-		reciever.clear_mood_event("tail_lost")
-		reciever.clear_mood_event("tail_balance_lost")
+		receiver.clear_mood_event("tail_lost")
+		receiver.clear_mood_event("tail_balance_lost")
 
+<<<<<<< HEAD
 		if(original_owner == reciever)
 			reciever.clear_mood_event("wrong_tail_regained")
 		else if(type in reciever.dna.species.external_organs)
 			reciever.add_mood_event("wrong_tail_regained", /datum/mood_event/tail_regained_wrong)
+=======
+		if(IS_WEAKREF_OF(receiver, original_owner))
+			receiver.clear_mood_event("wrong_tail_regained")
+		else if(type in receiver.dna.species.external_organs)
+			receiver.add_mood_event("wrong_tail_regained", /datum/mood_event/tail_regained_wrong)
+>>>>>>> 5cf5037a97c5f (Fix: DNA Infuser & Unit Tests, Organs Bugfixes (#73003))
 
 /obj/item/organ/external/tail/Remove(mob/living/carbon/organ_owner, special, moving)
 	if(wag_flags & WAG_WAGGING)
@@ -98,10 +113,14 @@
 	///A reference to the paired_spines, since for some fucking reason tail spines are tied to the spines themselves.
 	var/obj/item/organ/external/spines/paired_spines
 
+<<<<<<< HEAD
 /obj/item/organ/external/tail/lizard/get_global_feature_list()
 	return GLOB.tails_list_lizard
 
 /obj/item/organ/external/tail/lizard/Insert(mob/living/carbon/reciever, special, drop_if_replaced)
+=======
+/obj/item/organ/external/tail/lizard/Insert(mob/living/carbon/receiver, special, drop_if_replaced)
+>>>>>>> 5cf5037a97c5f (Fix: DNA Infuser & Unit Tests, Organs Bugfixes (#73003))
 	. = ..()
 	if(.)
 		paired_spines = ownerlimb.owner.getorganslot(ORGAN_SLOT_EXTERNAL_SPINES)
