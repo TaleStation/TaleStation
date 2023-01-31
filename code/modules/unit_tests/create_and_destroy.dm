@@ -30,6 +30,12 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/merge_conflict_marker,
 		//briefcase launchpads erroring
 		/obj/machinery/launchpad/briefcase,
+		//Both are abstract types meant to scream bloody murder if spawned in raw
+		/obj/item/organ/external,
+		/obj/item/organ/external/wings,
+		// NON-MODULAR CHANGES: C&D Blacklists
+		/obj/item/organ/external/leg,
+		/obj/item/organ/external/leg/avian_talon,
 	)
 	//Say it with me now, type template
 	ignore += typesof(/obj/effect/mapping_helpers)

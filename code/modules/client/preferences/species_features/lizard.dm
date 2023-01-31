@@ -1,14 +1,13 @@
 /proc/generate_lizard_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
 
-	var/icon/lizard = icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "lizard_head_m", EAST) // NON-MODULAR CHANGES - Uses our GS dmi
-
+	var/icon/lizard = icon('icons/mob/species/lizard/bodyparts.dmi', "lizard_head", EAST)
 	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_GRAY, ICON_MULTIPLY)
 	lizard.Blend(eyes, ICON_OVERLAY)
 
 	if (include_snout)
-		lizard.Blend(icon('icons/mob/species/mutant_bodyparts.dmi', "m_snout_round_ADJ", EAST), ICON_OVERLAY)
+		lizard.Blend(icon('icons/mob/species/lizard/lizard_misc.dmi', "m_snout_round_ADJ", EAST), ICON_OVERLAY)
 
 	for (var/name in sprite_accessories)
 		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
@@ -38,7 +37,7 @@
 /datum/preference/choiced/lizard_body_markings/init_possible_values()
 	var/list/values = list()
 
-	var/icon/lizard = icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "lizard_chest_m") // NON-MODULAR CHANGES - Uses our GS dmi
+	var/icon/lizard = icon('icons/mob/species/lizard/bodyparts.dmi', "lizard_chest_m")
 
 	for (var/name in GLOB.body_markings_list)
 		var/datum/sprite_accessory/sprite_accessory = GLOB.body_markings_list[name]
@@ -47,7 +46,7 @@
 
 		if (sprite_accessory.icon_state != "none")
 			var/icon/body_markings_icon = icon(
-				'icons/mob/species/mutant_bodyparts.dmi',
+				'icons/mob/species/lizard/lizard_misc.dmi',
 				"m_body_markings_[sprite_accessory.icon_state]_ADJ",
 			)
 
