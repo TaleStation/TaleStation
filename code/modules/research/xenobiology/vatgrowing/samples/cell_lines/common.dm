@@ -583,6 +583,32 @@
 	virus_suspectibility = 0.5
 	resulting_atoms = list(/mob/living/basic/frog = 1)
 
+<<<<<<< HEAD
+=======
+/datum/micro_organism/cell_line/axolotl
+	desc = "caudata amphibian cells"
+	required_reagents = list(/datum/reagent/consumable/nutriment/protein)
+
+	supplementary_reagents = list(
+		/datum/reagent/ants = 3,
+		/datum/reagent/consumable/liquidgibs = 2,
+		/datum/reagent/consumable/salt = 1,
+		/datum/reagent/consumable/eggwhite= 1,
+		/datum/reagent/consumable/nutriment/vitamin = 1,)
+
+	suppressive_reagents = list(
+		/datum/reagent/ammonia = -3,
+		/datum/reagent/toxin/bungotoxin = -3,
+		/datum/reagent/toxin/spore = -3,
+		/datum/reagent/toxin/plantbgone = -2, //GAY AXOLOTLS
+		/datum/reagent/drying_agent = -4,
+		/datum/reagent/consumable/mold = -2,
+		/datum/reagent/toxin = -1)
+
+	virus_suspectibility = 0.5
+	resulting_atoms = list(/mob/living/basic/axolotl = 1)
+
+>>>>>>> 5704127347aab (Merge skew Compile Error fixes  (#73098))
 /datum/micro_organism/cell_line/walking_mushroom
 	desc = "motile fungal hyphae"
 	required_reagents = list(/datum/reagent/consumable/nutriment/protein)
