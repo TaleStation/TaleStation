@@ -53,10 +53,11 @@
 			break_item(user)
 
 /obj/item/item_announcer/preset/proc/trigger_announcement(mob/user)
-	var/datum/round_event/falsealarm/triggered_event = new()
+	var/datum/round_event_control/falsealarm/triggered_event = new()
+	var/datum/round_event/falsealarm/forced_triggered_event = new()
 	if(!fake_event)
 		return FALSE
-	triggered_event.forced_type = fake_event
+	forced_triggered_event.forced_type = fake_event
 	triggered_event.runEvent(FALSE)
 	to_chat(user, span_notice("You press the [src], triggering a false alarm for [fake_event_name]."))
 	deadchat_broadcast(span_bold("[user] has triggered a false alarm using a syndicate device!"), follow_target = user)
