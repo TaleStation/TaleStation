@@ -928,3 +928,37 @@
   itseasytosee:
   - rscdel: You are less likely to see underwear in places it logically should not
       be.
+2023-01-31:
+  TaleStationBot:
+  - balance: The carp migration event won't trigger if there are fewer than 12 players.
+  - rscadd: Add a pair of leather gloves to weed control crate
+  - balance: Mobs with the PLANT biotypes (venus flytraps, pod people, killer tomatoes)
+      are now much weaker vs scythes, goats, and plantbgone.
+  - balance: Plantbgone is now more effective at destroying weeds.
+  - balance: Regular scythes are now a sharp object
+  - bugfix: Fixed scythes, goats, and plantbgone not affecting flower bud vines.
+  - bugfix: Thick and botanical gloves not protecting from thorns
+  - bugfix: Golems not having pierce immunity from thorns
+  - bugfix: Runtime where vines tried to spread into null turf
+  - bugfix: Runtime where null vines that were destroyed were trying to spread to
+      nearby turfs
+  - soundadd: Add eat food sound when goats eat plants
+  - code_imp: Improved goat targeting code
+  - code_imp: The bane element now accepts `mob_biotypes` bitflags as an argument.
+  - refactor: stack components no longer exist inside a machine's component_parts
+  - refactor: move component printer & module duplicator circuitboards into machine_circuitboards.dm
+  - bugfix: You can now revive 'basic mobs' with a Lazarus Injector, such as dogs,
+      cows, axolotls, or carp.
+  - bugfix: The same category of mobs can also now be effected by the Runic Golem
+      Dominate spell.
+  - bugfix: Basic Mobs will switch target if they can no longer attack their current
+      target; meaning that if you become a Bileworm's friend it will stop attacking
+      you.
+  - balance: Mobs injected with the Lazarus Injector while it is EMPed will no longer
+      attack other mobs revived by EMPed Lazarus Injectors.
+  - bugfix: Sec huds should properly label targets with the new record system
+  - bugfix: fixed fire cabinet examine text falsely saying to alt-click to open/close;
+      it now has contextual screentips, and uses balloon alerts when relevant
+  - rscadd: You can print universal scanners (export scanners, price taggers, sales
+      taggers) from the lathe again
+  - bugfix: Traitors discounts stocks are once again limited to one item
