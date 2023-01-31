@@ -25,6 +25,7 @@
 		PIZZA_DELIVERY,
 		RUSKY_PARTY,
 		SPIDER_GIFT,
+		PAPERS_PLEASE,
 	)
 	///The types of loan events already run (and to be excluded if the event triggers).
 	var/list/run_events = list()
@@ -146,6 +147,9 @@
 		if(MY_GOD_JC)
 			SSshuttle.centcom_message += "Live explosive ordnance incoming. Exercise extreme caution."
 			loan_type = "Shuttle with a ticking bomb"
+		if(PAPERS_PLEASE)
+			SSshuttle.centcom_message += "Paperwork incoming."
+			loan_type = "Paperwork shipment"
 
 	log_game("Shuttle loan event firing with type '[loan_type]'.")
 
@@ -291,6 +295,9 @@
 					shuttle_spawns.Add(/obj/item/paper/fluff/cargo/bomb)
 				else
 					shuttle_spawns.Add(/obj/item/paper/fluff/cargo/bomb/allyourbase)
+
+			if(PAPERS_PLEASE)
+				shuttle_spawns += subtypesof(/obj/item/paperwork) - typesof(/obj/item/paperwork/photocopy) - typesof(/obj/item/paperwork/ancient)
 
 		var/false_positive = 0
 		while(shuttle_spawns.len && empty_shuttle_turfs.len)
