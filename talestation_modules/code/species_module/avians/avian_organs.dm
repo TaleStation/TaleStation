@@ -53,7 +53,7 @@
 	desc = "Avian tongues are unsurprising. They're pretty basic."
 	say_mod = "caws"
 
-/obj/item/organ/external/avian_talon/left_leg
+/obj/item/organ/external/leg/avian_talon/left_leg
 	name = "left avian talon"
 	desc = "What sick bastard grafted this off an Avian?!"
 	// icon_state = "" TODO: Get a fucking icon state
@@ -64,13 +64,13 @@
 
 	preference = "feature_avian_talon_l"
 
-	bodypart_overlay = /datum/bodypart_overlay/mutant/avian_talon/left_leg
+	bodypart_overlay = /datum/bodypart_overlay/mutant/leg/avian_talon/left_leg
 
-/datum/bodypart_overlay/mutant/avian_talon/left_leg
+/datum/bodypart_overlay/mutant/leg/avian_talon/left_leg
 	layers = EXTERNAL_ADJACENT
 	feature_key = "avian_talon_l"
 
-/obj/item/organ/external/avian_talon/right_leg
+/obj/item/organ/external/leg/avian_talon/right_leg
 	name = "right avian talon"
 	desc = "What sick bastard grafted this off an Avian?!"
 	// icon_state = "" TODO: Get a fucking icon state
@@ -81,20 +81,20 @@
 
 	preference = "feature_avian_talon_r"
 
-	bodypart_overlay = /datum/bodypart_overlay/mutant/avian_talon/right_leg
+	bodypart_overlay = /datum/bodypart_overlay/mutant/leg/avian_talon/right_leg
 
-/datum/bodypart_overlay/mutant/avian_talon/right_leg
+/datum/bodypart_overlay/mutant/leg/avian_talon/right_leg
 	layers = EXTERNAL_ADJACENT
 	feature_key = "avian_talon_r"
 
-/datum/bodypart_overlay/mutant/avian_talon/left_leg/can_draw_on_bodypart(mob/living/carbon/human/human)
+/datum/bodypart_overlay/mutant/leg/avian_talon/left_leg/can_draw_on_bodypart(mob/living/carbon/human/human)
 	return TRUE
 
-/datum/bodypart_overlay/mutant/avian_talon/left_leg/get_global_feature_list()
+/datum/bodypart_overlay/mutant/leg/avian_talon/left_leg/get_global_feature_list()
 	return GLOB.avian_talon_l_list
 
 /datum/bodypart_overlay/mutant/leg/avian_talon/right_leg/can_draw_on_bodypart(mob/living/carbon/human/human)
 	return TRUE
 
-/datum/bodypart_overlay/mutant/avian_talon/right_leg/get_global_feature_list()
+/datum/bodypart_overlay/mutant/leg/avian_talon/right_leg/get_global_feature_list()
 	return GLOB.avian_talon_r_list

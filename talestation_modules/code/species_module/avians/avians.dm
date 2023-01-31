@@ -27,8 +27,8 @@ GLOBAL_LIST_EMPTY(avian_talon_r_list)
 	external_organs = list(
 		/obj/item/organ/external/snout/avian_beak = "Short",
 		/obj/item/organ/external/tail/avian_tail = "Wide",
-		/obj/item/organ/external/avian_talon/left_leg = "Left Plantigrade Talon",
-		/obj/item/organ/external/avian_talon/right_leg = "Right Plantigrade Talon",
+		/obj/item/organ/external/leg/avian_talon/left_leg = "Left Plantigrade Talon",
+		/obj/item/organ/external/leg/avian_talon/right_leg = "Right Plantigrade Talon",
 		)
 
 	mutanttongue = /obj/item/organ/internal/tongue/avian
