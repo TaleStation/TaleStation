@@ -36,7 +36,7 @@ ROUND_END_COUNTDOWN 90
 ## Comment this out if you want to use the SQL based admin system, the legacy system uses admins.txt.
 ## You need to set up your database to use the SQL based system.
 ## This flag is automatically enabled if SQL_ENABLED isn't
-#ADMIN_LEGACY_SYSTEM
+ADMIN_LEGACY_SYSTEM
 
 ##Uncomment this to stop any admins loaded by the legacy system from having their rank edited by the permissions panel
 #PROTECT_LEGACY_ADMINS
@@ -89,7 +89,7 @@ LOG_SAY
 LOG_ADMIN
 
 ## log admin chat
-#LOG_ADMINCHAT
+LOG_ADMINCHAT
 
 ## log asset debug logs
 #LOG_ASSET
@@ -195,19 +195,13 @@ ALLOW_ADMIN_ASAYCOLOR
 ID_CONSOLE_JOBSLOT_DELAY 30
 
 ## allow players to initiate a restart vote
-ALLOW_VOTE_RESTART
+#ALLOW_VOTE_RESTART
 
 ## allow players to initiate a mode-change vote
 #ALLOW_VOTE_MODE
 
 ## allow players to initiate a map-change vote
-ALLOW_VOTE_MAP
-
-## allow players to rock the vote, or to vote on the map again if they didn't like the last results
-#ALLOW_ROCK_THE_VOTE
-
-## the number of times you wish to allow players to rock the vote in a given shift
-MAX_ROCKING_VOTES 1
+#ALLOW_VOTE_MAP
 
 ## allow players to rock the vote, or to vote on the map again if they didn't like the last results
 #ALLOW_ROCK_THE_VOTE
@@ -261,7 +255,7 @@ CHECK_RANDOMIZER
 #WEBCLIENT_ONLY_BYOND_MEMBERS
 
 ## Set to prevent anyone but those ckeys listed in config/whitelist.txt and config/admins.txt from joining your server
-USEWHITELIST
+#USEWHITELIST
 
 ## set a server location for world reboot. Don't include the byond://, just give the address and port.
 ## Don't set this to the same server, BYOND will automatically restart players to the server when it has restarted.
@@ -302,7 +296,7 @@ USEWHITELIST
 ## from https://github.com/rg3/youtube-dl/releases
 ## or your package manager
 ## The default value assumes youtube-dl is in your system PATH
-INVOKE_YOUTUBEDL youtube-dl
+# INVOKE_YOUTUBEDL youtube-dl
 
 ## In-game features
 
@@ -466,9 +460,10 @@ CLIENT_ERROR_BUILD 1421
 ## Admins are exempt from these limits.
 ## Hitting the minute limit notifies admins.
 ## Set to 0 or comment out to disable.
-SECOND_TOPIC_LIMIT 30
+SECOND_TOPIC_LIMIT 10
 
-MINUTE_TOPIC_LIMIT 300
+MINUTE_TOPIC_LIMIT 100
+
 
 ## CLICK RATE LIMITING
 ## Same as above, but applies to clicking on objects in the game window.
