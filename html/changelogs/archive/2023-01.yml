@@ -882,3 +882,83 @@
   - bugfix: As a result, Lone Ops will no longer get scammed out of over 1/5th of
       their TC when buying the Detomatix cartridge and Midround Traitors with stolen
       Nuclear PDAs will not be denied an uplink.
+2023-01-30:
+  ATHATH:
+  - balance: Most energy sword-like weapons have had their demolition_mod increased
+      to 1.5x (from 1x). This affects damage vs. robots, objects, structures, etc.
+      Energy scalpels did not receive this buff.
+  Melbert:
+  - bugfix: Maybe fixes some issues with spirit holding, particularly relating to
+      it being in-exorcism-able.
+  Rhials:
+  - bugfix: The chemical scanner will now properly display that "no" reagents are
+      present in a subject when only invisible reagents are present.
+  ShizCalev:
+  - bugfix: Fixed the cops not being called when minors try to purchase cigarettes
+      from vending machines.
+  TaleStationBot:
+  - bugfix: Precision of purity scanners has been increased
+  - bugfix: 'All Mobs (including Basic mobs) are now able to suicide. (warning: some
+      exclusions remain)'
+  - bugfix: The ORM's input and output lights are once again visible
+  - qol: Add advanced fire extinguisher to techweb
+  - rscadd: Adds a new crate to cargo, the "Amphibian Friends Crate!" Gives you one
+      frog and one axolotl.
+  - bugfix: fixed air alarm breaking on gasless tiles.
+  - qol: Add pickaxe to basic tools techweb
+  - rscadd: Time and space has destabilized even further due to Nanotrasen bluespace
+      research, now, on occasion, clones from different timelines can appear on the
+      station and hunt you down to maintain timeline stability! Beware the Paradox
+      Clone!
+  - qol: Add clown firing pin to techweb
+  - bugfix: Headsets now have their old worn sprites back, did you ever notice it?
+  - balance: The R&D monitoring console now shows R&D consoles and their locations.
+  - refactor: The R&D monitoring console now has a nice TGUI menu.
+  - qol: Add mining scanners to techweb
+  - admin: Wanted statuses are now better logged by the records console
+  - bugfix: adds some messing bitfield defines for turf_flags
+  - spellcheck: After one false advertising lawsuit too many, Nanotrasen has changed
+      the sales pitch of the 'Exotic Seed Crate' to correctly reflect that it only
+      contains twelve seeds.
+  - admin: When a player-owned mob is deleted from the game world, a stack trace is
+      now dropped in the runtime logs. This allows admins and coders to investigate
+      these issues easier.
+  - qol: Musicians rejoice! You can now interact with the instrument UI while laying
+      down.
+  itseasytosee:
+  - rscdel: You are less likely to see underwear in places it logically should not
+      be.
+2023-01-31:
+  TaleStationBot:
+  - balance: The carp migration event won't trigger if there are fewer than 12 players.
+  - rscadd: Add a pair of leather gloves to weed control crate
+  - balance: Mobs with the PLANT biotypes (venus flytraps, pod people, killer tomatoes)
+      are now much weaker vs scythes, goats, and plantbgone.
+  - balance: Plantbgone is now more effective at destroying weeds.
+  - balance: Regular scythes are now a sharp object
+  - bugfix: Fixed scythes, goats, and plantbgone not affecting flower bud vines.
+  - bugfix: Thick and botanical gloves not protecting from thorns
+  - bugfix: Golems not having pierce immunity from thorns
+  - bugfix: Runtime where vines tried to spread into null turf
+  - bugfix: Runtime where null vines that were destroyed were trying to spread to
+      nearby turfs
+  - soundadd: Add eat food sound when goats eat plants
+  - code_imp: Improved goat targeting code
+  - code_imp: The bane element now accepts `mob_biotypes` bitflags as an argument.
+  - refactor: stack components no longer exist inside a machine's component_parts
+  - refactor: move component printer & module duplicator circuitboards into machine_circuitboards.dm
+  - bugfix: You can now revive 'basic mobs' with a Lazarus Injector, such as dogs,
+      cows, axolotls, or carp.
+  - bugfix: The same category of mobs can also now be effected by the Runic Golem
+      Dominate spell.
+  - bugfix: Basic Mobs will switch target if they can no longer attack their current
+      target; meaning that if you become a Bileworm's friend it will stop attacking
+      you.
+  - balance: Mobs injected with the Lazarus Injector while it is EMPed will no longer
+      attack other mobs revived by EMPed Lazarus Injectors.
+  - bugfix: Sec huds should properly label targets with the new record system
+  - bugfix: fixed fire cabinet examine text falsely saying to alt-click to open/close;
+      it now has contextual screentips, and uses balloon alerts when relevant
+  - rscadd: You can print universal scanners (export scanners, price taggers, sales
+      taggers) from the lathe again
+  - bugfix: Traitors discounts stocks are once again limited to one item
