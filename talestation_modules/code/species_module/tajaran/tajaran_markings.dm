@@ -44,7 +44,7 @@
 
 	return data
 
-/obj/item/organ/external/tajaran_body_markings/get_global_feature_list()
+/datum/bodypart_overlay/mutant/tajaran_body_markings/get_global_feature_list()
 	return GLOB.tajaran_body_markings_list
 
 // Tajaran body marking color
