@@ -34,7 +34,7 @@
 	savefile_key = "feature_avian_talon_l"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_external_organ = /obj/item/organ/external/leg/avian_talon/left_leg
+	relevant_external_organ = /obj/item/organ/external/avian_talon/left_leg
 
 /datum/preference/choiced/avian_talon_left/init_possible_values()
 	return assoc_to_keys(GLOB.avian_talon_l_list)
@@ -50,7 +50,7 @@
 	savefile_key = "feature_avian_talon_r"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_external_organ = /obj/item/organ/external/leg/avian_talon/right_leg
+	relevant_external_organ = /obj/item/organ/external/avian_talon/right_leg
 
 /datum/preference/choiced/avian_talon_right/init_possible_values()
 	return assoc_to_keys(GLOB.avian_talon_r_list)
