@@ -130,7 +130,12 @@
 	if(give_objectives)
 		finalize_antag()
 		forge_objectives()
+<<<<<<< HEAD
 
+=======
+	owner.current.grant_all_languages(FALSE, FALSE, TRUE) //Grants omnitongue. We are able to transform our body after all.
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_alert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+>>>>>>> 43194ab79559d (Renames ling_aler.ogg to ling_alert.ogg (#73114))
 	return ..()
 
 /datum/antagonist/changeling/apply_innate_effects(mob/living/mob_override)
