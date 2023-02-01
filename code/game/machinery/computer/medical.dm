@@ -39,8 +39,8 @@
 /obj/machinery/computer/med_data/ui_data(mob/user, datum/flavor_text/flavor) // NON-MODULAR CHANGES: Adds flavor_text arg
 	var/list/data = list()
 
-	var/has_access = authenticated && isliving(user)
-	data["authenticated"] = authenticated
+	var/has_access = (authenticated && isliving(user))|| isAdminGhostAI(user)
+	data["authenticated"] = authenticated || isAdminGhostAI(user)
 	if(!has_access)
 		return data
 
