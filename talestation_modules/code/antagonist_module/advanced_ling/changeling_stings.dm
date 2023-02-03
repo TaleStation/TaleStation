@@ -68,7 +68,7 @@
 		if(DOING_INTERACTION(user, DOAFTER_SOURCE_LINGSTING))
 			return FALSE
 
-		if(!do_mob(user, target, 1 SECONDS, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(check_range), user, target), interaction_key = DOAFTER_SOURCE_LINGSTING))
+		if(!do_after(user, 1 SECONDS, target, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(check_range), user, target), interaction_key = DOAFTER_SOURCE_LINGSTING))
 			to_chat(user, span_warning("We could not complete the sting on [target]."))
 			return FALSE
 
@@ -135,7 +135,7 @@
 	if(DOING_INTERACTION(user, DOAFTER_SOURCE_LINGSTING))
 		return FALSE
 
-	if(!do_mob(user, target, 3 SECONDS, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(check_range), user, target), interaction_key = DOAFTER_SOURCE_LINGSTING))
+	if(!do_after(user, 3 SECONDS, target, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(check_range), user, target), interaction_key = DOAFTER_SOURCE_LINGSTING))
 		to_chat(user, span_warning("We could not complete the sting on [target]. They are not yet aware."))
 		return FALSE
 	return TRUE
@@ -176,7 +176,7 @@
 	if(DOING_INTERACTION(user, DOAFTER_SOURCE_LINGSTING))
 		return FALSE
 
-	if(!do_mob(user, target, 1 SECONDS, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(check_range), user, target), interaction_key = DOAFTER_SOURCE_LINGSTING))
+	if(!do_after(user, 1 SECONDS, target, timed_action_flags = IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE, extra_checks = CALLBACK(src, PROC_REF(check_range), user, target), interaction_key = DOAFTER_SOURCE_LINGSTING))
 		to_chat(user, span_warning("We could not complete the sting on [target]. They are not yet aware."))
 		return FALSE
 	return TRUE
