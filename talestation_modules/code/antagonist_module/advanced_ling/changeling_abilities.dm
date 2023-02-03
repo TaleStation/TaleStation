@@ -197,7 +197,7 @@
 				target.sharp_pain(BODY_ZONE_CHEST, 75, BRUTE, 20 SECONDS)
 
 		SSblackbox.record_feedback("nested tally", "changeling_powers", 1, list("Grant Powers", "[i]"))
-		if(!do_mob(owner, target, (i * 8 SECONDS)))
+		if(!do_after(owner, (i * 8 SECONDS), target))
 			to_chat(owner, span_warning("Our uplifting of [target] has been interrupted!"))
 			return FALSE
 		if(QDELETED(src))
@@ -276,7 +276,7 @@
 	var/mob/living/carbon/human/target = user.pulling
 
 	user.visible_message(span_danger("[user] begins to extend something inhuman from their head!"), span_notice("This creature is compatible. We begin to probe their mind..."))
-	if(!do_mob(user, target, 6 SECONDS))
+	if(!do_after(user, 6 SECONDS, target))
 		to_chat(user, span_danger("You fail to probe [target]'s mind!"))
 		return
 
@@ -285,7 +285,7 @@
 	target.reagents?.add_reagent(/datum/reagent/medicine/mannitol, 10)
 	target.reagents?.add_reagent(/datum/reagent/medicine/epinephrine, 5)
 
-	if(!do_mob(user, target, 6 SECONDS))
+	if(!do_after(user, 6 SECONDS, target))
 		to_chat(user, span_danger("You fail to probe [target]'s mind!"))
 		user.stop_pulling()
 		return
