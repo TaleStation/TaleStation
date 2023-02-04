@@ -136,7 +136,7 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 		return eyeobj
 	return src
 
-ADMIN_VERB(server, toggle_looc, "Enable/Disable LOOC", R_SERVER)
+ADMIN_VERB(server, toggle_looc, "Toggle LOOC", "Enable/Disable LOOC", R_SERVER)
 	toggle_looc()
 	log_admin("[key_name(usr)] toggled LOOC.")
 	message_admins("[key_name_admin(usr)] toggled LOOC.")

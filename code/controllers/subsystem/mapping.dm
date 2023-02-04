@@ -603,7 +603,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 		holodeck_templates[holo_template.template_id] = holo_template
 
-ADMIN_VERB(events, load_away_mission, "", R_FUN)
+ADMIN_VERB(events, load_away_mission, "Load Away Mission", "", R_FUN)
 	if(!GLOB.the_gateway)
 		if(tgui_alert(usr, "There's no home gateway on the station. You sure you want to continue ?", "Uh oh", list("Yes", "No")) != "Yes")
 			return
@@ -844,6 +844,8 @@ ADMIN_VERB(events, load_away_mission, "", R_FUN)
 
 /datum/controller/subsystem/mapping/proc/lazy_load_template(template_key, force = FALSE)
 	RETURN_TYPE(/datum/turf_reservation)
+
+	UNTIL(initialized)
 	var/static/lazy_loading = FALSE
 	UNTIL(!lazy_loading)
 
