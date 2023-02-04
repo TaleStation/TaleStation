@@ -18,8 +18,8 @@
 	desc = "You're trilingual - you know another random language besides common and your native tongue. (If you take this quirk, you cannot select an additional language.)"
 	icon = "globe"
 	value = 1
-	gain_text = "<span class='notice'>You understand a new language.</span>"
-	lose_text = "<span class='notice'>You no longer understand a new language.</span>"
+	gain_text = span_notice("You understand a new language.")
+	lose_text = span_notice("You no longer understand a new language.")
 	medical_record_text = "Patient is trilingual and knows multiple languages."
 	/// The language we added with this quirk.
 	var/added_language
@@ -57,8 +57,8 @@
 	desc = "You had a run in with appendicitis in the past and no longer have an appendix."
 	icon = "notes-medical"
 	value = 2
-	gain_text = "<span class='notice'>You no longer have an appendix.</span>"
-	lose_text = "<span class='danger'>You miss your appendix?</span>"
+	gain_text = span_notice("You no longer have an appendix.")
+	lose_text = span_danger("You miss your appendix?")
 	medical_record_text = "Patient had appendicitis in the past and has had their appendix surgically removed as a consequence."
 
 /datum/quirk/no_appendix/post_add()
@@ -72,8 +72,8 @@
 	desc = "You're more resistant to pain - Your pain naturally decreases faster and you receive less overall."
 	icon = "fist-raised"
 	value = 8
-	gain_text = "<span class='notice'>You feel duller.</span>"
-	lose_text = "<span class='danger'>You feel sharper.</span>"
+	gain_text = span_notice("You feel duller.")
+	lose_text = span_danger("You feel sharper.")
 	medical_record_text = "Patient has Hypoalgesia, and is less susceptible to pain stimuli than most."
 
 /datum/quirk/pain_resistance/add()
