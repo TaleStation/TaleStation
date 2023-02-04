@@ -20,7 +20,7 @@
 
 /// The sound that plays when our changeling is finalized.
 /datum/antagonist/changeling/proc/play_changeling_sound()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_alert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 /datum/antagonist/changeling/headslug
 	hivemind_link_awoken = FALSE
