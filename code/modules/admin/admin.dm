@@ -69,18 +69,7 @@ ADMIN_VERB(debug, spawn_atom, "Spawn Atom", "", R_SPAWN, object as text)
 
 	log_admin("[key_name(usr)] spawned [amount] x [chosen] at [AREACOORD(usr)]")
 
-<<<<<<< HEAD
-/datum/admins/proc/podspawn_atom(object as text)
-	set category = "Debug"
-	set desc = "(atom path) Spawn an atom via supply drop"
-	set name = "Podspawn"
-
-	if(!check_rights(R_SPAWN))
-		return
-
-=======
 ADMIN_VERB(debug, podspawn_atom, "Podspawn Atom", "Spawn an atom typepath via supply drop", R_SPAWN, object as text)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/chosen = pick_closest_path(object)
 	if(!chosen)
 		return
@@ -96,39 +85,22 @@ ADMIN_VERB(debug, podspawn_atom, "Podspawn Atom", "Spawn an atom typepath via su
 		//we need to set the admin spawn flag for the spawned items so we do it outside of the podspawn proc
 		var/atom/A = new chosen(pod)
 		A.flags_1 |= ADMIN_SPAWNED_1
-
-<<<<<<< HEAD
 	log_admin("[key_name(usr)] pod-spawned [chosen] at [AREACOORD(usr)]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/datum/admins/proc/spawn_cargo(object as text)
-	set category = "Debug"
-	set desc = "(atom path) Spawn a cargo crate"
-	set name = "Spawn Cargo"
-
-	if(!check_rights(R_SPAWN))
-		return
-
-=======
 ADMIN_VERB(debug, spawn_cargo_crate, "Spawn Cargo Crate", "Spawn a cargo crate", R_SPAWN, object as text)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/chosen = pick_closest_path(object, make_types_fancy(subtypesof(/datum/supply_pack)))
 	if(!chosen)
 		return
 	var/datum/supply_pack/S = new chosen
 	S.admin_spawned = TRUE
 	S.generate(get_turf(usr))
-
-<<<<<<< HEAD
 	log_admin("[key_name(usr)] spawned cargo pack [chosen] at [AREACOORD(usr)]")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Cargo") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-=======
+
 ADMIN_VERB(debug, toggle_tinted_welding_helmets, "Toggle Tinted Welding Helmets", "Reduces view range when wearing welding helmets", R_DEBUG)
 	GLOB.tinted_weldhelh = !GLOB.tinted_weldhelh
 	to_chat(world, span_bold("Welding Helmet tinting has been [(GLOB.tinted_weldhelh ? "enabled" : "disabled")]"))
 	log_admin("[key_name(usr)] toggled tinted_weldhelh.")
 	message_admins("[key_name_admin(usr)] toggled tinted_weldhelh.")
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 
 /datum/admins/proc/dynamic_mode_options(mob/user)
 	var/dat = {"
@@ -153,13 +125,7 @@ ADMIN_VERB(debug, toggle_tinted_welding_helmets, "Toggle Tinted Welding Helmets"
 
 	user << browse(dat, "window=dyn_mode_options;size=900x650")
 
-<<<<<<< HEAD
-/datum/admins/proc/create_or_modify_area()
-	set category = "Debug"
-	set name = "Create or modify area"
-=======
 ADMIN_VERB(debug, create_or_modify_area, "Create or Modify Area", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	create_area(usr)
 
 //Kicks all the clients currently in the lobby. The second parameter (kick_only_afk) determins if an is_afk() check is ran, or if all clients are kicked

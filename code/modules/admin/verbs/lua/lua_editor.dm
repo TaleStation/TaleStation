@@ -196,14 +196,26 @@
 			if(isweakref(thing_to_debug))
 				var/datum/weakref/ref = thing_to_debug
 				thing_to_debug = ref.resolve()
-			INVOKE_ASYNC(usr.client, TYPE_PROC_REF(/client, debug_variables), thing_to_debug)
+			INVOKE_ASYNC( \
+				SSadmin_verbs, \
+				TYPE_PROC_REF(/datum/controller/subsystem/admin_verbs, dynamic_invoke_admin_verb), \
+				usr.client, \
+				/mob/admin_module_holder/debug/view_variables, \
+				list(thing_to_debug), \
+				)
 			return FALSE
 		if("vvGlobal")
 			var/thing_to_debug = traverse_list(params["indices"], current_state.globals)
 			if(isweakref(thing_to_debug))
 				var/datum/weakref/ref = thing_to_debug
 				thing_to_debug = ref.resolve()
-			INVOKE_ASYNC(usr.client, TYPE_PROC_REF(/client, debug_variables), thing_to_debug)
+			INVOKE_ASYNC( \
+				SSadmin_verbs, \
+				TYPE_PROC_REF(/datum/controller/subsystem/admin_verbs, dynamic_invoke_admin_verb), \
+				usr.client, \
+				/mob/admin_module_holder/debug/view_variables, \
+				list(thing_to_debug), \
+				)
 			return FALSE
 		if("clearArgs")
 			arguments.Cut()
@@ -222,15 +234,7 @@
 	. = ..()
 	qdel(src)
 
-<<<<<<< HEAD
-/client/proc/open_lua_editor()
-	set name = "Open Lua Editor"
-	set category = "Debug"
-	if(!check_rights_for(src, R_DEBUG))
-		return
-=======
 ADMIN_VERB(debug, open_lua_editor, "Open Lua Editor", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	if(SSlua.initialized != TRUE)
 		to_chat(usr, span_warning("SSlua is not initialized!"))
 		return

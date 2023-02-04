@@ -481,15 +481,5 @@
 
 	. = list2params(.)
 
-<<<<<<< HEAD
-
-/client/proc/stickybanpanel()
-	set name = "Sticky Ban Panel"
-	set category = "Admin"
-	if (!holder)
-		return
-	holder.stickyban_show()
-=======
 ADMIN_VERB(admin, sticky_ban_panel, "Sticky Ban Panel", "", R_BAN)
 	usr.client.holder.stickyban_show()
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))

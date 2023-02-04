@@ -19,54 +19,9 @@
 //- Identify how hard it is to break into the area and where the weak points are
 //- Check if the area has too much empty space. If so, make it smaller and replace the rest with maintenance tunnels.
 
-<<<<<<< HEAD
-GLOBAL_LIST_INIT(admin_verbs_debug_mapping, list(
-	/client/proc/camera_view, //-errorage
-	/client/proc/sec_camera_report, //-errorage
-	/client/proc/intercom_view, //-errorage
-	/client/proc/air_status, //Air things
-	/client/proc/Cell, //More air things
-	/client/proc/atmosscan, //check plumbing
-	/client/proc/powerdebug, //check power
-	/client/proc/count_objects_on_z_level,
-	/client/proc/count_objects_all,
-	/client/proc/cmd_assume_direct_control, //-errorage
-	/client/proc/cmd_give_direct_control,
-	/client/proc/set_server_fps, //allows you to set the ticklag.
-	/client/proc/cmd_admin_grantfullaccess,
-	/client/proc/cmd_admin_areatest_all,
-	/client/proc/cmd_admin_areatest_station,
-	/client/proc/cmd_admin_areatest_station_no_maintenance,
-	#ifdef TESTING
-	/client/proc/see_dirty_varedits,
-	#endif
-	/client/proc/cmd_admin_rejuvenate,
-	/datum/admins/proc/show_traitor_panel,
-	/client/proc/disable_communication,
-	/client/proc/show_map_reports,
-	/client/proc/cmd_show_at_list,
-	/client/proc/cmd_show_at_markers,
-	/client/proc/manipulate_organs,
-	/client/proc/start_line_profiling,
-	/client/proc/stop_line_profiling,
-	/client/proc/show_line_profiling,
-	/client/proc/create_mapping_job_icons,
-	/client/proc/debug_z_levels,
-	/client/proc/place_ruin,
-	/client/proc/station_food_debug,
-	/client/proc/station_stack_debug,
-	/client/proc/check_for_obstructed_atmospherics,
-))
-GLOBAL_PROTECT(admin_verbs_debug_mapping)
-
-/client/proc/camera_view()
-	set category = "Mapping"
-	set name = "Camera Range Display"
-=======
 ADMIN_VERB(mapping, camera_range_display, "Camera Range Display", "Iterate over all cameras in world and generate a camera map", R_DEBUG)
 	if(tgui_alert(usr, "This can take a very long time and lock up the game!", "Don't do this on live", list("Okay", "Nevermind")) != "Okay")
 		return
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 
 	var/on = FALSE
 	for(var/turf/T in world)
@@ -81,20 +36,10 @@ ADMIN_VERB(mapping, camera_range_display, "Camera Range Display", "Iterate over 
 				seen[T]++
 		for(var/turf/T in seen)
 			T.maptext = MAPTEXT(seen[T])
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Range")
 
 #ifdef TESTING
 GLOBAL_LIST_EMPTY(dirty_vars)
-<<<<<<< HEAD
-
-/client/proc/see_dirty_varedits()
-	set category = "Mapping"
-	set name = "Dirty Varedits"
-
-=======
 ADMIN_VERB(mapping, dirty_varedits, "Dirty VarEdits", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/list/dat = list()
 	dat += "<h3>Abandon all hope ye who enter here</h3><br><br>"
 	for(var/thing in GLOB.dirty_vars)
@@ -105,18 +50,7 @@ ADMIN_VERB(mapping, dirty_varedits, "Dirty VarEdits", "", R_DEBUG)
 	popup.open()
 #endif
 
-<<<<<<< HEAD
-/client/proc/sec_camera_report()
-	set category = "Mapping"
-	set name = "Camera Report"
-
-	if(!Master)
-		tgui_alert(usr,"Master_controller not found.","Sec Camera Report")
-		return FALSE
-
-=======
 ADMIN_VERB(mapping, camera_report, "Camera Report", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/list/obj/machinery/camera/CL = list()
 
 	for(var/obj/machinery/camera/C as anything in GLOB.cameranet.cameras)
@@ -147,18 +81,11 @@ ADMIN_VERB(mapping, camera_report, "Camera Report", "", R_DEBUG)
 
 	output += "</ul>"
 	usr << browse(output,"window=airreport;size=1000x500")
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Camera Report") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/intercom_view()
-	set category = "Mapping"
-	set name = "Intercom Range Display"
-
-<<<<<<< HEAD
-=======
 ADMIN_VERB(mapping, intercom_range_display, "Intercomm Range Display", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/static/intercom_range_display_status = FALSE
-	intercom_range_display_status = !intercom_range_display_status //blame cyberboss if this breaks something //blamed
+	//blame cyberboss if this breaks something //blamed
+	intercom_range_display_status = !intercom_range_display_status
 
 	for(var/obj/effect/abstract/marker/intercom/marker in GLOB.all_abstract_markers)
 		qdel(marker)
@@ -168,17 +95,8 @@ ADMIN_VERB(mapping, intercom_range_display, "Intercomm Range Display", "", R_DEB
 			for(var/obj/item/radio/intercom/intercom in GLOB.all_radios[frequency])
 				for(var/turf/turf in view(7,intercom.loc))
 					new /obj/effect/abstract/marker/intercom(turf)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Intercom Range") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/show_map_reports()
-	set category = "Mapping"
-	set name = "Show map report list"
-	set desc = "Displays a list of map reports"
-
-<<<<<<< HEAD
-=======
 ADMIN_VERB(mapping, show_map_report_list, "Show Map Report List", "Display a list of map reports", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/dat = {"<b>List of all map reports:</b><br>"}
 
 	for(var/datum/map_report/report as anything in GLOB.map_reports)
@@ -186,15 +104,7 @@ ADMIN_VERB(mapping, show_map_report_list, "Show Map Report List", "Display a lis
 
 	usr << browse(dat, "window=map_reports")
 
-<<<<<<< HEAD
-/client/proc/cmd_show_at_list()
-	set category = "Mapping"
-	set name = "Show roundstart AT list"
-	set desc = "Displays a list of active turfs coordinates at roundstart"
-
-=======
 ADMIN_VERB(mapping, show_roundstart_at_list, "Show Roundstart AT List", "Displays a list of active turfs at roundstart", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/dat = {"<b>Coordinate list of Active Turfs at Roundstart</b>
 		<br>Real-time Active Turfs list you can see in Air Subsystem at active_turfs var<br>"}
 
@@ -202,20 +112,9 @@ ADMIN_VERB(mapping, show_roundstart_at_list, "Show Roundstart AT List", "Display
 		var/turf/T = t
 		dat += "[ADMIN_VERBOSEJMP(T)]\n"
 		dat += "<br>"
-
 	usr << browse(dat, "window=at_list")
 
-<<<<<<< HEAD
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Roundstart Active Turfs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/cmd_show_at_markers()
-	set category = "Mapping"
-	set name = "Show roundstart AT markers"
-	set desc = "Places a marker on all active-at-roundstart turfs"
-
-=======
 ADMIN_VERB(mapping, show_roundstart_at_markers, "Show Roundstart AT Markers", "Places a marker on all active-at-roundstart turfs", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/count = 0
 	for(var/obj/effect/abstract/marker/at/AT in GLOB.all_abstract_markers)
 		qdel(AT)
@@ -229,31 +128,7 @@ ADMIN_VERB(mapping, show_roundstart_at_markers, "Show Roundstart AT Markers", "P
 			count++
 		to_chat(usr, "[count] AT markers placed.", confidential = TRUE)
 
-<<<<<<< HEAD
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Roundstart Active Turf Markers")
-
-/client/proc/enable_mapping_verbs()
-	set category = "Debug"
-	set name = "Mapping verbs - Enable"
-	if(!check_rights(R_DEBUG))
-		return
-	remove_verb(src, /client/proc/enable_mapping_verbs)
-	add_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Enable Debug Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/disable_mapping_verbs()
-	set category = "Debug"
-	set name = "Mapping verbs - Disable"
-	remove_verb(src, list(/client/proc/disable_mapping_verbs, GLOB.admin_verbs_debug_mapping))
-	add_verb(src, /client/proc/enable_mapping_verbs)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Disable Debug Verbs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/count_objects_on_z_level()
-	set category = "Mapping"
-	set name = "Count Objects On Level"
-=======
 ADMIN_VERB(mapping, count_objects_on_zlevel, "Count Objects on ZLevel", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/level = input("Which z-level?","Level?") as text|null
 	if(!level)
 		return
@@ -288,16 +163,8 @@ ADMIN_VERB(mapping, count_objects_on_zlevel, "Count Objects on ZLevel", "", R_DE
 					atom_list += A
 
 	to_chat(world, "There are [count] objects of type [type_path] on z-level [num_level]", confidential = TRUE)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Count Objects Zlevel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/count_objects_all()
-	set category = "Mapping"
-	set name = "Count Objects All"
-
-<<<<<<< HEAD
-=======
 ADMIN_VERB(mapping, count_all_objects, "Count All Objects", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/type_text = input("Which type path?","") as text|null
 	if(!type_text)
 		return
@@ -312,27 +179,9 @@ ADMIN_VERB(mapping, count_all_objects, "Count All Objects", "", R_DEBUG)
 			count++
 
 	to_chat(world, "There are [count] objects of type [type_path] in the game world", confidential = TRUE)
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Count Objects All") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 
 //This proc is intended to detect lag problems relating to communication procs
 GLOBAL_VAR_INIT(say_disabled, FALSE)
-<<<<<<< HEAD
-/client/proc/disable_communication()
-	set category = "Mapping"
-	set name = "Disable all communication verbs"
-
-	GLOB.say_disabled = !GLOB.say_disabled
-	if(GLOB.say_disabled)
-		message_admins("[key] used 'Disable all communication verbs', killing all communication methods.")
-	else
-		message_admins("[key] used 'Disable all communication verbs', restoring all communication methods.")
-
-//This generates the icon states for job starting location landmarks.
-/client/proc/create_mapping_job_icons()
-	set name = "Generate job landmarks icons"
-	set category = "Mapping"
-=======
 // Why is this a mapping verb?
 ADMIN_VERB(mapping, disable_all_communication_verbs, "Disable All Communication Verbs", "", R_DEBUG)
 	GLOB.say_disabled = !GLOB.say_disabled
@@ -341,7 +190,6 @@ ADMIN_VERB(mapping, disable_all_communication_verbs, "Disable All Communication 
 	log_admin("[key_name(usr)] [message]")
 
 ADMIN_VERB(mapping,	generate_job_landmark_icons, "Generate Job Landmark Icons", "This generates the icon states for job starting location landmarks", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/icon/final = icon()
 	var/mob/living/carbon/human/dummy/D = new(locate(1,1,1)) //spawn on 1,1,1 so we don't have runtimes when items are deleted
 	D.setDir(SOUTH)
@@ -365,14 +213,7 @@ ADMIN_VERB(mapping,	generate_job_landmark_icons, "Generate Job Landmark Icons", 
 		final.Insert(icon('icons/hud/screen_gen.dmi', "x[x_number == 1 ? "" : x_number]"), "x[x_number == 1 ? "" : x_number]")
 	fcopy(final, "icons/mob/landmarks.dmi")
 
-<<<<<<< HEAD
-/client/proc/debug_z_levels()
-	set name = "Debug Z-Levels"
-	set category = "Mapping"
-
-=======
 ADMIN_VERB(mapping, debug_zlevels, "Debug ZLevels", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/list/z_list = SSmapping.z_list
 	var/list/messages = list()
 	messages += "<b>World</b>: [world.maxx] x [world.maxy] x [world.maxz]<br><br>"
@@ -426,16 +267,9 @@ ADMIN_VERB(mapping, debug_zlevels, "Debug ZLevels", "", R_DEBUG)
 			part += "[grid[x - min_x + 1][y - min_y + 1]]"
 		messages += "<tr><td>[part.Join("</td><td>")]</td></tr>"
 	messages += "</table>"
+	to_chat(usr, examine_block(messages.Join("")), confidential = TRUE)
 
-<<<<<<< HEAD
-	to_chat(src, examine_block(messages.Join("")), confidential = TRUE)
-
-/client/proc/station_food_debug()
-	set name = "Count Station Food"
-	set category = "Mapping"
-=======
 ADMIN_VERB(mapping, count_station_food, "Count Station Food", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/list/foodcount = list()
 	for(var/obj/item/food/fuck_me in world)
 		var/turf/location = get_turf(fuck_me)
@@ -452,17 +286,11 @@ ADMIN_VERB(mapping, count_station_food, "Count Station Food", "", R_DEBUG)
 
 	var/page_style = "<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>"
 	var/page_contents = "[page_style]<table style=\"width:100%\">[table_header][jointext(table_contents, "")]</table>"
-	var/datum/browser/popup = new(mob, "fooddebug", "Station Food Count", 600, 400)
+	var/datum/browser/popup = new(usr, "fooddebug", "Station Food Count", 600, 400)
 	popup.set_content(page_contents)
 	popup.open()
 
-<<<<<<< HEAD
-/client/proc/station_stack_debug()
-	set name = "Count Station Stacks"
-	set category = "Mapping"
-=======
 ADMIN_VERB(mapping, count_station_stacks, "Count Station Stacks", "", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	var/list/stackcount = list()
 	for(var/obj/item/stack/fuck_me in world)
 		var/turf/location = get_turf(fuck_me)
@@ -479,26 +307,13 @@ ADMIN_VERB(mapping, count_station_stacks, "Count Station Stacks", "", R_DEBUG)
 
 	var/page_style = "<style>table, th, td {border: 1px solid black;border-collapse: collapse;}</style>"
 	var/page_contents = "[page_style]<table style=\"width:100%\">[table_header][jointext(table_contents, "")]</table>"
-	var/datum/browser/popup = new(mob, "stackdebug", "Station Stack Count", 600, 400)
+	var/datum/browser/popup = new(usr, "stackdebug", "Station Stack Count", 600, 400)
 	popup.set_content(page_contents)
 	popup.open()
 
-<<<<<<< HEAD
-/// Check all tiles with a vent or scrubber on it and ensure that nothing is covering it up.
-/client/proc/check_for_obstructed_atmospherics()
-	set name = "Check For Obstructed Atmospherics"
-	set category = "Mapping"
-	if(!holder)
-		to_chat(src, "Only administrators may use this command.", confidential = TRUE)
-		return
-=======
 ADMIN_VERB(mapping, check_for_obstructed_atmopsherics, "Check For Obstructed Atmospherics", "Check all tiles with a vent or scrubber on it and ensure that nothing is covering it up", R_DEBUG)
->>>>>>> fca90f5c78b19 (Redoes the admin verb define to require passing in an Admin Visible Name, and restores the usage of '-' for the verb bar when you want to call verbs from the command bar. Also cleans up and organizes the backend for drawing verbs to make it easier in the future for me to make it look better (#73214))
 	message_admins(span_adminnotice("[key_name_admin(usr)] is checking for obstructed atmospherics through the debug command."))
-	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check For Obstructed Atmospherics") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
 	var/list/results = list()
-
 	results += "<h2><b>Anything that is considered to aesthetically obstruct an atmospherics machine (vent, scrubber, port) is listed below.</b> Please re-arrange to accomodate for this.</h2><br>"
 
 	// Ignore out stuff we see in normal and standard mapping that we don't care about (false alarms). Typically stuff that goes directionally off turfs or other undertile objects that we don't want to care about.
