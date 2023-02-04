@@ -17,8 +17,8 @@
 	desc = "You're less resistant to pain - Your pain naturally decreases slower and you receive more overall."
 	icon = "user-injured"
 	value = -6
-	gain_text = "<span class='danger'>You feel sharper.</span>"
-	lose_text = "<span class='notice'>You feel duller.</span>"
+	gain_text = span_danger("You feel sharper.")
+	lose_text = span_notice("You feel duller.")
 	medical_record_text = "Patient has Hyperalgesia, and is more susceptible to pain stimuli than most."
 
 /datum/quirk/pain_vulnerability/add()
@@ -37,8 +37,8 @@
 	desc = "Your nerves are extremely sensitive - you may receive pain from things that wouldn't normally be painful, such as hugs."
 	icon = "tired"
 	value = -10
-	gain_text = "<span class='danger'>You feel fragile.</span>"
-	lose_text = "<span class='notice'>You feel less delicate.</span>"
+	gain_text = span_danger("You feel fragile.")
+	lose_text = span_notice("You feel less delicate.")
 	medical_record_text = "Patient has Allodynia, and is extremely sensitive to touch, pain, and similar stimuli."
 	COOLDOWN_DECLARE(time_since_last_touch)
 
