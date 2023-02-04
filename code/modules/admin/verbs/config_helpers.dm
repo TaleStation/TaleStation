@@ -7,5 +7,11 @@ ADMIN_VERB(server, generate_job_configuration, "Generate Job Configuration", "",
 	if(!SSjob.generate_config(usr))
 		to_chat(usr, span_warning("Job configuration file could not be generated. Check the server logs / runtimes / above warning messages for more information."))
 		return
+<<<<<<< HEAD
 
 	to_chat(usr, span_notice("Job configuration file generated. Download prompt should appear now."))
+=======
+
+	to_chat(usr, span_notice("Job configuration file generated. Download prompt should appear now."))
+
+>>>>>>> 2538c69e19854 (Revert "the inevitable Revert "Refactors admin verbs from giant ass lists into datums" in case stuff breaks (#73206) (#73229))
