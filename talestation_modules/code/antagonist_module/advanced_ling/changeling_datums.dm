@@ -56,7 +56,7 @@
 	to_chat(owner.current, span_boldannounce("You are a neutered changeling. Most of your powers are lost, and you are but a shell of your former self."))
 
 /datum/antagonist/changeling/neutered/play_changeling_sound()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, TRUE, 36000, pressure_affected = FALSE, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_alert.ogg', 100, TRUE, 36000, pressure_affected = FALSE, use_reverb = FALSE)
 
 /datum/antagonist/changeling/neutered/create_initial_profile()
 	add_new_profile(owner.current, TRUE)
@@ -109,7 +109,7 @@
 	var/datum/weakref/granter
 
 /datum/antagonist/changeling/fresh/play_changeling_sound()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, TRUE, 42000, pressure_affected = FALSE, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_alert.ogg', 100, TRUE, 42000, pressure_affected = FALSE, use_reverb = FALSE)
 
 /datum/antagonist/changeling/fresh/create_innate_actions(datum/antagonist/changeling/learn_from)
 	if(!istype(learn_from))
