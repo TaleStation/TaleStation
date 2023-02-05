@@ -1,5 +1,9 @@
 /** Radio channels */
+<<<<<<< HEAD
 export const CHANNELS = ['Say', 'Radio', 'Me', 'OOC', 'LOOC'] as const; // NON-MODULAR CHANGES: LOOC Channel
+=======
+export const CHANNELS = ['Say', 'Radio', 'Me', 'OOC', 'Admin'] as const;
+>>>>>>> 4e1fc078d7532 (literally just hook asay into tgui say (#73212))
 
 /** Window sizes in pixels */
 export enum WINDOW_SIZES {

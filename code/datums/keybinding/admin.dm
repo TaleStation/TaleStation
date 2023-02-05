@@ -7,11 +7,12 @@
 
 /datum/keybinding/admin/admin_say
 	hotkey_keys = list("F3")
-	name = "admin_say"
+	name = ADMIN_CHANNEL
 	full_name = "Admin say"
 	description = "Talk with other admins."
 	keybind_signal = COMSIG_KB_ADMIN_ASAY_DOWN
 
+<<<<<<< HEAD
 /datum/keybinding/admin/admin_say/down(client/user)
 	. = ..()
 	if(.)
@@ -19,6 +20,8 @@
 	SSadmin_verbs.dynamic_invoke_admin_verb(user, /mob/admin_module_holder/admin/admin_say)
 	return TRUE
 
+=======
+>>>>>>> 4e1fc078d7532 (literally just hook asay into tgui say (#73212))
 /datum/keybinding/admin/admin_ghost
 	hotkey_keys = list("F5")
 	name = "admin_ghost"
