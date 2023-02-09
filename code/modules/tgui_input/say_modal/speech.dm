@@ -44,14 +44,12 @@
 		if(OOC_CHANNEL)
 			client.ooc(entry)
 			return TRUE
-<<<<<<< HEAD
+		if(ADMIN_CHANNEL)
+			client.cmd_admin_say(entry)
+			return TRUE
 		// NON-MODULAR CHANGES: LOOC
 		if(LOOC_CHANNEL)
 			client.looc(entry)
-=======
-		if(ADMIN_CHANNEL)
-			client.cmd_admin_say(entry)
->>>>>>> 4e1fc078d7532 (literally just hook asay into tgui say (#73212))
 			return TRUE
 	return FALSE
 
