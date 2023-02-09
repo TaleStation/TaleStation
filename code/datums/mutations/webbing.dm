@@ -5,9 +5,6 @@
 	quality = POSITIVE
 	text_gain_indication = "<span class='notice'>Your skin feels webby.</span>"
 	instability = 15
-<<<<<<< HEAD
-	power_path = /datum/action/cooldown/spell/lay_genetic_web
-=======
 	power_path = /datum/action/cooldown/lay_web/genetic
 	energy_coeff = 1
 
@@ -22,7 +19,6 @@
 		to_modify.webbing_time = initial(to_modify.webbing_time)
 		return
 	to_modify.webbing_time = 2 SECONDS // Spin webs faster but not more often
->>>>>>> 8ee01d27b390f (Basic Mob Spiders I: Ability refactor (#73201))
 
 /datum/mutation/human/webbing/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
