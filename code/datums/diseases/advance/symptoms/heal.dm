@@ -503,10 +503,6 @@
 	if(A.totalTransmittable() >= 6)
 		temp_rate = 4
 
-<<<<<<< HEAD
-/datum/symptom/heal/plasma/CanHeal(datum/disease/advance/A)
-	var/mob/living/M = A.affected_mob
-=======
 // We do this to prevent liver damage from injecting plasma when plasma fixation virus reaches stage 4 and beyond
 /datum/symptom/heal/plasma/on_stage_change(datum/disease/advance/advanced_disease)
 	. = ..()
@@ -529,16 +525,11 @@
 // Check internals breath, environmental plasma, and plasma in bloodstream to determine the heal power
 /datum/symptom/heal/plasma/CanHeal(datum/disease/advance/advanced_disease)
 	var/mob/living/diseased_mob = advanced_disease.affected_mob
->>>>>>> fedf2f3a26869 (more span macro changes in brain traumas and disease files (#73273))
 	var/datum/gas_mixture/environment
 	var/list/gases
 
 	. = 0
 
-<<<<<<< HEAD
-	if(M.loc)
-		environment = M.loc.return_air()
-=======
 	// Check internals
 	///  the amount of mols in a breath is significantly lower than in the environment so we are just going to use the tank's
 	///  distribution pressure as an abstraction rather than calculate it using the ideal gas equation.
@@ -555,7 +546,6 @@
 	// Check environment
 	if(diseased_mob.loc)
 		environment = diseased_mob.loc.return_air()
->>>>>>> fedf2f3a26869 (more span macro changes in brain traumas and disease files (#73273))
 	if(environment)
 		gases = environment.gases
 		if(gases[/datum/gas/plasma])
