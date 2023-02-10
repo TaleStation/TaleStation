@@ -136,10 +136,14 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 		return eyeobj
 	return src
 
-ADMIN_VERB(server, toggle_looc, "Toggle LOOC", "Enable/Disable LOOC", R_SERVER)
+// Admin verb for toggling LOOC
+/datum/admins/proc/togglelooc()
+	set category = "Server"
+	set name="Toggle LOOC"
 	toggle_looc()
 	log_admin("[key_name(usr)] toggled LOOC.")
 	message_admins("[key_name_admin(usr)] toggled LOOC.")
+	SSblackbox.record_feedback("nested tally", "admin_toggle_local", 1, list("Toggle LOOC", "[GLOB.looc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc! //I did
 
 // Global proc to toggle LOOC
 /proc/toggle_looc()

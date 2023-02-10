@@ -611,7 +611,15 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 		holodeck_templates[holo_template.template_id] = holo_template
 
-ADMIN_VERB(events, load_away_mission, "Load Away Mission", "", R_FUN)
+//Manual loading of away missions.
+/client/proc/admin_away()
+	set name = "Load Away Mission"
+	set category = "Admin.Events"
+
+	if(!holder || !check_rights(R_FUN))
+		return
+
+
 	if(!GLOB.the_gateway)
 		if(tgui_alert(usr, "There's no home gateway on the station. You sure you want to continue ?", "Uh oh", list("Yes", "No")) != "Yes")
 			return
@@ -622,14 +630,14 @@ ADMIN_VERB(events, load_away_mission, "Load Away Mission", "", R_FUN)
 	var/secret = FALSE
 	if(tgui_alert(usr, "Do you want your mission secret? (This will prevent ghosts from looking at your map in any way other than through a living player's eyes.)", "Are you $$$ekret?", list("Yes", "No")) == "Yes")
 		secret = TRUE
-	var/answer = input(usr, "What kind?","Away") as null|anything in possible_options
+	var/answer = input("What kind?","Away") as null|anything in possible_options
 	switch(answer)
 		if("Custom")
-			var/mapfile = input(usr, "Pick file:", "File") as null|file
+			var/mapfile = input("Pick file:", "File") as null|file
 			if(!mapfile)
 				return
 			away_name = "[mapfile] custom"
-			to_chat(usr, span_notice("Loading [away_name]..."))
+			to_chat(usr,span_notice("Loading [away_name]..."))
 			var/datum/map_template/template = new(mapfile, "Away Mission")
 			away_level = template.load_new_z(secret)
 		else
@@ -645,6 +653,7 @@ ADMIN_VERB(events, load_away_mission, "Load Away Mission", "", R_FUN)
 	log_admin("Admin [key_name(usr)] has loaded [away_name] away mission.")
 	if(!away_level)
 		message_admins("Loading [away_name] failed!")
+		return
 
 /// Adds a new reservation z level. A bit of space that can be handed out on request
 /// Of note, reservations default to transit turfs, to make their most common use, shuttles, faster
