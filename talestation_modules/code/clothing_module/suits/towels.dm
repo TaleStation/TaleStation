@@ -415,28 +415,28 @@
 
 /// Mood event for warm towels
 /datum/mood_event/warm_towel
-	description = "<span class='nicegreen'>Warm towels are cosy.</span>\n"
+	description = span_nicegreen("Warm towels are nice and cozy!")
 	mood_change = 2
 	timeout = 3 MINUTES
 
 /datum/mood_event/warm_towel_lizard
-	description = "<span class='nicegreen'>Warm towelsss are ssso cosssy.</span>\n"
+	description = span_nicegreen("Warm towelsss are nice and cozy!")
 	mood_change = 4
 	timeout = 3 MINUTES
 
 /// Mood event for laying on towels
 /datum/mood_event/on_towel
-	description = "<span class='nicegreen'>I could lay here all day...</span>\n"
+	description = span_nicegreen("I could lay here all day..")
 	mood_change = 3
 	timeout = 10 MINUTES
 
 /datum/mood_event/on_warm_towel
-	description = "<span class='nicegreen'>Warm towel, nice day... This is the life.</span>\n"
+	description = span_nicegreen("Warm towel, nice day.. This is the life..")
 	mood_change = 5
 	timeout = 10 MINUTES
 
 /datum/mood_event/on_warm_towel_lizard
-	description = "<span class='nicegreen'>Ssso warm... Ahhhh.</span>\n"
+	description = span_nicegreen("Warm towel, nice day.. Thisss isss the life..")
 	mood_change = 8
 	timeout = 10 MINUTES
 

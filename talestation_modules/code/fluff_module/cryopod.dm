@@ -95,7 +95,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 	switch(action)
 		if("one_item")
 			if(!allowed(user))
-				to_chat(user, "<span class='warning'>Access Denied.</span>")
+				to_chat(user, span_warning("Access denied."))
 				return
 
 			if(!allow_items) return
@@ -105,21 +105,21 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 
 			var/obj/item/item = frozen_items[text2num(params["item"])]
 			if(!item)
-				to_chat(user, "<span class='notice'>[item] is no longer in storage.</span>")
+				to_chat(user, span_notice("[item] is no longer in storage."))
 				return
 
-			visible_message("<span class='notice'>[src] beeps happily as it disgorges [item].</span>")
+			visible_message(span_notice("[src] beeps happily as it disgorges [item]."))
 			item.forceMove(get_turf(src))
 			frozen_items -= item
 
 		if("all_items")
 			if(!allowed(user))
-				to_chat(user, "<span class='warning'>Access Denied.</span>")
+				to_chat(user, span_warning("Access denied."))
 				return
 
 			if(!allow_items) return
 
-			visible_message("<span class='notice'>[src] beeps happily as it disgorges the desired objects.</span>")
+			visible_message(span_notice("[src] beeps happily as it disgorges the desired objects."))
 
 			for(var/obj/item/item in frozen_items)
 				item.forceMove(get_turf(src))
@@ -205,14 +205,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 			return
 		var/mob/living/mob_occupant = occupant
 		if(mob_occupant && mob_occupant.stat != DEAD)
-			to_chat(occupant, "<span class='notice'><b>You feel cool air surround you. You go numb as your senses turn inward.</b></span>")
+			to_chat(occupant, span_boldnotice("You feel cool air surround you. You go numb as your senses turn inward."))
 
 		COOLDOWN_START(src, despawn_world_time, time_till_despawn)
 	icon_state = close_state
 
 /obj/machinery/cryopod/proc/apply_effects_to_mob(mob/living/carbon/sleepyhead)
 	sleepyhead.SetSleeping(50)
-	to_chat(sleepyhead, "<span class='boldnotice'>You begin to wake from cryosleep...</span>")
+	to_chat(sleepyhead, span_boldnotice("You begin to wake from cryosleep.."))
 
 /obj/machinery/cryopod/open_machine()
 	..()
@@ -221,8 +221,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 	name = initial(name)
 
 /obj/machinery/cryopod/container_resist_act(mob/living/user)
-	visible_message("<span class='notice'>[occupant] emerges from [src]!</span>",
-		"<span class='notice'>You climb out of [src]!</span>")
+	visible_message(span_notice("[occupant] emerges from [src]!"),
+		span_notice("You climb out of [src]!"))
 	open_machine()
 
 /obj/machinery/cryopod/relaymove(mob/user)
@@ -252,7 +252,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 			objective.team.objectives -= objective
 			qdel(objective)
 			for(var/datum/mind/mind in objective.team.members)
-				to_chat(mind.current, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
+				to_chat(mind.current, span_userdanger("Your target is no longer within reach. Objective removed"))
 				mind.announce_objectives()
 		else if(objective.target && istype(objective.target, /datum/mind))
 			if(objective.target == mob_occupant.mind)
@@ -262,17 +262,17 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 					return
 				objective.find_target()
 				if(!objective.target && objective.owner)
-					to_chat(objective.owner.current, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
+					to_chat(objective.owner.current, span_userdanger("Your target is no longer within reach. Objective removed"))
 					for(var/datum/antagonist/antag in objective.owner.antag_datums)
 						antag.objectives -= objective
 				if (!objective.team)
 					objective.update_explanation_text()
 					objective.owner.announce_objectives()
-					to_chat(objective.owner.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
+					to_chat(objective.owner.current, span_userdanger("You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!"))
 				else
 					var/list/objectivestoupdate
 					for(var/datum/mind/objective_owner in objective.get_owners())
-						to_chat(objective_owner.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
+						to_chat(objective_owner.current, span_userdanger("You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!"))
 						for(var/datum/objective/update_target_objective in objective_owner.get_all_objectives())
 							LAZYADD(objectivestoupdate, update_target_objective)
 					objectivestoupdate += objective.team.objectives
@@ -281,7 +281,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 							continue
 						update_objective.target = objective.target
 						update_objective.update_explanation_text()
-						to_chat(objective.owner.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
+						to_chat(objective.owner.current, span_userdanger("You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!"))
 						update_objective.owner.announce_objectives()
 				qdel(objective)
 
@@ -318,7 +318,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 		var/obj/machinery/announcement_system/announcer = pick(GLOB.announcement_systems)
 		announcer.announce("CRYOSTORAGE", mob_occupant.real_name, announce_rank, list())
 
-	visible_message("<span class='notice'>[src] hums and hisses as it moves [mob_occupant.real_name] into storage.</span>")
+	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
 	for(var/obj/item/item in mob_occupant.get_all_contents())
 		if(item.loc.loc && (item.loc.loc == loc || item.loc.loc == control_computer))
@@ -354,18 +354,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 		return
 
 	if(occupant)
-		to_chat(user, "<span class='notice'>[src] is already occupied!</span>")
+		to_chat(user, span_notice("[src] is already occupied!"))
 		return
 
 	if(target.stat == DEAD)
-		to_chat(user, "<span class='notice'>Dead people can not be put into cryo.</span>")
+		to_chat(user, span_notice("Dead people can not be put into cryo."))
 		return
 
 	if(target.key && user != target)
 		if(iscyborg(target))
-			to_chat(user, "<span class='danger'>You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] online.</span>")
+			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] online."))
 		else
-			to_chat(user, "<span class='danger'>You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] conscious.</span>")
+			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] conscious."))
 		return
 
 	if(target == user && (tgalert(target, "Would you like to enter cryosleep?", "Enter Cryopod?", "Yes", "No") != "Yes"))
@@ -386,15 +386,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 		// rerun the checks in case of shenanigans
 
 	if(occupant)
-		to_chat(user, "<span class='notice'>[src] is already occupied!</span>")
+		to_chat(user, span_notice("[src] is already occupied!"))
 		return
 
 	if(target == user)
-		visible_message("<span class='infoplain'>[user] starts climbing into the cryo pod.</span>")
+		visible_message(span_infoplain("[user] starts climbing into the cryo pod."))
 	else
-		visible_message("<span class='infoplain'>[user] starts putting [target] into the cryo pod.</span>")
+		visible_message(span_infoplain("[user] starts putting [target] into the cryo pod."))
 
-	to_chat(target, "<span class='warning'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+	to_chat(target, span_boldwarning("If you ghost, log out or close your client now, your character will shortly be permanently removed from the round."))
 
 	log_admin("[key_name(target)] entered a stasis pod.")
 	message_admins("[key_name_admin(target)] entered a stasis pod. [ADMIN_JMP(src)]")
@@ -415,6 +415,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 	sleepyhead.SetSleeping(50)
 	sleepyhead.set_disgust(60)
 	sleepyhead.set_nutrition(160)
-	to_chat(sleepyhead, "<span class='bolddanger'>A very bad headache wakes you up from cryosleep...</span>")
+	to_chat(sleepyhead, span_bolddanger("A very bad headache wakes you up from cryosleep.."))
 
 #undef AHELP_FIRST_MESSAGE
