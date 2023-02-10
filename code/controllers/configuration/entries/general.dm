@@ -660,14 +660,12 @@
 
 /datum/config_entry/flag/toast_notification_on_init
 
-<<<<<<< HEAD
+/datum/config_entry/flag/config_errors_runtime
+	default = FALSE
+
 // Modular stuff
 /datum/config_entry/string/servertagline
 	config_entry_value = "We forgot to set the server's tagline in config.txt"
 
 /datum/config_entry/string/discord_link
 	config_entry_value = "We forgot to set the server's discord link in config.txt"
-=======
-/datum/config_entry/flag/config_errors_runtime
-	default = FALSE
->>>>>>> bb3947e68f702 (add a stack_trace to config validation checking (#73160))
