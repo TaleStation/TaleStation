@@ -476,8 +476,18 @@
 		return TRUE
 	return FALSE
 
-///Determines the rate at which Plasma Fixation heals based on the amount of plasma in the air
+/// Determines the rate at which Plasma Fixation heals based on the amount of plasma in the air
 #define HEALING_PER_MOL 1.1
+/// Determines the rate at which Plasma Fixation heals based on the amount of plasma being breathed through internals
+#define HEALING_PER_BREATH_PRESSURE 0.05
+/// Determines the highest amount you can be healed for when breathing plasma from internals
+#define MAX_HEAL_COEFFICIENT_INTERNALS 0.75
+/// Determines the highest amount you can be healed for from pulling plasma from the environment
+#define MAX_HEAL_COEFFICIENT_ENVIRONMENT 0.5
+/// Determines the highest amount you can be healed for when there is plasma in the bloodstream
+#define MAX_HEAL_COEFFICIENT_BLOODSTREAM 0.75
+/// This is the base heal amount before being multiplied by the healing coefficients
+#define BASE_HEAL_PLASMA_FIXATION 4
 
 /datum/symptom/heal/plasma
 	name = "Plasma Fixation"
@@ -549,12 +559,13 @@
 	if(environment)
 		gases = environment.gases
 		if(gases[/datum/gas/plasma])
-			. += power * min(0.5, gases[/datum/gas/plasma][MOLES] * HEALING_PER_MOL)
-	if(M.reagents.has_reagent(/datum/reagent/toxin/plasma, needs_metabolizing = TRUE))
-		. += power * 0.75 //Determines how much the symptom heals if injected or ingested
+			. += power * min(MAX_HEAL_COEFFICIENT_INTERNALS, gases[/datum/gas/plasma][MOLES] * HEALING_PER_MOL)
+	// Check for reagents in bloodstream
+	if(diseased_mob.reagents.has_reagent(/datum/reagent/toxin/plasma, needs_metabolizing = TRUE))
+		. += power * MAX_HEAL_COEFFICIENT_BLOODSTREAM //Determines how much the symptom heals if injected or ingested
 
 /datum/symptom/heal/plasma/Heal(mob/living/carbon/M, datum/disease/advance/A, actual_power)
-	var/heal_amt = 4 * actual_power
+	var/heal_amt = BASE_HEAL_PLASMA_FIXATION * actual_power
 
 	if(prob(5))
 		to_chat(M, span_notice("You feel yourself absorbing plasma inside and around you..."))
@@ -583,6 +594,11 @@
 
 ///Plasma End
 #undef HEALING_PER_MOL
+#undef HEALING_PER_BREATH_PRESSURE
+#undef MAX_HEAL_COEFFICIENT_INTERNALS
+#undef MAX_HEAL_COEFFICIENT_ENVIRONMENT
+#undef MAX_HEAL_COEFFICIENT_BLOODSTREAM
+#undef BASE_HEAL_PLASMA_FIXATION
 
 /datum/symptom/heal/radiation
 	name = "Radioactive Resonance"

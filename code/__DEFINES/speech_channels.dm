@@ -3,6 +3,7 @@
 #define RADIO_CHANNEL "Radio"
 #define ME_CHANNEL "Me"
 #define OOC_CHANNEL "OOC"
+#define ADMIN_CHANNEL "Admin"
 
 // NON-MODULAR CHANGES: LOOC define
 #define LOOC_CHANNEL "LOOC"
