@@ -274,9 +274,13 @@
 				missing_organs += "lungs"
 			if(!(TRAIT_NOMETABOLISM in the_dudes_species.inherent_traits) && !humantarget.getorganslot(ORGAN_SLOT_LIVER))
 				missing_organs += "liver"
-			if(!the_dudes_species.mutantstomach && !humantarget.getorganslot(ORGAN_SLOT_STOMACH))
+			if(the_dudes_species.mutantstomach && !humantarget.getorganslot(ORGAN_SLOT_STOMACH))
 				missing_organs += "stomach"
+<<<<<<< HEAD
 			if(!(NOTONGUE in the_dudes_species.species_traits) && !humantarget.getorganslot(ORGAN_SLOT_TONGUE))
+=======
+			if(the_dudes_species.mutanttongue && !humantarget.getorganslot(ORGAN_SLOT_TONGUE))
+>>>>>>> 0cd3d644f49ea (Fixes health analyzers checking for missing stomachs and tongues (#73421))
 				missing_organs += "tongue"
 			if(!humantarget.getorganslot(ORGAN_SLOT_EARS))
 				missing_organs += "ears"
