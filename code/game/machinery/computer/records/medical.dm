@@ -36,20 +36,8 @@
 		ui.set_autoupdate(FALSE)
 		ui.open()
 
-<<<<<<< HEAD:code/game/machinery/computer/medical.dm
-/obj/machinery/computer/med_data/ui_data(mob/user, datum/flavor_text/flavor) // NON-MODULAR CHANGES: Adds flavor_text arg
-	var/list/data = list()
-
-	var/has_access = (authenticated && isliving(user))|| isAdminGhostAI(user)
-	data["authenticated"] = authenticated || isAdminGhostAI(user)
-	if(!has_access)
-		return data
-
-	data["assigned_view"] = "preview_[user.ckey]_[REF(src)]_records"
-=======
 /obj/machinery/computer/records/medical/ui_data(mob/user)
 	var/list/data = ..()
->>>>>>> 1677257dd922b (Records hotfix [NO GBP] (#73363)):code/game/machinery/computer/records/medical.dm
 
 	var/list/records = list()
 	for(var/datum/record/crew/target in GLOB.manifest.general)
