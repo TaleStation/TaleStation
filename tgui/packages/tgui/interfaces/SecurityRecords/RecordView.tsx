@@ -1,11 +1,11 @@
 import { useBackend, useLocalState } from 'tgui/backend';
-import { NoticeBox, Stack, Section, Button, LabeledList, Box, RestrictedInput, Table } from 'tgui/components';
+import { Box, Button, LabeledList, NoticeBox, RestrictedInput, Section, Stack, Table } from 'tgui/components';
 import { CharacterPreview } from '../common/CharacterPreview';
 import { EditableText } from '../common/EditableText';
-import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';
 import { CrimeWatcher } from './CrimeWatcher';
-import { getSecurityRecord } from './helpers';
 import { RecordPrint } from './RecordPrint';
+import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';
+import { getSecurityRecord } from './helpers';
 import { SecurityRecordsData } from './types';
 
 /** Views a selected record. */
@@ -171,7 +171,11 @@ const RecordInfo = (props, context) => {
               />
             </LabeledList.Item>
             <LabeledList.Item label="Note">
-              <EditableText field="note" target_ref={crew_ref} text={note} />
+              <EditableText
+                field="security_note"
+                target_ref={crew_ref}
+                text={note}
+              />
             </LabeledList.Item>
             {
               // NON-MODULAR CHANGES: Adds sec records to TGUI
