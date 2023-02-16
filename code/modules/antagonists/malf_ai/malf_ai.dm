@@ -31,20 +31,9 @@
 	owner.special_role = job_rank
 	if(give_objectives)
 		forge_ai_objectives()
-<<<<<<< HEAD
 
 	if(finalize_antag) // NON-MODULAR CHANGES
 		finalize_antag()
-=======
-	if(!employer)
-		employer = pick(GLOB.ai_employers)
-
-	malfunction_flavor = strings(MALFUNCTION_FLAVOR_FILE, employer)
-
-	add_law_zero()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/malf.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
-	owner.current.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MALF)
->>>>>>> 69943b7733b7b (Adds traitor final objective to make the station AI malf (#73020))
 
 	return ..()
 
