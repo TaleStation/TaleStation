@@ -49,19 +49,19 @@
 	multiplicative_slowdown = 0.5
 
 /datum/mood_event/light_pain
-	description = "<span class='warning'>Everything aches.</span>\n"
+	description = span_warning("Everything aches.")
 	mood_change = -3
 
 /datum/mood_event/med_pain
-	description = "<span class='warning'>Everything feels sore.</span>\n"
+	description = span_warning("Everything feels sore.")
 	mood_change = -6
 
 /datum/mood_event/heavy_pain
-	description = "<span class='boldwarning'>Everything hurts!</span>\n"
+	description = span_boldwarning("Everything hurts!")
 	mood_change = -10
 
 /datum/mood_event/crippling_pain
-	description = "<span class='boldwarning'>STOP THE PAIN!</span>\n"
+	description = span_boldwarning("STOP THE PAIN!")
 	mood_change = -15
 
 // Applied when you go under the knife with anesthesia

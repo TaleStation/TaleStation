@@ -184,7 +184,7 @@
 		EXAMINE_CHECK_FACTION, FACTION_HERETIC)
 	AddElement(/datum/element/unique_examine, \
 		span_hypnophrase("A harrowing reminder of the \
-		<span class='big hypnophrase'>fragility of our reality</span>, \
+		fragility of our reality \
 		the fleeting nature of life, and of impending slow doom."), \
 		EXAMINE_CHECK_NONE, hint = FALSE)
 	AddElement(/datum/element/unique_examine, \

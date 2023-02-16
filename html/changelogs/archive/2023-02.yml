@@ -330,3 +330,166 @@
       obstacles upon defeating their first target in combat.
   - qol: Improves feedback on buttons as well as the blast door electronics so that
       installing your very own blast doors is less tedious.
+2023-02-12:
+  LT3:
+  - bugfix: 'Tramstation: Crossing signals updated to work on the new map'
+  - bugfix: 'Tramstation: Fixes missing wiring in West Wing'
+  - bugfix: 'Tramstation: Connects a few scrubbers to waste'
+  - bugfix: 'Tramstation: Add various decals that are missing'
+  - bugfix: 'Tramstation: Fixes part of medbay area being set as space'
+  - bugfix: 'Tramstation: Medbay''s elevator buttons are now accessible'
+  - bugfix: 'Tramstation: Elevator doors, buttons, and indicators are linked'
+  - admin: Changed color for watchlist notifications
+  Melbert:
+  - bugfix: False alarm radiation leaks should be less obvious
+  - bugfix: Fixes some traitor objectives from dropping in blacklisted areas, like
+      security.
+  - bugfix: The bastard sword can create constructs again. Just hit the shells with
+      it
+  TaleStationBot:
+  - bugfix: AIs can no longer change their shell's icon_state to any image at will
+  - refactor: refactored *blush and *cry emote visuals into bodypart_overlays
+  - rscdel: lack of eyes will no longer prevent the *cry emote overlay from displaying
+  - bugfix: slipping on lube while buckling will lead to less weird states
+  - bugfix: Solar trackers actually uh, look right again
+  - bugfix: Solar panels and trackers will now properly block space lighting on multiz
+      maps
+  - refactor: Tidied up spider ability code, they should all work the same, but please
+      report if they do not.
+  - refactor: Spiders and Geneticists now use the same ability to make webs rather
+      than two virtually-identical ones, which should also perform just as it did
+      before this change.
+  - bugfix: Setting a directive as a Spider Midwife should properly pass and announce
+      itself to new spiders.
+  - admin: adds findtext (+ex), view, viewers, rect_turfs and flick as sdql2 wrappers
+  - bugfix: asays are no longer double-escaped
+  - admin: asay now uses tgui say
+  - refactor: Spider healing abilities have been refactored to reuse the same code
+      rather than reimplement it across two different mobs, it should work the same
+      as it used to. This is also used by Lightgeists.
+  - bugfix: Mob biotype on `heal_overall_damage` should be applied more consistently.
+      This might mean that some things which were previously healing prosthetic limbs
+      have stopped doing that.
+  - bugfix: Plating replaced by floor tiles from a dimensional anomaly or colossus
+      crystal will now still have plating underneath when crowbarred, instead of space
+      (or open space on z level maps).
+  - bugfix: Summoning a cult wall on plating as an Artificer will leave the plating
+      intact underneath when it is removed, rather than replacing it with a void.
+  - admin: Admins can pick the initial flavour of a manually triggered dimensional
+      anomaly.
+  - bugfix: Ghost role spawners will now no longer try and spawn people when they
+      /should/ have been out of uses but due to a bug were not
+  - rscadd: 'Added two new sanguine wizard spells: Exsanguinating Strike and Scream
+      For Me'
+  - bugfix: Removes a duplicate file which was preventing the new regal rat sprite
+      from being used.
+  - bugfix: Fixes reverse revolver name being different from syndicate revolver name
+  - admin: Every tier of "Scrubber Overflow" can now choose a random single reagent
+      mode
+  - admin: '"Custom" overflow, which was kinda confusing and unintuitive, is now called
+      "Every Vent", much more self-explanatory in what it does.'
+  - bugfix: Any circuit boards with custom sprites now actually use that sprite
+  - bugfix: Using a hacking cable will no longer permanently spam you with balloon
+      messages
+  - spellcheck: Adjusted punctuation marks for several emotes.
+2023-02-13:
+  Rhials:
+  - rscadd: Ectoplasmic Outburst anomaly event
+  - rscadd: Reactive Ectoplasm Armor
+  TaleStationBot:
+  - bugfix: aux base turrets now shoot fauna
+  - bugfix: Soporific sniper magazines use the correct icon again.
+  - imageadd: Penetrator and Marksman sniper magazines now have icons.
+  itseasytosee:
+  - imagedel: Android abductors and skeletons have lost all modesty and have stopped
+      wearing underwear.
+2023-02-14:
+  LT3:
+  - bugfix: Tram damage calculation takes into account compound wounds
+  - code_imp: Tram crossing signals are now map specific
+  - admin: Combat log now generated when the tram collides with someone
+  Melbert:
+  - bugfix: Fixes player panel "make ai" button not fully working on observers
+  - bugfix: Fixes some situations where paradox clones go sicko mode
+  TaleStationBot:
+  - bugfix: Gravity generators have been re-centered.
+  - qol: Limits the amount of emotes being passed to chat by viruses.
+  - rscdel: Removes sprite changes done to smart pipes
+  - bugfix: pipes disappearing at weird angles
+  - bugfix: Mechs no longer have zero armor when built.
+  - imageadd: when equipped with a bluespace trash bag the pimpin' ride janicart will
+      now display a bluespace trash bag instead of a normal trash bag
+  - bugfix: fixes a potential bug that can cause the detective scanner to get stuck
+      in a scanning state indefinitely
+2023-02-15:
+  GoldenAlpharex:
+  - bugfix: Sitting on benches no longer gives you a weird offset that makes you look
+      like you're standing on them.
+  - bugfix: Returns benches to their original light brown color, rather than the middle
+      between brown and cyan that they were at for a bit.
+  Melbert:
+  - bugfix: Syndicate declarations of war no longer murder apostrophes and their friends
+  - bugfix: The alert box for the declaration of war no longer looks funky, and counts
+      forwards in time rather than backwards
+  - bugfix: Fixed being able to send unencoded HTML to newscasters
+  - bugfix: Fixed a runtime from hovering over a meat spike / kitchen spike with an
+      empty hand
+  - bugfix: Changing species no longer drops all held items
+  - bugfix: Losing your right hand not un-cuffing you or dropping your gloves
+  - bugfix: Fixed a runtime from mime *kissing silicons and simplemobs.
+  TaleStationBot:
+  - bugfix: Using a fire extinguisher with a chair now properly does...something with
+      how fast you move I think it makes you slower
+  - bugfix: taking an item out of the food processor and putting back in will not
+      dupe the results when you process them
+  - balance: Malf AI turret upgrades are now much stronger, fully healing, increasing
+      max health, and setting stun projectiles to taze.
+  - bugfix: Equipping an fov item, disconnecting, waiting 6 minutes and reconnecting
+      will no longer break your game
+  - balance: Mech disabler now works as a shotgun, shooting 5 weak disabler beams
+      at one time.
+  - balance: Mech disabler now uses 100 energy instead of 30, and it's attack cooldown
+      increased to 1.5 seconds instead of 0.8
+  - bugfix: Hacking the Comms Console or winning a Revolution can no longer spawn
+      antagonists if there's not enough time left in the round for them to antagonise
+      anyone.
+  - bugfix: hotfix for lungless oxyloss immunity
+  - bugfix: hotfix for mobs being able to circumvent reagent respiration_type requirements
+      by removing their lungs
+  - code_imp: Added unit testing to force all ruins to spawn for CI build
+  coiax:
+  - bugfix: Drones no longer destroy toner cartridges when ejecting them from photocopiers.
+  - bugfix: Tiziran canned goods no longer decompose into mush.
+2023-02-16:
+  Melbert:
+  - bugfix: It should be way harder to lose your special hands as a zombie or shattered
+      risen ghoul.
+  - refactor: Refactored mutanthands for zombies and shattered risen.
+  - code_imp: Hostile Station Lockdown, from Malfunctioning AIs, will no longer halt
+      the server momentarily
+  - bugfix: Fixed a runtime with examining empty bomb frames
+  - bugfix: Fixed a FIVE YEAR OLD issue causing Time Stop to be a 3x3 instead of a
+      5x5. Really.
+  - bugfix: The gravity generator correctly gives "forced gravity" to all adjacent
+      mobs
+  - bugfix: Fixed some runtimes with Time Stop, and other miscellaneous issues
+  TaleStationBot:
+  - bugfix: You can no longer keep an AI trapped in their core by healing them with
+      a Rod of Asclepius
+  - bugfix: Mice and Regal Rats will no longer spawn in icebox's solar panels and
+      die of cold.
+  - bugfix: Things dropped into a chasm should no longer occasionally become invisible
+      and intangible.
+  - bugfix: eyesnatchers that say that they haven been used up can't be used again
+  - bugfix: Reinforced plasma windows will now drop plasma glass instead of regular
+      glass when broken.
+  - bugfix: Tram windows drop the correct number of rods and a shard when broken instead
+      of a sheet.
+  - code_imp: Removed a ton of duplicate vars in tram window code and re-organize
+      the file slightly.
+  - refactor: spawnDebris has been un-hardcoded and all (but one) override of it has
+      been removed.
+  - bugfix: Medieval Sim holograms no longer spawn holding unusable laser rifles which
+      also block using their old timey weaponry.
+  - bugfix: Bileworms which have been struck down but not butchered no longer return
+      in a more powerful form.
