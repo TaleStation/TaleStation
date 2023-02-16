@@ -19,7 +19,7 @@
 
 	// A chance to add in some extra metal or glass
 	if(bonus_mats && prob(66))
-		switch(rand(1, 200))
+		switch(rand(1, 69))
 			if(1 to 9)
 				new /obj/item/stack/sheet/iron(src, 5)
 			if(10 to 24)
