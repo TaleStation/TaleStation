@@ -129,7 +129,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!user.canUseTopic(src, be_close = TRUE, no_dexterity = TRUE, no_tk = FALSE, need_hands = TRUE))
+	if(!user.can_perform_action(src, NEED_DEXTERITY|NEED_HANDS))
 		return
 	if(!stocked)
 		to_chat(user, span_notice("[src] hasn't been stocked yet!"))
