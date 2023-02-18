@@ -15,8 +15,3 @@
 	id_additions = list(
 		"fax_machine",
 		)
-
-/datum/techweb_node/exp_surgery
-	id_additions = list(
-		"surgery_neuter_ling",
-		)
