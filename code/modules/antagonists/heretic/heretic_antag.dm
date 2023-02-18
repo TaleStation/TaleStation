@@ -176,9 +176,7 @@
 	if(give_objectives)
 		forge_primary_objectives()
 
-	// NON-MODULAR CHANGES: ADVANCED HERETICS
-	if(finalize_antag)
-		finalize_antag()
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ecult_op.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)//subject to change
 
 	for(var/starting_knowledge in GLOB.heretic_start_knowledge)
 		gain_knowledge(starting_knowledge)

@@ -37,8 +37,6 @@
 /datum/antagonist/traitor/on_gain()
 	owner.special_role = job_rank
 
-	// NON-MODULAR CHANGES: ADV TRAITORS
-/*
 	if(give_uplink)
 		owner.give_uplink(silent = TRUE, antag_datum = src)
 
@@ -69,35 +67,14 @@
 					uplink_items += item
 					continue
 		uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, 1, uplink_items)
-*/
 
 	if(give_objectives)
 		forge_traitor_objectives()
 
-	if(finalize_antag)
-		finalize_antag()
-	// NON-MODULAR CHANGES END
+	pick_employer()
 
-	return ..()
+	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/tatoralert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
-/datum/antagonist/traitor/on_removal()
-	if(uplink_handler)
-		uplink_handler.has_objectives = FALSE
-	return ..()
-
-/datum/antagonist/traitor/on_removal()
-	if(uplink_handler)
-		uplink_handler.has_objectives = FALSE
-	return ..()
-
-/datum/antagonist/traitor/on_removal()
-	if(uplink_handler)
-		uplink_handler.has_objectives = FALSE
-	return ..()
-
-/datum/antagonist/traitor/on_removal()
-	if(uplink_handler)
-		uplink_handler.has_objectives = FALSE
 	return ..()
 
 /datum/antagonist/traitor/on_removal()
