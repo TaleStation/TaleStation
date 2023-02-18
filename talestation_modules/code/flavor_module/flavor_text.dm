@@ -65,6 +65,10 @@ GLOBAL_LIST_EMPTY(flavor_texts)
 	/// Exploitable info associated with this flavor text
 	var/expl_info
 
+/datum/antagonist
+	/// Whether this antag can see exploitable info on examine.
+	var/antag_flags = CAN_SEE_EXPOITABLE_INFO
+
 /datum/flavor_text/New(mob/living/initial_linked_mob)
 	owner = WEAKREF(initial_linked_mob)
 	name = initial_linked_mob.real_name
