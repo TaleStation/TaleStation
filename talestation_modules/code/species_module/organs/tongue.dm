@@ -1,7 +1,7 @@
 // -- Modular toungue stuff, mostly language --
 /obj/item/organ/internal/tongue
 	var/static/list/languages_possible_modular = typecacheof(list(
-		/datum/language/ratvarian
+	//	/datum/language/ratvarian
 	))
 
 /obj/item/organ/internal/tongue/get_possible_languages()
