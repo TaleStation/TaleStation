@@ -20,10 +20,9 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	if(TRAIT_NEARSIGHTED_CORRECTED in equipped_glasses.clothing_traits)
 		equipper.clear_fullscreen("nearsighted")
 	if(equipped_glasses.vision_flags \
-		|| equipped_glasses.darkness_view \
 		|| equipped_glasses.invis_override \
 		|| equipped_glasses.invis_view \
-		|| !isnull(equipped_glasses.lighting_alpha))
+		|| !isnull(equipped_glasses.color_cutoffs))
 		equipper.update_sight()
 
 /datum/loadout_item/glasses/black_blindfold
