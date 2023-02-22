@@ -683,3 +683,48 @@
   - bugfix: unholy flasks now use a blackened holy flask inhand sprite instead of
       the beaker one
   - bugfix: Removes a runtime error caused by moving your PDA between slots.
+2023-02-22:
+  Melbert:
+  - bugfix: Cult Ghosts can see in the dark and invisible stuff, a mechanic intended
+      for over 5 years and never functional
+  Ryll/Shaps:
+  - bugfix: Landing a monster tackle that applies an auto aggro-grab while stamcrit
+      will no longer try applying an aggro-grab that leads to a permanent slowdown
+      to the user, and will instead just knock the target down a bit harder.
+  - bugfix: Launching dolphin and rocket glove tackles on targets at ranges shorter
+      than their minimum distance will be more accurate at targeting where you clicked
+      at, rather than locking you into the nearest cardinal/diagonal direction.
+  - balance: You can now knock more things off a table full of stuff by tackling it
+      than you could before.
+  TaleStationBot:
+  - bugfix: Holopads will blink when being called rather than just glowing.
+  - bugfix: Holopads will not blink forever if you missed a call.
+  - bugfix: Mice will now retain their color when they die.
+  - bugfix: candles are made of a more appropriate material
+  - bugfix: fixed goliath heart having missing icon
+  - bugfix: a vent pump that was installed backwards in the Kilostation Ordnance airlock
+      has been repaired.
+  - bugfix: Moving up and down z levels will break hud stuff slightly less often
+  - bugfix: You can use ninja adrenaline to cure unconsciousness as intended
+  - code_imp: Cleaned up some modsuit code
+  - bugfix: frail and paraplegia quirks can once again be taken together.
+  - rscadd: Added a new cybernetic implant that increases punch damage of a human
+  - bugfix: Many spell-like abilities which could be stunned, paralysed, or frozen
+      in time now cannot be.
+  - bugfix: Oculater works again.
+  - rscadd: The darkness that glasses and hud goggles that impact your nightvision
+      (think mesons, nightvision goggles, etc) lighten is now tinted to match the
+      glasses. S pretty IMO, and hopefully it helps with forgetting you're wearing
+      X.
+  - balance: Nightvision is darker. I think bright looks bad, and things like mesons
+      do way too much
+  - balance: Mesons (and mobs in general) no longer have a static distance you can
+      see stuff in the dark. If a tile is lit, you can now see it.
+  - bugfix: Nightvision no longer dims colored lights, instead simply thresholding
+      off bits of darkness that are dimmer then some level.
+  - config: Added a warning build config setting, you can now lightly repremand but
+      not block clients with older builds but fine major versions
+  - bugfix: Fixes some cases where AI couldn't interact with some old non-tgui machines
+  coiax:
+  - bugfix: Paper planes when unfolded will put the paper in your active hand, rather
+      than a different hand, just like cardboard boxes.
