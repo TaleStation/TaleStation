@@ -5,6 +5,7 @@
 	scan_desc = "damaged frontal lobe"
 	gain_text = span_notice("You feel honorbound!")
 	lose_text = span_warning("You feel unshackled from your code of honor!")
+	random_gain = FALSE
 	/// list of guilty people
 	var/list/guilty = list()
 
@@ -24,8 +25,13 @@
 
 	//signal that checks for dishonorable attacks
 	RegisterSignal(owner, COMSIG_MOB_CLICKON, PROC_REF(attack_honor))
+<<<<<<< HEAD
 	var/datum/action/cooldown/spell/pointed/declare_evil = new(src)
 	declare_evil.Grant(owner)
+=======
+	var/datum/action/cooldown/spell/pointed/declare_evil/declare = new(owner)
+	declare.Grant(owner)
+>>>>>>> 9f1f69a0a9a3f (Honorbound fixes (#73583))
 	return ..()
 
 /datum/brain_trauma/special/honorbound/on_lose(silent)
@@ -224,13 +230,6 @@
 	. = ..()
 	declaration = "By the divine light of [GLOB.deity], you are an evil of this world that must be wrought low!"
 
-/datum/action/cooldown/spell/pointed/declare_evil/Destroy()
-	// If we had an owner, Destroy() called Remove(), and already handled this
-	if(honor_trauma)
-		UnregisterSignal(honor_trauma, COMSIG_PARENT_QDELETING)
-		honor_trauma = null
-	return ..()
-
 /datum/action/cooldown/spell/pointed/declare_evil/Grant(mob/grant_to)
 	if(!ishuman(grant_to))
 		return FALSE
@@ -258,6 +257,11 @@
 /datum/action/cooldown/spell/pointed/declare_evil/can_cast_spell(feedback = TRUE)
 	. = ..()
 	if(!.)
+		return FALSE
+
+	if(!GLOB.religious_sect)
+		if(feedback)
+			to_chat(owner, span_warning("There are no deities around to approve your declaration!"))
 		return FALSE
 
 	if(GLOB.religious_sect.favor < required_favor)
