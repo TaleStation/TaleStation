@@ -21,19 +21,12 @@
 	unsuitable_atmos_damage = 0
 	unsuitable_cold_damage = 0
 	unsuitable_heat_damage = 0
-	// Green and blue, bit dim cause yaknow morphlike 
+	// Green and blue, bit dim cause yaknow morphlike
 	lighting_cutoff_red = 5
 	lighting_cutoff_green = 25
 	lighting_cutoff_blue = 15
 
 	ai_controller = /datum/ai_controller/basic_controller/creature
-<<<<<<< HEAD
-	/// Used for checking if the mob is phased or not.
-	var/is_phased = FALSE
-	/// Used for mobs that get spawned in a spawner appearently.
-	var/datum/component/spawner/nest
-=======
->>>>>>> 705f7a419c805 (Refactor Statue & Creature unobserved behaviour (#73630))
 
 /mob/living/basic/creature/Initialize(mapload)
 	. = ..()
@@ -132,12 +125,6 @@
 		exit_jaunt(cast_on)
 		return
 	enter_jaunt(cast_on)
-
-/mob/living/basic/creature/Destroy()
-	if(nest)
-		nest.spawned_mobs -= src
-		nest = null
-	return ..()
 
 /datum/ai_controller/basic_controller/creature
 	blackboard = list(
