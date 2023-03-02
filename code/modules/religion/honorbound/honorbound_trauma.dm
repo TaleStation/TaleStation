@@ -25,13 +25,8 @@
 
 	//signal that checks for dishonorable attacks
 	RegisterSignal(owner, COMSIG_MOB_CLICKON, PROC_REF(attack_honor))
-<<<<<<< HEAD
-	var/datum/action/cooldown/spell/pointed/declare_evil = new(src)
-	declare_evil.Grant(owner)
-=======
 	var/datum/action/cooldown/spell/pointed/declare_evil/declare = new(owner)
 	declare.Grant(owner)
->>>>>>> 9f1f69a0a9a3f (Honorbound fixes (#73583))
 	return ..()
 
 /datum/brain_trauma/special/honorbound/on_lose(silent)
