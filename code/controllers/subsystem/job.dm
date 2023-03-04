@@ -534,7 +534,7 @@ SUBSYSTEM_DEF(job)
 
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
-	equipping.mind?.set_assigned_role_with_greeting(job)
+	equipping.mind?.set_assigned_role_with_greeting(job, player_client)
 
 	equipping.on_job_equipping(job, player_client?.prefs) // NON-MODULAR CHANGES
 
