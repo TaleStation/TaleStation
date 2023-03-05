@@ -223,6 +223,7 @@
 
 	illness_type = advanced_disease.name
 
+<<<<<<< HEAD
 	var/mob/living/carbon/human/victim = pick_n_take(afflicted)
 	if(victim.ForceContractDisease(advanced_disease, FALSE))
 		message_admins("An event has triggered a random advanced virus outbreak on [ADMIN_LOOKUPFLW(victim)]! It has these symptoms: [english_list(name_symptoms)]. It is transmissable via [advanced_disease.spread_text].")
@@ -230,6 +231,20 @@
 		announce_to_ghosts(victim)
 	else
 		log_game("An event attempted to trigger a random advanced virus outbreak on [key_name(victim)], but failed.")
+=======
+	var/mob/living/carbon/human/victim
+	while(length(afflicted))
+		victim = pick_n_take(afflicted)
+		if(victim.ForceContractDisease(advanced_disease, FALSE))
+			message_admins("Event triggered: Disease Outbreak: Advanced - starting with patient zero [ADMIN_LOOKUPFLW(victim)]! Details: [advanced_disease.admin_details()] sp:[advanced_disease.spread_flags] ([advanced_disease.spread_text])")
+			log_game("Event triggered: Disease Outbreak: Advanced - starting with patient zero [key_name(victim)]. Details: [advanced_disease.admin_details()] sp:[advanced_disease.spread_flags] ([advanced_disease.spread_text])")
+			log_virus("Disease Outbreak: Advanced has triggered a custom virus outbreak of [advanced_disease.admin_details()] in [victim]!")
+			announce_to_ghosts(victim)
+			return
+		CHECK_TICK //don't lag the server to death
+	if(isnull(victim))
+		log_game("Event Disease Outbreak: Advanced attempted to start, but failed.")
+>>>>>>> 655a3b218300c (Fix admin lookup/follow on disease outbreak [NO GBP] (#73717))
 
 /datum/disease/advance/random/event
 	name = "Event Disease"
