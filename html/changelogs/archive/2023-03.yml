@@ -23,3 +23,136 @@
       the length of your legs and torso, what does this mean for you? Not much to
       be honest, but you might see a monkey pop up a bit if you cut its legs off.
   - admin: The Tallboy is here
+2023-03-02:
+  Melbert:
+  - bugfix: Ninja security records hacking works
+  Remuluson2:
+  - bugfix: After pressure from Nanotrasen, Space Wizard Federation made glass and
+      bone knives non-conductive again.
+  TaleStationBot:
+  - bugfix: Opening a surprise egg with your mind will no longer teleport the contents
+2023-03-03:
+  Cheshify, Ferro:
+  - rscadd: A new ruin has been detected near the station, what secrets could it hold?
+  Melbert:
+  - bugfix: Using Fleshmend while on fire gives the "on fire" fleshmend icon.
+  - bugfix: Using Revival stasis more accurately updates the icon where relevant
+  - bugfix: Fixes a potential input stall with revival stasis
+  - bugfix: Nightmare revival acts less funky - stops it from re-creating the Light
+      Eater.
+  TaleStationBot:
+  - bugfix: You can no longer trap yourself in north public mining maintenance if
+      you enter it without maint access.
+  - bugfix: The research directors monitor on tram has been correctly orientated
+  - bugfix: The CE on tram no longer has two engineering department monitors, one
+      has instead been swapped out for an engine monitor.
+  - bugfix: Tram's AI sat cameras have been re-configured to be on either the Minisat
+      or AI core networks, this means security cannot see the entire satellite from
+      a standard camera console.
+  - spellcheck: Some cameras on tram have been capitalized.
+  - bugfix: Fixed a missing wire in the Tramstation cargo warehouse.
+  - bugfix: Honourbound can no longer be gained from neurowine or from heavy brain
+      damage, no longer causing the player to be granted a spell that does nothing
+      most of the time
+  - bugfix: Being in an application now properly uses the tablet's battery.
+  - bugfix: Messenger and Themify apps now close when minimized, so don't count towards
+      the running app limit.
+  - bugfix: Tablet UIs will now no longer spam open/close the UI when changing applications
+  - bugfix: Using the Eject ID button on tablets now ejects into your hand.
+  - bugfix: Computers now have an Eject ID button
+  - refactor: Cut down a lot of copy paste in tablet & program code, now it's mostly
+      done by the tablet.
+  - bugfix: Reagents metabolize properly when dead. (If they're supposed to.)
+  - refactor: The actions of Statues and Creatures which can't be used while seen
+      now share logic, and will not spam chat with feedback.
+  - qol: Added another set of windoors to the Tramstation Xenobiology pens, fully
+      enclosing the space before them. The creatures in the main pens can now always
+      be accessed from above.
+  - refactor: Tramstation Xenobiology pens explicitly close to the right rather than
+      being rotated by using dir.
+  - bugfix: Mail addressed to tram's cargo bay disposal bin will arrive successfully,
+      and the Incoming Mail Chute will properly accept wrapped parcels.
+2023-03-04:
+  Melbert:
+  - qol: Food over-top Drying Racks / Smartfridges will no longer decompose into ants
+  TaleStationBot:
+  - refactor: Migos, Creatures, and Blank Bodies use a new shared component to update
+      their stats which scales smoothly as they take damage rather than in stages.
+  - bugfix: Migos, Creatures and Blank Bodies will all update their stats when taking
+      or losing damage regardless of it was from an identifiable enemy.
+2023-03-05:
+  Melbert:
+  - bugfix: Jobs get "You are the" and policy text again on spawn
+  - bugfix: Hijacked shuttles now count as "escaping alive" once agian
+  - bugfix: Hardcore random survival now actually checks that you've escaped alive,
+      and not just made it to centcom
+  - bugfix: Intelligent zombies can now escape.
+  - bugfix: Infectious zombies now don't count as escaped as intended.
+  TaleStationBot:
+  - bugfix: frozen gas tanks now release their contents upon shattering
+  - bugfix: holodeck gas tanks can now be deconstructed
+  - rscadd: add new smite that adds deadchat control component to a victim
+  - bugfix: The HoS' PDA painter can no longer paint PDAs into Lawyer ones.
+  - bugfix: fixed erroneous khinkali microwave recipe in the cooking menu. use a grill
+      like a normal chef
+  - refactor: RPED to infer icons of parts to use in `icon2html()` when displaying
+      part information
+  - bugfix: fixed AIs being able to recognize a spessman's identity over a holopad
+      call even if it was completely concealed, e.g. cloak of shadow, infiltrator
+      suit
+  - bugfix: fixed missing inhand icon state for jaws of life
+  - bugfix: Most spells can once again be cast even after someone stuns you with a
+      baton.
+  - rscadd: Adds the tape wizard costume, both a real and fake variant
+  - rscadd: 'Adds the costume behind the autodrobe contraband wire, and the real variant
+      in the wiz den
+
+      :cl:'
+  - bugfix: undressing a hat/back item from a dog will correctly remove the item's
+      overlay
+  - bugfix: most armor vests will actually show on a dog when placed on its back
+  - qol: Midwife Spiders can now sense how fully grown an egg cluster is by examining
+      it twice.
+  - rscadd: Introduces orderable rabbit crate to cargo livestock.
+  - balance: The pipegun's chance to misfire and shoot at you rather than the person
+      you're pointing it at has been removed
+  - bugfix: Papercode has been significantly improved and trivially filled paper forms
+      should no longer lag or crash players' game clients.
+  - imageadd: added prettier icons for the normal and absorbent galoshes
+  - bugfix: Removed a stray floating space calendar and decal on tramstation and it
+      makes more sense to reach the kilo spare.
+  Vlada - VastKilleroOm:
+  - imageadd: added 1 hairstyle icon
+2023-03-06:
+  GoldenAlpharex:
+  - bugfix: Fixed some issues with podpeople hair and horns not being drawn under
+      the right circumstances all the time.
+  LT3:
+  - rscadd: Added new multi-vote system
+  - balance: Map votes are now calculated using multi-vote instead of the old single-vote
+      system
+  - admin: Admins can now use either multi-vote or single-vote for custom votes
+  - code_imp: Map choice filtering uses active player count, not all connected clients
+  TaleStationBot:
+  - bugfix: Nanotrasen has conducted high precision in-depth analysis of Deltastation
+      and its shuttles. As a result anomalous floortiles were replaced with standard
+      issued ones.
+  - code_imp: AMMO_BOX_FULL_EMPTY now looks for -full and -empty for sprites, rather
+      than -[max ammo of that magazine] and -0
+  - bugfix: Atmosians have finally convinced the thermomachines to not self-destruct
+      when built on blocked ports.
+  - bugfix: Failing to wrench down a thermomachine no longer hits it with the wrench.
+  - bugfix: You can no longer multiply banana peels, gatfruit and more by using sliceable
+      custom food
+  - balance: the syndicate realized Chief Engineer is important enough to kidnap
+  - bugfix: kidnap objectives will now properly be unavailable for you for 15 minutes
+      after you take three, instead of after you take three assassinations.
+  - bugfix: Bartender's fountain pen was omitted during the swap over to tablets,
+      this has been amended.
+  - balance: Latejoin dynamic rulesets have been rebalanced to reduce the frequency
+      of midround revolution spawns.
+  - rscadd: Added the gondola mutant, a tier two zen-like observer
+  - rscadd: Entries are now locked behind tiers, activating a bonus in someone upgrades
+      the tier!
+  - qol: DNA Infuser will now print a failure reason when you... well, don't get what
+      you want.
