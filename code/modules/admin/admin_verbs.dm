@@ -90,12 +90,9 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggle_AI_interact, /*toggle admin ability to interact with machines as an AI*/
 	/client/proc/toggle_combo_hud, /* toggle display of the combination pizza antag and taco sci/med/eng hud */
 	/client/proc/toggle_view_range, /*changes how far we can see*/
-<<<<<<< HEAD
+	/client/proc/cmd_admin_law_panel,
 	// MODULAR STUFF
 	/datum/admins/proc/togglelooc, /* NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) - What a fat fucking lie that was #2644*/
-=======
-	/client/proc/cmd_admin_law_panel,
->>>>>>> 430e3b8af3db5 (Adds the "Law panel", a control center for admins interacting with silicon laws (#73747))
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
