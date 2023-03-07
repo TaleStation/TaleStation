@@ -2,26 +2,55 @@
 
 //Contains the target item datums for Steal objectives.
 /datum/objective_item
+	/// How the item is described in the objective
 	var/name = "A silly bike horn! Honk!"
+	/// Typepath of item
 	var/targetitem = /obj/item/bikehorn
-	var/list/valid_containers = list() // Valid containers that the target item can be in.
-	var/difficulty = 9001 //vaguely how hard it is to do this objective
-	var/list/excludefromjob = list() //If you don't want a job to get a certain objective (no captain stealing his own medal, etcetc)
-	var/list/altitems = list() //Items which can serve as an alternative to the objective (darn you blueprints)
+	/// Valid containers that the target item can be in.
+	var/list/valid_containers = list()
+	/// Who CARES if this item goes missing (no stealing unguarded items), often similar but not identical to the next list
+	var/list/item_owner = list()
+	/// Jobs which cannot generate this objective (no stealing your own stuff)
+	var/list/excludefromjob = list()
+	/// List of additional items which also count, for things like blueprints
+	var/list/altitems = list()
+	/// Items to provide to people in order to allow them to acquire the target
 	var/list/special_equipment = list()
+	/// Defines in which contexts the item can be given as an objective
 	var/objective_type = OBJECTIVE_ITEM_TYPE_NORMAL
 	/// Whether this item exists on the station map at the start of a round.
 	var/exists_on_map = FALSE
 
-/datum/objective_item/proc/check_special_completion() //for objectives with special checks (is that slime extract unused? does that intellicard have an ai in it? etcetc)
-	return 1
-
-/datum/objective_item/proc/TargetExists()
+/// For objectives with special checks (does that intellicard have an ai in it? etcetc)
+/datum/objective_item/proc/check_special_completion()
 	return TRUE
 
+/// Takes a list of minds and returns true if this is a valid objective to give to a team of these minds
+/datum/objective_item/proc/valid_objective_for(list/potential_thieves, require_owner = FALSE)
+	if(!target_exists() || (require_owner && !owner_exists()))
+		return FALSE
+	for (var/datum/mind/possible_thief as anything in potential_thieves)
+		var/datum/job/role = possible_thief.assigned_role
+		if(role.title in excludefromjob)
+			return FALSE
+	return TRUE
+
+/// Returns true if the target item exists
+/datum/objective_item/proc/target_exists()
+	return (exists_on_map) ? length(GLOB.steal_item_handler.objectives_by_path[targetitem]) : TRUE
+
+/// Returns true if one of the item's owners exists somewhere
+/datum/objective_item/proc/owner_exists()
+	if (!length(item_owner))
+		return TRUE
+	for (var/mob/living/player as anything in GLOB.player_list)
+		if ((player.mind?.assigned_role.title in item_owner) && player.stat != DEAD && !is_centcom_level(player.z))
+			return TRUE
+	return FALSE
+
 /datum/objective_item/steal/New()
-	..()
-	if(TargetExists())
+	. = ..()
+	if(target_exists())
 		GLOB.possible_items += src
 	else
 		qdel(src)
@@ -34,47 +63,56 @@
 /datum/objective_item/steal/low_risk
 	objective_type = OBJECTIVE_ITEM_TYPE_TRAITOR
 
-/datum/objective_item/steal/low_risk/aicard
-	targetitem = /obj/item/aicard
-	name = "an intelliCard"
-	excludefromjob = list(
-		JOB_CAPTAIN,
-		JOB_CHIEF_ENGINEER,
-		JOB_RESEARCH_DIRECTOR,
-		JOB_CHIEF_MEDICAL_OFFICER,
-		JOB_HEAD_OF_SECURITY,
-		JOB_STATION_ENGINEER,
-		JOB_SCIENTIST,
-		JOB_ATMOSPHERIC_TECHNICIAN,
-	)
-	exists_on_map = TRUE
-
-/obj/item/aicard/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/aicard)
-
 // Unique-ish low risk objectives
 /datum/objective_item/steal/low_risk/bartender_shotgun
 	name = "the bartender's shotgun"
 	targetitem = /obj/item/gun/ballistic/shotgun/doublebarrel
 	excludefromjob = list(JOB_BARTENDER)
+	item_owner = list(JOB_BARTENDER)
 	exists_on_map = TRUE
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/gun/ballistic/shotgun/doublebarrel)
 
+// No item owner, list would be so long as to be functionally useless and they're in two very disparate locations on most maps
 /datum/objective_item/steal/low_risk/fireaxe
 	name = "a fire axe"
 	targetitem = /obj/item/fireaxe
-	excludefromjob = list(JOB_CHIEF_ENGINEER,JOB_STATION_ENGINEER,JOB_ATMOSPHERIC_TECHNICIAN)
+	excludefromjob = list(
+		JOB_ATMOSPHERIC_TECHNICIAN,
+		JOB_CAPTAIN,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_HEAD_OF_PERSONNEL,
+		JOB_HEAD_OF_SECURITY,
+		JOB_QUARTERMASTER,
+		JOB_RESEARCH_DIRECTOR,
+		JOB_STATION_ENGINEER,
+	)
 	exists_on_map = TRUE
 
 /obj/item/fireaxe/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/fireaxe)
 
+/datum/objective_item/steal/low_risk/big_crowbar
+	name = "a mech removal tool"
+	targetitem = /obj/item/crowbar/mechremoval
+	excludefromjob = list(
+		JOB_RESEARCH_DIRECTOR,
+		JOB_SCIENTIST,
+		JOB_ROBOTICIST,
+	)
+	item_owner = list(JOB_ROBOTICIST)
+	exists_on_map = TRUE
+
+/obj/item/crowbar/mechremoval/add_stealing_item_objective()
+	ADD_STEAL_ITEM(src, /obj/item/crowbar/mechremoval)
+
 /datum/objective_item/steal/low_risk/nullrod
 	name = "the chaplain's null rod"
 	targetitem = /obj/item/nullrod
 	excludefromjob = list(JOB_CHAPLAIN)
+	item_owner = list(JOB_CHAPLAIN)
 	exists_on_map = TRUE
 
 /obj/item/nullrod/add_stealing_item_objective()
@@ -84,6 +122,7 @@
 	name = "the clown's shoes"
 	targetitem = /obj/item/clothing/shoes/clown_shoes
 	excludefromjob = list(JOB_CLOWN, JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
+<<<<<<< HEAD
 
 /obj/item/clothing/shoes/clown_shoes/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/clothing/shoes/clown_shoes)
@@ -98,21 +137,26 @@
 			continue
 		return TRUE
 	return FALSE
+=======
+	item_owner = list(JOB_CLOWN)
+>>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 
 /datum/objective_item/steal/low_risk/cargo_budget
 	name = "cargo's departmental budget"
 	targetitem = /obj/item/card/id/departmental_budget/car
 	excludefromjob = list(JOB_QUARTERMASTER, JOB_CARGO_TECHNICIAN)
+	item_owner = list(JOB_QUARTERMASTER)
 	exists_on_map = TRUE
 
 /obj/item/card/id/departmental_budget/car/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/card/id/departmental_budget/car)
 
 // High risk steal objectives
+
+// Will always generate even with no Captain due to its security and temptation to use it
 /datum/objective_item/steal/caplaser
 	name = "the captain's antique laser gun"
 	targetitem = /obj/item/gun/energy/laser/captain
-	difficulty = 5
 	excludefromjob = list(JOB_CAPTAIN)
 	exists_on_map = TRUE
 
@@ -122,8 +166,8 @@
 /datum/objective_item/steal/hoslaser
 	name = "the head of security's personal laser gun"
 	targetitem = /obj/item/gun/energy/e_gun/hos
-	difficulty = 10
 	excludefromjob = list(JOB_HEAD_OF_SECURITY)
+	item_owner = list(JOB_HEAD_OF_SECURITY)
 	exists_on_map = TRUE
 
 /obj/item/gun/energy/e_gun/hos/add_stealing_item_objective()
@@ -132,8 +176,8 @@
 /datum/objective_item/steal/handtele
 	name = "a hand teleporter"
 	targetitem = /obj/item/hand_tele
-	difficulty = 5
 	excludefromjob = list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR, JOB_HEAD_OF_PERSONNEL)
+	item_owner = list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR)
 	exists_on_map = TRUE
 
 /obj/item/hand_tele/add_stealing_item_objective()
@@ -142,8 +186,8 @@
 /datum/objective_item/steal/jetpack
 	name = "the Captain's jetpack"
 	targetitem = /obj/item/tank/jetpack/oxygen/captain
-	difficulty = 5
 	excludefromjob = list(JOB_CAPTAIN)
+	item_owner = list(JOB_CAPTAIN)
 	exists_on_map = TRUE
 
 /obj/item/tank/jetpack/oxygen/captain/add_stealing_item_objective()
@@ -152,8 +196,8 @@
 /datum/objective_item/steal/magboots
 	name = "the chief engineer's advanced magnetic boots"
 	targetitem = /obj/item/clothing/shoes/magboots/advance
-	difficulty = 5
 	excludefromjob = list(JOB_CHIEF_ENGINEER)
+	item_owner = list(JOB_CHIEF_ENGINEER)
 	exists_on_map = TRUE
 
 /obj/item/clothing/shoes/magboots/advance/add_stealing_item_objective()
@@ -162,8 +206,8 @@
 /datum/objective_item/steal/capmedal
 	name = "the medal of captaincy"
 	targetitem = /obj/item/clothing/accessory/medal/gold/captain
-	difficulty = 5
 	excludefromjob = list(JOB_CAPTAIN)
+	item_owner = list(JOB_CAPTAIN)
 	exists_on_map = TRUE
 
 /obj/item/clothing/accessory/medal/gold/captain/add_stealing_item_objective()
@@ -172,8 +216,8 @@
 /datum/objective_item/steal/hypo
 	name = "the hypospray"
 	targetitem = /obj/item/reagent_containers/hypospray/cmo
-	difficulty = 5
 	excludefromjob = list(JOB_CHIEF_MEDICAL_OFFICER)
+	item_owner = list(JOB_CHIEF_MEDICAL_OFFICER)
 	exists_on_map = TRUE
 
 /obj/item/reagent_containers/hypospray/cmo/add_stealing_item_objective()
@@ -182,7 +226,6 @@
 /datum/objective_item/steal/nukedisc
 	name = "the nuclear authentication disk"
 	targetitem = /obj/item/disk/nuclear
-	difficulty = 5
 	excludefromjob = list(JOB_CAPTAIN)
 
 /obj/item/disk/nuclear/add_stealing_item_objective()
@@ -194,8 +237,8 @@
 /datum/objective_item/steal/reflector
 	name = "a reflector trenchcoat"
 	targetitem = /obj/item/clothing/suit/hooded/ablative
-	difficulty = 3
 	excludefromjob = list(JOB_HEAD_OF_SECURITY, JOB_WARDEN)
+	item_owner = list(JOB_HEAD_OF_SECURITY)
 	exists_on_map = TRUE
 
 /obj/item/clothing/suit/hooded/ablative/add_stealing_item_objective()
@@ -204,8 +247,8 @@
 /datum/objective_item/steal/reactive
 	name = "the reactive teleport armor"
 	targetitem = /obj/item/clothing/suit/armor/reactive/teleport
-	difficulty = 5
 	excludefromjob = list(JOB_RESEARCH_DIRECTOR)
+	item_owner = list(JOB_RESEARCH_DIRECTOR)
 	exists_on_map = TRUE
 
 /obj/item/clothing/suit/armor/reactive/teleport/add_stealing_item_objective()
@@ -214,7 +257,6 @@
 /datum/objective_item/steal/documents
 	name = "any set of secret documents of any organization"
 	targetitem = /obj/item/documents
-	difficulty = 5
 	exists_on_map = TRUE
 
 /obj/item/documents/add_stealing_item_objective()
@@ -224,7 +266,6 @@
 	name = "the heavily radioactive plutonium core from the onboard self-destruct"
 	valid_containers = list(/obj/item/nuke_core_container)
 	targetitem = /obj/item/nuke_core
-	difficulty = 15
 	exists_on_map = TRUE
 
 /obj/item/nuke_core/add_stealing_item_objective()
@@ -237,8 +278,8 @@
 /datum/objective_item/steal/hdd_extraction
 	name = "the source code for Project Goon from the master R&D server mainframe"
 	targetitem = /obj/item/computer_disk/hdd_theft
-	difficulty = 10
 	excludefromjob = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST)
+	item_owner = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
 	exists_on_map = TRUE
 
 /obj/item/computer_disk/hdd_theft/add_stealing_item_objective()
@@ -253,7 +294,6 @@
 	name = "a sliver of a supermatter crystal"
 	targetitem = /obj/item/nuke_core/supermatter_sliver
 	valid_containers = list(/obj/item/nuke_core_container/supermatter)
-	difficulty = 15
 
 /obj/item/nuke_core/supermatter_sliver/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/nuke_core/supermatter_sliver)
@@ -262,9 +302,10 @@
 	special_equipment += /obj/item/storage/box/syndie_kit/supermatter
 	..()
 
-/datum/objective_item/steal/supermatter/TargetExists()
+/datum/objective_item/steal/supermatter/target_exists()
 	return GLOB.main_supermatter_engine != null
 
+<<<<<<< HEAD
 //Items with special checks!
 /datum/objective_item/steal/plasma
 	name = "28 moles of plasma (full tank)"
@@ -286,10 +327,12 @@
 	return found_amount >= target_amount
 
 
+=======
+// Doesn't need item_owner = (JOB_AI) because this handily functions as a murder objective if there isn't one
+>>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 /datum/objective_item/steal/functionalai
 	name = "a functional AI"
 	targetitem = /obj/item/aicard
-	difficulty = 20 //beyond the impossible
 
 /datum/objective_item/steal/functionalai/New()
 	. = ..()
@@ -316,8 +359,8 @@
 /datum/objective_item/steal/blueprints
 	name = "the station blueprints"
 	targetitem = /obj/item/areaeditor/blueprints
-	difficulty = 10
 	excludefromjob = list(JOB_CHIEF_ENGINEER)
+	item_owner = list(JOB_CHIEF_ENGINEER)
 	altitems = list(/obj/item/photo)
 	exists_on_map = TRUE
 
@@ -333,6 +376,7 @@
 			return TRUE
 	return FALSE
 
+<<<<<<< HEAD
 /datum/objective_item/steal/slime
 	name = "an unused sample of slime extract"
 	targetitem = /obj/item/slime_extract
@@ -347,16 +391,18 @@
 		return 1
 	return 0
 
+=======
+>>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 /datum/objective_item/steal/blackbox
 	name = "the Blackbox"
 	targetitem = /obj/item/blackbox
-	difficulty = 10
 	excludefromjob = list(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN)
 	exists_on_map = TRUE
 
 /obj/item/blackbox/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/blackbox)
 
+<<<<<<< HEAD
 //Unique Objectives
 /datum/objective_item/special/New()
 	..()
@@ -474,4 +520,6 @@
 	targetitem = /obj/item/stack/sheet/mineral/uranium
 	difficulty = 10
 
+=======
+>>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 #undef ADD_STEAL_ITEM
