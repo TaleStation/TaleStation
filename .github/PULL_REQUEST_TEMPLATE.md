@@ -5,7 +5,17 @@
 
 <!-- Describe The Pull Request. Please be sure every change is documented or this can delay review and even discourage maintainers from merging your PR! -->
 
+<<<<<<< HEAD
 ## How does it improve TaleStation
+=======
+### Mapping March
+
+<!-- If your pull request is part of Mapping March and you want to earn an antagonist token for your FIRST mapping pull request submitted this month, please include your ckey. For more information, read about the event here: https://hackmd.io/@EOBGames/BkwuRlxkh -->
+
+Ckey to recieve rewards: N/A
+
+## Why It's Good For The Game
+>>>>>>> e12651714a3a8 (Adds the Mapping March Event to the Template (for the rest of March) (#73842))
 
 <!-- Argue for the merits of your changes and how they benefit the game, especially if they are controversial and/or far reaching. If you can't actually explain WHY what you are doing will improve the game, then it probably isn't good for the game in the first place. -->
 
