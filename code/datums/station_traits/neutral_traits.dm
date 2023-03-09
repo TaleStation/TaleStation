@@ -103,7 +103,7 @@
 	weight = 1
 	show_in_report = TRUE
 	report_message = "Please be nice to him."
-	blacklist = list(/datum/station_trait/announcement_medbot)
+	blacklist = list(/datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
 
 /datum/station_trait/announcement_intern/New()
 	. = ..()
@@ -115,7 +115,7 @@
 	weight = 1
 	show_in_report = TRUE
 	report_message = "Our announcement system is under scheduled maintanance at the moment. Thankfully, we have a backup."
-	blacklist = list(/datum/station_trait/announcement_intern)
+	blacklist = list(/datum/station_trait/announcement_intern, /datum/station_trait/birthday)
 
 /datum/station_trait/announcement_medbot/New()
 	. = ..()
@@ -189,8 +189,6 @@
 		return
 
 	gorilla.poll_for_gorilla()
-<<<<<<< HEAD
-=======
 
 /datum/station_trait/birthday
 	name = "Employee Birthday"
@@ -220,7 +218,7 @@
 	. = ..()
 	if(birthday_override_ckey)
 		if(!check_valid_override())
-			message_admins("Attempted to make [birthday_override_ckey] the birthday person but they are not a valid station role. A random birthday person has be selected instead.")		
+			message_admins("Attempted to make [birthday_override_ckey] the birthday person but they are not a valid station role. A random birthday person has be selected instead.")
 
 	if(!birthday_person)
 		var/list/birthday_options = list()
@@ -322,4 +320,3 @@
 	icon_state = "xmashat_grey"
 	greyscale_config = /datum/greyscale_config/festive_hat
 	greyscale_config_worn = /datum/greyscale_config/festive_hat_worn
->>>>>>> 255ea90c1e232 ([NO GBP] Fixes some major (and minor) issues with the birthday station trait. (#73813))
