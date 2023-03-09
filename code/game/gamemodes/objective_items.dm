@@ -122,24 +122,7 @@
 	name = "the clown's shoes"
 	targetitem = /obj/item/clothing/shoes/clown_shoes
 	excludefromjob = list(JOB_CLOWN, JOB_CARGO_TECHNICIAN, JOB_QUARTERMASTER)
-<<<<<<< HEAD
-
-/obj/item/clothing/shoes/clown_shoes/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/clothing/shoes/clown_shoes)
-
-/datum/objective_item/steal/low_risk/clown_shoes/TargetExists()
-	for(var/mob/player as anything in GLOB.player_list)
-		if(player.stat == DEAD)
-			continue
-		if(player.job != JOB_CLOWN)
-			continue
-		if(is_centcom_level(player.z))
-			continue
-		return TRUE
-	return FALSE
-=======
 	item_owner = list(JOB_CLOWN)
->>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 
 /datum/objective_item/steal/low_risk/cargo_budget
 	name = "cargo's departmental budget"
@@ -228,9 +211,6 @@
 	targetitem = /obj/item/disk/nuclear
 	excludefromjob = list(JOB_CAPTAIN)
 
-/obj/item/disk/nuclear/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/disk/nuclear)
-
 /datum/objective_item/steal/nukedisc/check_special_completion(obj/item/disk/nuclear/N)
 	return !N.fake
 
@@ -295,9 +275,6 @@
 	targetitem = /obj/item/nuke_core/supermatter_sliver
 	valid_containers = list(/obj/item/nuke_core_container/supermatter)
 
-/obj/item/nuke_core/supermatter_sliver/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/nuke_core/supermatter_sliver)
-
 /datum/objective_item/steal/supermatter/New()
 	special_equipment += /obj/item/storage/box/syndie_kit/supermatter
 	..()
@@ -305,31 +282,7 @@
 /datum/objective_item/steal/supermatter/target_exists()
 	return GLOB.main_supermatter_engine != null
 
-<<<<<<< HEAD
-//Items with special checks!
-/datum/objective_item/steal/plasma
-	name = "28 moles of plasma (full tank)"
-	targetitem = /obj/item/tank
-	difficulty = 3
-	excludefromjob = list(
-		JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN,
-		JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_ROBOTICIST,
-	)
-
-/obj/item/tank/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/tank)
-
-/datum/objective_item/steal/plasma/check_special_completion(obj/item/tank/T)
-	var/target_amount = text2num(name)
-	var/found_amount = 0
-	var/datum/gas_mixture/mix = T.return_air()
-	found_amount += mix.gases[/datum/gas/plasma] ? mix.gases[/datum/gas/plasma][MOLES] : 0
-	return found_amount >= target_amount
-
-
-=======
 // Doesn't need item_owner = (JOB_AI) because this handily functions as a murder objective if there isn't one
->>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 /datum/objective_item/steal/functionalai
 	name = "a functional AI"
 	targetitem = /obj/item/aicard
@@ -376,23 +329,6 @@
 			return TRUE
 	return FALSE
 
-<<<<<<< HEAD
-/datum/objective_item/steal/slime
-	name = "an unused sample of slime extract"
-	targetitem = /obj/item/slime_extract
-	difficulty = 3
-	excludefromjob = list(JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
-
-/obj/item/slime_extract/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/slime_extract)
-
-/datum/objective_item/steal/slime/check_special_completion(obj/item/slime_extract/E)
-	if(E.Uses > 0)
-		return 1
-	return 0
-
-=======
->>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 /datum/objective_item/steal/blackbox
 	name = "the Blackbox"
 	targetitem = /obj/item/blackbox
@@ -402,124 +338,4 @@
 /obj/item/blackbox/add_stealing_item_objective()
 	ADD_STEAL_ITEM(src, /obj/item/blackbox)
 
-<<<<<<< HEAD
-//Unique Objectives
-/datum/objective_item/special/New()
-	..()
-	if(TargetExists())
-		GLOB.possible_items_special += src
-	else
-		qdel(src)
-
-/datum/objective_item/special/Destroy()
-	GLOB.possible_items_special -= src
-	return ..()
-
-//Old ninja objectives.
-/datum/objective_item/special/pinpointer
-	name = "the captain's pinpointer"
-	targetitem = /obj/item/pinpointer/nuke
-	difficulty = 10
-	exists_on_map = TRUE
-
-/obj/item/pinpointer/nuke/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/pinpointer/nuke)
-
-/datum/objective_item/special/aegun
-	name = "an advanced energy gun"
-	targetitem = /obj/item/gun/energy/e_gun/nuclear
-	difficulty = 10
-
-/obj/item/gun/energy/e_gun/nuclear/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/gun/energy/e_gun/nuclear)
-
-/datum/objective_item/special/ddrill
-	name = "a diamond drill"
-	targetitem = /obj/item/pickaxe/drill/diamonddrill
-	difficulty = 10
-
-/obj/item/pickaxe/drill/diamonddrill/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/pickaxe/drill/diamonddrill)
-
-/datum/objective_item/special/boh
-	name = "a bag of holding"
-	targetitem = /obj/item/storage/backpack/holding
-	difficulty = 10
-
-/obj/item/storage/backpack/holding/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/storage/backpack/holding)
-
-/datum/objective_item/special/hypercell
-	name = "a hyper-capacity power cell"
-	targetitem = /obj/item/stock_parts/cell/hyper
-	difficulty = 5
-
-/obj/item/stock_parts/cell/hyper/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/stock_parts/cell/hyper)
-
-/datum/objective_item/special/laserpointer
-	name = "a laser pointer"
-	targetitem = /obj/item/laser_pointer
-	difficulty = 5
-
-/obj/item/laser_pointer/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/laser_pointer)
-
-/datum/objective_item/special/corgimeat
-	name = "a piece of corgi meat"
-	targetitem = /obj/item/food/meat/slab/corgi
-	difficulty = 5
-
-/obj/item/food/meat/slab/corgi/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/food/meat/slab/corgi)
-
-/datum/objective_item/stack/New()
-	..()
-	if(TargetExists())
-		GLOB.possible_items_special += src
-	else
-		qdel(src)
-
-/datum/objective_item/stack/Destroy()
-	GLOB.possible_items_special -= src
-	return ..()
-
-//Stack objectives get their own subtype
-/datum/objective_item/stack
-	name = "5 cardboard"
-	targetitem = /obj/item/stack/sheet/cardboard
-	difficulty = 9001
-
-
-/datum/objective_item/stack/check_special_completion(obj/item/stack/S)
-	var/target_amount = text2num(name)
-	var/found_amount = 0
-
-	if(istype(S, targetitem))
-		found_amount = S.amount
-	return found_amount >= target_amount
-
-/datum/objective_item/stack/diamond
-	name = "10 diamonds"
-	targetitem = /obj/item/stack/sheet/mineral/diamond
-	difficulty = 10
-
-/obj/item/stack/sheet/mineral/diamond/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/stack/sheet/mineral/diamond)
-
-/datum/objective_item/stack/gold
-	name = "50 gold bars"
-	targetitem = /obj/item/stack/sheet/mineral/gold
-	difficulty = 15
-
-/obj/item/stack/sheet/mineral/gold/add_stealing_item_objective()
-	ADD_STEAL_ITEM(src, /obj/item/stack/sheet/mineral/gold)
-
-/datum/objective_item/stack/uranium
-	name = "25 refined uranium bars"
-	targetitem = /obj/item/stack/sheet/mineral/uranium
-	difficulty = 10
-
-=======
->>>>>>> 4aef8a4cd53fb (Limit theft/destroy secondary objectives to items which at least one person cares about (#73731))
 #undef ADD_STEAL_ITEM
