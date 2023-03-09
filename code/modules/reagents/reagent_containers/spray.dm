@@ -378,11 +378,12 @@
 	current_range = 2
 	spray_range = 2
 	spray_sound = 'sound/effects/snap.ogg'
+	possible_transfer_amounts = list(5)
 
 /obj/item/reagent_containers/spray/chemsprayer/party/spray(atom/A, mob/user)
 	. = ..()
 	icon_state = "[icon_state]_used"
-	
+
 
 // Plant-B-Gone
 /obj/item/reagent_containers/spray/plantbgone // -- Skie
