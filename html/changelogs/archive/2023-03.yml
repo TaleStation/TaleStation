@@ -228,3 +228,84 @@
   - admin: Logs when mimes break or make a vow of silence
   - bugfix: slime processor no longer sucks in slimes that it can't reach (glass panes,
       blocked by other machines etc)
+2023-03-10:
+  Farquaar and ArcaneDefence:
+  - rscadd: Plasmamen can scream now
+  LT3:
+  - bugfix: Disease Outbreak doesn't give up so easily when trying to start the event
+  - balance: Disease Outbreak will not spawn on positive virus mobs, but can be transmitted
+      if resistance is low
+  - bugfix: 'Disease Outbreak creates an entry in the virus log like it should admin:
+      Admins can see Disease Outbreak virus stats when the event starts /:cl:'
+  - bugfix: Admins can jump to/follow patient zero of a disease outbreak again
+  Melbert:
+  - qol: Completing an experiment which discounts a researched tech node will give
+      a partial refund of the discount lost. For example, researching the industrial
+      engineering research without scanning iron toilets will refund ~5000 points
+      if you complete it afterwards. This only applies once per experiment, so experiments
+      which discount multiple nodes only refund the first researched.
+  - rscadd: Somewhere, in deep space, a relic to every fluked nuclear operative mission
+      drifts abandoned.
+  Mothblocks:
+  - bugfix: Door remotes now open windoors again.
+  - qol: 'Door remotes now use balloon alerts for failures. /:cl:'
+  NamelessFairy:
+  - refactor: 'Admin event setup''s have been refactored to use lists. fix: When admins
+      customize the pirate event all options will be available rather than just options
+      that have not been randomly rolled. fix: The stray meteor event no longer runtimes
+      when customized by admins.'
+  - admin: Admins can now select the shuttle brought in by the shuttle catastrophe
+      event.
+  - admin: Admins can now randomize the disease outbreak classic event to roll any
+      disease type, including transformation diseases so have fun with that.
+  TaleStationBot:
+  - bugfix: The birthday station trait now actually works.
+  - balance: Add lava moat to Icebox vault and fix maint area being viewable from
+      primary hallway
+  - bugfix: the double esword sales are now smaller than regular sales
+  - bugfix: borg rcd's not displaying the correct matter units in its UI & when examined
+  - qol: arcd animation is smoother and makes more sense and has infinite matter
+  - bugfix: rcd not getting inserted into toolbelts & other storage units upon clicking
+  - bugfix: rld updating its icon state correctly based on the matter left
+  - bugfix: machine frames not spawning stack components we inserted in them when
+      pried open with a crowbar
+  - balance: Traitor secondary objectives to steal or destroy an item are now associated
+      with a particular "owner" or "victim" and won't generate themselves if nobody
+      would actually be victimised by the crime.
+  - rscadd: Traitors can sometimes be tasked with stealing and destroying the roboticist's
+      big crowbar, if there is one
+  - bugfix: 'Rapid lighting devices can now have their color set to #ffffff and the
+      resulting lights will now function.'
+  - bugfix: Rapid lighting devices will now default its set color to white when created
+      instead of trying to produce colorless lights.
+  - bugfix: The rapid lighting device can now be used in the dark when producing glow
+      sticks or floor lights.
+  - bugfix: Something which is "forced" to embed will now always actually embed. Resultingly,
+      accidentally swallowing glass or encountering it behind a poster without adequate
+      protection will now always cause it to embed into your body.
+  - balance: Thin and fingerless gloves may no longer protect you from having glass
+      in your hand after pulling down a poster
+  - bugfix: Bullets containing shrapnel now use their correct chance to embed, which
+      may cause bullet wounds to contain shrapnel more frequently.
+  - bugfix: fixed missing emissives on the Engivend, Pwr-Game Soda, and generic Soda
+      vendors. Also fixed the seclaptop having no valid screen icon!
+  - bugfix: fixed a few items trying to apply emissives when they shouldn't.
+  - code_imp: added a stack_trace for emissives with missing icon states.
+  - bugfix: Some airlock access oversights on tramstation have been fixed. The service
+      lathe cannot be accessed by jobs that shouldn't have access via maint and robo/engi's
+      cant get into secure tech storage.
+  - rscadd: Adds the rest of the lipsticks to the cosmetics.dm
+  - code_imp: Abstract types don't hold telecrystal rewards or progression rewards
+      anymore, this has been moved to the non-abstract types.
+  - balance: Rebalances rewards from repeatable traitor objectives to be more consistent
+      with each other.
+  - balance: Abductors' midround spawn weight has been increased. Expect to see them
+      more often
+  - rscadd: New Neutral Station Trait, "Employee Birthday", its someone on the crews
+      birthday, make sure to wish them a happy birthday and perhaps get them a gift.
+  - rscadd: Two new party themed items have been added to the arcade prize pool, the
+      party horn and a box of party poppers.
+  coiax:
+  - bugfix: Tiziran lung stirfry now correctly uses a bowl in its construction, and
+      is left over after eating. It also can only be constructed with organic lungs,
+      because cybernetic lungs don't fry as well.
