@@ -134,12 +134,6 @@
 #define ORGAN_SLOT_EXTERNAL_ANTENNAE "antennae"
 #define ORGAN_SLOT_EXTERNAL_BODYMARKINGS "bodymarkings"
 #define ORGAN_SLOT_EXTERNAL_POD_HAIR "pod_hair"
-#define ORGAN_SLOT_EXTERNAL_HEAD_TENTACLES "head_tentacles" // NON-MODULAR CHANGES: Skrell
-#define ORGAN_SLOT_EXTERNAL_TAJARAN_MARKINGS "tajaran_markings" // NON-MODULAR CHANGES: Tajarans
-#define ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT "tajaran_snout" // NON-MODULAR CHANGES: Tajarans
-#define ORGAN_SLOT_EXTERNAL_AVIAN_BEAK "avian_beak" // NON-MODULAR CHANGES: Avian
-#define ORGAN_SLOT_EXTERNAL_AVIAN_TALON_L "avian_talon_l" // NON-MODULAR CHANGES: Avian
-#define ORGAN_SLOT_EXTERNAL_AVIAN_TALON_R "avian_talon_r" // NON-MODULAR CHANGES: Avian
 
 /// Xenomorph organ slots
 #define ORGAN_SLOT_XENO_ACIDGLAND "acid_gland"

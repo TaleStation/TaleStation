@@ -225,8 +225,3 @@
 
 /// The filter name for the hover outline
 #define HOVER_OUTLINE_FILTER "hover_outline"
-
-// NON-MODULAR DEFINES
-
-/// Min flavor text required to join a round
-#define FLAVOR_TEXT_CHAR_REQUIREMENT 125
