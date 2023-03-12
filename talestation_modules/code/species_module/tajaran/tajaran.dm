@@ -31,6 +31,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 		)
 
 	mutantears = /obj/item/organ/internal/ears/tajaran_ears
+	species_language_holder = /datum/language_holder/tajaran
 	mutanttongue = /obj/item/organ/internal/tongue/tajaran
 	disliked_food = CLOTH
 	liked_food = GRAIN | MEAT | SEAFOOD
@@ -62,13 +63,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 									'talestation_modules/sound/voice/meow3.ogg' = 50)
 	species_speech_sounds_ask = list()
 	species_speech_sounds_exclaim = list()
-
-// Taken from felinids - Immunity to carpotoxin
-/datum/species/tajaran/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H, delta_time, times_fired)
-	. = ..()
-	if(istype(chem, /datum/reagent/toxin/carpotoxin))
-		var/datum/reagent/toxin/carpotoxin/fish = chem
-		fish.toxpwr = 0
 
 // Randomize tajaran
 /datum/species/tajaran/randomize_features(mob/living/carbon/human/human_mob)

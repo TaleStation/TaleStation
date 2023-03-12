@@ -69,6 +69,8 @@
 /datum/language/moffic
 	base_species = SPECIES_MOTH
 
+/datum/language/tajaran
+	base_species = SPECIES_TAJARAN
 
 /// TGUI for selecting languages.
 /datum/language_picker

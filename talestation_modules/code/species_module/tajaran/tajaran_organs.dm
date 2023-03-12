@@ -55,3 +55,8 @@
 	desc = "Tajaran tongues are known for their rough patch of connective tissue.\
 				They don't make great kissers."
 	say_mod = "meows"
+	languages_native = /datum/language/tajaran
+	var/static/list/languages_possible_tajaran
+
+/obj/item/organ/internal/tongue/tajaran/get_possible_languages()
+	return ..() + /datum/language/tajaran
