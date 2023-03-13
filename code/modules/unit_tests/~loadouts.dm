@@ -4,5 +4,9 @@
 TEST_FOCUS(/datum/unit_test/loadouts_lists)
 
 /datum/unit_test/loadouts_lists/Run()
-	var/datum/loadout_item/items = initial(loadout_item.shoes)
-	TEST_ASSERT(2+ 3, 4, "HELP I'M ON FIRE")
+	var/list/item_paths = list()
+	for(var/datum/loadout_item/type in subtypesof(/datum/loadout_item))
+		var/item_path = initial(type.item_path)
+		if(item_path in item_paths)
+			TEST_FAIL("Duplicate path [item_path] used by [type]!")
+		item_paths += item_path

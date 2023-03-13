@@ -19,6 +19,11 @@ GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/hea
 	can_be_greyscale = TRUE
 	item_path = /obj/item/clothing/head/beret/greyscale
 
+/datum/loadout_item/head/greyscale_beret2
+	name = "Greyscale Beret2"
+	can_be_greyscale = TRUE
+	item_path = /obj/item/clothing/head/beret/greyscale
+
 /datum/loadout_item/head/greyscale_beret/badge
 	name = "Greyscale Beret (with badge)"
 	item_path = /obj/item/clothing/head/beret/greyscale_badge
