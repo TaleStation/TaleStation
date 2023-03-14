@@ -13,11 +13,7 @@ export const MedicalRecordView = (props, context) => {
   if (!foundRecord) return <NoticeBox>No record selected.</NoticeBox>;
 
   const { act, data } = useBackend<MedicalRecordData>(context);
-<<<<<<< HEAD
-  const { assigned_view } = data;
-=======
   const { assigned_view, physical_statuses, mental_statuses, station_z } = data;
->>>>>>> 73172f8836525 (Re-implements Physical and Mental statuses in crewmember Medical Records (#73882))
 
   const { min_age, max_age } = data;
 
