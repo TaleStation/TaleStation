@@ -676,7 +676,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(dna.features["avian_talon_r"]) // NON-MODULAR CHANGES: Avian
 		dna.features["avian_talon_r"] = GLOB.avian_talon_r_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_TAIL_BLOCK), GLOB.avian_talon_r_list.len)]
 
-	for(var/obj/item/organ/external/external_organ in internal_organs)
+	for(var/obj/item/organ/external/external_organ in organs)
 		external_organ.mutate_feature(features, src)
 
 	if(icon_update)
@@ -892,7 +892,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 				ForceContractDisease(new/datum/disease/decloning()) //slow acting, non-viral clone damage based GBS
 			if(8)
 				var/list/elligible_organs = list()
-				for(var/obj/item/organ/internal/internal_organ as anything in internal_organs) //make sure we dont get an implant or cavity item
+				for(var/obj/item/organ/internal/internal_organ in organs) //make sure we dont get an implant or cavity item
 					elligible_organs += internal_organ
 				vomit(20, TRUE)
 				if(elligible_organs.len)
@@ -942,7 +942,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 /mob/living/carbon/human/proc/something_horrible_mindmelt()
 	if(!is_blind())
-		var/obj/item/organ/internal/eyes/eyes = locate(/obj/item/organ/internal/eyes) in internal_organs
+		var/obj/item/organ/internal/eyes/eyes = locate(/obj/item/organ/internal/eyes) in organs
 		if(!eyes)
 			return
 		eyes.Remove(src)
