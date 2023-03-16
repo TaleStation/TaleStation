@@ -9,7 +9,7 @@
 
 /datum/reagent/on_mob_metabolize(mob/living/carbon/user)
 	. = ..()
-	// hi melbert, this should have SHOULD_CALL_PARENT(TRUE)
+	//this should have SHOULD_CALL_PARENT(TRUE)
 	if(isnull(pain_modifier) || !istype(user))
 		return
 
