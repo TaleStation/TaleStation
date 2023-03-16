@@ -1,4 +1,4 @@
-import { Feature, FeatureValueProps, FeatureShortTextInput } from '../base';
+import { Feature, FeatureValueProps } from '../base';
 import { Stack, TextArea } from '../../../../../components';
 
 export const MultilineText = (props: FeatureValueProps<string, string>) => {
@@ -56,23 +56,10 @@ export const ooc_notes: Feature<string> = {
   component: MultilineText,
 };
 
-export const headshot: Feature<string> = {
+/* export const headshot: Feature<string> = {
   name: 'Headshot',
   description:
     'Add an image to your character, visible on close examination. Requires it be formatted properly.',
   component: FeatureShortTextInput,
 };
-
-export const custom_species: Feature<string> = {
-  name: 'Custom Species Name',
-  description:
-    "Want to have a fancy species name? Put it here, or leave it blank if you want to use your species' default name.",
-  component: FeatureShortTextInput,
-};
-
-export const custom_species_lore: Feature<string> = {
-  name: 'Custom Species Lore',
-  description:
-    "Add some lore for your species! Won't show up if there's no custom species.",
-  component: MultilineText,
-};
+*/
