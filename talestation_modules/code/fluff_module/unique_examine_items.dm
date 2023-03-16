@@ -202,7 +202,6 @@
 
 /obj/effect/rune/Initialize(mapload)
 	. = ..()
-	// MELBERT TODO: Improve this with advanced cult code.
 	if(icon == 'icons/obj/rune.dmi')
 		AddElement(/datum/element/unique_examine, \
 			"A rune of blood inscribed by the followers of the Geometer Nar'sie \
