@@ -175,7 +175,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		if (blacklisted)
 			continue
 
-		// NON-MODULAR CHANGES //MELBERT TODO: THIS DOESN' WORK - MIGHT BE A PREFS ISSUE
+		// NON-MODULAR CHANGES // TODO: THIS DOESN' WORK - MIGHT BE A PREFS ISSUE
 		if(species_blacklist[quirk_name] && (supplied_prefs.read_preference(/datum/preference/choiced/species) in species_blacklist[quirk_name]))
 			continue
 		if(species_whitelist[quirk_name] && !(supplied_prefs.read_preference(/datum/preference/choiced/species) in species_whitelist[quirk_name]))
