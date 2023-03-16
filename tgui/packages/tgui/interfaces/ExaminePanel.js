@@ -11,8 +11,6 @@ export const ExaminePanel = (props, context) => {
     assigned_map,
     flavor_text,
     ooc_notes,
-    custom_species,
-    custom_species_lore,
     headshot,
   } = data;
   return (
@@ -79,21 +77,6 @@ export const ExaminePanel = (props, context) => {
                       title="OOC Notes"
                       preserveWhitespace>
                       {ooc_notes}
-                    </Section>
-                  </Stack.Item>
-                  <Stack.Item grow basis={0}>
-                    <Section
-                      scrollable
-                      fill
-                      title={
-                        custom_species
-                          ? 'Species: ' + custom_species
-                          : 'No Custom Species!'
-                      }
-                      preserveWhitespace>
-                      {custom_species
-                        ? custom_species_lore
-                        : 'Just a normal space dweller.'}
                     </Section>
                   </Stack.Item>
                 </Stack>

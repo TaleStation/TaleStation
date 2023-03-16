@@ -51,31 +51,25 @@
 	var/datum/preferences/preferences = holder.client?.prefs
 
 	var/flavor_text
-	var/custom_species
-	var/custom_species_lore
 	var/obscured
 	var/ooc_notes = ""
-	var/headshot = ""
+	//var/headshot = ""
 
 	// Now we handle silicon and/or human, order doesn't really matter
 	// If other variants of mob/living need to be handled at some point, put them here
 	if(issilicon(holder))
 		flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
-		custom_species = "Silicon"
-		custom_species_lore = "A cyborg unit."
 		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
-		headshot += preferences.read_preference(/datum/preference/text/headshot)
+		//headshot += preferences.read_preference(/datum/preference/text/headshot)
 
 	if(ishuman(holder))
 		var/mob/living/carbon/human/holder_human = holder
 		obscured = (holder_human.wear_mask && (holder_human.wear_mask.flags_inv & HIDEFACE)) || (holder_human.head && (holder_human.head.flags_inv & HIDEFACE))
-		custom_species = obscured ? "Obscured" : holder_human.dna.features["custom_species"]
 		flavor_text = obscured ? "Obscured" :  holder_human.dna.features["flavor_text"]
-		custom_species_lore = obscured ? "Obscured" : holder_human.dna.features["custom_species_lore"]
 		ooc_notes += holder_human.dna.features["ooc_notes"]
-		if(!obscured)
+		/*if(!obscured)
 			headshot += holder_human.dna.features["headshot"]
-
+*/
 	var/name = obscured ? "Unknown" : holder.name
 
 	data["obscured"] = obscured ? TRUE : FALSE
@@ -83,7 +77,5 @@
 	data["assigned_map"] = examine_panel_screen.assigned_map
 	data["flavor_text"] = flavor_text
 	data["ooc_notes"] = ooc_notes
-	data["custom_species"] = custom_species
-	data["custom_species_lore"] = custom_species_lore
-	data["headshot"] = headshot
+	// data["headshot"] = headshot
 	return data

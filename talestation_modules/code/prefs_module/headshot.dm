@@ -3,6 +3,7 @@
 #define LENGTH_LONGEST_LINK 29 //set to the length to the char length of the longest link
 #define LENGTH_LONGEST_EXTENSION 4 //set to the length of the longest file extension
 
+/* Headshots disabled until further notice
 // Pref option for headshots
 // May need to be regulated sooner than later
 /datum/preference/text/headshot
@@ -52,3 +53,4 @@
 
 #undef LENGTH_LONGEST_LINK
 #undef LENGTH_LONGEST_EXTENSION
+*/
