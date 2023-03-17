@@ -182,6 +182,18 @@
 
 	return ..()
 
+// My personal, behated chemical
+// I think this one was vicious as shit when I was in my orgo labs
+// I think?
+/// Component in ibuprofen
+/datum/reagent/propionic_acid
+	name = "Propionic Acid"
+	description = "A pungent liquid that's often used in preservatives and synthesizing of other chemicals."
+	reagent_state = LIQUID
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	color = "#c7a9c9"
+	ph = 7
+
 // Ibuprofen. Best at headaches, best at fevers, less good at everything else.
 // Use for treating head pain primarily.
 /datum/reagent/medicine/painkiller/ibuprofen // Also known as Advil
