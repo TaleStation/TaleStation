@@ -194,21 +194,3 @@
 #define SUPERVISOR_HOS "the Head of Security"
 #define SUPERVISOR_QM "the Quartermaster"
 #define SUPERVISOR_RD "the Research Director"
-
-// NON-MODULAR CHANGES START - Due to file load order, THIS needs to be here, otherwise the main files can't access these defines
-// Command
-#define JOB_ASSET_PROTECTION "Asset Protection"
-#define JOB_BRIDGE_OFFICER "Bridge Officer"
-
-// Science
-#define JOB_XENOBIOLOGIST "Xenobiologist"
-
-// Positioning
-#define JOB_DISPLAY_ORDER_ASSET_PROTECTION 36
-#define JOB_DISPLAY_ORDER_BRIDGE_OFFICER 37
-#define JOB_DISPLAY_ORDER_XENOBIOLOGIST 39
-
-// Supervisor
-#define SUPERVISOR_COMMAND "the Heads of Staff and the Captain"
-
-//NON-MODULAR CHANGES END
