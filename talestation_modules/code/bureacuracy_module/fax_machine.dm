@@ -335,12 +335,12 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return FALSE
 
 	if(!sending_enabled)
-		balloon_alert_to_viewers("can't send faxes!")
+		balloon_alert_to_viewers("Can't send faxes!")
 		playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 		return FALSE
 
 	if(!stored_paper || !length(stored_paper.get_raw_text()) || !COOLDOWN_FINISHED(src, fax_cooldown))
-		balloon_alert_to_viewers("fax failed to send!")
+		balloon_alert_to_viewers("Fax failed to send!")
 		playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 		return FALSE
 
@@ -362,11 +362,11 @@ GLOBAL_LIST_EMPTY(fax_machines)
 				found_a_machine = TRUE
 				break
 		if(!found_a_machine)
-			balloon_alert_to_viewers("destination not found")
+			balloon_alert_to_viewers("Destination not found.")
 			playsound(src, 'sound/machines/terminal_error.ogg', 50, FALSE)
 			return FALSE
 
-	to_chat(user, span_notice("Fax sent. Dispensing paper for personal record keeping. Thank you for using the Nanotrasen Approved Faxing Device!"))
+	balloon_alert_to_viewers("Fax sent, dispensing copy.")
 	eject_stored_paper()
 	flick("[fax_type]_send", src)
 	playsound(src, 'sound/machines/terminal_processing.ogg', 35, FALSE)
@@ -632,7 +632,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	if(!silent)
 		flick("[fax_type]_receive", src)
-		balloon_alert_to_viewers("removed paper")
+		balloon_alert_to_viewers("Fax removed.")
 	if(user && user.CanReach(src))
 		user.put_in_hands(stored_paper)
 	else
@@ -652,7 +652,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 
 	if(!silent)
 		flick("[fax_type]_receive", src)
-		balloon_alert_to_viewers("removed paper")
+		balloon_alert_to_viewers("Fax printed.")
 	if(user && user.CanReach(src))
 		user.put_in_hands(received_paper)
 	else
