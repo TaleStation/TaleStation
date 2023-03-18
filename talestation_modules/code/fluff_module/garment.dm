@@ -1,8 +1,5 @@
 // -- Garment bag stuff. --
 // Modular additions to current bags
-/obj/item/storage/bag/garment/research_director/PopulateContents()
-	. = ..()
-	new /obj/item/clothing/suit/rd_robes(src)
 
 /obj/item/storage/bag/garment/chief_medical/PopulateContents()
 	. = ..()
