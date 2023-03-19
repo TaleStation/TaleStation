@@ -550,3 +550,94 @@
   - bugfix: Admins - Saving a VV outfit will no longer save their cached_ref variable,
       which caused problems when the game tried to use that cache on another round.
       Existing broken outfits will need to be loaded and saved again.
+2023-03-18:
+  ATHATH:
+  - balance: The inorganic biology symptom now adds both MOB_MINERAL and MOB_ROBOTIC
+      to a virus's list of infectable biotypes instead of only MOB_MINERAL. Currently,
+      androids are the only species this change affects.
+  Jolly:
+  - bugfix: The directional states for the toppled wooden chair sprites are now consistent.
+      You really can't tell visually, but its been fixed.
+  - imageadd: Using the new wooden chair sprites, there's now new toppled wooden chair
+      sprites. Go wild. Have a ballroom brawl or something.
+  - bugfix: Pain related chemicals can be synthized again
+  - rscadd: 'CTF has a "new" map: ctf_turbine! I hope you like 24/7 TDM where the
+      objective is secondary.'
+  - spellcheck: Proper-itized the present balloonifies on the fax machine. Yay for
+      ENGRISH!
+  - qol: Sending faxes has been changed to a balloonify instead of a to_chat (this
+      means, it'll display a message above the fax machine and not to chat)
+  Melbert:
+  - bugfix: Lead batteries now start partially drained as intended.
+  Rhials:
+  - rscadd: Mafia maps now come with their own thematic outfits!
+  - spellcheck: Changes the "Snowdin" mafia map description
+  TaleStationBot:
+  - bugfix: vents & scrubbers getting assigned twice to an area when it's merged with
+      another area via station blueprints
+  - refactor: merged` Initialize()` & `New()` of vents & scrubbers into just `Initialize()`
+  - rscadd: Adds 2 new iron/dark/airless subtypes, textured and smooth_large
+  - rscadd: Adds the_faceoff.dmm Ruin
+  - qol: added tooltips for pneumatic cannon. Also changed powerfist's tooltips slightly.
+  - bugfix: fixed that you can't put wrench in pneumatic cannon.
+  - bugfix: fixed that you can manipulate with pie gun as if it's a normal pneumatic
+      cannon (adjust air tank, wrench it's output level's and etc.)
+  - bugfix: the jobs columns in the View Crew Manifest window are now uniformly aligned
+      across department headers
+  - bugfix: extremely long crewmember names are now truncated in the default view
+      for the Crew Manifest window
+  - bugfix: Changelog link for org members works again
+  - bugfix: Your species will no longer get deleted if a changeling  who copied you
+      is deleted from existence
+  - bugfix: fixes gloves not sending the COMSIG_PARENT_ATTACKBY signal
+  - bugfix: Removes duplicate decals and replaces them with new ones that are more
+      efficient
+  - bugfix: Stabilized Orange extracts are no longer able to cool you from any temperature
+      instantly
+  - bugfix: airlocks will no longer shock you when using the rust mansus grip to destroy
+      them
+  - bugfix: Stabilized gold extracts can now spawn basicmobs
+  - balance: You can no longer EMP defibrillators to make them combat-usable
+  - bugfix: You can no longer bypass recyclers indestructibility check by just putting
+      it into something
+  - bugfix: Recyclers can no longer recycle the insides of cyborgs
+  - bugfix: Corgi pinata's no longer have their own category on the cargo shuttle
+      console.
+  - bugfix: the 'target cyborgs' option for syndicate turrets is now functional again,
+      and enabled by default. Station borgs will still be shot at on sight unless
+      a syndicate crew member deliberately configures the turrets otherwise.
+  - bugfix: Turrets will now shoot basicmobs such as carp
+  - balance: Syndicate briefcase full of cash is now worth of 3 tc instead of 5. Better
+      than nothing
+  - bugfix: All CTF windows are now indestructible, fixes breaking into space during
+      CTF.
+  - bugfix: Borg synthesizers will no longer remain on the status panel if a borg
+      changes modules
+  - bugfix: Carp will once again be healed from being near carp rifts
+  - bugfix: Sepia slime cores and the rewind camera now work on Ian
+  - bugfix: Sapient ridden carp (or cows) can throw off their riders by shoving them,
+      or by performing the spin emote.
+  - bugfix: Giant Spider AI will be disabled by the timestop spell
+  - bugfix: Ian can eat envirochow
+  - bugfix: Mice, Frogs, and Cockroaches will no longer set off bear traps
+  - bugfix: You can put a macrobomb implant into Cayenne (or Ian)
+  - bugfix: Ian will now recognise that being squeezed by a cyborg is a nice hug
+  - bugfix: The player panel will tell admins if you're currently a corgi
+  - bugfix: The staff of storms deals massive damage to Bileworms and Giant Spiders
+  - bugfix: Ian will whimper if forced to scream
+  - bugfix: Slimes can consume space carp
+  - bugfix: Mice can be captured in xenoballs
+  - bugfix: You can use pacifying potions on Giant Spiders
+  - bugfix: Sgt Araneus can be fitted with a xenobiological radio implant
+  - bugfix: Sapient corgis no longer count as living players for the purpose of highlander
+      escape objectives
+  - bugfix: The random sentience event can now target corgis and sergeant araneus
+  - rscadd: The random sentience event can target a wider array of farm animals
+  - bugfix: Petsplosion wizard event can target corgis
+  - rscadd: Petsplosion wizard event will now target farm animals and mothroaches
+  - bugfix: The colossus possession crystal can now actually possess the cockroach
+      it spawns, does not kill you instantly upon ending possession
+  - bugfix: Explosive holoparasites no longer runtime if they plant bombs
+  - bugfix: Player-controlled Regal Rats now lick or claw based on their combat mode.
+  - bugfix: NPC Regal rats now properly claw at enemies, moving on to new targets
+      after completing kills.
