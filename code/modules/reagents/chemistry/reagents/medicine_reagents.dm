@@ -47,7 +47,9 @@
 
 // The best stuff there is. For testing/debugging.
 /datum/reagent/medicine/adminordrazine/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
-	. = ..()
+	if(!check_tray(chems, mytray))
+		return
+
 	mytray.adjust_waterlevel(round(chems.get_reagent_amount(type)))
 	mytray.adjust_plant_health(round(chems.get_reagent_amount(type)))
 	mytray.adjust_pestlevel(-rand(1,5))
@@ -148,7 +150,9 @@
 
 // Healing
 /datum/reagent/medicine/cryoxadone/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
-	. = ..()
+	if(!check_tray(chems, mytray))
+		return
+
 	mytray.adjust_plant_health(round(chems.get_reagent_amount(type) * 3))
 	mytray.adjust_toxic(-round(chems.get_reagent_amount(type) * 3))
 
@@ -885,7 +889,9 @@
 
 // FEED ME SEYMOUR
 /datum/reagent/medicine/strange_reagent/on_hydroponics_apply(obj/item/seeds/myseed, datum/reagents/chems, obj/machinery/hydroponics/mytray, mob/user)
-	. = ..()
+	if(!check_tray(chems, mytray))
+		return
+
 	mytray.spawnplant()
 
 /// Calculates the amount of reagent to at a bare minimum make the target not dead
@@ -1319,14 +1325,12 @@
 
 /datum/reagent/medicine/changelingadrenaline/on_mob_metabolize(mob/living/affected_mob)
 	..()
-	ADD_TRAIT(affected_mob, TRAIT_SLEEPIMMUNE, type)
-	ADD_TRAIT(affected_mob, TRAIT_BATON_RESISTANCE, type)
+	affected_mob.add_traits(list(TRAIT_SLEEPIMMUNE, TRAIT_BATON_RESISTANCE), type)
 	affected_mob.add_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 
 /datum/reagent/medicine/changelingadrenaline/on_mob_end_metabolize(mob/living/affected_mob)
 	..()
-	REMOVE_TRAIT(affected_mob, TRAIT_SLEEPIMMUNE, type)
-	REMOVE_TRAIT(affected_mob, TRAIT_BATON_RESISTANCE, type)
+	affected_mob.remove_traits(list(TRAIT_SLEEPIMMUNE, TRAIT_BATON_RESISTANCE), type)
 	affected_mob.remove_movespeed_mod_immunities(type, /datum/movespeed_modifier/damage_slowdown)
 	affected_mob.remove_status_effect(/datum/status_effect/dizziness)
 	affected_mob.remove_status_effect(/datum/status_effect/jitter)
@@ -1380,13 +1384,11 @@
 
 /datum/reagent/medicine/cordiolis_hepatico/on_mob_add(mob/living/affected_mob)
 	..()
-	ADD_TRAIT(affected_mob, TRAIT_STABLELIVER, type)
-	ADD_TRAIT(affected_mob, TRAIT_STABLEHEART, type)
+	affected_mob.add_traits(list(TRAIT_STABLELIVER, TRAIT_STABLEHEART), type)
 
 /datum/reagent/medicine/cordiolis_hepatico/on_mob_end_metabolize(mob/living/affected_mob)
 	..()
-	REMOVE_TRAIT(affected_mob, TRAIT_STABLEHEART, type)
-	REMOVE_TRAIT(affected_mob, TRAIT_STABLELIVER, type)
+	affected_mob.remove_traits(list(TRAIT_STABLELIVER, TRAIT_STABLEHEART), type)
 
 /datum/reagent/medicine/muscle_stimulant
 	name = "Muscle Stimulant"
