@@ -5,6 +5,11 @@
 	uniform = /obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck
 	suit = null
 	shoes = /obj/item/clothing/shoes/laceup
+	suit_store = null
+	backpack_contents = list(
+		/obj/item/melee/baton/telescopic = 1,
+		/obj/item/flashlight/pen/paramedic = 1,
+		)
 
 // RD Outfit
 /datum/outfit/job/rd
