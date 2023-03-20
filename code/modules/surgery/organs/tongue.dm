@@ -115,9 +115,6 @@
 /obj/item/organ/internal/tongue/get_availability(datum/species/owner_species, mob/living/owner_mob)
 	return owner_species.mutanttongue
 
-/obj/item/organ/internal/tongue/get_availability(datum/species/owner_species)
-	return !(NOTONGUE in owner_species.species_traits)
-
 /obj/item/organ/internal/tongue/lizard
 	name = "forked tongue"
 	desc = "A thin and long muscle typically found in reptilian races, apparently moonlights as a nose."
