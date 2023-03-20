@@ -9,3 +9,17 @@
 
 #define XING_SIGNAL_DIRECTION_WEST "west-"
 #define XING_SIGNAL_DIRECTION_EAST "east-"
+<<<<<<< HEAD
+=======
+
+#define XING_DEFAULT_TRAM_LENGTH 10
+
+/// Tram destinations/platforms
+#define TRAMSTATION_WEST 1
+#define TRAMSTATION_CENTRAL 2
+#define TRAMSTATION_EAST 3
+
+#define HILBERT_PORT 1
+#define HILBERT_CENTRAL 2
+#define HILBERT_STARBOARD 3
+>>>>>>> 3f92eefdaba86 (Define default tram length, light color [NO GBP] (#74125))
