@@ -12,7 +12,7 @@
 
 /obj/item/storage/bag/garment/engineering_chief/PopulateContents()
 	. = ..()
-	new /obj/item/clothing/under/misc/overalls/chief_engineer(src)
+	new /obj/item/clothing/under/rank/engineering/overalls/chief_engineer(src)
 
 // New modular bags
 /obj/item/storage/bag/garment/bridge_officer

@@ -14,15 +14,20 @@
 	gloves = null
 	shoes = /obj/item/clothing/shoes/laceup
 
-/obj/item/clothing/under/misc/overalls/chief_engineer
+/obj/item/clothing/under/rank/engineering/overalls/chief_engineer
 	name = "chief engineer's overalls"
 	desc = "Nothing sets the mood like a pair of coffee stained overalls. Oh, and a few lost pens. How'd these get in there?"
+	icon = 'icons/obj/clothing/under/misc.dmi'
+	worn_icon = 'icons/mob/clothing/under/misc.dmi'
+	icon_state = "overalls"
+	inhand_icon_state = "lb_suit"
+	can_adjust = FALSE
 
 	armor_type = /datum/armor/engineering_chief_engineer
 
 // CE Outfit
 /datum/outfit/job/ce
-	uniform = /obj/item/clothing/under/misc/overalls/chief_engineer
+	uniform = /obj/item/clothing/under/rank/engineering/overalls/chief_engineer
 	gloves = null
 	head = /obj/item/clothing/head/utility/hardhat/white
 	shoes = /obj/item/clothing/shoes/jackboots
