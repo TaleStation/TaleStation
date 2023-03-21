@@ -10,6 +10,10 @@
 	. = ..()
 	new /obj/item/clothing/head/caphat/beret(src)
 
+/obj/item/storage/bag/garment/engineering_chief/PopulateContents()
+	. = ..()
+	new /obj/item/clothing/under/rank/engineering/overalls/chief_engineer(src)
+
 // New modular bags
 /obj/item/storage/bag/garment/bridge_officer
 	name = "bridge officer's garment bag"
