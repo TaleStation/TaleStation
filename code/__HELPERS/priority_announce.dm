@@ -42,7 +42,7 @@
 		if (title && length(title) > 0)
 			announcement += "<br><h2 class='alert'>[title]</h2>"
 	else if(type == "Captain")
-		announcement += "<h1 class='alert'>Captain Announces</h1>"
+		announcement += "<h1 class='alert'>Site Director Announces</h1>" // NON-MODULAR CHANGES: Captain -> Site Director
 		GLOB.news_network.submit_article(text, "Captain's Announcement", "Station Announcements", null)
 	else if(type == "Syndicate Captain")
 		announcement += "<h1 class='alert'>Syndicate Captain Announces</h1>"

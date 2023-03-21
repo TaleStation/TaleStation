@@ -52,7 +52,7 @@
 #define JOB_DISPLAY_ORDER_XENOBIOLOGIST 39
 
 // Supervisor
-#define SUPERVISOR_COMMAND "the Heads of Staff and the Captain"
+#define SUPERVISOR_COMMAND "the Heads of Staff and the Site Director"
 
 /*
 * Flavor text defines

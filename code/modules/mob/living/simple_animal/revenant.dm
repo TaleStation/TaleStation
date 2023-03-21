@@ -533,9 +533,9 @@
 		"Heed and obey the requests of the dead, provided that carrying them out wouldn't be too inconvenient or self-destructive.", \
 		"Make the crew as miserable as possible.", \
 		"Make the clown as miserable as possible.", \
-		"Make the captain as miserable as possible.", \
+		"Make the Site Director as miserable as possible.", \
 		"Prevent the use of energy weapons where possible.",
-	)
+	) // NON-MODULAR CHANGES: Captain -> Site Director
 	explanation_text = pick(explanation_texts)
 	..()
 

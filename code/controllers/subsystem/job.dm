@@ -1017,7 +1017,7 @@ SUBSYSTEM_DEF(job)
 	var/id_safe_code = SSid_access.spare_id_safe_code
 
 	if(!id_safe_code)
-		CRASH("Cannot promote [new_captain.real_name] to Captain, there is no id_safe_code.")
+		CRASH("Cannot promote [new_captain.real_name] to Site Director, there is no id_safe_code.") // NON-MODULAR CHNAGES: Captain -> Site Director
 
 	var/paper = new /obj/item/paper/fluff/spare_id_safe_code()
 	var/list/slots = list(
@@ -1029,7 +1029,7 @@ SUBSYSTEM_DEF(job)
 	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE) || "at your feet"
 
 	if(acting_captain)
-		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Captain. You can find in important note about this [where]."))
+		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Director. You can find in important note about this [where].")) // NON-MODULAR CHANGES: Captain -> Director
 	else
 		to_chat(new_captain, span_notice("You can find the code to obtain your spare ID from the secure safe on the Bridge [where]."))
 		new_captain.add_mob_memory(/datum/memory/key/captains_spare_code, safe_code = SSid_access.spare_id_safe_code)
