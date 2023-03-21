@@ -47,11 +47,11 @@ export const JOB2ICON = {
   'Virologist': 'virus',
   'Warden': 'handcuffs',
   // MODULAR STUFF
-  'Asset Clerk': 'dog',
+  'Asset Clerk': 'stamp',
   'Asset Protection': 'shield',
   'Bridge Officer': 'briefcase',
-  'Site Director': 'crown',
-  'Site Foreman': 'user-astronaut',
+  'Site Director': 'user-tie',
+  'Site Foreman': 'toolbox',
   'Medical Director': 'user-md',
   'Xenobiologist': 'biohazard',
 } as const;

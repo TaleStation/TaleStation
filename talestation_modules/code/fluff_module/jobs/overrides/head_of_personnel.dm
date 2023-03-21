@@ -2,10 +2,6 @@
 * This file primarily changes the name of "head of personnel" to "asset clerk"
 */
 
-// Changes name for job datum
-/datum/job/head_of_personnel
-	title = JOB_ASSET_CLERK
-
 // Changes trim name
 /datum/id_trim/job/head_of_personnel
 	assignment = "Asset Clerk"
