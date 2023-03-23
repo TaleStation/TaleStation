@@ -32,18 +32,14 @@
 		if(satiety > 80)
 			nutrition_ratio *= 1.25
 		adjust_nutrition(-nutrition_ratio * HUNGER_FACTOR * delta_time)
-<<<<<<< HEAD
 		// NON-MODULAR CHANGES: Lizards
 		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * blood_multiplier * delta_time), BLOOD_VOLUME_NORMAL)
-=======
-		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * delta_time), BLOOD_VOLUME_NORMAL)
-		
+
 	// we call lose_blood() here rather than quirk/process() to make sure that the blood loss happens in sync with life()
 	if(HAS_TRAIT(src, TRAIT_BLOOD_DEFICIENCY))
 		var/datum/quirk/blooddeficiency/blooddeficiency = get_quirk(/datum/quirk/blooddeficiency)
 		if(!isnull(blooddeficiency))
 			blooddeficiency.lose_blood(delta_time)
->>>>>>> 8d7db532c0f42 (Reworks blood deficiency backend, & some adjustments to slime blood deficiency (#74143))
 
 	//Effects of bloodloss
 	var/word = pick("dizzy","woozy","faint")
