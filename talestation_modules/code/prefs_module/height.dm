@@ -8,90 +8,30 @@
 #define HEIGHT_VERY_SMALL "Very Small"
 #define HEIGHT_EXTREMELY_SMALL "Extremely Small"
 
-/datum/preference/choiced/mob_size
-	// This is legacy "character height". Now "character size". They key remains because I don't want to migrate preferences.
-	savefile_key = "character_height"
-	savefile_identifier = PREFERENCE_CHARACTER
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	can_randomize = FALSE
-
-/datum/preference/choiced/mob_size/init_possible_values()
-	return list(
-		HEIGHT_EXTREMELY_LARGE,
-		HEIGHT_VERY_LARGE,
-		HEIGHT_LARGE,
-		HEIGHT_NO_CHANGE,
-		HEIGHT_SMALL,
-		HEIGHT_VERY_SMALL,
-		HEIGHT_EXTREMELY_SMALL
-	)
-
-/datum/preference/choiced/mob_size/apply_to_human(mob/living/carbon/human/target, value)
-	if(value == HEIGHT_NO_CHANGE)
-		return
-
-	// Snowflake, but otherwise the dummy in the prefs menu will be resized and you can't see anything
-	if(istype(target, /mob/living/carbon/human/dummy))
-		return
-	// Just in case
-	if(!ishuman(target))
-		return
-
-	target.transform = null
-
-	var/resize_amount = 1
-	var/y_offset = 0
-
-	switch(value)
-		if(HEIGHT_EXTREMELY_LARGE)
-			resize_amount = 1.5
-			y_offset = 8
-		if(HEIGHT_VERY_LARGE)
-			resize_amount = 1.2
-			y_offset = 3
-		if(HEIGHT_LARGE)
-			resize_amount = 1.1
-			y_offset = 2
-		if(HEIGHT_SMALL)
-			resize_amount = 0.9
-			y_offset = -2
-		if(HEIGHT_VERY_SMALL)
-			resize_amount = 0.8
-			y_offset = -3
-		if(HEIGHT_EXTREMELY_SMALL)
-			resize_amount = 0.7
-			y_offset = -5
-
-	if(resize_amount > 1.1)
-		ADD_TRAIT(target, TRAIT_GIANT, ROUNDSTART_TRAIT)
-	else if(resize_amount < 0.9)
-		ADD_TRAIT(target, TRAIT_DWARF, ROUNDSTART_TRAIT)
-
-	target.resize = resize_amount
-	target.update_transform()
-	target.base_pixel_y += y_offset
-	target.pixel_y += y_offset
-
-/datum/preference/choiced/mob_size/is_accessible(datum/preferences/preferences)
-	if(!..(preferences))
-		return FALSE
-
-	var/datum/job/fav_job = preferences.get_highest_priority_job()
-	return !istype(fav_job, /datum/job/ai) && !istype(fav_job, /datum/job/cyborg)
-
-/datum/preference/choiced/mob_size/create_default_value(datum/preferences/preferences)
-	return HEIGHT_NO_CHANGE
-
-
-#undef HEIGHT_EXTREMELY_LARGE
-#undef HEIGHT_VERY_LARGE
-#undef HEIGHT_LARGE
-#undef HEIGHT_NO_CHANGE
-#undef HEIGHT_SMALL
-#undef HEIGHT_VERY_SMALL
-#undef HEIGHT_EXTREMELY_SMALL
-
 #define DEFAULT_HEIGHT "Medium (Default)"
+
+/datum/preference/choiced/mob_height/deserialize(value, datum/preference/choiced/mob_height/mob_height, character_height)
+	if (value in mob_height.old_height_values)
+		return closet_height(value)
+
+	return ..(value)
+
+/datum/preference/choiced/mob_height/proc/closet_height(character_height)
+	switch (character_height)
+		if("Extremely Large")
+			return HUMAN_HEIGHT_TALLEST
+		if("Very Large")
+			return HUMAN_HEIGHT_TALLEST
+		if("Large")
+			return HUMAN_HEIGHT_TALL
+		if("Average Size (Default)")
+			return HUMAN_HEIGHT_MEDIUM
+		if("Small")
+			return HUMAN_HEIGHT_SHORT
+		if("Very Small")
+			return HUMAN_HEIGHT_SHORTEST
+		if("Extremely Small")
+			return HUMAN_HEIGHT_SHORTEST
 
 /datum/preference/choiced/mob_height
 	savefile_key = "character_height_modern"
@@ -104,6 +44,15 @@
 		DEFAULT_HEIGHT = HUMAN_HEIGHT_MEDIUM,
 		"Tall" = HUMAN_HEIGHT_TALL,
 		"Tallest" = HUMAN_HEIGHT_TALLEST,
+	)
+	var/static/list/old_height_values = list(
+		"Extremely Large",
+		"Very Large",
+		"Large",
+		"Average Size (Default)",
+		"Small",
+		"Very Small",
+		"Extremely Small",
 	)
 
 /datum/preference/choiced/mob_height/init_possible_values()
