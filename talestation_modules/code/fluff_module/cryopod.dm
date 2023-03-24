@@ -192,7 +192,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 	SSjob.latejoin_trackers -= src
 	. = ..()
 
-/obj/machinery/cryopod/close_machine(atom/movable/target, exiting = FALSE)
+/obj/machinery/cryopod/close_machine(atom/movable/target, exiting = FALSE, density_to_set = TRUE)
 	if(!control_computer)
 		find_control_computer(TRUE)
 	if((isnull(target) || isliving(target)) && state_open && !panel_open)
