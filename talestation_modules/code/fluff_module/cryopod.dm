@@ -214,7 +214,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 	sleepyhead.SetSleeping(50)
 	to_chat(sleepyhead, span_boldnotice("You begin to wake from cryosleep.."))
 
-/obj/machinery/cryopod/open_machine()
+/obj/machinery/cryopod/open_machine(density_to_set = TRUE)
 	..()
 	icon_state = open_state
 	density = TRUE
