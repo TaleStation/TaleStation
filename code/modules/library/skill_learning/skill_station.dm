@@ -48,11 +48,7 @@
 /obj/machinery/skill_station/relaymove(mob/living/user, direction)
 	open_machine()
 
-<<<<<<< HEAD
-/obj/machinery/skill_station/open_machine()
-=======
 /obj/machinery/skill_station/open_machine(drop = TRUE, density_to_set = FALSE)
->>>>>>> fcdbb85fc97c6 (Fixes machines not releasing their contents when opened (such as mobs), when they otherwise should. (#74215))
 	. = ..()
 	interrupt_operation()
 
@@ -67,7 +63,7 @@
 	if(working)
 		interrupt_operation()
 
-/obj/machinery/skill_station/close_machine(atom/movable/target)
+/obj/machinery/skill_station/close_machine(atom/movable/target, density_to_set = TRUE)
 	. = ..()
 	if(occupant)
 		ui_interact(occupant)
@@ -308,4 +304,3 @@
 				return TRUE
 			toggle_chip_active(to_be_removed)
 			return TRUE
-
