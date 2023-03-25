@@ -3,7 +3,7 @@
 #define HEIGHT_EXTREMELY_LARGE "Extremely Large"
 #define HEIGHT_VERY_LARGE "Very Large"
 #define HEIGHT_LARGE "Large"
-#define HEIGHT_NO_CHANGE "Average Size (Default)"
+#define HEIGHT_NO_CHANGE "Average Height"
 #define HEIGHT_SMALL "Small"
 #define HEIGHT_VERY_SMALL "Very Small"
 #define HEIGHT_EXTREMELY_SMALL "Extremely Small"
