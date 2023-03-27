@@ -1,5 +1,3 @@
-// File organised based on progression
-
 //All bundles and telecrystals
 /datum/uplink_category/dangerous
 	name = "Conspicuous Weapons"
@@ -7,8 +5,6 @@
 
 /datum/uplink_item/dangerous
 	category = /datum/uplink_category/dangerous
-
-// No progression cost
 
 /datum/uplink_item/dangerous/foampistol
 	name = "Toy Pistol with Riot Darts"
@@ -18,8 +14,6 @@
 	cost = 2
 	surplus = 10
 	purchasable_from = ~UPLINK_NUKE_OPS
-
-// Low progression cost
 
 /datum/uplink_item/dangerous/pistol
 	name = "Makarov Pistol"
@@ -66,8 +60,11 @@
 	item = /obj/item/clothing/gloves/rapid
 	cost = 8
 
+<<<<<<< HEAD
 // Medium progression cost
 
+=======
+>>>>>>> 55528681b1d18 (Reduces progression cost of a lot of traitor items. Groups assassinate/behead/eyesnatching objectives together so that they're treated the same under the traitor no-dupe rules. (#74270))
 /datum/uplink_item/dangerous/doublesword
 	name = "Double-Bladed Energy Sword"
 	desc = "The double-bladed energy sword does slightly more damage than a standard energy sword and will deflect \
