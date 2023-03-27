@@ -851,3 +851,49 @@
   - bugfix: DNA Scanners, Sleepers, Abductor Experimentors, Skill Stations and Mod
       Installers now appropriately release their contents when opened, fixing an issue
       where they could permanently absorb players and items until admins intervened.
+2023-03-27:
+  ATHATH:
+  - spellcheck: Tweaked an outdated doctor tip to reflect that fact that salbutamol
+      can't heal plasmamen (outside of very specific edge cases).
+  LT3:
+  - imageadd: Fire alarm sprites are directional again
+  - imageadd: Solo benches are no longer invisible when facing east/west
+  SishTis:
+  - bugfix: Fixed gravity issue in Underground Outpost 45's research airlock.
+  TaleStationBot:
+  - bugfix: plasmamen will now be given their internals upon being kidnapped and upon
+      being returned.
+  - balance: Changes the universal click cooldown of the tendril hammer from the goliath
+      infusion into an internal cooldown just for the special heavy attack.
+  - qol: Human gravity will react to changes instantly, instead of waiting for the
+      next process tick. Hopefully this feels better and not worse
+  - qol: lizards with blood deficiency now receive the type 'L' blood packs instead
+      of an unhelpful type 'O-' one.
+  - bugfix: Fixes decals layering weird in some cases
+  - qol: guillotine description tips are now span_notices (blue text) instead of just
+      a bunch of grey text.
+  - bugfix: fixed a bug that if you try to behead body without a head with guillotine
+      it just stops working.
+  - bugfix: CTF fourside's yellow spawnpoint walls now use the same lighting as the
+      rest of the map instead of space lighting.
+  - bugfix: Anomalies will no longer spawn at the bomb testing range satellite.
+  - bugfix: The Starfury's Corvette and Fighters can now visit Tramstation
+  - balance: No-slip mod module and no slip shoes no longer have a reputation lock.
+  - bugfix: Computers are now properly connected to Ethernet, and can use Ntos when
+      Relays are down.
+  - refactor: Removes Ntnet and Ntnet interfaces, which was only used by Ntnet circuits
+      (which now directly checks for a Relay to work) and MULEbots, which did nothing
+      with it.
+  - balance: Wirecarp no longer tells you what ruins spawned in a round, instead it's
+      limited to PDA logs, and tells you the source too. This means the RD can catch
+      someone running illegal programs if they don't make any attempt at hiding it.
+  - qol: Wirecarp logs is now set to save 300 at once, instead of 100 and being increased
+      to 300 by the RD during the round. This is pretty insignificant, since there's
+      no reason to NOT want as many logs as possible.
+  - refactor: Stickers use a component and an element now to do their sticking
+  - bugfix: giving a podperson a blood transfusion by injecting them with water/whatever
+      their exotic blood happens to be will now work.
+  - bugfix: If you buckle a dog to a bed, it will no longer drag its bed as it goes
+      to bark at the mailman. It will instead be comfy and chilling, as expected.
+  - bugfix: Xenomorphs will now be properly teamed together again, and will show up
+      together on the roundend report.
