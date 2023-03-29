@@ -30,6 +30,7 @@
 
 	if(spawned_mobs)
 		return SUCCESSFUL_SPAWN
+<<<<<<< HEAD
 
 /**
  * Recieves a mob candidate, transforms them into a changeling, and hurls them at the station inside of a changeling meteor
@@ -127,3 +128,5 @@
 
 /obj/effect/meteor/meaty/changeling/check_examine_award(mob/user) //We don't want this to be a free achievement that comes with the role.
 	return
+=======
+>>>>>>> c0ef4ba907b28 (Adds the Dark Matt-eor when you emag a stupid amount of meteor shields + lots of meteor file sorting + qol + dark matter singularity + dark matt-eor summoning final traitor objective (#74330))
