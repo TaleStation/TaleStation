@@ -356,8 +356,6 @@
 	name = "The Faceoff"
 	description = "What do you get when a meeting of the enemy corporations get crashed?"
 
-<<<<<<< HEAD
-=======
 /datum/map_template/ruin/space/atmosastroidruin
 	id = "atmosasteroidruin"
 	suffix = "atmosasteroidruin.dmm"
@@ -371,7 +369,6 @@
 	description = "An old, still functional router for some long destroyed system."
 
 
->>>>>>> 18eeaf065096c (Atmosia Asteroid Space Ruin (#74164))
 /datum/map_template/ruin/space/prey_pod
 	id = "prey"
 	suffix = "prey_pod.dmm"
@@ -383,3 +380,9 @@
 	suffix = "travelers_rest.dmm"
 	name = "Traveler's Rest"
 	description = "An abandoned capsule floating through space. It seems as if somebody was in here not too long ago."
+
+/datum/map_template/ruin/space/pod_crash
+	id = "pod_crash"
+	suffix = "pod_crash.dmm"
+	name = "Pod Crash"
+	description = "A tragic display of what happens to drivers who pda and pod."
