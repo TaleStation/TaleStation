@@ -373,8 +373,6 @@
 	suffix = "travelers_rest.dmm"
 	name = "Traveler's Rest"
 	description = "An abandoned capsule floating through space. It seems as if somebody was in here not too long ago."
-<<<<<<< HEAD
-=======
 
 /datum/map_template/ruin/space/pod_crash
 	id = "pod_crash"
@@ -387,4 +385,3 @@
 	suffix = "waystation.dmm"
 	name = "Waystation"
 	description = "A waytation for a backwater subsector of Spinward gets attacked by the syndicate due to bad luck."
->>>>>>> f00d9eca50209 (March into Mapness: The Waystation (#74192))
