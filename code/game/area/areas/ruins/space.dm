@@ -25,7 +25,6 @@
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_SPACE
-	base_lighting_alpha = 255
 
 /area/ruin/space/way_home
 	name = "\improper Salvation"
@@ -291,7 +290,6 @@
 	requires_power = FALSE
 	area_flags = UNIQUE_AREA | AREA_USES_STARLIGHT
 	sound_environment = SOUND_AREA_SPACE
-	base_lighting_alpha = 255
 
 /area/ruin/space/ancientstation/charlie/storage
 	name = "Charlie Station Storage"
@@ -573,6 +571,11 @@
 //DERELICT SULACO
 /area/ruin/space/has_grav/derelictsulaco
 	name = "\improper Derelict Sulaco"
+
+//Mass-driver hub ruin
+/area/ruin/space/massdriverhub
+	name = "\improper Mass Driver Router"
+	always_unpowered = FALSE
 
 // The abandoned capsule 'The Traveler's Rest'
 /area/ruin/space/has_grav/travelers_rest
