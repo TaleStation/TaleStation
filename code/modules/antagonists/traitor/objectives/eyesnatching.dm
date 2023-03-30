@@ -81,7 +81,7 @@
 				continue
 
 		var/mob/living/carbon/human/targets_current = possible_target.current
-		if(!targets_current.getorgan(/obj/item/organ/internal/eyes))
+		if(!targets_current.get_organ_by_type(/obj/item/organ/internal/eyes))
 			continue
 
 		possible_targets += possible_target
@@ -159,13 +159,8 @@
 	if(used || !istype(target) || !target.Adjacent(user)) //Works only once, no TK use
 		return ..()
 
-<<<<<<< HEAD
-	var/obj/item/organ/internal/eyes/eyeballies = victim.getorganslot(ORGAN_SLOT_EYES)
-	var/obj/item/bodypart/head/head = victim.get_bodypart(BODY_ZONE_HEAD)
-=======
 	var/obj/item/organ/internal/eyes/eyeballies = target.get_organ_slot(ORGAN_SLOT_EYES)
 	var/obj/item/bodypart/head/head = target.get_bodypart(BODY_ZONE_HEAD)
->>>>>>> 55528681b1d18 (Reduces progression cost of a lot of traitor items. Groups assassinate/behead/eyesnatching objectives together so that they're treated the same under the traitor no-dupe rules. (#74270))
 
 	if(!head || !eyeballies || target.is_eyes_covered())
 		return ..()
@@ -190,17 +185,10 @@
 		span_userdanger("Something penetrates your skull, horribly mutilating your eyes! Holy fuck!"),
 		span_hear("You hear a sickening sound of metal piercing flesh!")
 	)
-<<<<<<< HEAD
-	eyeballies.applyOrganDamage(eyeballies.maxHealth)
-	victim.emote("scream")
-	playsound(victim, "sound/effects/wounds/crackandbleed.ogg", 100)
-	log_combat(user, victim, "cracked the skull of (eye snatching)", src)
-=======
 	eyeballies.apply_organ_damage(eyeballies.maxHealth)
 	target.emote("scream")
 	playsound(target, "sound/effects/wounds/crackandbleed.ogg", 100)
 	log_combat(user, target, "cracked the skull of (eye snatching)", src)
->>>>>>> 55528681b1d18 (Reduces progression cost of a lot of traitor items. Groups assassinate/behead/eyesnatching objectives together so that they're treated the same under the traitor no-dupe rules. (#74270))
 
 	if(!do_after(user, 5 SECONDS, target = target, extra_checks = CALLBACK(src, PROC_REF(eyeballs_exist), eyeballies, head, target)))
 		return
@@ -221,19 +209,14 @@
 	if(prob(20))
 		target.emote("cry")
 	used = TRUE
-	desc += " It has been used up."
 	update_appearance(UPDATE_ICON)
 
-<<<<<<< HEAD
-/obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/internal/eyes/eyeballies, obj/item/bodypart/head/head, mob/living/carbon/human/victim)
-=======
 /obj/item/eyesnatcher/examine(mob/user)
 	. = ..()
 	if(used)
 		. += span_notice("It has been used up.")
 
 /obj/item/eyesnatcher/proc/eyeballs_exist(obj/item/organ/internal/eyes/eyeballies, obj/item/bodypart/head/head, mob/living/carbon/human/target)
->>>>>>> 55528681b1d18 (Reduces progression cost of a lot of traitor items. Groups assassinate/behead/eyesnatching objectives together so that they're treated the same under the traitor no-dupe rules. (#74270))
 	if(!eyeballies || QDELETED(eyeballies))
 		return FALSE
 	if(!head || QDELETED(head))
@@ -241,11 +224,7 @@
 
 	if(eyeballies.owner != target)
 		return FALSE
-<<<<<<< HEAD
-	var/obj/item/organ/internal/eyes/eyes = victim.getorganslot(ORGAN_SLOT_EYES)
-=======
 	var/obj/item/organ/internal/eyes/eyes = target.get_organ_slot(ORGAN_SLOT_EYES)
->>>>>>> 55528681b1d18 (Reduces progression cost of a lot of traitor items. Groups assassinate/behead/eyesnatching objectives together so that they're treated the same under the traitor no-dupe rules. (#74270))
 	//got different eyes or doesn't own the head... somehow
 	if(head.owner != target || eyes != eyeballies)
 		return FALSE
