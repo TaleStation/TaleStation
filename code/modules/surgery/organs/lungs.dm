@@ -480,6 +480,8 @@
 			breather.emote(pick("giggle", "laugh"))
 		else
 			n2o_euphoria = EUPHORIA_INACTIVE
+			// NON-MODULAR CHANGES: Pain anesthetic
+			breather.remove_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
 		return
 
 	// More N2O, more severe side-effects. Causes stun/sleep.
@@ -490,8 +492,12 @@
 	// give them one second of grace to wake up and run away a bit!
 	breather.Unconscious(6 SECONDS)
 	// Enough to make the mob sleep.
-	if(n2o_pp > n2o_sleep_min)
-		breather.Sleeping(min(breather.AmountSleeping() + 100, 200))
+	// NON-MODULAR CHANGES
+	var/amount_of_sleep = min(breather.AmountSleeping() + 10 SECONDS, 20 SECONDS)
+	if(n2o_pp > n2o_sleep_min && breather.Sleeping(amount_of_sleep))
+		// If we got put to sleep we count as "on anesthetic"
+		breather.apply_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
+	// NON-MODULAR CHANGES END
 
 /// N2O side-effects. "Too much N2O!"
 /obj/item/organ/internal/lungs/proc/safe_n2o(mob/living/carbon/breather, datum/gas_mixture/breath, old_n2o_pp)
@@ -633,252 +639,7 @@
 
 		call(src, on_loss)(breather, breath, last_partial_pressures[gas_lost])
 
-<<<<<<< HEAD
-	//-- PLASMA --//
-	// Maximum Plasma effects. "Too much Plasma!"
-	if(safe_plasma_max)
-		if(plasma_pp && (plasma_pp > safe_plasma_max))
-			// Plasma side-effects.
-			var/ratio = (breath_gases[/datum/gas/plasma][MOLES] / safe_plasma_max) * 10
-			breather.apply_damage_type(clamp(ratio, plas_breath_dam_min, plas_breath_dam_max), plas_damage_type)
-			breather.throw_alert(ALERT_TOO_MUCH_PLASMA, /atom/movable/screen/alert/too_much_plas)
-		else
-			// Reset side-effects.
-			breather.clear_alert(ALERT_TOO_MUCH_PLASMA)
-
-	// Minimum Plasma effects.
-	// If the lungs need Plasma to breathe properly, Plasma is exchanged with CO2.
-	if(safe_plasma_min)
-		// Suffocation side-effects.
-		if(!can_breathe_vacuum && (plasma_pp < safe_plasma_min))
-			breather.throw_alert(ALERT_NOT_ENOUGH_PLASMA, /atom/movable/screen/alert/not_enough_plas)
-			// Breathe insufficient amount of Plasma, exhale CO2.
-			if(plasma_pp)
-				gas_breathed = handle_suffocation(breather, plasma_pp, safe_plasma_min, breath_gases[/datum/gas/plasma][MOLES])
-				breathe_gas_volume(breath, /datum/gas/plasma, /datum/gas/carbon_dioxide, breath_out, volume = gas_breathed)
-			else
-				// No amount of plasma, just suffocate
-				handle_suffocation(breather, plasma_pp, safe_plasma_min, 0)
-		else
-			// Enough Plasma to breathe.
-			breather.failed_last_breath = FALSE
-			breather.clear_alert(ALERT_NOT_ENOUGH_PLASMA)
-			// Inhale Plasma, exhale equivalent amount of CO2.
-			if(plasma_pp)
-				breathe_gas_volume(breath, /datum/gas/plasma, /datum/gas/carbon_dioxide, breath_out)
-				// Heal mob if not in crit.
-				if(breather.health >= breather.crit_threshold)
-					breather.adjustOxyLoss(-5)
-
-
-	//-- TRACES --//
-	// If there's some other shit in the air lets deal with it here.
-
-	//-- BZ --//
-	if(bz_pp)
-		if(bz_pp > BZ_trip_balls_min)
-			breather.adjust_hallucinations(20 SECONDS)
-			breather.reagents.add_reagent(/datum/reagent/bz_metabolites, 5)
-		if(bz_pp > BZ_brain_damage_min && prob(33))
-			breather.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3, 150, ORGAN_ORGANIC)
-
-	//-- FREON --//
-	if(freon_pp)
-		// Inhale Freon. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/freon)
-		if (freon_pp > gas_stimulation_min)
-			breather.reagents.add_reagent(/datum/reagent/freon, 1)
-		if (prob(freon_pp))
-			to_chat(breather, span_alert("Your mouth feels like it's burning!"))
-		if (freon_pp > 40)
-			breather.emote("gasp")
-			breather.adjustFireLoss(15)
-			if (prob(freon_pp / 2))
-				to_chat(breather, span_alert("Your throat closes up!"))
-				breather.set_silence_if_lower(6 SECONDS)
-		else
-			breather.adjustFireLoss(freon_pp / 4)
-
-	//-- HALON --//
-	if(halon_pp)
-		// Inhale Halon. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/halon)
-		// Metabolize to reagent.
-		if(halon_pp > gas_stimulation_min)
-			breather.adjustOxyLoss(5)
-			breather.reagents.add_reagent(/datum/reagent/halon, max(0, 1 - breather.reagents.get_reagent_amount(/datum/reagent/halon)))
-
-	//-- HEALIUM --//
-	// Sleeping gas with healing properties.
-	if(!healium_pp)
-		// Reset side-effects.
-		healium_euphoria = EUPHORIA_INACTIVE
-	else
-		// Inhale Healium. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/healium)
-		// Euphoria side-effect.
-		if(healium_pp > gas_stimulation_min)
-			if(prob(15))
-				to_chat(breather, span_alert("Your head starts spinning and your lungs burn!"))
-				healium_euphoria = EUPHORIA_ACTIVE
-				breather.emote("gasp")
-		else
-			healium_euphoria = EUPHORIA_INACTIVE
-		// Stun/Sleep side-effects.
-		if(healium_pp > healium_para_min)
-			// Random chance to stun mob. Timing not in seconds to have a much higher variation
-			breather.Unconscious(rand(3 SECONDS, 5 SECONDS))
-		// Metabolize to reagent when concentration is high enough.
-		if(healium_pp > healium_sleep_min)
-			breather.reagents.add_reagent(/datum/reagent/healium, max(0, 1 - breather.reagents.get_reagent_amount(/datum/reagent/healium)))
-
-	//-- HELIUM --//
-	// Activates helium speech when partial pressure gets high enough
-	if(!helium_pp)
-		helium_speech = FALSE
-		UnregisterSignal(breather, COMSIG_MOB_SAY)
-	else
-		// Inhale Helium. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/helium)
-		// Helium side-effects.
-		if(helium_speech && (helium_pp <= helium_speech_min))
-			helium_speech = FALSE
-			UnregisterSignal(breather, COMSIG_MOB_SAY)
-		else if(!helium_speech && (helium_pp > helium_speech_min))
-			helium_speech = TRUE
-			RegisterSignal(breather, COMSIG_MOB_SAY, PROC_REF(handle_helium_speech))
-
-	//-- HYPER-NOBILUM --//
-	if(hypernob_pp)
-		// Inhale Hyber-Nobilum. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/hypernoblium)
-		// Metabolize to reagent.
-		if (hypernob_pp > gas_stimulation_min)
-			var/existing = breather.reagents.get_reagent_amount(/datum/reagent/hypernoblium)
-			breather.reagents.add_reagent(/datum/reagent/hypernoblium,max(0, 1 - existing))
-
-	//-- MIASMA --//
-	if(!miasma_pp || !suffers_miasma)
-		// Clear out moods when immune to miasma, or if there's no miasma at all.
-		breather.clear_mood_event("smell")
-	else
-		// Inhale Miasma. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/miasma)
-		// Miasma sickness
-		if(prob(0.5 * miasma_pp))
-			var/datum/disease/advance/miasma_disease = new /datum/disease/advance/random(max_symptoms = min(round(max(miasma_pp / 2, 1), 1), 6), max_level = min(round(max(miasma_pp, 1), 1), 8))
-			// tl;dr the first argument chooses the smaller of miasma_pp/2 or 6(typical max virus symptoms), the second chooses the smaller of miasma_pp or 8(max virus symptom level)
-			// Each argument has a minimum of 1 and rounds to the nearest value. Feel free to change the pp scaling I couldn't decide on good numbers for it.
-			miasma_disease.name = "Unknown"
-			miasma_disease.try_infect(breather)
-		// Miasma side effects
-		switch(miasma_pp)
-			if(0.25 to 5)
-				// At lower pp, give out a little warning
-				breather.clear_mood_event("smell")
-				if(prob(5))
-					to_chat(breather, span_notice("There is an unpleasant smell in the air."))
-			if(5 to 15)
-				//At somewhat higher pp, warning becomes more obvious
-				if(prob(15))
-					to_chat(breather, span_warning("You smell something horribly decayed inside this room."))
-					breather.add_mood_event("smell", /datum/mood_event/disgust/bad_smell)
-			if(15 to 30)
-				//Small chance to vomit. By now, people have internals on anyway
-				if(prob(5))
-					to_chat(breather, span_warning("The stench of rotting carcasses is unbearable!"))
-					breather.add_mood_event("smell", /datum/mood_event/disgust/nauseating_stench)
-					breather.vomit()
-			if(30 to INFINITY)
-				//Higher chance to vomit. Let the horror start
-				if(prob(15))
-					to_chat(breather, span_warning("The stench of rotting carcasses is unbearable!"))
-					breather.add_mood_event("smell", /datum/mood_event/disgust/nauseating_stench)
-					breather.vomit()
-			else
-				breather.clear_mood_event("smell")
-		// In a full miasma atmosphere with 101.34 pKa, about 10 disgust per breath, is pretty low compared to threshholds
-		// Then again, this is a purely hypothetical scenario and hardly reachable
-		breather.adjust_disgust(0.1 * miasma_pp)
-
-	//-- N2O --//
-	// N2O side-effects. "Too much N2O!"
-	// Small amount of N2O, small side-effects. Causes random euphoria and giggling.
-	if (n2o_pp > n2o_para_min)
-		// More N2O, more severe side-effects. Causes stun/sleep.
-		n2o_euphoria = EUPHORIA_ACTIVE
-		breather.throw_alert(ALERT_TOO_MUCH_N2O, /atom/movable/screen/alert/too_much_n2o)
-		// 60 gives them one second to wake up and run away a bit!
-		breather.Unconscious(6 SECONDS)
-		// Enough to make the mob sleep.
-		// NON-MODULAR CHANGES
-		var/amount_of_sleep = min(breather.AmountSleeping() + 10 SECONDS, 20 SECONDS)
-		if(n2o_pp > n2o_sleep_min && breather.Sleeping(amount_of_sleep))
-			// If we got put to sleep we count as "on anesthetic"
-			breather.apply_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
-		// NON-MODULAR CHANGES END
-		if(n2o_pp > n2o_sleep_min)
-			breather.Sleeping(min(breather.AmountSleeping() + 100, 200))
-	else if(n2o_pp > 0.01)
-		// No alert for small amounts, but the mob randomly feels euphoric.
-		breather.clear_alert(ALERT_TOO_MUCH_N2O)
-		if(prob(20))
-			n2o_euphoria = EUPHORIA_ACTIVE
-			breather.emote(pick("giggle", "laugh"))
-		else
-			n2o_euphoria = EUPHORIA_INACTIVE
-	else
-		// Reset side-effects, for zero or extremely small amounts of N2O.
-		n2o_euphoria = EUPHORIA_INACTIVE
-		breather.clear_alert(ALERT_TOO_MUCH_N2O)
-		// NON-MODULAR CHANGES: Pain anesthetic
-		breather.remove_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
-
-	//-- NITRIUM --//
-	if (nitrium_pp)
-		// Inhale Nitrium. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/nitrium)
-		// Random chance to inflict side effects increases with pressure.
-		if((prob(nitrium_pp) && (nitrium_pp > 15)))
-			// Nitrium side-effect.
-			breather.adjustOrganLoss(ORGAN_SLOT_LUNGS, nitrium_pp * 0.1)
-			to_chat(breather, "<span class='notice'>You feel a burning sensation in your chest</span>")
-		// Metabolize to reagents.
-		if (nitrium_pp > 5)
-			var/existing = breather.reagents.get_reagent_amount(/datum/reagent/nitrium_low_metabolization)
-			breather.reagents.add_reagent(/datum/reagent/nitrium_low_metabolization, max(0, 2 - existing))
-		if (nitrium_pp > 10)
-			var/existing = breather.reagents.get_reagent_amount(/datum/reagent/nitrium_high_metabolization)
-			breather.reagents.add_reagent(/datum/reagent/nitrium_high_metabolization, max(0, 1 - existing))
-
-	//-- PROTO-NITRATE --//
-	// Inert
-
-	//-- TRITIUM --//
-	if (trit_pp)
-		// Inhale Tritium. Exhale nothing.
-		gas_breathed = breathe_gas_volume(breath, /datum/gas/tritium)
-		// Tritium side-effects.
-		var/ratio = gas_breathed * 15
-		breather.adjustToxLoss(clamp(ratio, MIN_TOXIC_GAS_DAMAGE, MAX_TOXIC_GAS_DAMAGE))
-		// If you're breathing in half an atmosphere of radioactive gas, you fucked up.
-		if((trit_pp > tritium_irradiation_moles_min) && SSradiation.can_irradiate_basic(breather))
-			var/lerp_scale = min(tritium_irradiation_moles_max, trit_pp - tritium_irradiation_moles_min) / (tritium_irradiation_moles_max - tritium_irradiation_moles_min)
-			var/chance = LERP(tritium_irradiation_probability_min, tritium_irradiation_probability_max, lerp_scale)
-			if (prob(chance))
-				breather.AddComponent(/datum/component/irradiated)
-
-	//-- ZAUKER --//
-	if(zauker_pp)
-		// Inhale Zauker. Exhale nothing.
-		breathe_gas_volume(breath, /datum/gas/zauker)
-		// Metabolize to reagent.
-		if(zauker_pp > gas_stimulation_min)
-			var/existing = breather.reagents.get_reagent_amount(/datum/reagent/zauker)
-			breather.reagents.add_reagent(/datum/reagent/zauker, max(0, 1 - existing))
-=======
 	src.last_partial_pressures = partial_pressures
->>>>>>> 2e5bfe5be669d (Refactors and optimizes breath code (Saves 12% of carbon/Life()) (#74230))
 
 	// Handle chemical euphoria mood event, caused by gases such as N2O or healium.
 	var/new_euphoria = (n2o_euphoria == EUPHORIA_ACTIVE || healium_euphoria == EUPHORIA_ACTIVE)
