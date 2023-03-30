@@ -62,11 +62,12 @@
 		// Medical
 		/datum/job/chemist,
 		/datum/job/doctor,
-		/datum/job/paramedic,
 		/datum/job/psychologist,
+		/datum/job/virologist,
 		// Science
 		/datum/job/geneticist,
 		/datum/job/roboticist,
+		/datum/job/scientist,
 		// Service
 		/datum/job/bartender,
 		/datum/job/botanist,
@@ -77,6 +78,7 @@
 		/datum/job/lawyer,
 		/datum/job/mime,
 	)
+	alive_bonus = 2
 
 /datum/traitor_objective/kidnapping/common/assistant
 	progression_minimum = 0 MINUTES
@@ -95,13 +97,11 @@
 		// Cargo
 		/datum/job/shaft_miner,
 		// Medical
-		/datum/job/virologist,
-		// Science
-		/datum/job/scientist,
+		/datum/job/paramedic,
 		// Service
 		/datum/job/cook,
 	)
-	alive_bonus = 1
+	alive_bonus = 3
 
 /datum/traitor_objective/kidnapping/rare
 	progression_minimum = 15 MINUTES
@@ -120,7 +120,7 @@
 		/datum/job/security_officer,
 		/datum/job/warden,
 	)
-	alive_bonus = 2
+	alive_bonus = 4
 
 /datum/traitor_objective/kidnapping/captain
 	progression_minimum = 30 MINUTES
@@ -130,7 +130,7 @@
 		/datum/job/captain,
 		/datum/job/head_of_security,
 	)
-	alive_bonus = 2
+	alive_bonus = 5
 
 /datum/traitor_objective/kidnapping/generate_objective(datum/mind/generating_for, list/possible_duplicates)
 
@@ -281,6 +281,7 @@
 	sent_mob.adjust_confusion(10 SECONDS)
 	sent_mob.adjust_dizzy(10 SECONDS)
 	sent_mob.set_eye_blur_if_lower(100 SECONDS)
+	sent_mob.dna.species.give_important_for_life(sent_mob) // so plasmamen do not get left for dead
 	to_chat(sent_mob, span_hypnophrase(span_reallybig("A million voices echo in your head... <i>\"Your mind held many valuable secrets - \
 		we thank you for providing them. Your value is expended, and you will be ransomed back to your station. We always get paid, \
 		so it's only a matter of time before we ship you back...\"</i>")))
@@ -326,6 +327,7 @@
 	sent_mob.adjust_confusion(10 SECONDS)
 	sent_mob.adjust_dizzy(10 SECONDS)
 	sent_mob.set_eye_blur_if_lower(100 SECONDS)
+	sent_mob.dna.species.give_important_for_life(sent_mob) // so plasmamen do not get left for dead
 
 	new /obj/effect/pod_landingzone(pick(possible_turfs), return_pod)
 
