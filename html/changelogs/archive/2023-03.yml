@@ -897,3 +897,138 @@
       to bark at the mailman. It will instead be comfy and chilling, as expected.
   - bugfix: Xenomorphs will now be properly teamed together again, and will show up
       together on the roundend report.
+2023-03-28:
+  LT3:
+  - qol: Janitor access keys now show up on the Custodial Locator tablet app
+  - rscadd: Tram signs will now malfunction when the tram is malfunctioning
+  Rhials:
+  - rscadd: You can now vote to start a Mafia game early. If over half of the current
+      signups vote (And you have three or more players) you will immediately start
+      a game with a slightly adjusted set of roles.
+  - admin: You can now force a mafia game to start in the admin options panel.
+  TaleStationBot:
+  - rscadd: Bacteria rich moldy food (like breadslices and pizzaslices) now spawn
+      in trashcarts, trashbags and randomly on the floor.
+  - rscadd: Damp rag now spawns in the trashcarts and etc.
+  - balance: Increased Bonus Reward for kidnapping alive targets
+  - balance: Changed Virologist and Scientist into Common objectives for kidnapping
+  - balance: Changed Paramedic into Uncommon objectives for kidnapping
+  - admin: Fixed admin lua scripting on Windows-hosted servers running on beta version
+      515.1602 (the latest version as of this change)
+  - balance: You can no longer print Technology data disks. You can still print Tech
+      disks, which hold techweb information on it, just not the one that holds up
+      to 5 nodes.
+  - balance: ^ Because of this, there's no way to download nodes from an RD console
+      and upload them to an Autolathe to bypass departmental restrictions, you have
+      to go through a Techfab/Circuit imprinter for your needs.
+  - balance: Ones that are found cannot have anything uploaded/deleted off of them
+      either, you can only upload them to the Web.
+  - code_imp: Every individual Bepis disk no longer create an entire techweb
+  - rscadd: The Nanotrasen Costuming Department has released specifications for how
+      to convert the Head of Security's cap into a shako.
+  - bugfix: the roboticist in the prey pod now has clothes as intended
+  - bugfix: Moved the tank compressor and some tables and the anomaly refinery so
+      that the tank compressor could actually be usable again on Tramstation.
+  - rscadd: remakes the old escape pod shuttle
+  Wallem:
+  - balance: Fixes a glaring oversight with the entrenching tool's balancing.
+2023-03-29:
+  TaleStationBot:
+  - balance: The pirate gangs have been split into two subcategories, one which can
+      spawn earlier in a shift and one that spawns later as they currently do. While
+      skeleton pirates will still be only seen later into the shift, expect to see
+      the other pirate gangs earlier on.
+  - bugfix: Prevented the pirate event from runtiming when no possible pirate gangs
+      were available.
+  - bugfix: Pirates can no longer be selected by Dynamic if there are no more pirates
+      gangs that can be used.
+  - qol: Cult Roundend Report no longer lists post-summon cultists. No more 30 random
+      Harvesters clogging up the roundend report
+  - qol: you can choose your default paint color for the "Tagger" quirk from prefs.
+  - bugfix: ' Redesigns "the_arena" ( the bubblegum shuttle deathmatch area )'
+  - bugfix: Fixes a bunch of minor gravity bugs, report em if you see more yeah?
+2023-03-30:
+  LT3:
+  - bugfix: Reduced lighting range for idle fire alarms
+  Melbert:
+  - rscdel: Revert elevator panel UI theme change
+  TaleStationBot:
+  - balance: Curators/HoP can now manage Newscaster D-Notices (previously was Warden/HoS).
+  - balance: Security Officers/Detectives can now issue Wanted notices on Newscasters.
+  - balance: Ntos Newscaster now requires Library access only to download, not to
+      run.
+  - balance: Makes the syndicate sniper rifle a bolt-action rifle.
+  - balance: Sniper rifles have a scope range of roughly 50 tiles.
+  - balance: Sniper rifle ammo, if it dismembers your limbs, does damage to the chest.
+  - balance: All the various syndicate sniper rifle magazines have consistent casing
+      quantities (6 shots). They also have more consistent pricing. 3 for normal and
+      a box of surplus, and 4 for every other type.
+  - balance: Reduces the range of Marksman ammo to 50 tiles. Not because it is strong,
+      but because you might accidentally shoot yourself if you're not watching where
+      you're shooting. Ricochets are no joke.
+  - rscadd: Replaces Soporific with Disruptor ammo. Works like soporific, but also
+      EMPS things it hits.
+  - rscadd: Adds Incendiary .50 BMG. Causes a combustion to erupt from the struck
+      target, as well as setting targets on fire. Great for parties.
+  - rscadd: Adds Surplus .50 BMG. It sucks, but you get a lot of them! Quantity over
+      quality, baby.
+  - bugfix: Kilo's arrivals port will no longer be space colored
+  - bugfix: admin respawn character verb works properly
+  - bugfix: mafia games only grant role win achievements when played with a full 12-player
+      setup.
+  - imageadd: Resprites the Wirebrush
+  - imagedel: Removes the sprite for the Advanced Wirebrush
+  - bugfix: fixed disposals on the starfury
+  - bugfix: fixed flooring on the starfury
+  - bugfix: fixed missing air alarm on the starfury
+  - bugfix: fixed air turfs exposed to space on the starfury
+  - bugfix: Actually fixes re-attaching heads unintentionally sending brains to the
+      gem room this time. For realsies.
+  - rscdel: removes being cremated from high burn damage and being on fire (yes this
+      was in the game but has been broken for probably a very long time)
+  - code_imp: adds IS_TRAITOR macro
+  - bugfix: Pirates finally realized that they shouldn't risk life and limb attacking
+      stations if they had already paid them off.
+  - bugfix: 'The Syndicate have gotten their hands on the most dangerous weapon: A
+      photocopier that doesn''t require any money. God save us all.'
+  - bugfix: Experimentors can connect to techwebs that have at least one RD server
+      on the level.
+  Tattle:
+  - spellcheck: fixed a few typos, mostly around breathing
+2023-03-31:
+  SishTis:
+  - qol: Peacekeepers cyborgs don't get message about being confused while using harm
+      alarm
+  TaleStationBot:
+  - rscadd: re-added normal doors to qm's office on tram.
+  - bugfix: fixed hos' shutters not being existant on tram.
+  - rscadd: New VERB, Request Internet Sound, It is in the OOC tab and allows you
+      to request music from admins to play, by default only allows bandcamp, youtube,
+      and soundcloud links
+  - bugfix: Fixes the Admin Midi Widget UI to only present info that is available
+      to players to be seen
+  - admin: Play Internet Sound URL input is now TGUI
+  - admin: Play Internet Sound warns you if a song length is >10 Minutes
+  - admin: Added new mute type to mute internet sound requests from a player
+  - config: Added thee new config options, LOG_INTERNET_REQUEST, REQUEST_INTERNET_SOUND,
+      REQUEST_INTERNET_ALLOWED
+  - rscadd: "Ask your local bartender for the hottest drink of the year, the \"Pi\xF1\
+      a Olivada\"!"
+  - qol: You can rename and change the description of nanite/thermal pistols.
+  - rscadd: Adds a new space ruin, A Waystation under attack!
+  - bugfix: The hermit of the Icemoon has decided to build their hut in some deeper
+      caves for a bit more protection from the local fauna.
+  - bugfix: Suffocation-handling reagents work on all species once more.
+  - spellcheck: Added a previous tip for handling plasmaman suffocation back into
+      the game.
+  - rscadd: A new ruin has drifted into the horizon, the Mass driver router
+  - bugfix: NtNet receive/send circuits should work now.
+  - server: The starlight config has been removed, as it is enabled by default
+  - bugfix: cycler shotguns' inhand sprites will no longer float ominously by their
+      wielder's side
+  - bugfix: Fix Greytide Worldwide basketball stadium being able to explode from a
+      fuel tank
+  - rscadd: Added a new space ruin, the Atmos Asteroid!
+  - rscadd: Added a new emergency shuttle, the emergency_tranquility
+  - rscadd: the pod_crash.dmm ruin
+  - bugfix: Breathing pluoxium works again

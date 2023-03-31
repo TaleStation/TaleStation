@@ -31,7 +31,7 @@
 
 // Falling? Hurts!
 /mob/living/carbon/human/ZImpactDamage(turf/landing, levels)
-	var/obj/item/organ/external/wings/gliders = getorgan(/obj/item/organ/external/wings)
+	var/obj/item/organ/external/wings/gliders = get_organ_by_type(/obj/item/organ/external/wings)
 	var/has_wings = gliders?.can_soften_fall()
 	var/is_freerunner = HAS_TRAIT(src, TRAIT_FREERUNNING)
 	// If we're awake, a freerunner / winged, and are falling 1 level or less,
