@@ -580,8 +580,6 @@
 // The abandoned capsule 'The Traveler's Rest'
 /area/ruin/space/has_grav/travelers_rest
 	name = "\improper Traveler's Rest"
-<<<<<<< HEAD
-=======
 
 // Ruin of Derelict Construction
 /area/ruin/space/has_grav/derelictconstruction
@@ -614,4 +612,3 @@
 
 /area/ruin/space/has_grav/waystation/power
 	name = "Waystation Electrical"
->>>>>>> 886770063675e (New space ruin 'Derelict Construction' (#74308))
