@@ -34,6 +34,10 @@
 		/area/station/cargo/warehouse,
 		// maintenence areas are not required to be connected
 		/area/station/maintenance,
+		// NON-MODULAR CHANGES
+
+		// Area outside pubby chapel, doesn't need atmos
+		/area/station/service/chapel/asteroid/monastery,
 	)
 	for(var/ignored_type in ignored_areas)
 		station_areas_remaining -= typesof(ignored_type)
