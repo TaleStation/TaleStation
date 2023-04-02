@@ -36,6 +36,8 @@ excluded_files = [
     "code/_globalvars/*.dm",
     # TGS files come from another repository so lets not worry about them.
     "code/modules/tgs/**/*.dm",
+    # NON-MODULAR CHANGES: Exempt the master defines file
+    "code/___MODULAR_DEFINES/*.dm"
 ]
 
 define_regex = re.compile(r"#define\s?([A-Z0-9_]+)\(?(.+)\)?")
