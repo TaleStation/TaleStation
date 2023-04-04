@@ -194,6 +194,16 @@ GLOBAL_LIST_EMPTY(dug_up_basalt)
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	slowdown = 0
 
+<<<<<<< HEAD
+=======
+/// Exact subtype as parent, just used in ruins to prevent other ruins/chasms from spawning on top of it.
+/turf/open/misc/asteroid/snow/icemoon/do_not_chasm
+	turf_flags = CAN_BE_DIRTY_1 | IS_SOLID | NO_RUST | NO_RUINS
+
+/turf/open/misc/asteroid/snow/icemoon/do_not_scrape
+	turf_flags = CAN_BE_DIRTY_1 | IS_SOLID | NO_RUST | NO_CLEARING
+
+>>>>>>> 48183ec0ffd67 (Icemoon Hermit Ruin Active Turf Fix - For Real This Time (#74476))
 /turf/open/lava/plasma/ice_moon
 	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
 	baseturfs = /turf/open/lava/plasma/ice_moon
