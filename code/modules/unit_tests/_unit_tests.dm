@@ -182,6 +182,7 @@
 #include "reagent_recipe_collisions.dm"
 #include "reagent_transfer.dm"
 #include "resist.dm"
+#include "rev_conversion.dm"
 #include "say.dm"
 #include "screenshot_antag_icons.dm"
 #include "screenshot_basic.dm"
@@ -194,6 +195,7 @@
 #include "serving_tray.dm"
 //#include "simple_animal_freeze.dm" // NON-MODULAR REMOVAL: These is an upstream freeze we don't care about.
 #include "siunit.dm"
+#include "slime_mood.dm"
 #include "slips.dm"
 #include "spawn_humans.dm"
 #include "spawn_mobs.dm"
