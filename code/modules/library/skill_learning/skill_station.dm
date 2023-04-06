@@ -304,3 +304,6 @@
 				return TRUE
 			toggle_chip_active(to_be_removed)
 			return TRUE
+
+#undef SKILLCHIP_IMPLANT_TIME
+#undef SKILLCHIP_REMOVAL_TIME

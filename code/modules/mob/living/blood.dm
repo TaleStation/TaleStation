@@ -15,8 +15,6 @@
 
 	//Blood regeneration if there is some space
 	if(blood_volume < BLOOD_VOLUME_NORMAL && !HAS_TRAIT(src, TRAIT_NOHUNGER))
-	// NON-MODULAR CHANGES: Lizards
-		var/blood_multiplier = dna.species.blood_gain_multiplier
 		var/nutrition_ratio = 0
 		switch(nutrition)
 			if(0 to NUTRITION_LEVEL_STARVING)
@@ -32,8 +30,7 @@
 		if(satiety > 80)
 			nutrition_ratio *= 1.25
 		adjust_nutrition(-nutrition_ratio * HUNGER_FACTOR * delta_time)
-		// NON-MODULAR CHANGES: Lizards
-		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * blood_multiplier * delta_time), BLOOD_VOLUME_NORMAL)
+		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * delta_time), BLOOD_VOLUME_NORMAL)
 
 	// we call lose_blood() here rather than quirk/process() to make sure that the blood loss happens in sync with life()
 	if(HAS_TRAIT(src, TRAIT_BLOOD_DEFICIENCY))
@@ -312,8 +309,7 @@
 		"O-" = list("O-"),
 		"O+" = list("O-", "O+"),
 		"L" = list("L"),
-		"S" = list("S"), // NON-MODULAR CHANGES: S type blood
-		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U", "S") // NON-MODULAR CHANGES: S type blood
+		"U" = list("A-", "A+", "B-", "B+", "O-", "O+", "AB-", "AB+", "L", "U")
 	)
 
 	var/safe = bloodtypes_safe[bloodtype]
@@ -374,3 +370,5 @@
 	var/obj/effect/decal/cleanable/oil/B = locate() in T.contents
 	if(!B)
 		B = new(T)
+
+#undef BLOOD_DRIP_RATE_MOD
