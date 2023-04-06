@@ -85,8 +85,6 @@
 	base_lighting_alpha = 255
 
 	map_generator = /datum/map_generator/jungle_generator
-<<<<<<< HEAD
-=======
 
 /// This turf doesn't actually do anything beyond provide contrast for mappers and be very visible when stuff breaks in game. The actual areas are what drive cave generation.
 /turf/open/genturf
@@ -105,4 +103,3 @@
 	icon_state = "genturf_orange"
 
 #undef BIOME_RANDOM_SQUARE_DRIFT
->>>>>>> e1221c986f5da (Chasm Hell On Icebox - 300 Active Turfs on Prod Moment (#74410))
