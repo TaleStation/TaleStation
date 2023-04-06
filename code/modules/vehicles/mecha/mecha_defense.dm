@@ -204,7 +204,9 @@
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
-/obj/vehicle/sealed/mecha/attackby(obj/item/W, mob/user, params)
+/obj/vehicle/sealed/mecha/attackby(obj/item/W, mob/living/user, params)
+	if(user.combat_mode)
+		return ..()
 	if(istype(W, /obj/item/mmi))
 		if(mmi_move_inside(W,user))
 			to_chat(user, span_notice("[src]-[W] interface initialized successfully."))
@@ -293,9 +295,6 @@
 	log_combat(user, src, "attacked", attacking_item)
 	log_message("Attacked by [user]. Item - [attacking_item], Damage - [damage_taken]", LOG_MECHA)
 
-<<<<<<< HEAD
-/obj/vehicle/sealed/mecha/wrench_act(mob/living/user, obj/item/I)
-=======
 /obj/vehicle/sealed/mecha/attack_generic(mob/user, damage_amount, damage_type, damage_flag, effects, armor_penetration)
 	. = ..()
 	if(.)
@@ -313,7 +312,6 @@
 				. += span_notice("Use <b>interface</b> to eject stock parts from the mech.")
 
 /obj/vehicle/sealed/mecha/wrench_act(mob/living/user, obj/item/tool)
->>>>>>> b5ebf5c9423cb (Adds better parts for syndie mechs, some tooltips to mech maintenance mode and some little changes. (#74466))
 	..()
 	. = TRUE
 	if(construction_state == MECHA_SECURE_BOLTS)
