@@ -2,7 +2,7 @@
 	var/icon/lower_half = icon('icons/blanks/32x32.dmi', "nothing")
 
 	for (var/icon in icons)
-		lower_half.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', icon), ICON_OVERLAY) // NON-MODULAR CHANGES - Reverts back to our GS dmi
+		lower_half.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', icon), ICON_OVERLAY)
 
 	var/list/values = list()
 
@@ -95,13 +95,13 @@
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/undershirt/init_possible_values()
-	var/icon/body = icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_r_leg") // NON-MODULAR CHANGES START - Uses our GS dmi
-	body.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_l_leg"), ICON_OVERLAY)
-	body.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_r_arm"), ICON_OVERLAY)
-	body.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_l_arm"), ICON_OVERLAY)
-	body.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_r_hand"), ICON_OVERLAY)
-	body.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_l_hand"), ICON_OVERLAY)
-	body.Blend(icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_chest_m"), ICON_OVERLAY) // NON-MODULAR CHANGES END
+	var/icon/body = icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_r_leg")
+	body.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
+	body.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_r_arm"), ICON_OVERLAY)
+	body.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_l_arm"), ICON_OVERLAY)
+	body.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_r_hand"), ICON_OVERLAY)
+	body.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_l_hand"), ICON_OVERLAY)
+	body.Blend(icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_chest_m"), ICON_OVERLAY)
 
 	var/list/values = list()
 
