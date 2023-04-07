@@ -4,7 +4,8 @@
 ## Allow players to OOCly vote for a shuttle call after a certain amount of time
 #ALLOW_VOTE_TRANSFER
 
-## Whether or not transfer votes are automatically called at [TRANSFER_TIME_MIN_ALLOWED] and every [TRANSFER_TIME_BETWEEN_AUTO_VOTES] after.
+## Comment out to turn on or off automatic transfer vote
+## Based on [TRANSFER_TIME_MIN_ALLOWED] and every [TRANSFER_TIME_BETWEEN_AUTO_VOTES] after
 TRANSFER_AUTO_VOTE_ENABLED
 
 ## Minimum shift length allowed before transfer votes are enabled. Also when auto transfer votes begin, if enabled. (default 54000 = 1.5 hours)
@@ -13,8 +14,15 @@ TRANSFER_TIME_MIN_ALLOWED 54000
 ## Amount of time between automatic transfer votes. (default 18000 = 30 minutes)
 TRANSFER_TIME_BETWEEN_AUTO_VOTES 18000
 
+## Message that gets displayed when the transfer vote passes
+TRANSFER_CALL_REASON "Crew transfer vote successful, dispatching shuttle for shift change."
+
+## Comment to disable resetting pixel shifting on movement
+## If enabled, the pixel shift will be preserved when someone moves
+#PIXELSHIFT_TOGGLE_ALLOW
+
 ## Server tagline: This will appear right below the server's title.
-# SERVERTAGLINE A generic TG-based server
+#SERVERTAGLINE A generic TG-based server
 
 ## Discord Link: This is the link to TaleStations's discord server
-# DISCORD_LINK https://discord.gg/hYDcGH9VXA
+#DISCORD_LINK https://discord.gg/24Q2rKzgR3
