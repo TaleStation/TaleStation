@@ -82,10 +82,6 @@
 	. = ..()
 	set_on_table()
 
-/obj/machinery/microwave/set_anchored(anchorvalue)
-	. = ..()
-	set_on_table()
-
 /obj/machinery/microwave/RefreshParts()
 	. = ..()
 	efficiency = 0

@@ -26,5 +26,5 @@
 	vary = TRUE
 
 /datum/emote/living/alien/roar/get_sound(mob/living/user)
-	if(isalienhumanoid(user))
+	if(isalienadult(user))
 		return 'sound/voice/hiss5.ogg'

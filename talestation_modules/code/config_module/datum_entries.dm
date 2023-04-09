@@ -27,3 +27,11 @@
 /// Config entry for allowing pixelshift
 /datum/config_entry/flag/pixelshift_toggle_allow
 	default = FALSE
+
+/// Config entry for servers tag line that appears next to the server name
+/datum/config_entry/string/servertagline
+	config_entry_value = "We forgot to set the server's tagline in config.txt"
+
+// Config entry for the associated discord link
+/datum/config_entry/string/discord_link
+	config_entry_value = "We forgot to set the server's discord link in config.txt"

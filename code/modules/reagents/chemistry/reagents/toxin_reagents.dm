@@ -73,7 +73,7 @@
 		return
 
 	mytray.mutation_roll(user)
-	
+
 	mytray.adjust_toxic(3) //It is still toxic, mind you, but not to the same degree.
 
 #define LIQUID_PLASMA_BP (50+T0C)
