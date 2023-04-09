@@ -19,6 +19,8 @@
 	. = .. ()
 	C.mob_surgery_speed_mod += 0.50
 	C.remove_client_colour(/datum/client_colour/monochrome/lizard)
+	UnregisterSignal(C, COMSIG_CARBON_GAIN_ORGAN, .proc/on_gained_organ)
+	UnregisterSignal(C, COMSIG_CARBON_LOSE_ORGAN, .proc/on_removed_organ)
 	return ..()
 
 // Organs and functions
