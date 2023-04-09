@@ -84,6 +84,10 @@
 		/obj/item/circuit_component/reflector,
 	))
 
+	AddComponent(/datum/component/usb_port, list(
+		/obj/item/circuit_component/reflector,
+	))
+
 /obj/structure/reflector/examine(mob/user)
 	. = ..()
 	if(finished)

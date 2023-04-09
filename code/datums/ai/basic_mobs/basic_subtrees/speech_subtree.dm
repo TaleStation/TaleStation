@@ -58,16 +58,6 @@
 	emote_hear = list("bleats.")
 	emote_see = list("shakes her head.", "stares into the distance.")
 
-/datum/ai_planning_subtree/random_speech/mothroach
-	speech_chance = 15
-	emote_hear = list("flutters.")
-
-/datum/ai_planning_subtree/random_speech/sheep
-	speech_chance = 5
-	speak = list("baaa","baaaAAAAAH!","baaah")
-	emote_hear = list("bleats.")
-	emote_see = list("shakes her head.", "stares into the distance.")
-
 /datum/ai_planning_subtree/random_speech/rabbit
 	speech_chance = 10
 	speak = list("Mrrp.", "CHIRP!", "Mrrp?") // rabbits make some weird noises dude i don't know what to tell you

@@ -515,3 +515,4 @@ GLOBAL_VAR_INIT(nt_fax_department, pick("NT HR Department", "NT Legal Department
 		return CONTEXTUAL_SCREENTIP_SET
 
 	return .
+

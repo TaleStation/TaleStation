@@ -58,6 +58,7 @@ export const MedicalRecordView = (props, context) => {
             <Button.Confirm
               content="Delete"
               icon="trash"
+              disabled={!station_z}
               onClick={() => act('expunge_record', { crew_ref: crew_ref })}
               tooltip="Expunge record data."
             />
