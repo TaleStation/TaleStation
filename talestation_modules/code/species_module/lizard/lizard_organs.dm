@@ -85,4 +85,3 @@
 	if(!istype(tongue) || tongue.taste_sensitivity > LIZARD_TASTE_SENSITIVITY)
 		return
 	unceiver.add_client_colour(/datum/client_colour/monochrome/lizard)
-
