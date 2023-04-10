@@ -26,6 +26,12 @@
 	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, PROC_REF(try_apply_to_limb))
 	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(get_examine_text))
 
+/datum/element/temperature_pack/Detach(obj/item/target, pain_heal_rate = 0, pain_modifier_on_limb = 1, temperature_change = 0)
+	. = ..()
+	
+	UnregisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, PROC_REF(try_apply_to_limb))
+	UnregisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(get_examine_text))
+
 /*
  * Edit the examine text to show the item can be used as a temperature pack.
  */

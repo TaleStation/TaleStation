@@ -63,6 +63,12 @@
 		RegisterSignal(thing, COMSIG_PARENT_EXAMINE, PROC_REF(hint_at))
 	RegisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE, PROC_REF(examine))
 
+/datum/element/unique_examine/Detach(atom/thing, desc, requirement = EXAMINE_CHECK_NONE, requirement_list, affiliation, hint = TRUE, real_name = "")
+	. = ..()
+
+	UnregisterSignal(thing, COMSIG_PARENT_EXAMINE, PROC_REF(hint_at))
+	UnregisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE, PROC_REF(examine))
+
 /datum/element/unique_examine/proc/hint_at(datum/source, mob/examiner)
 	if(ismob(source))
 		thing = "creature"
