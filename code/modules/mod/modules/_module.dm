@@ -77,7 +77,7 @@
 		return
 	if(module_type != MODULE_USABLE)
 		if(active)
-			on_deactivation(display_message = TRUE)
+			on_deactivation()
 		else
 			on_activation()
 	else
@@ -177,13 +177,8 @@
 /// Called on the MODsuit's process
 /obj/item/mod/module/proc/on_process(seconds_per_tick)
 	if(active)
-<<<<<<< HEAD
-		if(!drain_power(active_power_cost * delta_time))
-			on_deactivation(display_message = TRUE)
-=======
 		if(!drain_power(active_power_cost * seconds_per_tick))
 			on_deactivation()
->>>>>>> 4c48966ff8091 (Renames delta time to be a more obvious name (#74654))
 			return FALSE
 		on_active_process(seconds_per_tick)
 	else
