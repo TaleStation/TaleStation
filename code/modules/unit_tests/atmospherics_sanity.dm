@@ -106,56 +106,6 @@
 		else
 			TEST_NOTICE(src, "Disconnected Area '[missed]'([missed.type]) with no turfs?")
 
-<<<<<<< HEAD
-	var/list/ignored_areas = list(
-		// external
-		/area/station/solars,
-		// SPAAACE
-		/area/station/maintenance/space_hut,
-		// where the bombs get sent for ordance
-		/area/station/science/ordnance/bomb,
-		// holodeck
-		/area/station/holodeck/rec_center,
-		// pretty obvious
-		/area/station/engineering/supermatter,
-		// self contained
-		/area/station/tcommsat/server,
-		// not really sure why this is a station area
-		/area/station/asteroid,
-		// in the middle of space, for some reason
-		/area/station/commons/vacant_room,
-		/area/station/science/ordnance/freezerchamber,
-		// on kilo station in specific this is off in space
-		/area/station/cargo/warehouse,
-		// maintenence areas are not required to be connected
-		/area/station/maintenance,
-		// NON-MODULAR CHANGES
-
-		// Area outside pubby chapel, doesn't need atmos
-		/area/station/service/chapel/asteroid/monastery,
-	)
-	for(var/ignored_type in ignored_areas)
-		station_areas_remaining -= typesof(ignored_type)
-
-	var/list/start_areas = list(
-		// arrivals
-		/area/station/hallway/secondary/entry,
-		// xenobio
-		/area/station/science/xenobiology,
-		// viro
-		/area/station/medical/virology,
-		// ai satt
-		/area/station/ai_monitored/turret_protected/ai,
-	)
-	for(var/area/start_area as anything in start_areas)
-		var/area/area_instance = GLOB.areas_by_type[start_area]
-		if(isnull(area_instance))
-			continue
-		crawl_area(GLOB.areas_by_type[start_area])
-
-	for(var/area/missed as anything in station_areas_remaining)
-		TEST_FAIL("Area Type [missed] was not connected to the atmospherics network")
-=======
 /// Iterates over starting_areas and ensures that all goal areas are connected to atleast one start
 /datum/unit_test/atmospherics_sanity/proc/crawl_areas()
 	crawled_areas = list()
@@ -163,7 +113,6 @@
 		ASYNC
 			crawl_area(start_area)
 	starting_areas = null
->>>>>>> f024f54baad09 (Convert Atmos Sanity to use Landmarks (#74454))
 
 /// Crawls through an area, iterating over all vents/scrubbers and their connected pipelines
 /datum/unit_test/atmospherics_sanity/proc/crawl_area(area/the_area)
