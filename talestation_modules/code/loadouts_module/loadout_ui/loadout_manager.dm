@@ -221,6 +221,8 @@
 /datum/loadout_manager/proc/cleanup_greyscale_menu(datum/source)
 	SIGNAL_HANDLER
 
+	UnregisterSignal(menu, COMSIG_PARENT_PREQDELETED)
+
 	menu = null
 
 /// Sets [category_slot]'s greyscale colors to the colors in the currently opened [open_menu].
