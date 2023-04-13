@@ -19,6 +19,8 @@
 	. = .. ()
 	C.mob_surgery_speed_mod += 0.50
 	C.remove_client_colour(/datum/client_colour/monochrome/lizard)
+	UnregisterSignal(C, COMSIG_CARBON_GAIN_ORGAN)
+	UnregisterSignal(C, COMSIG_CARBON_LOSE_ORGAN)
 	return ..()
 
 // Organs and functions
@@ -83,4 +85,3 @@
 	if(!istype(tongue) || tongue.taste_sensitivity > LIZARD_TASTE_SENSITIVITY)
 		return
 	unceiver.add_client_colour(/datum/client_colour/monochrome/lizard)
-
