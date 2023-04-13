@@ -43,7 +43,7 @@
 
 		var/client_is_in_db = query_client_in_db.NextRow()
 		if(!client_is_in_db)
-			
+
 			var/reject_message = "Failed Login: [ckey] [address]-[computer_id] - New Account attempting to connect during panic bunker, but was rejected due to no prior connections to game servers (no database entry)"
 			log_access(reject_message)
 			if (message)
@@ -59,13 +59,8 @@
 					message_admins(span_adminnotice("The admin [ckey] has been allowed to bypass the whitelist"))
 					addclientmessage(ckey,span_adminnotice("You have been allowed to bypass the whitelist"))
 			else
-<<<<<<< HEAD
-				log_access("Failed Login: [key] - Not on whitelist")
-				return list("reason"="whitelist", "desc" = "\nReason: You must be whitelisted to play here. To whitelist, apply on our Discord; discord.gg/24Q2rKzgR3") // NON-MODULAR CHANGES: Yeah I don't know chief
-=======
 				log_access("Failed Login: [ckey] - Not on whitelist")
-				return list("reason"="whitelist", "desc" = "\nReason: You are not on the white list for this server")
->>>>>>> eab953bc0efc7 (Failed logins should log the ckey, not the key (#74649))
+				return list("reason"="whitelist", "desc" = "\nReason: You must be whitelisted to play here. To whitelist, apply on our Discord; discord.gg/24Q2rKzgR3") // NON-MODULAR CHANGES: Changes whitelist message
 
 	//Guest Checking
 	if(!real_bans_only && !C && is_guest_key(key))
