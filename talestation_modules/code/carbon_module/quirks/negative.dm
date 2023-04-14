@@ -15,7 +15,7 @@
 /datum/quirk/pain_vulnerability
 	name = "Hyperalgesia"
 	desc = "You're less resistant to pain - Your pain naturally decreases slower and you receive more overall."
-	icon = "user-injured"
+	icon = FA_ICON_USER_INJURED
 	value = -6
 	gain_text = span_danger("You feel sharper.")
 	lose_text = span_notice("You feel duller.")
@@ -35,7 +35,7 @@
 /datum/quirk/allodynia
 	name = "Allodynia"
 	desc = "Your nerves are extremely sensitive - you may receive pain from things that wouldn't normally be painful, such as hugs."
-	icon = "tired"
+	icon = FA_ICON_TIRED
 	value = -10
 	gain_text = span_danger("You feel fragile.")
 	lose_text = span_notice("You feel less delicate.")
