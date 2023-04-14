@@ -8,13 +8,13 @@
 	glass_price = DRINK_PRICE_MEDIUM
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/consumable/green_tea/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.adjust_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
-	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/drowsiness)
-	M.adjust_timed_status_effect(-6 SECONDS * REM * delta_time, /datum/status_effect/jitter)
-	M.AdjustSleeping(-20 * REM * delta_time)
+/datum/reagent/consumable/green_tea/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	M.adjust_timed_status_effect(-4 SECONDS * REM * seconds_per_tick, /datum/status_effect/dizziness)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * seconds_per_tick, /datum/status_effect/drowsiness)
+	M.adjust_timed_status_effect(-6 SECONDS * REM * seconds_per_tick, /datum/status_effect/jitter)
+	M.AdjustSleeping(-20 * REM * seconds_per_tick)
 	M.adjustToxLoss(-0.5, 0) //the major difference between base tea and green tea, this one's a great anti-tox.
-	M.adjust_bodytemperature(20 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, 0, M.get_body_temp_normal())
+	M.adjust_bodytemperature(20 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick, 0, M.get_body_temp_normal())
 	..()
 	. = TRUE
 
@@ -43,12 +43,12 @@
 	name = "iced green tea"
 	desc = "A delicious beverage for any time of the year. Much better with a lot of sugar." //Now THIS is actually a hint, as sugar rush turns it into Green Hill Tea.
 
-/datum/reagent/consumable/icetea/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.adjust_timed_status_effect(-4 SECONDS * REM * delta_time, /datum/status_effect/dizziness)
-	M.adjust_timed_status_effect(-2 SECONDS * REM * delta_time, /datum/status_effect/drowsiness)
-	M.AdjustSleeping(-40 * REM * delta_time)
+/datum/reagent/consumable/icetea/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	M.adjust_timed_status_effect(-4 SECONDS * REM * seconds_per_tick, /datum/status_effect/dizziness)
+	M.adjust_timed_status_effect(-2 SECONDS * REM * seconds_per_tick, /datum/status_effect/drowsiness)
+	M.AdjustSleeping(-40 * REM * seconds_per_tick)
 	M.adjustToxLoss(-0.5, 0)
-	M.adjust_bodytemperature(-5 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, M.get_body_temp_normal())
+	M.adjust_bodytemperature(-5 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick, M.get_body_temp_normal())
 	..()
 	. = TRUE
 
@@ -78,13 +78,13 @@
 	L.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/green_hill_tea)
 	..()
 
-/datum/reagent/consumable/green_hill_tea/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	M.AdjustSleeping(-40 * REM * delta_time)
-	M.adjust_bodytemperature(-5 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * delta_time, M.get_body_temp_normal())
+/datum/reagent/consumable/green_hill_tea/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
+	M.AdjustSleeping(-40 * REM * seconds_per_tick)
+	M.adjust_bodytemperature(-5 * REM * TEMPERATURE_DAMAGE_COEFFICIENT * seconds_per_tick, M.get_body_temp_normal())
 	..()
 	. = TRUE
 
-/datum/reagent/consumable/green_hill_tea/overdose_process(mob/living/M, delta_time, times_fired)
+/datum/reagent/consumable/green_hill_tea/overdose_process(mob/living/M, seconds_per_tick, times_fired)
 	if(!ishuman(M))
 		return
 

@@ -34,7 +34,7 @@
 		if(50 to 100)
 			. += span_alert("The anomaly pulsates heavily, about to burst with unearthly energy. This can't be good.")
 
-/obj/effect/anomaly/ectoplasm/anomalyEffect(delta_time)
+/obj/effect/anomaly/ectoplasm/anomalyEffect(seconds_per_tick)
 	. = ..()
 
 	if(override_ghosts)
@@ -147,9 +147,9 @@
 	START_PROCESSING(SSobj, src)
 	INVOKE_ASYNC(src, PROC_REF(make_ghost_swarm), candidate_list)
 	playsound(src, pick(spooky_noises), 100, TRUE)
-	QDEL_IN(src, 2 MINUTES)
+	QDEL_IN(WEAKREF(src), 2 MINUTES)
 
-/obj/structure/ghost_portal/process(delta_time)
+/obj/structure/ghost_portal/process(seconds_per_tick)
 	. = ..()
 
 	if(prob(5))
