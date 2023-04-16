@@ -75,7 +75,11 @@ const GasList = (props, context) => {
           </>
         }>
         <Button
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/Hypertorus/Gases.js
           disabled={data.start_power === 0 || data.start_cooling === 0}
+=======
+          disabled={start_power === 0 || start_cooling === 0}
+>>>>>>> 5717e6a3c5902 (Fixes two atmos UI's [NO GBP] (#74763)):tgui/packages/tgui/interfaces/Hypertorus/Gases.tsx
           icon={data[input_switch] ? 'power-off' : 'times'}
           content={data[input_switch] ? 'On' : 'Off'}
           selected={data[input_switch]}
