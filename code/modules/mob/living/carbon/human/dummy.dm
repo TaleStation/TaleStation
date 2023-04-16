@@ -98,14 +98,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = "None"
 	target.dna.features["tail_lizard"] = "Smooth"
 	target.dna.features["pod_hair"] = "Ivy"
-	// NON-MODULAR CHANGES: Modular dna.features
-	target.dna.features["head_tentacles"] = "Long"
-	target.dna.features["tajaran_snout"] = "Long"
-	target.dna.features["tajaran_body_markings"] = "Default"
-	target.dna.features["avian_beak"] = "Short"
-	target.dna.features["avian_tail"] = "Wide"
-	target.dna.features["avian_talon_l"] = "Left Plantigrade Talon"
-	target.dna.features["avian_talon_r"] = "Right Plantigrade Talon"
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent
