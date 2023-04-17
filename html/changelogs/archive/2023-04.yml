@@ -416,3 +416,67 @@
   vinylspiders:
   - bugfix: fixes a runtime that can occur if a circuit floor gets changed into something
       else.
+2023-04-17:
+  Jolly:
+  - bugfix: The pathing for the "Mimes vs Clowns" space ruin should be fixed internally.
+      Whether you see this or not is depended on your server operator(s).
+  LT3:
+  - config: Station shift start time can now be set in the server config
+  Synclt21:
+  - refactor: 'remove unused turf var inside wallmount procs fix: broken rack sprite
+      inside RCD UI'
+  - bugfix: 'mounted RCD now lays plating over chasms and open turfs /:cl:'
+  TaleStationBot:
+  - bugfix: fixes hostile mobs sometimes being able to target an atom that has been
+      marked for deletion and then becoming confused, and in a similar vein fixes
+      mobs sometimes still running their AI while being marked for deletion.
+  - refactor: Refactored navigational beacons, making them constructable, deconstructable,
+      and generally easier to use
+  - balance: Makes Black Market Uplinks more easily craftable, adds them to uncommon
+      maint loot pool
+  - code_imp: Cleanup 1 letter var names in martial arts files
+  - bugfix: Fixed warning messages
+  - rscadd: Added a nukeops victory state for failing to nuke the station, but somehow
+      hijacking the shuttle.
+  - qol: added fifty stack versions of remaining glass sheet stacks for ease of debugging
+  - refactor: refactored sheet crafting to better support directional constructions
+      that aren't windows
+  - bugfix: death squad officer outfit works
+  - bugfix: slapper is visible in-hand again.
+  - bugfix: Interdyne and Syn-C Brutus ruins no longer runtime on initializing.
+  - bugfix: Interdyne's smes is now properly wired to the apc.
+  - bugfix: Eigenstasium lockers no longer bypass teleport protection
+  - code_imp: Space Bats are now Basic mobs.
+  - balance: Nitrous oxide, the reagent, increases bleed rate from wounds rather than
+      directly subtracting blood. It can be counteracted using coagulants (such as
+      those in epipens).
+  - balance: Heparin purges coagulants. You have to remove heparin from someone's
+      system before you can use coagulants.
+  - bugfix: fixes lava not cleaning up the permanently on fire trait
+  - bugfix: null client error for balloon alert when toggling the electrolyser on/off
+      via the UI
+  - bugfix: a pirate shipmate aboard the pirate cutter has found their lost energy
+      cutlass
+  - bugfix: 'icebox: patched up some holes underneath the vent doors in science burn
+      room'
+  - bugfix: Renault and other simple animals are now correctly fireproof.
+  - admin: Added a SpinAnimation option for all atoms in the View-Variables drop-down
+      menu
+  - admin: Added a button to stop all animations right next to the SpinAnimation option
+      in the View-Variables drop-down menu
+  - qol: text that appears when you dont have an uplink in the traitor panel now tells
+      you the codes for your replacement uplink
+  - imageadd: Hydroponics trays now have pollen particles that they generate when
+      they share stats and chems. Non-allergenic!
+  - balance: Engineer Borgs now have a tool to manipulate material stacks (and also
+      tile stacks). This replaces the R-Glass tool.
+  - qol: Ghosts are now notified and given an orbit popup for the Stray Cargo Pod
+      random event.
+  - admin: Admins can now control the spawn location, potency, production and starting
+      mutations of the space vines event.
+  - bugfix: The space vine event will now correctly give vines mutations when they
+      spawn rather than always being mutation free.
+  - code_imp: Checkbox tgui inputs now support setting a minimum number of inputs
+      rather than it being hardcoded to 1.
+  Vect0r:
+  - balance: The blowgun no longer takes time to windup before you can shoot it.
