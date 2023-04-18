@@ -303,10 +303,6 @@
 					return
 				qdel(target)
 		if(MODE_WALL)
-<<<<<<< HEAD
-			if(isspaceturf(target))
-				var/turf/open/space/S = target
-=======
 			if(isfloorturf(target))
 				var/turf/open/floor/floor_turf = target
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Wall...")]")
@@ -315,21 +311,10 @@
 				floor_turf.PlaceOnTop(/turf/closed/wall)
 			else if(isopenturf(target))
 				var/turf/open/open_turf = target
->>>>>>> 2cced93441da7 ([NO GBP]Type cast, Var names, UI refactors for RCD stuff (#74660))
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Floor...")]")
 				if(!do_after_cooldown(open_turf, source))
 					return
-<<<<<<< HEAD
-				S.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-			else if(isfloorturf(target))
-				var/turf/open/floor/F = target
-				to_chat(source, "[icon2html(src, source)][span_notice("Building Wall...")]")
-				if(!do_after_cooldown(F, source))
-					return
-				F.PlaceOnTop(/turf/closed/wall)
-=======
 				open_turf.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
->>>>>>> 2cced93441da7 ([NO GBP]Type cast, Var names, UI refactors for RCD stuff (#74660))
 		if(MODE_AIRLOCK)
 			if(isfloorturf(target))
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Airlock...")]")
