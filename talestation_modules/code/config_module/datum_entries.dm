@@ -32,6 +32,10 @@
 /datum/config_entry/string/servertagline
 	config_entry_value = "We forgot to set the server's tagline in config.txt"
 
-// Config entry for the associated discord link
+/// Config entry for the associated discord link
 /datum/config_entry/string/discord_link
 	config_entry_value = "We forgot to set the server's discord link in config.txt"
+
+/// Config entry for Discord server role
+// No default value
+/datum/config_entry/string/ping_role_id
