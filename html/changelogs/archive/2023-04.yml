@@ -612,3 +612,31 @@
   iain0:
   - bugfix: Fixes an error in health analyzers which would cut off the top of the
       health scan if the player was deaf.
+2023-04-22:
+  Jolly:
+  - rscdel: Deleted the old avian talons and associated prefs.
+  - refactor: Instead, the code was refactored to not be awful to look at, and improved
+      from a players POV.
+  Melbert:
+  - bugfix: AIs now get their proper lawset, and an objective related to said lawset,
+      on Nations
+  TaleStationBot:
+  - qol: IV drip flow rate can be changed without the container or object attached
+  - bugfix: IV drip animation states fixed
+  - qol: the rescue hook has a much greater chance at catching actual fallen player
+      bodies as opposed to generic skeletons/other npc corpses
+  - bugfix: Removed extra messaging server in North Star tcomms
+  - rscadd: Burning items are now actually considered to be at a minimum, 150 degrees
+      celsius by the game.
+  - config: database configs have been updated for better control over the connection
+      pool
+  - server: BSQL_THREAD_LIMIT has been renamed to POOLING_MAX_SQL_CONNECTIONS, old
+      configs will whine but still work.
+  - bugfix: fixed rare race condition that could lead to a sql query being ran twice
+      during world shutdown.
+  - bugfix: traitor objective posters will no longer be able to spawn from general
+      random poster spawners.
+  - qol: Thermited walls now get an examine message telling you they are, in fact,
+      thermited.
+  Tattle:
+  - soundadd: increased the volume of the clownana rustle
