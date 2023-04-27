@@ -12,7 +12,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	in_use = FALSE
 	return ..()
 
-/mob/living/carbon/human/dummy/Life(delta_time = SSMOBS_DT, times_fired)
+/mob/living/carbon/human/dummy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	return
 
 /mob/living/carbon/human/dummy/attach_rot(mapload)
@@ -104,8 +104,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tajaran_body_markings"] = "Default"
 	target.dna.features["avian_beak"] = "Short"
 	target.dna.features["avian_tail"] = "Wide"
-	target.dna.features["avian_talon_l"] = "Left Plantigrade Talon"
-	target.dna.features["avian_talon_r"] = "Right Plantigrade Talon"
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent

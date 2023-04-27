@@ -28,14 +28,32 @@
 	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 
+/obj/item/bodypart/leg/left/avian/Initialize()
+	. = ..()
+
+	// Adds talons
+	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_l_planti())
+
 /obj/item/bodypart/leg/right/avian
 	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
+
+/obj/item/bodypart/leg/right/avian/Initialize()
+	. = ..()
+
+	// Adds talons
+	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_r_planti())
 
 /obj/item/bodypart/leg/left/avian/digitigrade/avian
 	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
+
+/obj/item/bodypart/leg/left/avian/digitigrade/avian/Initialize()
+	. = ..()
+
+	// Adds talons
+	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_l_digi())
 
 /obj/item/bodypart/leg/left/avian/digitigrade/avian/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
@@ -58,6 +76,12 @@
 	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
+
+/obj/item/bodypart/leg/right/avian/digitigrade/avian/Initialize()
+	. = ..()
+
+	// Adds talons
+	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_r_digi())
 
 /obj/item/bodypart/leg/right/avian/digitigrade/avian/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
@@ -96,3 +120,26 @@
 			new_part.replace_limb(target, TRUE)
 			new_part.update_limb(is_creating = TRUE)
 			qdel(old_part)
+
+// Overlays talons for legs
+/// Overlay for planti talons
+/datum/bodypart_overlay/simple/avian_talon_l_planti
+	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon_state = "avian_talon_l_planti"
+	layers = EXTERNAL_ADJACENT
+
+/datum/bodypart_overlay/simple/avian_talon_r_planti
+	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon_state = "avian_talon_r_planti"
+	layers = EXTERNAL_ADJACENT
+
+/// Overlay for digi talons
+/datum/bodypart_overlay/simple/avian_talon_l_digi
+	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon_state = "avian_talon_l_digi"
+	layers = EXTERNAL_ADJACENT
+
+/datum/bodypart_overlay/simple/avian_talon_r_digi
+	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon_state = "avian_talon_r_digi"
+	layers = EXTERNAL_ADJACENT
