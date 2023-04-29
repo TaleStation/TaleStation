@@ -1000,8 +1000,8 @@ SUBSYSTEM_DEF(job)
 	desc = "Proof that you have been approved for Captaincy, with all its glory and all its horror."
 
 /obj/item/paper/fluff/spare_id_safe_code/Initialize(mapload)
-	var/safe_code = SSid_access.spare_id_safe_code
-	default_raw_text = "Captain's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
+	var/safe_code = SSid_access.spare_id_safe_code // NON-MODULAR CHANGES: Overriding this doesn't work
+	default_raw_text = "Site Director's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
 	return ..()
 
 /obj/item/paper/fluff/emergency_spare_id_safe_code
@@ -1009,8 +1009,8 @@ SUBSYSTEM_DEF(job)
 	desc = "Proof that nobody has been approved for Captaincy. A skeleton key for a skeleton shift."
 
 /obj/item/paper/fluff/emergency_spare_id_safe_code/Initialize(mapload)
-	var/safe_code = SSid_access.spare_id_safe_code
-	default_raw_text = "Captain's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge."
+	var/safe_code = SSid_access.spare_id_safe_code // NON-MODULAR CHANGES: Overriding this doesn't work
+	default_raw_text = "Site Director's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge."
 	return ..()
 
 /datum/controller/subsystem/job/proc/promote_to_captain(mob/living/carbon/human/new_captain, acting_captain = FALSE)

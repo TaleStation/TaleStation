@@ -6,20 +6,9 @@
 /obj/item/paper/fluff/spare_id_safe_code
 	desc = "Proof that you have been approved for temporary leadership, with all its glory and all its horror."
 
-// Changes default raw text
-/obj/item/paper/fluff/spare_id_safe_code/Initialize(mapload)
-	var/safe_code = SSid_access.spare_id_safe_code
-	default_raw_text = "Site Director's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
-	return ..()
-
 // Changes emergency spare desc
 /obj/item/paper/fluff/emergency_spare_id_safe_code
 	desc = "Proof that nobody has been approved for temporary leadership. A skeleton key for a skeleton shift."
-
-/obj/item/paper/fluff/emergency_spare_id_safe_code/Initialize(mapload)
-	var/safe_code = SSid_access.spare_id_safe_code
-	default_raw_text = "Site Director's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge."
-	return ..()
 
 // Changes captain ian stuff
 /datum/dog_fashion/head/captain
