@@ -10,28 +10,9 @@
 
 #define DEFAULT_HEIGHT "Medium (Default)"
 
-/datum/preference/choiced/mob_height/deserialize(value, datum/preference/choiced/mob_height/mob_height, character_height)
-	if (value in mob_height.old_height_values)
-		return closet_height(value)
-
-	return ..(value)
-
-/datum/preference/choiced/mob_height/proc/closet_height(character_height)
-	switch (character_height)
-		if("Extremely Large")
-			return HUMAN_HEIGHT_TALLEST
-		if("Very Large")
-			return HUMAN_HEIGHT_TALLEST
-		if("Large")
-			return HUMAN_HEIGHT_TALL
-		if("Average Size (Default)")
-			return HUMAN_HEIGHT_MEDIUM
-		if("Small")
-			return HUMAN_HEIGHT_SHORT
-		if("Very Small")
-			return HUMAN_HEIGHT_SHORTEST
-		if("Extremely Small")
-			return HUMAN_HEIGHT_SHORTEST
+// Originally I wanted to do a prefs conversion, but I don't know how to do it
+// And it wouldn't be relevant later anyhow
+// Refer to #5053 if you wanna see how it was going
 
 /datum/preference/choiced/mob_height
 	savefile_key = "character_height_modern"
