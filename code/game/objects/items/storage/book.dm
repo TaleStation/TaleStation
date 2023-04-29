@@ -186,6 +186,9 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 		playsound(src.loc, SFX_PUNCH, 25, TRUE, -1)
 		log_combat(user, M, "attacked", src)
 
+/obj/item/storage/book/bible/attackby_storage_insert(datum/storage, atom/storage_holder, mob/user)
+	return !istype(storage_holder, /obj/item/storage/book/bible)
+
 /obj/item/storage/book/bible/afterattack(atom/bible_smacked, mob/user, proximity)
 	. = ..()
 	if(!proximity)
@@ -266,6 +269,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	attack_verb_simple = list("attack", "burn", "bless", "damn", "scorch")
 	item_flags = NO_BLOOD_ON_ITEM
 	var/uses = 1
+	var/ownername
 
 /obj/item/storage/book/bible/syndicate/attack_self(mob/living/carbon/human/H)
 	if (uses)
@@ -275,8 +279,12 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 		playsound(src.loc, 'sound/effects/snap.ogg', 50, TRUE)
 		H.apply_damage(5, BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
 		to_chat(H, span_notice("Your name appears on the inside cover, in blood."))
-		var/ownername = H.real_name
-		desc += span_warning("The name [ownername] is written in blood inside the cover.")
+		ownername = H.real_name
+
+/obj/item/storage/book/bible/syndicate/examine(mob/user)
+	. = ..()
+	if(ownername)
+		. += span_warning("The name [ownername] is written in blood inside the cover.")
 
 /obj/item/storage/book/bible/syndicate/attack(mob/living/M, mob/living/carbon/human/user, heal_mode = TRUE)
 	if (!user.combat_mode)

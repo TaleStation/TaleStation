@@ -42,6 +42,8 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 
 #define isfloorturf(A) (istype(A, /turf/open/floor))
 
+#define ismiscturf(A) (istype(A, /turf/open/misc))
+
 #define isclosedturf(A) (istype(A, /turf/closed))
 
 #define isindestructiblewall(A) (istype(A, /turf/closed/indestructible))
@@ -97,8 +99,6 @@ GLOBAL_LIST_INIT(turfs_openspace, typecacheof(list(
 
 //More carbon mobs
 #define isalien(A) (istype(A, /mob/living/carbon/alien))
-
-#define isalienhumanoid(A) (istype(A, /mob/living/carbon/alien/humanoid))
 
 #define islarva(A) (istype(A, /mob/living/carbon/alien/larva))
 

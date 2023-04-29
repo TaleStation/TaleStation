@@ -120,7 +120,7 @@
 	if(default_deconstruction_screwdriver(user, "sextractor_open", "sextractor", attacking_item))
 		return TRUE
 
-	if(default_pry_open(attacking_item))
+	if(default_pry_open(attacking_item, close_after_pry = TRUE))
 		return TRUE
 
 	if(default_deconstruction_crowbar(attacking_item))
@@ -145,9 +145,9 @@
 
 	if(seedify(attacking_item, -1, src, user))
 		// NON-MODULAR CHANGES: XenoBotany seedify check
-		var/obj/item/seeds/seed = attacking_item
+		var/obj/item/food/grown/produce = attacking_item
 		// Checks if our seeds are alien seeds
-		if(seed.is_alien_seeds != accepts_alien_seeds)
+		if(produce.is_alien_produce != accepts_alien_seeds)
 			to_chat(user, span_warning("The [src.name] can't accept [attacking_item]!"))
 			return
 		// NON-MODULAR CHANGES END

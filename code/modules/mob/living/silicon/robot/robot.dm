@@ -106,8 +106,8 @@
 	if(mmi)
 		if(mmi.brain)
 			mmi.brain.suicided = suicide_state
-		if(mmi.brainmob)
-			mmi.brainmob.suiciding = suicide_state
+		if(suicide_state && mmi.brainmob)
+			ADD_TRAIT(mmi.brainmob, TRAIT_SUICIDED, REF(src))
 
 /**
  * Sets the tablet theme and icon
@@ -489,7 +489,7 @@
 	if(!lamp_functional)
 		return
 	lamp_functional = FALSE
-	playsound(src, 'sound/effects/glass_step.ogg', 50)
+	playsound(src, 'sound/effects/footstep/glass_step.ogg', 50)
 	toggle_headlamp(TRUE)
 	to_chat(src, span_danger("Your headlamp is broken! You'll need a human to help replace it."))
 
@@ -967,10 +967,12 @@
 		for(var/i in connected_ai.aicamera.stored)
 			aicamera.stored[i] = TRUE
 
-/mob/living/silicon/robot/proc/charge(datum/source, amount, repairs)
+/mob/living/silicon/robot/proc/charge(datum/source, amount, repairs, sendmats)
 	SIGNAL_HANDLER
 	if(model)
 		model.respawn_consumable(src, amount * 0.005)
+		if(sendmats)
+			model.restock_consumable()
 	if(cell)
 		cell.charge = min(cell.charge + amount, cell.maxcharge)
 	if(repairs)

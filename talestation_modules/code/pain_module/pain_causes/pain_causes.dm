@@ -1,7 +1,7 @@
 // -- Causes of pain, from non-modular actions --
-/datum/brain_trauma/mild/concussion/on_life(delta_time, times_fired)
+/datum/brain_trauma/mild/concussion/on_life(seconds_per_tick, times_fired)
 	. = ..()
-	if(DT_PROB(1, delta_time))
+	if(SPT_PROB(1, seconds_per_tick))
 		owner.cause_pain(BODY_ZONE_HEAD, 10)
 
 // Shocks
@@ -31,7 +31,7 @@
 
 // Falling? Hurts!
 /mob/living/carbon/human/ZImpactDamage(turf/landing, levels)
-	var/obj/item/organ/external/wings/gliders = getorgan(/obj/item/organ/external/wings)
+	var/obj/item/organ/external/wings/gliders = get_organ_by_type(/obj/item/organ/external/wings)
 	var/has_wings = gliders?.can_soften_fall()
 	var/is_freerunner = HAS_TRAIT(src, TRAIT_FREERUNNING)
 	// If we're awake, a freerunner / winged, and are falling 1 level or less,

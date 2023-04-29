@@ -6,6 +6,8 @@ $include comms.txt
 $include resources.txt
 $include interviews.txt
 $include lua.txt
+$include auxtools.txt
+$include talestation_config.txt
 
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
@@ -129,6 +131,9 @@ LOG_TELECOMMS
 
 ## log prayers
 LOG_PRAYER
+
+## Log Music requests
+LOG_INTERNET_REQUEST
 
 ## log silicons
 LOG_SILICON
@@ -295,6 +300,14 @@ CHECK_RANDOMIZER
 ## The default value assumes youtube-dl is in your system PATH
 # INVOKE_YOUTUBEDL youtube-dl
 
+## Comment this out to disable users ability to use the request internet sounds to be played.
+REQUEST_INTERNET_SOUND
+
+## Request Internet Sound Allowed URL'S comma separated, urls here are the only sites allowed through Request Internet Sound, Add more to allow more, or remove to disallow.
+## The Defaults here are all supported by youtube-dl
+## Ensure . and / are escaped with \
+REQUEST_INTERNET_ALLOWED youtube\.com\/watch?v=,youtu\.be\/,soundcloud\.com\/,bandcamp\.com\/track\/
+
 ## In-game features
 
 ## Toggle for having jobs load up from the jobconfig.toml (or jobs.txt) file. Will use codebase defaults if commented out.
@@ -304,6 +317,8 @@ CHECK_RANDOMIZER
 #LOAD_JOBS_FROM_TXT
 
 ## Uncomment this to forbid admins from possessing the singularity.
+## It is intentional that Admins can edit this config, as its meant to serve as a deterrent/warning for admin abuse.
+## Add a `@` in front to lock admins from editing this.
 #FORBID_SINGULO_POSSESSION
 
 ## Uncomment to give admins the ability to send a maptext popup to players.
@@ -609,6 +624,11 @@ MOTD motd.txt
 ## but enabled on production (the default).
 CACHE_ASSETS 0
 
+## If this is uncommented, we will save all associated spritesheet PNGs and CSS files to a folder in the round-specific logs folder.
+## Useful for developers to debug potential spritesheet issues to determine where the issue is cropping up (either in DM-side sprite generation or in the TGUI-side display of said spritesheet).
+## Will only seek to waste disk space if ran on production.
+#SAVE_SPRITESHEETS
+
 ## Uncomment to allow the station name to be in the hub entry.
 ## You should only enable this if you can guarantee a station name doesn't break BYOND's TOS.
 ## BYOND staff have gotten upset at us in the past for inappropriate station names.
@@ -630,24 +650,3 @@ TOAST_NOTIFICATION_ON_INIT
 
 ## Causes configuration errors to spit out runtimes
 CONFIG_ERRORS_RUNTIME
-
-#############################
-#### MODULE CONFIG STUFF ####
-
-## allow players to OOCly vote for a shuttle call after a certain amount of time
-#ALLOW_VOTE_TRANSFER
-
-## whether or not transfer votes are automatically called at [TRANSFER_TIME_MIN_ALLOWED] and every [TRANSFER_TIME_BETWEEN_AUTO_VOTES] after.
-TRANSFER_AUTO_VOTE_ENABLED
-
-## minimum shift length allowed before transfer votes are enabled. Also when auto transfer votes begin, if enabled. (default 54000 = 1.5 hours)
-TRANSFER_TIME_MIN_ALLOWED 54000
-
-## amount of time between automatic transfer votes. (default 18000 = 30 minutes)
-TRANSFER_TIME_BETWEEN_AUTO_VOTES 18000
-
-## Server tagline: This will appear right below the server's title.
-# SERVERTAGLINE A generic TG-based server
-
-## Discord Link: This is the link to TaleStations's discord server
-# DISCORD_LINK https://discord.gg/hYDcGH9VXA

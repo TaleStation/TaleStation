@@ -327,7 +327,7 @@
 /obj/item/melee/blood_magic
 	name = "\improper magical aura"
 	desc = "A sinister looking aura that distorts the flow of reality around it."
-	icon = 'icons/obj/weapons/items_and_weapons.dmi'
+	icon = 'icons/obj/weapons/hand.dmi'
 	lefthand_file = 'icons/mob/inhands/items/touchspell_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/touchspell_righthand.dmi'
 	icon_state = "disintegrate"
@@ -382,9 +382,9 @@
 		user.whisper(invocation, language = /datum/language/common)
 	if(health_cost)
 		if(user.active_hand_index == 1)
-			user.apply_damage(health_cost, BRUTE, BODY_ZONE_L_ARM)
+			user.apply_damage(health_cost, BRUTE, BODY_ZONE_L_ARM, wound_bonus = CANT_WOUND)
 		else
-			user.apply_damage(health_cost, BRUTE, BODY_ZONE_R_ARM)
+			user.apply_damage(health_cost, BRUTE, BODY_ZONE_R_ARM, wound_bonus = CANT_WOUND)
 	if(uses <= 0)
 		qdel(src)
 	else if(source)
@@ -785,7 +785,7 @@
 		var/static/list/spells = list(
 			"Bloody Halberd (150)" = image(icon = 'icons/obj/cult/items_and_weapons.dmi', icon_state = "occultpoleaxe0"),
 			"Blood Bolt Barrage (300)" = image(icon = 'icons/obj/weapons/guns/ballistic.dmi', icon_state = "arcane_barrage"),
-			"Blood Beam (500)" = image(icon = 'icons/obj/weapons/items_and_weapons.dmi', icon_state = "disintegrate")
+			"Blood Beam (500)" = image(icon = 'icons/obj/weapons/hand.dmi', icon_state = "disintegrate")
 			)
 		var/choice = show_radial_menu(user, src, spells, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE)
 		if(!check_menu(user))

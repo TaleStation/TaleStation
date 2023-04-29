@@ -129,8 +129,8 @@
 	return ..()
 
 /// Every [recharge_time] seconds, recharge some reagents for the cyborg
-/obj/item/reagent_containers/borghypo/process(delta_time)
-	charge_timer += delta_time
+/obj/item/reagent_containers/borghypo/process(seconds_per_tick)
+	charge_timer += seconds_per_tick
 	if(charge_timer >= recharge_time)
 		regenerate_reagents(default_reagent_types)
 		if(upgraded)
@@ -374,8 +374,8 @@
 /obj/item/reagent_containers/borghypo/borgshaker/hacked
 	name = "cyborg shaker"
 	desc = "Will mix drinks that knock them dead."
-	icon = 'icons/obj/drinks/mixed_drinks.dmi'
 	icon_state = "threemileislandglass"
+	icon = 'icons/obj/drinks/mixed_drinks.dmi'
 	tgui_theme = "syndicate"
 	dispensed_temperature = WATER_MATTERSTATE_CHANGE_TEMP
 	default_reagent_types = HACKED_SERVICE_REAGENTS

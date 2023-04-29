@@ -101,10 +101,6 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list)
 	if(!GLOB.avian_tail_list.len) // NON-MODULAR CHANGES: Avian tails initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list)
-	if(!GLOB.avian_talon_l_list.len) // NON-MODULAR CHANGES: Avian left talon initialize
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/leg/left/avian_talon, GLOB.avian_talon_l_list)
-	if(!GLOB.avian_talon_r_list.len) // NON-MODULAR CHANGES: Avian right talon initialize
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/leg/right/avian_talon, GLOB.avian_talon_r_list)
 
 	//For now we will always return none for tail_human and ears. | "For now" he says.
 	return(list(
@@ -132,8 +128,6 @@
 		"tajaran_snout" =(pick(GLOB.tajaran_snout_list)), //NON-MODULAR CHANGES: Tajaran
 		"avian_beak" =(pick(GLOB.avian_beak_list)), //NON-MODULAR CHANGES: Avian
 		"avian_tail" =(pick(GLOB.avian_tail_list)), //NON-MODULAR CHANGES: Avian
-		"avian_talon_l" =(pick(GLOB.avian_talon_l_list)), //NON-MODULAR CHANGES: Avian
-		"avian_talon_r" =(pick(GLOB.avian_talon_r_list)), //NON-MODULAR CHANGES: Avian
 	))
 
 /proc/random_hairstyle(gender)
@@ -822,7 +816,3 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	else
 		. = invoked_callback.Invoke()
 	usr = temp
-
-#undef FACING_SAME_DIR
-#undef FACING_EACHOTHER
-#undef FACING_INIT_FACING_TARGET_TARGET_FACING_PERPENDICULAR

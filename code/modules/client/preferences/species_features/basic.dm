@@ -1,7 +1,7 @@
 /proc/generate_possible_values_for_sprite_accessories_on_head(accessories)
 	var/list/values = possible_values_for_sprite_accessory_list(accessories)
 
-	var/icon/head_icon = icon('talestation_modules/icons/mob/human_parts_greyscale_js.dmi', "human_head_m") // NON-MODULAR CHANGES - Uses our GS dmi
+	var/icon/head_icon = icon('icons/mob/species/human/bodyparts_greyscale.dmi', "human_head_m")
 	head_icon.Blend(skintone2hex("caucasian1"), ICON_MULTIPLY)
 
 	for (var/name in values)
@@ -34,7 +34,7 @@
 	if(!hetero)
 		target.eye_color_right = value
 
-	var/obj/item/organ/internal/eyes/eyes_organ = target.getorgan(/obj/item/organ/internal/eyes)
+	var/obj/item/organ/internal/eyes/eyes_organ = target.get_organ_by_type(/obj/item/organ/internal/eyes)
 	if (!eyes_organ || !istype(eyes_organ))
 		return
 

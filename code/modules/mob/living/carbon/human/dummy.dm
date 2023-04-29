@@ -12,7 +12,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	in_use = FALSE
 	return ..()
 
-/mob/living/carbon/human/dummy/Life(delta_time = SSMOBS_DT, times_fired)
+/mob/living/carbon/human/dummy/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	return
 
 /mob/living/carbon/human/dummy/attach_rot(mapload)
@@ -26,14 +26,14 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /mob/living/carbon/human/dummy/proc/harvest_organs()
 	for(var/slot in list(ORGAN_SLOT_BRAIN, ORGAN_SLOT_HEART, ORGAN_SLOT_LUNGS, ORGAN_SLOT_APPENDIX, \
 		ORGAN_SLOT_EYES, ORGAN_SLOT_EARS, ORGAN_SLOT_TONGUE, ORGAN_SLOT_LIVER, ORGAN_SLOT_STOMACH))
-		var/obj/item/organ/current_organ = getorganslot(slot) //Time to cache it lads
+		var/obj/item/organ/current_organ = get_organ_slot(slot) //Time to cache it lads
 		if(current_organ)
 			current_organ.Remove(src, special = TRUE) //Please don't somehow kill our dummy
 			SSwardrobe.stash_object(current_organ)
 
 	var/datum/species/current_species = dna.species
 	for(var/organ_path in current_species.mutant_organs)
-		var/obj/item/organ/current_organ = getorgan(organ_path)
+		var/obj/item/organ/current_organ = get_organ_by_type(organ_path)
 		if(current_organ)
 			current_organ.Remove(src, special = TRUE) //Please don't somehow kill our dummy
 			SSwardrobe.stash_object(current_organ)
@@ -104,8 +104,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tajaran_body_markings"] = "Default"
 	target.dna.features["avian_beak"] = "Short"
 	target.dna.features["avian_tail"] = "Wide"
-	target.dna.features["avian_talon_l"] = "Left Plantigrade Talon"
-	target.dna.features["avian_talon_r"] = "Right Plantigrade Talon"
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent

@@ -175,6 +175,10 @@
 /datum/chemical_reaction/virus_food
 	results = list(/datum/reagent/consumable/virus_food = 15)
 	required_reagents = list(/datum/reagent/water = 5, /datum/reagent/consumable/milk = 5)
+	is_cold_recipe = TRUE
+	required_temp = 200
+	optimal_temp = 150
+	overheat_temp = 50
 
 /datum/chemical_reaction/virus_food_mutagen
 	results = list(/datum/reagent/toxin/mutagen/mutagenvirusfood = 1)
@@ -752,7 +756,7 @@
 
 /datum/chemical_reaction/pentaerythritol
 	results = list(/datum/reagent/pentaerythritol = 2)
-	required_reagents = list(/datum/reagent/acetaldehyde = 1, /datum/reagent/toxin/formaldehyde = 3, /datum/reagent/water = 1 )
+	required_reagents = list(/datum/reagent/acetaldehyde = 1, /datum/reagent/toxin/formaldehyde = 3, /datum/reagent/lye = 1)
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_CHEMICAL
 
 /datum/chemical_reaction/acetaldehyde

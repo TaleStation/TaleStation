@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/skrell,
 	)
 
-/datum/species/skrell/spec_life(mob/living/carbon/human/skrell_mob, delta_time, times_fired)
+/datum/species/skrell/spec_life(mob/living/carbon/human/skrell_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(skrell_mob.nutrition > NUTRITION_LEVEL_ALMOST_FULL)
 		skrell_mob.set_nutrition(NUTRITION_LEVEL_ALMOST_FULL)
@@ -60,15 +60,15 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	blood_type = "S"
 
 // Copper restores blood for Skrell instead of iron.
-/datum/reagent/copper/on_mob_life(mob/living/carbon/C, delta_time)
+/datum/reagent/copper/on_mob_life(mob/living/carbon/C, seconds_per_tick)
 	if((isskrell(C)) && (C.blood_volume < BLOOD_VOLUME_NORMAL))
-		C.blood_volume += 0.5 * delta_time
+		C.blood_volume += 0.5 * seconds_per_tick
 	..()
 
 /proc/generate_skrell_side_shots(list/sprite_accessories, key, list/sides)
 	var/list/values = list()
 
-	var/icon/skrell = icon(DEFAULT_BODYPART_ICON_ORGANIC, "skrell_head_m", EAST)
+	var/icon/skrell = icon('talestation_modules/icons/mob/species/skrell/bodyparts.dmi', "skrell_head_m", EAST)
 	var/icon/eyes = icon('talestation_modules/icons/mob/skrell_eyes.dmi', "eyes", EAST)
 
 	eyes.Blend(COLOR_ALMOST_BLACK, ICON_MULTIPLY)

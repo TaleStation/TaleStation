@@ -63,6 +63,12 @@
 		RegisterSignal(thing, COMSIG_PARENT_EXAMINE, PROC_REF(hint_at))
 	RegisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE, PROC_REF(examine))
 
+/datum/element/unique_examine/Detach(atom/thing)
+	. = ..()
+
+	UnregisterSignal(thing, COMSIG_PARENT_EXAMINE)
+	UnregisterSignal(thing, COMSIG_PARENT_EXAMINE_MORE)
+
 /datum/element/unique_examine/proc/hint_at(datum/source, mob/examiner)
 	if(ismob(source))
 		thing = "creature"
@@ -134,7 +140,7 @@
 		if(EXAMINE_CHECK_SKILLCHIP)
 			if(ishuman(examiner))
 				var/mob/living/carbon/human/human_examiner = examiner
-				var/obj/item/organ/internal/brain/examiner_brain = human_examiner.getorganslot(ORGAN_SLOT_BRAIN)
+				var/obj/item/organ/internal/brain/examiner_brain = human_examiner.get_organ_slot(ORGAN_SLOT_BRAIN)
 				if(examiner_brain)
 					for(var/obj/item/skillchip/checked_skillchip in examiner_brain.skillchips)
 						if(checked_skillchip.active && (checked_skillchip.type in special_desc_req))

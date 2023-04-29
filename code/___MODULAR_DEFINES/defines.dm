@@ -31,10 +31,6 @@
 #define ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT "tajaran_snout"
 /// Avian beak
 #define ORGAN_SLOT_EXTERNAL_AVIAN_BEAK "avian_beak"
-/// Avian left talon
-#define ORGAN_SLOT_EXTERNAL_AVIAN_TALON_L "avian_talon_l"
-/// Avian right talon
-#define ORGAN_SLOT_EXTERNAL_AVIAN_TALON_R "avian_talon_r"
 
 /*
 * Job defines
