@@ -1200,11 +1200,9 @@
 		to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
 		return FALSE
 
-/* NON-MODULAR CHANGES: Allows mimes to write on paper
 	if(HAS_TRAIT(src, TRAIT_MIMING) && !istype(writing_instrument, /obj/item/toy/crayon/mime))
-		to_chat(src, span_warning("Your vow of silence is preventing you from talking with text."))
-		return FALSE
-*/ // NON-MODULAR CHANGES END
+		// NON-MODULAR CHANGES: Mimes can write! to_chat(src, span_warning("Your vow of silence is preventing you from talking with text."))
+		return TRUE // NON-MODULAR CHANGES: changes arg
 
 	if(!is_literate())
 		to_chat(src, span_warning("You try to write, but don't know how to spell anything!"))
