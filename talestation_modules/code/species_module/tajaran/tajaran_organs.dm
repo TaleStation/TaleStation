@@ -11,7 +11,7 @@
 	name = "tajaran tail"
 	desc = "A severed tajaran tail. What poor bastard would do such a thing?"
 	preference = "feature_tajaran_tail"
-	icon = 'talestation_modules/icons/obj/surgery.dmi'
+	icon = 'talestation_modules/icons/species/organs.dmi'
 	icon_state = "severedtailtaj"
 	wag_flags = WAG_ABLE
 

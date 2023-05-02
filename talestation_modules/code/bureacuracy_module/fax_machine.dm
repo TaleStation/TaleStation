@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 /obj/machinery/fax_machine
 	name = "fax machine"
 	desc = "A machine made to send faxes and process paperwork. You unbelievably boring person."
-	icon = 'talestation_modules/icons/obj/machines/fax.dmi'
+	icon = 'talestation_modules/icons/machines/fax.dmi'
 	base_icon_state = "fax"
 	icon_state = "fax"
 	speech_span = SPAN_ROBOT
