@@ -235,16 +235,16 @@
 /obj/item/gun/energy/laser/captain/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
-		"The pride and joy of every captain in the Spinward. \
-		It's tradition amongst captains to mod and maintain a lasergun of your own, only bringing it out to use in dire straits. \
-		Every captain has their own personal modifications - \
+		"The pride and joy of every site director in the Spinward. \
+		It's tradition amongst site directors to mod and maintain a lasergun of your own, only bringing it out to use in dire straits. \
+		Every site director has their own personal modifications - \
 		this one is modified with a self-recharging cell and hellfire laser rounds.", \
 		EXAMINE_CHECK_JOB, "Captain")
 
 /obj/item/gun/energy/e_gun/hos/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
-		"A modernized and remastered version of the captain's antique laser gun, \
+		"A modernized and remastered version of the site director's antique laser gun, \
 		the X-01 multiphase energy gun was developed in the past few decades to issue to only the highest brass officers \
 		in Nanotrasen security forces. While in the past the gun was outfitted with taser electrodes instead of an ion bolts, \
 		it is still used by lead officers for quick response and utility in the event of varying threats.", \
@@ -255,14 +255,14 @@
 	AddElement(/datum/element/unique_examine, \
 		"Every Nanotrasen operated station comes with an installed self-destruct terminal \
 		for extreme measures, and [station_name()] is no exception. \
-		The Nuclear Authentication Disk, entrusted only into the hands of the captain, \
-		acting captain, or any higher ranked Nanotrasen personel on board the station, \
+		The Nuclear Authentication Disk, entrusted only into the hands of the site director, \
+		acting site director, or any higher ranked Nanotrasen personel on board the station, \
 		is the linch pin of this self-destruct device, providing the only key to activate it - \
 		should the holder also have the authentication codes.", \
 		EXAMINE_CHECK_MINDSHIELD)
 	AddElement(/datum/element/unique_examine, \
 		"Only one person is entrusted with the Nuclear Authentication Disk on board the station - \
-		the captain (or acting captain in their absence). \
+		the site director (or acting site director in their absence). \
 		Being the direct line of communication to Nanotrasen, they are the only member of the crew authorized \
 		to hold the authentication disk and (should the situation call for it) enter the codes to the self-destruct. \
 		Of course, because of the importance of the disk in unlocking nuclear devices, the Nuclear Authentication Disk \
@@ -272,7 +272,7 @@
 /obj/item/clothing/shoes/magboots/advance/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
-		"The Chief Engineer's treasured advanced magboots - a sleek white design of the standard magboots \
+		"The Site Foreman's treasured advanced magboots - a sleek white design of the standard magboots \
 		designed with speed and wearability in mind during extravehicular activity. \
 		Offers a lighter magnetic pull compared to standard model of magboots, \
 		reducing slowdown without sacrificing safety or usability.", \
@@ -281,16 +281,16 @@
 /obj/item/mod/control/pre_equipped/advanced/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
-		"The Chief Engineer's spotless advanced MODsuit - a sleek white design of the standard engineering \
+		"The Site Foreman's spotless advanced MODsuit - a sleek white design of the standard engineering \
 		and atmospheric MODsuits with improved mobility and resistance to fire and radiation.", \
 		EXAMINE_CHECK_DEPARTMENT, DEPARTMENT_BITFLAG_ENGINEERING)
 
 /obj/item/card/id/advanced/gold/captains_spare/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/unique_examine, \
-		"The captain's spare ID card - the backup all-access ID card assigned to the care of the captain themselves. \
+		"The site director's spare ID card - the backup all-access ID card assigned to the care of the site director themselves. \
 		Standard-issue golden ID cards supplied to all Nanotrasen operated space stations, to allow \
-		for normal operation of every aspect of the station in the absence of the captain... \
+		for normal operation of every aspect of the station in the absence of the site director... \
 		assuming it doesn't end up in the hands of certain gas-masked individuals, of course.", \
 		EXAMINE_CHECK_DEPARTMENT, DEPARTMENT_BITFLAG_COMMAND)
 
