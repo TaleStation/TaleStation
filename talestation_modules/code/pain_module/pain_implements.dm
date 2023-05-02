@@ -312,7 +312,7 @@
 	name = "shock blanket"
 	desc = "A metallic looking plastic blanket specifically designed to well insulate anyone seeking comfort underneath."
 	icon = 'talestation_modules/icons/pain/pain_items.dmi'
-	worn_icon = 'talestation_modules/icons/mob/pain_items.dmi'
+	worn_icon = 'talestation_modules/icons/pain/pain_items_worn.dmi'
 	lefthand_file = 'talestation_modules/icons/mob/inhands/pain_items_lhand.dmi'
 	righthand_file = 'talestation_modules/icons/mob/inhands/pain_items_rhand.dmi'
 	icon_state = "shockblanket"
