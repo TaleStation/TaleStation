@@ -529,11 +529,14 @@
 	desc = "An accident caused you to lose one of your limbs. Because of this, you now have a random prosthetic!"
 	icon = "tg-prosthetic-leg"
 	value = -3
-	var/slot_string = "limb"
 	medical_record_text = "During physical examination, patient was found to have a prosthetic limb."
 	hardcore_value = 3
-	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
+	quirk_flags = QUIRK_HUMAN_ONLY // while this technically changes appearance, we don't want it to be shown on the dummy because it's randomized at roundstart
 	mail_goodies = list(/obj/item/weldingtool/mini, /obj/item/stack/cable_coil/five)
+	/// The slot to replace, in string form
+	var/slot_string = "limb"
+	/// the original limb from before the prosthetic was applied
+	var/obj/item/bodypart/old_limb
 
 /datum/quirk/prosthetic_limb/add_unique(client/client_source)
 	var/limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
@@ -552,11 +555,20 @@
 		if(BODY_ZONE_R_LEG)
 			prosthetic = new /obj/item/bodypart/leg/right/robot/surplus
 			slot_string = "right leg"
+<<<<<<< HEAD
 	human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
+=======
+	old_limb = human_holder.return_and_replace_bodypart(prosthetic)
+>>>>>>> 5401d0798fb4f (Removes the random prosthetic quirk from the character preview page (#75050))
 
 /datum/quirk/prosthetic_limb/post_add()
 	to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
 	you need to use a welding tool and cables to repair it, instead of bruise packs and ointment."))
+
+/datum/quirk/prosthetic_limb/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	human_holder.del_and_replace_bodypart(old_limb)
+	old_limb = null
 
 /datum/quirk/quadruple_amputee
 	name = "Quadruple Amputee"
