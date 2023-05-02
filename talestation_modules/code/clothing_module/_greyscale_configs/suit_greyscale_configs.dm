@@ -6,7 +6,7 @@
 
 /datum/greyscale_config/parade_formal_worn
 	name = "Formal Parade Worn"
-	icon_file = 'talestation_modules/icons/mob/clothing/suit.dmi'
+	icon_file = 'talestation_modules/icons/clothing/worn/suit/suit.dmi'
 	json_config = 'talestation_modules/code/clothing_module/_greyscale_configs/formal_parade.json'
 
 /datum/greyscale_config/parade_formal_open
@@ -16,5 +16,5 @@
 
 /datum/greyscale_config/parade_formal_open_worn
 	name = "Open Formal Parade Worn"
-	icon_file = 'talestation_modules/icons/mob/clothing/suit.dmi'
+	icon_file = 'talestation_modules/icons/clothing/worn/suit/suit.dmi'
 	json_config = 'talestation_modules/code/clothing_module/_greyscale_configs/formal_parade_open.json'

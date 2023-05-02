@@ -6,5 +6,5 @@
 	desc = "An armband, worn by the station's security forces to display which department they're assigned to. This one is green, and you're \
 		filling in for the bartender who got bludgeoned to death by the bar monkey."
 	icon = 'talestation_modules/icons/obj/clothing/accessories.dmi'
-	worn_icon = 'talestation_modules/icons/mob/clothing/accessories.dmi'
+	worn_icon = 'talestation_modules/icons/clothing/worn/accessories/accessories.dmi'
 	icon_state = "servband"

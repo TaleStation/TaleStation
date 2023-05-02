@@ -50,7 +50,7 @@
 	name = "green armband"
 	desc = "A green armband."
 	icon = 'talestation_modules/icons/obj/clothing/accessories.dmi'
-	worn_icon = 'talestation_modules/icons/mob/clothing/accessories.dmi'
+	worn_icon = 'talestation_modules/icons/clothing/worn/accessories/accessories.dmi'
 	icon_state = "servband"
 
 /obj/item/clothing/accessory/allergy_dogtag

@@ -4,7 +4,7 @@
 	name = "bridge officer's beret"
 	desc = "A stylish beret used by deck officers whom man the bridge. Reminiscent of an older time."
 	icon = 'talestation_modules/icons/obj/clothing/hats.dmi'
-	worn_icon = 'talestation_modules/icons/mob/clothing/head.dmi'
+	worn_icon = 'talestation_modules/icons/clothing/worn/head/head.dmi'
 	icon_state = "boberetblack"
 	greyscale_config = null
 	greyscale_config_worn = null
@@ -14,7 +14,7 @@
 	name = "asset protection officer's beret"
 	desc = "A black beret, armored and padded for protection, complete with a red insignia emblazoned on the center to dignify the wearer as an asset protection officer."
 	icon = 'talestation_modules/icons/obj/clothing/hats.dmi'
-	worn_icon = 'talestation_modules/icons/mob/clothing/head.dmi'
+	worn_icon = 'talestation_modules/icons/clothing/worn/head/head.dmi'
 	icon_state = "apberetblack"
 	greyscale_config = null
 	greyscale_config_worn = null
