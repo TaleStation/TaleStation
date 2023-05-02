@@ -1,15 +1,15 @@
 /obj/item/bodypart/head/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	is_dimorphic = TRUE
 
 /obj/item/bodypart/chest/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	is_dimorphic = TRUE
 
 /obj/item/bodypart/arm/left/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	unarmed_attack_verb = "slash"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
@@ -17,7 +17,7 @@
 	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
 
 /obj/item/bodypart/arm/right/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	unarmed_attack_verb = "slash"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
@@ -25,7 +25,7 @@
 	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
 
 /obj/item/bodypart/leg/left/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 
 /obj/item/bodypart/leg/left/avian/Initialize()
@@ -35,7 +35,7 @@
 	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_l_planti())
 
 /obj/item/bodypart/leg/right/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 
 /obj/item/bodypart/leg/right/avian/Initialize()
@@ -45,7 +45,7 @@
 	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_r_planti())
 
 /obj/item/bodypart/leg/left/avian/digitigrade/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
@@ -73,7 +73,7 @@
 			limb_id = SPECIES_AVIAN
 
 /obj/item/bodypart/leg/right/avian/digitigrade/avian
-	icon_greyscale = 'talestation_modules/icons/mob/species/avian/bodyparts.dmi'
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
 
@@ -124,22 +124,22 @@
 // Overlays talons for legs
 /// Overlay for planti talons
 /datum/bodypart_overlay/simple/avian_talon_l_planti
-	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
 	icon_state = "avian_talon_l_planti"
 	layers = EXTERNAL_ADJACENT
 
 /datum/bodypart_overlay/simple/avian_talon_r_planti
-	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
 	icon_state = "avian_talon_r_planti"
 	layers = EXTERNAL_ADJACENT
 
 /// Overlay for digi talons
 /datum/bodypart_overlay/simple/avian_talon_l_digi
-	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
 	icon_state = "avian_talon_l_digi"
 	layers = EXTERNAL_ADJACENT
 
 /datum/bodypart_overlay/simple/avian_talon_r_digi
-	icon = 'talestation_modules/icons/mob/avian_talons.dmi'
+	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
 	icon_state = "avian_talon_r_digi"
 	layers = EXTERNAL_ADJACENT

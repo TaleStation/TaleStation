@@ -1,8 +1,8 @@
 /datum/sprite_accessory/snout/avian_beak
-	icon = 'talestation_modules/icons/mob/avian_beaks.dmi'
+	icon = 'talestation_modules/icons/species/avians/avian_beaks.dmi'
 
 /datum/sprite_accessory/tail/avian_tail
-	icon = 'talestation_modules/icons/mob/avian_tails.dmi'
+	icon = 'talestation_modules/icons/species/avians/avian_tails.dmi'
 
 /datum/sprite_accessory/snout/avian_beak/short
 	name = "Short"

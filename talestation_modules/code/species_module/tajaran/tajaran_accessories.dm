@@ -1,16 +1,16 @@
 // Tajaran sprite accessories
 
 /datum/sprite_accessory/snout/tajaran_snout
-	icon = 'talestation_modules/icons/mob/tajaran_snouts.dmi'
+	icon = 'talestation_modules/icons/species/tajaran/tajaran_snouts.dmi'
 
 /datum/sprite_accessory/tail/tajaran_tail
-	icon = 'talestation_modules/icons/mob/tajaran_tail.dmi'
+	icon = 'talestation_modules/icons/species/tajaran/tajaran_tail.dmi'
 
 /datum/sprite_accessory/tajaran_body_markings
-	icon = 'talestation_modules/icons/mob/tajaran_markings.dmi'
+	icon = 'talestation_modules/icons/species/tajaran/tajaran_markings.dmi'
 
 /datum/sprite_accessory/ears/cat/tajaran_ears
-	icon = 'talestation_modules/icons/mob/tajaran_ears.dmi'
+	icon = 'talestation_modules/icons/species/tajaran/tajaran_ears.dmi'
 
 /datum/sprite_accessory/snout/tajaran_snout/thin
 	name = "Thin"

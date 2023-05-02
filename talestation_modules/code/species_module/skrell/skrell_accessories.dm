@@ -1,6 +1,6 @@
 /// -- Skrell headtentacles. --
 /datum/sprite_accessory/head_tentacles
-	icon = 'talestation_modules/icons/mob/skrell_hair.dmi'
+	icon = 'talestation_modules/icons/species/skrell/skrell_hair.dmi'
 
 /datum/sprite_accessory/head_tentacles/long
 	name = "Long"

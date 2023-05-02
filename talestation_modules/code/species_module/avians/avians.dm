@@ -88,14 +88,14 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 /proc/generate_avian_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
 
-	var/icon/avian = icon('talestation_modules/icons/mob/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+	var/icon/avian = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
 
 	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
 	avian.Blend(eyes, ICON_OVERLAY)
 
 	if (include_snout)
-		avian.Blend(icon('talestation_modules/icons/mob/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
+		avian.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
 
 	for (var/name in sprite_accessories)
 		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
