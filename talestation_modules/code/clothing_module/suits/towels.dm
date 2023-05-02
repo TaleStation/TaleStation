@@ -18,9 +18,9 @@
 	throw_range = 2
 	layer = MOB_LAYER
 
-	icon = 'talestation_modules/icons/mob/clothing/under/towel.dmi'
+	icon = 'talestation_modules/icons/clothing/worn/under/towel.dmi'
 	icon_state = "towel"
-	worn_icon = 'talestation_modules/icons/mob/clothing/under/towel.dmi'
+	worn_icon = 'talestation_modules/icons/clothing/worn/under/towel.dmi'
 	worn_icon_state = "towel_worn"
 	lefthand_file = 'talestation_modules/icons/inhands/left/towel_inhand_lefthand.dmi'
 	righthand_file = 'talestation_modules/icons/inhands/right/towel_inhand_righthand.dmi'
@@ -287,7 +287,7 @@
 	density = FALSE
 	anchored = TRUE
 
-	icon = 'talestation_modules/icons/mob/clothing/under/towel.dmi'
+	icon = 'talestation_modules/icons/clothing/worn/under/towel.dmi'
 	icon_state = "towel_placed"
 
 	greyscale_config = /datum/greyscale_config/towel_placed
