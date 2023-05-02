@@ -11,12 +11,12 @@
 
 /datum/greyscale_config/towel_inhand_left
 	name = "Towel Inhand Left"
-	icon_file = 'talestation_modules/icons/mob/inhands/towel_inhand_lefthand.dmi'
+	icon_file = 'talestation_modules/icons/inhands/left/towel_inhand_lefthand.dmi'
 	json_config = 'talestation_modules/code/clothing_module/suits/towel_configs/towel_inhand.json'
 
 /datum/greyscale_config/towel_inhand_right
 	name = "Towel Inhand Right"
-	icon_file = 'talestation_modules/icons/mob/inhands/towel_inhand_righthand.dmi'
+	icon_file = 'talestation_modules/icons/inhands/right/towel_inhand_righthand.dmi'
 	json_config = 'talestation_modules/code/clothing_module/suits/towel_configs/towel_inhand.json'
 
 /datum/greyscale_config/towel_placed

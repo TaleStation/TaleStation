@@ -22,8 +22,8 @@
 	icon_state = "towel"
 	worn_icon = 'talestation_modules/icons/mob/clothing/under/towel.dmi'
 	worn_icon_state = "towel_worn"
-	lefthand_file = 'talestation_modules/icons/mob/inhands/towel_inhand_lefthand.dmi'
-	righthand_file = 'talestation_modules/icons/mob/inhands/towel_inhand_righthand.dmi'
+	lefthand_file = 'talestation_modules/icons/inhands/left/towel_inhand_lefthand.dmi'
+	righthand_file = 'talestation_modules/icons/inhands/right/towel_inhand_righthand.dmi'
 	inhand_icon_state = "towel_hand"
 
 	greyscale_config = /datum/greyscale_config/towel
