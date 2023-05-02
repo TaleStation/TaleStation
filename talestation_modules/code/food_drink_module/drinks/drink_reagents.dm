@@ -21,7 +21,7 @@
 /datum/glass_style/drinking_glass/green_tea
 	required_drink_type = /datum/reagent/consumable/green_tea
 	icon_state = "green_teaglass"
-	icon = 'talestation_modules/icons/obj/drinks.dmi'
+	icon = 'talestation_modules/icons/food/drinks/drinks.dmi'
 	name = "glass of green tea"
 	desc = "It just doesn't feel right to drink this without a cup..."
 
@@ -39,7 +39,7 @@
 /datum/glass_style/drinking_glass/ice_greentea
 	required_drink_type = /datum/reagent/consumable/ice_greentea
 	icon_state = "iced_green_teaglass"
-	icon = 'talestation_modules/icons/obj/drinks.dmi'
+	icon = 'talestation_modules/icons/food/drinks/drinks.dmi'
 	name = "iced green tea"
 	desc = "A delicious beverage for any time of the year. Much better with a lot of sugar." //Now THIS is actually a hint, as sugar rush turns it into Green Hill Tea.
 
@@ -66,7 +66,7 @@
 /datum/glass_style/drinking_glass/green_hill_tea
 	required_drink_type = /datum/reagent/consumable/green_hill_tea
 	icon_state = "green_hill_tea"
-	icon = 'talestation_modules/icons/obj/drinks.dmi'
+	icon = 'talestation_modules/icons/food/drinks/drinks.dmi'
 	name = "Green Hill Tea"
 	desc = "A strong stimulant, though for some it doesnt matter, as the taste opens your heart."
 
@@ -98,5 +98,5 @@
 	name = "Bonzai Zen tea"
 	desc = "A cup of traditional Space Japanese green tea. It is said that it soothes the soul, if drank properly."
 	icon_state = "green_tea_cup" //actually unused because of how mugs work... ...for now.
-	icon = 'talestation_modules/icons/obj/drinks.dmi'
+	icon = 'talestation_modules/icons/food/drinks/drinks.dmi'
 	list_reagents = list(/datum/reagent/consumable/green_tea = 30)

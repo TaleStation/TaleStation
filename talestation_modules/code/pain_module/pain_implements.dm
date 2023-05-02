@@ -223,7 +223,7 @@
 /obj/item/storage/pill_bottle/painkillers
 	name = "bottle of painkillers"
 	desc = "Contains multiple pills used to treat anywhere from mild to extreme pain. CAUTION: Do not take in conjunction with alcohol."
-	icon = 'talestation_modules/icons/obj/chemical.dmi'
+	icon = 'talestation_modules/icons/pain/chemical.dmi'
 	custom_price = PAYCHECK_CREW * 3
 	custom_premium_price = PAYCHECK_CREW * 3
 

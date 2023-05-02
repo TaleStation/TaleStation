@@ -4,7 +4,7 @@
 /obj/structure/closet/secure_closet/asset_protection
 	name = "\proper asset protection's locker"
 	req_access = list(ACCESS_AP)
-	icon = 'talestation_modules/icons/obj/locker.dmi'
+	icon = 'talestation_modules/icons/objects/locker.dmi'
 	icon_state = "ap"
 
 /obj/structure/closet/secure_closet/asset_protection/PopulateContents()
