@@ -1,8 +1,8 @@
 /datum/id_trim/job/xenobiologist
 	assignment = "Xenobiologist"
-	trim_icon = 'talestation_modules/icons/obj/card.dmi'
+	trim_icon = 'talestation_modules/icons/jobs/card.dmi'
 	trim_state = "trim_xenobiologist"
-	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
+	sechud_icon = 'talestation_modules/icons/jobs/hud.dmi'
 	sechud_icon_state = "hudxenobiologist"
 
 	extra_access = list(
