@@ -179,7 +179,7 @@
 /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGE: LOADOUTS
+/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
 	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
