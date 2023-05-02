@@ -6,19 +6,19 @@ GLOBAL_LIST_EMPTY(locker_landmarks)
 // XB start location
 /obj/effect/landmark/start/xenobiologist
 	name = "Xenobiologist"
-	icon = 'talestation_modules/icons/mob/landmarks.dmi'
+	icon = 'talestation_modules/icons/mapping/landmarks./landmarks.dmi'
 	icon_state = "Xenobiologist"
 
 // BO start location
 /obj/effect/landmark/start/bridge_officer
 	name = "Bridge Officer"
-	icon = 'talestation_modules/icons/mob/landmarks.dmi'
+	icon = 'talestation_modules/icons/mapping/landmarks./landmarks.dmi'
 	icon_state = "BridgeOfficer"
 
 // AP start location
 /obj/effect/landmark/start/asset_protection
 	name = "Asset Protection"
-	icon = 'talestation_modules/icons/mob/landmarks.dmi'
+	icon = 'talestation_modules/icons/mapping/landmarks./landmarks.dmi'
 	icon_state = "AssetProtection"
 
 // Code for the custom job spawning lockers on maps w/o mapped lockers
