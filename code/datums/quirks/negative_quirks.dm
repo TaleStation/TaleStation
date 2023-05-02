@@ -555,11 +555,7 @@
 		if(BODY_ZONE_R_LEG)
 			prosthetic = new /obj/item/bodypart/leg/right/robot/surplus
 			slot_string = "right leg"
-<<<<<<< HEAD
-	human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
-=======
-	old_limb = human_holder.return_and_replace_bodypart(prosthetic)
->>>>>>> 5401d0798fb4f (Removes the random prosthetic quirk from the character preview page (#75050))
+	old_limb = human_holder.return_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
 
 /datum/quirk/prosthetic_limb/post_add()
 	to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
