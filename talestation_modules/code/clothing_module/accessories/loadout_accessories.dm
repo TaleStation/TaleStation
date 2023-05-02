@@ -49,7 +49,7 @@
 /obj/item/clothing/accessory/armband/service_cosmetic
 	name = "green armband"
 	desc = "A green armband."
-	icon = 'talestation_modules/icons/obj/clothing/accessories.dmi'
+	icon = 'talestation_modules/icons/clothing/accessories/accessories.dmi'
 	worn_icon = 'talestation_modules/icons/clothing/worn/accessories/accessories.dmi'
 	icon_state = "servband"
 
