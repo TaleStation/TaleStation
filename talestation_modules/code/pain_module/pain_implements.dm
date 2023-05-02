@@ -40,8 +40,8 @@
 	desc = "A temperature pack, to soothe pain."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'talestation_modules/icons/pain/pain_items.dmi'
-	lefthand_file = 'talestation_modules/icons/mob/inhands/pain_items_lhand.dmi'
-	righthand_file = 'talestation_modules/icons/mob/inhands/pain_items_rhand.dmi'
+	lefthand_file = 'talestation_modules/icons/pain/inhands/pain_items_lhand.dmi'
+	righthand_file = 'talestation_modules/icons/pain/inhands/pain_items_rhand.dmi'
 	icon_state = "cold_pack"
 	throwforce = 0
 	throw_speed = 2
@@ -313,8 +313,8 @@
 	desc = "A metallic looking plastic blanket specifically designed to well insulate anyone seeking comfort underneath."
 	icon = 'talestation_modules/icons/pain/pain_items.dmi'
 	worn_icon = 'talestation_modules/icons/pain/pain_items_worn.dmi'
-	lefthand_file = 'talestation_modules/icons/mob/inhands/pain_items_lhand.dmi'
-	righthand_file = 'talestation_modules/icons/mob/inhands/pain_items_rhand.dmi'
+	lefthand_file = 'talestation_modules/icons/pain/inhands/pain_items_lhand.dmi'
+	righthand_file = 'talestation_modules/icons/pain/inhands/pain_items_rhand.dmi'
 	icon_state = "shockblanket"
 	base_icon_state = "shockblanket"
 	worn_icon_state = "shockblanket"
