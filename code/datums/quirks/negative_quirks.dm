@@ -535,8 +535,6 @@
 	mail_goodies = list(/obj/item/weldingtool/mini, /obj/item/stack/cable_coil/five)
 	/// The slot to replace, in string form
 	var/slot_string = "limb"
-	/// the original limb from before the prosthetic was applied
-	var/obj/item/bodypart/old_limb
 
 /datum/quirk/prosthetic_limb/add_unique(client/client_source)
 	var/limb_slot = pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
@@ -555,16 +553,11 @@
 		if(BODY_ZONE_R_LEG)
 			prosthetic = new /obj/item/bodypart/leg/right/robot/surplus
 			slot_string = "right leg"
-	old_limb = human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
+	human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
 
 /datum/quirk/prosthetic_limb/post_add()
 	to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
 	you need to use a welding tool and cables to repair it, instead of bruise packs and ointment."))
-
-/datum/quirk/prosthetic_limb/remove()
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	human_holder.del_and_replace_bodypart(old_limb, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
-	old_limb = null
 
 /datum/quirk/quadruple_amputee
 	name = "Quadruple Amputee"

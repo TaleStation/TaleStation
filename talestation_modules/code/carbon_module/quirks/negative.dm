@@ -132,7 +132,7 @@
 	var/obj/item/bodypart/prosthetic = new replacement
 	slot_string = "[prosthetic.plaintext_zone]"
 
-	old_limb = human_holder.del_and_replace_bodypart(prosthetic, TRUE)
+	human_holder.del_and_replace_bodypart(prosthetic, TRUE)
 
 /datum/quirk/prosthetic_limb/targeted/left_arm
 	name = "Prosthetic Limb - Left Arm"
