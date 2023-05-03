@@ -130,7 +130,7 @@
 	if(!istype(human_holder))
 		return
 	var/obj/item/bodypart/prosthetic = new replacement
-	slot_string = "[replacement.plaintext_zone]"
+	slot_string = "[prosthetic.plaintext_zone]"
 
 	old_limb = human_holder.del_and_replace_bodypart(prosthetic, TRUE)
 
