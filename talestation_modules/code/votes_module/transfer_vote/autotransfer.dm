@@ -26,9 +26,9 @@ SUBSYSTEM_DEF(crewtransfer)
 		can_fire = FALSE
 
 	// Disable if we're in testing mode, it'd get annoying
-	#ifdef TESTING
+#ifdef TESTING
 	can_fire = FALSE
-	#endif
+#endif
 
 	// Disable if we're unit testing, it doesn't make sense
 	#ifdef UNIT_TESTS

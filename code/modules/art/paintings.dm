@@ -58,7 +58,7 @@
 	///reference to the last patron's mind datum, used to allow them (and no others) to change the frame before the round ends.
 	var/datum/weakref/last_patron
 
-	var/datum/painting/painting_metadata
+	var/datum/component/painting/painting_metadata
 
 	// Painting overlay offset when framed
 	var/framed_offset_x = 11
@@ -556,7 +556,7 @@
 	var/list/valid_paintings = SSpersistent_paintings.get_paintings_with_tag(persistence_id)
 	if(!length(valid_paintings))
 		return FALSE //aborts loading anything this category has no usable paintings
-	var/datum/painting/painting = pick(valid_paintings)
+	var/datum/component/painting/painting = pick(valid_paintings)
 	var/png = "data/paintings/images/[painting.md5].png"
 	var/icon/I = new(png)
 	var/obj/item/canvas/new_canvas
@@ -593,7 +593,7 @@
 	var/list/current = SSpersistent_paintings.paintings[persistence_id]
 	if(!current)
 		current = list()
-	for(var/datum/painting/entry in SSpersistent_paintings.paintings)
+	for(var/datum/component/painting/entry in SSpersistent_paintings.paintings)
 		if(entry.md5 == md5) // No duplicates
 			return
 	current_canvas.painting_metadata.md5 = md5

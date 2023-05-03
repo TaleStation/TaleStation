@@ -2,17 +2,11 @@
 /mob/living/carbon
 	/// The pain controller datum - tracks, processes, and handles pain.
 	/// Only initialized on humans, but this variable is on carbons for ease.
-	var/datum/pain/pain_controller
+	var/datum/component/pain/pain_controller
 
 /mob/living/carbon/human/Initialize()
 	. = ..()
-	var/datum/pain/new_pain_controller = new(src)
-	if(!QDELETED(new_pain_controller))
-		pain_controller = new_pain_controller
-
-/mob/living/carbon/human/Destroy()
-	QDEL_NULL(pain_controller)
-	return ..()
+	pain_controller = AddComponent(/datum/component/pain)
 
 /**
  * Cause [amount] of [dam_type] sharp pain to [target_zones].
@@ -36,7 +30,7 @@
 	if(time <= 0)
 		return
 	set_pain_mod(id, amount)
-	addtimer(CALLBACK(pain_controller, TYPE_PROC_REF(/datum/pain, unset_pain_modifier), id), time)
+	addtimer(CALLBACK(pain_controller, TYPE_PROC_REF(/datum/component/pain, unset_pain_modifier), id), time)
 
 /**
  * Returns the bodypart pain of [zone].

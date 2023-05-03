@@ -68,7 +68,7 @@
 			//var/list/tab2key = list(TAB_LIBRARY = "library", TAB_SECURE = "library_secure", TAB_PRIVATE = "library_private")
 			//var/folder = tab2key[params["tab"]]
 			//var/list/current_list = SSpersistent_paintings.paintings[folder]
-			var/datum/painting/chosen_portrait = locate(params["selected"]) in SSpersistent_paintings.paintings
+			var/datum/component/painting/chosen_portrait = locate(params["selected"]) in SSpersistent_paintings.paintings
 			if(!chosen_portrait)
 				return
 			var/png = "data/paintings/images/[chosen_portrait.md5].png"

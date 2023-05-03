@@ -4,40 +4,40 @@
 
 	if(!check_rights(R_ADMIN))
 		return
-	var/datum/paintings_manager/ui = new(usr)
+	var/datum/component/paintings_manager/ui = new(usr)
 	ui.ui_interact(usr)
 
 /// Painting Admin Management Panel
-/datum/paintings_manager
+/datum/component/paintings_manager
 
-/datum/paintings_manager/ui_state(mob/user)
+/datum/component/paintings_manager/ui_state(mob/user)
 	return GLOB.admin_state
 
-/datum/paintings_manager/ui_close(mob/user)
+/datum/component/paintings_manager/ui_close(mob/user)
 	qdel(src)
 
-/datum/paintings_manager/ui_interact(mob/user, datum/tgui/ui)
+/datum/component/paintings_manager/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PaintingAdminPanel")
 		ui.open()
 
-/datum/paintings_manager/ui_assets(mob/user)
+/datum/component/paintings_manager/ui_assets(mob/user)
 	return list(
 		get_asset_datum(/datum/asset/simple/portraits)
 	)
 
-/datum/paintings_manager/ui_data(mob/user)
+/datum/component/paintings_manager/ui_data(mob/user)
 	. = list()
 	.["paintings"] = SSpersistent_paintings.painting_ui_data(filter = NONE, admin = TRUE)
 
-/datum/paintings_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+/datum/component/paintings_manager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
 		return
 	if (!check_rights(R_ADMIN))
 		return
 	var/mob/user = usr
-	var/datum/painting/chosen_painting = locate(params["ref"]) in SSpersistent_paintings.paintings
+	var/datum/component/painting/chosen_painting = locate(params["ref"]) in SSpersistent_paintings.paintings
 	if(!chosen_painting)
 		return
 	switch(action)

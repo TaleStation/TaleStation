@@ -70,7 +70,7 @@
 	computer.stored_paper -= CANVAS_PAPER_COST
 
 	//canvas printing!
-	var/datum/painting/chosen_portrait = locate(selected_painting) in SSpersistent_paintings.paintings
+	var/datum/component/painting/chosen_portrait = locate(selected_painting) in SSpersistent_paintings.paintings
 
 	var/png = "data/paintings/images/[chosen_portrait.md5].png"
 	var/icon/art_icon = new(png)
