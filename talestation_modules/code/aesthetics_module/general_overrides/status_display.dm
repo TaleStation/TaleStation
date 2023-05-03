@@ -1,7 +1,7 @@
 // Modular stat display access
 
 /obj/machinery/status_display
-	icon = 'talestation_modules/icons/obj/status_display.dmi'
+	icon = 'talestation_modules/icons/machines/status_display.dmi'
 
 /obj/machinery/status_display/Initialize(mapload)
 	. = ..()

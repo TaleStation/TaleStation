@@ -3,7 +3,7 @@
 /obj/structure/item_dispenser
 	name = "empty item dispenser"
 	desc = "A small wall-mounted receptacle which can dispense a specific item."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_generic"
 	anchored = TRUE
 	density = FALSE
@@ -227,7 +227,7 @@
 /obj/item/wallframe/item_dispenser
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenserframe"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser
@@ -238,7 +238,7 @@
 /obj/item/wallframe/item_dispenser/glasses
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_glasses"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/glasses
@@ -248,7 +248,7 @@
 /obj/item/wallframe/item_dispenser/handcuffs
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_handcuffs"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/handcuffs
@@ -258,7 +258,7 @@
 /obj/item/wallframe/item_dispenser/latex
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_gloves"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/latex
@@ -268,7 +268,7 @@
 /obj/item/wallframe/item_dispenser/mask
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_mask"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/mask
@@ -278,7 +278,7 @@
 /obj/item/wallframe/item_dispenser/id
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_id"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/id
@@ -288,7 +288,7 @@
 /obj/item/wallframe/item_dispenser/radio
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_radio"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/radio
@@ -298,7 +298,7 @@
 /obj/item/wallframe/item_dispenser/bodybag
 	name = "item dispenser frame"
 	desc = "An empty frame for an item dispenser."
-	icon = 'talestation_modules/icons/obj/itemdispenser.dmi'
+	icon = 'talestation_modules/icons/machines/itemdispenser.dmi'
 	icon_state = "dispenser_bodybag"
 	custom_materials = list(/datum/material/plastic = 500, /datum/material/iron = 100)
 	result_path = /obj/structure/item_dispenser/bodybag

@@ -179,7 +179,7 @@
 /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGE: LOADOUTS
+/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
 	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
@@ -385,7 +385,7 @@
 
 
 /datum/job/proc/get_captaincy_announcement(mob/living/captain)
-	return "Due to extreme staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
+	return "Due to extreme staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!" // NON-MODULAR CHANGES: Captain -> Site Director
 
 
 /// Returns an atom where the mob should spawn in.

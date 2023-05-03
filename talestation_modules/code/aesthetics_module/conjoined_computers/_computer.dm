@@ -3,7 +3,7 @@
 // Code from SkyRat
 
 /obj/machinery/computer
-	icon = 'talestation_modules/icons/obj/computer.dmi'
+	icon = 'talestation_modules/icons/machines/computer.dmi'
 	///Determines if the computer can connect to other computers (no arcades, etc.)
 	var/connectable = TRUE
 

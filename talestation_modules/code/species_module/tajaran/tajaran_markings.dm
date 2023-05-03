@@ -10,7 +10,7 @@
 /datum/preference/choiced/tajaran_body_markings/init_possible_values()
 	var/list/values = list()
 
-	var/icon/tajaran = icon('talestation_modules/icons/mob/species/tajaran/bodyparts.dmi', "tajaran_chest_m")
+	var/icon/tajaran = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_chest_m")
 
 	for (var/name in GLOB.tajaran_body_markings_list)
 		var/datum/sprite_accessory/sprite_accessory = GLOB.tajaran_body_markings_list[name]
@@ -19,7 +19,7 @@
 
 		if (sprite_accessory.icon_state != "none")
 			var/icon/body_markings_icon = icon(
-				'talestation_modules/icons/mob/tajaran_markings.dmi',
+				'talestation_modules/icons/species/tajaran/tajaran_markings.dmi',
 				"m_tajaran_body_markings_[sprite_accessory.icon_state]_ADJ",
 			)
 

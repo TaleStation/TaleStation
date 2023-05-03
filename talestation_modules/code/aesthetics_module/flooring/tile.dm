@@ -5,7 +5,7 @@
 
 /obj/effect/turf_decal/gray_tile
 	name = "gray tile corner"
-	icon = 'talestation_modules/icons/turf/decals.dmi'
+	icon = 'talestation_modules/icons/mapping/turf_decals/decals.dmi'
 	icon_state = "floor"
 
 /obj/effect/turf_decal/gray_tile/edge
@@ -18,7 +18,7 @@
 
 /obj/effect/turf_decal/dark_tile
 	name = "dark tile corner"
-	icon = 'talestation_modules/icons/turf/decals.dmi'
+	icon = 'talestation_modules/icons/mapping/turf_decals/decals.dmi'
 	icon_state = "dark"
 
 /obj/effect/turf_decal/dark_tile/edge
@@ -31,7 +31,7 @@
 
 /obj/effect/turf_decal/white_tile
 	name = "white tile corner"
-	icon = 'talestation_modules/icons/turf/decals.dmi'
+	icon = 'talestation_modules/icons/mapping/turf_decals/decals.dmi'
 	icon_state = "white"
 
 /obj/effect/turf_decal/white_tile/edge
@@ -44,7 +44,7 @@
 
 /obj/effect/turf_decal/smooth_tile
 	name = "smooth tile corner"
-	icon = 'talestation_modules/icons/turf/decals.dmi'
+	icon = 'talestation_modules/icons/mapping/turf_decals/decals.dmi'
 	icon_state = "smooth"
 
 /obj/effect/turf_decal/smooth_tile/edge

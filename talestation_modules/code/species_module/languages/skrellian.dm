@@ -10,7 +10,7 @@
 	space_chance = 30
 	syllables = list("qr","qrr","xuq","qil","quum","xuqm","vol","xrim","zaoo","qu-uu","qix","qoo","zix")
 	default_priority = 90
-	icon = 'talestation_modules/icons/misc/language.dmi'
+	icon = 'talestation_modules/icons/species/language.dmi'
 	icon_state = "skrell"
 
 /datum/language_holder/skrell

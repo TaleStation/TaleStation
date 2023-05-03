@@ -68,8 +68,8 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 /proc/generate_skrell_side_shots(list/sprite_accessories, key, list/sides)
 	var/list/values = list()
 
-	var/icon/skrell = icon('talestation_modules/icons/mob/species/skrell/bodyparts.dmi', "skrell_head_m", EAST)
-	var/icon/eyes = icon('talestation_modules/icons/mob/skrell_eyes.dmi', "eyes", EAST)
+	var/icon/skrell = icon('talestation_modules/icons/species/skrell/bodyparts.dmi', "skrell_head_m", EAST)
+	var/icon/eyes = icon('talestation_modules/icons/species/skrell/skrell_eyes.dmi', "eyes", EAST)
 
 	eyes.Blend(COLOR_ALMOST_BLACK, ICON_MULTIPLY)
 	skrell.Blend(eyes, ICON_OVERLAY)

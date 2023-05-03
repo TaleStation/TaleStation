@@ -1,8 +1,8 @@
 /datum/id_trim/job/bridge_officer
 	assignment = "Bridge Officer"
-	trim_icon = 'talestation_modules/icons/obj/card.dmi'
+	trim_icon = 'talestation_modules/icons/jobs/card.dmi'
 	trim_state = "trim_bridgeofficer"
-	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
+	sechud_icon = 'talestation_modules/icons/jobs/hud.dmi'
 	sechud_icon_state = "hudbridgeofficer"
 
 	extra_access = list(
