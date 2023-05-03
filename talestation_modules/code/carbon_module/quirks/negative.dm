@@ -129,7 +129,7 @@
 	if(!istype(human_holder))
 		return
 
-	old_limb = human_holder.del_and_replace_bodypart(new replacement(human_holder), TRUE)
+	old_limb = human_holder.del_and_replace_bodypart(new replacement, TRUE)
 
 /datum/quirk/prosthetic_limb/targeted/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
