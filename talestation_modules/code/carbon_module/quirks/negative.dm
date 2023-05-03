@@ -118,6 +118,7 @@
 
 /datum/quirk/prosthetic_limb/targeted
 	value = -2
+	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE //while parent doesn't change appearance because it's random, here we know for sure what limbs are prosthetic.
 	abstract_parent_type = /datum/quirk/prosthetic_limb/targeted
 	/// Typepath of what bodypart we're adding onto our person.
 	var/obj/item/bodypart/replacement
@@ -128,11 +129,10 @@
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(!istype(human_holder))
 		return
+	var/obj/item/bodypart/prosthetic = new replacement
+	slot_string = "[prosthetic.plaintext_zone]"
 
-	human_holder.del_and_replace_bodypart(new replacement(human_holder), TRUE)
-
-/datum/quirk/prosthetic_limb/targeted/post_add()
-	return
+	human_holder.del_and_replace_bodypart(prosthetic, TRUE)
 
 /datum/quirk/prosthetic_limb/targeted/left_arm
 	name = "Prosthetic Limb - Left Arm"
@@ -159,13 +159,13 @@
 	desc = "Your jaw is weak and susceptible to knockouts if ample damage is applied. Its also much weaker to pain."
 
 /datum/quirk/glass_jaw/add()
+	. = ..()
 	var/mob/living/carbon/carbon_holder = quirk_holder
 	if(istype(carbon_holder))
 		carbon_holder.set_pain_mod(BODY_ZONE_HEAD, 1.50)
-	RegisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(punch_out))
 
 /datum/quirk/glass_jaw/add()
 	var/mob/living/carbon/carbon_holder = quirk_holder
 	if(istype(carbon_holder))
 		carbon_holder.unset_pain_mod(PAIN_MOD_QUIRK)
-	UnregisterSignal(quirk_holder, COMSIG_MOB_APPLY_DAMAGE)
+	return ..()
