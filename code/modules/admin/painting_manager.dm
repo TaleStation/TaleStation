@@ -37,7 +37,7 @@
 	if (!check_rights(R_ADMIN))
 		return
 	var/mob/user = usr
-	var/datum/component/painting/chosen_painting = locate(params["ref"]) in SSpersistent_paintings.paintings
+	var/datum/painting/chosen_painting = locate(params["ref"]) in SSpersistent_paintings.paintings
 	if(!chosen_painting)
 		return
 	switch(action)

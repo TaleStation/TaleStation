@@ -33,7 +33,7 @@
 }
 */
 
-/datum/component/painting
+/datum/painting
 	/// md5 of the png file, also the filename.
 	var/md5
 	/// Title
@@ -65,7 +65,7 @@
 	/// Was the painting loaded from json or created this round
 	var/loaded_from_json = FALSE
 
-/datum/component/painting/proc/load_from_json(list/json_data)
+/datum/painting/proc/load_from_json(list/json_data)
 	md5 = json_data["md5"]
 	title = json_data["title"]
 	creator_ckey = json_data["creator_ckey"]
@@ -82,7 +82,7 @@
 	frame_type = json_data["frame_type"]
 	loaded_from_json = TRUE
 
-/datum/component/painting/proc/to_json()
+/datum/painting/proc/to_json()
 	var/list/new_data = list()
 	new_data["md5"] = md5
 	new_data["title"] = title
@@ -135,7 +135,7 @@ SUBSYSTEM_DEF(persistent_paintings)
 	if(fexists(json_file))
 		var/list/raw_data = update_format(json_decode(file2text(json_file)))
 		for(var/list/painting_data as anything in raw_data["paintings"])
-			var/datum/component/painting/loaded_painting = new
+			var/datum/painting/loaded_painting = new
 			loaded_painting.load_from_json(painting_data)
 			paintings += loaded_painting
 
@@ -154,7 +154,7 @@ SUBSYSTEM_DEF(persistent_paintings)
 /datum/controller/subsystem/persistent_paintings/proc/painting_ui_data(filter=NONE, admin=FALSE, search_text)
 	. = list()
 	var/searching = filter & (PAINTINGS_FILTER_SEARCH_TITLE|PAINTINGS_FILTER_SEARCH_CREATOR) && search_text
-	for(var/datum/component/painting/painting as anything in paintings)
+	for(var/datum/painting/painting as anything in paintings)
 		if(filter & PAINTINGS_FILTER_AI_PORTRAIT && ((painting.width != 24 && painting.width != 23) || (painting.height != 24 && painting.height != 23)))
 			continue
 		if(searching)
@@ -181,7 +181,7 @@ SUBSYSTEM_DEF(persistent_paintings)
 /// Returns paintings with given tag.
 /datum/controller/subsystem/persistent_paintings/proc/get_paintings_with_tag(tag_name)
 	. = list()
-	for(var/datum/component/painting/painting as anything in paintings)
+	for(var/datum/painting/painting as anything in paintings)
 		if(!painting.tags || !(tag_name in painting.tags))
 			continue
 		. += painting
@@ -289,7 +289,7 @@ SUBSYSTEM_DEF(persistent_paintings)
 			collated_data[painting_data["md5"]] = painting_data
 
 	var/list/painting_data = list()
-	for(var/datum/component/painting/painting as anything in paintings)
+	for(var/datum/painting/painting as anything in paintings)
 		collated_data[painting.md5] = painting.to_json() //Current data has priority over old data
 
 	// Remove deleted paintings from the list
