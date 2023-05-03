@@ -1,8 +1,8 @@
 /datum/id_trim/job/asset_protection
 	assignment = "Asset Protection"
-	trim_icon = 'talestation_modules/icons/obj/card.dmi'
+	trim_icon = 'talestation_modules/icons/jobs/card.dmi'
 	trim_state = "trim_assetprotection"
-	sechud_icon = 'talestation_modules/icons/mob/huds/hud.dmi'
+	sechud_icon = 'talestation_modules/icons/jobs/hud.dmi'
 	sechud_icon_state = "hudassetprotection"
 
 	extra_access = list(

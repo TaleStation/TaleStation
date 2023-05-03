@@ -4,7 +4,7 @@
 /obj/structure/closet/secure_closet/bridge_officer
 	name = "\proper bridge officer's locker"
 	req_access = list(ACCESS_BO)
-	icon = 'talestation_modules/icons/obj/locker.dmi'
+	icon = 'talestation_modules/icons/objects/locker.dmi'
 	icon_state = "bo"
 
 /obj/structure/closet/secure_closet/bridge_officer/PopulateContents()

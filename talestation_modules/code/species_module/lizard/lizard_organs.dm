@@ -27,7 +27,7 @@
 /obj/item/organ/internal/heart/second_heart
 	name = "second heart"
 	desc = "Wow, those lizards sure are full of heart."
-	icon = 'talestation_modules/icons/obj/surgery.dmi'
+	icon = 'talestation_modules/icons/species/organs.dmi'
 	icon_state = "second_heart"
 	healing_factor = 1.5 * STANDARD_ORGAN_HEALING
 	decay_factor = 1.5 * STANDARD_ORGAN_DECAY
@@ -36,14 +36,14 @@
 
 /obj/item/organ/internal/liver/lizard
 	name = "lizard liver"
-	icon = 'talestation_modules/icons/obj/surgery.dmi'
+	icon = 'talestation_modules/icons/species/organs.dmi'
 	icon_state = "liver-l"
 	desc = "Due to a low number of natural poisons on Tizira, lizard livers have a lower tolerance for poisons when compared to human ones."
 	toxTolerance = 2
 
 /obj/item/organ/internal/stomach/lizard
 	name = "lizard stomach"
-	icon = 'talestation_modules/icons/obj/surgery.dmi'
+	icon = 'talestation_modules/icons/species/organs.dmi'
 	icon_state = "stomach-l"
 	desc = "Lizards have evolved highly efficient stomachs, made to get nutrients out of what they eat as fast as possible."
 	metabolism_efficiency = 0.07

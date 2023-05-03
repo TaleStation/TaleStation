@@ -1,6 +1,6 @@
 /obj/effect/turf_decal/textured
 	name = "textured gray corner"
-	icon = 'talestation_modules/icons/turf/decals.dmi'
+	icon = 'talestation_modules/icons/mapping/turf_decals/decals.dmi'
 	icon_state = "textured"
 	color = "#5E5C5C"
 

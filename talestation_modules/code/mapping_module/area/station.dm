@@ -10,7 +10,7 @@
 //BO Office
 /area/station/command/bridge_officer_office //This should inherient det offices ambient?
 	name = "Bridge Officer's Office"
-	icon = 'talestation_modules/icons/turf/areas_station.dmi'
+	icon = 'talestation_modules/icons/mapping/areas/areas_station.dmi'
 	icon_state = "bo_office"
 	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg')
 	sound_environment = SOUND_AREA_WOODFLOOR
@@ -18,7 +18,7 @@
 //AP Office, possibly going unused? We're adding it anyway, fuck you
 /area/station/command/ap_office
 	name = "Asset Protection's Office"
-	icon = 'talestation_modules/icons/turf/areas_station.dmi'
+	icon = 'talestation_modules/icons/mapping/areas/areas_station.dmi'
 	icon_state = "ap_office"
 
 /area/station/service/hydroponics/park
@@ -48,5 +48,5 @@
 
 /area/station/commons/cryopods
 	name = "\improper Cryopod Room"
-	icon = 'talestation_modules/icons/turf/areas_station.dmi'
+	icon = 'talestation_modules/icons/mapping/areas/areas_station.dmi'
 	icon_state = "cryopods"

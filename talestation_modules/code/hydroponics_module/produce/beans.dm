@@ -3,7 +3,7 @@
 /obj/item/seeds/lima_beans
 	name = "pack of lima bean seeds"
 	desc = "These seeds grow into something called leema beans?"
-	icon = 'talestation_modules/icons/obj/hydroponics/seeds.dmi'
+	icon = 'talestation_modules/icons/food/hydroponics/seeds.dmi'
 	icon_state = "seed-lima"
 	species = "lima"
 	plantname = "Lima Bean Seeds"
@@ -12,7 +12,7 @@
 	production = 4
 	potency = 15
 	growthstages = 5
-	growing_icon = 'talestation_modules/icons/obj/hydroponics/growing_vegetables.dmi'
+	growing_icon = 'talestation_modules/icons/food/hydroponics/growing_vegetables.dmi'
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.05)
 
@@ -21,7 +21,7 @@
 	name = "lima beans"
 	desc = "What exactly are these supposed to be, anyway?"
 	gender = PLURAL
-	icon = 'talestation_modules/icons/obj/hydroponics/harvest.dmi'
+	icon = 'talestation_modules/icons/food/hydroponics/harvest.dmi'
 	icon_state = "lima"
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES

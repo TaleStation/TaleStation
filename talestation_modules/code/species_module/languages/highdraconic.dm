@@ -17,7 +17,7 @@
 		"ba", "be", "ma", "bi", "sk", "hi", "hs", "ke", "ssi", "le", "mo", "is", "ek", "a",
 		"e", "i", "o", "u", "u", "ru", "sa", "sr", "rs", "us"
 	)
-	icon = 'talestation_modules/icons/misc/language.dmi'
+	icon = 'talestation_modules/icons/species/language.dmi'
 	icon_state = "lizardred"
 	default_priority = 85
 

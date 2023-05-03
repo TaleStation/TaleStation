@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(cryopod_computers)
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'talestation_modules/icons/obj/computer.dmi'
+	icon = 'talestation_modules/icons/machines/computer.dmi'
 	icon_state = "wallconsole"
 	icon_screen = "wallconsole_cryo"
 	icon_keyboard = null
@@ -36,7 +36,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 28)
 /obj/machinery/computer/cryopod/old
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems. This one appears to  be strugggling to catch up with the more modren cryogenic storage system."
-	icon = 'talestation_modules/icons/obj/computer.dmi'
+	icon = 'talestation_modules/icons/machines/computer.dmi'
 	icon_state = "wallconsole_old"
 	icon_screen = "wallconsole_old_cryo"
 
@@ -131,7 +131,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 /obj/machinery/cryopod
 	name = "cryogenic freezer"
 	desc = "Keeps crew frozen in cryostasis until they are needed in order to cut down on supply usage."
-	icon = 'talestation_modules/icons/obj/machines/cryopod.dmi'
+	icon = 'talestation_modules/icons/machines/cryopod.dmi'
 	icon_state = "cryopod-open"
 	density = TRUE
 	anchored = TRUE

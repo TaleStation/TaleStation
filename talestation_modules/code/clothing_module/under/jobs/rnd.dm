@@ -3,8 +3,8 @@
 /obj/item/clothing/under/rank/rnd/xenobiologist
 	desc = "It has markings that denote the wearer as a Xenobiologist."
 	name = "xenobiologist's jumpsuit"
-	icon = 'talestation_modules/icons/obj/clothing/under/rnd.dmi'
-	worn_icon = 'talestation_modules/icons/mob/clothing/under/rnd.dmi'
+	icon = 'talestation_modules/icons/clothing/under/rnd.dmi'
+	worn_icon = 'talestation_modules/icons/clothing/worn/under/rnd.dmi'
 	icon_state = "xeno"
 	inhand_icon_state = "w_suit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

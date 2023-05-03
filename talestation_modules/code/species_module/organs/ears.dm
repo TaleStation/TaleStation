@@ -2,7 +2,7 @@
 
 /obj/item/organ/internal/ears/cat/cybernetic
 	name = "cybernetic cat ears"
-	icon = 'talestation_modules/icons/obj/clothing/hats.dmi'
+	icon = 'talestation_modules/icons/clothing/head/hats.dmi'
 	icon_state = "cyber_kitty"
 	damage_multiplier = 1.5 //slightly better than regular cat ears
 

@@ -9,7 +9,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 150
 	// TODO
-	icon = 'talestation_modules/icons/obj/machines/towel_rack.dmi'
+	icon = 'talestation_modules/icons/machines/towel_rack.dmi'
 	icon_state = "towel_rack"
 	/// Max amount of towels we can hold.
 	var/max_towels = 6

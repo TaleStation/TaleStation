@@ -97,14 +97,14 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 /proc/generate_tajaran_side_shots(list/sprite_accessories, key, include_snout = TRUE)
 	var/list/values = list()
 
-	var/icon/tajaran = icon('talestation_modules/icons/mob/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+	var/icon/tajaran = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
 
 	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
 	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
 	tajaran.Blend(eyes, ICON_OVERLAY)
 
 	if (include_snout)
-		tajaran.Blend(icon('talestation_modules/icons/mob/tajaran_snouts.dmi', "m_tajaran_snout_wide", EAST), ICON_OVERLAY)
+		tajaran.Blend(icon('talestation_modules/icons/species/tajaran/tajaran_snouts.dmi', "m_tajaran_snout_wide", EAST), ICON_OVERLAY)
 
 	for (var/name in sprite_accessories)
 		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
