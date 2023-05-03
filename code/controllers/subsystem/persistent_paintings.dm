@@ -110,7 +110,7 @@ SUBSYSTEM_DEF(persistent_paintings)
 	/// Hashes of paintings deleted this round
 	var/list/deleted_paintings_md5s = list()
 
-	/// A list of /datum/component/paintings saved or ready to be saved this round.
+	/// A list of /datum/paintings saved or ready to be saved this round.
 	var/list/paintings = list()
 
 	///The list of available frame reskins (they are purely cosmetic) and the associated patronage amount required for them.
