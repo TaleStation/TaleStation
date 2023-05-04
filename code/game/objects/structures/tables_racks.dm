@@ -377,13 +377,10 @@
 		if(!attached_movable.Move(loc))
 			RemoveItemFromTable(attached_movable, attached_movable.loc)
 
-<<<<<<< HEAD
-=======
 /obj/structure/table/rolling/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
 	if(has_gravity())
 		playsound(src, 'sound/effects/roll.ogg', 100, TRUE)
->>>>>>> f2fd69a49a7d9 (Minerals have been refactored so costs and minerals in items are now in terms of mineral defines. (#75052))
 /*
  * Glass tables
  */
