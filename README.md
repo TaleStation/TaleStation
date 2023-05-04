@@ -1,6 +1,6 @@
 ## TaleStation, a /TG/ Station downstream.
 
-Our server; talestation.ddns.net:5856
+Our server; byond://join.shiptest.net:1565
 
 An eternal work in progress.
 
