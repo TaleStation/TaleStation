@@ -3,11 +3,11 @@
 */
 
 // Changes spare id desc
-/obj/item/paper/fluff/spare_id_safe_code
+/obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code
 	desc = "Proof that you have been approved for temporary leadership, with all its glory and all its horror."
 
 // Changes emergency spare desc
-/obj/item/paper/fluff/emergency_spare_id_safe_code
+/obj/item/paper/paperslip/corporate/fluff/emergency_spare_id_safe_code
 	desc = "Proof that nobody has been approved for temporary leadership. A skeleton key for a skeleton shift."
 
 // Changes captain ian stuff
