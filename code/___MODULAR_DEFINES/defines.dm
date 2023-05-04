@@ -81,3 +81,8 @@
 #define set_pain_mod(id, amount) pain_controller?.set_pain_modifier(id, amount)
 /// Unset [id] pain mod
 #define unset_pain_mod(id) pain_controller?.unset_pain_modifier(id)
+
+// Pain Alerts
+#define ALERT_MIN_PAIN "minimum_pain"
+#define ALERT_MOD_PAIN "moderate_pain"
+#define ALERT_MAX_PAIN "maximum_pain"

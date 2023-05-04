@@ -595,6 +595,8 @@
  * Effects caused by low pain. (~100-250 pain)
  */
 /datum/pain/proc/low_pain_effects(seconds_per_tick)
+	parent.clear_alert(ALERT_MOD_PAIN, /atom/movable/screen/alert/mod_pain)
+	parent.throw_alert(ALERT_MIN_PAIN, /atom/movable/screen/alert/min_pain)
 	// emotes
 	if(SPT_PROB(3, seconds_per_tick))
 		to_chat(parent, span_danger(pick("Everything aches.", "Everything feels sore.")))
@@ -615,6 +617,9 @@
  * Effects caused by medium pain. (~250-400 pain)
  */
 /datum/pain/proc/med_pain_effects(seconds_per_tick)
+	parent.clear_alert(ALERT_MIN_PAIN, /atom/movable/screen/alert/min_pain)
+	parent.clear_alert(ALERT_MAX_PAIN, /atom/movable/screen/alert/max_pain)
+	parent.throw_alert(ALERT_MOD_PAIN, /atom/movable/screen/alert/mod_pain)
 	// emotes
 	if(SPT_PROB(3, seconds_per_tick))
 		to_chat(parent, span_bolddanger(pick("Everything hurts.", "Everything feels very sore.", "It hurts.")))
@@ -660,6 +665,8 @@
  * Effects caused by extremely high pain. (~400-500 pain)
  */
 /datum/pain/proc/high_pain_effects(seconds_per_tick)
+	parent.clear_alert(ALERT_MOD_PAIN, /atom/movable/screen/alert/mod_pain)
+	parent.throw_alert(ALERT_MAX_PAIN, /atom/movable/screen/alert/max_pain)
 	// emotes
 	if(SPT_PROB(1, seconds_per_tick))
 		parent.vomit(50)
@@ -745,6 +752,9 @@
 	parent.remove_movespeed_modifier(MOVESPEED_ID_PAIN)
 	parent.remove_actionspeed_modifier(ACTIONSPEED_ID_PAIN)
 	parent.clear_mood_event("pain")
+	parent.clear_alert(ALERT_MIN_PAIN, /atom/movable/screen/alert/min_pain)
+	parent.clear_alert(ALERT_MOD_PAIN, /atom/movable/screen/alert/mod_pain)
+	parent.clear_alert(ALERT_MAX_PAIN, /atom/movable/screen/alert/max_pain)
 
 /**
  * Run a pain related emote, if a few checks are successful.
