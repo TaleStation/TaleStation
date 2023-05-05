@@ -21,7 +21,7 @@
 	expected_types += /mob/living/simple_animal/parrot/poly
 	for(var/got_type in expected_types)
 	// NON-MODULAR CHANGES: Excludes our stamps to be checked
-		if(initial(got_type, /obj/item/stamp.head) && !initial(got_type).is_unit_testable)
+		if(ispath(got_type, /obj/item/stamp/head) && !initial(got_type).is_unit_testable)
 			expected_types -= got_type
 		// NON-MODULAR CHANGES END
 
