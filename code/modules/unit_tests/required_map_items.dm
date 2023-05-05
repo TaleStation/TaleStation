@@ -13,7 +13,7 @@
 /// This list will just be full of typepaths that we expect.
 /// More detailed information about each item (mainly, how much of each should exist) is set on a per item basis
 /datum/unit_test/required_map_items/proc/setup_expected_types()
-	expected_types += (/obj/item/stamp/head/captain, // NON-MODULAR CHANGES: The chances of /tg/ altering this list is slim to none
+	expected_types += list(/obj/item/stamp/head/captain, // NON-MODULAR CHANGES: The chances of /tg/ altering this list is slim to none
 						/obj/item/stamp/head/hop, // I'll pay anyone 1$ if I'm wrong
 						/obj/item/stamp/head/hos,
 						/obj/item/stamp/head/ce,
