@@ -13,19 +13,18 @@
 /// This list will just be full of typepaths that we expect.
 /// More detailed information about each item (mainly, how much of each should exist) is set on a per item basis
 /datum/unit_test/required_map_items/proc/setup_expected_types()
-	expected_types += subtypesof(/obj/item/stamp/head)
+	expected_types += (/obj/item/stamp/head/captain, // NON-MODULAR CHANGES: The chances of /tg/ altering this list is slim to none
+						/obj/item/stamp/head/hop, // I'll pay anyone 1$ if I'm wrong
+						/obj/item/stamp/head/hos,
+						/obj/item/stamp/head/ce,
+						/obj/item/stamp/head/cmo,
+						/obj/item/stamp/head/qm,
+						/obj/item/stamp/head/rd,) // NON-MODULAR CHANGES END
 	expected_types += subtypesof(/obj/machinery/computer/department_orders)
 	expected_types += /obj/machinery/computer/communications
 	expected_types += /mob/living/carbon/human/species/monkey/punpun
 	expected_types += /mob/living/basic/pet/dog/corgi/ian
 	expected_types += /mob/living/simple_animal/parrot/poly
-	// NON-MODULAR CHANGES: Excludes our stamps to be checked
-	for(var/got_type in expected_types)
-		if(ispath(got_type, /obj/item/stamp/head))
-			var/obj/item/stamp/head/stamp = got_type
-			if(!initial(stamp)?.is_unit_testable)
-				expected_types -= got_type
-		// NON-MODULAR CHANGES END
 
 /datum/unit_test/required_map_items/Run()
 	setup_expected_types()
