@@ -2,6 +2,10 @@
 * This file primarily changes the name of "head of personnel" to "asset clerk"
 */
 
+// Changes job type
+/obj/effect/landmark/start/head_of_personnel
+	name = "Asset Clerk"
+
 // Changes trim name
 /datum/id_trim/job/head_of_personnel
 	assignment = "Asset Clerk"
