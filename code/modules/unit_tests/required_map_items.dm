@@ -19,6 +19,11 @@
 	expected_types += /mob/living/carbon/human/species/monkey/punpun
 	expected_types += /mob/living/basic/pet/dog/corgi/ian
 	expected_types += /mob/living/simple_animal/parrot/poly
+	for(var/got_type in expected_types)
+	// NON-MODULAR CHANGES: Excludes our stamps to be checked
+		if(initial(/obj/item/stamp/head).is_unit_testable)
+			expected_types -= got_type
+		// NON-MODULAR CHANGES END
 
 /datum/unit_test/required_map_items/Run()
 	setup_expected_types()
@@ -28,10 +33,6 @@
 		var/datum/required_item/item = required_map_items[got_type]
 		var/items_found = item?.total_amount || 0
 		required_map_items -= got_type
-		// NON-MODULAR CHANGES: Excludes our stamps to be checked
-		if(initial(/obj/item/stamp/head).is_unit_testable)
-			expected_types -= got_type
-		// NON-MODULAR CHANGES END
 
 		if(items_found <= 0)
 			TEST_FAIL("Item [got_type] was not found, but is expected to be mapped in on mapload!")
