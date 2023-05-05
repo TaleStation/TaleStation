@@ -2,6 +2,10 @@
 * This file primarily changes the name of "chief engineer" to "site foreman"
 */
 
+// Changes job type
+/obj/effect/landmark/start/chief_engineer
+	name = "Site Foreman"
+
 // Changes assingment name + alt title
 /datum/id_trim/job/chief_engineer
 	assignment = "Site Foreman"

@@ -2,6 +2,10 @@
 * This file primarily changes the name of "captain" to "site director"
 */
 
+// Changes job type
+/obj/effect/landmark/start/captain
+	name = "Site Director"
+
 // Changes spare id desc
 /obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code
 	desc = "Proof that you have been approved for temporary leadership, with all its glory and all its horror."

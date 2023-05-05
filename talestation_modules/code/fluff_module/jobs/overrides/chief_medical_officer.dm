@@ -2,6 +2,10 @@
 * This file primarily changes the name of "chief medical officer" to "medical director"
 */
 
+// Changes job type
+/obj/effect/landmark/start/chief_medical_officer
+	name = "Medical Director"
+
 // Changes job title + alt
 /datum/id_trim/job/chief_medical_officer
 	assignment = "Medical Director"
