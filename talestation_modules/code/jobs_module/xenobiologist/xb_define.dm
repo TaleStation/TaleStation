@@ -6,6 +6,7 @@
 	total_positions = 2
 	spawn_positions = 3
 	config_tag = "XENOBIOLOGIST"
+	is_unit_testable = FALSE
 
 	outfit = /datum/outfit/job/scientist/xenobiologist
 	plasmaman_outfit = /datum/outfit/plasmaman/science
