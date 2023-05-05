@@ -19,11 +19,11 @@
 	expected_types += /mob/living/carbon/human/species/monkey/punpun
 	expected_types += /mob/living/basic/pet/dog/corgi/ian
 	expected_types += /mob/living/simple_animal/parrot/poly
-	for(var/got_type in expected_types)
 	// NON-MODULAR CHANGES: Excludes our stamps to be checked
+	for(var/got_type in expected_types)
 		if(ispath(got_type, /obj/item/stamp/head))
 			var/obj/item/stamp/head/stamp = got_type
-			if(!initial(stamp).is_unit_testable)
+			if(!initial(stamp)?.is_unit_testable)
 				expected_types -= got_type
 		// NON-MODULAR CHANGES END
 
