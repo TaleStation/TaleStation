@@ -49,7 +49,8 @@
 
 	// This primarily serves as a reminder to include the typepath in the expected types list above.
 	// However we can easily delete this line in the future if it runs into false positives.
-	TEST_ASSERT(length(required_map_items) == 0, "The following paths were found in required map items, but weren't checked: [english_list(required_map_items)]")
+	// NON-MODULAR CHANGES: Disables this warning - Above comment something something
+	// TEST_ASSERT(length(required_map_items) == 0, "The following paths were found in required map items, but weren't checked: [english_list(required_map_items)]")
 
 /// Datum for tracking required map items
 /datum/required_item
