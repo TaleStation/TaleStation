@@ -151,11 +151,12 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 
 	// NON-MODULAR CHANGES: Minimal flavor text
-	if(!is_admin(new_player.client) && length_char(new_player.client?.prefs?.read_preference(/datum/preference/text/flavor_text)) < FLAVOR_TEXT_CHAR_REQUIREMENT)
-		to_chat(new_player, span_notice("You need at least [FLAVOR_TEXT_CHAR_REQUIREMENT] characters of flavor text to join the round. \
+	if(CONFIG_GET(flag/min_flavor_text))
+		if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
+			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to join the round. \
 						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
-		return
+			return
 	// NON-MODULAR CHANGES END
 
 	ready = !ready
@@ -206,6 +207,15 @@
 
 	var/mob/dead/new_player/new_player = hud.mymob
 
+	// NON-MODULAR CHANGES: Minimal flavor text
+	if(CONFIG_GET(flag/min_flavor_text))
+		if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
+			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to join the round. \
+						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
+						Junk flavor text will get you banned. Put effort into it."))
+			return
+	// NON-MODULAR CHANGES END
+
 	if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(new_player.key) in GLOB.admin_datums)))
 		to_chat(new_player, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
 
@@ -218,14 +228,6 @@
 			SSticker.queued_players += new_player
 			to_chat(new_player, span_notice("You have been added to the queue to join the game. Your position in queue is [SSticker.queued_players.len]."))
 		return
-
-	// NON-MODULAR CHANGES: Minimal flavor text
-	if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= FLAVOR_TEXT_CHAR_REQUIREMENT)
-		to_chat(new_player, span_notice("You need at least [FLAVOR_TEXT_CHAR_REQUIREMENT] characters of flavor text to join the round. \
-						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
-						Junk flavor text will get you banned. Put effort into it."))
-		return
-	// NON-MODULAR CHANGES END
 
 	if(!LAZYACCESS(params2list(params), CTRL_CLICK))
 		GLOB.latejoin_menu.ui_interact(new_player)
@@ -265,6 +267,14 @@
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
+	// NON-MODULAR CHANGES: Minimal flavor text
+	if(CONFIG_GET(flag/min_flavor_text))
+		if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
+			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to observe the round. \
+						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
+						Junk flavor text will get you banned. Put effort into it."))
+			return
+	// NON-MODULAR CHANGES END
 	new_player.make_me_an_observer()
 
 /atom/movable/screen/lobby/button/observe/proc/enable_observing()
