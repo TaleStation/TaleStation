@@ -58,10 +58,6 @@
 
 /// How many characters will be displayed in the flavor text preview before we cut it off?
 #define FLAVOR_PREVIEW_LIMIT 110
-// NON-MODULAR CHANGES END
-
-/// Min flavor text required to join a round
-#define FLAVOR_TEXT_CHAR_REQUIREMENT 125
 
 /*
 * Pain Defines
