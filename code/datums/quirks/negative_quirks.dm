@@ -553,12 +553,24 @@
 		if(BODY_ZONE_R_LEG)
 			prosthetic = new /obj/item/bodypart/leg/right/robot/surplus
 			slot_string = "right leg"
+<<<<<<< HEAD
 	human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
+=======
+	old_limb = human_holder.return_and_replace_bodypart(prosthetic, special = TRUE)
+>>>>>>> fdd7ed4d4c3f5 (Fixes prosthetic limbs leaving the old one behind (#75176))
 
 /datum/quirk/prosthetic_limb/post_add()
 	to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
 	you need to use a welding tool and cables to repair it, instead of bruise packs and ointment."))
 
+<<<<<<< HEAD
+=======
+/datum/quirk/prosthetic_limb/remove()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	human_holder.del_and_replace_bodypart(old_limb, special = TRUE)
+	old_limb = null
+
+>>>>>>> fdd7ed4d4c3f5 (Fixes prosthetic limbs leaving the old one behind (#75176))
 /datum/quirk/quadruple_amputee
 	name = "Quadruple Amputee"
 	desc = "Oops! All Prosthetics! Due to some truly cruel cosmic punishment, all your limbs have been taken from you."
@@ -570,10 +582,10 @@
 
 /datum/quirk/quadruple_amputee/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
-	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/arm/left/robot/surplus)
-	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/arm/right/robot/surplus)
-	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/leg/left/robot/surplus)
-	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/leg/right/robot/surplus)
+	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/arm/left/robot/surplus, special = TRUE)
+	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/arm/right/robot/surplus, special = TRUE)
+	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/leg/left/robot/surplus, special = TRUE)
+	human_holder.del_and_replace_bodypart(new /obj/item/bodypart/leg/right/robot/surplus, special = TRUE)
 
 /datum/quirk/quadruple_amputee/post_add()
 	to_chat(quirk_holder, span_boldannounce("All your limbs have been replaced with surplus prosthetics. They are fragile and will easily come apart under duress. Additionally, \
