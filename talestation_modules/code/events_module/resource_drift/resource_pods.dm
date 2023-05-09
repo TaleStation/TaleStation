@@ -148,7 +148,7 @@
 
 		allowed_areas = make_associative(GLOB.the_station_areas) - safe_area_types
 
-	var/list/possible_areas = typecache_filter_list(GLOB.sortedAreas,allowed_areas)
+	var/list/possible_areas = typecache_filter_list(get_sorted_areas(),allowed_areas)
 	if (length(possible_areas))
 		var/chosen_area = pick(possible_areas)
 		while(possible_areas)
