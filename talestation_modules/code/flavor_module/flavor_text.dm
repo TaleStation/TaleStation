@@ -4,11 +4,11 @@
 */
 /datum/record
 	/// Var used to pass general record information
-	var/old_general_records = "Unknown"
+	var/old_general_records
 	/// Var used to pass medical record information
-	var/old_medical_records = "Unknown"
+	var/old_medical_records
 	/// Var used to pass security record information
-	var/old_security_records = "Unknown"
+	var/old_security_records
 
 /datum/antagonist
 	/// Whether this antag can see exploitable info on examine.
