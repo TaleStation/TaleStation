@@ -37,13 +37,6 @@
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	priority = PREFERENCE_PRIORITY_NAMES
 
-/datum/preference/multiline_text/flavor_datum/apply_to_human(mob/living/carbon/human/target, value)
-	if(!value)
-		return
-
-	if(istype(target, /mob/living/carbon/human/dummy))
-		return
-
 /datum/preference/multiline_text/flavor_datum/flavor_text
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	savefile_identifier = PREFERENCE_CHARACTER
