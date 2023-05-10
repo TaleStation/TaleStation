@@ -152,9 +152,9 @@
 
 	// NON-MODULAR CHANGES: Minimal flavor text
 	if(CONFIG_GET(flag/min_flavor_text))
-		if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
+		if(length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to join the round. \
-						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
+						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
 			return
 	// NON-MODULAR CHANGES END
@@ -209,9 +209,9 @@
 
 	// NON-MODULAR CHANGES: Minimal flavor text
 	if(CONFIG_GET(flag/min_flavor_text))
-		if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
+		if(length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to join the round. \
-						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
+						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
 			return
 	// NON-MODULAR CHANGES END
@@ -269,9 +269,9 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 	// NON-MODULAR CHANGES: Minimal flavor text
 	if(CONFIG_GET(flag/min_flavor_text))
-		if(length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
+		if(length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to observe the round. \
-						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/text/flavor_text))] characters. \
+						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
 			return
 	// NON-MODULAR CHANGES END
