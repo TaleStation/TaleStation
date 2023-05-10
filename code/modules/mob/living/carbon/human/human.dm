@@ -204,6 +204,12 @@
 					to_chat(human_user,  "<span class='notice ml-1'>Detected physiological traits:</span>\n<span class='notice ml-2'>[quirkstring]</span>")
 				else
 					to_chat(human_user,  "<span class='notice ml-1'>No physiological traits found.</span>")
+			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+			if(href_list["medrecords"])
+				to_chat(usr, "<b>Medical Record:</b> [target_record.old_medical_records]")
+			if(href_list["genrecords"])
+				to_chat(usr, "<b>General Record:</b> [target_record.old_general_records]")
+			//SKYRAT EDIT END
 			return //Medical HUD ends here.
 
 		if(href_list["hud"] == "s")

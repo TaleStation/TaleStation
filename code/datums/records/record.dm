@@ -102,6 +102,11 @@
 	physical_status = PHYSICAL_ACTIVE,
 	mental_status = MENTAL_STABLE,
 	quirk_notes,
+	// NON-MODULAR CHANGES: Adds records
+	old_general_records = "",
+	old_medical_records = "",
+	old_security_records = "",
+	// NON-MODULAR CHANGES END
 )
 	. = ..()
 	src.lock_ref = lock_ref
@@ -112,6 +117,10 @@
 	src.physical_status = physical_status
 	src.mental_status = mental_status
 	src.quirk_notes = quirk_notes
+	// NON-MODULAR CHANGES: Adds records
+	src.old_general_records = old_general_records
+	src.old_medical_records = old_medical_records
+	src.old_security_records = old_security_records
 
 	GLOB.manifest.general += src
 
