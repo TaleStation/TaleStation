@@ -34,18 +34,12 @@
 	if(istype(target, /obj/machinery/hydroponics/xeno_tray))
 		do_plant_stats_scan(target, user)
 		return TRUE
-	balloon_alert(user, "invalid object")
-	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
-	return TRUE
 
 // This check is here for modularity sake, disables regular analyzers from being used
 /obj/item/plant_analyzer/pre_attack(target, mob/user)
 	if(is_type_in_list(target, list(/obj/machinery/hydroponics/constructable, /obj/machinery/hydroponics/soil)))
 		do_plant_stats_scan(target, user)
 		return TRUE
-	balloon_alert(user, "invalid object")
-	to_chat(user, span_warning("[src] reads 'Invalid object.'"))
-	return TRUE
 
 /obj/item/xeno_analyzer/proc/do_plant_stats_scan(obj/machinery/hydroponics/xeno_tray/target, mob/user)
 	health = target.plant_health
