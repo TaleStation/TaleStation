@@ -387,6 +387,10 @@
 			if(target_record)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1;examine_time=[world.time]'>\[Medical evaluation\]</a><br>"
 			. += "<a href='?src=[REF(src)];hud=m;quirk=1;examine_time=[world.time]'>\[See quirks\]</a>"
+			// NON-MODULAR CHANGES: Viewable records
+			if(target_record && length(target_record.old_medical_records) > RECORDS_INVISIBLE_THRESHOLD)
+				. += "<a href='?src=[REF(src)];hud=m;medrecords=1;examine_time=[world.time]'>\[View medical records\]</a>"
+			// NON-MODULAR CHANGES END
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)
@@ -406,6 +410,13 @@
 					"<a href='?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>",
 					"<a href='?src=[REF(src)];hud=s;add_note=1;examine_time=[world.time]'>\[Add note\]</a>"), "")
+					// NON-MODULAR CHANGES: Viewable records
+				if(target_record && length(target_record.old_security_records) > RECORDS_INVISIBLE_THRESHOLD)
+					. += "<span class='deptradio'>Past security records:</span> <a href='?src=[REF(src)];hud=s;secrecords=1;examine_time=[world.time]'>\[View past security records\]</a>"
+
+		if (target_record && length(target_record.old_general_records) > RECORDS_INVISIBLE_THRESHOLD)
+			. += "<a href='?src=[REF(src)];hud=[HAS_TRAIT(user, TRAIT_SECURITY_HUD) ? "s" : "m"];genrecords=1;examine_time=[world.time]'>\[View general records\]</a>"
+		// NON-MODULAR CHANGES END
 	else if(isobserver(user))
 		. += span_info("<b>Traits:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 	. += "</span>"

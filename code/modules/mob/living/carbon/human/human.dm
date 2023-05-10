@@ -204,6 +204,12 @@
 					to_chat(human_user,  "<span class='notice ml-1'>Detected physiological traits:</span>\n<span class='notice ml-2'>[quirkstring]</span>")
 				else
 					to_chat(human_user,  "<span class='notice ml-1'>No physiological traits found.</span>")
+			// NON-MODULAR CHANGES: Viewable records
+			if(href_list["medrecords"])
+				to_chat(human_user, "<b>Medical Record:</b> [target_record.old_medical_records]")
+			if(href_list["genrecords"])
+				to_chat(human_user, "<b>General Record:</b> [target_record.old_general_records]")
+			// NON-MODULAR CHANGES END
 			return //Medical HUD ends here.
 
 		if(href_list["hud"] == "s")
@@ -270,6 +276,22 @@
 				to_chat(human_user, "----------")
 
 				return
+
+			// NON-MODULAR CHANGES: Viewable records
+			if(href_list["genrecords"])
+				if(!human_user.canUseHUD())
+					return
+				if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					return
+				to_chat(human_user, "<b>General Record:</b> [target_record.old_general_records]")
+
+			if(href_list["secrecords"])
+				if(!human_user.canUseHUD())
+					return
+				if(!HAS_TRAIT(human_user, TRAIT_SECURITY_HUD))
+					return
+				to_chat(human_user, "<b>Security Record:</b> [target_record.old_security_records]")
+			// NON-MODULAR CHANGES END
 
 			if(href_list["add_citation"])
 				var/max_fine = CONFIG_GET(number/maxfine)

@@ -58,8 +58,8 @@
 	// Now we handle silicon and/or human, order doesn't really matter
 	// If other variants of mob/living need to be handled at some point, put them here
 	if(issilicon(holder))
-		flavor_text = preferences.read_preference(/datum/preference/text/silicon_flavor_text)
-		ooc_notes += preferences.read_preference(/datum/preference/text/ooc_notes)
+		flavor_text = preferences.read_preference(/datum/preference/text/flavor_text/silicon_flavor_text)
+		ooc_notes += preferences.read_preference(/datum/preference/text/flavor_text/ooc_notes)
 		//headshot += preferences.read_preference(/datum/preference/text/headshot)
 
 	if(ishuman(holder))

@@ -58,6 +58,10 @@
 
 /// How many characters will be displayed in the flavor text preview before we cut it off?
 #define FLAVOR_PREVIEW_LIMIT 110
+/// The default value that will go in any new player's exploitables.
+#define EXPLOITABLE_DEFAULT_TEXT
+/// The length of records at which they will not show up, to prevent empty records from appearing.
+#define RECORDS_INVISIBLE_THRESHOLD 0
 
 /*
 * Pain Defines
