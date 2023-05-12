@@ -581,8 +581,6 @@
 /// Remove the image from the modsuit wearer's screen
 /obj/effect/temp_visual/sonar_ping/proc/remove_mind(mob/living/looker)
 	looker?.client?.images -= modsuit_image
-<<<<<<< HEAD
-=======
 
 /// Update the position of the ping while it's still up. Not sure if i need to use the full proc but just being safe
 /obj/effect/temp_visual/sonar_ping/process(seconds_per_tick)
@@ -605,4 +603,3 @@
 	. = ..()
 	pixel_x = rand(-12, 12)
 	pixel_y = rand(-9, 0)
->>>>>>> a4822c165b06c (Now blocking is more noticeable! New blocking and parrying sounds (#74998))
