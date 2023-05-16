@@ -12,7 +12,7 @@
 
 /datum/antagonist
 	/// Whether this antag can see exploitable info on examine.
-	var/antag_flags = CAN_SEE_EXPOITABLE_INFO
+	var/see_exploitable_info = CAN_SEE_EXPOITABLE_INFO
 
 // Flavor text pref datums
 /datum/preference/multiline_text
