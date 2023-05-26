@@ -166,4 +166,3 @@
 			SEND_SIGNAL(src, COMSIG_AFTER_INJECT, user, affected_mob)
 	else
 		inject(affected_mob, user)
-

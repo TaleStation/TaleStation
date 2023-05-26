@@ -76,4 +76,3 @@
 					new /obj/effect/decal/cleanable/ash(affected_mob.loc)
 					affected_mob.visible_message(span_warning("[affected_mob] is erased from the timeline!"), span_userdanger("You are ripped from the timeline!"))
 					qdel(affected_mob)
-

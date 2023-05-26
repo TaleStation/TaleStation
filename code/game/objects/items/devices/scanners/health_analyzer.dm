@@ -547,8 +547,6 @@
 
 	woundscan(user, patient, src)
 
-<<<<<<< HEAD
-=======
 /obj/item/healthanalyzer/disease
 	name = "disease state analyzer"
 	icon_state = "adv_spectrometer"
@@ -594,7 +592,6 @@
 
 	diseasescan(user, patient, src)
 
->>>>>>> d0216eaccecf7 ([NO GBP] Fixes HMS in so many ways. (#75615))
 #undef SCANMODE_HEALTH
 #undef SCANMODE_WOUND
 #undef SCANMODE_COUNT
