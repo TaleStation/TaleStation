@@ -75,7 +75,10 @@
 					new /obj/effect/decal/cleanable/plasma(affected_mob.loc)
 					new /obj/effect/decal/cleanable/ash(affected_mob.loc)
 					affected_mob.visible_message(span_warning("[affected_mob] is erased from the timeline!"), span_userdanger("You are ripped from the timeline!"))
+					affected_mob.investigate_log("has been dusted / deleted by [name].", INVESTIGATE_DEATHS)
+					affected_mob.ghostize(can_reenter_corpse = FALSE)
 					qdel(affected_mob)
+<<<<<<< HEAD
 				if(3)
 					affected_mob.visible_message(span_warning("[affected_mob] is torn apart!"), span_userdanger("Your atoms accelerate into criticality!"))
 					affected_mob.gib()
@@ -89,3 +92,5 @@
 						cheart.replace_into(affected_mob)
 						playsound(affected_mob, 'sound/hallucinations/far_noise.ogg', 50, 1)
 						stage = 3
+=======
+>>>>>>> e0f73d13cdbcd (Adds a log death to HMS (#75644))
