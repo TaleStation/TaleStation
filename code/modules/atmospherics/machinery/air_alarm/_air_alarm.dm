@@ -470,11 +470,11 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 
 	var/color
 	if(danger_level == AIR_ALARM_ALERT_HAZARD)
-		color = "#FF0022" // red
+		color = "#DA0205" // red // NON-MODULAR CHANGES: Reverts color
 	else if(danger_level == AIR_ALARM_ALERT_WARNING || my_area.active_alarms[ALARM_ATMOS])
-		color = "#FFAA00" // yellow
+		color = "#EC8B2F" // yellow // NON-MODULAR CHANGES: Reverts color
 	else
-		color = "#00FFCC" // teal
+		color = "#03A728" // green // NON-MODULAR CHANGES: Reverts color
 
 	set_light(1.5, 1, color)
 
@@ -550,7 +550,7 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 	selected_mode.apply(my_area)
 	SEND_SIGNAL(src, COMSIG_AIRALARM_UPDATE_MODE, source)
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 27)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 24) // NON-MODULAR CHANGES: Reverts Y nudge
 
 /// Used for unlocked air alarm helper, which unlocks the air alarm.
 /obj/machinery/airalarm/proc/unlock()
