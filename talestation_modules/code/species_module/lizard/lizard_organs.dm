@@ -68,6 +68,10 @@
 	if(human.nutrition > NUTRITION_LEVEL_WELL_FED && human.nutrition < NUTRITION_LEVEL_FULL)
 		human.adjustBruteLoss(-0.5 * seconds_per_tick)
 
+/obj/item/organ/internal/stomach/lizard/Destroy()
+	QDEL_NULL(metabolism_efficiency)
+	return ..()
+
 /obj/item/organ/internal/tongue/lizard
 	taste_sensitivity = LIZARD_TASTE_SENSITIVITY // combined nose + tongue, extra sensitive
 
