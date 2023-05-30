@@ -27,6 +27,9 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 		if(prefs.muted & MUTE_OOC)
 			to_chat(src, span_danger("You cannot use LOOC (muted)."))
 			return
+		if(istype(mob, /mob/dead/observer))
+			to_chat(src, span_danger("The dead can't use LOOC! Use OOC."))
+			return
 	else
 		if(!GLOB.looc_allowed)
 			to_chat(src, span_danger("LOOC is globally muted, but you are bypassing it as an admin."))
