@@ -954,3 +954,48 @@
   - bugfix: fixed TTS volume changes not working
   funman816:
   - spellcheck: fixed a typo in custom item description in northstar
+2023-05-30:
+  Guillaume Prata:
+  - rscadd: Air alarms will now talk about their atmospheric problems (low/high pressure/temperature)
+      so players can understand what is the room's issue easier.
+  Jolly:
+  - code_imp: The code for posters internally has been tweaked slightly. If you see
+      posters floating in hallways, please report them ASAP!!
+  LT3:
+  - qol: Being connected to an IV now has a visual indicator
+  MTandi:
+  - bugfix: Air alarm properly updates status when powered
+  MTandi, Krysonism:
+  - rscadd: Added Spess Knife with many tool behaviours
+  TaleStationBot:
+  - qol: dead potted plant can be revived with a seed
+  - bugfix: precise insertion of sheets into material container (e.g. drone dispenser)
+      works again
+  - bugfix: recycler properly recycles all contents inside a storage medium like a
+      backpack & even inert bag of holding
+  - bugfix: gaining extra metal after recycling ammo boxes
+  - qol: recycler consumes only half the power when recycling item's that has no material
+  - qol: you can fill up your bag with iron, glass, whatever material and attack the
+      autolathe/ore silo with it to transfer all it's contents into it
+  - refactor: '`/datum/component/material_container/insert_item()` now splits stack,
+      deletes the inserted item & calls the
+
+      `after_insert` callback'
+  - refactor: '`/datum/component/material_container/user_insert()` now extracts material
+      from all the contents of an atom reccursively'
+  - balance: Syndicate corpses dropped from killing a Legion no longer come with a
+      MODSuit.
+  - bugfix: fix "none" gas names in gas filter
+  - rscadd: Added 3 new spider types
+  - rscadd: Added more spider abilities
+  - balance: Rebalanced spiders
+  - bugfix: Fixes spiderlings having density
+  YehnBeep:
+  - bugfix: Part of the North Star library's private study will no longer register
+      as part of the chapel on the crew monitor and similar.
+  axietheaxolotl / viro:
+  - image: new medkit sprites, again.
+  mikederkan:
+  - rscadd: Made disposals outlets launch with more range depending on the setting
+      used
+  - rscadd: Made disposals outlets emag effect irreversible without reconstruction
