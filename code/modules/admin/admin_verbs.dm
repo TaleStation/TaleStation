@@ -91,8 +91,12 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggle_combo_hud, /* toggle display of the combination pizza antag and taco sci/med/eng hud */
 	/client/proc/toggle_view_range, /*changes how far we can see*/
 	/client/proc/cmd_admin_law_panel,
+<<<<<<< HEAD
 	// MODULAR STUFF
 	/datum/admins/proc/togglelooc, /* NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) - What a fat fucking lie that was #2644*/
+=======
+	/client/proc/log_viewer_new,
+>>>>>>> c6205dd063ef3 (Adds a new front end for viewing logs | fixes the manifest log message too (#75617))
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_ban)
