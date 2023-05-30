@@ -115,7 +115,7 @@
 		var/obj/item/clothing/glasses/G = get_item_by_slot(ITEM_SLOT_EYES)
 		var/are_we_in_weekend_at_bernies = G?.tint && buckled && istype(buckled, /obj/vehicle/ridden/wheelchair)
 
-		if(isliving(user) && (HAS_TRAIT(user, TRAIT_NAIVE) || are_we_in_weekend_at_bernies))
+		if(isliving(user) && (HAS_TRAIT(user.mind, TRAIT_NAIVE) || are_we_in_weekend_at_bernies))
 			just_sleeping = TRUE
 
 		if(!just_sleeping)
@@ -387,6 +387,10 @@
 			if(target_record)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1;examine_time=[world.time]'>\[Medical evaluation\]</a><br>"
 			. += "<a href='?src=[REF(src)];hud=m;quirk=1;examine_time=[world.time]'>\[See quirks\]</a>"
+		//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+			if(target_record && length(target_record.old_medical_records) > RECORDS_INVISIBLE_THRESHOLD)
+				. += "<a href='?src=[REF(src)];hud=m;medrecords=1;examine_time=[world.time]'>\[View medical records\]</a>"
+			//SKYRAT EDIT END
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if(!user.stat && user != src)

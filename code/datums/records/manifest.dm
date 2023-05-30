@@ -16,7 +16,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		if(readied_player.new_character)
 			log_manifest(readied_player.ckey,readied_player.new_character.mind,readied_player.new_character)
 		if(ishuman(readied_player.new_character))
-			inject(readied_player.new_character)
+			inject(readied_player.new_character, readied_player.client) // NON-MODULAR CHANGES: Adds records
 		CHECK_TICK
 
 /// Gets the current manifest.
@@ -97,7 +97,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 
 
 /// Injects a record into the manifest.
-/datum/manifest/proc/inject(mob/living/carbon/human/person)
+/datum/manifest/proc/inject(mob/living/carbon/human/person, client/person_client) // NON-MODULAR CHANGES: Adds client args
 	set waitfor = FALSE
 	if(!(person.mind?.assigned_role.job_flags & JOB_CREW_MANIFEST))
 		return
@@ -146,6 +146,11 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		minor_disabilities = person.get_quirk_string(FALSE, CAT_QUIRK_MINOR_DISABILITY),
 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
+		// NON-MODULAR CHANGES: Adds records
+		old_general_records = person_client?.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/general) || "",
+		old_medical_records = person_client?.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/medical) || "",
+		old_security_records = person_client?.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/security) || "",
+		// NON-MODULAR CHANGES END
 	)
 
 	return

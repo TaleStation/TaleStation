@@ -204,6 +204,12 @@
 					to_chat(human_user,  "<span class='notice ml-1'>Detected physiological traits:</span>\n<span class='notice ml-2'>[quirkstring]</span>")
 				else
 					to_chat(human_user,  "<span class='notice ml-1'>No physiological traits found.</span>")
+			//SKYRAT EDIT ADDITION BEGIN - EXAMINE RECORDS
+			if(href_list["medrecords"])
+				to_chat(usr, "<b>Medical Record:</b> [target_record.old_medical_records]")
+			if(href_list["genrecords"])
+				to_chat(usr, "<b>General Record:</b> [target_record.old_general_records]")
+			//SKYRAT EDIT END
 			return //Medical HUD ends here.
 
 		if(href_list["hud"] == "s")
@@ -245,7 +251,7 @@
 
 				investigate_log("has been set from [target_record.wanted_status] to [new_status] via HUD by [key_name(human_user)].", INVESTIGATE_RECORDS)
 				target_record.wanted_status = new_status
-				sec_hud_set_security_status()
+				update_matching_security_huds(target_record.name)
 				return
 
 			if(href_list["view"])
@@ -281,7 +287,7 @@
 				var/datum/crime/citation/new_citation = new(name = citation_name, author = allowed_access, fine = fine)
 
 				target_record.citations += new_citation
-				new_citation.alert_owner(target_record.name, "You have been fined [fine] credits for '[citation_name]'. Fines may be paid at security.")
+				new_citation.alert_owner(usr, src, target_record.name, "You have been fined [fine] credits for '[citation_name]'. Fines may be paid at security.")
 				investigate_log("New Citation: <strong>[citation_name]</strong> Fine: [fine] | Added to [target_record.name] by [key_name(human_user)]", INVESTIGATE_RECORDS)
 				SSblackbox.ReportCitation(REF(new_citation), human_user.ckey, human_user.real_name, target_record.name, citation_name, fine)
 

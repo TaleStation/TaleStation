@@ -10,15 +10,13 @@
 
 /// Added vars for mob/living.
 /mob/living
-	// Default human speech-sounds ported from Goonstation.
 	/// Assoc list of [sounds that play on speech for this mob] to [volume].
-	var/mob_speech_sounds = list('talestation_modules/sound/voice/speak_1.ogg' = 120, \
-								'talestation_modules/sound/voice/speak_2.ogg' = 120, \
-								'talestation_modules/sound/voice/speak_3.ogg' = 120, \
-								'talestation_modules/sound/voice/speak_4.ogg' = 120)
+	var/mob_speech_sounds = list('talestation_modules/sound/voice/speak_1.ogg' = 35, \
+								'talestation_modules/sound/voice/speak_2.ogg' = 35, \
+								)
 	/// Assoc list of [sounds that play on radio message] to [volume].
-	var/mob_radio_sounds = list('talestation_modules/sound/voice/radio.ogg' = 75, \
-								'talestation_modules/sound/voice/radio_2.ogg' = 75)
+	var/mob_radio_sounds = list('talestation_modules/sound/voice/radio.ogg' = 35, \
+								'talestation_modules/sound/voice/radio_2.ogg' = 35)
 
 /// Extend say so we can have talking make sounds.
 /mob/living/say(message, bubble_type, list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null, filterproof = null, message_range = 7, datum/saymode/saymode = null)

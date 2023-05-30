@@ -306,6 +306,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_RESEARCH_SCANNER "research_scanner"
 /// Can weave webs into cloth
 #define TRAIT_WEB_WEAVER "web_weaver"
+/// Can navigate the web without getting stuck
+#define TRAIT_WEB_SURFER "web_surfer"
 #define TRAIT_ABDUCTOR_TRAINING "abductor-training"
 #define TRAIT_ABDUCTOR_SCIENTIST_TRAINING "abductor-scientist-training"
 #define TRAIT_SURGEON "surgeon"
@@ -462,9 +464,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_ORBITING_FORBIDDEN "orbiting_forbidden"
 /// Trait applied to mob/living to mark that spiders should not gain further enriched eggs from eating their corpse.
 #define TRAIT_SPIDER_CONSUMED "spider_consumed"
-/// Whether we're sneaking, from the alien sneak ability.
-/// Maybe worth generalizing into a general "is sneaky" / "is stealth" trait in the future.
-#define TRAIT_ALIEN_SNEAK "sneaking_alien"
+/// Whether we're sneaking, from the creature sneak ability.
+#define TRAIT_SNEAK "sneaking_creatures"
 
 /// Item still allows you to examine items while blind and actively held.
 #define TRAIT_BLIND_TOOL "blind_tool"
@@ -837,6 +838,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_DO_NOT_SPLASH "do_not_splash"
 /// Marks an atom when the cleaning of it is first started, so that the cleaning overlay doesn't get removed prematurely
 #define TRAIT_CURRENTLY_CLEANING "currently_cleaning"
+/// Objects with this trait are deleted if they fall into chasms, rather than entering abstract storage
+#define TRAIT_CHASM_DESTROYED "chasm_destroyed"
 
 // unique trait sources, still defines
 #define EMP_TRAIT "emp_trait"
