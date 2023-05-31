@@ -354,7 +354,9 @@
 	ACCESS_HOP, \
 	ACCESS_QM, \
 	ACCESS_RD, \
-)
+	ACCESS_AP, \
+	ACCESS_BO, \
+) // NON-MODULAR CHANGES: Adds our access defines
 
 /// Captains private rooms. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_CAPTAIN)
 #define CAPTAIN_ACCESS list( \
@@ -465,7 +467,8 @@
 	ACCESS_ROBOTICS, \
 	ACCESS_SCIENCE, \
 	ACCESS_XENOBIOLOGY, \
-)
+	ACCESS_XENOBOTANY, \
+) // NON-MODULAR CHANGES: Adds our access defines
 /// Name for the Engineering region.
 #define REGION_ENGINEERING "Engineering"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all engineering regional accesses that are overseen by the CE.
@@ -556,6 +559,9 @@
 	/obj/item/modular_computer/pda/atmos = list(REGION_ENGINEERING), \
 	/obj/item/modular_computer/pda/chemist = list(REGION_MEDBAY), \
 	/obj/item/modular_computer/pda/geneticist = list(REGION_RESEARCH), \
+	/obj/item/modular_computer/pda/heads/bo = list(REGION_COMMAND), \
+	/obj/item/modular_computer/pda/heads/ap = list(REGION_COMMAND), \
+	/obj/item/modular_computer/pda/science/xenobiologist = list(REGION_RESEARCH), \
 )
 
 /// All regions that make up the station area. Helper define to quickly designate a region as part of the station or not. Access via SSid_access.station_regions.
