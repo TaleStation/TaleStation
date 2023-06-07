@@ -9,6 +9,7 @@ export const _LanguagePicker = (props, context) => {
     pref_name,
     species,
     selected_lang,
+    bilingual,
     trilingual,
     blacklisted_species = [],
     base_languages = [],
@@ -22,6 +23,9 @@ export const _LanguagePicker = (props, context) => {
           <Dimmer>
             You cannot chose a language with the trilingual quirk.
           </Dimmer>
+        )}
+        {!!bilingual && (
+          <Dimmer>You cannot chose a language with the bilingual quirk.</Dimmer>
         )}
         {blacklisted_species.includes(species) && (
           <Dimmer>

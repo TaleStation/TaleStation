@@ -17,7 +17,7 @@
 	name = "Trilingual"
 	desc = "You're trilingual - you know another random language besides common and your native tongue. (If you take this quirk, you cannot select an additional language.)"
 	icon = FA_ICON_GLOBE
-	value = 1
+	value = 4
 	gain_text = span_notice("You understand a new language.")
 	lose_text = span_notice("You no longer understand a new language.")
 	medical_record_text = "Patient is trilingual and knows multiple languages."
@@ -37,7 +37,7 @@
 			added_language = null
 			return
 
-	quirk_holder_languages.grant_language(added_language, TRUE, TRUE, LANGUAGE_QUIRK)
+	quirk_holder_languages.grant_language(added_language, TRUE, TRUE, LANGUAGE_SPOKEN_QUIRK)
 
 	var/datum/language/added_language_instance = GLOB.language_datum_instances[added_language]
 	if(quirk_holder_languages.has_language(added_language, TRUE))
@@ -50,7 +50,7 @@
 /datum/quirk/trilingual/remove()
 	if(added_language)
 		var/datum/language_holder/quirk_holder_languages = quirk_holder.get_language_holder()
-		quirk_holder_languages.remove_language(added_language, TRUE, TRUE, LANGUAGE_QUIRK)
+		quirk_holder_languages.remove_language(added_language, TRUE, TRUE, LANGUAGE_SPOKEN_QUIRK)
 
 /datum/quirk/no_appendix
 	name = "Appendicitis Survivor"
@@ -85,5 +85,9 @@
 	var/mob/living/carbon/carbon_holder = quirk_holder
 	if(istype(carbon_holder))
 		carbon_holder.unset_pain_mod(PAIN_MOD_QUIRK)
+
+/datum/quirk/bilingual
+	desc = "Over the years you've picked up an extra language! (If you take this quirk, you cannot select an additional language.)"
+	value = 2
 
 #undef LANGUAGE_QUIRK_RANDOM_BLACKLIST

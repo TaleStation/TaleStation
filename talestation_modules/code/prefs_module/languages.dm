@@ -29,6 +29,8 @@
 		return NO_LANGUAGE
 	if("Trilingual" in preferences.all_quirks)
 		return NO_LANGUAGE
+	if("Bilingual" in preferences.all_quirks)
+		return NO_LANGUAGE
 
 	return input
 
@@ -132,6 +134,7 @@
 	data["species"] = initial(species.id)
 	data["selected_lang"] = owner_prefs.read_preference(/datum/preference/additional_language)
 	data["trilingual"] = ("Trilingual" in owner_prefs.all_quirks)
+	data["bilingual"] = ("Bilingual" in owner_prefs.all_quirks)
 	data["pref_name"] = owner_prefs.read_preference(/datum/preference/name/real_name)
 
 	return data
