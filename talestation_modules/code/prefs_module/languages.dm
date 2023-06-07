@@ -29,6 +29,8 @@
 		return NO_LANGUAGE
 	if("Trilingual" in preferences.all_quirks)
 		return NO_LANGUAGE
+	if("Bilingual" in preferences.all_quirks)
+		return NO_LANGUAGE
 
 	return input
 
