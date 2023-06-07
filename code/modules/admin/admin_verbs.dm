@@ -92,6 +92,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggle_view_range, /*changes how far we can see*/
 	/client/proc/cmd_admin_law_panel,
 	/client/proc/log_viewer_new,
+	/client/proc/player_ticket_history,
 	// MODULAR STUFF
 	/datum/admins/proc/togglelooc, /* NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) - What a fat fucking lie that was #2644*/
 	)
