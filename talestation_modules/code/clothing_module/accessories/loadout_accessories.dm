@@ -86,11 +86,11 @@
 
 /obj/item/clothing/accessory/cosmetic_dogtag/on_uniform_equip(obj/item/clothing/under/attached_clothes, user)
 	. = ..()
-	RegisterSignal(attached_clothes, COMSIG_PARENT_EXAMINE,PROC_REF(on_examine))
+	RegisterSignal(attached_clothes, COMSIG_ATOM_EXAMINE,PROC_REF(on_examine))
 
 /obj/item/clothing/accessory/cosmetic_dogtag/on_uniform_dropped(obj/item/clothing/under/attached_clothes, user)
 	. = ..()
-	UnregisterSignal(attached_clothes, COMSIG_PARENT_EXAMINE)
+	UnregisterSignal(attached_clothes, COMSIG_ATOM_EXAMINE)
 
 ///What happens when we examine the uniform
 /obj/item/clothing/accessory/cosmetic_dogtag/proc/on_examine(datum/source, mob/user, list/examine_list)
