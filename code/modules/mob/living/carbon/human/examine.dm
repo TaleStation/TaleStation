@@ -414,7 +414,6 @@
 		. += span_info("<b>Traits:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 	. += "</span>"
 
-<<<<<<< HEAD
 	// NON-MODULAR CHANGES: Updated flavor text
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's "flavor_text" DNA feature. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
@@ -430,10 +429,7 @@
 		. += flavor_text_link
 	/// NON-MODULAR CHANGES END
 
-	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
-=======
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
->>>>>>> ae5a4f955d0be (Pulls apart the vestiges of components still hanging onto signals (#75914))
 
 /**
  * Shows any and all examine text related to any status effects the user has.
