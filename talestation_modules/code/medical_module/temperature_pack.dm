@@ -24,13 +24,13 @@
 	src.temperature_change = temperature_change
 
 	RegisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY, PROC_REF(try_apply_to_limb))
-	RegisterSignal(target, COMSIG_PARENT_EXAMINE, PROC_REF(get_examine_text))
+	RegisterSignal(target, COMSIG_ATOM_EXAMINE, PROC_REF(get_examine_text))
 
 /datum/element/temperature_pack/Detach(obj/item/target)
 	. = ..()
 
 	UnregisterSignal(target, COMSIG_ITEM_ATTACK_SECONDARY)
-	UnregisterSignal(target, COMSIG_PARENT_EXAMINE)
+	UnregisterSignal(target, COMSIG_ATOM_EXAMINE)
 
 /*
  * Edit the examine text to show the item can be used as a temperature pack.
