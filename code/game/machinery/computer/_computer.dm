@@ -34,7 +34,6 @@
 		return FALSE
 	return TRUE
 
-/* NON-MODULAR CHANGES: Conjoining consoles
 /obj/machinery/computer/update_overlays()
 	. = ..()
 	if(icon_keyboard)
@@ -54,7 +53,6 @@
 	if(icon_screen)
 		. += mutable_appearance(icon, icon_screen)
 		. += emissive_appearance(icon, icon_screen, src)
-*/
 
 /obj/machinery/computer/power_change()
 	. = ..()
