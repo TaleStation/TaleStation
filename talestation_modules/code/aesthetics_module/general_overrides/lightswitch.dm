@@ -4,7 +4,7 @@
 	. = ..()
 	playsound(src, 'talestation_modules/sound/machines/lights/lightswitch.ogg', 100, 1)
 
-#ifdef UNIT_TESTS
+#ifndef UNIT_TESTS
 /obj/machinery/light_switch/LateInitialize()
 	. = ..()
 	if(prob(66)) //66% chance for an area to have their lights flipped.
