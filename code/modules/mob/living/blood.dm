@@ -15,6 +15,8 @@
 
 	//Blood regeneration if there is some space
 	if(blood_volume < BLOOD_VOLUME_NORMAL && !HAS_TRAIT(src, TRAIT_NOHUNGER))
+	// NON-MODULAR CHANGES: Lizards
+		var/blood_multiplier = dna.species.blood_gain_multiplier
 		var/nutrition_ratio = 0
 		switch(nutrition)
 			if(0 to NUTRITION_LEVEL_STARVING)
@@ -30,7 +32,8 @@
 		if(satiety > 80)
 			nutrition_ratio *= 1.25
 		adjust_nutrition(-nutrition_ratio * HUNGER_FACTOR * seconds_per_tick)
-		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * seconds_per_tick), BLOOD_VOLUME_NORMAL)
+		// NON-MODULAR CHANGES: Lizards
+		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * blood_multiplier * delta_time), BLOOD_VOLUME_NORMAL)
 
 	// we call lose_blood() here rather than quirk/process() to make sure that the blood loss happens in sync with life()
 	if(HAS_TRAIT(src, TRAIT_BLOOD_DEFICIENCY))
