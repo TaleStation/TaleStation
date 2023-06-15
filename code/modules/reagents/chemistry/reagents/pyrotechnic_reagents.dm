@@ -234,14 +234,10 @@
 
 /datum/reagent/cryostylane/on_mob_add(mob/living/affected_mob, amount)
 	. = ..()
-	// NON-MODULAR CHANGES: Lizards
-	affected_mob.mob_surgery_speed_mod -= ((CRYO_SPEED_PREFACTOR * (1 - creation_purity))+CRYO_SPEED_CONSTANT) //10% - 30% slower
 	affected_mob.color = COLOR_CYAN
 
 /datum/reagent/cryostylane/on_mob_delete(mob/living/affected_mob)
 	. = ..()
-	// NON-MODULAR CHANGES: Lizards
-	affected_mob.mob_surgery_speed_mod += ((CRYO_SPEED_PREFACTOR * (1 - creation_purity))+CRYO_SPEED_CONSTANT)
 	affected_mob.color = COLOR_WHITE
 
 //Pauses decay! Does do something, I promise.
