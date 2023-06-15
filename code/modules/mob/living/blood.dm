@@ -33,7 +33,7 @@
 			nutrition_ratio *= 1.25
 		adjust_nutrition(-nutrition_ratio * HUNGER_FACTOR * seconds_per_tick)
 		// NON-MODULAR CHANGES: Lizards
-		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * blood_multiplier * delta_time), BLOOD_VOLUME_NORMAL)
+		blood_volume = min(blood_volume + (BLOOD_REGEN_FACTOR * nutrition_ratio * blood_multiplier * seconds_per_tick), BLOOD_VOLUME_NORMAL)
 
 	// we call lose_blood() here rather than quirk/process() to make sure that the blood loss happens in sync with life()
 	if(HAS_TRAIT(src, TRAIT_BLOOD_DEFICIENCY))
