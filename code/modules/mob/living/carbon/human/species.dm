@@ -104,13 +104,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	///Multiplier for the race's speed. Positive numbers make it move slower, negative numbers make it move faster.
 	var/speedmod = 0
-<<<<<<< HEAD
-	///Percentage modifier for overall defense of the race, or less defense, if it's negative.
-	var/armor = 0
-	///multiplier for brute damage
-	var/brutemod = 1
-	///multiplier for burn damage
-	var/burnmod = 1
+	/**
+	 * Percentage modifier for overall defense of the race, or less defense, if it's negative
+	 * THIS MODIFIES ALL DAMAGE TYPES.
+	 **/
+	var/damage_modifier = 0
 
 	// NON-MODULAR CHANGES: Lizards
 	///multiplier for toxin damage
@@ -119,13 +117,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/oxymod = 1
 	// NON-MODULAR CHANGES END
 
-=======
-	/**
-	 * Percentage modifier for overall defense of the race, or less defense, if it's negative
-	 * THIS MODIFIES ALL DAMAGE TYPES.
-	 **/
-	var/damage_modifier = 0
->>>>>>> f07b74ea9042a (Moves species brutemod and burnmod to be handled by bodyparts (#76060))
 	///multiplier for damage from cold temperature
 	var/coldmod = 1
 	///multiplier for damage from hot temperature
