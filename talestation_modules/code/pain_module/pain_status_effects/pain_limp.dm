@@ -15,7 +15,7 @@
 	if(!istype(owner_human) || !owner_human.pain_controller)
 		return FALSE
 
-	RegisterSignal(owner, list(COMSIG_CARBON_PAIN_GAINED, COMSIG_CARBON_PAIN_LOST), PROC_REF(update_limp))
+	RegisterSignals(owner, list(COMSIG_CARBON_PAIN_GAINED, COMSIG_CARBON_PAIN_LOST), PROC_REF(update_limp))
 
 /datum/status_effect/limp/pain/get_examine_text()
 	return span_warning("[owner.p_theyre(TRUE)] limping with every move.")
