@@ -91,22 +91,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
 	target.dna.initialize_dna(skip_index = TRUE)
 	target.dna.features["mcolor"] = COLOR_VIBRANT_LIME
-<<<<<<< HEAD
-	target.dna.features["moth_antennae"] = "Plain"
-	target.dna.features["moth_markings"] = "None"
-	target.dna.features["moth_wings"] = "Plain"
-	target.dna.features["snout"] = "Round"
-	target.dna.features["spines"] = "None"
-	target.dna.features["tail_cat"] = "None"
-	target.dna.features["tail_lizard"] = "Smooth"
-	target.dna.features["pod_hair"] = "Ivy"
-	// NON-MODULAR CHANGES: Modular dna.features
-	target.dna.features["head_tentacles"] = "Long"
-	target.dna.features["tajaran_snout"] = "Long"
-	target.dna.features["tajaran_body_markings"] = "Default"
-	target.dna.features["avian_beak"] = "Short"
-	target.dna.features["avian_tail"] = "Wide"
-=======
 	target.dna.features["ethcolor"] = COLOR_WHITE
 	target.dna.features["body_markings"] = get_consistent_feature_entry(GLOB.body_markings_list)
 	target.dna.features["ears"] = get_consistent_feature_entry(GLOB.ears_list)
@@ -120,7 +104,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = get_consistent_feature_entry(GLOB.tails_list_human) // it's a lie
 	target.dna.features["tail_lizard"] = get_consistent_feature_entry(GLOB.tails_list_lizard)
 	target.dna.features["pod_hair"] = get_consistent_feature_entry(GLOB.pod_hair_list)
->>>>>>> 6977a041a999c (Do not add external organs if not needed and not rendered. (#75963))
+	// NON-MODULAR CHANGES: Modular dna.features
+	target.dna.features["head_tentacles"] = get_consistent_feature_entry(GLOB.head_tentacles_list)
+	target.dna.features["tajaran_snout"] = get_consistent_feature_entry(GLOB.tajaran_snout_list)
+	target.dna.features["tajaran_body_markings"] = get_consistent_feature_entry(GLOB.tajaran_body_markings_list)
+	target.dna.features["avian_beak"] = get_consistent_feature_entry(GLOB.avian_beak_list)
+	target.dna.features["avian_tail"] = get_consistent_feature_entry(GLOB.avian_tail_list)
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent
