@@ -5,9 +5,8 @@
 	hair_alpha = 150
 	examine_limb_id = SPECIES_JELLYPERSON
 
-/datum/species/jelly/New()
-	. = ..()
-	species_traits += list(HAIR, FACEHAIR)
+/obj/item/bodypart/head/jelly
+	head_flags = HEAD_ALL_FEATURES
 
 /datum/species/jelly/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = sanitize_hexcolor(COLOR_PINK)

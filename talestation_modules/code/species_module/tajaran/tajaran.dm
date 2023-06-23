@@ -10,9 +10,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 	species_traits = list(
 		MUTCOLORS,
-		EYECOLOR,
-		LIPS,
-		HAIR,
 	)
 
 	inherent_traits = list(

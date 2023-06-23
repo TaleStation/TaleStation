@@ -4,6 +4,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/skrell/bodyparts.dmi'
 	limb_id = SPECIES_SKRELL
 	is_dimorphic = TRUE
+	head_flags = HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES|HEAD_DEBRAIN
 
 /obj/item/bodypart/chest/skrell
 	icon_greyscale = 'talestation_modules/icons/species/skrell/bodyparts.dmi'

@@ -70,25 +70,11 @@
 
 // species_traits list on /datum/species, please avoid adding more and use inherent_traits instead where possible
 #define MUTCOLORS 1
-<<<<<<< HEAD
-#define HAIR 2
-#define FACEHAIR 3
-#define EYECOLOR 4
-#define LIPS 5
-#define NOTRANSSTING 7
-#define NOZOMBIE 8
-#define NO_UNDERWEAR 9
-#define NOSTOMACH 10
-#define NO_DNA_COPY 11
-#define DRINKSBLOOD 12
-
-=======
 #define NOTRANSSTING 2
 #define NOZOMBIE 3
 #define NO_UNDERWEAR 4
 #define NO_DNA_COPY 5
 #define DRINKSBLOOD 6
->>>>>>> f030b3b5aa8dc (SPECIES NUKING 2023: Refactors a bunch of species traits into flags for the head bodypart (#76074))
 /// Use this if you want to change the race's color without the player being able to pick their own color. AKA special color shifting
 #define DYNCOLORS 7
 #define AGENDER 8

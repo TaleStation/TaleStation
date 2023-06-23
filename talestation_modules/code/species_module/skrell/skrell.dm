@@ -9,8 +9,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 
 	species_traits = list(
 		MUTCOLORS,
-		EYECOLOR,
-		LIPS,
 		)
 
 	inherent_traits = list(

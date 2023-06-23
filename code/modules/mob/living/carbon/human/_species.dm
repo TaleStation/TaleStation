@@ -773,15 +773,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								accessory_overlay.color = fixed_mut_color
 							else
 								accessory_overlay.color = source.dna.features["mcolor"]
-<<<<<<< HEAD:code/modules/mob/living/carbon/human/species.dm
 							// NON-MODULAR CHANGES: Tajaran body markings color - shit code
 							if(istype(accessory, /datum/sprite_accessory/tajaran_body_markings) && source.dna.features["tajaran_body_markings_color"])
 								accessory_overlay.color = source.dna.features["tajaran_body_markings_color"]
 							// NON-MODULAR CHANGES END
-						if(HAIR)
-=======
 						if(HAIR_COLOR)
->>>>>>> f030b3b5aa8dc (SPECIES NUKING 2023: Refactors a bunch of species traits into flags for the head bodypart (#76074)):code/modules/mob/living/carbon/human/_species.dm
 							if(hair_color == "mutcolor")
 								accessory_overlay.color = source.dna.features["mcolor"]
 							else if(hair_color == "fixedmutcolor")

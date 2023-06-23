@@ -1,5 +1,8 @@
 // NuLizard stuff
 
+/obj/item/bodypart/head/lizard
+	head_flags = HEAD_ALL_FEATURES
+
 // NuLizard modifers + organs
 /datum/species/lizard
 	mutantstomach = /obj/item/organ/internal/stomach/lizard
