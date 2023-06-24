@@ -36,13 +36,13 @@
 	name = "Sharp Tajaran Ears"
 	icon_state = "sharp"
 	hasinner = 1
-	color_src = MUTCOLORS
+	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/ears/cat/tajaran_ears/large
 	name = "Tajaran"
 	icon_state = "large"
 	hasinner = 1
-	color_src = MUTCOLORS
+	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/tajaran_body_markings/none
 	name = "None"

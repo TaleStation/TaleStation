@@ -8,9 +8,6 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 
 	species_traits = list(
 		MUTCOLORS,
-		EYECOLOR,
-		LIPS,
-		HAIR,
 	)
 
 	inherent_traits = list(

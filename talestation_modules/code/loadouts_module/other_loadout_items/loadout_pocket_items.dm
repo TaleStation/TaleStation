@@ -6,12 +6,12 @@
 
 /obj/item/lipstick/green
 	name = "green lipstick"
-	colour = "green"
+	lipstick_color = "green"
 
 /obj/item/lipstick/blue
 	name = "blue lipstick"
-	colour = "blue"
+	lipstick_color = "blue"
 
 /obj/item/lipstick/white
 	name = "white lipstick"
-	colour = "white"
+	lipstick_color = "white"
