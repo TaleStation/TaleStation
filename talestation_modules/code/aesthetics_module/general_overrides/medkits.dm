@@ -28,6 +28,16 @@
 	lefthand_file = 'talestation_modules/icons/inhands/left/medkits.dmi'
 	righthand_file = 'talestation_modules/icons/inhands/right/medkits.dmi'
 
+/obj/item/storage/medkit/emergency
+	icon = 'talestation_modules/icons/objects/medkits.dmi'
+	lefthand_file = 'talestation_modules/icons/inhands/left/medkits.dmi'
+	righthand_file = 'talestation_modules/icons/inhands/right/medkits.dmi'
+
+/obj/item/storage/medkit/surgery
+	icon = 'talestation_modules/icons/objects/medkits.dmi'
+	lefthand_file = 'talestation_modules/icons/inhands/left/medkits.dmi'
+	righthand_file = 'talestation_modules/icons/inhands/right/medkits.dmi'
+
 /obj/item/storage/medkit/coroner
 	icon = 'talestation_modules/icons/objects/medkits.dmi'
 	lefthand_file = 'talestation_modules/icons/inhands/left/medkits.dmi'
