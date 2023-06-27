@@ -57,6 +57,8 @@
 	say_mod = "meows"
 	languages_native = /datum/language/tajaran
 	var/static/list/languages_possible_tajaran
+	disliked_foodtypes = CLOTH
+	liked_foodtypes = GRAIN | MEAT | SEAFOOD
 
 /obj/item/organ/internal/tongue/tajaran/get_possible_languages()
 	return ..() + /datum/language/tajaran
