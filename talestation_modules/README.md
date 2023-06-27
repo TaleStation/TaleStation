@@ -19,7 +19,7 @@ Try to not override an entire icon file, that being, overriding icons on `/obj/i
 
 ## Maps & Map edits:
 
-Currently we do not permit edit of the current in-rotation /TG/ maps (Box, Delta, Kilo, Meta, Tram). Any edits to these maps will not be accepted. Copying the map and trying to open it as a modular map will also not be accepted. This goes for any map, ruin, shuttle, ect.
+Currently we do not permit edit of the current in-rotation /TG/ maps (Birdshot, Box, Delta, Meta, North Star, Tram). Any edits to these maps will not be accepted. Copying the map and trying to open it as a modular map will also not be accepted. This goes for any map, ruin, shuttle, ect.
 
 However, KiloStation, LimaStation and PubbyStation are our in-house rotation maps. Edits to these maps are more than fair game. If you wish to expand the rotation map, keep in mind you will be **required** to maintain your map. Failure to do so will have it removed from the code. We will help you, but don't count on us.
 
