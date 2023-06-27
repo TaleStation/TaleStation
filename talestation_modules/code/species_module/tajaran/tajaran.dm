@@ -30,8 +30,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	mutantears = /obj/item/organ/internal/ears/tajaran_ears
 	species_language_holder = /datum/language_holder/tajaran
 	mutanttongue = /obj/item/organ/internal/tongue/tajaran
-	disliked_food = CLOTH
-	liked_food = GRAIN | MEAT | SEAFOOD
 	payday_modifier = 0.75
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_MAMMAL
