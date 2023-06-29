@@ -59,7 +59,7 @@
 	#endif
 
 /datum/pain/Destroy()
-	QDEL_NULL(body_zones)
+	body_zones = null
 	if(parent)
 		STOP_PROCESSING(SSpain, src)
 		unregister_pain_signals()
