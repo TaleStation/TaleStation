@@ -1,11 +1,7 @@
 /datum/species/dullahan
 	name = "Dullahan"
 	id = SPECIES_DULLAHAN
-<<<<<<< HEAD
-	species_traits = list()
-=======
 	examine_limb_id = SPECIES_HUMAN
->>>>>>> 614fab11b26f1 (SPECIES NUKING 2023: Head flags 2: Electric Boogaloo (#76298))
 	inherent_traits = list(
 		TRAIT_NOBREATH,
 		TRAIT_NOHUNGER,

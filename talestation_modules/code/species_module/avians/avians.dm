@@ -6,15 +6,12 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 	name = "Avian"
 	id = SPECIES_AVIAN
 
-	species_traits = list(
-		MUTCOLORS,
-	)
-
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
 		TRAIT_EASILY_WOUNDED,
+		TRAIT_MUTANT_COLORS,
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID

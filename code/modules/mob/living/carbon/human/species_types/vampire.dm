@@ -7,17 +7,12 @@
 /datum/species/vampire
 	name = "Vampire"
 	id = SPECIES_VAMPIRE
-<<<<<<< HEAD
-	species_traits = list(
-		DRINKSBLOOD,
-		BLOOD_CLANS,
-	)
-=======
 	examine_limb_id = SPECIES_HUMAN
->>>>>>> 614fab11b26f1 (SPECIES NUKING 2023: Head flags 2: Electric Boogaloo (#76298))
 	inherent_traits = list(
+		TRAIT_BLOOD_CLANS,
 		TRAIT_NOBREATH,
 		TRAIT_NOHUNGER,
+		TRAIT_DRINKS_BLOOD,
 	)
 	inherent_biotypes = MOB_UNDEAD|MOB_HUMANOID
 	mutant_bodyparts = list("wings" = "None")
