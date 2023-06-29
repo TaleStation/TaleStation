@@ -18,3 +18,6 @@
 
 /datum/species/skeleton
 	species_pain_mod = 0.4
+
+/datum/species/golem
+	species_pain_mod = 0.1 // Golems are made of fucking stone, do you think they have a basic nervous system?
