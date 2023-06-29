@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(loadout_shoes, generate_loadout_items(/datum/loadout_item/shoes
 		return ..()
 
 	// Does not support digi and our equipper is? We shouldn't mess with it, skip
-	if(equipper.dna?.species?.bodytype & BODYTYPE_DIGITIGRADE)
+	if(equipper.bodytype & BODYTYPE_DIGITIGRADE)
 		return
 
 	// Does not support digi and our equipper is not digi? Continue as normal
