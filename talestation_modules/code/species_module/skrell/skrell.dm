@@ -7,16 +7,13 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	name = "Skrell"
 	id = SPECIES_SKRELL
 
-	species_traits = list(
-		MUTCOLORS,
-		)
-
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LIGHT_DRINKER,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_LITERATE,
+		TRAIT_MUTANT_COLORS,
 		)
 
 	external_organs = list(/obj/item/organ/external/head_tentacles = "Long")
