@@ -8,9 +8,9 @@
 	icon_state = "xeno"
 	inhand_icon_state = "w_suit"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	armor_type = /datum/armor/labcoat_xenobiologist
+	armor_type = /datum/armor/clothing_under/labcoat_xenobiologist
 
-/datum/armor/labcoat_xenobiologist
+/datum/armor/clothing_under/labcoat_xenobiologist
 	melee = 0
 	bullet = 0
 	laser = 0
