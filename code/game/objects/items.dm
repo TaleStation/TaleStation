@@ -1295,6 +1295,8 @@
 /obj/item/wash(clean_types)
 	. = ..()
 
+	SEND_SIGNAL(src, COMSIG_ATOM_WASHED)
+
 	if(ismob(loc))
 		var/mob/mob_loc = loc
 		mob_loc.regenerate_icons()
