@@ -80,7 +80,7 @@
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
 // BEGIN_INCLUDE
-#include "~pain.dm" // NON-MODULAR CHANGES: Modular unit tests
+#include "pain.dm" // NON-MODULAR CHANGES: Modular unit tests
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
