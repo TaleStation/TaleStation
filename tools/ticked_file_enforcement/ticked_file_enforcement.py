@@ -21,7 +21,7 @@ def blue(text):
 schema = json.load(sys.stdin)
 file_reference = schema["file"]
 file_reference_basename = os.path.basename(file_reference)
-scannable_directory = schema["scannable_directory"]
+scannable_directories = schema["scannable_directories"]
 subdirectories = schema["subdirectories"]
 FORBIDDEN_INCLUDES = schema["forbidden_includes"]
 excluded_files = schema["excluded_files"]
@@ -31,12 +31,13 @@ def post_error(string):
     if on_github:
         print(f"::error file={file_reference},line=1,title=Ticked File Enforcement::{string}")
 
-for excluded_file in excluded_files:
-    trimmed_file_name = excluded_file[:-3]
-    full_file_path = scannable_directory.replace('*', trimmed_file_name)
-    if not os.path.isfile(full_file_path):
-        post_error(f"Excluded file {full_file_path} does not exist, please remove it!")
-        sys.exit(1)
+for scannable_directory in scannable_directories:
+    for excluded_file in excluded_files:
+        trimmed_file_name = excluded_file[:-3]
+        full_file_path = scannable_directory.replace('*', trimmed_file_name)
+        if not os.path.isfile(full_file_path):
+            post_error(f"Excluded file {full_file_path} does not exist, please remove it!")
+            sys.exit(1)
 
 
 reading = False
@@ -62,39 +63,40 @@ offset = total - len(lines)
 print(blue(f"Ticked File Enforcement: {offset} lines were ignored in output for [{file_reference}]."))
 fail_no_include = False
 
-for code_file in glob.glob(scannable_directory, recursive=True):
-    dm_path = ""
+for scannable_directory in scannable_directories:
+    for code_file in glob.glob(scannable_directory, recursive=True):
+        dm_path = ""
 
-    if subdirectories is True:
-        dm_path = code_file.replace('/', '\\')
-    else:
-        dm_path = os.path.basename(code_file)
+        if subdirectories is True:
+            dm_path = code_file.replace('/', '\\')
+        else:
+            dm_path = os.path.basename(code_file)
 
-    included = f"#include \"{dm_path}\"" in lines
+        included = f"#include \"{dm_path}\"" in lines
 
-    forbid_include = False
-    for forbidable in FORBIDDEN_INCLUDES:
-        if not fnmatch.fnmatch(code_file, forbidable):
+        forbid_include = False
+        for forbidable in FORBIDDEN_INCLUDES:
+            if not fnmatch.fnmatch(code_file, forbidable):
+                continue
+
+            forbid_include = True
+
+            if included:
+                post_error(f"{dm_path} should NOT be included.")
+                fail_no_include = True
+
+        if forbid_include:
             continue
 
-        forbid_include = True
+        if not included:
+            if(dm_path == file_reference_basename):
+                continue
 
-        if included:
-            post_error(f"{dm_path} should NOT be included.")
+            if(dm_path in excluded_files):
+                continue
+
+            post_error(f"Missing include for {dm_path}.")
             fail_no_include = True
-
-    if forbid_include:
-        continue
-
-    if not included:
-        if(dm_path == file_reference_basename):
-            continue
-
-        if(dm_path in excluded_files):
-            continue
-
-        post_error(f"Missing include for {dm_path}.")
-        fail_no_include = True
 
 if fail_no_include:
     sys.exit(1)
