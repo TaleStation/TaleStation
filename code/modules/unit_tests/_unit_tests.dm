@@ -79,7 +79,12 @@
 /// A trait source when adding traits through unit tests
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
-#include "~pain.dm" // NON-MODULAR CHANGES: Modular unit tests
+/* NON-MODULAR UNIT TESTS
+* Linters throws a bitch fit due to the comment and the list needs to be in alphabetical order
+* pain.dm
+*/
+
+// BEGIN_INCLUDE
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
@@ -147,8 +152,9 @@
 #include "knockoff_component.dm"
 #include "lesserform.dm"
 #include "limbsanity.dm"
-#include "lungs.dm"
+#include "liver.dm"
 #include "load_map_security.dm"
+#include "lungs.dm"
 #include "machine_disassembly.dm"
 #include "map_landmarks.dm"
 #include "mapload_space_verification.dm"
@@ -172,9 +178,10 @@
 #include "objectives.dm"
 #include "operating_table.dm"
 #include "orderable_items.dm"
-#include "organs.dm"
 #include "organ_set_bonus.dm"
+#include "organs.dm"
 #include "outfit_sanity.dm"
+#include "pain.dm"
 #include "paintings.dm"
 #include "pills.dm"
 #include "plane_double_transform.dm"
@@ -202,10 +209,10 @@
 #include "screenshot_humanoids.dm"
 #include "screenshot_husk.dm"
 #include "screenshot_saturnx.dm"
-#include "security_officer_distribution.dm"
 #include "security_levels.dm"
+#include "security_officer_distribution.dm"
 #include "serving_tray.dm"
-//#include "simple_animal_freeze.dm" // NON-MODULAR REMOVAL: These is an upstream freeze we don't care about.
+#include "simple_animal_freeze.dm"
 #include "siunit.dm"
 #include "slime_mood.dm"
 #include "slips.dm"
@@ -243,6 +250,7 @@
 #include "verify_emoji_names.dm"
 #include "wizard_loadout.dm"
 #include "worn_icons.dm"
+// END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"
 #endif
