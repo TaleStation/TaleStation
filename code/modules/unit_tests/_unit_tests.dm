@@ -80,7 +80,6 @@
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
 // BEGIN_INCLUDE
-#include "pain.dm" // NON-MODULAR CHANGES: Modular unit tests
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
@@ -177,6 +176,7 @@
 #include "organ_set_bonus.dm"
 #include "organs.dm"
 #include "outfit_sanity.dm"
+#include "pain.dm" // NON-MODULAR CHANGES: Modular unit tests
 #include "paintings.dm"
 #include "pills.dm"
 #include "plane_double_transform.dm"
