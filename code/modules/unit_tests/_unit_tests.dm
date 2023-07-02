@@ -79,8 +79,12 @@
 /// A trait source when adding traits through unit tests
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
+/* NON-MODULAR UNIT TESTS
+* Linters throws a bitch fit due to the comment and the list needs to be in alphabetical order
+* pain.dm
+*/
+
 // BEGIN_INCLUDE
-#include "~pain.dm" // NON-MODULAR CHANGES: Modular unit tests
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
@@ -177,6 +181,7 @@
 #include "organ_set_bonus.dm"
 #include "organs.dm"
 #include "outfit_sanity.dm"
+#include "pain.dm"
 #include "paintings.dm"
 #include "pills.dm"
 #include "plane_double_transform.dm"
