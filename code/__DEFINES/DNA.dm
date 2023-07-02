@@ -41,10 +41,6 @@
 #define DNA_UNI_IDENTITY_BLOCKS 8
 
 /// This number needs to equal the total number of DNA blocks
-<<<<<<< HEAD
-#define DNA_FEATURE_BLOCKS 25 //NON-MODULAR CHANGES
-=======
->>>>>>> d85e44c69cc06 (SPECIES NUKING 2023: Head flags 3 & Knuckles: Fixes some growing pains with head flags  (#76440))
 #define DNA_MUTANT_COLOR_BLOCK 1
 #define DNA_ETHEREAL_COLOR_BLOCK 2
 #define DNA_LIZARD_MARKINGS_BLOCK 3
@@ -68,7 +64,7 @@
 #define DNA_AVIAN_TAIL_BLOCK 22 // NON-MODULAR CHANGES: Avians
 #define DNA_AVIAN_BEAK_BLOCK 23 // NON-MODULAR CHANGES: Avians
 
-#define DNA_FEATURE_BLOCKS 15
+#define DNA_FEATURE_BLOCKS 23 // NON-MODULAR CHANGES: Ups feature blocks
 
 #define DNA_SEQUENCE_LENGTH 4
 #define DNA_MUTATION_BLOCKS 8
