@@ -31,6 +31,7 @@ def post_error(string):
     if on_github:
         print(f"::error file={file_reference},line=1,title=Ticked File Enforcement::{string}")
 
+<<<<<<< HEAD
 for scannable_directory in scannable_directories:
     for excluded_file in excluded_files:
         trimmed_file_name = excluded_file[:-3]
@@ -38,7 +39,15 @@ for scannable_directory in scannable_directories:
         if not os.path.isfile(full_file_path):
             post_error(f"Excluded file {full_file_path} does not exist, please remove it!")
             sys.exit(1)
+=======
+for excluded_file in excluded_files:
+    full_file_path = scannable_directory + excluded_file
+    if not os.path.isfile(full_file_path):
+        post_error(f"Excluded file {full_file_path} does not exist, please remove it!")
+        sys.exit(1)
+>>>>>>> 020ac2405308e (Fixes up Ticked File Enforcement (#76592))
 
+file_extensions = (".dm", ".dmf")
 
 reading = False
 lines = []
@@ -63,9 +72,18 @@ offset = total - len(lines)
 print(blue(f"Ticked File Enforcement: {offset} lines were ignored in output for [{file_reference}]."))
 fail_no_include = False
 
+<<<<<<< HEAD
 for scannable_directory in scannable_directories:
     for code_file in glob.glob(scannable_directory, recursive=True):
         dm_path = ""
+=======
+scannable_files = []
+for file_extension in file_extensions:
+    scannable_files += glob.glob(scannable_directory + f"**/*.{file_extension}", recursive=True)
+
+for code_file in scannable_files:
+    dm_path = ""
+>>>>>>> 020ac2405308e (Fixes up Ticked File Enforcement (#76592))
 
         if subdirectories is True:
             dm_path = code_file.replace('/', '\\')
@@ -110,8 +128,8 @@ def compare_lines(a, b):
     b_segments = b.split('\\')
 
     for (a_segment, b_segment) in zip(a_segments, b_segments):
-        a_is_file = a_segment.endswith(".dm")
-        b_is_file = b_segment.endswith(".dm")
+        a_is_file = a_segment.endswith(file_extensions)
+        b_is_file = b_segment.endswith(file_extensions)
 
         # code\something.dm will ALWAYS come before code\directory\something.dm
         if a_is_file and not b_is_file:
