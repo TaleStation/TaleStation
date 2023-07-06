@@ -1240,9 +1240,15 @@
 		to_chat(src, span_warning("You can't write with the [writing_instrument]!"))
 		return FALSE
 
+<<<<<<< HEAD
 	if(HAS_TRAIT(src, TRAIT_MIMING) && !istype(writing_instrument, /obj/item/toy/crayon/mime))
 		// NON-MODULAR CHANGES: Mimes can write! to_chat(src, span_warning("Your vow of silence is preventing you from talking with text."))
 		return TRUE // NON-MODULAR CHANGES: changes arg
+=======
+	if(HAS_MIND_TRAIT(src, TRAIT_MIMING) && !istype(writing_instrument, /obj/item/toy/crayon/mime))
+		to_chat(src, span_warning("Your vow of silence is preventing you from talking with text."))
+		return FALSE
+>>>>>>> 4f2227baf31a3 (Implements a macro for checking mind traits (#76548))
 
 	if(!is_literate())
 		to_chat(src, span_warning("You try to write, but don't know how to spell anything!"))
