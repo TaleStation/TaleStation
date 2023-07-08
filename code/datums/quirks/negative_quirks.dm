@@ -612,12 +612,8 @@
 		if(BODY_ZONE_R_LEG)
 			prosthetic = new /obj/item/bodypart/leg/right/robot/surplus
 			slot_string = "right leg"
-<<<<<<< HEAD
-	human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
-=======
 	medical_record_text = "During physical examination, patient was found to have a low-budget prosthetic [slot_string]."
-	old_limb = human_holder.return_and_replace_bodypart(prosthetic, special = TRUE)
->>>>>>> ca401b57a7475 (Bargain bin organ quirks: Prosthetic organ and Tin Man (#76498))
+	human_holder.del_and_replace_bodypart(prosthetic, TRUE) // NON-MODULAR CHANGES: Satisifies the pain unit test
 
 /datum/quirk/prosthetic_limb/post_add()
 	to_chat(quirk_holder, span_boldannounce("Your [slot_string] has been replaced with a surplus prosthetic. It is fragile and will easily come apart under duress. Additionally, \
