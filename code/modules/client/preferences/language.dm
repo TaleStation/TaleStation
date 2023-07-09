@@ -1,3 +1,4 @@
+/* NON-MODULAR CHANGES: Disables /tg/s langauge pref choices
 /datum/preference/choiced/language
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	savefile_key = "language"
@@ -32,3 +33,4 @@
 
 /datum/preference/choiced/language/apply_to_human(mob/living/carbon/human/target, value)
 	return
+*/
