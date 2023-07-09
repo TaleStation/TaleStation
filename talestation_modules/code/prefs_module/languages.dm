@@ -27,8 +27,6 @@
 		return NO_LANGUAGE
 	if(initial(lang_to_add.req_species) && initial(lang_to_add.req_species) != species_id)
 		return NO_LANGUAGE
-	if("Bilingual" in preferences.all_quirks)
-		return NO_LANGUAGE
 
 	return input
 
