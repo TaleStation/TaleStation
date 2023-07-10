@@ -8,9 +8,9 @@
 	sensor_mode = SENSOR_COORDS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	armor_type = /datum/armor/under_bridge_officer
+	armor_type = /datum/armor/clothing_under/under_bridge_officer
 
-/datum/armor/under_bridge_officer
+/datum/armor/clothing_under/under_bridge_officer
 	melee = 5
 	bullet = 0
 	laser = 0
@@ -48,9 +48,9 @@
 	sensor_mode = SENSOR_COORDS
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	armor_type = /datum/armor/under_asset_protection
+	armor_type = /datum/armor/clothing_under/under_asset_protection
 
-/datum/armor/under_asset_protection
+/datum/armor/clothing_under/under_asset_protection
 	melee = 10
 	bullet = 0
 	laser = 0
@@ -65,4 +65,4 @@
 	name = "asset protection uniform"
 	desc = "It gives you unease, the grey. But hey, that tie looks swanky! ..Is it even a tie?"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	armor_type = /datum/armor/under_asset_protection
+	armor_type = /datum/armor/clothing_under/under_asset_protection

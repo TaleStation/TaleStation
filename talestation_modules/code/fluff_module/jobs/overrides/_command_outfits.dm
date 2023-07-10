@@ -28,7 +28,7 @@
 	inhand_icon_state = "lb_suit"
 	can_adjust = FALSE
 
-	armor_type = /datum/armor/engineering_chief_engineer
+	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
 
 // CE Outfit
 /datum/outfit/job/ce

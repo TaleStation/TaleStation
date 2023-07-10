@@ -79,7 +79,12 @@
 /// A trait source when adding traits through unit tests
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
-#include "~pain.dm" // NON-MODULAR CHANGES: Modular unit tests
+/* NON-MODULAR UNIT TESTS
+* Linters throws a bitch fit due to the comment and the list needs to be in alphabetical order
+* pain.dm
+*/
+
+// BEGIN_INCLUDE
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
@@ -104,6 +109,7 @@
 #include "chat_filter.dm"
 #include "circuit_component_category.dm"
 #include "closets.dm"
+#include "clothing_under_armor_subtype_check.dm"
 #include "combat.dm"
 #include "component_tests.dm"
 #include "confusion.dm"
@@ -132,6 +138,7 @@
 #include "hallucination_icons.dm"
 #include "heretic_knowledge.dm"
 #include "heretic_rituals.dm"
+#include "high_five.dm"
 #include "holidays.dm"
 #include "human_through_recycler.dm"
 #include "hunger_curse.dm"
@@ -145,8 +152,9 @@
 #include "knockoff_component.dm"
 #include "lesserform.dm"
 #include "limbsanity.dm"
-#include "lungs.dm"
+#include "liver.dm"
 #include "load_map_security.dm"
+#include "lungs.dm"
 #include "machine_disassembly.dm"
 #include "map_landmarks.dm"
 #include "mapload_space_verification.dm"
@@ -170,9 +178,10 @@
 #include "objectives.dm"
 #include "operating_table.dm"
 #include "orderable_items.dm"
-#include "organs.dm"
 #include "organ_set_bonus.dm"
+#include "organs.dm"
 #include "outfit_sanity.dm"
+#include "pain.dm"
 #include "paintings.dm"
 #include "pills.dm"
 #include "plane_double_transform.dm"
@@ -184,6 +193,7 @@
 #include "quirks.dm"
 #include "range_return.dm"
 #include "rcd.dm"
+#include "reagent_container_defaults.dm"
 #include "reagent_id_typos.dm"
 #include "reagent_mob_expose.dm"
 #include "reagent_mod_procs.dm"
@@ -199,10 +209,10 @@
 #include "screenshot_humanoids.dm"
 #include "screenshot_husk.dm"
 #include "screenshot_saturnx.dm"
-#include "security_officer_distribution.dm"
 #include "security_levels.dm"
+#include "security_officer_distribution.dm"
 #include "serving_tray.dm"
-//#include "simple_animal_freeze.dm" // NON-MODULAR REMOVAL: These is an upstream freeze we don't care about.
+#include "simple_animal_freeze.dm"
 #include "siunit.dm"
 #include "slime_mood.dm"
 #include "slips.dm"
@@ -223,6 +233,7 @@
 #include "stomach.dm"
 #include "strange_reagent.dm"
 #include "strippable.dm"
+#include "stuns.dm"
 #include "subsystem_init.dm"
 #include "suit_storage_icons.dm"
 #include "surgeries.dm"
@@ -239,6 +250,7 @@
 #include "verify_emoji_names.dm"
 #include "wizard_loadout.dm"
 #include "worn_icons.dm"
+// END_INCLUDE
 #ifdef REFERENCE_TRACKING_DEBUG //Don't try and parse this file if ref tracking isn't turned on. IE: don't parse ref tracking please mr linter
 #include "find_reference_sanity.dm"
 #endif
