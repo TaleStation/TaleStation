@@ -1,5 +1,8 @@
 // NuLizard stuff
 
+/obj/item/bodypart/head/lizard
+	head_flags = HEAD_ALL_FEATURES
+
 // NuLizard modifers + organs
 /datum/species/lizard
 	mutantstomach = /obj/item/organ/internal/stomach/lizard
@@ -11,8 +14,8 @@
 // On-species gain surgery mod
 /datum/species/lizard/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	. = .. ()
-	RegisterSignal(C, COMSIG_CARBON_GAIN_ORGAN, .proc/on_gained_organ)
-	RegisterSignal(C, COMSIG_CARBON_LOSE_ORGAN, .proc/on_removed_organ)
+	RegisterSignal(C, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_gained_organ))
+	RegisterSignal(C, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_removed_organ))
 	C.mob_surgery_speed_mod -= 0.50
 
 /datum/species/lizard/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)

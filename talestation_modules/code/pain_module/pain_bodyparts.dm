@@ -159,6 +159,10 @@
 	pain = PAIN_CHEST_MAX
 	bodypart_pain_modifier = 0.5
 
+/obj/item/bodypart/chest/golem
+	pain = PAIN_CHEST_GOLEM_MAX
+	bodypart_pain_modifier = 0.25
+
 // Chests can't go below 100 max_stamina_damage for stam crit reasons
 // So this override is here until stamina damage is improved a bit
 /obj/item/bodypart/chest/on_gain_pain_effects(amount)
@@ -239,6 +243,10 @@
 	pain = PAIN_HEAD_MAX
 	bodypart_pain_modifier = 0.5
 
+/obj/item/bodypart/head/golem
+	pain = PAIN_HEAD_GOLEM_MAX
+	bodypart_pain_modifier = 0.25
+
 /obj/item/bodypart/head/on_gain_pain_effects(amount)
 	. = ..()
 	if(!.)
@@ -292,6 +300,10 @@
 	pain = 40
 	bodypart_pain_modifier = 0.8
 
+/obj/item/bodypart/leg/right/golem
+	pain = PAIN_LIMB_GOLEM_MAX
+	bodypart_pain_modifier = 0.25
+
 /obj/item/bodypart/leg/right/processed_pain_effects(seconds_per_tick)
 	. = ..()
 	if(!.)
@@ -311,6 +323,10 @@
 /obj/item/bodypart/leg/left/robot/surplus
 	pain = 40
 	bodypart_pain_modifier = 0.8
+
+/obj/item/bodypart/leg/left/golem
+	pain = PAIN_LIMB_GOLEM_MAX
+	bodypart_pain_modifier = 0.25
 
 /obj/item/bodypart/leg/left/processed_pain_effects(seconds_per_tick)
 	. = ..()
@@ -332,6 +348,10 @@
 	pain = 40
 	bodypart_pain_modifier = 0.8
 
+/obj/item/bodypart/arm/right/golem
+	pain = PAIN_LIMB_GOLEM_MAX
+	bodypart_pain_modifier = 0.25
+
 // --- Left Arm ---
 /obj/item/bodypart/arm/left/robot
 	pain = PAIN_LIMB_MAX
@@ -340,3 +360,7 @@
 /obj/item/bodypart/arm/left/robot/surplus
 	pain = 40
 	bodypart_pain_modifier = 0.8
+
+/obj/item/bodypart/arm/left/golem
+	pain = PAIN_LIMB_GOLEM_MAX
+	bodypart_pain_modifier = 0.25

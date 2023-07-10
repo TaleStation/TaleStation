@@ -7,24 +7,16 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	name = "Skrell"
 	id = SPECIES_SKRELL
 
-	species_traits = list(
-		MUTCOLORS,
-		EYECOLOR,
-		LIPS,
-		)
-
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_LIGHT_DRINKER,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 		TRAIT_LITERATE,
+		TRAIT_MUTANT_COLORS,
 		)
 
 	external_organs = list(/obj/item/organ/external/head_tentacles = "Long")
-	toxic_food = MEAT | RAW | DAIRY | TOXIC | SEAFOOD
-	disliked_food = GROSS
-	liked_food = VEGETABLES | FRUIT
 	payday_modifier = 0.75
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	species_language_holder = /datum/language_holder/skrell

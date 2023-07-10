@@ -52,3 +52,6 @@
 	name = "avian tongue"
 	desc = "Avian tongues are unsurprising. They're pretty basic."
 	say_mod = "caws"
+	disliked_foodtypes = CLOTH
+	liked_foodtypes = GRAIN | FRUIT | VEGETABLES
+	toxic_foodtypes = MEAT | SEAFOOD

@@ -21,6 +21,3 @@
 
 /obj/structure/plasticflaps
 	icon = 'talestation_modules/icons/machines/plasticflaps.dmi'
-
-/obj/structure/table/optable
-	icon = 'talestation_modules/icons/machines/surgery.dmi'

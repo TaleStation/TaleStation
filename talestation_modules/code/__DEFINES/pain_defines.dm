@@ -25,6 +25,11 @@
 #define PAIN_CHEST_MAX 120
 #define PAIN_HEAD_MAX 100
 
+/// Max pain for golem bodyparts
+#define PAIN_LIMB_GOLEM_MAX 100
+#define PAIN_CHEST_GOLEM_MAX 180
+#define PAIN_HEAD_GOLEM_MAX 130
+
 /// What pain modifier does a mob need to ignore pain from surgery?
 /// Anesthesia always ignores surgery, pain, even if the modifier doesn't meet this threshold.
 #define PAIN_MOD_TO_IGNORE_SURGERY 0.33

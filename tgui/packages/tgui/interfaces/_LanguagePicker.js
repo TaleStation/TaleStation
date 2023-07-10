@@ -10,8 +10,6 @@ export const _LanguagePicker = (props, context) => {
     species,
     selected_lang,
     bilingual,
-    trilingual,
-    blacklisted_species = [],
     base_languages = [],
     bonus_languages = [],
   } = data;
@@ -19,18 +17,8 @@ export const _LanguagePicker = (props, context) => {
   return (
     <Window title={pref_name + "'s Languages"} width={350} height={300}>
       <Window.Content>
-        {!!trilingual && (
-          <Dimmer>
-            You cannot chose a language with the trilingual quirk.
-          </Dimmer>
-        )}
-        {!!bilingual && (
-          <Dimmer>You cannot chose a language with the bilingual quirk.</Dimmer>
-        )}
-        {blacklisted_species.includes(species) && (
-          <Dimmer>
-            Your species already starts with a multitude of languages.
-          </Dimmer>
+        {!bilingual && (
+          <Dimmer>You require the bilingual quirk to select langauges.</Dimmer>
         )}
         <Section title="Base Racial Languages">
           <Stack vertical>

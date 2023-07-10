@@ -10,4 +10,4 @@
 	name = "Fox"
 	icon_state = "fox"
 	icon = 'talestation_modules/icons/species/mutant_bodyparts.dmi'
-	color_src = HAIR
+	color_src = HAIR_COLOR
