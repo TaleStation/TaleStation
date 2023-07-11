@@ -1,7 +1,4 @@
 // Dedicated to testing language holders
-TEST_FOCUS(/datum/unit_test/language_species_swap_simple)
-TEST_FOCUS(/datum/unit_test/language_species_swap_complex)
-TEST_FOCUS(/datum/unit_test/language_mind_swap)
 /// Simply tests that swapping to a new species gives you the languages of that species and removes the languages of the old species
 /datum/unit_test/language_species_swap_simple
 
