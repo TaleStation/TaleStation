@@ -1,5 +1,7 @@
 // Dedicated to testing language holders
-
+TEST_FOCUS(/datum/unit_test/language_species_swap_simple)
+TEST_FOCUS(/datum/unit_test/language_species_swap_complex)
+TEST_FOCUS(/datum/unit_test/language_mind_swap)
 /// Simply tests that swapping to a new species gives you the languages of that species and removes the languages of the old species
 /datum/unit_test/language_species_swap_simple
 
@@ -21,8 +23,9 @@
 	TEST_ASSERT(length(holder.spoken_languages) == 2, \
 		"Dummy should speak two languages - Common and Draconic! Instead, it knew the following: [print_language_list(holder.spoken_languages)]")
 
-	TEST_ASSERT(length(holder.understood_languages) == 2, \
-		"Dummy should understand two languages - Common and Draconic! Instead, it knew the following: [print_language_list(holder.understood_languages)]")
+	TEST_ASSERT(length(holder.understood_languages) == 3, \
+		"Dummy should understand three languages - Common, Draconic and High Draconic! Instead, it knew the following: [print_language_list(holder.understood_languages)]")
+	// NON-MODULAR CHANGES: Unit test should account for High Draconic
 
 	dummy.set_species(/datum/species/human)
 
@@ -48,11 +51,13 @@
 	TEST_ASSERT(dummy.has_language(/datum/language/common, UNDERSTOOD_LANGUAGE), \
 		"Changing a mob's species from one which understands common another which does should not remove the language!")
 
-	TEST_ASSERT(length(holder.spoken_languages) == 2, \
-		"Dummy should speak two languages - Uncommon and Draconic! Instead, it knew the following: [print_language_list(holder.spoken_languages)]")
+	TEST_ASSERT(length(holder.spoken_languages) == 3, \
+		"Dummy should speak three languages - Uncommon, Draconic and High Draconic! Instead, it knew the following: [print_language_list(holder.spoken_languages)]")
+	// NON-MODULAR CHANGES: Asses unit test for High Draconic
 
-	TEST_ASSERT(length(holder.understood_languages) == 3, \
-		"Dummy should understand two languages - Common, Uncommon and Draconic! Instead, it knew the following: [print_language_list(holder.understood_languages)]")
+	TEST_ASSERT(length(holder.understood_languages) == 4, \
+		"Dummy should understand four languages - Common, Uncommon, Draconic and High Draconic! Instead, it knew the following: [print_language_list(holder.understood_languages)]")
+	// NON-MODULAR CHANGES: Asses unit test for High Draconic
 
 /// Test that other random languages known are not lost on species change
 /datum/unit_test/language_species_change_other_known
@@ -155,9 +160,10 @@
 		"Holder A / Dummy A / Dummy B mind should speak Common, Draconic, and Pirate! \
 		Instead, it knew the following: [print_language_list(holder_A.spoken_languages)]")
 
-	TEST_ASSERT_EQUAL(length(holder_A.understood_languages), 3, \
-		"Holder A / Dummy A / Dummy B mind should only understand Common, Draconic, and Pirate! \
+	TEST_ASSERT_EQUAL(length(holder_A.understood_languages), 4, \
+		"Holder A / Dummy A / Dummy B mind should only understand Common, Draconic, Pirate and High Draconic!! \
 		Instead, it knew the following: [print_language_list(holder_A.understood_languages)]")
+	// NON-MODULAR CHANGES: Asses the unit test to work with High Draconic
 
 	TEST_ASSERT_EQUAL(length(holder_B.spoken_languages), 1, \
 		"Holder B / Dummy B / Dummy A mind should only speak 1 language - Common! \
