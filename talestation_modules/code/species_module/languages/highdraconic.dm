@@ -22,25 +22,16 @@
 	default_priority = 85
 
 // Edit to the base lizard language holder - lizards can understand high draconic.
-/datum/language_holder/lizard
-	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
-								/datum/language/draconic = list(LANGUAGE_ATOM),
-								/datum/language/impdraconic = list(LANGUAGE_ATOM))
+/datum/language_holder/lizard/New(atom/_owner)
+	understood_languages += list(
+		/datum/language/impdraconic = list(LANGUAGE_ATOM)
+		)
 
 // Edit to the silverscale language holder - silverscales can speak high draconic.
-/datum/language_holder/lizard/silver
-	understood_languages = list(/datum/language/uncommon = list(LANGUAGE_ATOM),
-								/datum/language/draconic = list(LANGUAGE_ATOM),
-								/datum/language/impdraconic = list(LANGUAGE_ATOM))
-	spoken_languages = list(/datum/language/uncommon = list(LANGUAGE_ATOM),
-							/datum/language/draconic = list(LANGUAGE_ATOM),
-							/datum/language/impdraconic = list(LANGUAGE_ATOM))
-	selected_language = /datum/language/uncommon
-
-// High draconic language holder
-/datum/language_holder/lizard/impdraconic
-	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
-								/datum/language/draconic = list(LANGUAGE_ATOM),
-								/datum/language/impdraconic = list(LANGUAGE_ATOM))
-	spoken_languages = list(/datum/language/draconic = list(LANGUAGE_ATOM),
-							/datum/language/impdraconic = list(LANGUAGE_ATOM))
+/datum/language_holder/lizard/silver/New(atom/_owner)
+	understood_languages += list(
+		/datum/language/impdraconic = list(LANGUAGE_ATOM)
+		)
+	spoken_languages += list(
+		/datum/language/impdraconic = list(LANGUAGE_ATOM)
+		)
