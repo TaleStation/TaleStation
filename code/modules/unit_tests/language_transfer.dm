@@ -52,9 +52,14 @@
 		"Dummy should speak three languages - Uncommon, Draconic and High Draconic! Instead, it knew the following: [print_language_list(holder.spoken_languages)]")
 	// NON-MODULAR CHANGES: Asses unit test for High Draconic
 
+<<<<<<< HEAD
 	TEST_ASSERT(length(holder.understood_languages) == 4, \
 		"Dummy should understand four languages - Common, Uncommon, Draconic and High Draconic! Instead, it knew the following: [print_language_list(holder.understood_languages)]")
 	// NON-MODULAR CHANGES: Asses unit test for High Draconic
+=======
+	TEST_ASSERT(length(holder.understood_languages) == 3, \
+		"Dummy should understand three languages - Common, Uncommon and Draconic! Instead, it knew the following: [print_language_list(holder.understood_languages)]")
+>>>>>>> 3365609ada8e5 (Fixes one of `language_transfer` unit test Test Assert readouts (#76735))
 
 /// Test that other random languages known are not lost on species change
 /datum/unit_test/language_species_change_other_known
