@@ -294,7 +294,7 @@ It remains quite flush against the wall, and there only seems to be enough room 
 	return "Due to staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!"
 
 // Changes renault desc
-/mob/living/simple_animal/pet/fox/renault
+/mob/living/basic/pet/fox/renault
 	desc = "Renault, the Site Director's trustworthy fox."
 
 // Changes mod theme desc
