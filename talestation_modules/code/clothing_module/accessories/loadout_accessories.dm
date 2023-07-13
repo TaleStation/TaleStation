@@ -84,7 +84,7 @@
 	else
 		. += "The dogtag has a name on it, but it's scratched and hard to read."
 
-/obj/item/clothing/accessory/cosmetic_dogtag/on_uniform_equip(obj/item/clothing/under/attached_clothes, user)
+/obj/item/clothing/accessory/cosmetic_dogtag/accessory_equipped(obj/item/clothing/under/attached_clothes, user)
 	. = ..()
 	RegisterSignal(attached_clothes, COMSIG_ATOM_EXAMINE,PROC_REF(on_examine))
 
