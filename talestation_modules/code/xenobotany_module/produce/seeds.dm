@@ -22,7 +22,7 @@
 	yield = 5
 	potency = 20
 	instability = 64
-	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
+	growing_icon = 'icons/obj/service/hydroponics/growing.dmi'
 	icon_grow = "lime-grow"
 	icon_dead = "lime-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
