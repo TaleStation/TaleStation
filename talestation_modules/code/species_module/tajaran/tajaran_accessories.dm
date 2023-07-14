@@ -83,3 +83,7 @@
 	name = "Default"
 	icon_state = "default"
 	gender_specific = 1
+
+/datum/sprite_accessory/tajaran_body_markings/stripes
+	name = "Stripes"
+	icon_state = "stripes"
