@@ -2,7 +2,11 @@
 /obj/machinery/reagentgrinder
 	name = "\improper All-In-One Grinder"
 	desc = "From BlenderTech. Will It Blend? Let's test it out!"
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "juicer1"
 	base_icon_state = "juicer"
 	layer = BELOW_OBJ_LAYER

@@ -440,6 +440,10 @@
 
 /obj/structure/displaycase/forsale
 	name = "vend-a-tray"
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/machines/display.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "laserbox"
 	custom_glass_overlay = TRUE
 	desc = "A display case with an ID-card swiper. Use your ID to purchase the contents."

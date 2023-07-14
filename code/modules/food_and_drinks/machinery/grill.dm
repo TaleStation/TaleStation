@@ -6,7 +6,11 @@
 /obj/machinery/grill
 	name = "grill"
 	desc = "Just like the old days."
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "grill_open"
 	density = TRUE
 	pass_flags_self = PASSMACHINE | LETPASSTHROW

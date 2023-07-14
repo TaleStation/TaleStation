@@ -250,7 +250,11 @@ GLOBAL_DATUM_INIT(steal_item_handler, /datum/objective_item_handler, new())
 	desc = "It looks dangerous."
 	item_flags = EXAMINE_SKIP
 
+<<<<<<< HEAD
 	icon = 'icons/obj/device_syndie.dmi'
+=======
+	icon = 'icons/obj/antags/syndicate_tools.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "bug"
 
 	/// The object on which this bug can be planted on. Has to be a type.

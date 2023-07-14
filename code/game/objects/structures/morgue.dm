@@ -267,6 +267,10 @@ GLOBAL_LIST_EMPTY(crematoriums)
 /obj/structure/bodycontainer/crematorium
 	name = "crematorium"
 	desc = "A human incinerator. Works well on barbecue nights."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/machines/crematorium.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "crema1"
 	base_icon_state = "crema"
 	dir = SOUTH
@@ -367,7 +371,11 @@ GLOBAL_LIST_EMPTY(crematoriums)
  * For overriding only
  */
 /obj/structure/tray
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/crematorium.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	density = TRUE
 	anchored = TRUE
 	pass_flags_self = PASSTABLE | LETPASSTHROW

@@ -1,7 +1,11 @@
 /obj/machinery/mass_driver
 	name = "mass driver"
 	desc = "The finest in spring-loaded piston toy technology, now on a space station near you."
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/floor.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "mass_driver"
 	var/power = 1
 	var/code = 1

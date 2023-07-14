@@ -1,7 +1,11 @@
 /obj/machinery/igniter
 	name = "igniter"
 	desc = "It's useful for igniting plasma."
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/floor.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "igniter0"
 	base_icon_state = "igniter"
 	plane = FLOOR_PLANE

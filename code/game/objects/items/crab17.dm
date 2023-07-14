@@ -1,7 +1,11 @@
 /obj/item/suspiciousphone
 	name = "suspicious phone"
 	desc = "This device raises pink levels to unknown highs."
+<<<<<<< HEAD
 	icon = 'icons/obj/device_syndie.dmi'
+=======
+	icon = 'icons/obj/antags/syndicate_tools.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "suspiciousphone"
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb_continuous = list("dumps")

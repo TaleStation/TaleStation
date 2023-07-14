@@ -26,7 +26,11 @@
 	name = "greentext"
 	desc = "No one knows what this massive tome does, but it feels <i><font color='green'>desirable</font></i> all the same..."
 	w_class = WEIGHT_CLASS_BULKY
+<<<<<<< HEAD
 	icon = 'icons/obj/wizard.dmi'
+=======
+	icon = 'icons/obj/mining_zones/artefacts.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "greentext"
 	resistance_flags = FIRE_PROOF | ACID_PROOF | INDESTRUCTIBLE
 	///The current holder of the greentext.

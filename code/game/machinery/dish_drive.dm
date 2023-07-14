@@ -3,7 +3,11 @@
 	desc = "A culinary marvel that uses matter-to-energy conversion to store dishes and shards. Convenient! \
 	Additional features include a vacuum function to suck in nearby dishes, and an automatic transfer beam that empties its contents into nearby disposal bins every now and then. \
 	Or you can just drop your plates on the floor, like civilized folk."
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "synthesizer"
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.04
 	density = FALSE

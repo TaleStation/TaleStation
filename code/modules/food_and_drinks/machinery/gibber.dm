@@ -1,7 +1,11 @@
 /obj/machinery/gibber
 	name = "gibber"
 	desc = "The name isn't descriptive enough?"
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "grinder"
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/gibber

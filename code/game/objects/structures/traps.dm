@@ -1,7 +1,7 @@
 /obj/structure/trap
 	name = "IT'S A TRAP"
 	desc = "Stepping on me is a guaranteed bad day."
-	icon = 'icons/obj/hand_of_god_structures.dmi'
+	icon = 'icons/obj/service/hand_of_god_structures.dmi'
 	icon_state = "trap"
 	density = FALSE
 	anchored = TRUE
@@ -102,7 +102,11 @@
 /obj/structure/trap/stun/hunter
 	name = "bounty trap"
 	desc = "A trap that only goes off when a fugitive steps on it, announcing the location and stunning the target. You'd better avoid it."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/restraints.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "bounty_trap_on"
 	stun_time = 200
 	sparks = FALSE //the item version gives them off to prevent runtimes (see Destroy())
@@ -143,7 +147,11 @@
 /obj/item/bountytrap
 	name = "bounty trap"
 	desc = "A trap that only goes off when a fugitive steps on it, announcing the location and stunning the target. It's currently inactive."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/restraints.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "bounty_trap_off"
 	var/obj/structure/trap/stun/hunter/stored_trap
 	var/obj/item/radio/radio

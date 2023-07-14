@@ -3,7 +3,11 @@ GLOBAL_LIST_EMPTY(monkey_recyclers)
 /obj/machinery/monkey_recycler
 	name = "monkey recycler"
 	desc = "A machine used for recycling dead monkeys into monkey cubes."
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "grinder"
 	layer = BELOW_OBJ_LAYER
 	density = TRUE

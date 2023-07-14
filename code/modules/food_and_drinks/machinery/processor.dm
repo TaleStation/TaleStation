@@ -3,7 +3,11 @@
 /obj/machinery/processor
 	name = "food processor"
 	desc = "An industrial grinder used to process meat and other foods. Keep hands clear of intake area while operating."
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "processor1"
 	layer = BELOW_OBJ_LAYER
 	density = TRUE

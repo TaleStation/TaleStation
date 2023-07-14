@@ -1,7 +1,11 @@
 /obj/machinery/jukebox
 	name = "jukebox"
 	desc = "A classic music player."
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/music.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "jukebox"
 	verb_say = "states"
 	density = TRUE

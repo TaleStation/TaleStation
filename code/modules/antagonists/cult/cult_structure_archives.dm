@@ -20,11 +20,19 @@
 			OUTPUT_ITEMS = list(/obj/item/clothing/glasses/hud/health/night/cultblind),
 			),
 		CURSE_ORB = list(
+<<<<<<< HEAD
 			PREVIEW_IMAGE = image(icon = 'icons/obj/cult/items_and_weapons.dmi', icon_state = "shuttlecurse"),
 			OUTPUT_ITEMS = list(/obj/item/shuttle_curse),
 			),
 		VEIL_WALKER = list(
 			PREVIEW_IMAGE = image(icon = 'icons/obj/cult/items_and_weapons.dmi', icon_state = "shifter"),
+=======
+			PREVIEW_IMAGE = image(icon = 'icons/obj/antags/cult/items.dmi', icon_state = "shuttlecurse"),
+			OUTPUT_ITEMS = list(/obj/item/shuttle_curse),
+			),
+		VEIL_WALKER = list(
+			PREVIEW_IMAGE = image(icon = 'icons/obj/antags/cult/items.dmi', icon_state = "shifter"),
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 			OUTPUT_ITEMS = list(/obj/item/cult_shift, /obj/item/flashlight/flare/culttorch),
 			),
 	)

@@ -236,7 +236,11 @@
 /obj/item/antag_spawner/slaughter_demon //Warning edgiest item in the game
 	name = "vial of blood"
 	desc = "A magically infused bottle of blood, distilled from countless murder victims. Used in unholy rituals to attract horrifying creatures."
+<<<<<<< HEAD
 	icon = 'icons/obj/wizard.dmi'
+=======
+	icon = 'icons/obj/mining_zones/artefacts.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "vial"
 
 	var/shatter_msg = span_notice("You shatter the bottle, no turning back now!")
@@ -280,7 +284,11 @@
 /obj/item/antag_spawner/slaughter_demon/laughter
 	name = "vial of tickles"
 	desc = "A magically infused bottle of clown love, distilled from countless hugging attacks. Used in funny rituals to attract adorable creatures."
+<<<<<<< HEAD
 	icon = 'icons/obj/wizard.dmi'
+=======
+	icon = 'icons/obj/mining_zones/artefacts.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "vial"
 	color = "#FF69B4" // HOT PINK
 

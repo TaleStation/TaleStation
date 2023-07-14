@@ -16,7 +16,11 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 /obj/machinery/deepfryer
 	name = "deep fryer"
 	desc = "Deep fried <i>everything</i>."
+<<<<<<< HEAD
 	icon = 'icons/obj/kitchen.dmi'
+=======
+	icon = 'icons/obj/machines/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "fryer_off"
 	density = TRUE
 	pass_flags_self = PASSMACHINE | LETPASSTHROW

@@ -9,7 +9,11 @@
 /obj/item/melee/powerfist
 	name = "power-fist"
 	desc = "A metal gauntlet with a piston-powered ram ontop for that extra 'ompfh' in your punch."
+<<<<<<< HEAD
 	icon = 'icons/obj/device_syndie.dmi'
+=======
+	icon = 'icons/obj/antags/syndicate_tools.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "powerfist"
 	inhand_icon_state = "powerfist"
 	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'

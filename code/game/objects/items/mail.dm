@@ -3,7 +3,7 @@
 	name = "mail"
 	gender = NEUTER
 	desc = "An officially postmarked, tamper-evident parcel regulated by CentCom and made of high-quality materials."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "mail_small"
 	inhand_icon_state = "paper"
 	worn_icon_state = "paper"
@@ -314,7 +314,7 @@
 /obj/item/storage/bag/mail
 	name = "mail bag"
 	desc = "A bag for letters, envelopes, and other postage."
-	icon = 'icons/obj/bureaucracy.dmi'
+	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "mailbag"
 	worn_icon_state = "mailbag"
 	resistance_flags = FLAMMABLE
@@ -416,7 +416,11 @@
 	name = "GLA-2 mail counterfeit device"
 	desc = "Device that actually able to counterfeit NT's mail. This device also able to place a trap inside of mail for malicious actions. Trap will \"activate\" any item inside of mail. Also it might be used for contraband purposes. Integrated micro-computer will give you great configuration optionality for your needs."
 	w_class = WEIGHT_CLASS_NORMAL
+<<<<<<< HEAD
 	icon = 'icons/obj/device_syndie.dmi'
+=======
+	icon = 'icons/obj/antags/syndicate_tools.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "mail_counterfeit_device"
 
 /obj/item/storage/mail_counterfeit_device/Initialize(mapload)

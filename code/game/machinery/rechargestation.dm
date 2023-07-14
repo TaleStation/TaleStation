@@ -1,7 +1,11 @@
 /obj/machinery/recharge_station
 	name = "recharging station"
 	desc = "This device recharges energy dependent lifeforms, like cyborgs, ethereals and MODsuit users."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/borg_charger.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "borgcharger0"
 	density = FALSE
 	req_access = list(ACCESS_ROBOTICS)

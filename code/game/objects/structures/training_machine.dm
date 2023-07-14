@@ -15,7 +15,11 @@
 /obj/structure/training_machine
 	name = "AURUMILL-Brand MkII. Personnel Training Machine"
 	desc = "Used for combat training simulations. Accepts standard training targets. A pair of buckling straps are attached."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/sec.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "training_machine"
 	can_buckle = TRUE
 	buckle_lying = 0

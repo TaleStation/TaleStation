@@ -159,6 +159,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/flasher, 26)
 /obj/machinery/flasher/portable //Portable version of the flasher. Only flashes when anchored
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/machines/sec.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "pflash1-p"
 	base_icon_state = "pflash"
 	strength = 8 SECONDS

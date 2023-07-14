@@ -1,6 +1,10 @@
 /obj/machinery/bluespace_beacon
 
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/floor.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "floor_beaconf"
 	name = "bluespace gigabeacon"
 	desc = "A device that draws power from bluespace and creates a permanent tracking beacon."

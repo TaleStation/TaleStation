@@ -1,6 +1,10 @@
 /obj/machinery/recharger
 	name = "recharger"
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/sec.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "recharger"
 	base_icon_state = "recharger"
 	desc = "A charging dock for energy based weaponry, PDAs, and other devices."

@@ -364,7 +364,11 @@
 /obj/item/civ_bounty_beacon
 	name = "civilian bounty beacon"
 	desc = "N.T. approved civilian bounty beacon, toss it down and you will have a bounty pad and computer delivered to you."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/floor.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "floor_beacon"
 	var/uses = 2
 

@@ -439,7 +439,11 @@
 /obj/item/roulette_wheel_beacon
 	name = "roulette wheel beacon"
 	desc = "N.T. approved roulette wheel beacon, toss it down and you will have a complementary roulette wheel delivered to you."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/floor.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "floor_beacon"
 	var/used
 

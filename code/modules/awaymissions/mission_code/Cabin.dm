@@ -40,7 +40,7 @@
 /obj/structure/firepit
 	name = "firepit"
 	desc = "Warm and toasty."
-	icon = 'icons/obj/fireplace.dmi'
+	icon = 'icons/obj/fluff/fireplace.dmi'
 	icon_state = "firepit-active"
 	density = FALSE
 	var/active = TRUE
@@ -107,7 +107,11 @@
 /obj/structure/ladder/unbreakable/rune
 	name = "\improper Teleportation Rune"
 	desc = "Could lead anywhere."
+<<<<<<< HEAD
 	icon = 'icons/obj/rune.dmi'
+=======
+	icon = 'icons/obj/antags/cult/rune.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "1"
 	color = rgb(0,0,255)
 

@@ -86,7 +86,11 @@
  */
 /obj/machinery
 	name = "machinery"
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/fax.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	desc = "Some kind of machine."
 	verb_say = "beeps"
 	verb_yell = "blares"

@@ -1,6 +1,10 @@
 /obj/item/soulstone
 	name = "soulstone shard"
+<<<<<<< HEAD
 	icon = 'icons/obj/wizard.dmi'
+=======
+	icon = 'icons/obj/mining_zones/artefacts.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "soulstone"
 	inhand_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'

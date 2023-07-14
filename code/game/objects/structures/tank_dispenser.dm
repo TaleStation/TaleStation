@@ -3,7 +3,11 @@
 /obj/structure/tank_dispenser
 	name = "tank dispenser"
 	desc = "A simple yet bulky storage device for gas tanks. Holds up to 10 oxygen tanks and 10 plasma tanks."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/structures.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "dispenser"
 	density = TRUE
 	anchored = TRUE

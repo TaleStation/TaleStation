@@ -3,7 +3,11 @@
 
 /obj/machinery/navbeacon
 
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/floor.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "navbeacon0"
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."

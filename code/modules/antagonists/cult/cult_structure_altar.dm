@@ -14,7 +14,11 @@
 /obj/structure/destructible/cult/item_dispenser/altar/setup_options()
 	var/static/list/altar_items = list(
 		ELDRITCH_WHETSTONE = list(
+<<<<<<< HEAD
 			PREVIEW_IMAGE = image(icon = 'icons/obj/kitchen.dmi', icon_state = "cult_sharpener"),
+=======
+			PREVIEW_IMAGE = image(icon = 'icons/obj/antags/cult/items.dmi', icon_state = "cult_sharpener"),
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 			OUTPUT_ITEMS = list(/obj/item/sharpener/cult),
 			),
 		CONSTRUCT_SHELL = list(

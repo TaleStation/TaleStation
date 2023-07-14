@@ -26,7 +26,11 @@
 /obj/item/feather
 	name = "feather"
 	desc = "A dark, wilting feather. It seems as old as time."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/service/bureaucracy.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "feather"
 	force = 0
 	throwforce = 0

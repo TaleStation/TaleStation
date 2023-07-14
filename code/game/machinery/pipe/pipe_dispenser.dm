@@ -4,7 +4,11 @@
 
 /obj/machinery/pipedispenser
 	name = "pipe dispenser"
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/lathes.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "pipe_d"
 	desc = "Dispenses countless types of pipes. Very useful if you need pipes."
 	density = TRUE
@@ -177,7 +181,11 @@
 
 /obj/machinery/pipedispenser/disposal
 	name = "disposal pipe dispenser"
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/lathes.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "pipe_d"
 	desc = "Dispenses pipes that will ultimately be used to move trash around."
 	density = TRUE
@@ -205,7 +213,11 @@
 //inherit disposal for the dragging proc
 /obj/machinery/pipedispenser/disposal/transit_tube
 	name = "transit tube dispenser"
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/lathes.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "pipe_d"
 	density = TRUE
 	desc = "Dispenses pipes that will move beings around."

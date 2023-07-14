@@ -137,7 +137,11 @@
 /obj/machinery/shieldgen
 	name = "anti-breach shielding projector"
 	desc = "Used to seal minor hull breaches."
+<<<<<<< HEAD
 	icon = 'icons/obj/objects.dmi'
+=======
+	icon = 'icons/obj/machines/shield_generator.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "shieldoff"
 	density = TRUE
 	opacity = FALSE
@@ -286,7 +290,11 @@
 /obj/machinery/power/shieldwallgen
 	name = "shield wall generator"
 	desc = "A shield generator."
+<<<<<<< HEAD
 	icon = 'icons/obj/stationobjs.dmi'
+=======
+	icon = 'icons/obj/machines/shield_generator.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "shield_wall_gen"
 	anchored = FALSE
 	density = TRUE

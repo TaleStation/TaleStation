@@ -33,7 +33,11 @@ Runes can either be invoked by one's self or with many different cultists. Each 
 	name = "rune"
 	desc = "An odd collection of symbols drawn in what seems to be blood."
 	anchored = TRUE
+<<<<<<< HEAD
 	icon = 'icons/obj/rune.dmi'
+=======
+	icon = 'icons/obj/antags/cult/rune.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "1"
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = SIGIL_LAYER

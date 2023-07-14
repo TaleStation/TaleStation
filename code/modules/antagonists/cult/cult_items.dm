@@ -1,7 +1,11 @@
 /obj/item/tome
 	name = "arcane tome"
 	desc = "An old, dusty tome with frayed edges and a sinister-looking cover."
+<<<<<<< HEAD
 	icon = 'icons/obj/cult/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/antags/cult/items.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state ="tome"
 	throw_speed = 2
 	throw_range = 5
@@ -347,6 +351,10 @@ Striking a noncultist, however, will tear their flesh."}
 /obj/item/sharpener/cult
 	name = "eldritch whetstone"
 	desc = "A block, empowered by dark magic. Sharp weapons will be enhanced when used on the stone."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/antags/cult/items.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "cult_sharpener"
 	uses = 1
 	increment = 5
@@ -483,7 +491,11 @@ Striking a noncultist, however, will tear their flesh."}
 /obj/item/shuttle_curse
 	name = "cursed orb"
 	desc = "You peer within this smokey orb and glimpse terrible fates befalling the emergency escape shuttle. "
+<<<<<<< HEAD
 	icon = 'icons/obj/cult/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/antags/cult/items.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "shuttlecurse"
 	///how many times has the shuttle been cursed so far?
 	var/static/totalcurses = 0
@@ -558,7 +570,11 @@ Striking a noncultist, however, will tear their flesh."}
 /obj/item/cult_shift
 	name = "veil shifter"
 	desc = "This relic instantly teleports you, and anything you're pulling, forward by a moderate distance."
+<<<<<<< HEAD
 	icon = 'icons/obj/cult/items_and_weapons.dmi'
+=======
+	icon = 'icons/obj/antags/cult/items.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state ="shifter"
 	///How many uses does the item have before becoming inert
 	var/uses = 4

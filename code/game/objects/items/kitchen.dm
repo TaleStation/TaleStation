@@ -9,7 +9,7 @@
 #define PLASTIC_BREAK_PROBABILITY 25
 
 /obj/item/kitchen
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/service/kitchen.dmi'
 	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 
@@ -143,6 +143,10 @@
 /obj/item/kitchen/rollingpin
 	name = "rolling pin"
 	desc = "Used to knock out the Bartender."
+<<<<<<< HEAD
+=======
+	icon = 'icons/obj/service/kitchen.dmi'
+>>>>>>> fb1012102257b (Icons folder cleaning wave two (#76788))
 	icon_state = "rolling_pin"
 	worn_icon_state = "rolling_pin"
 	inhand_icon_state = "rolling_pin"
