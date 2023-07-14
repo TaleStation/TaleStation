@@ -18,6 +18,7 @@
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/weapons/slash.ogg'
 	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	is_dimorphic = TRUE
 
 /obj/item/bodypart/arm/right/tajaran
 	icon_greyscale = 'talestation_modules/icons/species/tajaran/bodyparts.dmi'
@@ -26,14 +27,17 @@
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/weapons/slash.ogg'
 	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	is_dimorphic = TRUE
 
 /obj/item/bodypart/leg/left/tajaran
 	icon_greyscale = 'talestation_modules/icons/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
+	is_dimorphic = TRUE
 
 /obj/item/bodypart/leg/right/tajaran
 	icon_greyscale = 'talestation_modules/icons/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
+	is_dimorphic = TRUE
 
 /obj/item/bodypart/leg/left/tajaran/digitigrade/tajaran
 	icon_greyscale = 'talestation_modules/icons/species/tajaran/bodyparts.dmi'
