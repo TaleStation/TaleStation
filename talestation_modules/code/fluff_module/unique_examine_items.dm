@@ -202,7 +202,7 @@
 
 /obj/effect/rune/Initialize(mapload)
 	. = ..()
-	if(icon == 'icons/obj/rune.dmi')
+	if(icon == 'icons/obj/cult/rune.dmi')
 		AddElement(/datum/element/unique_examine, \
 			"A rune of blood inscribed by the followers of the Geometer Nar'sie \
 			to channel powerful blood magics through the invoker.", \
