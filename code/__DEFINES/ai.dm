@@ -309,8 +309,6 @@
 //Festivus AI keys
 /// Key where we store the charging apc ability
 #define BB_FESTIVE_APC "BB_festive_apc"
-<<<<<<< HEAD
-=======
 
 //Paperwizard AI keys
 /// Key where we store the summon minions ability
@@ -325,4 +323,3 @@
 #define BB_GOLIATH_TENTACLES "BB_goliath_tentacles"
 /// Key where goliath stores a hole it wants to get into
 #define BB_GOLIATH_HOLE_TARGET "BB_goliath_hole"
->>>>>>> 46e819297a979 (transform the paper wizard from a simple to a basic (#76688))
