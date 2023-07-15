@@ -11,21 +11,6 @@
 // Alien seeds used for XenoBotany
 /obj/item/seeds/xeno
 	is_alien_seeds = TRUE
-	name = "pack of extradimensional orange seeds"
-	desc = "Polygonal seeds."
-	icon_state = "seed-orange"
-	species = "orange"
-	plantname = "Extradimensional Orange Tree"
-	product = /obj/item/food/grown/citrus/orange_3d
-	lifespan = 60
-	endurance = 50
-	yield = 5
-	potency = 20
-	instability = 64
-	growing_icon = 'icons/obj/service/hydroponics/growing.dmi'
-	icon_grow = "lime-grow"
-	icon_dead = "lime-dead"
-	genes = list(/datum/plant_gene/trait/repeated_harvest)
 
 // Converts main seeds to alien
 /obj/item/seeds/orange_3d
