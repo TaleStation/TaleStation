@@ -41,37 +41,37 @@
 	icon_state = "regular"
 
 /datum/sprite_accessory/ears/tajaran_ears/sharp
-	name = "Sharp Tajaran Ears"
+	name = "Sharp"
 	icon_state = "sharp"
 	hasinner = 1
 	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/ears/tajaran_ears/large
-	name = "Regular Tajaran Ears"
+	name = "Regular"
 	icon_state = "large"
 	hasinner = 1
 	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/ears/tajaran_ears/tall
-	name = "Tall Tajaran Ears"
+	name = "Tall"
 	icon_state = "tall"
 	hasinner = 1
 	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/ears/tajaran_ears/fluffy
-	name = "Fluffy Tajaran Ears"
+	name = "Fluffy"
 	icon_state = "fluffy"
 	hasinner = 1
 	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/ears/tajaran_ears/short
-	name = "Short Tajaran Ears"
+	name = "Short"
 	icon_state = "short"
 	hasinner = 1
 	color_src = MUTANT_COLOR
 
 /datum/sprite_accessory/ears/tajaran_ears/fluff
-	name = "Puffy Tajaran Ears"
+	name = "Puffy"
 	icon_state = "fluff"
 	color_src = MUTANT_COLOR
 
