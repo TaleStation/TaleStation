@@ -1,6 +1,7 @@
 // Tajarans, the REAL cat people
 // GLOB list for the species sprites shit
 GLOBAL_LIST_EMPTY(tajaran_snout_list)
+GLOBAL_LIST_EMPTY(tajaran_ears_list)
 GLOBAL_LIST_EMPTY(tajaran_tail_list)
 GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
@@ -18,7 +19,7 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list("legs" = "Normal Legs", "ears" = "Tajaran", "tajaran_body_markings" = "default")
+	mutant_bodyparts = list("legs" = "Normal Legs", "tajaran_ears" = "Regular Tajaran Ears", "tajaran_body_markings" = "default")
 	external_organs = list(
 		/obj/item/organ/external/snout/tajaran_snout = "Regular",
 		/obj/item/organ/external/tail/tajaran_tail = "Regular",

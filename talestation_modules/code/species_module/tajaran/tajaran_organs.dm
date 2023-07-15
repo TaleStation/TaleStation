@@ -4,6 +4,19 @@
 	visual = TRUE
 	damage_multiplier = 2
 
+/obj/item/organ/internal/ears/tajaran_ears/on_insert(mob/living/carbon/human/ear_owner)
+	. = ..()
+	if(istype(ear_owner) && ear_owner.dna)
+		ear_owner.dna.features["tajaran_ears"] = ear_owner.dna.species.mutant_bodyparts["tajaran_ears"] = "Sharp Tajaran Ears"
+		ear_owner.dna.update_uf_block(DNA_TAJARAN_EARS_BLOCK)
+		ear_owner.update_body()
+
+/obj/item/organ/internal/ears/tajaran_ears/on_remove(mob/living/carbon/human/ear_owner)
+	. = ..()
+	if(istype(ear_owner) && ear_owner.dna)
+		ear_owner.dna.species.mutant_bodyparts -= "tajaran_ears"
+		ear_owner.update_body()
+
 // Tajaran tail
 /obj/item/organ/external/tail/tajaran_tail
 	slot = ORGAN_SLOT_EXTERNAL_TAIL
