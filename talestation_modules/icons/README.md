@@ -8,3 +8,4 @@ Most of the sprites in this codebase are free to use, as it is with most /TG/ do
 - #411 - Fax Machine Sprites - Commissioned by Jolly from Imaginos (PositiveEntropy)
 - #3903 - Lima Bean Plant, Seeds and Produce Sprites - Commissioned by Jolly from Onule
 - #3931 - Tins of Lima Beans - Commissioned by Jolly from Onule
+- #6772 - Tajaran Resprite + New Sprites - Commissioned by Jolly from Onule
