@@ -95,6 +95,8 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list)
 	if(!GLOB.tajaran_snout_list.len) // NON-MODULAR CHANGES: Tajaran snout initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list)
+	if(!GLOB.tajaran_ears_list.len) // NON-MODULAR CHANGES: Tajaran snout initialize
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/ears/tajaran_ears, GLOB.tajaran_ears_list)
 	if(!GLOB.tajaran_body_markings_list.len) // NON-MODULAR CHANGES: Tajaran markings initialize
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list)
 	if(!GLOB.avian_beak_list.len) // NON-MODULAR CHANGES: Avian beaks initialize
@@ -126,6 +128,7 @@
 		"tajaran_tail" =(pick(GLOB.tajaran_tail_list)), //NON-MODULAR CHANGES: Tajaran
 		"tajaran_markings" =(pick(GLOB.tajaran_body_markings_list)), //NON-MODULAR CHANGES: Tajaran
 		"tajaran_snout" =(pick(GLOB.tajaran_snout_list)), //NON-MODULAR CHANGES: Tajaran
+		"tajaran_ears" =(pick(GLOB.tajaran_ears_list)), //NON-MODULAR CHANGES: Tajaran
 		"avian_beak" =(pick(GLOB.avian_beak_list)), //NON-MODULAR CHANGES: Avian
 		"avian_tail" =(pick(GLOB.avian_tail_list)), //NON-MODULAR CHANGES: Avian
 	))

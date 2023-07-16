@@ -36,6 +36,7 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list) //NON-MODULAR CHANGES: Tajarans
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list) //NON-MODULAR CHANGES: Tajarans
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list) //NON-MODULAR CHANGES: Tajarans
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears/tajaran_ears, GLOB.tajaran_ears_list) //NON-MODULAR CHANGES: Tajarans
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list) //NON-MODULAR CHANGES: Avians
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list) //NON-MODULAR CHANGES: Avians
 
