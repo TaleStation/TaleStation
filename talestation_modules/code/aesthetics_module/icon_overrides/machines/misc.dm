@@ -17,7 +17,7 @@
 
 /obj/structure/mop_bucket/janitorialcart
 	// Needed since mop_bucket just hard overrides
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'icons/obj/service/janitor.dmi'
 
 /obj/structure/plasticflaps
 	icon = 'talestation_modules/icons/machines/plasticflaps.dmi'

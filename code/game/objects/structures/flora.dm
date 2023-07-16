@@ -359,7 +359,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/tree/stump
 	name = "stump"
 	desc = "This represents our promise to the crew, and the station itself, to cut down as many trees as possible." //running naked through the trees
-	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon = 'icons/obj/fluff/flora/pinetrees.dmi'
 	icon_state = "tree_stump"
 	density = FALSE
 	delete_on_harvest = TRUE
@@ -374,7 +374,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	qdel(src)
 
 /obj/structure/flora/tree/dead
-	icon = 'icons/obj/flora/deadtrees.dmi'
+	icon = 'icons/obj/fluff/flora/deadtrees.dmi'
 	desc = "A dead tree. How it died, you know not."
 	icon_state = "tree_1"
 	harvest_amount_low = 2
@@ -402,7 +402,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/tree/jungle
 	desc = "It's seriously hampering your view of the jungle."
-	icon = 'icons/obj/flora/jungletrees.dmi'
+	icon = 'icons/obj/fluff/flora/jungletrees.dmi'
 	icon_state = "tree1"
 	pixel_x = -48
 	pixel_y = -20
@@ -432,7 +432,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/tree/jungle/small
 	pixel_y = 0
 	pixel_x = -32
-	icon = 'icons/obj/flora/jungletreesmall.dmi'
+	icon = 'icons/obj/fluff/flora/jungletreesmall.dmi'
 	icon_state = "tree1"
 
 /obj/structure/flora/tree/jungle/small/get_seethrough_map()
@@ -464,7 +464,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/tree/pine
 	name = "pine tree"
 	desc = "A coniferous pine tree."
-	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon = 'icons/obj/fluff/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 
 /obj/structure/flora/tree/pine/get_seethrough_map()
@@ -523,7 +523,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/festivus
 	name = "festivus pole"
 	desc = "During last year's Feats of Strength the Research Director was able to suplex this passing immobile rod into a planter."
-	icon = 'icons/obj/flora/pinetrees.dmi'
+	icon = 'icons/obj/fluff/flora/pinetrees.dmi'
 	icon_state = "festivus_pole"
 
 /obj/structure/festivus/anchored
@@ -562,7 +562,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/grass
 	name = "grass"
 	desc = "A patch of overgrown grass."
-	icon = 'icons/obj/flora/snowflora.dmi'
+	icon = 'icons/obj/fluff/flora/snowflora.dmi'
 	gender = PLURAL //"this is grass" not "this is a grass"
 	product_types = list(/obj/item/food/grown/grass = 10, /obj/item/seeds/grass = 1)
 	harvest_with_hands = TRUE
@@ -616,7 +616,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/grass/jungle
 	name = "jungle grass"
 	desc = "Thick alien flora."
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'icons/obj/fluff/flora/jungleflora.dmi'
 	icon_state = "grassa1"
 
 /obj/structure/flora/grass/jungle/a/style_2
@@ -661,7 +661,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/bush
 	name = "bush"
 	desc = "Some type of shrubbery. Known for causing considerable economic stress on designers."
-	icon = 'icons/obj/flora/ausflora.dmi'
+	icon = 'icons/obj/fluff/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
 	flora_flags = FLORA_HERBAL
 
@@ -892,7 +892,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "ppflowers_[rand(1, 3)]"
 
 /obj/structure/flora/bush/snow
-	icon = 'icons/obj/flora/snowflora.dmi'
+	icon = 'icons/obj/fluff/flora/snowflora.dmi'
 	icon_state = "snowbush1"
 
 /obj/structure/flora/bush/snow/style_2
@@ -916,7 +916,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/bush/jungle
 	desc = "A wild plant that is found in jungles."
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'icons/obj/fluff/flora/jungleflora.dmi'
 	icon_state = "busha1"
 	flora_flags = FLORA_HERBAL
 
@@ -957,7 +957,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	icon_state = "bushc[rand(1, 3)]"
 
 /obj/structure/flora/bush/large
-	icon = 'icons/obj/flora/largejungleflora.dmi'
+	icon = 'icons/obj/fluff/flora/largejungleflora.dmi'
 	icon_state = "bush1"
 	pixel_x = -16
 	pixel_y = -12
@@ -978,7 +978,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	name = "lunar plant"
 	desc= "This seemingly dead plant is actually quite alive, hibernating until sensing living things."
 	icon_state = "lunar_plant"
-	icon = 'icons/obj/flora/xenoflora.dmi'
+	icon = 'icons/obj/fluff/flora/xenoflora.dmi'
 	density = FALSE
 	light_color = COLOR_WHITE
 	light_range = 2
@@ -1005,7 +1005,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 	name = "large rock"
 	icon_state = "basalt1"
 	desc = "A volcanic rock. Pioneers used to ride these babies for miles."
-	icon = 'icons/obj/flora/rocks.dmi'
+	icon = 'icons/obj/fluff/flora/rocks.dmi'
 	density = TRUE
 	resistance_flags = FIRE_PROOF
 	product_types = list(/obj/item/stack/ore/glass/basalt = 1)
@@ -1051,7 +1051,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 
 /obj/structure/flora/rock/pile/jungle
 	icon_state = "rock1"
-	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon = 'icons/obj/fluff/flora/jungleflora.dmi'
 
 /obj/structure/flora/rock/pile/jungle/style_2
 	icon_state = "rock2"
@@ -1072,7 +1072,7 @@ GLOBAL_LIST_EMPTY(flora_uprooting_tools_typepaths)
 /obj/structure/flora/rock/pile/jungle/large
 	name = "pile of large rocks"
 	icon_state = "rocks1"
-	icon = 'icons/obj/flora/largejungleflora.dmi'
+	icon = 'icons/obj/fluff/flora/largejungleflora.dmi'
 	pixel_x = -16
 	pixel_y = -16
 	harvest_amount_low = 9
