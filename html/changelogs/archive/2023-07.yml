@@ -587,3 +587,65 @@
       of additive
   - rscdel: The Head of Personnel no longer spawns with an ID box.
   - bugfix: Intern returns misplaced droppers back to deltastation's xenobiology lab.
+2023-07-17:
+  Melbert:
+  - code_imp: AI cards should react more snap-ily to having their occupant perish
+  TaleStationBot:
+  - bugfix: The AI can no longer untip vendors remotely/spam sparks from shocked vendors
+  - bugfix: replaces icebox genetics' regular science headset with a medisci headset,
+      making it more in line with other genetics offices
+  - balance: Pyre Sect can now heal with their bible as normal.
+  - qol: Some of Pyre Sect's rituals have been shortened slightly
+  - rscadd: 'New malf ability: Remote safety overrides. Allows the AI to remotely
+      emag things it has access to.'
+  - code_imp: emag_act() now returns a boolean designating it's success in emagging
+  - code_imp: All instances of emag_act() now have the proper arguments
+  - qol: Most usecases of emagging now have some kind of feedback, and existing feedback
+      has been sanity checked and converted to balloon alerts.
+  - code_imp: Adds an opt out for the rest of the round for the various heretic summons.
+  - bugfix: Fixed the AI vox announcement interrupting every other sound being played.
+  - qol: People with deviant tastes now don't care about dirt on the food.
+  - bugfix: fixed energy cost on floor tiles for engi borgs.
+  - bugfix: engi borgs can now properly merge base floor tiles with other base floor
+      tiles.
+  - bugfix: Carp, Trees, and Festivus Poles will once more sometimes emote at you
+      if they think you are looking at them the wrong way, before they come over to
+      beat you up.
+  - bugfix: The malf AI emag ability now works
+  - bugfix: Stops manifest generation runtiming when a cargo crate is empty.
+  - rscadd: Abandoned crates are now available via cargo imports.
+  - rscadd: Dumpsters full of maintenance trash are now available via cargo imports.
+  - rscadd: An ultra-rare can of Shambler's Juice is now available via cargo imports.
+  - rscadd: Animal hides and leathers can be (unreliably) ordered via cargo imports.
+  - rscadd: The Dreadnog has entered this realm. To consume, purchase it via cargo
+      imports.
+  - balance: Contraband Crates (and as a consequence, smuggler's satchels) now generate
+      more varied goods. Mostly the same, but sometimes you get something quite different
+      or even valuable.
+  - balance: Mosins generated via the Russian supply crate are a bit more random,
+      weighing more heavily towards bad mosins than good mosins.
+  - balance: Buffed both the shocktrooper and special op crate. Shocktrooper now has
+      an armored helmet and vest, and special op now has 5 mirage grenades and a chameleon
+      belt. The survival knife in the special op crate is now a switchblade.
+  - bugfix: Emotes now respect word filters.
+  - qol: in the event the Gravity Generator becomes damaged, examining the main part
+      will now give repair hints!
+  - refactor: Arcane Barrage and Blood Barrage are magic gun subtypes and not rifle
+      subtypes. Also they have sprites again.
+  - qol: The barrage spells now use the automatic component to do its thing.
+  - bugfix: Blood Barrage once again heals cultists and constructs without hurting
+      them.
+  - code_imp: Cleans up how Blood Rites finds blood to draw in. You can now just click
+      turfs as well as blood, and it should now be much more accurate about it.
+  - qol: Blood trails contribute to charges gained using Blood Rites. You can also
+      activate Blood Rite's blood draw using blood trails.
+  - bugfix: transformed jellypeople with the blood deficiency quirk will now receive
+      the right bloodpacks as mail goodies
+  - bugfix: Station traits can once again allow vending machines and bots to speak
+      a random language
+  - bugfix: EMPed bots and vending machines once again speak a random language
+  - qol: laser muskets' inhand sprites will show now whether or not they are charged
+  - image: new inhand sprites for the laser muskets
+  - rscadd: The 'Sent from my PDA' message is different for Clear PDAs now (specifying
+      they are crystal).
+  - bugfix: Onehuman and Freeform ai modules now have proper material prices.
