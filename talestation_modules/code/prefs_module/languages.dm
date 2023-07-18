@@ -52,8 +52,8 @@
 	/// The 'required species' of the language, languages that require you be a certain species to know.
 	var/req_species
 
-/datum/language/skrell
-	base_species = SPECIES_SKRELL
+/datum/language/calcic
+	base_species = SPECIES_PLASMAMAN
 
 /datum/language/draconic
 	base_species = SPECIES_LIZARD
@@ -61,14 +61,26 @@
 /datum/language/impdraconic
 	req_species = SPECIES_LIZARD
 
-/datum/language/nekomimetic
-	base_species = SPECIES_FELINE
-
 /datum/language/moffic
 	base_species = SPECIES_MOTH
 
+/datum/language/nekomimetic
+	base_species = SPECIES_FELINE
+
+/datum/language/skrell
+	base_species = SPECIES_SKRELL
+
+/datum/language/slime
+	base_species = SPECIES_JELLYPERSON
+
+/datum/language/sylvan
+	base_species = SPECIES_PODPERSON
+
 /datum/language/tajaran
 	base_species = SPECIES_TAJARAN
+
+/datum/language/voltaic
+	base_species = SPECIES_ETHEREAL
 
 /// TGUI for selecting languages.
 /datum/language_picker
