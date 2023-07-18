@@ -3,6 +3,6 @@
 	name = "Digitigrate Jumpsuit Worn"
 	icon_file = 'talestation_modules/icons/clothing/digi/worn/under/under.dmi'
 
-/datum/greyscale_config/jumpsuit_prison/worn/digi
+/datum/greyscale_config/jumpsuit/prison/worn/digi
 	name = "Digitigrade Prison Jumpsuit Worn"
 	icon_file = 'talestation_modules/icons/clothing/digi/worn/under/under.dmi'
