@@ -105,7 +105,7 @@ There are several things that need to be remembered:
 		if((bodytype & BODYTYPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
 			icon_file = MONKEY_UNIFORM_FILE
 		else if((bodytype & BODYTYPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-			icon_file = DIGITIGRADE_UNIFORM_FILE
+			icon_file = uniform.worn_icon_digitigrade || DIGITIGRADE_UNIFORM_FILE //NON-MODULAR CHANGES - Enables digi uniform
 		//Female sprites have lower priority than digitigrade sprites
 		else if(dna.species.sexes && (bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
 			woman = TRUE
@@ -292,7 +292,17 @@ There are several things that need to be remembered:
 		if(check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_FEET)
 			return
 
-		var/icon_file = DEFAULT_SHOES_FILE
+		var/icon_file
+		// NON-MODULAR CHANGES - MSO deleted this upstream, but we rely on the handeling down here
+		// I'm not a coder and if this is shit code make it better/modular
+		if((bodytype & BODYTYPE_DIGITIGRADE) && (worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
+			var/obj/item/bodypart/leg = src.get_bodypart(BODY_ZONE_L_LEG)
+			if(leg.limb_id == "digitigrade")//Snowflakey and bad. But it makes it look consistent.
+				icon_file = 'talestation_modules/icons/clothing/digi/worn/shoes/shoes.dmi'
+
+		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
+		// NON-MODULAR CHANGES END
+			icon_file = DEFAULT_SHOES_FILE
 
 		var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file)
 		if(!shoes_overlay)
@@ -391,7 +401,16 @@ There are several things that need to be remembered:
 	if(wear_suit)
 		var/obj/item/worn_item = wear_suit
 		update_hud_wear_suit(worn_item)
-		var/icon_file = DEFAULT_SUIT_FILE
+		var/icon_file
+
+		// NON-MODULAR CHANGES - MSO deleted this, ditto from previous comments
+		if(bodytype & BODYTYPE_DIGITIGRADE)
+			if(worn_item.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)
+				icon_file = wear_suit.worn_icon_digitigrade
+
+		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
+			icon_file = DEFAULT_SUIT_FILE
+		// NON-MODULAR CHANGES END
 
 		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
