@@ -1033,12 +1033,6 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return TRUE
 	return ..()
 
-/obj/machinery/fax_machine/command/examine(mob/user)
-	. = ..()
-	if(stored_paper)
-		. += span_notice("Right click to remove the stored fax.")
-	. += span_notice("The maintenance panel is [locked ? "locked" : "unlocked"]. Swipe your ID card to [locked ? "unlock" : "lock"] it.")
-
 /// Sends messages to the syndicate when emagged.
 /obj/machinery/fax_machine/command/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
