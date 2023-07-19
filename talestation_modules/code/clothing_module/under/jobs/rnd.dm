@@ -1,5 +1,8 @@
 /// -- Modular RND clothing. --
 
+/obj/item/clothing/under/rank/rnd
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/under/rnd_digi.dmi'
+
 /obj/item/clothing/under/rank/rnd/xenobiologist
 	desc = "It has markings that denote the wearer as a Xenobiologist."
 	name = "xenobiologist's jumpsuit"
