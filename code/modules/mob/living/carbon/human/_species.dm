@@ -786,6 +786,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 							// NON-MODULAR CHANGES: Tajaran body markings color - shit code
 							if(istype(accessory, /datum/sprite_accessory/tajaran_body_markings) && source.dna.features["tajaran_body_markings_color"])
 								accessory_overlay.color = source.dna.features["tajaran_body_markings_color"]
+							if(istype(accessory, /datum/sprite_accessory/body_markings) && source.dna.features["lizard_body_markings_color"])
+								accessory_overlay.color = source.dna.features["lizard_body_markings_color"]
 							// NON-MODULAR CHANGES END
 						if(HAIR_COLOR)
 							if(hair_color == "mutcolor")
