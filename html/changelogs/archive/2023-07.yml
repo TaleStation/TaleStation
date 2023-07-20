@@ -728,3 +728,56 @@
   vinylspiders:
   - code_imp: 'apc''s update_icon_state proc will no longer set the icon file path
       /:cl:'
+2023-07-20:
+  DaydreamIQ:
+  - spellcheck: Maints fridge doesn't have _ in its name anymore
+  Melbert:
+  - bugfix: Cyborgs no longer drop their radio key when deleted, only when deconstructed
+      first
+  - bugfix: Cyborgs no longer drop their MMI on deletion, only prior to deletion.
+      This may result in bad code rearing its ugly head, open an issue report on the
+      github if you're a cyborg and get ghosted when you feel like you shouldn't
+  - bugfix: Runtime from syndie cyborgs spawning
+  - bugfix: AI deaths are reported to black box
+  Seven:
+  - bugfix: Xeno's corrosion ability no longer breaks reinforced walls and floors
+  - qol: Added some balloon alerts for failing to place items in storage containers
+  TaleStationBot:
+  - bugfix: turbine does not runtime when its input or output turf is destroyed while
+      its running
+  - qol: add warning examine for rotor when its parts are not connected
+  - bugfix: Cult spells, bloodsense, and pylon healing now follow cultists through
+      mind transfer (such as body swapping)
+  - bugfix: fixes gravity generators causing CI failures from overriding a signal
+  - rscadd: Added angle lighting, applies it to most wall lights!
+  - rscadd: Adds a lighting prototyping tool, mappers go try it out (it's locked behind
+      the mapping verb)
+  - qol: terminals built by left-clicking on SMES and APC units will now be on the
+      same layer as the machine.
+  - bugfix: constructing a terminal on a specific layer with right-click now works
+      for APCs, not just SMES units
+  - bugfix: Fixed the alien limbgrower UI
+  - bugfix: Fixed being able to order negative or more than 20 items in mining order
+      console
+  - qol: techfabs now use sheets(TM) as the default unit of measurement
+  - bugfix: mechfab icons aren't perpetually gray
+  - rscadd: Bank machine now has a circuit for it. Spawns in secure tech storage and
+      researchable in the same nod as comms console.
+  - balance: Due to possibility of creating area and making there bank machines that
+      aren't roundstart will have gps signals.
+  - bugfix: Bank machine now doesn't yell about unauthorized credit withdrawal when
+      its authorized.
+  - balance: You can't possess a MULE as soon as the round starts, someone will have
+      to give you permission.
+  - balance: MULEbots no longer crush prone characters unless they have been hacked
+      (or emagged).
+  - bugfix: Bots can put numbers in their names, what with being robots.
+  - admin: 'Adds attack logging when certain wires are cut (for instance: MULEbot
+      safeties)'
+  - bugfix: Cryo cells no longer appear on when off.
+  - rscadd: 'New air alarm mode: Vent siphon, which disables scrubbers and forces
+      vents to siphon air with no pressure regulation'
+  - bugfix: ethereal hair will now go out when they die again
+  tommysalami3:
+  - rscadd: Ambient tracks for icebox.
+  - rscadd: Independent global_list for icebox.
