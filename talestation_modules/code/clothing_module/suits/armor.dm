@@ -111,3 +111,20 @@
 /obj/item/clothing/suit/greyscale_parade/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon/greyscale, "buttons", /datum/greyscale_config/parade_formal_open, /datum/greyscale_config/parade_formal_open_worn)
+
+/obj/item/clothing/suit/armor
+
+/obj/item/clothing/suit/hooded/cultrobes
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/suit/armor_digi.dmi'
+
+/obj/item/clothing/head/helmet/marine/security
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/suit/armor_digi.dmi'
+
+/obj/item/clothing/head/helmet/marine/engineer
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/suit/armor_digi.dmi'
+
+/obj/item/clothing/suit/hooded/cloak/goliath
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/suit/armor_digi.dmi'
+
+/obj/item/clothing/suit/hooded/cloak/drake
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/suit/armor_digi.dmi'
