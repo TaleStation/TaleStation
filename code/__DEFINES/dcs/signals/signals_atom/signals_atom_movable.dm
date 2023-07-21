@@ -110,5 +110,10 @@
 	///The index of the name part
 	#define NAME_PART_INDEX 1
 
+<<<<<<< HEAD
 ///from /datum/component/track_hierarchical_movement/on_moved() if atom or any of its containers has moved: (atom/old_loc, dir, forced, list/old_locs)
 #define COMSIG_MOVABLE_OR_CONTAINER_MOVED "movable_or_container_moved"
+=======
+/// From /datum/element/immerse/proc/add_submerge_overlay(): (visual_overlay)
+#define COMSIG_MOVABLE_EDIT_UNIQUE_IMMERSE_OVERLAY "movable_edit_unique_submerge_overlay"
+>>>>>>> c1122a0ae9771 (Adds an element to water turfs that makes things... look like they're actually immersed in water. (#76208))
