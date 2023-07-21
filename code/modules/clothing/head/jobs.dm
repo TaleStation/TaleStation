@@ -447,8 +447,6 @@
 	desc = "A blue medical surgery cap to prevent the surgeon's hair from entering the insides of the patient!"
 	flags_inv = HIDEHAIR //Cover your head doctor!
 
-<<<<<<< HEAD
-=======
 /obj/item/clothing/head/utility/surgerycap/attack_self(mob/user)
 	. = ..()
 	if(.)
@@ -464,7 +462,6 @@
 	. = ..()
 	. += span_notice("Use in hand to [flags_inv & HIDEHAIR ? "loosen" : "tighten"] the strings.")
 
->>>>>>> bda52c6509bdb (Fixes inconsistency in security hat armor berets/softcaps (#76986))
 /obj/item/clothing/head/utility/surgerycap/purple
 	name = "burgundy surgery cap"
 	icon_state = "surgicalcapwine"
