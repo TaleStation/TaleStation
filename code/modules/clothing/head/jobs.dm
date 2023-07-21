@@ -385,16 +385,16 @@
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#a52f29#F2F2F2"
-	armor_type = /datum/armor/beret_sec
+	armor_type = /datum/armor/cosmetic_sec
 	strip_delay = 60
 	dog_fashion = null
 	flags_1 = NONE
 
-/datum/armor/beret_sec
-	melee = 35
-	bullet = 30
-	laser = 30
-	energy = 40
+/datum/armor/cosmetic_sec
+	melee = 30
+	bullet = 25
+	laser = 25
+	energy = 35
 	bomb = 25
 	fire = 20
 	acid = 50
@@ -447,6 +447,24 @@
 	desc = "A blue medical surgery cap to prevent the surgeon's hair from entering the insides of the patient!"
 	flags_inv = HIDEHAIR //Cover your head doctor!
 
+<<<<<<< HEAD
+=======
+/obj/item/clothing/head/utility/surgerycap/attack_self(mob/user)
+	. = ..()
+	if(.)
+		return
+	balloon_alert(user, "[flags_inv & HIDEHAIR ? "loosening" : "tightening"] strings...")
+	if(!do_after(user, 3 SECONDS, src))
+		return
+	flags_inv ^= HIDEHAIR
+	balloon_alert(user, "[flags_inv & HIDEHAIR ? "tightened" : "loosened "] strings")
+	return TRUE
+
+/obj/item/clothing/head/utility/surgerycap/examine(mob/user)
+	. = ..()
+	. += span_notice("Use in hand to [flags_inv & HIDEHAIR ? "loosen" : "tighten"] the strings.")
+
+>>>>>>> bda52c6509bdb (Fixes inconsistency in security hat armor berets/softcaps (#76986))
 /obj/item/clothing/head/utility/surgerycap/purple
 	name = "burgundy surgery cap"
 	icon_state = "surgicalcapwine"
@@ -552,4 +570,4 @@
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#43523d#a2abb0"
-	armor_type = /datum/armor/beret_sec
+	armor_type = /datum/armor/cosmetic_sec
