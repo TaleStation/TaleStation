@@ -61,7 +61,11 @@
 			balloon_alert(user, "need ten lengths of cable!")
 			return
 
+<<<<<<< HEAD
 		var/terminal_cable_layer = CABLE_LAYER_1
+=======
+		var/terminal_cable_layer = cable_layer // Default to machine's cable layer
+>>>>>>> 378b501f82c05 (Make electrified grilles, APCs, SMES and buckled stuff shock as expected again (#77004))
 		if(LAZYACCESS(params2list(params), RIGHT_CLICK))
 			var/choice = tgui_input_list(user, "Select Power Input Cable Layer", "Select Cable Layer", GLOB.cable_name_to_layer)
 			if(isnull(choice))
@@ -79,7 +83,7 @@
 		if(terminal || !opened || !has_electronics)
 			return
 		var/turf/our_turf = get_turf(src)
-		var/obj/structure/cable/cable_node = our_turf.get_cable_node()
+		var/obj/structure/cable/cable_node = our_turf.get_cable_node(terminal_cable_layer)
 		if(prob(50) && electrocute_mob(usr, cable_node, cable_node, 1, TRUE))
 			do_sparks(5, TRUE, src)
 			return
