@@ -218,19 +218,12 @@
 	refundable = FALSE
 	buy_word = "Cast"
 
-<<<<<<< HEAD
-/datum/spellbook_entry/summon/buy_spell(mob/living/carbon/human/user, obj/item/spellbook/book)
-	log_spellbook("[key_name(user)] cast [src] for [cost] points")
-	SSblackbox.record_feedback("tally", "wizard_spell_learned", 1, name)
-	log_purchase(user.key)
-=======
 /datum/spellbook_entry/summon/buy_spell(mob/living/carbon/human/user, obj/item/spellbook/book, log_buy = TRUE)
 	if(log_buy)
 		log_spellbook("[key_name(user)] cast [src] for [cost] points")
 		SSblackbox.record_feedback("tally", "wizard_spell_learned", 1, name)
 		log_purchase(user.key)
 	book.update_static_data(user) // updates "times" var
->>>>>>> 4e91d057d7d62 (Adds a wizard Right and Wrong that lets the caster give one spell (or relic) to everyone on the station (#76974))
 	return TRUE
 
 /// Non-purchasable flavor spells to populate the spell book with, for style.
