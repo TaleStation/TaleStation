@@ -182,8 +182,17 @@
 		power_throw++
 	if(neckgrab_throw)
 		power_throw++
+<<<<<<< HEAD
 	visible_message(span_danger("[src] throws [thrown_thing][power_throw ? " really hard!" : "."]"), \
 					span_danger("You throw [thrown_thing][power_throw ? " really hard!" : "."]"))
+=======
+	if(isitem(thrown_thing))
+		var/obj/item/thrown_item = thrown_thing
+		if(thrown_item.throw_verb)
+			verb_text = thrown_item.throw_verb
+	visible_message(span_danger("[src] [verb_text][plural_s(verb_text)] [thrown_thing][power_throw ? " really hard!" : "."]"), \
+					span_danger("You [verb_text] [thrown_thing][power_throw ? " really hard!" : "."]"))
+>>>>>>> 404afb9f57e44 (Fixes third-person throw verbs passed as just an `s` (#77019))
 	log_message("has thrown [thrown_thing] [power_throw > 0 ? "really hard" : ""]", LOG_ATTACK)
 	var/extra_throw_range = HAS_TRAIT(src, TRAIT_THROWINGARM) ? 2 : 0
 	newtonian_move(get_dir(target, src))
