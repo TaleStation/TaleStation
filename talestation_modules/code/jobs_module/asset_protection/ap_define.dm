@@ -11,7 +11,6 @@
 	supervisors = SUPERVISOR_COMMAND
 	req_admin_notify = TRUE
 	minimal_player_age = 10
-	exp_requirements = 3000
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_COMMAND

@@ -61,11 +61,7 @@
 			balloon_alert(user, "need ten lengths of cable!")
 			return
 
-<<<<<<< HEAD
-		var/terminal_cable_layer = CABLE_LAYER_1
-=======
 		var/terminal_cable_layer = cable_layer // Default to machine's cable layer
->>>>>>> 378b501f82c05 (Make electrified grilles, APCs, SMES and buckled stuff shock as expected again (#77004))
 		if(LAZYACCESS(params2list(params), RIGHT_CLICK))
 			var/choice = tgui_input_list(user, "Select Power Input Cable Layer", "Select Cable Layer", GLOB.cable_name_to_layer)
 			if(isnull(choice))
