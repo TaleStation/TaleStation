@@ -34,6 +34,11 @@ export type MaterialCostSequenceProps = {
    * The `justify-content` flex property provided to the generated list.
    */
   justify?: string;
+
+  /**
+   * Definition of how much units 1 sheet has.
+   */
+  SHEET_MATERIAL_AMOUNT: number;
 };
 
 /**
@@ -51,7 +56,8 @@ export const MaterialCostSequence = (
   props: MaterialCostSequenceProps,
   context
 ) => {
-  const { design, amount, available, align, justify } = props;
+  const { design, amount, available, align, justify, SHEET_MATERIAL_AMOUNT } =
+    props;
   let { costMap } = props;
 
   if (!costMap && !design) {
@@ -74,7 +80,11 @@ export const MaterialCostSequence = (
             <Flex.Item>
               <MaterialIcon
                 materialName={material}
+<<<<<<< HEAD
                 amount={(amount || 1) * quantity}
+=======
+                sheets={((amount || 1) * quantity) / SHEET_MATERIAL_AMOUNT}
+>>>>>>> e92ae5b75b81c (Material container & related stuff ui refactors & clean-up (#76220))
               />
             </Flex.Item>
             <Flex.Item
@@ -88,7 +98,14 @@ export const MaterialCostSequence = (
                         : '#db2828',
                 }
               }>
+<<<<<<< HEAD
               {formatSiUnit((amount || 1) * quantity, 0)}
+=======
+              {formatSiUnit(
+                ((amount || 1) * quantity) / SHEET_MATERIAL_AMOUNT,
+                0
+              )}
+>>>>>>> e92ae5b75b81c (Material container & related stuff ui refactors & clean-up (#76220))
             </Flex.Item>
           </Flex>
         </Flex.Item>
