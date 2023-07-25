@@ -26,24 +26,6 @@ export type Material = {
   amount: number;
 
   /**
-<<<<<<< HEAD
-   * Definition of how much units 1 sheet has.
-   */
-  SHEET_MATERIAL_AMOUNT: number;
-
-  /**
-   * The number of sheets.
-   */
-  sheets: number;
-
-  /**
-   * Whether the material can be removed.
-   */
-  removable: BooleanLike;
-
-  /**
-=======
->>>>>>> e92ae5b75b81c (Material container & related stuff ui refactors & clean-up (#76220))
    * The color of the material.
    */
   color: string;
