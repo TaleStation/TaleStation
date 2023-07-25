@@ -297,8 +297,5 @@
 /datum/action/item_action/rcd_scan
 	name = "Destruction Scan"
 	desc = "Scans the surrounding area for destruction. Scanned structures will rebuild significantly faster."
-<<<<<<< HEAD
-=======
 
 #undef SILO_USE_AMOUNT
->>>>>>> e92ae5b75b81c (Material container & related stuff ui refactors & clean-up (#76220))
