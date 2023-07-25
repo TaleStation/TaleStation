@@ -1,4 +1,4 @@
-//Locker spawner tool
+// Locker spawner tool
 // Given to jobs that join stations not compatible with their job (IE, modular jobs on non-modular stations).
 
 /obj/item/locker_spawner
@@ -19,7 +19,7 @@
 		return
 	spawn_locker(user)
 
-// Actually spawn the locker at the [user]'s feet.
+/// Spawns the locker at [users] feet
 /obj/item/locker_spawner/proc/spawn_locker(mob/living/carbon/human/user)
 	if(istype(user.ears, /obj/item/radio/headset))
 		var/nanotrasen_message = span_bold("Equipment request received. Your new locker is inbound. \
@@ -39,3 +39,41 @@
 	))
 
 	qdel(src)
+
+// Spawner items for jobs
+
+/*
+* Asset Protection locker spawner
+*/
+/obj/item/locker_spawner/asset_protection
+	name = "asset protection equipment beacon"
+	desc = "A beacon handed out for stalwart asset protection officers being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when protecting the command staff of Nanotrasen research stations."
+	requires_job_path = /datum/job/asset_protection
+	spawned_locker_path = /obj/structure/closet/secure_closet/asset_protection
+	icon_state = "gangtool-blue"
+
+/*
+* Bridge Officer locker spawner
+*/
+/obj/item/locker_spawner/bridge_officer
+	name = "bridge officer equipment beacon"
+	desc = "A beacon handed out for enterprising bridge officers being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when manning the bridge of Nanotrasen research stations."
+	requires_job_path = /datum/job/bridge_officer
+	spawned_locker_path = /obj/structure/closet/secure_closet/bridge_officer
+	icon_state = "gangtool-blue"
+
+/*
+* Xenobiologist locker spawner
+*/
+/obj/item/locker_spawner/xenobotany
+	name = "xenobotany equipment beacon"
+	desc = "A beacon handed out for upcoming xenobiologists being assigned to stations without proper \
+		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
+		for use when you want to overrun the station with kuduz, the botanist way."
+	requires_job_path = /datum/job/scientist
+	spawned_locker_path = /obj/structure/closet/secure_closet/xeno_botany
+	icon_state = "gangtool-purple"

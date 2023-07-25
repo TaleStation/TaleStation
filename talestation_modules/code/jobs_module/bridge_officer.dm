@@ -72,12 +72,12 @@
 		/obj/item/gun/energy/disabler = 1,
 	)
 
+// Gives [job] the locker spawner if the map doesn't have a locker on it already
 /datum/outfit/job/bridge_officer/pre_equip(mob/living/carbon/human/H)
 	..()
 	// If the map we're on doesn't have a brige officer locker, add in a way to get one
 	if(!(locate(/obj/effect/landmark/locker_spawner/bridge_officer_equipment) in GLOB.locker_landmarks))
 		LAZYADD(backpack_contents, /obj/item/locker_spawner/bridge_officer)
-
 
 	// 0.1% chance on spawn to be given a meme flash in place of a real one.
 	if(r_pocket)
@@ -90,31 +90,3 @@
 			r_pocket = /obj/item/assembly/flash/memorizer
 		else
 			r_pocket = /obj/item/assembly/flash
-
-// PDA
-/obj/item/modular_computer/pda/heads/bo
-	name = "bridge officer PDA"
-	greyscale_config = /datum/greyscale_config/tablet/head
-	greyscale_colors = "#99ccff#000099"
-
-// Headset encryption key
-/obj/item/encryptionkey/heads/hop/bridge_officer
-	name = "\proper the bridge officer's encryption key"
-	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_COMMAND = 1)
-
-// Headsets
-/obj/item/radio/headset/heads/bridge_officer
-	name = "\proper the bridge officer's headset"
-	desc = "The headset of the man or woman in charge of filing paperwork for the heads of staff."
-	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/hop/bridge_officer
-
-// Locker summoner
-/obj/item/locker_spawner/bridge_officer
-	name = "bridge officer equipment beacon"
-	desc = "A beacon handed out for enterprising bridge officers being assigned to stations without proper \
-		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
-		for use when manning the bridge of Nanotrasen research stations."
-	requires_job_path = /datum/job/bridge_officer
-	spawned_locker_path = /obj/structure/closet/secure_closet/bridge_officer
-	icon_state = "gangtool-blue"

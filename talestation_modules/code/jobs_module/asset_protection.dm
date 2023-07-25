@@ -68,46 +68,9 @@
 
 	implants = list(/obj/item/implant/mindshield)
 
+// Gives [job] the locker spawner if the map doesn't have a locker on it already
 /datum/outfit/job/asset_protection/pre_equip(mob/living/carbon/human/H)
 	..()
 	// If the map we're on doesn't have a ap locker, add in a way to get one
 	if(!(locate(/obj/effect/landmark/locker_spawner/asset_protection_equipment) in GLOB.locker_landmarks))
 		LAZYADD(backpack_contents, /obj/item/locker_spawner/asset_protection)
-
-// PDA
-/obj/item/modular_computer/pda/heads/ap
-	name = "asset protections PDA"
-	greyscale_config = /datum/greyscale_config/tablet/head
-	greyscale_colors = "#d91a40#3F1514"
-
-// Headset encryption key
-/obj/item/encryptionkey/heads/hos/asset_protection
-	name = "\proper the asset protection's encryption key"
-	channels = list(RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_COMMAND = 1)
-
-// Headsets
-/obj/item/radio/headset/heads/asset_protection
-	name = "\proper the asset protection officer's headset"
-	desc = "The headset of the man or woman in charge of assisting and protecting the heads of staff."
-	icon_state = "com_headset"
-	keyslot = new /obj/item/encryptionkey/heads/hos/asset_protection
-
-// Asset Protection's bowman
-/obj/item/radio/headset/heads/asset_protection/alt
-	name = "\proper the asset protection officer's bowman headset"
-	desc = "The headset of the man or woman in charge of assisting and protecting the heads of staff. Protects ears from flashbangs."
-	icon_state = "com_headset_alt"
-
-/obj/item/radio/headset/heads/asset_protection/alt/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
-
-// Locker summoner
-/obj/item/locker_spawner/asset_protection
-	name = "asset protection equipment beacon"
-	desc = "A beacon handed out for stalwart asset protection officers being assigned to stations without proper \
-		accommodations made for their occupation. When used, drop-pods in a fully stocked locker of equipment \
-		for use when protecting the command staff of Nanotrasen research stations."
-	requires_job_path = /datum/job/asset_protection
-	spawned_locker_path = /obj/structure/closet/secure_closet/asset_protection
-	icon_state = "gangtool-blue"
