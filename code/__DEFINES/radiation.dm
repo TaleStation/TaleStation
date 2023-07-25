@@ -42,6 +42,11 @@ Ask Mothblocks if they're around
 
 /// The minimum exposure time before uranium structures can irradiate
 #define URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME (3 SECONDS)
+<<<<<<< HEAD
+=======
+/// The minimum exposure time before the radioactive nebula can irradiate
+#define NEBULA_RADIATION_MINIMUM_EXPOSURE_TIME (6 SECONDS)
+>>>>>>> 12f5ece7ad3ec ([NO-GBP] Optimizes rad nebula (#77014))
 
 /// Return values of [proc/get_perceived_radiation_danger]
 // If you change these, update /datum/looping_sound/geiger as well.
@@ -52,3 +57,13 @@ Ask Mothblocks if they're around
 
 /// The time before geiger counters reset back to normal without any radiation pulses
 #define TIME_WITHOUT_RADIATION_BEFORE_RESET (5 SECONDS)
+
+// Radiation exposure params
+
+// For the radioactive nebula outside
+/// Base chance the nebula has of applying irradiation
+#define RADIATION_EXPOSURE_NEBULA_BASE_CHANCE 20
+/// The chance we add to the base chance every time we fail to irradiate
+#define RADIATION_EXPOSURE_NEBULA_CHANCE_INCREMENT 10
+/// Time it takes for the next irradiation check
+#define RADIATION_EXPOSURE_NEBULA_CHECK_INTERVAL 5 SECONDS

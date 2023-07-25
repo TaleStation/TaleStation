@@ -110,5 +110,12 @@
 	///The index of the name part
 	#define NAME_PART_INDEX 1
 
+<<<<<<< HEAD
 ///from /datum/component/track_hierarchical_movement/on_moved() if atom or any of its containers has moved: (atom/old_loc, dir, forced, list/old_locs)
 #define COMSIG_MOVABLE_OR_CONTAINER_MOVED "movable_or_container_moved"
+=======
+/// From /datum/element/immerse/proc/add_submerge_overlay(): (visual_overlay)
+#define COMSIG_MOVABLE_EDIT_UNIQUE_IMMERSE_OVERLAY "movable_edit_unique_submerge_overlay"
+/// From base of area/Exited(): (area/left, direction)
+#define COMSIG_MOVABLE_EXITED_AREA "movable_exited_area"
+>>>>>>> 12f5ece7ad3ec ([NO-GBP] Optimizes rad nebula (#77014))

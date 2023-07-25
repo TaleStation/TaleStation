@@ -10,7 +10,18 @@
 /datum/element/radioactive/New()
 	START_PROCESSING(SSdcs, src)
 
+<<<<<<< HEAD
 /datum/element/radioactive/Attach(datum/target)
+=======
+/datum/element/radioactive/Attach(
+	datum/target,
+	range = 3,
+	threshold = RAD_LIGHT_INSULATION,
+	chance = URANIUM_IRRADIATION_CHANCE,
+	minimum_exposure_time = URANIUM_RADIATION_MINIMUM_EXPOSURE_TIME,
+	)
+
+>>>>>>> 12f5ece7ad3ec ([NO-GBP] Optimizes rad nebula (#77014))
 	. = ..()
 
 	radioactive_objects[target] = world.time
