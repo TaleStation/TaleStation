@@ -19,7 +19,7 @@
 		return
 	spawn_locker(user)
 
-/// Spawns the locker at [users] feet
+/// Spawns the locker at [user]'s feet
 /obj/item/locker_spawner/proc/spawn_locker(mob/living/carbon/human/user)
 	if(istype(user.ears, /obj/item/radio/headset))
 		var/nanotrasen_message = span_bold("Equipment request received. Your new locker is inbound. \
