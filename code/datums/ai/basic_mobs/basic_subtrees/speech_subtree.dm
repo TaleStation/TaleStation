@@ -175,3 +175,16 @@
 	emote_hear = list("howls.", "barks.", "screams.")
 	emote_see = list("shakes their head.", "shivers.")
 	speak = list("Ack-Ack", "Ack-Ack-Ack-Ackawoooo", "Geckers", "Awoo", "Tchoff")
+<<<<<<< HEAD
+=======
+
+/datum/ai_planning_subtree/random_speech/crab
+	speech_chance = 1
+	emote_hear = list("clicks.")
+	emote_see = list("clacks.")
+
+/datum/ai_planning_subtree/random_speech/penguin
+	speech_chance = 5
+	speak = list("Gah Gah!", "NOOT NOOT!", "NOOT!", "Noot", "noot", "Prah!", "Grah!")
+	emote_hear = list("squawks", "gakkers")
+>>>>>>> d9677e39bebe3 (Converting crabs to basic mobs (#77109))
