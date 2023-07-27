@@ -150,7 +150,12 @@
 	if(basic_mob_flags & FLIP_ON_DEATH)
 		transform = transform.Turn(180)
 	if(!(basic_mob_flags & REMAIN_DENSE_WHILE_DEAD))
+<<<<<<< HEAD
 		set_density(FALSE)
+=======
+		ADD_TRAIT(src, TRAIT_UNDENSE, BASIC_MOB_DEATH_TRAIT)
+	SEND_SIGNAL(src, COMSIG_BASICMOB_LOOK_DEAD)
+>>>>>>> cc57581b73e29 (Dog wit the butter (feat. a bunch of dog-related code improvements) (#77039))
 
 /mob/living/basic/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	. = ..()
@@ -164,7 +169,12 @@
 	if(basic_mob_flags & FLIP_ON_DEATH)
 		transform = transform.Turn(180)
 	if(!(basic_mob_flags & REMAIN_DENSE_WHILE_DEAD))
+<<<<<<< HEAD
 		set_density(initial(density))
+=======
+		REMOVE_TRAIT(src, TRAIT_UNDENSE, BASIC_MOB_DEATH_TRAIT)
+	SEND_SIGNAL(src, COMSIG_BASICMOB_LOOK_ALIVE)
+>>>>>>> cc57581b73e29 (Dog wit the butter (feat. a bunch of dog-related code improvements) (#77039))
 
 /mob/living/basic/update_sight()
 	lighting_color_cutoffs = list(lighting_cutoff_red, lighting_cutoff_green, lighting_cutoff_blue)
