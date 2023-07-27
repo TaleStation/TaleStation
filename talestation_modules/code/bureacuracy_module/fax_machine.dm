@@ -792,7 +792,7 @@ GLOBAL_LIST_EMPTY(fax_machines)
 				machine.receiving_enabled = FALSE
 				addtimer(VARSET_CALLBACK(machine, receiving_enabled, TRUE), 30 SECONDS)
 
-/datum/wires/fax_machine/on_cut(wire, mend)
+/datum/wires/fax_machine/on_cut(wire, mend, source)
 	var/obj/machinery/fax_machine/machine = holder
 	switch(wire)
 		if(WIRE_SEND_FAXES)
@@ -1033,12 +1033,6 @@ GLOBAL_LIST_EMPTY(fax_machines)
 		return TRUE
 	return ..()
 
-/obj/machinery/fax_machine/command/examine(mob/user)
-	. = ..()
-	if(stored_paper)
-		. += span_notice("Right click to remove the stored fax.")
-	. += span_notice("The maintenance panel is [locked ? "locked" : "unlocked"]. Swipe your ID card to [locked ? "unlock" : "lock"] it.")
-
 /// Sends messages to the syndicate when emagged.
 /obj/machinery/fax_machine/command/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
@@ -1088,14 +1082,6 @@ GLOBAL_LIST_EMPTY(fax_machines)
 			if(machine.receiving_enabled)
 				machine.receiving_enabled = FALSE
 				addtimer(VARSET_CALLBACK(machine, receiving_enabled, TRUE), 30 SECONDS)
-
-/datum/wires/fax_machine/command/on_cut(wire, mend)
-	var/obj/machinery/fax_machine/command/machine = holder
-	switch(wire)
-		if(WIRE_SEND_FAXES)
-			machine.sending_enabled = mend
-		if(WIRE_RECEIVE_FAXES)
-			machine.receiving_enabled = mend
 
 #undef FAX_COOLDOWN_TIME
 #undef FAX_UNREAD_ALERT_TIME

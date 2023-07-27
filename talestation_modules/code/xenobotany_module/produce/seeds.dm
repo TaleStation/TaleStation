@@ -2,13 +2,21 @@
 
 // Adds this var to the primary seeds parent typepath
 /obj/item/seeds
+	/// Are we an alien seed?
 	var/is_alien_seeds = FALSE
 
 // Modular override to add the alien var
 /obj/item/food/grown
+	/// Are we an alien food item?
+	var/is_alien_produce = FALSE
+
+// what the fuck is going on here
+/obj/item/grown
+	/// Are we an alien non-food item?
 	var/is_alien_produce = FALSE
 
 // Alien seeds used for XenoBotany
+// Kinda just a shitty slot in for later cause I'm lazy
 /obj/item/seeds/xeno
 	is_alien_seeds = TRUE
 	name = "pack of extradimensional orange seeds"
