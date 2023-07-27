@@ -34,6 +34,11 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		list("Mute", "Soft-Spoken"),
 		list("Stormtrooper Aim", "Big Hands"),
 		list("Bilingual", "Foreigner"),
+<<<<<<< HEAD
+=======
+		list("Spacer", "Paraplegic"),
+		list("Photophobia", "Nyctophobia"),
+>>>>>>> 6fc996353f871 (Photophobia quirk (#77032))
 	)
 
 /datum/controller/subsystem/processing/quirks/Initialize()
