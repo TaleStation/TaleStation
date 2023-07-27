@@ -435,12 +435,8 @@
 	balloon_alert(user, "unzipping...")
 	playsound(src, unzip_sfx, 100, FALSE)
 	var/datum/callback/can_unzip = CALLBACK(src, PROC_REF(zipper_matches), TRUE)
-<<<<<<< HEAD
-	if(!do_after(user, 2.1 SECONDS, src, extra_checks = can_unzip))
-=======
 	if(!do_after(user, unzip_duration, src, extra_checks = can_unzip))
 		user.balloon_alert(user, "unzip failed!")
->>>>>>> 1e27ce031ba94 (Syndicate Duffelbag Rerework (#77060))
 		return
 	balloon_alert(user, "unzipped")
 	set_zipper(FALSE)
@@ -456,12 +452,8 @@
 	balloon_alert(user, "zipping...")
 	playsound(src, zip_up_sfx, 100, FALSE)
 	var/datum/callback/can_zip = CALLBACK(src, PROC_REF(zipper_matches), FALSE)
-<<<<<<< HEAD
-	if(!do_after(user, 0.5 SECONDS, src, extra_checks = can_zip))
-=======
 	if(!do_after(user, zip_up_duration, src, extra_checks = can_zip))
 		user.balloon_alert(user, "zip failed!")
->>>>>>> 1e27ce031ba94 (Syndicate Duffelbag Rerework (#77060))
 		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	balloon_alert(user, "zipped")
 	set_zipper(TRUE)
