@@ -38,6 +38,7 @@
 	weight_action = new(src)
 	weight_action.weightpress = src
 
+<<<<<<< HEAD
 	AddElement( \
 		/datum/element/contextual_screentip_bare_hands, \
 		lmb_text = "Work out", \
@@ -47,11 +48,19 @@
 		TOOL_CROWBAR = list(
 			SCREENTIP_CONTEXT_RMB = "Deconstruct",
 		),
+=======
+	var/static/list/tool_behaviors
+	if(!tool_behaviors)
+		tool_behaviors = string_assoc_nested_list(list(
+			TOOL_CROWBAR = list(
+				SCREENTIP_CONTEXT_RMB = "Deconstruct",
+			),
+>>>>>>> 6f862d107fc67 (Adds a unit test to stop elements from using identical lists for their arguments. (#76322))
 
-		TOOL_WRENCH = list(
-			SCREENTIP_CONTEXT_RMB = "Anchor",
-		),
-	)
+			TOOL_WRENCH = list(
+				SCREENTIP_CONTEXT_RMB = "Anchor",
+			),
+		))
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/weightmachine/Destroy()
