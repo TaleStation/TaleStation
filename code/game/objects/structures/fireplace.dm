@@ -11,6 +11,9 @@
 	anchored = TRUE
 	pixel_x = -16
 	resistance_flags = FIRE_PROOF
+	light_color = LIGHT_COLOR_FIRE
+	light_angle = 170
+	light_flags = LIGHT_IGNORE_OFFSET
 	var/lit = FALSE
 
 	var/fuel_added = 0
@@ -24,8 +27,6 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-<<<<<<< HEAD
-=======
 /obj/structure/fireplace/setDir(newdir)
 	. = ..()
 	set_light(l_dir = dir)
@@ -38,7 +39,6 @@
 	hand_back[2] += dir_offset[2] * 0.5
 	return hand_back
 
->>>>>>> 5d5492e111979 (Implements usage of the REVERSE_DIR macro throughout the code. (#77122))
 /obj/structure/fireplace/proc/try_light(obj/item/O, mob/user)
 	if(lit)
 		to_chat(user, span_warning("It's already lit!"))

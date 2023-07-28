@@ -12,6 +12,7 @@
 	active_power_usage = BASE_MACHINE_ACTIVE_CONSUMPTION * 0.02
 	power_channel = AREA_USAGE_LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	always_area_sensitive = TRUE
+	light_angle = 170
 	///What overlay the light should use
 	var/overlay_icon = 'icons/obj/lighting_overlay.dmi'
 	///base description and icon_state
@@ -110,11 +111,8 @@
 	if(is_station_level(z))
 		RegisterSignal(SSdcs, COMSIG_GLOB_GREY_TIDE_LIGHT, PROC_REF(grey_tide)) //Only put the signal on station lights
 
-<<<<<<< HEAD
-=======
 	// Light projects out backwards from the dir of the light
 	set_light(l_dir = REVERSE_DIR(dir))
->>>>>>> 5d5492e111979 (Implements usage of the REVERSE_DIR macro throughout the code. (#77122))
 	RegisterSignal(src, COMSIG_LIGHT_EATER_ACT, PROC_REF(on_light_eater))
 	AddElement(/datum/element/atmos_sensitive, mapload)
 	return INITIALIZE_HINT_LATELOAD
@@ -131,14 +129,12 @@
 	update(trigger = FALSE)
 
 /obj/machinery/light/Destroy()
-	var/area/local_area =get_room_area(src)
+	var/area/local_area = get_room_area(src)
 	if(local_area)
 		on = FALSE
 	QDEL_NULL(cell)
 	return ..()
 
-<<<<<<< HEAD
-=======
 /obj/machinery/light/setDir(newdir)
 	. = ..()
 	set_light(l_dir = REVERSE_DIR(dir))
@@ -153,7 +149,6 @@
 	hand_back[2] += dir_offset[2] * 0.5
 	return hand_back
 
->>>>>>> 5d5492e111979 (Implements usage of the REVERSE_DIR macro throughout the code. (#77122))
 /obj/machinery/light/update_icon_state()
 	switch(status) // set icon_states
 		if(LIGHT_OK)
@@ -691,8 +686,17 @@
 	base_state = "floor" // base description and icon_state
 	icon_state = "floor"
 	brightness = 4
+	light_angle = 360
 	layer = LOW_OBJ_LAYER
 	plane = FLOOR_PLANE
 	light_type = /obj/item/light/bulb
 	fitting = "bulb"
+	nightshift_brightness = 3
 	fire_brightness = 2
+
+/obj/machinery/light/floor/get_light_offset()
+	return list(0, 0)
+
+/obj/machinery/light/floor/broken
+	status = LIGHT_BROKEN
+	icon_state = "floor-broken"
