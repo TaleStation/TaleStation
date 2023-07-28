@@ -81,7 +81,7 @@
 
 /datum/station_trait/blackout/on_round_start()
 	. = ..()
-	for(var/obj/machinery/power/apc/apc as anything in SSmachines.get_machines_by_type(/obj/machinery/power/apc))
+	for(var/obj/machinery/power/apc/apc as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/power/apc))
 		if(is_station_level(apc.z) && prob(60))
 			apc.overload_lighting()
 
@@ -267,7 +267,7 @@
 	name = "Ionic Stormfront"
 	report_message = "An ionic stormfront is passing over your station's system. Expect an increased likelihood of ion storms afflicting your station's silicon units."
 	trait_type = STATION_TRAIT_NEGATIVE
-	trait_flags = NONE
+	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 3
 	event_control_path = /datum/round_event_control/ion_storm
 	weight_multiplier = 2
@@ -276,7 +276,7 @@
 	name = "Radiation Stormfront"
 	report_message = "A radioactive stormfront is passing through your station's system. Expect an increased likelihood of radiation storms passing over your station, as well the potential for multiple radiation storms to occur during your shift."
 	trait_type = STATION_TRAIT_NEGATIVE
-	trait_flags = NONE
+	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 2
 	event_control_path = /datum/round_event_control/radiation_storm
 	weight_multiplier = 1.5
@@ -286,7 +286,7 @@
 	name = "Dust Stormfront"
 	report_message = "The space around your station is clouded by heavy pockets of space dust. Expect an increased likelyhood of space dust storms damaging the station hull."
 	trait_type = STATION_TRAIT_NEGATIVE
-	trait_flags = NONE
+	trait_flags = STATION_TRAIT_MAP_UNRESTRICTED
 	weight = 2
 	event_control_path = /datum/round_event_control/meteor_wave/dust_storm
 	weight_multiplier = 2
@@ -410,8 +410,6 @@
 					continue
 
 			CHECK_TICK
-<<<<<<< HEAD
-=======
 
 ///Station traits that influence the space background and apply some unique effects!
 /datum/station_trait/nebula
@@ -677,4 +675,3 @@
 /datum/station_trait/nebula/hostile/radiation/get_decal_color(atom/thing_to_color, pattern)
 	if(istype(get_area(thing_to_color), /area/station/hallway)) //color hallways green
 		return COLOR_GREEN
->>>>>>> f0aa4899ddcc6 ([NO-GBP] Warns viro of radioactive resonance absence (#77119))
