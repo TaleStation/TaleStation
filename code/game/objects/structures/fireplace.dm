@@ -24,6 +24,21 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
+<<<<<<< HEAD
+=======
+/obj/structure/fireplace/setDir(newdir)
+	. = ..()
+	set_light(l_dir = dir)
+
+/// We're offset back into the wall, account for that
+/obj/structure/fireplace/get_light_offset()
+	var/list/hand_back = ..()
+	var/list/dir_offset = dir2offset(REVERSE_DIR(dir))
+	hand_back[1] += dir_offset[1] * 0.5
+	hand_back[2] += dir_offset[2] * 0.5
+	return hand_back
+
+>>>>>>> 5d5492e111979 (Implements usage of the REVERSE_DIR macro throughout the code. (#77122))
 /obj/structure/fireplace/proc/try_light(obj/item/O, mob/user)
 	if(lit)
 		to_chat(user, span_warning("It's already lit!"))
