@@ -363,9 +363,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/old, 28)
 
 	if(target.key && user != target)
 		if(iscyborg(target))
-			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] online."))
+			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] online."))
 		else
-			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_theyre(capitalized = TRUE)] conscious."))
+			to_chat(user, span_danger("You can't put [target] into [src]. [target.p_Theyre()] conscious."))
 		return
 
 	if(target == user && (tgalert(target, "Would you like to enter cryosleep?", "Enter Cryopod?", "Yes", "No") != "Yes"))
