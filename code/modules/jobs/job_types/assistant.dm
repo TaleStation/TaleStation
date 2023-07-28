@@ -33,7 +33,7 @@ Assistant
 		/obj/item/crowbar/large = 1
 	)
 
-	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
+	job_flags = STATION_JOB_FLAGS
 	rpg_title = "Lout"
 	config_tag = "ASSISTANT"
 
@@ -43,9 +43,11 @@ Assistant
 	id_trim = /datum/id_trim/job/assistant
 	belt = /obj/item/modular_computer/pda/assistant
 
+/* NON-MODULAR CHANGES: Disables this since it conflicts with loadouts
 /datum/outfit/job/assistant/pre_equip(mob/living/carbon/human/target)
 	..()
 	give_jumpsuit(target)
+*/
 
 /datum/outfit/job/assistant/proc/give_jumpsuit(mob/living/carbon/human/target)
 	var/static/jumpsuit_number = 0
