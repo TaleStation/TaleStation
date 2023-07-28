@@ -1,9 +1,9 @@
 /// Tajaran langauge
 /datum/language/tajaran
 	name = "Tajaranese"
-	desc = "What's describe as 'psp psp psp with a lot of love', Tajaranese is the langauge \
+	desc = "What's described as 'psp psp psp with a lot of love', Tajaranese is the langauge \
 			of Tajarans, if the name itself wasn't a giveaway."
-	key = "t"
+	key = "q"
 	space_chance = 75
 	syllables = list(
 		"psp", "pspsp", "mow", "mraw", "mwa", "maawh", "psssp", "psspss")
