@@ -130,6 +130,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/siemens_coeff = 1
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
 	var/fixed_mut_color = ""
+	///A fixed hair color that's independent of the mcolor feature in DNA.
+	var/fixed_hair_color = ""
 	///Special mutation that can be found in the genepool exclusively in this species. Dont leave empty or changing species will be a headache
 	var/inert_mutation = /datum/mutation/human/dwarfism
 	///Used to set the mob's death_sound upon species change
@@ -786,12 +788,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 							// NON-MODULAR CHANGES: Tajaran body markings color - shit code
 							if(istype(accessory, /datum/sprite_accessory/tajaran_body_markings) && source.dna.features["tajaran_body_markings_color"])
 								accessory_overlay.color = source.dna.features["tajaran_body_markings_color"]
+							if(istype(accessory, /datum/sprite_accessory/body_markings) && source.dna.features["lizard_body_markings_color"])
+								accessory_overlay.color = source.dna.features["lizard_body_markings_color"]
 							// NON-MODULAR CHANGES END
 						if(HAIR_COLOR)
 							if(hair_color == "mutcolor")
 								accessory_overlay.color = source.dna.features["mcolor"]
 							else if(hair_color == "fixedmutcolor")
-								accessory_overlay.color = fixed_mut_color
+								accessory_overlay.color = fixed_hair_color
 							else
 								accessory_overlay.color = source.hair_color
 						if(FACIAL_HAIR_COLOR)
