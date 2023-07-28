@@ -66,7 +66,11 @@
 
 /obj/item/pai_card/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD
 	AddComponent(/datum/component/track_hierarchical_movement)
+=======
+
+>>>>>>> 8e9c533370b6f (Add leash component to pAIs that keeps them within range instead of directly teleporting them back, increases default range to max range (#77030))
 	update_appearance()
 	SSpai.pai_card_list += src
 
@@ -117,7 +121,7 @@
 		name = pai.name,
 		transmit = pai.can_transmit,
 		receive = pai.can_receive,
-		range = pai.leashed_distance,
+		range = pai.leash.distance,
 	)
 	return data
 
