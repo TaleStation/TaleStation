@@ -17,7 +17,7 @@
  */
 
 /datum/element/unique_examine
-	element_flags = ELEMENT_BESPOKE|ELEMENT_DONT_SORT_LIST_ARGS
+	element_flags = ELEMENT_BESPOKE
 	argument_hash_start_idx = 2
 	/// The requirement setting for special descriptions. See examine_defines.dm for more info.
 	var/desc_requirement = EXAMINE_CHECK_NONE
