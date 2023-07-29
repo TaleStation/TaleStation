@@ -8,17 +8,19 @@
  * returns a list of strings
  */
 /proc/get_sec_and_command_jobs()
-	RETURN_TYPE(/static/list)
-	. = list()
+	RETURN_TYPE(/list)
+	var/list/job_list = list()
 
 	var/datum/job_department/command_department = SSjob.get_department_type(/datum/job_department/command)
 	for(var/datum/job/job as anything in command_department.department_jobs)
 		if(job.departments_bitflags == DEPARTMENT_BITFLAG_COMMAND) // we only want people with command ONLY (captain, asset protection)
-			. |= job.title
+			job_list |= job.title
 
 	var/datum/job_department/sec_department = SSjob.get_department_type(/datum/job_department/security)
 	for(var/datum/job/job as anything in sec_department.department_jobs)
-		. |= job.title
+		job_list |= job.title
+
+	return string_list(job_list)
 
 // SYNDICATE / SYNDICATE TOY ITEMS //
 
