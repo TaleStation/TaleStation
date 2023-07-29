@@ -8,7 +8,7 @@
  * returns a list of strings
  */
 /proc/get_sec_and_command_jobs()
-	RETURN_TYPE(/list)
+	RETURN_TYPE(/static/list)
 	. = list()
 
 	var/datum/job_department/command_department = SSjob.get_department_type(/datum/job_department/command)
