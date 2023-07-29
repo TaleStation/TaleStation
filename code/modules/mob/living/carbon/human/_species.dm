@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	// NON-MODULAR CHANGES END
 
 	///multiplier for money paid at payday
-	var/payday_modifier = 1
+	var/payday_modifier = 1.0
 	///Base electrocution coefficient.  Basically a multiplier for damage from electrocutions.
 	var/siemens_coeff = 1
 	///To use MUTCOLOR with a fixed color that's independent of the mcolor feature in DNA.
