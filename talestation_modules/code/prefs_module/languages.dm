@@ -43,7 +43,7 @@
 	if(value == NO_LANGUAGE)
 		return
 
-	target.grant_language(value, TRUE, TRUE, LANGUAGE_PREF)
+	target.grant_language(value, ALL)
 
 /datum/language
 	// Vars used in determining valid languages for the language preferences.
