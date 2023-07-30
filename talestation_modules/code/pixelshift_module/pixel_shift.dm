@@ -1,197 +1,48 @@
-/// -- Pixelshifting UI and component. --
-/// Keybinding hotkey signal.
-#define COMSIG_KB_MOVEMENT_PIXELSHIFT_DOWN "keybinding_movement_pixelshift_down"
-#define COMSIG_KB_MOVEMENT_PIXELSHIFT_TOGGLE_DOWN "keybinding_movement_pixelshift_toggle_down"
-#define COMSIG_KB_MOVEMENT_PIXELSHIFT_RESET_DOWN "keybinding_movement_pixelshift_reset_down"
+#define COMSIG_KB_MOB_PIXEL_SHIFT_DOWN "keybinding_mob_pixel_shift_down"
+#define COMSIG_KB_MOB_PIXEL_SHIFT_UP "keybinding_mob_pixel_shift_up"
 
-/// Defines for mins and maxs of x and y shifts.
-#define PIXELSHIFT_Y_LIMIT 16
-#define PIXELSHIFT_X_LIMIT 16
+/// from base of living/set_pull_offset(): (mob/living/pull_target, grab_state)
+#define COMSIG_LIVING_SET_PULL_OFFSET "living_set_pull_offset"
+/// from base of living/reset_pull_offsets(): (mob/living/pull_target, override)
+#define COMSIG_LIVING_RESET_PULL_OFFSETS "living_reset_pull_offsets"
+/// from base of living/CanAllowThrough(): (atom/movable/mover, border_dir)
+#define COMSIG_LIVING_CAN_ALLOW_THROUGH "living_can_allow_through"
+	#define COMPONENT_LIVING_PASSABLE (1<<0)
 
-/client/var/pixelshifting = FALSE
-/mob/living/var/pixelshift_movement_reset = TRUE
-/mob/living/var/pixelshift_x = 0
-/mob/living/var/pixelshift_y = 0
+/mob/living/set_pull_offsets(mob/living/pull_target, grab_state)
+	. = ..()
+	SEND_SIGNAL(pull_target, COMSIG_LIVING_SET_PULL_OFFSET)
 
-/mob/living/verb/toggle_pixelshift_movement_reset()
-	set name = "Toggle Pixelshift Reset on Movement"
-	set category = "Pixelshift"
+/mob/living/reset_pull_offsets(mob/living/pull_target, override)
+	. = ..()
+	SEND_SIGNAL(pull_target, COMSIG_LIVING_RESET_PULL_OFFSETS)
 
-	if(!CONFIG_GET(flag/pixelshift_toggle_allow))
-		to_chat(src, span_warning("This feature is disabled via config."))
-		return
-
-	pixelshift_movement_reset = !pixelshift_movement_reset
-	to_chat(src, span_notice("Pixelshifts will [(pixelshift_movement_reset ? "now" : "no longer")] reset on movements."))
-
-/mob/living/Move(atom/newloc, direct, glide_size_override)
-	if(pixelshift_movement_reset)
-		pixelshift_x = pixelshift_y = 0
-		update_pixelshift()
+/mob/living/CanAllowThrough(atom/movable/mover, border_dir)
+	if(SEND_SIGNAL(src, COMSIG_LIVING_CAN_ALLOW_THROUGH, mover, border_dir) & COMPONENT_LIVING_PASSABLE)
+		return TRUE
 	return ..()
 
-/mob/living/on_restrained_trait_gain(datum/source)
-	. = ..()
-	reset_pixelshift()
-
-/mob/living/on_incapacitated_trait_gain(datum/source)
-	. = ..()
-	reset_pixelshift()
-
-/mob/living/on_floored_trait_gain(datum/source)
-	. = ..()
-	reset_pixelshift()
-
-/mob/living/on_immobilized_trait_gain(datum/source)
-	. = ..()
-	reset_pixelshift()
-
-/mob/living/on_knockedout_trait_gain(datum/source)
-	. = ..()
-	reset_pixelshift()
-
-/mob/living/proc/allow_pixelshifting()
-	if(stat)
-		return FALSE
-	if(IsStun())
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_RESTRAINED))
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_FLOORED))
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_IMMOBILIZED))
-		return FALSE
-	if(HAS_TRAIT(src, TRAIT_KNOCKEDOUT))
-		return FALSE
-	return TRUE
-
-/mob/living/set_stat(new_stat)
-	. = ..()
-	if(!allow_pixelshifting())
-		reset_pixelshift()
-
-/mob/living/SetStun(amount, ignore_canstun)
-	. = ..()
-	if(!allow_pixelshifting())
-		reset_pixelshift()
-
-/mob/living/verb/reset_pixelshift()
-	set name = "Reset Pixelshift"
-	set category = "Pixelshift"
-
-	pixelshift_x = 0
-	pixelshift_y = 0
-	update_pixelshift()
-
-/mob/living/verb/pixelshift_north()
-	set name = "Shift North"
-	set category = "Pixelshift"
-
-	if(pixelshift_y >= PIXELSHIFT_Y_LIMIT)
-		return
-
-	pixelshift_y++
-	update_pixelshift()
-
-/mob/living/verb/pixelshift_south()
-	set name = "Shift South"
-	set category = "Pixelshift"
-
-	if(pixelshift_y <= -PIXELSHIFT_Y_LIMIT)
-		return
-
-	pixelshift_y--
-	update_pixelshift()
-
-/mob/living/verb/pixelshift_west()
-	set name = "Shift West"
-	set category = "Pixelshift"
-
-	if(pixelshift_x <= -PIXELSHIFT_X_LIMIT)
-		return
-
-	pixelshift_x--
-	update_pixelshift()
-
-/mob/living/verb/pixelshift_east()
-	set name = "Shift East"
-	set category = "Pixelshift"
-
-	if(pixelshift_x >= PIXELSHIFT_X_LIMIT)
-		return
-
-	pixelshift_x++
-	update_pixelshift()
-
-/mob/living/proc/update_pixelshift()
-	pixel_x = base_pixel_x + pixelshift_x + body_position_pixel_x_offset
-	pixel_y = base_pixel_y + pixelshift_y + body_position_pixel_y_offset
-
-/datum/keybinding/mob/living/pixel_shift
-	hotkey_keys = list("'")
-	name = "pixelshifthold"
-	full_name = "Hold Pixel Shift"
-	description = "Hold to activate pixel shifting. ITS IMPORTANT THAT THIS IS A SINGLE KEY AND DOES NOT CONFLICT WITH ANYTHING ELSE"
-	keybind_signal = COMSIG_KB_MOVEMENT_PIXELSHIFT_DOWN
+/datum/keybinding/mob/pixel_shift
+	hotkey_keys = list("B")
+	name = "pixel_shift"
+	full_name = "Pixel Shift"
+	description = "Shift your characters offset."
 	category = CATEGORY_MOVEMENT
+	keybind_signal = COMSIG_KB_MOB_PIXEL_SHIFT_DOWN
 
-/datum/keybinding/mob/living/pixel_shift_toggle
-	hotkey_keys = list("\[")
-	name = "pixelshifttoggle"
-	full_name = "Toggle Pixel Shift"
-	description = "Press to toggle pixel shifting. ITS IMPORTANT THAT THIS IS A SINGLE KEY AND DOES NOT CONFLICT WITH ANYTHING ELSE"
-	keybind_signal = COMSIG_KB_MOVEMENT_PIXELSHIFT_TOGGLE_DOWN
-	category = CATEGORY_MOVEMENT
-
-
-/datum/keybinding/mob/living/pixel_shift_reset
-	hotkey_keys = list(";")
-	name = "pixelshift_reset"
-	full_name = "Reset Pixel Shift"
-	description = "Press to reset your pixel shift."
-	keybind_signal = COMSIG_KB_MOVEMENT_PIXELSHIFT_RESET_DOWN
-	category = CATEGORY_MOVEMENT
-
-/datum/keybinding/mob/living/pixel_shift/down(client/user)
+/datum/keybinding/mob/pixel_shift/down(client/user)
 	. = ..()
-	user.pixelshifting = TRUE
-
-/datum/keybinding/mob/living/pixel_shift/up(client/user)
-	. = ..()
-	user.pixelshifting = FALSE
-	// prevents accidental movements right after releasing
-	user.next_move_dir_sub = ALL
-
-/datum/keybinding/mob/living/pixel_shift_toggle/down(client/user)
-	. = ..()
-	user.pixelshifting = !user.pixelshifting
-	if(!user.pixelshifting)
-		user.next_move_dir_sub = ALL
-	to_chat(user, span_notice("Pixel Shifting is now [(user.pixelshifting ? "enabled" : "disabled")]"))
-
-/datum/keybinding/mob/living/pixel_shift_reset/down(client/user)
-	. = ..()
-	var/mob/living/user_mob = user.mob
-	if(istype(user_mob))
-		user_mob.reset_pixelshift()
-
-/mob/living/keyLoop(client/user)
-	if(!user.pixelshifting)
-		return ..()
-	var/mob/living/living_mob = user.mob
-	if(!istype(living_mob))
+	if(.)
 		return
+	user.mob.add_pixel_shift_component()
 
-	var/movement
-	for(var/_key in user?.keys_held)
-		movement = movement | user.movement_keys[_key]
-	if(movement & NORTH)
-		living_mob.pixelshift_north()
-	if(movement & SOUTH)
-		living_mob.pixelshift_south()
-	if(movement & EAST)
-		living_mob.pixelshift_east()
-	if(movement & WEST)
-		living_mob.pixelshift_west()
+/datum/keybinding/mob/pixel_shift/up(client/user)
+	. = ..()
+	SEND_SIGNAL(user.mob, COMSIG_KB_MOB_PIXEL_SHIFT_UP)
+
+/// Adds pixel_shift component on call. Default proc does nothing.
+/mob/proc/add_pixel_shift_component()
+	return
+
+/mob/living/add_pixel_shift_component()
+	AddComponent(/datum/component/pixel_shift)
