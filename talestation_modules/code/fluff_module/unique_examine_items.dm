@@ -333,7 +333,7 @@
 		"A Xenomorph - an alien species designed to hunt and capture live prey. \
 		They reproduce by attaching facehuggers to their prey, impregnating them with the alient seed, \
 		eventually causing the host to burst in a violent display of gore as a new larva writhes out.", \
-		EXAMINE_CHECK_JOB, job_examine)
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A Xenomorph - an alien species designed to hunt live prey. \
 		Weak to flames and laser fire. Facial coverage in the form of biosuits, hardsuits, or riot helmets are of utmost importance \
@@ -347,7 +347,7 @@
 		"A xenomorph - an alien species designed to hunt and capture live prey. \
 		They reproduce by attaching facehuggers to their prey, impregnating them with the alient seed, \
 		eventually causing the host to burst in a violent display of gore as a new larva writhes out.", \
-		EXAMINE_CHECK_JOB, job_examine)
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph - an alien species designed to hunt live prey. \
 		Weak to flames and laser fire. Facial coverage in the form of biosuits, hardsuits, or riot helmets are of utmost importance \
@@ -363,7 +363,7 @@
 		the small, jumpy alien creature responisble for the alien's method of reproduction. \
 		Leads its sisters and offspring through their alien hivemind - \
 		when slain, releases a psychic screen via the hivemind, greatly disorienting their kin.", \
-		EXAMINE_CHECK_JOB, job_examine)
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph queen - the patriarch of the xenomorph species. \
 		Leads the nest through their xenomorph hivemind. The source of the xenos - \
@@ -381,7 +381,7 @@
 		the small, jumpy alien creature responisble for the alien's method of reproduction. \
 		Leads its sisters and offspring through their alien hivemind - \
 		when slain, releases a psychic screen via the hivemind, greatly disorienting their kin.", \
-		EXAMINE_CHECK_JOB, job_examine)
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph queen - the patriarch of the xenomorph species. \
 		Leads the nest through their xenomorph hivemind. The source of the xeno menace - \
