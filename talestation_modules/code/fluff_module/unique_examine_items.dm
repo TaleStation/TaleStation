@@ -9,16 +9,18 @@
  */
 /proc/get_sec_and_command_jobs()
 	RETURN_TYPE(/list)
-	. = list()
+	var/list/job_list = list()
 
 	var/datum/job_department/command_department = SSjob.get_department_type(/datum/job_department/command)
 	for(var/datum/job/job as anything in command_department.department_jobs)
 		if(job.departments_bitflags == DEPARTMENT_BITFLAG_COMMAND) // we only want people with command ONLY (captain, asset protection)
-			. |= job.title
+			job_list |= job.title
 
 	var/datum/job_department/sec_department = SSjob.get_department_type(/datum/job_department/security)
 	for(var/datum/job/job as anything in sec_department.department_jobs)
-		. |= job.title
+		job_list |= job.title
+
+	return string_list(job_list)
 
 // SYNDICATE / SYNDICATE TOY ITEMS //
 
@@ -296,13 +298,14 @@
 
 /obj/item/hand_tele/Initialize(mapload)
 	. = ..()
+	var/static/list/job_examine = list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST)
 	AddElement(/datum/element/unique_examine, \
 		"The Hand Teleporter, a breakthrough of bluespace technology, is a miniature hand-held version of the \
 		larger room-sized teleporters found aboard various stations across the Spinward. \
 		While not as powerful independently as a full teleporter gate setup just yet, \
 		these are often entrusted to the Captain for their emergencies, though Research Directors \
 		and even space explorers are often given one for personal usage.", \
-		EXAMINE_CHECK_JOB, list(JOB_CAPTAIN, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST))
+		EXAMINE_CHECK_JOB, job_examine)
 
 /obj/item/spear/bonespear/ceremonial/Initialize(mapload)
 	. = ..()
@@ -325,11 +328,12 @@
 
 /mob/living/carbon/alien/Initialize(mapload)
 	. = ..()
+	var/static/list/job_examine = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST)
 	AddElement(/datum/element/unique_examine, \
 		"A Xenomorph - an alien species designed to hunt and capture live prey. \
 		They reproduce by attaching facehuggers to their prey, impregnating them with the alient seed, \
 		eventually causing the host to burst in a violent display of gore as a new larva writhes out.", \
-		EXAMINE_CHECK_JOB, list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST))
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A Xenomorph - an alien species designed to hunt live prey. \
 		Weak to flames and laser fire. Facial coverage in the form of biosuits, hardsuits, or riot helmets are of utmost importance \
@@ -338,11 +342,12 @@
 
 /mob/living/simple_animal/hostile/alien/Initialize(mapload)
 	. = ..()
+	var/static/list/job_examine = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST)
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph - an alien species designed to hunt and capture live prey. \
 		They reproduce by attaching facehuggers to their prey, impregnating them with the alient seed, \
 		eventually causing the host to burst in a violent display of gore as a new larva writhes out.", \
-		EXAMINE_CHECK_JOB, list("Chief Medical Officer", "Research Director", "Scientist", "Xenobiologist"))
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph - an alien species designed to hunt live prey. \
 		Weak to flames and laser fire. Facial coverage in the form of biosuits, hardsuits, or riot helmets are of utmost importance \
@@ -351,13 +356,14 @@
 
 /mob/living/carbon/alien/humanoid/royal/queen/Initialize(mapload)
 	. = ..()
+	var/static/list/job_examine = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST)
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph queen - the patriarch of the xenomorph species. \
 		Produces large, brown eggs which birth into the facehugger - \
 		the small, jumpy alien creature responisble for the alien's method of reproduction. \
 		Leads its sisters and offspring through their alien hivemind - \
 		when slain, releases a psychic screen via the hivemind, greatly disorienting their kin.", \
-		EXAMINE_CHECK_JOB, list("Chief Medical Officer", "Research Director", "Scientist", "Xenobiologist"), hint = FALSE)
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph queen - the patriarch of the xenomorph species. \
 		Leads the nest through their xenomorph hivemind. The source of the xenos - \
@@ -368,13 +374,14 @@
 
 /mob/living/simple_animal/hostile/alien/queen/Initialize(mapload)
 	. = ..()
+	var/static/list/job_examine = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST)
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph queen - the patriarch of the xenomorph species. \
 		Produces large, brown eggs which birth into the facehugger - \
 		the small, jumpy alien creature responisble for the alien's method of reproduction. \
 		Leads its sisters and offspring through their alien hivemind - \
 		when slain, releases a psychic screen via the hivemind, greatly disorienting their kin.", \
-		EXAMINE_CHECK_JOB, list("Chief Medical Officer", "Research Director", "Scientist", "Xenobiologist"))
+		EXAMINE_CHECK_JOB, string_list(job_examine))
 	AddElement(/datum/element/unique_examine, \
 		"A xenomorph queen - the patriarch of the xenomorph species. \
 		Leads the nest through their xenomorph hivemind. The source of the xeno menace - \
@@ -384,10 +391,11 @@
 
 /mob/living/basic/pet/dog/corgi/exoticcorgi/dufresne/Initialize(mapload)
 	. = ..()
+	var/static/list/job_examine = list(JOB_CHAPLAIN)
 	AddElement(/datum/element/unique_examine, \
 		"A peculiar and unusual corgi. You don't know if this corgi comes from Nar'Sie, \
 		Ratvar or the Eldritch Gods. Whatever it may be, best to keep your distance.", \
-		EXAMINE_CHECK_JOB, list(JOB_CHAPLAIN))
+		EXAMINE_CHECK_JOB, job_examine)
 
 // MACHINES //
 
