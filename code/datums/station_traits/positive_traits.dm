@@ -292,6 +292,7 @@
 		/datum/job/chief_medical_officer = /obj/item/organ/internal/cyberimp/chest/reviver,
 		/datum/job/clown = /obj/item/organ/internal/cyberimp/brain/anti_stun, //HONK!
 		/datum/job/cook = /obj/item/organ/internal/cyberimp/chest/nutriment/plus,
+		/datum/job/coroner = /obj/item/organ/internal/tongue/bone, //hes got a bone to pick with you
 		/datum/job/curator = /obj/item/organ/internal/eyes/robotic/glow,
 		/datum/job/detective = /obj/item/organ/internal/lungs/cybernetic/tier3,
 		/datum/job/doctor = /obj/item/organ/internal/cyberimp/arm/surgery,
@@ -313,6 +314,10 @@
 		/datum/job/station_engineer = /obj/item/organ/internal/cyberimp/arm/toolset,
 		/datum/job/virologist = /obj/item/organ/internal/lungs/cybernetic/tier2,
 		/datum/job/warden = /obj/item/organ/internal/cyberimp/eyes/hud/security,
+		// NON-MODULAR CHANGES: Adds our jobs
+		/datum/job/asset_protection = /obj/item/organ/internal/cyberimp/brain/anti_stun,
+		/datum/job/bridge_officer = /obj/item/organ/internal/cyberimp/arm/gun/taser,
+		/datum/job/scientist/xenobiologist = /obj/item/organ/internal/cyberimp/arm/muscle,
 	)
 
 /datum/station_trait/cybernetic_revolution/New()
