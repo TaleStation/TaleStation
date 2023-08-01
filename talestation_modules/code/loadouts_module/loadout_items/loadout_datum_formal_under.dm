@@ -39,10 +39,6 @@ GLOBAL_LIST_INIT(loadout_undersuits, generate_loadout_items(/datum/loadout_item/
 	name = "Black Tango Dress"
 	item_path = /obj/item/clothing/under/dress/tango
 
-/datum/loadout_item/under/formal/Black_twopiece
-	name = "Black Two-Piece Suit"
-	item_path = /obj/item/clothing/under/suit/black
-
 /datum/loadout_item/under/formal/black_skirt
 	name = "Black Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt
