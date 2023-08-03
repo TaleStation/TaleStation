@@ -3,13 +3,9 @@ import { BooleanLike, classes } from 'common/react';
 import { ComponentType, createComponentVNode, InfernoNode } from 'inferno';
 import { VNodeFlags } from 'inferno-vnode-flags';
 import { sendAct, useBackend, useLocalState } from '../../../../backend';
-<<<<<<< HEAD
 // NON-MODULAR CHANGES START
-import { Box, Button, Dropdown, Input, NumberInput, Stack, TextArea } from '../../../../components';
+import { Box, Button, Dropdown, Input, NumberInput, Slider, Stack, TextArea } from '../../../../components';
 // NON-MODULAR CHANGES END
-=======
-import { Box, Button, Dropdown, Input, NumberInput, Slider, Stack } from '../../../../components';
->>>>>>> 286997d70ba10 (Adds slider component for preferences, converts TTS volume, and pitch to use it (#77304))
 import { createSetPreference, PreferencesMenuData } from '../../data';
 import { ServerPreferencesFetcher } from '../../ServerPreferencesFetcher';
 
