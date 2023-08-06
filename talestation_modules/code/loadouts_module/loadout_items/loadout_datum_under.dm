@@ -1,7 +1,13 @@
 // --- Loadout item datums for under suits ---
 
 /// Underslot - Jumpsuit Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/under/jumpsuit))
+/datum/loadout_category/undersuit
+	category_name = "Jumpsuit"
+	ui_title = "Under Suit Slot Items"
+
+/datum/loadout_category/undersuit/get_items()
+	var/static/list/loadout_jumpsuits = generate_loadout_items(/datum/loadout_item/under/jumpsuit)
+	return loadout_jumpsuits
 
 /datum/loadout_item/under
 	category = LOADOUT_ITEM_UNIFORM
@@ -38,10 +44,9 @@ GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/u
 	item_path = /obj/item/clothing/under/color/random
 	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
-/datum/loadout_item/under/jumpsuit/random_skirt
+/datum/loadout_item/under/jumpsuit/random/skirt
 	name = "Random Jumpskirt"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/under/jumpsuit/black
 	name = "Black Jumpsuit"

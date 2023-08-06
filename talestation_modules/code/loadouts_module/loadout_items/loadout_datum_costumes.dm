@@ -1,7 +1,12 @@
 /*
 * Loadout items that are primarily costumes in nature
 */
-GLOBAL_LIST_INIT(loadout_costume, generate_loadout_items(/datum/loadout_item/suit/costume))
+/datum/loadout_category/undersuit/costumes
+	category_name = "Costumes"
+
+/datum/loadout_category/undersuit/costumes/get_items()
+	var/static/list/loadout_costumes = generate_loadout_items(/datum/loadout_item/suit/costume)
+	return loadout_costumes
 
 /datum/loadout_item/suit/costume
 

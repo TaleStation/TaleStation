@@ -3,7 +3,12 @@
 */
 
 /// Underslot - Formal Suit Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_undersuits, generate_loadout_items(/datum/loadout_item/under/formal))
+/datum/loadout_category/undersuit/formal
+	category_name = "Formal"
+
+/datum/loadout_category/undersuit/formal/get_items()
+	var/static/list/loadout_formalsuits = generate_loadout_items(/datum/loadout_item/under/formal)
+	return loadout_formalsuits
 
 /datum/loadout_item/under/formal
 
