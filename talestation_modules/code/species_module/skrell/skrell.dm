@@ -22,9 +22,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	species_language_holder = /datum/language_holder/skrell
 	exotic_bloodtype = "S"
 	mutanttongue = /obj/item/organ/internal/tongue/skrell
-	species_speech_sounds = list('talestation_modules/sound/voice/huff.ogg' = 120)
-	species_speech_sounds_exclaim = list('talestation_modules/sound/voice/huff_ask.ogg' = 120)
-	species_speech_sounds_ask = list('talestation_modules/sound/voice/huff_exclaim.ogg' = 120)
 	species_pain_mod = 0.80
 
 	bodypart_overrides = list(
@@ -84,4 +81,11 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 
 	return values
 
-
+/datum/species/skrell/get_species_speech_sounds(sound_type)
+	switch(sound_type)
+		if(SOUND_QUESTION)
+			return string_assoc_list(list('talestation_modules/sound/voice/huff_ask.ogg' = 120))
+		if(SOUND_EXCLAMATION)
+			return string_assoc_list(list('talestation_modules/sound/voice/huff_exclaim.ogg' = 120))
+		else
+			return string_assoc_list(list('talestation_modules/sound/voice/huff.ogg' = 120))
