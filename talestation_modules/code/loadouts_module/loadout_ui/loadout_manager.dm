@@ -187,7 +187,7 @@ GLOBAL_LIST_INIT(loadout_categories, init_loadout_categories())
 
 /datum/preference_middleware/loadout/get_ui_static_data(mob/user)
 	var/list/data = list()
-	data["character_preview_view"] = character_preview_view.assigned_map
+	data["loadout_preview_view"] = character_preview_view.assigned_map
 
 	// This should all be moved to constant data when I figure out how tee hee
 	var/static/list/loadout_tabs
