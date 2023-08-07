@@ -5,12 +5,10 @@
 /// Underslot - Misc. Under Items (Deletes overrided items)
 /datum/loadout_category/undersuit/misc
 	category_name = "Miscellaneous"
-
-/datum/loadout_category/undersuit/misc/get_items()
-	var/static/list/loadout_misc = generate_loadout_items(/datum/loadout_item/under/miscellaneous)
-	return loadout_misc
+	type_to_generate = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous
+	abstract_type = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous/camo
 	name = "Camo Pants"

@@ -5,12 +5,10 @@
 /// Underslot - Formal Suit Items (Deletes overrided items)
 /datum/loadout_category/undersuit/formal
 	category_name = "Formal"
-
-/datum/loadout_category/undersuit/formal/get_items()
-	var/static/list/loadout_formalsuits = generate_loadout_items(/datum/loadout_item/under/formal)
-	return loadout_formalsuits
+	type_to_generate = /datum/loadout_item/under/formal
 
 /datum/loadout_item/under/formal
+	abstract_type = /datum/loadout_item/under/formal
 
 /datum/loadout_item/under/formal/amish_suit
 	name = "Amish Suit"

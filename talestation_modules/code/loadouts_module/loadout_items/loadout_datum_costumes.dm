@@ -3,12 +3,10 @@
 */
 /datum/loadout_category/undersuit/costumes
 	category_name = "Costumes"
-
-/datum/loadout_category/undersuit/costumes/get_items()
-	var/static/list/loadout_costumes = generate_loadout_items(/datum/loadout_item/suit/costume)
-	return loadout_costumes
+	type_to_generate = /datum/loadout_item/suit/costume
 
 /datum/loadout_item/suit/costume
+	abstract_type = /datum/loadout_item/suit/costume
 
 /datum/loadout_item/suit/costume/changshan_red
 	name = "Red Changshan"
