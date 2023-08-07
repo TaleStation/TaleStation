@@ -327,7 +327,6 @@ class LimbManagerInner extends Component<
           connections={connections}
           zLayer={4}
           lineWidth={4}
-          height="50%"
         />
         <Stack height="300px">
           <Stack.Item width={20}>

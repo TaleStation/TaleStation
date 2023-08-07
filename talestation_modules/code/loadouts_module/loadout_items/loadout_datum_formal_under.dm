@@ -3,7 +3,7 @@
 */
 
 /// Underslot - Formal Suit Items (Deletes overrided items)
-/datum/loadout_category/undersuit/formal
+/datum/loadout_category/formal
 	category_name = "Formal"
 	type_to_generate = /datum/loadout_item/under/formal
 

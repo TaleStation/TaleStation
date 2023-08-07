@@ -3,7 +3,7 @@
 */
 
 /// Underslot - Misc. Under Items (Deletes overrided items)
-/datum/loadout_category/undersuit/misc
+/datum/loadout_category/misc_clothing
 	category_name = "Miscellaneous"
 	type_to_generate = /datum/loadout_item/under/miscellaneous
 

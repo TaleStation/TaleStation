@@ -189,6 +189,7 @@
 	item_path = /obj/item/lipstick
 
 /datum/loadout_item/pocket_items/plush
+	abstract_type = /datum/loadout_item/pocket_items/plush
 	can_be_named = TRUE
 
 /datum/loadout_item/pocket_items/plush/lizard_random
