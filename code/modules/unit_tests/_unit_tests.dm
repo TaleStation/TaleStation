@@ -90,6 +90,7 @@
 */
 
 // BEGIN_INCLUDE
+#include "abductor_baton_spell.dm"
 #include "ablative_hud.dm"
 #include "achievements.dm"
 #include "anchored_mobs.dm"
