@@ -14,7 +14,7 @@
 	set_timed_pain_mod(PAIN_MOD_RECENT_SHOCK, 0.5, 30 SECONDS)
 
 // Fleshmend of course heals pain.
-/datum/status_effect/fleshmend/tick()
+/datum/status_effect/fleshmend/tick(seconds_between_ticks)
 	. = ..()
 	if(iscarbon(owner) && !owner.on_fire)
 		var/mob/living/carbon/carbon_owner = owner
