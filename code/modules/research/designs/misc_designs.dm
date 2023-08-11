@@ -1060,3 +1060,36 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
+<<<<<<< HEAD
+=======
+
+/datum/design/radio_navigation_beacon
+	name = "Compact Radio Navigation Gigabeacon"
+	id = "gigabeacon"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
+	build_path = /obj/item/folded_navigation_gigabeacon
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO
+
+// Experimental designs
+
+/datum/design/polymorph_belt
+	name = "Polymorphic Field Inverter"
+	id = "polymorph_belt"
+	desc = "This device can scan and store DNA from other life forms, and use it to transform its wearer. It requires a Bioscrambler Anomaly Core in order to function."
+	build_type = PROTOLATHE | AWAY_LATHE
+	build_path = /obj/item/polymorph_belt
+	materials = list(
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
+		/datum/material/diamond = SHEET_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
+>>>>>>> b52f671be67c7 (Makes bluespace navigation gigabeacons both significantly nicer to use, and significantly cooler (#77223))
