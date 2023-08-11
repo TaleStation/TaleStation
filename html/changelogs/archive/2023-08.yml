@@ -366,3 +366,27 @@
   - balance: Geode Pirates have upgraded their launchpad room to be more usable
   - bugfix: Fixes a bug in the navigational computer of the Geode pirates causing
       their shuttle to move sideways.
+2023-08-11:
+  Melbert:
+  - code_imp: Updated some status effect tick code to be more clear of how long is
+      elapsing between ticks. Some effects that were inadvertently weakened are now
+      stronger as a result (fire and some heretic effects).
+  - bugfix: Fixed latejoiners being affected by certain things twice, such as Summon
+      Guns and Summon Magic
+  - bugfix: Fix some missing wizard spellbook flavor
+  TaleStationBot:
+  - bugfix: Fixed an oversight with processable items that lead to the same chat message
+      being sent multiple times.
+  - qol: Drill module automatically disables if it's about to drill into gibtonite
+  - bugfix: crafting recipes without a name, such as the mothic pizzas, will inherit
+      the name of the item they make
+  - bugfix: The bulbs of lights will now have an emissive glow when on, making it
+      so they appear active no matter how dark the area surrounding them happens to
+      be.
+  - admin: 'Added new lua functions: SS13.is_valid, SS13.stop_tracking, SS13.new_untracked,
+      SS13.type and SS13.qdel'
+  - balance: Changeling arm blade has an armour penetration of 35%.
+  - balance: Changeling arm blade has a wound bonus of 10, from -20.
+  - balance: Changeling has a bare wound bonus of 10, from 20.
+  - rscadd: Add admin blackhole shuttle event with a normal version and suicidal version.
+  - bugfix: Fix several shuttle event runtimes
