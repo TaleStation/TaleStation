@@ -5,35 +5,28 @@
  * Able to vent-crawl and eventually grow into a full fledged giant spider.
  *
  */
-/mob/living/basic/spiderling
+/mob/living/basic/spider/growing/spiderling
 	name = "spiderling"
 	desc = "It never stays still for long."
-	icon = 'icons/mob/simple/arachnoid.dmi'
 	icon_state = "spiderling"
 	icon_dead = "spiderling_dead"
 	density = FALSE
-	faction = list(FACTION_SPIDER)
 	speed = -0.75
 	move_resist = INFINITY // YOU CAN'T HANDLE ME LET ME BE FREE LET ME BE FREE LET ME BE FREE
 	speak_emote = list("hisses")
 	initial_language_holder = /datum/language_holder/spider
 	basic_mob_flags = FLAMMABLE_MOB | DEL_ON_DEATH
 	mob_size = MOB_SIZE_TINY
-
-	unique_name = TRUE
-
-	// we have _some_ bite
 	melee_damage_lower = 1
 	melee_damage_upper = 2
-
-	health = 5 // very low.
+	health = 5
 	maxHealth = 5
-	unsuitable_cold_damage = 4
-	unsuitable_heat_damage = 4
 	death_message = "lets out a final hiss..."
-
+	player_speed_modifier = 0
+	spider_growth_time = 40 SECONDS
 	ai_controller = /datum/ai_controller/basic_controller/spiderling
 
+<<<<<<< HEAD
 	// VERY red, to fit the eyes
 	lighting_cutoff_red = 22
 	lighting_cutoff_green = 5
@@ -47,6 +40,9 @@
 	var/apply_spider_antag = TRUE
 
 /mob/living/basic/spiderling/Initialize(mapload)
+=======
+/mob/living/basic/spider/growing/spiderling/Initialize(mapload)
+>>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523))
 	. = ..()
 	// random placement since we're pretty small and to make the swarming component actually look like it's doing something when we have a buncha these fuckers
 	pixel_x = rand(6,-6)
@@ -54,13 +50,12 @@
 
 	add_overlay(image(icon = src.icon, icon_state = "spiderling_click_underlay", layer = BELOW_MOB_LAYER))
 
-	// the proc that handles passtable is nice but we should always be able to pass through table since we're so small so we can eschew adding that here
-	pass_flags |= PASSTABLE
-	add_traits(list(TRAIT_PASSTABLE, TRAIT_VENTCRAWLER_ALWAYS, TRAIT_WEB_SURFER), INNATE_TRAIT)
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 	AddComponent(/datum/component/swarming)
 	AddElement(/datum/element/footstep, FOOTSTEP_MOB_CLAW, volume = 0.2) // they're small but you can hear 'em
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/spiderling_web)
 
+<<<<<<< HEAD
 	// it's A-OKAY for grow_as to be null for the purposes of this component since we override that behavior anyhow.
 	AddComponent(\
 		/datum/component/growth_and_differentiation,\
@@ -73,17 +68,15 @@
 		optional_grow_behavior = CALLBACK(src, PROC_REF(grow_into_giant_spider))\
 	)
 
+=======
+>>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523))
 	// keep in mind we have infinite range (the entire pipenet is our playground, it's just a matter of random choice as to where we end up) so lower and upper both have their gives and takes.
 	// but, also remember the more time we aren't in a vent, the more susceptible we are to dying to anything and everything.
 	// also remember we can't evolve if we're in a vent. lots to keep in mind when you set these variables.
 	ai_controller.set_blackboard_key(BB_LOWER_VENT_TIME_LIMIT, rand(9, 11) SECONDS)
 	ai_controller.set_blackboard_key(BB_UPPER_VENT_TIME_LIMIT, rand(12, 14) SECONDS)
 
-/mob/living/basic/spiderling/Destroy()
-	GLOB.spidermobs -= src
-	return ..()
-
-/mob/living/basic/spiderling/death(gibbed)
+/mob/living/basic/spider/growing/spiderling/death(gibbed)
 	if(isturf(get_turf(loc)) && (basic_mob_flags & DEL_ON_DEATH || gibbed))
 		var/obj/item/food/spiderling/dead_spider = new(loc) // mmm yummy
 		dead_spider.name = name
@@ -91,24 +84,10 @@
 
 	return ..()
 
-/mob/living/basic/spiderling/Login() // this is only really here for admins dragging and dropping players into spiderlings, player control of spiderlings is otherwise unimplemented
-	. = ..()
-	if(!. || isnull(client))
-		return FALSE
-	basic_mob_flags &= ~DEL_ON_DEATH // we don't want to be deleted if we die while player controlled in case there's some revive schenanigans going on that can bring us back
-	GLOB.spidermobs[src] = TRUE
-	if (apply_spider_antag)
-		var/datum/antagonist/spider/spider_antag = new(directive)
-		mind.add_antag_datum(spider_antag)
-
-/mob/living/basic/spiderling/mob_negates_gravity() // in case our sisters want to give us a helping hand
-	if(locate(/obj/structure/spider/stickyweb) in loc)
-		return TRUE
-	return ..()
-
-/mob/living/basic/spiderling/start_pulling(atom/movable/pulled_atom, state, force = move_force, supress_message = FALSE) // we're TOO FUCKING SMALL
+/mob/living/basic/spider/growing/spiderling/start_pulling(atom/movable/pulled_atom, state, force = move_force, supress_message = FALSE) // we're TOO FUCKING SMALL
 	return
 
+<<<<<<< HEAD
 /// Checks to see if we're ready to grow, primarily if we are on solid ground and not in a vent or something.
 /// The component will automagically grow us when we return TRUE and that threshold has been met.
 /mob/living/basic/spiderling/proc/ready_to_grow()
@@ -133,6 +112,8 @@
 
 	qdel(src)
 
+=======
+>>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523))
 /// Opportunistically hops in and out of vents, if it can find one. We aren't interested in attacking due to how weak we are, we gotta be quick and hidey.
 /datum/ai_controller/basic_controller/spiderling
 	blackboard = list(
