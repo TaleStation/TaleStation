@@ -255,12 +255,6 @@
 		/mob/living/basic/cow,
 		/mob/living/basic/cow/wisdom,
 		/mob/living/basic/crab,
-<<<<<<< HEAD
-		/mob/living/basic/giant_spider,
-		/mob/living/basic/giant_spider/hunter,
-		/mob/living/basic/mining/goliath,
-=======
->>>>>>> 31f1924324b04 (Refactors Morphs into Basic Mobs (there is now a swag action for morphification) (#77503))
 		/mob/living/basic/headslug,
 		/mob/living/basic/killer_tomato,
 		/mob/living/basic/lizard,
