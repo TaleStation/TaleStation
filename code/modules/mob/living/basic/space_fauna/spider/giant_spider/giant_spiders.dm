@@ -172,6 +172,8 @@
 	datahud.show_to(src)
 
 	AddComponent(/datum/component/healing_touch,\
+		heal_brute = 25,\
+		heal_burn = 25,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant)),\
 		action_text = "%SOURCE% begins wrapping the wounds of %TARGET%.",\
@@ -196,8 +198,8 @@
 	icon_dead = "tangle_dead"
 	gender = FEMALE
 	butcher_results = list(/obj/item/food/meat/slab/spider = 2, /obj/item/food/spiderleg = 8, /obj/item/food/spidereggs = 4)
-	maxHealth = 40
-	health = 40
+	maxHealth = 55
+	health = 55
 	melee_damage_lower = 1
 	melee_damage_upper = 1
 	poison_per_bite = 5
@@ -226,22 +228,17 @@
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/average_web)
 
 	AddComponent(/datum/component/healing_touch,\
-		heal_brute = maxHealth * 0.5,\
-		heal_burn = maxHealth * 0.5,\
+		heal_brute = 15,\
+		heal_burn = 15,\
+		heal_time = 3 SECONDS,\
 		self_targetting = HEALING_TOUCH_SELF_ONLY,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
-<<<<<<< HEAD:code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spider_variants.dm
-		valid_targets_typecache = typecacheof(list(/mob/living/basic/giant_spider/tangle)),\
-=======
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/growing/young/tangle, /mob/living/basic/spider/giant/tangle)),\
 		extra_checks = CALLBACK(src, PROC_REF(can_mend)),\
->>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523)):code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spiders.dm
 		action_text = "%SOURCE% begins mending themselves...",\
 		complete_text = "%SOURCE%'s wounds mend together.",\
 	)
 
-<<<<<<< HEAD:code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spider_variants.dm
-=======
 /// Prevent you from healing other tangle spiders, or healing when on fire
 /mob/living/basic/spider/giant/tangle/proc/can_mend(mob/living/source, mob/living/target)
 	if (on_fire)
@@ -249,7 +246,6 @@
 		return FALSE
 	return TRUE
 
->>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523)):code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spiders.dm
 /**
  * ### Tarantula
  *
@@ -263,25 +259,34 @@
 	icon_state = "tarantula"
 	icon_living = "tarantula"
 	icon_dead = "tarantula_dead"
-	maxHealth = 300 // woah nelly
-	health = 300
+	maxHealth = 360 // woah nelly
+	health = 360
 	melee_damage_lower = 35
 	melee_damage_upper = 40
 	obj_damage = 100
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
+	damage_coeff = list(BRUTE = 1, BURN = 1.25, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
 	speed = 6
 	player_speed_modifier = -5.5 // Doesn't seem that slow but it gets a debuff off web
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
+	web_speed = 0.7
+	web_type = /datum/action/cooldown/lay_web/sealer
 	menu_description = "Tank spider variant with an enormous amount of health and damage, but is very slow when not on webbing. It also has a charge ability to close distance with a target after a small windup."
 	/// Charging ability
 	var/datum/action/cooldown/mob_cooldown/charge/basic_charge/charge
 
 /mob/living/basic/spider/giant/tarantula/Initialize(mapload)
 	. = ..()
+	var/datum/action/cooldown/lay_web/solid_web/web_solid = new(src)
+	web_solid.Grant(src)
+
+	var/datum/action/cooldown/lay_web/web_passage/passage_web = new(src)
+	passage_web.Grant(src)
+
 	charge = new /datum/action/cooldown/mob_cooldown/charge/basic_charge()
 	charge.Grant(src)
 
+	AddElement(/datum/element/tear_wall)
 	AddElement(/datum/element/web_walker, /datum/movespeed_modifier/slow_web)
 
 /mob/living/basic/spider/giant/tarantula/Destroy()
@@ -305,8 +310,8 @@
 	icon_state = "viper"
 	icon_living = "viper"
 	icon_dead = "viper_dead"
-	maxHealth = 40
-	health = 40
+	maxHealth = 55
+	health = 55
 	melee_damage_lower = 5
 	melee_damage_upper = 5
 	poison_per_bite = 5
@@ -316,8 +321,6 @@
 	gold_core_spawnable = NO_SPAWN
 	menu_description = "Assassin spider variant with an unmatched speed and very deadly poison, but has very low amount of health and damage."
 
-<<<<<<< HEAD:code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spider_variants.dm
-=======
 /mob/living/basic/spider/giant/viper/Initialize(mapload)
 	. = ..()
 
@@ -326,7 +329,6 @@
 	var/datum/action/cooldown/mob_cooldown/defensive_mode/defensive_action = new(src)
 	defensive_action.Grant(src)
 
->>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523)):code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spiders.dm
 /**
  * ### Spider Broodmother
  *
@@ -483,18 +485,13 @@
  * Has the base stats of a hunter, but they can heal themselves and spin webs faster.
  * They also occasionally leave puddles of blood when they walk around. Flavorful!
  */
-<<<<<<< HEAD:code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spider_variants.dm
-/mob/living/basic/giant_spider/hunter/flesh
-	desc = "A odd fleshy creature in the shape of a spider.  Its eyes are pitch black and soulless."
-=======
 /mob/living/basic/spider/giant/hunter/flesh
 	name = "flesh spider"
 	desc = "A odd fleshy creature in the shape of a spider. Its eyes are pitch black and soulless."
->>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523)):code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spiders.dm
 	icon = 'icons/mob/simple/arachnoid.dmi'
-	icon_state = "flesh_spider"
-	icon_living = "flesh_spider"
-	icon_dead = "flesh_spider_dead"
+	icon_state = "flesh"
+	icon_living = "flesh"
+	icon_dead = "flesh_dead"
 	web_speed = 0.7
 	maxHealth = 90
 	health = 90
@@ -507,8 +504,8 @@
 		blood_spawn_chance = 5)
 	// It might be easier and more fitting to just replace this with Regenerator
 	AddComponent(/datum/component/healing_touch,\
-		heal_brute = maxHealth * 0.5,\
-		heal_burn = maxHealth * 0.5,\
+		heal_brute = 45,\
+		heal_burn = 45,\
 		self_targetting = HEALING_TOUCH_SELF_ONLY,\
 		interaction_key = DOAFTER_SOURCE_SPIDER,\
 		valid_targets_typecache = typecacheof(list(/mob/living/basic/spider/giant/hunter/flesh)),\
@@ -517,6 +514,12 @@
 		complete_text = "%SOURCE%'s wounds mend together.",\
 	)
 
+	var/datum/action/cooldown/lay_web/web_spikes/spikes_web = new(src)
+	spikes_web.Grant(src)
+
+	var/datum/action/cooldown/lay_web/sticky_web/web_sticky = new(src)
+	web_sticky.Grant(src)
+
 /// Prevent you from healing other flesh spiders, or healing when on fire
 /mob/living/basic/spider/giant/hunter/flesh/proc/can_mend(mob/living/source, mob/living/target)
 	if (on_fire)
@@ -524,9 +527,6 @@
 		return FALSE
 	return TRUE
 
-<<<<<<< HEAD:code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spider_variants.dm
-/mob/living/basic/giant_spider/hunter/flesh/Initialize(mapload)
-=======
 /**
  * ### Viper Spider (Wizard)
  *
@@ -549,28 +549,15 @@
 	apply_spider_antag = FALSE
 
 /mob/living/basic/spider/giant/viper/wizard/Initialize(mapload)
->>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523)):code/modules/mob/living/basic/space_fauna/spider/giant_spider/giant_spiders.dm
 	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+
 	var/datum/action/cooldown/lay_web/web_spikes/spikes_web = new(src)
 	spikes_web.Grant(src)
 
 	var/datum/action/cooldown/lay_web/sticky_web/web_sticky = new(src)
 	web_sticky.Grant(src)
 
-/**
- * ### Viper Spider (Wizard)
- *
- * A spider form for wizards. Has the viper spider's extreme speed and strong venom, with additional health and vent crawling abilities.
- */
-/mob/living/basic/giant_spider/viper/wizard
-	maxHealth = 80
-	health = 80
-	menu_description = "Stronger assassin spider variant with an unmatched speed, high amount of health and very deadly poison, but deals very low amount of damage. It also has ability to ventcrawl."
-	apply_spider_antag = FALSE
-
-/mob/living/basic/giant_spider/viper/wizard/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
 /**
  * ### Sergeant Araneus

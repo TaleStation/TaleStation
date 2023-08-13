@@ -178,14 +178,9 @@
 	var/list/spider_list = list()
 	var/list/display_spiders = list()
 	for(var/choice in potentialspawns)
-<<<<<<< HEAD
-		var/mob/living/basic/spiderling/chosen_spiderling = choice
-		var/mob/living/basic/giant_spider/spider = initial(chosen_spiderling.grow_as)
-=======
 		var/mob/living/basic/spider/growing/spiderling/chosen_spiderling = choice
 		var/mob/living/basic/spider/growing/young/young_spider = initial(chosen_spiderling.grow_as)
 		var/mob/living/basic/spider/giant/spider = initial(young_spider.grow_as) // God this is so stupid
->>>>>>> 497f18ea3215f (Spiders don't automatically grant an antag datum (#77523))
 		spider_list[initial(spider.name)] = chosen_spiderling
 
 		var/datum/radial_menu_choice/option = new
