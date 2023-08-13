@@ -606,6 +606,24 @@
 	..()
 	. = TRUE
 
+/datum/reagent/consumable/wellcheers
+	name = "Wellcheers"
+	description = "A strange purple drink, smelling of saltwater. Somewhere in the distance, you hear seagulls."
+	color = "#762399" // rgb: 118, 35, 153
+	taste_description = "grapes and the fresh open sea"
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/consumable/wellcheers/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
+	affected_mob.adjust_drowsiness(3 SECONDS * REM * seconds_per_tick)
+	switch(affected_mob.mob_mood.mood_level)
+		if (MOOD_LEVEL_SAD4 to MOOD_LEVEL_SAD2)
+			affected_mob.adjustStaminaLoss(3 * REM * seconds_per_tick, 0)
+		if (MOOD_LEVEL_SAD2 to MOOD_LEVEL_HAPPY2)
+			affected_mob.add_mood_event("wellcheers", /datum/mood_event/wellcheers)
+		if (MOOD_LEVEL_HAPPY2 to MOOD_LEVEL_HAPPY4)
+			affected_mob.adjustBruteLoss(-1.5 * REM * seconds_per_tick, 0)
+	return ..()
+
 /datum/reagent/consumable/monkey_energy
 	name = "Monkey Energy"
 	description = "The only drink that will make you unleash the ape."
@@ -1142,8 +1160,6 @@
 			drinker.adjust_hallucinations(60 SECONDS * REM * seconds_per_tick)
 
 	return ..()
-<<<<<<< HEAD
-=======
 
 /datum/reagent/consumable/t_letter
 	name = "T"
@@ -1199,4 +1215,3 @@
 	var/obj/item/organ/internal/stomach/ethereal/stomach = exposed_carbon.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(stomach))
 		stomach.adjust_charge(reac_volume * 3)
->>>>>>> 5335bbfdf5bc7 (T (#77442))
