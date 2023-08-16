@@ -36,10 +36,6 @@ GLOBAL_LIST_INIT(loadout_exosuits, generate_loadout_items(/datum/loadout_item/su
 	name = "Apron"
 	item_path = /obj/item/clothing/suit/apron
 
-/datum/loadout_item/suit/formal/purple_apron
-	name = "Purple Apron"
-	item_path = /obj/item/clothing/suit/apron/purple_bartender
-
 /datum/loadout_item/suit/formal/leather_coat
 	name = "Biker Coat"
 	item_path = /obj/item/clothing/suit/jacket/leather/biker
