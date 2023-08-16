@@ -38,7 +38,7 @@ for scannable_directory in scannable_directories:
             post_error(f"Excluded file {full_file_path} does not exist, please remove it!")
             sys.exit(1)
 
-file_extensions = (".dm", ".dmf")
+file_extensions = ("dm", "dmf")
 
 reading = False
 lines = []
@@ -63,10 +63,21 @@ offset = total - len(lines)
 print(blue(f"Ticked File Enforcement: {offset} lines were ignored in output for [{file_reference}]."))
 fail_no_include = False
 
+<<<<<<< HEAD
 for scannable_directory in scannable_directories:
     scannable_files = []
     for file_extension in file_extensions:
         scannable_files += glob.glob(scannable_directory + f"**/*.{file_extension}", recursive=True)
+=======
+scannable_files = []
+for file_extension in file_extensions:
+    compiled_directory = f"{scannable_directory}/**/*.{file_extension}"
+    scannable_files += glob.glob(compiled_directory, recursive=True)
+
+if len(scannable_files) == 0:
+    post_error(f"No files were found in {scannable_directory}. Ticked File Enforcement has failed!")
+    sys.exit(1)
+>>>>>>> 63f7eb1a6a01c (Fixes Ticked File Enforcement and Missing Unit Test (and makes said Unit Test Compile) (and genericizes the C&D list to the base unit test datum) (#77632))
 
     for code_file in scannable_files:
         dm_path = ""
@@ -150,4 +161,4 @@ for (index, line) in enumerate(lines):
         post_error(f"The include at line {index + offset} is out of order ({line}, expected {sorted_lines[index]})")
         sys.exit(1)
 
-print(green(f"Ticked File Enforcement: [{file_reference}] All includes are in order!"))
+print(green(f"Ticked File Enforcement: [{file_reference}] All includes (for {len(scannable_files)} scanned files) are in order!"))
