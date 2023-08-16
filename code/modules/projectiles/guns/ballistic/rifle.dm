@@ -169,22 +169,6 @@
 	if(.)
 		name = "\improper Obrez Moderna" // wear it loud and proud
 
-/obj/item/gun/ballistic/rifle/boltaction/brand_new/prime
-	name = "\improper Regal Nagant"
-	desc = "A prized hunting Mosin Nagant. Used for the most dangerous game."
-	icon_state = "moistprime"
-	inhand_icon_state = "moistprime"
-	worn_icon_state = "moistprime"
-	can_be_sawn_off = TRUE
-	sawn_desc = "A sawn-off Regal Nagant... Doing this was a sin, I hope you're happy. \
-		You are now probably one of the few people in the universe to ever hold a \"Regal Obrez\". \
-		Even thinking about that name combination makes you ill."
-
-/obj/item/gun/ballistic/rifle/boltaction/brand_new/prime/sawoff(mob/user)
-	. = ..()
-	if(.)
-		name = "\improper Regal Obrez" // wear it loud and proud
-
 /obj/item/gun/ballistic/rifle/boltaction/pipegun
 	name = "pipegun"
 	desc = "An excellent weapon for flushing out tunnel rats and enemy assistants, but its rifling leaves much to be desired."
