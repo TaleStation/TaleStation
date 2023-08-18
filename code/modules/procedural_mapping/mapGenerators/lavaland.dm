@@ -10,9 +10,17 @@
 
 /datum/map_generator_module/splatter_layer/lavaland_monsters
 	spawnableTurfs = list()
+<<<<<<< HEAD
 	spawnableAtoms = list(/mob/living/basic/mining/goliath = 10,
 	/mob/living/simple_animal/hostile/asteroid/hivelord/legion = 10,
 	/mob/living/simple_animal/hostile/asteroid/basilisk/watcher = 10)
+=======
+	spawnableAtoms = list(
+		/obj/effect/spawner/random/lavaland_mob/goliath = 10,
+		/obj/effect/spawner/random/lavaland_mob/legion = 10,
+		/obj/effect/spawner/random/lavaland_mob/watcher = 10,
+	)
+>>>>>>> fca0a11904352 ([no gbp] Lavaland should no longer spawn one million goliaths and watchers (#77716))
 
 /datum/map_generator_module/splatter_layer/lavaland_tendrils
 	spawnableTurfs = list()
