@@ -167,8 +167,6 @@
 
 /datum/movespeed_modifier/goliath_mount
 	multiplicative_slowdown = -26
-<<<<<<< HEAD
-=======
 
 /datum/movespeed_modifier/settler
 	multiplicative_slowdown = 0.2
@@ -176,4 +174,3 @@
 
 /datum/movespeed_modifier/basilisk_overheat
 	multiplicative_slowdown = -18
->>>>>>> c8266cf0a2eff (Settler Quirk: Tame the Outdoors! Have trouble with tall shelves... (#77654))
