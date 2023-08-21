@@ -241,8 +241,13 @@
 	. = list(our_type, current_type)
 	//and since most components are root level + 1, this won't even have to run
 	while (current_type != /datum/component)
+<<<<<<< HEAD
 		current_type = type2parent(current_type)
 	. += current_type
+=======
+		. += current_type
+		current_type = type2parent(current_type)
+>>>>>>> fa7e4c9e0bc25 (`_GetInverseTypeList()` correctly returns all parent types  (#77784))
 
 // The type arg is casted so initial works, you shouldn't be passing a real instance into this
 /**
