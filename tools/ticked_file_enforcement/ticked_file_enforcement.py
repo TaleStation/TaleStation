@@ -63,12 +63,6 @@ offset = total - len(lines)
 print(blue(f"Ticked File Enforcement: {offset} lines were ignored in output for [{file_reference}]."))
 fail_no_include = False
 
-<<<<<<< HEAD
-for scannable_directory in scannable_directories:
-    scannable_files = []
-    for file_extension in file_extensions:
-        scannable_files += glob.glob(scannable_directory + f"**/*.{file_extension}", recursive=True)
-=======
 scannable_files = []
 for file_extension in file_extensions:
     compiled_directory = f"{scannable_directory}/**/*.{file_extension}"
@@ -77,7 +71,6 @@ for file_extension in file_extensions:
 if len(scannable_files) == 0:
     post_error(f"No files were found in {scannable_directory}. Ticked File Enforcement has failed!")
     sys.exit(1)
->>>>>>> 63f7eb1a6a01c (Fixes Ticked File Enforcement and Missing Unit Test (and makes said Unit Test Compile) (and genericizes the C&D list to the base unit test datum) (#77632))
 
     for code_file in scannable_files:
         dm_path = ""
