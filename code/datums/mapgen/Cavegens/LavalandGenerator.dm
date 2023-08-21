@@ -8,18 +8,9 @@
 		/obj/effect/spawner/random/lavaland_mob/legion = 30,
 		/obj/effect/spawner/random/lavaland_mob/watcher = 40,
 		/mob/living/basic/mining/bileworm = 20,
-<<<<<<< HEAD
-		/mob/living/basic/mining/goliath/random = 50,
 		/mob/living/basic/mining/lobstrosity/lava = 20,
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 20,
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
-		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30,
-		/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/random = 40,
-=======
-		/mob/living/basic/mining/lobstrosity/lava = 20,
-		/mob/living/simple_animal/hostile/asteroid/brimdemon = 20,
-		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
->>>>>>> fca0a11904352 ([no gbp] Lavaland should no longer spawn one million goliaths and watchers (#77716))
 		/obj/structure/spawner/lavaland = 2,
 		/obj/structure/spawner/lavaland/goliath = 3,
 		/obj/structure/spawner/lavaland/legion = 3,
