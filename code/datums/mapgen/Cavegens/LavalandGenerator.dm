@@ -9,8 +9,12 @@
 		/mob/living/basic/mining/lobstrosity/lava = 20,
 		/obj/effect/spawner/random/watcher = 40,
 		/mob/living/simple_animal/hostile/asteroid/brimdemon = 20,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/asteroid/goldgrub = 10,
 		/mob/living/simple_animal/hostile/asteroid/hivelord/legion/random = 30,
+=======
+		/mob/living/basic/mining/goldgrub = 10,
+>>>>>>> 81e59f7ff2acb (Goldgrub basic  (#77733))
 		/obj/structure/spawner/lavaland = 2,
 		/obj/structure/spawner/lavaland/goliath = 3,
 		/obj/structure/spawner/lavaland/legion = 3,
