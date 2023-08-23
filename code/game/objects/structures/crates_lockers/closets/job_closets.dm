@@ -121,6 +121,7 @@
 		/obj/item/storage/backpack/security = 1,
 		/obj/item/storage/backpack/satchel/sec = 1,
 		/obj/item/storage/backpack/duffelbag/sec = 2,
+		/obj/item/storage/backpack/messenger/sec = 1,
 		/obj/item/clothing/under/rank/security/officer = 3,
 		/obj/item/clothing/under/rank/security/officer/skirt = 2,
 		/obj/item/clothing/shoes/jackboots = 3,
@@ -154,6 +155,7 @@
 		/obj/item/storage/backpack/duffelbag/engineering = 1,
 		/obj/item/storage/backpack/satchel/eng = 1,
 		/obj/item/storage/backpack/industrial = 1,
+		/obj/item/storage/backpack/messenger/eng = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/engineering/atmos = 3,
 		/obj/item/clothing/under/rank/engineering/atmospheric_technician = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3)
@@ -170,6 +172,7 @@
 		/obj/item/storage/backpack/duffelbag/engineering = 1,
 		/obj/item/storage/backpack/industrial = 1,
 		/obj/item/storage/backpack/satchel/eng = 1,
+		/obj/item/storage/backpack/messenger/eng = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/engineering = 1,
 		/obj/item/clothing/under/rank/engineering/engineer = 3,
 		/obj/item/clothing/suit/hazardvest = 3,
@@ -187,6 +190,7 @@
 		/obj/item/storage/backpack/duffelbag/med = 1,
 		/obj/item/storage/backpack/medic = 1,
 		/obj/item/storage/backpack/satchel/med = 1,
+		/obj/item/storage/backpack/messenger/med = 1,
 		/obj/item/clothing/suit/hooded/wintercoat/medical = 1,
 		/obj/item/clothing/head/costume/nursehat = 1,
 		/obj/item/clothing/under/rank/medical/scrubs/blue = 1,
@@ -230,6 +234,7 @@
 		/obj/item/clothing/suit/toggle/labcoat/chemist = 2,
 		/obj/item/storage/backpack/chemistry = 2,
 		/obj/item/storage/backpack/satchel/chem = 2,
+		/obj/item/storage/backpack/messenger/chem = 2,
 		/obj/item/storage/backpack/duffelbag/chemistry = 2,
 		/obj/item/storage/bag/chemistry = 2)
 	generate_items_inside(items_inside,src)
@@ -247,6 +252,7 @@
 		/obj/item/clothing/suit/toggle/labcoat/genetics = 2,
 		/obj/item/storage/backpack/genetics = 2,
 		/obj/item/storage/backpack/satchel/gen = 2,
+		/obj/item/storage/backpack/messenger/gen = 2,
 		/obj/item/storage/backpack/duffelbag/genetics = 2)
 	generate_items_inside(items_inside,src)
 	return
@@ -264,6 +270,7 @@
 		/obj/item/clothing/mask/surgical = 2,
 		/obj/item/storage/backpack/virology = 2,
 		/obj/item/storage/backpack/satchel/vir = 2,
+		/obj/item/storage/backpack/messenger/vir = 2,
 		/obj/item/storage/backpack/duffelbag/virology = 2,)
 	generate_items_inside(items_inside,src)
 	return
@@ -295,6 +302,7 @@
 	var/static/items_inside = list(
 		/obj/item/storage/backpack/botany = 2,
 		/obj/item/storage/backpack/satchel/hyd = 2,
+		/obj/item/storage/backpack/messenger/hyd = 2,
 		/obj/item/storage/backpack/duffelbag/hydroponics = 2,
 		/obj/item/clothing/suit/hooded/wintercoat/hydro = 1,
 		/obj/item/clothing/suit/apron = 2,
@@ -313,4 +321,5 @@
 	new /obj/item/clothing/under/rank/civilian/curator/treasure_hunter(src)
 	new /obj/item/clothing/shoes/workboots/mining(src)
 	new /obj/item/storage/backpack/satchel/explorer(src)
+	new /obj/item/storage/backpack/messenger/explorer(src)
 
