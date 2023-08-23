@@ -167,7 +167,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 	var/turf/position = get_turf(target)
 	return checkTurfVis(position)
 
-
 /datum/cameranet/proc/checkTurfVis(turf/position)
 	var/datum/camerachunk/chunk = getCameraChunk(position.x, position.y, position.z)
 	if(chunk)
@@ -176,6 +175,16 @@ GLOBAL_DATUM_INIT(cameranet, /datum/cameranet, new)
 		if(chunk.visibleTurfs[position])
 			return TRUE
 	return FALSE
+
+/datum/cameranet/proc/getTurfVis(turf/position)
+	RETURN_TYPE(/datum/camerachunk)
+	var/datum/camerachunk/chunk = getCameraChunk(position.x, position.y, position.z)
+	if(!chunk)
+		return FALSE
+	if(chunk.changed)
+		chunk.hasChanged(1) // Update now, no matter if it's visible or not.
+	if(chunk.visibleTurfs[position])
+		return chunk
 
 /obj/effect/overlay/camera_static
 	name = "static"
