@@ -364,8 +364,6 @@
 
 /datum/quirk/item_quirk/signer/remove()
 	qdel(quirk_holder.GetComponent(/datum/component/sign_language))
-<<<<<<< HEAD
-=======
 
 /datum/quirk/item_quirk/settler
 	name = "Settler"
@@ -399,4 +397,3 @@
 	human_quirkholder.set_mob_height(HUMAN_HEIGHT_MEDIUM)
 	human_quirkholder.remove_movespeed_modifier(/datum/movespeed_modifier/settler)
 	human_quirkholder.physiology.hunger_mod *= 2
->>>>>>> 7ccf65f3915d4 ([NO GBP] Makes settlers properly short (as in the SHORTEST size) (Not DWARF short, just SHORTER) (#77717))
