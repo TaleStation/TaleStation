@@ -18,6 +18,12 @@
 	ability_key = BB_WATCHER_OVERWATCH
 
 /datum/ai_planning_subtree/targeted_mob_ability/overwatch/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
+<<<<<<< HEAD
+=======
+	var/mob/living/living_pawn = controller.pawn
+	if (living_pawn.do_after_count())
+		return // Don't interrupt our other ability
+>>>>>>> 945a0c1188102 (Doafter cleanup, disables stoplag dynamic sleeping in unit tests (#77868))
 	var/atom/target = controller.blackboard[target_key]
 	if (QDELETED(target) || HAS_TRAIT(target, TRAIT_OVERWATCH_IMMUNE))
 		return // We should probably let miners move sometimes
