@@ -31,7 +31,12 @@
 
 /datum/component/golem_food/Destroy(force, silent)
 	QDEL_NULL(golem_snack)
+<<<<<<< HEAD
 	QDEL_NULL(extra_validation)
+=======
+	snack_type = null
+	extra_validation = null
+>>>>>>> 4c870f71cab38 (Fixes a bunch of callbacks that were being qdeleted, and code cleanup (#77904))
 	return ..()
 
 /// Attempt to feed this item to golem

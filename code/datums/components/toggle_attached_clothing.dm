@@ -82,9 +82,17 @@
 	unequip_deployable()
 	QDEL_NULL(deployable)
 	QDEL_NULL(toggle_action)
+<<<<<<< HEAD
 	QDEL_NULL(on_created)
 	QDEL_NULL(on_deployed)
 	QDEL_NULL(on_removed)
+=======
+	undeployed_overlay = null
+	pre_creation_check = null
+	on_created = null
+	on_deployed = null
+	on_removed = null
+>>>>>>> 4c870f71cab38 (Fixes a bunch of callbacks that were being qdeleted, and code cleanup (#77904))
 	return ..()
 
 /// Toggle deployable when the UI button is clicked

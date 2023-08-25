@@ -43,9 +43,15 @@
 
 	src.base_container_type = base_container_type || parent.type
 
+<<<<<<< HEAD
 /datum/component/takes_reagent_appearance/Destroy()
 	QDEL_NULL(on_icon_changed)
 	QDEL_NULL(on_icon_reset)
+=======
+/datum/component/takes_reagent_appearance/Destroy(force, silent)
+	on_icon_changed = null
+	on_icon_reset = null
+>>>>>>> 4c870f71cab38 (Fixes a bunch of callbacks that were being qdeleted, and code cleanup (#77904))
 	return ..()
 
 /datum/component/takes_reagent_appearance/RegisterWithParent()
