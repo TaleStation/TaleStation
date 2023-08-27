@@ -51,31 +51,6 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	///An assoc list of quirks that can be obtained as a hardcore character, and their hardcore value.
 	var/list/hardcore_quirks = list()
 
-<<<<<<< HEAD
-	/// A list of quirks that can not be used with each other. Format: list(quirk1,quirk2),list(quirk3,quirk4)
-	var/static/list/quirk_blacklist = list(
-		list("Blind", "Nearsighted"),
-		list("Jolly", "Depression", "Apathetic", "Hypersensitive"),
-		list("Ageusia", "Vegetarian", "Deviant Tastes", "Gamer"),
-		list("Ananas Affinity", "Ananas Aversion", "Gamer"),
-		list("Alcohol Tolerance", "Light Drinker"),
-		list("Clown Enjoyer", "Mime Fan", "Pride Pin"),
-		list("Bad Touch", "Friendly"),
-		list("Extrovert", "Introvert"),
-		list("Prosthetic Limb", "Quadruple Amputee", "Body Purist"),
-		list("Prosthetic Organ", "Tin Man", "Body Purist"),
-		list("Quadruple Amputee", "Paraplegic", "Hemiplegic"),
-		list("Quadruple Amputee", "Frail"),
-		list("Social Anxiety", "Mute"),
-		list("Mute", "Soft-Spoken"),
-		list("Stormtrooper Aim", "Big Hands"),
-		list("Bilingual", "Foreigner"),
-		list("Spacer", "Paraplegic"),
-		list("Photophobia", "Nyctophobia"),
-	)
-
-=======
->>>>>>> a7f473d611f98 (Use typepaths for the quirk blacklist (#77727))
 /datum/controller/subsystem/processing/quirks/Initialize()
 	get_quirks()
 	return SS_INIT_SUCCESS
