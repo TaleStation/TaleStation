@@ -63,6 +63,12 @@
 		if(initial_destination)
 			idle_platform = initial_destination
 
+<<<<<<< HEAD
+=======
+		if(beacon)
+			nav_beacon = beacon
+
+>>>>>>> 57daae04593ee (Fixes tram deleting its own landmarks on reset_lift_contents() (#77921))
 /datum/lift_master/tram/proc/check_starting_landmark()
 	if(!idle_platform)
 		CRASH("a tram lift_master was initialized without any tram landmark to give it direction!")
