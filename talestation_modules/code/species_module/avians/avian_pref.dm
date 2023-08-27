@@ -10,7 +10,7 @@
 	return assoc_to_keys_features(GLOB.avian_beak_list)
 
 /datum/preference/choiced/avian_beak/icon_for(value)
-	return generate_lizard_side_shot(GLOB.avian_beak_list[value], "avian_beak")
+	return generate_avian_side_shots(GLOB.avian_beak_list[value], "avian_beak", include_snout = FALSE)
 
 /datum/preference/choiced/avian_beak/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["avian_beak"] = value
