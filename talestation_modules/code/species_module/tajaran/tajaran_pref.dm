@@ -7,7 +7,10 @@
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/tajaran_snout/init_possible_values()
-	return generate_tajaran_side_shots(GLOB.tajaran_snout_list, "tajaran_snout", include_snout = FALSE)
+	return assoc_to_keys_features(GLOB.tajaran_snout_list)
+
+/datum/preference/choiced/tajaran_snout/icon_for(value)
+	return generate_tajaran_side_shots(GLOB.tajaran_snout_list[value], "tajaran_snout")
 
 /datum/preference/choiced/tajaran_snout/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tajaran_snout"] = value
