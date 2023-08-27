@@ -7,5 +7,10 @@
 	#define MATCONTAINER_BLOCK_INSERT (1<<1)
 /// Called from datum/component/material_container/proc/insert_item() : (target, last_inserted_id, material_amount, container)
 #define COMSIG_MATCONTAINER_ITEM_CONSUMED "matcontainer_item_consumed"
+<<<<<<< HEAD
 /// Called from datum/component/material_container/proc/retrieve_sheets() : (sheets)
 #define COMSIG_MATCONTAINER_SHEETS_RETRIVED "matcontainer_sheets_retrived"
+=======
+/// Called from datum/component/material_container/proc/retrieve_sheets() : (sheets, context)
+#define COMSIG_MATCONTAINER_SHEETS_RETRIEVED "matcontainer_sheets_retrieved"
+>>>>>>> 86f71eb6b7366 (Fixes a typo (#77946))

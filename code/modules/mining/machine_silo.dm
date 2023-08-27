@@ -37,7 +37,14 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 		/datum/component/material_container, \
 		materials_list, \
 		INFINITY, \
+<<<<<<< HEAD
 		MATCONTAINER_NO_INSERT, \
+=======
+		container_signals = list( \
+			COMSIG_MATCONTAINER_ITEM_CONSUMED = TYPE_PROC_REF(/obj/machinery/ore_silo, log_item_consumed), \
+			COMSIG_MATCONTAINER_SHEETS_RETRIEVED = TYPE_PROC_REF(/obj/machinery/ore_silo, log_sheets_ejected), \
+		), \
+>>>>>>> 86f71eb6b7366 (Fixes a typo (#77946))
 		allowed_items = /obj/item/stack \
 	)
 	if (!GLOB.ore_silo_default && mapload && is_station_level(z))
