@@ -26,12 +26,8 @@
 	RegisterSignal(parent, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(on_unequipped))
 
 /datum/component/bullet_intercepting/Destroy(force, silent)
-<<<<<<< HEAD
-	QDEL_NULL(on_intercepted)
-=======
 	wearer = null
 	on_intercepted = null
->>>>>>> 4c870f71cab38 (Fixes a bunch of callbacks that were being qdeleted, and code cleanup (#77904))
 	return ..()
 
 /// Called when item changes slots, check if we're in a valid location to take bullets
