@@ -6,7 +6,10 @@
 	should_generate_icons = TRUE
 
 /datum/preference/choiced/skrell_hair/init_possible_values()
-	return generate_skrell_side_shots(GLOB.head_tentacles_list, "head_tentacles", list("ADJ", "FRONT"))
+	return assoc_to_keys_features(GLOB.head_tentacles_list)
+
+/datum/preference/choiced/skrell_hair/icon_for(value)
+	return generate_skrell_side_shots(GLOB.head_tentacles_list[value], "head_tentacles")
 
 /datum/preference/choiced/skrell_hair/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["head_tentacles"] = value

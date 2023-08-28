@@ -87,31 +87,27 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	return randname
 
 // Generates tajaran side profile for prefs
-/proc/generate_tajaran_side_shots(list/sprite_accessories, key, include_snout = TRUE)
-	var/list/values = list()
+/proc/generate_tajaran_side_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/tajaran
+	var/static/icon/tajaran_with_snout
 
-	var/icon/tajaran = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+	if (isnull(tajaran))
+		tajaran = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
+		eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
+		tajaran.Blend(eyes, ICON_OVERLAY)
 
-	var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
-	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
-	tajaran.Blend(eyes, ICON_OVERLAY)
+		tajaran_with_snout = icon(tajaran)
+		tajaran_with_snout.Blend(icon('talestation_modules/icons/species/tajaran/tajaran_snouts.dmi', "m_tajaran_snout_wide", EAST), ICON_OVERLAY)
 
-	if (include_snout)
-		tajaran.Blend(icon('talestation_modules/icons/species/tajaran/tajaran_snouts.dmi', "m_tajaran_snout_wide", EAST), ICON_OVERLAY)
+	var/icon/final_icon = include_snout ? icon(tajaran_with_snout) : icon(tajaran)
 
-	for (var/name in sprite_accessories)
-		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
-		var/icon/final_icon = icon(tajaran)
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_GRAY, ICON_MULTIPLY)
 
-		if (sprite_accessory.icon_state != "none")
-			var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
-			final_icon.Blend(accessory_icon, ICON_OVERLAY)
-
-		final_icon.Crop(11, 20, 23, 32)
-		final_icon.Scale(32, 32)
-		final_icon.Blend(COLOR_GRAY, ICON_MULTIPLY)
-
-		values[name] = final_icon
-
-	return values
+	return final_icon
