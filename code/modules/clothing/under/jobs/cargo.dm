@@ -3,8 +3,13 @@
 	worn_icon = 'icons/mob/clothing/under/cargo.dmi'
 
 /obj/item/clothing/under/rank/cargo/qm
+<<<<<<< HEAD
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
+=======
+	name = "quartermaster's uniform"
+	desc = "A brown dress shirt, coupled with a pair of black slacks. It's specially designed to prevent back injuries caused by pushing paper."
+>>>>>>> 728faa3e70ab3 (Adjustments to the new Cargo sprites, and updates to a few missed sprites (#77964))
 	icon_state = "qm"
 	inhand_icon_state = "lb_suit"
 
@@ -19,16 +24,26 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/cargo/tech
+<<<<<<< HEAD
 	name = "cargo technician's jumpsuit"
 	desc = "Shooooorts! They're comfy and easy to wear!"
+=======
+	name = "cargo technician's uniform"
+	desc = "A brown sweater and black jeans, because, honestly, who likes shorts?"
+>>>>>>> 728faa3e70ab3 (Adjustments to the new Cargo sprites, and updates to a few missed sprites (#77964))
 	icon_state = "cargotech"
 	inhand_icon_state = "lb_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/clothing/under/rank/cargo/tech/skirt
+<<<<<<< HEAD
 	name = "cargo technician's jumpskirt"
 	desc = "Skiiiiirts! They're comfy and easy to wear!"
+=======
+	name = "cargo technician's skirt"
+	desc = "A brown sweater and a black skirt to match."
+>>>>>>> 728faa3e70ab3 (Adjustments to the new Cargo sprites, and updates to a few missed sprites (#77964))
 	icon_state = "cargo_skirt"
 	inhand_icon_state = "lb_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -36,9 +51,14 @@
 	dying_key = DYE_REGISTRY_JUMPSKIRT
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
+/obj/item/clothing/under/rank/cargo/tech/skirt/alt
+	name = "cargo technician's shortskirt"
+	desc = "I like skiiiiirts! They're comfy and easy to wear!"
+	icon_state = "cargo_skirt_alt"
+
 /obj/item/clothing/under/rank/cargo/miner
-	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
 	name = "shaft miner's jumpsuit"
+	desc = "It's a snappy jumpsuit with a sturdy set of overalls. It is very dirty."
 	icon_state = "miner"
 	inhand_icon_state = null
 	armor_type = /datum/armor/clothing_under/cargo_miner
@@ -49,7 +69,7 @@
 	wound = 10
 
 /obj/item/clothing/under/rank/cargo/miner/lavaland
-	desc = "A green uniform for operating in hazardous environments."
 	name = "shaft miner's jumpsuit"
+	desc = "A grey uniform for operating in hazardous environments."
 	icon_state = "explorer"
 	inhand_icon_state = null

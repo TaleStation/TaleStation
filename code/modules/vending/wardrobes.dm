@@ -156,6 +156,12 @@
 		/obj/item/clothing/head/soft = 3,
 		/obj/item/clothing/under/rank/cargo/tech = 3,
 		/obj/item/clothing/under/rank/cargo/tech/skirt = 3,
+<<<<<<< HEAD
+=======
+		/obj/item/clothing/under/rank/cargo/tech/alt = 3,
+		/obj/item/clothing/under/rank/cargo/tech/skirt/alt = 3,
+		/obj/item/clothing/suit/toggle/cargo_tech = 3,
+>>>>>>> 728faa3e70ab3 (Adjustments to the new Cargo sprites, and updates to a few missed sprites (#77964))
 		/obj/item/clothing/suit/hooded/wintercoat/cargo = 3,
 		/obj/item/clothing/gloves/fingerless = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3,
