@@ -95,17 +95,10 @@
 	/// Used by [living/Bump()][/mob/living/proc/Bump] and [living/PushAM()][/mob/living/proc/PushAM] to prevent potential infinite loop.
 	var/now_pushing = null
 
-<<<<<<< HEAD
-	var/cameraFollow = null
-
-	/// Time of death
-	var/tod = null
-=======
 	///The mob's latest time-of-death
 	var/timeofdeath = 0
 	///The mob's latest time-of-death, as a station timestamp instead of world.time
 	var/station_timestamp_timeofdeath
->>>>>>> ef352ca7310c1 (minor changes to living and mob vars (#77820))
 
 	/// Sets AI behavior that allows mobs to target and dismember limbs with their basic attack.
 	var/limb_destroyer = 0
