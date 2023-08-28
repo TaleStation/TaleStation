@@ -204,7 +204,7 @@
 /obj/machinery/door/airlock/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
 	if(!ninja || !hacking_module)
 		return NONE
-	if(!operating && density && hasPower() && !(obj_flags & EMAGGED))
+	if(!operating && density && hasPower() && !(obj_flags & EMAGGED) && hacking_module.mod.subtract_charge(DEFAULT_CHARGE_DRAIN * 5))
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, emag_act))
 		hacking_module.door_hack_counter++
 		var/datum/antagonist/ninja/ninja_antag = ninja.mind.has_antag_datum(/datum/antagonist/ninja)
@@ -322,8 +322,6 @@
 		visible_message(span_danger("[ninja] electrocutes [src] with [ninja.p_their()] touch!"), span_userdanger("[ninja] electrocutes you with [ninja.p_their()] touch!"))
 		addtimer(CALLBACK(src, PROC_REF(ninja_knockdown)), 0.3 SECONDS)
 	return NONE
-<<<<<<< HEAD
-=======
 
 /mob/living/carbon/proc/ninja_knockdown()
 	Knockdown(3 SECONDS)
@@ -464,4 +462,3 @@
 //FIRELOCKS//
 /obj/machinery/door/firedoor/ninjadrain_act(mob/living/carbon/human/ninja, obj/item/mod/module/hacker/hacking_module)
 	crack_open()
->>>>>>> e7ab583580187 (ninja stungloves nerf + quirks (#77810))
