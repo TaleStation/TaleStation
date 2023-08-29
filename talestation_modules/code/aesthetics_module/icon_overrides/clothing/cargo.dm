@@ -1,8 +1,12 @@
 // Overrides cargo icons as of #7459
 
+/* TODO: Go upstream and make cargo hats a subtype
+* WHY ARE THEY ON THE BASE PARENT??
+* WHAT ARE YOU PEOPLE DOING
 /obj/item/clothing/head/soft
 	icon = 'talestation_modules/icons/objects/clothing/head/hats.dmi'
 	worn_icon = 'talestation_modules/icons/clothing/head/hats.dmi'
+*/
 
 /obj/item/clothing/under/rank/cargo/qm
 	icon = 'talestation_modules/icons/objects/clothing/under/cargo.dmi'
