@@ -205,8 +205,6 @@
 	icon_state = "suitjacket_black"
 	inhand_icon_state = "ro_suit"
 
-<<<<<<< HEAD
-=======
 // Cargo
 
 /obj/item/clothing/suit/toggle/cargo_tech
@@ -236,7 +234,6 @@
 		/obj/item/storage/bag/mail,
 	)
 
->>>>>>> e1cb441914254 (Quartermaster's overcoat and cargo's gorka can now hold stamps and mail bags (#77913))
 /obj/item/clothing/suit/toggle/lawyer/greyscale
 	name = "formal suit jacket"
 	icon_state = "jacket_lawyer"
