@@ -22,15 +22,11 @@
 	playsound(get_turf(limb_owner), 'sound/effects/dismember.ogg', 80, TRUE)
 	limb_owner.add_mood_event("dismembered_[body_zone]", /datum/mood_event/dismembered, src)
 	limb_owner.add_mob_memory(/datum/memory/was_dismembered, lost_limb = src)
-<<<<<<< HEAD
-	drop_limb(FALSE, TRUE) // NON-MODULAR CHANGES: args
-=======
 
 	if (wound_type)
 		LAZYSET(limb_owner.body_zone_dismembered_by, body_zone, wound_type)
 
-	drop_limb()
->>>>>>> 554edc60e9361 ([TEST-MERGE FIRST] Allows all limbs to be dismembered and significantly refactors wounds (#77813))
+	drop_limb(FALSE, TRUE) // NON-MODULAR CHANGES: args
 
 	limb_owner.update_equipment_speed_mods() // Update in case speed affecting item unequipped by dismemberment
 	var/turf/owner_location = limb_owner.loc
