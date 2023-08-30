@@ -3316,7 +3316,7 @@
 	},
 /obj/machinery/door/window/left/directional/west{
 	name = "Deliveries Chute";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
@@ -7202,10 +7202,6 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced,
-/obj/item/computer_disk/atmos{
-	pixel_x = 5;
-	pixel_y = 5
-	},
 /obj/item/computer_disk/engineering,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
@@ -11831,6 +11827,16 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/office)
+"dbr" = (
+/obj/machinery/door/airlock/external/glass{
+	name = "Supply Dock Airlock"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/supply/general,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/cargo/storage)
 "dbG" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Armory Motion Sensor"
@@ -11868,7 +11874,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 4
 	},
-/mob/living/basic/giant_spider/sgt_araneus,
+/mob/living/basic/spider/giant/sgt_araneus,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
 "dcG" = (
@@ -15275,7 +15281,7 @@
 	dir = 1;
 	name = "Returns";
 	pixel_y = 7;
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -16430,14 +16436,12 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "ffO" = (
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/status_display/supply{
 	dir = 4;
 	layer = 4;
 	pixel_y = 32
 	},
-/turf/open/floor/iron,
+/turf/open/floor/plating,
 /area/station/cargo/storage)
 "fgc" = (
 /obj/machinery/door/firedoor/heavy,
@@ -18030,7 +18034,7 @@
 	},
 /obj/machinery/door/window/left/directional/west{
 	name = "Trash Chute";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -20573,7 +20577,7 @@
 /obj/machinery/button/door/directional/west{
 	id = "Disposal Exit";
 	name = "Disposal Vent Control";
-	req_access = list("mail_sorting");
+	req_access = list("shipping");
 	pixel_y = 6
 	},
 /turf/open/floor/iron,
@@ -22437,7 +22441,7 @@
 	},
 /obj/machinery/door/window/left/directional/west{
 	name = "Deliveries";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
@@ -27512,7 +27516,7 @@
 /obj/machinery/door/window/left/directional/west{
 	dir = 2;
 	name = "Cargo Desk";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
@@ -36980,7 +36984,7 @@
 	},
 /obj/machinery/door/window/right/directional/south{
 	name = "Cargo Desk";
-	req_access = list("mail_sorting")
+	req_access = list("shipping")
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
@@ -43320,12 +43324,14 @@
 /turf/open/floor/iron/dark,
 /area/station/science/genetics)
 "rJw" = (
-/obj/machinery/door/airlock/external{
+/obj/effect/mapping_helpers/airlock/access/any/supply/general,
+/obj/machinery/door/airlock/external/glass{
 	name = "Supply Dock Airlock"
 	},
-/obj/machinery/door/firedoor,
-/obj/effect/mapping_helpers/airlock/access/any/supply/general,
-/turf/open/floor/iron,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/station/cargo/storage)
 "rJF" = (
 /obj/structure/disposalpipe/segment{
@@ -49079,13 +49085,12 @@
 /turf/open/floor/iron,
 /area/station/science/research)
 "uwB" = (
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/camera/directional/east{
-	c_tag = "Cargo Docking Arm"
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 1
 	},
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "uwI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
@@ -56423,8 +56428,11 @@
 "xMv" = (
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/camera/directional/east{
+	c_tag = "Cargo Docking Arm"
+	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "xMw" = (
 /obj/machinery/door/window/left/directional/west{
 	dir = 2;
@@ -101033,7 +101041,7 @@ tpC
 cDa
 mZS
 edj
-sAD
+uwB
 uAD
 oqh
 hYS
@@ -104372,9 +104380,9 @@ aYF
 mrz
 gQG
 aht
-uwB
-xmf
-gQG
+dUZ
+dbr
+dUZ
 aht
 aqG
 baG

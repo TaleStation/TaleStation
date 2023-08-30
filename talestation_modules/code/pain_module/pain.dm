@@ -558,16 +558,15 @@
 /**
  * While actively burning, cause pain
  */
-/datum/pain/proc/on_burn_tick(datum/source)
+/datum/pain/proc/on_burn_tick(mob/living/carbon/human/burning_owner)
 	SIGNAL_HANDLER
 
-	var/mob/living/carbon/human/human_parent = parent
-	if(human_parent.get_thermal_protection() >= FIRE_SUIT_MAX_TEMP_PROTECT)
+	if(burning_owner.get_thermal_protection() >= FIRE_SUIT_MAX_TEMP_PROTECT)
 		return
 
 	// The more firestacks, the more pain we apply per burn tick, up to 2 per tick per bodypart.
 	// We can be liberal with this because when they're extinguished most of it will go away.
-	parent.apply_status_effect(/datum/status_effect/pain_from_fire, clamp(parent.fire_stacks * 0.2, 0, 2))
+	burning_owner.apply_status_effect(/datum/status_effect/pain_from_fire, clamp(burning_owner.fire_stacks * 0.2, 0, 2))
 
 /**
  * Natural pain healing of all of our bodyparts per five process ticks / 10 seconds.

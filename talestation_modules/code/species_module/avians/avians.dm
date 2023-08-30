@@ -69,34 +69,31 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 	return randname
 
 // Generates avian side profile for prefs
-/proc/generate_avian_side_shots(list/sprite_accessories, key, include_snout = TRUE)
-	var/list/values = list()
+/proc/generate_avian_side_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/avian
+	var/static/icon/avian_with_snout
 
-	var/icon/avian = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+	if (isnull(avian))
+		avian = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
+		eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
+		avian.Blend(eyes, ICON_OVERLAY)
 
-	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
-	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
-	avian.Blend(eyes, ICON_OVERLAY)
+		avian_with_snout = icon(avian)
+		avian_with_snout.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
 
-	if (include_snout)
-		avian.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
+	var/icon/final_icon = include_snout ? icon(avian_with_snout) : icon(avian)
 
-	for (var/name in sprite_accessories)
-		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
-		var/icon/final_icon = icon(avian)
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
 
-		if (sprite_accessory.icon_state != "none")
-			var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
-			final_icon.Blend(accessory_icon, ICON_OVERLAY)
+	return final_icon
 
-		final_icon.Crop(11, 20, 23, 32)
-		final_icon.Scale(32, 32)
-		final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
-
-		values[name] = final_icon
-
-	return values
 /* TO-DO: They need to CAW!!
 /datum/species/avian/get_species_speech_sounds(sound_type)
 	return string_assoc_list(list(
