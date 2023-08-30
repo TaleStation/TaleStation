@@ -39,7 +39,7 @@
 	name = "Apron"
 	item_path = /obj/item/clothing/suit/apron
 
-/datum/loadout_item/suit/formal/leather_coat
+/datum/loadout_item/suit/leather_coat
 	name = "Biker Coat"
 	item_path = /obj/item/clothing/suit/jacket/leather/biker
 
