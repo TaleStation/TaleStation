@@ -958,6 +958,21 @@
 /obj/item/proc/on_grind()
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_GRIND)
 
+<<<<<<< HEAD
+=======
+///Grind item, adding grind_results to item's reagents and transfering to target_holder if specified
+/obj/item/proc/grind(datum/reagents/target_holder, mob/user)
+	if(on_grind() == -1)
+		return FALSE
+	if(!reagents)
+		reagents = new()
+	target_holder.add_reagent_list(grind_results)
+	if(reagents && target_holder)
+		reagents.trans_to(target_holder, reagents.total_volume, transferred_by = user)
+	return TRUE
+
+///Called BEFORE the object is ground up - use this to change grind results based on conditions. Return "-1" to prevent the grinding from occurring
+>>>>>>> 66f2802c8f088 (Fixed reagent grinding (and juicing?) (#78136))
 /obj/item/proc/on_juice()
 	return SEND_SIGNAL(src, COMSIG_ITEM_ON_JUICE)
 

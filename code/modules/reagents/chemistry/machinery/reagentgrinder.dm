@@ -316,8 +316,13 @@
 		if(I.juice_results)
 			juice_item(I)
 
+<<<<<<< HEAD
 /obj/machinery/reagentgrinder/proc/juice_item(obj/item/I) //Juicing results can be found in respective object definitions
 	if(I.on_juice(src) == -1)
+=======
+/obj/machinery/reagentgrinder/proc/juice_item(obj/item/I, mob/user) //Juicing results can be found in respective object definitions
+	if(!I.juice(beaker.reagents, user))
+>>>>>>> 66f2802c8f088 (Fixed reagent grinding (and juicing?) (#78136))
 		to_chat(usr, span_danger("[src] shorts out as it tries to juice up [I], and transfers it back to storage."))
 		return
 	beaker.reagents.add_reagent_list(I.juice_results)
@@ -337,7 +342,11 @@
 			grind_item(i, user)
 
 /obj/machinery/reagentgrinder/proc/grind_item(obj/item/I, mob/user) //Grind results can be found in respective object definitions
+<<<<<<< HEAD
 	if(I.on_grind(src) == -1) //Call on_grind() to change amount as needed, and stop grinding the item if it returns -1
+=======
+	if(!I.grind(beaker.reagents, user))
+>>>>>>> 66f2802c8f088 (Fixed reagent grinding (and juicing?) (#78136))
 		to_chat(usr, span_danger("[src] shorts out as it tries to grind up [I], and transfers it back to storage."))
 		return
 	beaker.reagents.add_reagent_list(I.grind_results)
