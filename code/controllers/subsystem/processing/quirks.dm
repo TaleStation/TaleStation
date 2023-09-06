@@ -23,7 +23,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/spacer_born, /datum/quirk/paraplegic, /datum/quirk/item_quirk/settler),
 	list(/datum/quirk/photophobia, /datum/quirk/nyctophobia),
 	list(/datum/quirk/item_quirk/settler, /datum/quirk/freerunning),
-<<<<<<< HEAD
+	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	// NON-MODULAR CHANGES: Our unique quirk blacklist
 	list(/datum/quirk/allodynia, /datum/quirk/pain_vulnerability, /datum/quirk/pain_resistance, /datum/quirk/glass_jaw),
 	list(/datum/quirk/allodynia, /datum/quirk/bad_touch),
@@ -31,9 +31,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/left_leg),
 	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/right_arm),
 	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/right_leg),
-=======
-	list(/datum/quirk/numb, /datum/quirk/selfaware),
->>>>>>> f83c5f72a0978 (Adds a "Hurt no More" quirk (#78102))
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
