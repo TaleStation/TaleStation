@@ -56,6 +56,15 @@
 	attack_verb_simple = list("burn")
 	tool_behaviour = TOOL_CAUTERY
 	toolspeed = 1
+<<<<<<< HEAD
+=======
+	heat = 500
+	/// How this looks when placed in a surgical tray
+	var/surgical_tray_overlay = "cautery_normal"
+
+/obj/item/cautery/get_surgery_tool_overlay(tray_extended)
+	return surgical_tray_overlay
+>>>>>>> ef44be8506fda (Cauteries have heat, you can smoke with a space helmet (#78122))
 
 /obj/item/cautery/ignition_effect(atom/ignitable_atom, mob/user)
 	. = span_notice("[user] touches the end of [src] to \the [ignitable_atom], igniting it with a puff of smoke.")
