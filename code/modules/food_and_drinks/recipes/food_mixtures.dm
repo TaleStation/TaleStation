@@ -46,7 +46,7 @@
 		var/atom/location = holder.my_atom.drop_location()
 		for(var/i in 1 to created_volume)
 			if(ispath(resulting_food_path, /obj/item/food) && !isnull(resulting_reagent_purity))
-				new resulting_food_path(location, starting_reagent_purity = resulting_reagent_purity)
+				new resulting_food_path(location, resulting_reagent_purity)
 			else
 				new resulting_food_path(location)
 
@@ -242,13 +242,13 @@
 	mix_message = "The mixture thickens into yoghurt."
 	reaction_flags = REACTION_INSTANT
 
-/datum/chemical_reaction/food/quality_oil_upconvert
+/datum/chemical_reaction/food/olive_oil_upconvert
 	required_reagents = list(/datum/reagent/consumable/nutriment/fat/oil/olive = 1, /datum/reagent/consumable/nutriment/fat/oil = 2)
 	results = list(/datum/reagent/consumable/nutriment/fat/oil/olive = 2)
 	mix_message = "The cooking oil dilutes the quality oil- how delightfully devilish..."
 	reaction_flags = REACTION_INSTANT
 
-/datum/chemical_reaction/food/quality_oil
+/datum/chemical_reaction/food/olive_oil
 	results = list(/datum/reagent/consumable/nutriment/fat/oil/olive = 2)
 	required_reagents = list(/datum/reagent/consumable/olivepaste = 4, /datum/reagent/water = 1)
 	reaction_flags = REACTION_INSTANT
