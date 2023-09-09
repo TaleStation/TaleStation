@@ -213,17 +213,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(!lighting_text)
 		return ..()
 
-<<<<<<< HEAD
-	if(!reagents.has_reagent(/datum/reagent/oxygen)) //cigarettes need oxygen
-		var/datum/gas_mixture/air = return_air()
-		if(!air || !air.has_gas(/datum/gas/oxygen, 1)) //or oxygen on a tile to burn
-			to_chat(user, span_notice("Your [name] needs a source of oxygen to burn."))
-			return ..()
-=======
 	if(!check_oxygen(user)) //cigarettes need oxygen
 		balloon_alert(user, "no air!")
 		return ..()
->>>>>>> 9cd3bd6195472 (Allows you to smoke cigarettes while not wearing a space helmet (#78202))
 
 	if(smoketime > 0)
 		light(lighting_text)
@@ -366,18 +358,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/process(seconds_per_tick)
 	var/mob/living/user = isliving(loc) ? loc : null
 	user?.ignite_mob()
-<<<<<<< HEAD
-	if(!reagents.has_reagent(/datum/reagent/oxygen)) //cigarettes need oxygen
-		var/datum/gas_mixture/air = return_air()
-		if(!air || !air.has_gas(/datum/gas/oxygen, 1)) //or oxygen on a tile to burn
-			extinguish()
-			return
-=======
 
 	if(!check_oxygen(user))
 		extinguish()
 		return
->>>>>>> 9cd3bd6195472 (Allows you to smoke cigarettes while not wearing a space helmet (#78202))
 
 	smoketime -= seconds_per_tick * (1 SECONDS)
 	if(smoketime <= 0)
