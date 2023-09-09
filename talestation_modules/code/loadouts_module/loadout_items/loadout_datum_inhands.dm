@@ -1,10 +1,13 @@
 // --- Loadout item datums for inhand items ---
 
 /// Inhand items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_item/inhand))
+/datum/loadout_category/inhands
+	category_name = "Inhand"
+	ui_title = "In-hand Items"
+	type_to_generate = /datum/loadout_item/inhand
 
 /datum/loadout_item/inhand
-	category = LOADOUT_ITEM_INHAND
+	abstract_type = /datum/loadout_item/inhand
 
 /datum/loadout_item/inhand/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(outfit.l_hand && !outfit.r_hand)

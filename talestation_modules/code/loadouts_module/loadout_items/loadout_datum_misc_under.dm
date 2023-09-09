@@ -3,9 +3,12 @@
 */
 
 /// Underslot - Misc. Under Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/under/miscellaneous))
+/datum/loadout_category/misc_clothing
+	category_name = "Miscellaneous"
+	type_to_generate = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous
+	abstract_type = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous/camo
 	name = "Camo Pants"

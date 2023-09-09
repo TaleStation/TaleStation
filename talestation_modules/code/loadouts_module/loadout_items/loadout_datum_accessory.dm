@@ -3,32 +3,50 @@
 #define ADJUSTABLE_TOOLTIP "LAYER ADJUSTABLE - You can opt to have accessory above or below your suit."
 
 /// Accessory Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/accessory))
+/datum/loadout_category/accessories
+	category_name = "Accessory"
+	ui_title = "Uniform Accessory Items"
+	type_to_generate = /datum/loadout_item/accessory
 
 /datum/loadout_item/accessory
-	category = LOADOUT_ITEM_ACCESSORY
+	abstract_type = /datum/loadout_item/accessory
 	// Can we adjust this accessory to be above or below suits?
-	var/can_be_layer_adjusted = FALSE
+	VAR_FINAL/can_be_layer_adjusted = FALSE
 
 /datum/loadout_item/accessory/New()
 	. = ..()
-	var/obj/item/clothing/accessory/accessory = item_path
-	if(!ispath(accessory))
-		return
+	if(!ispath(item_path, /obj/item/clothing/accessory))
+		can_be_layer_adjusted = TRUE
 
-	can_be_layer_adjusted = TRUE
-	add_tooltip(ADJUSTABLE_TOOLTIP, inverse_order = TRUE)
+/datum/loadout_item/accessory/get_ui_buttons()
+	. = ..()
+	if(can_be_layer_adjusted)
+		UNTYPED_LIST_ADD(., list(
+			"icon" = FA_ICON_ARROW_DOWN,
+			"act_key" = "set_layer",
+			"tooltip" = "You can modify this item to be above or below your over suit."
+		))
 
-/datum/loadout_item/accessory/handle_loadout_action(datum/loadout_manager/manager, action)
+/datum/loadout_item/accessory/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action)
 	switch(action)
 		if("set_layer")
-			if(!can_be_layer_adjusted)
-				return FALSE
-
-			manager.set_layer(src)
-			return TRUE
+			if(can_be_layer_adjusted)
+				set_accessory_layer(manager, user)
+				. = TRUE // update to show the new layer
 
 	return ..()
+
+/datum/loadout_item/accessory/proc/set_accessory_layer(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	if(!loadout?[item_path])
+		manager.select_item(src)
+
+	if(isnull(loadout[item_path][INFO_LAYER]))
+		loadout[item_path][INFO_LAYER] = FALSE
+
+	loadout[item_path][INFO_LAYER] = !loadout[item_path][INFO_LAYER]
+	to_chat(user, span_boldnotice("[name] will now appear [loadout[item_path][INFO_LAYER] ? "above" : "below"] suits."))
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 
 /datum/loadout_item/accessory/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(outfit.accessory)
@@ -94,7 +112,7 @@ GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/a
 /datum/loadout_item/accessory/dogtags
 	name = "Name-Inscribed Dogtags"
 	item_path = /obj/item/clothing/accessory/cosmetic_dogtag
-	additional_tooltip_contents = list("MATCHES NAME - The name inscribed on this item matches your character's name on spawn.")
+	additional_tooltip_contents = list("The name inscribed on this item matches your character's name on spawn.")
 
 /datum/loadout_item/accessory/pocket_protector
 	name = "Pocket Protector"
@@ -103,7 +121,7 @@ GLOBAL_LIST_INIT(loadout_accessory, generate_loadout_items(/datum/loadout_item/a
 /datum/loadout_item/accessory/full_pocket_protector
 	name = "Pocket Protector (Filled)"
 	item_path = /obj/item/clothing/accessory/pocketprotector/full
-	additional_tooltip_contents = list("CONTAINS PENS - This item contains multiple pens on spawn.")
+	additional_tooltip_contents = list("You'll spawn with multiple pens.")
 
 /datum/loadout_item/accessory/pride_pin
 	name = "Pride Pin"

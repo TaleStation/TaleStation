@@ -27,10 +27,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	// NON-MODULAR CHANGES: Our unique quirk blacklist
 	list(/datum/quirk/allodynia, /datum/quirk/pain_vulnerability, /datum/quirk/pain_resistance, /datum/quirk/glass_jaw),
 	list(/datum/quirk/allodynia, /datum/quirk/bad_touch),
-	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/left_arm),
-	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/left_leg),
-	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/right_arm),
-	list(/datum/quirk/body_purist, /datum/quirk/prosthetic_limb/targeted/right_leg),
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())

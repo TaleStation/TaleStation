@@ -1,10 +1,13 @@
 // --- Loadout item datums for glasses ---
 
 /// Glasses Slot Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/glasses))
+/datum/loadout_category/glasses
+	category_name = "Glasses"
+	ui_title = "Eye Slot Items"
+	type_to_generate = /datum/loadout_item/glasses
 
 /datum/loadout_item/glasses
-	category = LOADOUT_ITEM_GLASSES
+	abstract_type = /datum/loadout_item/glasses
 
 /datum/loadout_item/glasses/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(outfit.glasses)
@@ -32,7 +35,7 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 /datum/loadout_item/glasses/colored_blindfold
 	name = "Colored Blindfold"
 	item_path = /obj/item/clothing/glasses/blindfold/white/loadout
-	additional_tooltip_contents = list("MATCHES EYES - This item's color matches your character's eye color on spawn.")
+	additional_tooltip_contents = list("This item's color matches your character's eye color on spawn.")
 
 /datum/loadout_item/glasses/eyepatch
 	name = "Eyepatch"
@@ -41,7 +44,7 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 /datum/loadout_item/glasses/prescription_glasses
 	name = "Glasses"
 	item_path = /obj/item/clothing/glasses/regular
-	additional_tooltip_contents = list("PRESCRIPTION - This item functions with the 'nearsighted' quirk.")
+	additional_tooltip_contents = list("This item functions with the 'nearsighted' quirk.")
 
 /datum/loadout_item/glasses/orange_glasses
 	name = "Orange Glasses"

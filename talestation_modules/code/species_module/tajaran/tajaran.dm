@@ -50,13 +50,6 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
-	// Say sounds
-	species_speech_sounds = list('talestation_modules/sound/voice/meow1.ogg' = 50, \
-									'talestation_modules/sound/voice/meow2.ogg' = 50,
-									'talestation_modules/sound/voice/meow3.ogg' = 50)
-	species_speech_sounds_ask = list()
-	species_speech_sounds_exclaim = list()
-
 // Randomize tajaran
 /datum/species/tajaran/randomize_features(mob/living/carbon/human/human_mob)
 	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
@@ -111,3 +104,10 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	final_icon.Blend(COLOR_GRAY, ICON_MULTIPLY)
 
 	return final_icon
+
+/datum/species/tajaran/get_species_speech_sounds(sound_type)
+	return string_assoc_list(list(
+		'talestation_modules/sound/voice/meow1.ogg' = 50,
+		'talestation_modules/sound/voice/meow2.ogg' = 50,
+		'talestation_modules/sound/voice/meow3.ogg' = 50,
+	))
