@@ -1,10 +1,13 @@
 // --- Loadout item datums for ears ---
 
 /// Ear Slot Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_ears, generate_loadout_items(/datum/loadout_item/ears))
+/datum/loadout_category/ears
+	category_name = "Ears"
+	ui_title = "Ear Slot Items"
+	type_to_generate = /datum/loadout_item/ears
 
 /datum/loadout_item/ears
-	category = LOADOUT_ITEM_EARS
+	abstract_type = /datum/loadout_item/ears
 
 /datum/loadout_item/ears/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(outfit.ears)
