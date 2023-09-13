@@ -652,8 +652,6 @@
 /obj/effect/temp_visual/crit/Initialize(mapload)
 	. = ..()
 	animate(src, pixel_y = pixel_y + 16, alpha = 0, time = duration)
-<<<<<<< HEAD
-=======
 
 /obj/effect/temp_visual/jet_plume
 	name = "jet plume"
@@ -689,4 +687,3 @@
 		flags = ANIMATION_RELATIVE,
 	)
 	return ..()
->>>>>>> 172f65989ea40 (Nuclear Operative Jump Jets (#78088))
