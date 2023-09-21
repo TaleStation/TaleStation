@@ -8,6 +8,7 @@
 	medical_record_text = "Patient speaks multiple languages."
 	mail_goodies = list(/obj/item/taperecorder, /obj/item/clothing/head/frenchberet, /obj/item/clothing/mask/fakemoustache/italian)
 
+/* NON-MODULAR CHANGES: Disables bilingual quirk
 /datum/quirk/bilingual/add_unique(client/client_source)
 	var/wanted_language = client_source?.prefs.read_preference(/datum/preference/choiced/language)
 	var/datum/language/language_type
@@ -22,3 +23,4 @@
 			return
 		to_chat(quirk_holder, span_boldnotice("You are already familiar with the quirk in your preferences, so you learned Galactic Uncommon instead."))
 	quirk_holder.grant_language(language_type, source = LANGUAGE_QUIRK)
+*/
