@@ -414,7 +414,13 @@
 	qdel(src)
 
 /obj/item/bombcore/badmin/summon/clown
+<<<<<<< HEAD
 	summon_path = /mob/living/simple_animal/hostile/retaliate/clown
+=======
+	name = "bananium payload"
+	desc = "Clowns delivered fast and cheap!"
+	summon_path = /mob/living/basic/clown
+>>>>>>> 5db7992b09883 (basicmob clowns (#78448))
 	amt_summon = 50
 
 /obj/item/bombcore/badmin/summon/clown/defuse()
