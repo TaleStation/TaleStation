@@ -259,6 +259,13 @@
 		if(user)
 			to_chat(user, span_warning("\The [src] indicates that there is no mind present!"))
 		return FALSE
+<<<<<<< HEAD
+=======
+	if(brain?.decoy_override)
+		if(user)
+			to_chat(user, span_warning("This [name] does not seem to fit!"))
+		return FALSE
+>>>>>>> 6c9188f4e3525 (fix posibrains (#78584))
 	if(!B.key || !B.mind)
 		if(user)
 			to_chat(user, span_warning("\The [src] indicates that their mind is completely unresponsive!"))
