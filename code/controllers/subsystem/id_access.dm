@@ -344,12 +344,9 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_CENT_SPECOPS]"] = "Code Black"
 	desc_by_access["[ACCESS_CENT_CAPTAIN]"] = "Code Gold"
 	desc_by_access["[ACCESS_CENT_BAR]"] = "Code Scotch"
-<<<<<<< HEAD
+	desc_by_access["[ACCESS_BIT_DEN]"] = "Bitrunner Den"
 	// NON-MODULAR CHANGES: Our dictonary access
 	desc_by_access["[ACCESS_XENOBOTANY]"] = "XenoBotany Lab"
-=======
-	desc_by_access["[ACCESS_BIT_DEN]"] = "Bitrunner Den"
->>>>>>> a3849062b8756 (Feature: bitrunner, a new supply role (READY) (#77259))
 
 /**
  * Returns the access bitflags associated with any given access level.
