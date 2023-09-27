@@ -764,3 +764,95 @@
       Awards and 1 Atmospheric Mastery Award and CMOs get 3 Emergency Services Awards.'
   intercepti0n:
   - image: resprites t-ray scanner.
+2023-09-27:
+  LT3:
+  - bugfix: Fixed supermatter surges always being the lowest severity
+  - admin: Successful restart votes will now restart on the current map
+  - code_imp: End round and persistence data will be saved before executing successful
+      restart vote
+  - spellcheck: Improved wording in greyscale JSON error message
+  Melbert:
+  - rscadd: Changelings can now speak through their decoy brain if it is placed in
+      an MMI, to maintain the illusion they are actually dead and have been debrained.
+  Rhials:
+  - bugfix: '"Spooky" meteors will now properly spawn during halloween.'
+  TaleStationBot:
+  - bugfix: Syndicate Modsuit AI's now downloads the current codespeak book upon being
+      downloaded.
+  - bugfix: you can no longer push watchers (and any other lavaland basic mob) around
+      by running into them
+  - bugfix: Selecting "Monkey" on a magic mirror will now once again turn you into
+      a Monkey rather than a disgusting freak of nature.
+  - bugfix: Tall Boys have once again been barred from joining the Wizard Federation.
+  - rscadd: Added a candle box crate for all your candle needs!
+  - bugfix: The custom error message for when there is only one map to vote for should
+      pop up in all cases rather than just a select few.
+  - bugfix: Fixed job configs not being loaded properly.
+  - bugfix: Fixed the overflow role having less slots than it actually should.
+  - bugfix: Blob spores will respond to rallies more reliably (it won't runtime every
+      time they try and pathfind).
+  - bugfix: Blobbernaut pain animation overlays should align with the direction the
+      mob is facing instead of always facing South
+  - refactor: Blob spores, zombies, and blobbernauts now all use the basic mob framework.
+      They should work the same, but please report any issues.
+  - code_imp: New flags/args to electrocute_act()
+  - bugfix: Fixed beams rendering below mobs by default.
+  - bugfix: The fishing line beam is no longer emissive (it doesn't glow in the dark).
+  - bugfix: posibrains can be inserted again
+  - rscadd: Added the Hippocrates bust to medbay heirlooms. Paramedics don't get one.
+  - rscadd: You can now swear the Hippocratic oath with these busts! It'll give you
+      pacifism but nothing else. The process is reversible.
+  - rscadd: There's a very small chance that the Hippocrates bust was once wielded
+      by a certain German doctor. This chance is increased for coroner heirlooms.
+  - rscadd: Adds Bitrunning to supply department- a semi-offstation role that rewards
+      teamwork.
+  - rscadd: Adds new machines to complement the job- net pod, quantum server, quantum
+      consoles, and the nexacache vendor.
+  - rscadd: Adds several new maps which can be loaded and unloaded at will.
+  - rscadd: Some flair for the new bitrunning vendor.
+  - rscadd: Adds a new antagonist for the virtual domain only. Short lived ghost role
+      that fights bitrunners.
+  - rscdel: Removes the BEPIS machine, moves its tech into the Bitrunning vendor.
+  - refactor: clowns are basicmobs now
+  - bugfix: fixed Strong Stone ruin generation
+  - rscadd: Adds an advanced plastic surgery procedure, allowing you to imitate people
+      in pictures. Simply hold a picture in your offhand of the person you wish to
+      imitate as while conducting the surgery! Remember, it's not foolproof, it only
+      changes your name and voice!
+  - rscadd: You can obtain the disk containing the afromentioned surgery. as a role-restricted
+      item to doctors and roboticists for 1TC, as a rare maint loot and BEPIS technode
+      reward
+  - bugfix: Centcom now rejects contraband that somehow makes it way onto the cargo
+      shuttle mid-transit and returns it.
+  - bugfix: Fixed players being able to roll antagonist without ever being eligible
+      to play any role. Players who have their preferences set up so that they're
+      likely to return to lobby when the round starts have a lowered chance of becoming
+      antagonist.
+  - bugfix: Epinephrine will now update health properly.
+  - balance: Makes it so Ephedrine spasms have a 10 * (1.5 - purity)% chance per second
+      to happen, Adding a downside to pure Ephedrine
+  - rscadd: added ranged attack friendly fire checks for basic mobs. minebots and
+      hivebots will now try to avoid shooting their friends
+  - image: adds a frog holoform for pAIs
+  - image: the security records suspected status is now teal instead of orange
+  - refactor: Heavily refactored mirrors to be less ass cancer 1998 code. Player facing
+      changes are that mirrors now use a radial menu, women can get beards in magic
+      mirrors, made the magic mirror 'change sex' option Woke (it supports the 4 official
+      genders and physique as well)
+  - bugfix: Fixed Pride Mirror teleporting you into the space on the first use. Now
+      it waits until you officially cancel and say 'I am Done' so you can customize
+      yourself to your liking.
+  - bugfix: Metalgen can no longer be used to transmute indestructible turfs.
+  - bugfix: Intellicards in computers are no longer deleted when the computer is destroyed.
+  - bugfix: Modular consoles can now be deconstructed by right clicking with a wrench.
+  - bugfix: Fix secret documents steal objective failing while inside folder.
+  - bugfix: cigarettes no longer smoke themselves from inside your pockets or on your
+      hands.
+  - bugfix: Stun immune people should no longer have issues with gripper gloves and
+      other tackle gloves.
+  distributivgesetz:
+  - bugfix: Clamping/closing a wound should now heal the bodypart that was damaged
+      instead of a random one.
+  tattle:
+  - qol: Basic animals now make sounds for audible emotes
+  - sound: Added new sound effects for chicks, chickens, crabs, and insects
