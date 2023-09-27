@@ -24,12 +24,9 @@ export type SecurityRecord = {
   rank: string;
   species: string;
   wanted_status: string;
-<<<<<<< HEAD
+  voice: string;
   // NON-MODULAR CHANGES: Adds sec records to TGUI
   old_security_records: string;
-=======
-  voice: string;
->>>>>>> dd87788877896 (TTS: Gas Mask muffling, Hailer Mask voice effects, support for more filters that use samplerate, voice effects for lizards, ethereals, and xenomorphs. (#78567))
 };
 
 export type Crime = {
