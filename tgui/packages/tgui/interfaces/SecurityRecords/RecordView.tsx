@@ -56,12 +56,9 @@ const RecordInfo = (props, context) => {
     rank,
     species,
     wanted_status,
-<<<<<<< HEAD
+    voice,
     // NON-MODULAR CHANGES: Adds sec records to TGUI
     old_security_records,
-=======
-    voice,
->>>>>>> dd87788877896 (TTS: Gas Mask muffling, Hailer Mask voice effects, support for more filters that use samplerate, voice effects for lizards, ethereals, and xenomorphs. (#78567))
   } = foundRecord;
 
   const hasValidCrimes = !!crimes.find((crime) => !!crime.valid);
