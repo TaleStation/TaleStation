@@ -58,6 +58,7 @@
 /proc/random_backpack()
 	return pick(GLOB.backpacklist)
 
+<<<<<<< HEAD
 /proc/random_features()
 	if(!GLOB.tails_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/, GLOB.tails_list,  add_blank = TRUE)
@@ -133,6 +134,8 @@
 		"avian_tail" =(pick(GLOB.avian_tail_list)), //NON-MODULAR CHANGES: Avian
 	))
 
+=======
+>>>>>>> 9e1c71f794a74 (Reworks transformation sting to be temporarily in living mobs, forever in dead mobs (#78502))
 /proc/random_hairstyle(gender)
 	switch(gender)
 		if(MALE)
@@ -612,8 +615,6 @@ GLOBAL_LIST_EMPTY(species_list)
 	return (BODYTEMP_AUTORECOVERY_DIVISOR / 2) * log(1 + (temp_diff * change_rate))
 
 #define ISADVANCEDTOOLUSER(mob) (HAS_TRAIT(mob, TRAIT_ADVANCEDTOOLUSER) && !HAS_TRAIT(mob, TRAIT_DISCOORDINATED_TOOL_USER))
-
-#define IS_IN_STASIS(mob) (mob.has_status_effect(/datum/status_effect/grouped/stasis) || mob.has_status_effect(/datum/status_effect/embryonic))
 
 /// Gets the client of the mob, allowing for mocking of the client.
 /// You only need to use this if you know you're going to be mocking clients somewhere else.
