@@ -48,6 +48,7 @@ GLOBAL_LIST_INIT(limb_loadout_options, init_loadout_limb_options())
 /datum/limb_option_datum/proc/apply_limb(mob/living/carbon/human/apply_to)
 	return
 
+/* TO-DO: Adds this back if we hard fork, remove the pref option and quirk altogether. This is just cooler
 /datum/limb_option_datum/bodypart
 
 /datum/limb_option_datum/bodypart/New()
@@ -76,6 +77,7 @@ GLOBAL_LIST_INIT(limb_loadout_options, init_loadout_limb_options())
 /datum/limb_option_datum/bodypart/prosthetic_l_arm
 	name = "Prosthetic Left Arm"
 	limb_path = /obj/item/bodypart/arm/left/robot/surplus
+*/
 
 /datum/limb_option_datum/organ
 
