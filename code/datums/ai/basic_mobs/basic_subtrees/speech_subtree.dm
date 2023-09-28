@@ -222,11 +222,8 @@
 	if(isnull(speech_lines))
 		return ..()
 
-<<<<<<< HEAD
-=======
 	// Note to future developers: this behaviour a singleton so this probably doesn't work as you would expect
 	// The whole speech tree really needs to be refactored because this isn't how we use AI data these days
->>>>>>> f861532d240d3 (Basic Legion & Hivelord (#78624))
 	speak = speech_lines[BB_EMOTE_SAY] || list()
 	emote_see = speech_lines[BB_EMOTE_SEE] || list()
 	emote_hear = speech_lines[BB_EMOTE_HEAR] || list()
