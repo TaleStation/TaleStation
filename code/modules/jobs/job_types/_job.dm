@@ -184,24 +184,16 @@
 /mob/living/proc/on_job_equipping(datum/job/equipping)
 	return
 
-<<<<<<< HEAD
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
-=======
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping)
->>>>>>> 9ebfb27940936 (Fix roundstart crewmembers not getting their radio hint message / Examine blocks out starting job information (#78647))
+/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
 	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
 	bank_account.replaceable = FALSE
-<<<<<<< HEAD
-	dress_up_as_job(equipping, FALSE, used_pref) // NON-MODULAR CHANGES: LOADOUTS
-=======
 	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-	dress_up_as_job(equipping)
->>>>>>> 9ebfb27940936 (Fix roundstart crewmembers not getting their radio hint message / Examine blocks out starting job information (#78647))
+	dress_up_as_job(equipping, FALSE, used_pref) // NON-MODULAR CHANGES: LOADOUTS
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		equip_to_slot_or_del(new /obj/item/food/griddle_toast(src), ITEM_SLOT_MASK)

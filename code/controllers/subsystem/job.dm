@@ -554,13 +554,9 @@ SUBSYSTEM_DEF(job)
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
 	equipping.mind?.set_assigned_role_with_greeting(job, player_client)
-<<<<<<< HEAD
 
 	equipping.on_job_equipping(job, player_client?.prefs) // NON-MODULAR CHANGES
 
-=======
-	equipping.on_job_equipping(job)
->>>>>>> 9ebfb27940936 (Fix roundstart crewmembers not getting their radio hint message / Examine blocks out starting job information (#78647))
 	job.announce_job(equipping)
 
 	if(player_client?.holder)
