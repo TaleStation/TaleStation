@@ -52,8 +52,11 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 // Randomize tajaran
 /datum/species/tajaran/randomize_features(mob/living/carbon/human/human_mob)
-	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
-	randomize_external_organs(human_mob)
+	var/list/features = ..()
+	features["tajaran_ears"] = pick("Sharp", "Regular", "Tall", "Fluffy", "Short")
+	features["tajaran_snout"] = pick("Snout 1", "Snout 2", "Snout 3", "Snout 4", "Snout 5", "Snout 6")
+	features["tajaran_markings"] = pick("Default", "Stripes")
+	return features
 
 // Tajaran species preview in tgui
 /datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)

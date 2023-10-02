@@ -101,7 +101,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = get_consistent_feature_entry(GLOB.tails_list_human) // it's a lie
 	target.dna.features["tail_lizard"] = get_consistent_feature_entry(GLOB.tails_list_lizard)
 	target.dna.features["pod_hair"] = get_consistent_feature_entry(GLOB.pod_hair_list)
-<<<<<<< HEAD
+	target.dna.initialize_dna(create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// NON-MODULAR CHANGES: Modular dna.features
 	target.dna.features["head_tentacles"] = get_consistent_feature_entry(GLOB.head_tentacles_list)
 	target.dna.features["tajaran_snout"] = get_consistent_feature_entry(GLOB.tajaran_snout_list)
@@ -109,8 +109,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tajaran_body_markings"] = get_consistent_feature_entry(GLOB.tajaran_body_markings_list)
 	target.dna.features["avian_beak"] = get_consistent_feature_entry(GLOB.avian_beak_list)
 	target.dna.features["avian_tail"] = get_consistent_feature_entry(GLOB.avian_tail_list)
-=======
-	target.dna.initialize_dna(create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly
 	// In practice this doesn't matter, but this is for the sake of 100%(ish) consistency
 	var/static/consistent_UF
@@ -121,7 +119,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	else
 		target.dna.unique_features = consistent_UF
 		target.dna.unique_identity = consistent_UI
->>>>>>> 9e1c71f794a74 (Reworks transformation sting to be temporarily in living mobs, forever in dead mobs (#78502))
 
 /// Provides a dummy that is consistently bald, white, naked, etc.
 /mob/living/carbon/human/dummy/consistent
