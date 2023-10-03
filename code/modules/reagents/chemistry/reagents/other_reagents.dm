@@ -3011,5 +3011,13 @@
 		affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART, REM * seconds_per_tick) //1 heart damage per tick
 		if(SPT_PROB(10, seconds_per_tick))
 			affected_mob.emote(pick("twitch","choke","shiver","gag"))
+<<<<<<< HEAD
 		..()
 		return TRUE
+=======
+
+// The same as gold just with a slower metabolism rate, to make using the Hand of Midas easier.
+/datum/reagent/gold/cursed
+	name = "Cursed Gold"
+	metabolization_rate = 0.2 * REAGENTS_METABOLISM
+>>>>>>> 66a1cd6ab2c46 (Adds The Hand of Midas, an ancient Egyptian gun. (#78699))
