@@ -224,9 +224,15 @@
 	override = TRUE
 	colour = list(0.8,0,0,0, 0,0,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
 
+<<<<<<< HEAD
 // NON-MODULAR CHANGES: Monochrome lizard
 /datum/client_colour/monochrome/lizard
 	priority = PRIORITY_NORMAL
+=======
+/datum/client_colour/manual_heart_blood
+	priority = PRIORITY_ABSOLUTE
+	colour = COLOR_RED
+>>>>>>> 6bdf052a84c07 (Converts cursed heart effect into a component. (#78554))
 
 #undef PRIORITY_ABSOLUTE
 #undef PRIORITY_HIGH

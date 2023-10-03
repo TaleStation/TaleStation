@@ -679,7 +679,7 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	affected_mob.cure_trauma_type(temp_trauma, resilience = TRAUMA_RESILIENCE_MAGIC)
 
 /datum/reagent/inverse/corazargh
-	name = "Corazargh" //It's what you yell! Though, if you've a better name feel free. Also an omage to an older chem
+	name = "Corazargh" //It's what you yell! Though, if you've a better name feel free. Also an homage to an older chem
 	description = "Interferes with the body's natural pacemaker, forcing the patient to manually beat their heart."
 	color = "#5F5F5F"
 	self_consuming = TRUE
@@ -688,21 +688,19 @@ Basically, we fill the time between now and 2s from now with hands based off the
 	metabolization_rate = REM
 	chemical_flags = REAGENT_DEAD_PROCESS
 	tox_damage = 0
-	///Weakref to the old heart we're swapping for
-	var/datum/weakref/original_heart_ref
-	///Weakref to the new heart that's temp added
-	var/datum/weakref/manual_heart_ref
 
-///Creates a new cursed heart and puts the old inside of it, then replaces the position of the old
+///Give the victim the manual heart beating component.
 /datum/reagent/inverse/corazargh/on_mob_metabolize(mob/living/affected_mob)
 	if(!iscarbon(affected_mob))
 		return
 	var/mob/living/carbon/carbon_mob = affected_mob
-	var/obj/item/organ/internal/heart/original_heart = affected_mob.get_organ_slot(ORGAN_SLOT_HEART)
-	if(!original_heart)
+	var/obj/item/organ/internal/heart/affected_heart = carbon_mob.get_organ_slot(ORGAN_SLOT_HEART)
+	if(isnull(affected_heart))
 		return
-	original_heart_ref = WEAKREF(original_heart)
+	carbon_mob.AddComponent(/datum/component/manual_heart)
+	return ..()
 
+<<<<<<< HEAD
 	var/obj/item/organ/internal/heart/cursed/manual_heart = new(null, src)
 	manual_heart_ref = WEAKREF(manual_heart)
 	original_heart.Remove(carbon_mob, special = TRUE) //So we don't suddenly die
@@ -764,6 +762,11 @@ Basically, we fill the time between now and 2s from now with hands based off the
 		original_heart.Insert(affected_carbon, special = TRUE)
 	QDEL_NULL(manual_heart_ref)
 	to_chat(affected_mob, span_userdanger("You feel your heart start beating normally again!"))
+=======
+///We're done - remove the curse
+/datum/reagent/inverse/corazargh/on_mob_end_metabolize(mob/living/affected_mob)
+	qdel(affected_mob.GetComponent(/datum/component/manual_heart))
+>>>>>>> 6bdf052a84c07 (Converts cursed heart effect into a component. (#78554))
 	..()
 
 /datum/reagent/inverse/antihol
