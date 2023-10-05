@@ -57,7 +57,9 @@
 
 /mob/living/carbon/adjustBruteLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
 	if(!forced && (status_flags & GODMODE))
-		return FALSE
+		return 0
+	if(on_damage_adjustment(BRUTE, amount, forced) & COMPONENT_IGNORE_CHANGE)
+		return 0
 	if(amount > 0)
 		take_overall_damage(brute = amount, updating_health = updating_health, required_bodytype = required_bodytype)
 	else
@@ -73,7 +75,9 @@
 
 /mob/living/carbon/adjustFireLoss(amount, updating_health = TRUE, forced = FALSE, required_bodytype)
 	if(!forced && (status_flags & GODMODE))
-		return FALSE
+		return 0
+	if(on_damage_adjustment(BURN, amount, forced) & COMPONENT_IGNORE_CHANGE)
+		return 0
 	if(amount > 0)
 		take_overall_damage(burn = amount, updating_health = updating_health, required_bodytype = required_bodytype)
 	else
@@ -87,9 +91,19 @@
 		return
 	adjustFireLoss(diff, updating_health, forced, required_bodytype)
 
+<<<<<<< HEAD
 /mob/living/carbon/adjustToxLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype = MOB_ORGANIC)
 	if(!forced && !(mob_biotypes & required_biotype))
 		return
+=======
+/mob/living/carbon/adjustToxLoss(amount, updating_health = TRUE, forced = FALSE, required_biotype = ALL)
+	if(!forced && (status_flags & GODMODE))
+		return 0
+	if(!forced && !(mob_biotypes & required_biotype))
+		return 0
+	if(on_damage_adjustment(TOX, amount, forced) & COMPONENT_IGNORE_CHANGE)
+		return 0
+>>>>>>> 3ed187e86b494 (Basic Mob Flesh Worm (#78744))
 	if(!forced && HAS_TRAIT(src, TRAIT_TOXINLOVER)) //damage becomes healing and healing becomes damage
 		amount = -amount
 		if(HAS_TRAIT(src, TRAIT_TOXIMMUNE)) //Prevents toxin damage, but not healing

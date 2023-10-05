@@ -180,6 +180,11 @@
 #include "metabolizing.dm"
 #include "mindbound_actions.dm"
 #include "missing_icons.dm"
+<<<<<<< HEAD
+=======
+#include "mob_chains.dm"
+#include "mob_damage.dm"
+>>>>>>> 3ed187e86b494 (Basic Mob Flesh Worm (#78744))
 #include "mob_faction.dm"
 #include "mob_spawn.dm"
 #include "modify_fantasy_variable.dm"
