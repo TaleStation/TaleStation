@@ -44,7 +44,7 @@
 	test_screenshot("appearances", final_icon)
 
 /// Adds both mobs to the screenshot test, if both_species is TRUE, it also adds the victim in lizard form
-/datum/unit_test/transformation_sting/proc/add_to_screenshot(mob/living/carbon/human/ling, mob/living/carbon/human/victim, both_species = TRUE)
+/datum/unit_test/transformation_sting/proc/add_to_screenshot(mob/living/carbon/human/ling, mob/living/carbon/human/victim, both_species = FALSE)
 	if(isnull(final_icon))
 		final_icon = icon('icons/effects/effects.dmi', "nothing")
 
