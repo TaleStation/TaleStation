@@ -43,6 +43,7 @@
 		var/datum/action/cooldown/spell/new_spell = new spell(src)
 		new_spell.Grant(src)
 
+<<<<<<< HEAD
 /mob/living/simple_animal/hostile/heretic_summon/raw_prophet
 	name = "Raw Prophet"
 	real_name = "Raw Prophet"
@@ -352,6 +353,8 @@
 	matrix_transformation.Scale(1.4, 1.4)
 	transform = matrix_transformation
 
+=======
+>>>>>>> 3ed187e86b4 (Basic Mob Flesh Worm (#78744))
 /mob/living/simple_animal/hostile/heretic_summon/rust_spirit
 	name = "Rust Walker"
 	real_name = "Rusty"
