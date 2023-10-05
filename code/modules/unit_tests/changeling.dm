@@ -48,6 +48,7 @@
 	if(isnull(final_icon))
 		final_icon = icon('icons/effects/effects.dmi', "nothing")
 
+	final_icon = icon(final_icon)
 	final_icon.Insert(getFlatIcon(ling, no_anim = TRUE), dir = SOUTH, frame = last_frame)
 	final_icon.Insert(getFlatIcon(victim, no_anim = TRUE), dir = NORTH, frame = last_frame)
 
