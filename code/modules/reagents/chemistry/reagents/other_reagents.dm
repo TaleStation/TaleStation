@@ -1134,12 +1134,8 @@
 	ph = 6
 
 /datum/reagent/iron/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-<<<<<<< HEAD
-	if((affected_mob.blood_volume < BLOOD_VOLUME_NORMAL) && !(isskrell(affected_mob))) // NON-MODULAR CHANGES - Skrell do not benefit from iron.
-=======
 	. = ..()
-	if(affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
->>>>>>> 68b798efa0583 (A thorough audit of damage procs and specifically their use in on_mob_life() (with unit tests!) (#78657))
+	if((affected_mob.blood_volume < BLOOD_VOLUME_NORMAL) && !(isskrell(affected_mob))) // NON-MODULAR CHANGES - Skrell do not benefit from iron.
 		affected_mob.blood_volume += 0.25 * seconds_per_tick
 
 /datum/reagent/gold
