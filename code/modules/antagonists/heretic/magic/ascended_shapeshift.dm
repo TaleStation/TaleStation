@@ -6,10 +6,17 @@
 	cooldown_time = 20 SECONDS
 	die_with_shapeshifted_form = FALSE
 	possible_shapes = list(
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/heretic_summon/raw_prophet,
 		/mob/living/simple_animal/hostile/heretic_summon/rust_spirit,
 		/mob/living/simple_animal/hostile/heretic_summon/ash_spirit,
 		/mob/living/simple_animal/hostile/heretic_summon/stalker,
+=======
+		/mob/living/basic/heretic_summon/ash_spirit,
+		/mob/living/basic/heretic_summon/raw_prophet/ascended,
+		/mob/living/basic/heretic_summon/rust_walker,
+		/mob/living/basic/heretic_summon/stalker,
+>>>>>>> 5e2c8459dd04a (Basic Heretic Mobs: The Rest of Them (#78757))
 	)
 
 /datum/action/cooldown/spell/shapeshift/eldritch/ascension/do_shapeshift(mob/living/caster)
