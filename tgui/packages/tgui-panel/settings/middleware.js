@@ -10,11 +10,6 @@ import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetti
 import { selectSettings } from './selectors';
 import { FONTS_DISABLED } from './constants';
 
-<<<<<<< HEAD
-const setGlobalFontSize = (fontSize) => {
-  document.documentElement.style.setProperty('font-size', fontSize + 'px');
-  document.body.style.setProperty('font-size', fontSize + 'px');
-=======
 let overrideRule = null;
 let overrideFontFamily = null;
 let overrideFontSize = null;
@@ -43,14 +38,11 @@ const updateGlobalOverrideRule = () => {
 
 const setGlobalFontSize = (fontSize) => {
   overrideFontSize = `${fontSize}px`;
->>>>>>> 6c6d6a1db22b9 (Revert font scaling in TGUI chat back to its prior implementation (#78708))
 };
 
 const setGlobalFontFamily = (fontFamily) => {
   if (fontFamily === FONTS_DISABLED) fontFamily = null;
-
-  document.documentElement.style.setProperty('font-family', fontFamily);
-  document.body.style.setProperty('font-family', fontFamily);
+  overrideFontFamily = fontFamily;
 };
 
 export const settingsMiddleware = (store) => {
@@ -81,6 +73,7 @@ export const settingsMiddleware = (store) => {
       // Update global UI font size
       setGlobalFontSize(settings.fontSize);
       setGlobalFontFamily(settings.fontFamily);
+      updateGlobalOverrideRule();
       // Save settings to the web storage
       storage.set('panel-settings', settings);
       return;
