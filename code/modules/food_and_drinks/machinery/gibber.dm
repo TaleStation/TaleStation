@@ -243,4 +243,4 @@
 
 		if(victim.loc == input)
 			victim.forceMove(src)
-			victim.gib()
+			victim.gib(DROP_ALL_REMAINS)

@@ -137,12 +137,21 @@
 		carrion.set_custom_materials((carrion.custom_materials - meat_mats) + list(GET_MATERIAL_REF(/datum/material/meat/mob_meat, meat) = counterlist_sum(meat_mats)))
 
 	if(butcher)
+<<<<<<< HEAD
 		butcher.visible_message(span_notice("[butcher] butchers [meat]."), \
 								span_notice("You butcher [meat]."))
 	butcher_callback?.Invoke(butcher, meat)
 	meat.harvest(butcher)
 	meat.log_message("has been butchered by [key_name(butcher)]", LOG_ATTACK)
 	meat.gib(FALSE, FALSE, TRUE)
+=======
+		butcher.visible_message(span_notice("[butcher] butchers [target]."), \
+			span_notice("You butcher [target]."))
+	butcher_callback?.Invoke(butcher, target)
+	target.harvest(butcher)
+	target.log_message("has been butchered by [key_name(butcher)]", LOG_ATTACK)
+	target.gib(DROP_BRAIN|DROP_ORGANS)
+>>>>>>> d6f79f4427661 (Refactor gib code to use bitflags and have documentation (#78754))
 
 ///Enables the butchering mechanic for the mob who has equipped us.
 /datum/component/butchering/proc/enable_butchering(datum/source)
