@@ -363,12 +363,10 @@
 	. = ..()
 	REMOVE_TRAIT(affected_mob, TRAIT_HOLY, type)
 
-/* // NON-MODULAR CHANGES: This doesn't really do much anyways
 /datum/reagent/water/holywater/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
 	if(IS_CULTIST(exposed_mob))
 		to_chat(exposed_mob, span_userdanger("A vile holiness begins to spread its shining tendrils through your mind, purging the Geometer of Blood's influence!"))
-*/
 
 /datum/reagent/water/holywater/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -711,14 +709,12 @@
 	race = /datum/species/jelly/slime
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/* NON-MODULAR CHANGES: Felinid Removal
 /datum/reagent/mutationtoxin/felinid
 	name = "Felinid Mutation Toxin"
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	race = /datum/species/human/felinid
 	taste_description = "something nyat good"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
-*/ // NON-MODULAR CANGES END
 
 /datum/reagent/mutationtoxin/lizard
 	name = "Lizard Mutation Toxin"
@@ -1135,7 +1131,7 @@
 
 /datum/reagent/iron/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	if((affected_mob.blood_volume < BLOOD_VOLUME_NORMAL) && !(isskrell(affected_mob))) // NON-MODULAR CHANGES - Skrell do not benefit from iron.
+	if(affected_mob.blood_volume < BLOOD_VOLUME_NORMAL)
 		affected_mob.blood_volume += 0.25 * seconds_per_tick
 
 /datum/reagent/gold
@@ -3039,3 +3035,8 @@
 			. = UPDATE_MOB_HEALTH
 		if(SPT_PROB(10, seconds_per_tick))
 			affected_mob.emote(pick("twitch","choke","shiver","gag"))
+
+// The same as gold just with a slower metabolism rate, to make using the Hand of Midas easier.
+/datum/reagent/gold/cursed
+	name = "Cursed Gold"
+	metabolization_rate = 0.2 * REAGENTS_METABOLISM
