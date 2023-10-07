@@ -105,11 +105,8 @@
 		/mob/living/simple_animal/hostile/guardian/support,
 <<<<<<< HEAD
 		/mob/living/simple_animal/hostile/heretic_summon,
-		/mob/living/simple_animal/hostile/heretic_summon/armsy,
-		/mob/living/simple_animal/hostile/heretic_summon/armsy/prime,
 		/mob/living/simple_animal/hostile/heretic_summon/ash_spirit,
 		/mob/living/simple_animal/hostile/heretic_summon/maid_in_the_mirror,
-		/mob/living/simple_animal/hostile/heretic_summon/raw_prophet,
 		/mob/living/simple_animal/hostile/heretic_summon/rust_spirit,
 		/mob/living/simple_animal/hostile/heretic_summon/stalker,
 =======
@@ -168,7 +165,6 @@
 		/mob/living/simple_animal/hostile/pirate/ranged,
 		/mob/living/simple_animal/hostile/pirate/ranged/space,
 		/mob/living/simple_animal/hostile/retaliate,
-		/mob/living/simple_animal/hostile/retaliate/goat,
 		/mob/living/simple_animal/hostile/retaliate/goose,
 		/mob/living/simple_animal/hostile/retaliate/goose/vomit,
 		/mob/living/simple_animal/hostile/retaliate/nanotrasenpeace,
