@@ -33,6 +33,9 @@
 	assignment = "Asset Protection"
 	trim_icon = 'talestation_modules/icons/jobs/card.dmi'
 	trim_state = "trim_assetprotection"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_SECURITY_RED
+	department_state = "departmenthead"
 	sechud_icon = 'talestation_modules/icons/jobs/hud.dmi'
 	sechud_icon_state = "hudassetprotection"
 
@@ -79,6 +82,9 @@
 	assignment = "Bridge Officer"
 	trim_icon = 'talestation_modules/icons/jobs/card.dmi'
 	trim_state = "trim_bridgeofficer"
+	department_color = COLOR_COMMAND_BLUE
+	subdepartment_color = COLOR_COMMAND_BLUE
+	department_state = "departmenthead"
 	sechud_icon = 'talestation_modules/icons/jobs/hud.dmi'
 	sechud_icon_state = "hudbridgeofficer"
 
@@ -129,6 +135,8 @@
 	assignment = "Xenobiologist"
 	trim_icon = 'talestation_modules/icons/jobs/card.dmi'
 	trim_state = "trim_xenobiologist"
+	department_color = COLOR_SCIENCE_PINK
+	subdepartment_color = COLOR_SCIENCE_PINK
 	sechud_icon = 'talestation_modules/icons/jobs/hud.dmi'
 	sechud_icon_state = "hudxenobiologist"
 
