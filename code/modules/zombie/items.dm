@@ -74,16 +74,6 @@
 	if(target.stat == DEAD)
 		var/hp_gained = target.maxHealth
 		target.investigate_log("has been devoured by a zombie.", INVESTIGATE_DEATHS)
-<<<<<<< HEAD
-		target.gib()
-		// zero as argument for no instant health update
-		user.adjustBruteLoss(-hp_gained, 0)
-		user.adjustToxLoss(-hp_gained, 0)
-		user.adjustFireLoss(-hp_gained, 0)
-		user.adjustCloneLoss(-hp_gained, 0)
-		user.updatehealth()
-		user.adjustOrganLoss(ORGAN_SLOT_BRAIN, -hp_gained) // Zom Bee gibbers "BRAAAAISNSs!1!"
-=======
 		target.gib(DROP_ALL_REMAINS)
 		var/need_mob_update
 		need_mob_update = user.adjustBruteLoss(-hp_gained, updating_health = FALSE)
@@ -91,5 +81,6 @@
 		need_mob_update += user.adjustFireLoss(-hp_gained, updating_health = FALSE)
 		need_mob_update += user.adjustCloneLoss(-hp_gained, updating_health = FALSE)
 		need_mob_update += user.adjustOrganLoss(ORGAN_SLOT_BRAIN, -hp_gained) // Zom Bee gibbers "BRAAAAISNSs!1!"
->>>>>>> d6f79f4427661 (Refactor gib code to use bitflags and have documentation (#78754))
 		user.set_nutrition(min(user.nutrition + hp_gained, NUTRITION_LEVEL_FULL))
+		if(need_mob_update)
+			user.updatehealth()
