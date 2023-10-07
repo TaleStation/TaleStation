@@ -520,7 +520,7 @@
 			if(70 to INFINITY)
 				high_pain_effects(seconds_per_tick)
 
-	if(!IS_IN_STASIS(parent) && !parent.on_fire)
+	if(!HAS_TRAIT(parent, TRAIT_STASIS) && !parent.on_fire)
 		decay_pain(seconds_per_tick)
 
 /**

@@ -38,15 +38,15 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
-// Randomize tajaran
+// Randomize avian
 /datum/species/avian/randomize_features(mob/living/carbon/human/human_mob)
-	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
-	randomize_external_organs(human_mob)
+	var/list/features = ..()
+	features["avian_beak"] = pick("Short", "Long")
+	features["avian_tail"] = pick("Wide", "Short")
+	return features
 
-// Tajaran species preview in tgui
+// Avian species preview in tgui
 /datum/species/avian/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	//human_for_preview.hairstyle = "Business Hair"
-	//human_for_preview.hair_color = "#504444"
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
 	human_for_preview.dna.features["avian_beak"] = "short"
 	human_for_preview.dna.features["avian_tail"] = "wide"

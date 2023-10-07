@@ -86,3 +86,8 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 			return string_assoc_list(list('talestation_modules/sound/voice/huff_exclaim.ogg' = 120))
 		else
 			return string_assoc_list(list('talestation_modules/sound/voice/huff.ogg' = 120))
+
+/datum/species/skrell/randomize_features(mob/living/carbon/human/human_mob)
+	var/list/features = ..()
+	features["head_tentacles"] = pick("Short", "Long")
+	return features
