@@ -53,9 +53,7 @@
 	ADD_TRAIT(src, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 
 /mob/living/carbon/human/proc/setup_human_dna()
-	//initialize dna. for spawned humans; overwritten by other code
-	randomize_human(src)
-	dna.initialize_dna()
+	randomize_human(src, randomize_mutations = TRUE)
 
 /mob/living/carbon/human/Destroy()
 	QDEL_NULL(physiology)
@@ -695,7 +693,7 @@
 	if(heal_flags & HEAL_NEGATIVE_MUTATIONS)
 		for(var/datum/mutation/human/existing_mutation in dna.mutations)
 			if(existing_mutation.quality != POSITIVE)
-				dna.remove_mutation(existing_mutation.name)
+				dna.remove_mutation(existing_mutation)
 
 	if(heal_flags & HEAL_TEMP)
 		set_coretemperature(get_body_temp_normal(apply_change = FALSE))
