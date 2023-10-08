@@ -153,3 +153,100 @@
       damage on the mob. added a unit test for this
   distributivgesetz:
   - bugfix: Font scaling in TGUI chat has been reverted to its original implementation.
+2023-10-08:
+  Coded by Jacquerel, Sprited by Dalmationer:
+  - rscadd: Added tongs to the kitchen, which you can use to manipulate food from
+      further away
+  FIoppie:
+  - sound: '*flap now makes a fluttering noise for moth wings'
+  - sound: Moths now have a death sound
+  - qol: '*tremble emote now is just "trembles!" instead of "trembles in fear!"'
+  Jacquerel:
+  - refactor: Flesh Worms are now basic mobs. Please report any unexpected behaviour.
+  Melbert:
+  - bugfix: Fixed an error from reading an ID card closely when you can't read
+  - refactor: Refactors how ethereals update their color when damaged.
+  - qol: Moved a lot of maintenance spawnpoints out of non-maintenance rooms. Some
+      antags (paradox clone, fugitives, nightmares, spiders) are now less likely to
+      spawn in obvious places like the morgue, tech storage, or dorms rooms.
+  - qol: AI, cyborg, and PAI camera (photo taking) behavior now uses balloon alerts
+      and has sound effects associated
+  - refactor: Refactored AI, cyborg, and PAI camera (photo taking) code
+  - bugfix: fixed being unable to print photos as a cyborg when below 50% toner, even
+      though photos only take 5%
+  TaleStationBot:
+  - refactor: Refactored goats into basic mobs! Not much should have changed beyond
+      their endless desire to retaliate should you attack them, they're still just
+      as good as chomping away plant life as ever.
+  - refactor: Refactor gib code to be more robust.
+  - qol: Gibbing a mob will result in all items being dropped instead of getting deleted.
+      There are a few exceptions (like admin gib self) where this will not take place.
+  - rscadd: The laser carbine, a weak but fully automatic sidegrade to the normal
+      laser gun, can now be ordered from cargo.
+  - qol: '"prison" intercoms have been renamed to "receive-only" intercoms to make
+      it clearer they cannot transmit.'
+  - admin: Admins can turn off dynamic rulesets (or force them on despite not meeting
+      the qualification criteria) on a per-round basis.
+  - bugfix: Borgs will no longer become permanently upside-down if tipped over by
+      multiple people at the same time.
+  - bugfix: Adminheal will now properly clear negative mutations as intended.
+  - bugfix: It is no longer possible to chasm yourself on the geode. Again.
+  - refactor: Raw Prophets now use the basic mob framework. Please report any unusual
+      behaviour.
+  - code_imp: exploration drone adventures are now file-based and not database-based
+  - bugfix: Fixed silent catwalks.
+  - bugfix: The Galactic Materials Market now offers things for sale as it should.
+  - bugfix: The AI can no longer turn you off if you shapeshift into a robot.
+  - balance: Despite earlier reports suggesting that the famous lethality of the Regal
+      Condor was largely a myth, there has been rumors that the gun has once again
+      started to display its true killing potential on any station that it 'manifests'.
+  - bugfix: fixed bad food not having bad food reagents
+  - bugfix: plumbing reaction chamber now balances the ph of it's solution correctly
+      to the best of it's ability so no guarantees
+  - code_imp: converted plumbing reaction chamber & mixing chamber UI files to Typescript
+  - refactor: plumbing mixing chamber now also accepts an TGUI input list to input
+      it's chemicals
+  - bugfix: you are now made a ghost faster if you get gibbed
+  - qol: gives empty fireaxe and mech removal crowbars cabinets directional helpers
+  - refactor: Rust Walkers, Ash Spirits, Flesh Stalkers, and The Maid in the Mirror
+      now use the basic mob framework. Please report any unusual behaviour.
+  - rscadd: Fake moustaches are now poorly slapped on top of what you're wearing
+  - spellcheck: '"offical" has been officially corrected to "official" in several
+      official locations.'
+  - balance: CQC legsweeps now cause knockdown instead of paralysis.
+  - balance: CQC kicks now knockout a target on the floor for ten seconds if they
+      reach stam crit. Helmet protection shortens the knockout length.
+  - bugfix: fixed a PDA's messenger TGUI issue with handling of destroyed recipients.
+  - bugfix: Engineering borgs can no longer grab and drop their own iron/glass sheet
+      module.
+  - bugfix: Your heart will no longer be deleted if an admin heals you while you have
+      corazargh in your system.
+  - refactor: The cursed heart has been streamlined a bit, and now gives you a visual
+      cooldown for when you can beat your heart again.
+  - qol: Departmental order consoles now alert their department via radio when their
+      cooldown expires
+  - bugfix: Ice whelps can now use spells given to them by admins, and people who
+      have polymorphed into ice whelps can now polymorph back to normal.
+  - qol: allows janitor keys to be stored in janitor wintercoats and janibets
+  - rscadd: The funds the syndicate have been saving by restricting galley access
+      has been suddenly funneled into a singular mosaic pattern in the experiments
+      wing.
+  - bugfix: Blood once again appears as small drops instead of splatters during minor
+      bleeding.
+  - qol: Added slapcrafting to unloaded tech shells, click on them with ingredients
+      to quickly craft your shell.
+  - rscadd: Fish analyzers can now be used to perform fish scanning experiments.
+  - balance: They can now be singularly bought as a goodie pack for 125 cr each, instead
+      of a crate of three for 500 cr.
+  - bugfix: Fix butchered monkeys to transfer reagents and diseases to meat
+  Wallem:
+  - rscadd: Buffs the Active Sonar module with a radial scan, and makes the power
+      costs more in-line with other modules.
+  - rscadd: Adds The Hand of Midas, an ancient Egyptian matchlock pistol.
+  neocloudy:
+  - bugfix: MetaStation disposal pipes from Cargo to Disposals/the rest of the station
+      are working again.
+  ninjanomnom:
+  - admin: Appearance vars in VV now display instead of being left blank
+  oranges:
+  - rscadd: Dogs now react to centrist grillers more realistically
