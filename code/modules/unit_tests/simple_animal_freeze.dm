@@ -103,14 +103,6 @@
 		/mob/living/simple_animal/hostile/guardian/ranged,
 		/mob/living/simple_animal/hostile/guardian/standard,
 		/mob/living/simple_animal/hostile/guardian/support,
-<<<<<<< HEAD
-		/mob/living/simple_animal/hostile/heretic_summon,
-		/mob/living/simple_animal/hostile/heretic_summon/ash_spirit,
-		/mob/living/simple_animal/hostile/heretic_summon/maid_in_the_mirror,
-		/mob/living/simple_animal/hostile/heretic_summon/rust_spirit,
-		/mob/living/simple_animal/hostile/heretic_summon/stalker,
-=======
->>>>>>> 5e2c8459dd04a (Basic Heretic Mobs: The Rest of Them (#78757))
 		/mob/living/simple_animal/hostile/illusion,
 		/mob/living/simple_animal/hostile/illusion/escape,
 		/mob/living/simple_animal/hostile/illusion/mirage,
