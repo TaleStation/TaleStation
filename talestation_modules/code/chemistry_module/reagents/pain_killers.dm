@@ -33,7 +33,6 @@
 		Causes drowsiness and eventually unconsciousness in high doses. \
 		Overdose causes minor dizziness and jitteriness."
 	addiction_types = list(/datum/addiction/opioids = 30) //5u = 100 progress, 25-30u = addiction
-	harmful = TRUE
 	// Morphine is THE painkiller
 	pain_modifier = 0.5
 
@@ -258,7 +257,6 @@
 	color = "#e695ff"
 	metabolization_rate = REAGENTS_METABOLISM
 	pain_modifier = 0.75
-	harmful = TRUE
 
 /datum/reagent/medicine/painkiller/aspirin_para_coffee/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
 	// Heals all pain a bit if in low dosage.
@@ -284,7 +282,6 @@
 	ph = 5.6
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/opioids = 45) //5u = 150 progress, 15-20u = addiction
-	harmful = TRUE
 	pain_modifier = 0.4
 
 /datum/reagent/medicine/painkiller/oxycodone/on_mob_life(mob/living/carbon/M, seconds_per_tick, times_fired)
