@@ -284,8 +284,6 @@
 /obj/structure/fluff/tram_rail/anchor
 	name = "tram rail anchor"
 	icon_state = "anchor"
-<<<<<<< HEAD
-=======
 
 /obj/structure/fluff/broken_canister_frame
 	name = "broken canister frame"
@@ -294,4 +292,3 @@
 	anchored = FALSE
 	density = TRUE
 	deconstructible = TRUE
->>>>>>> 626a2aedad020 (Gives broken canisters a description (#79005))
