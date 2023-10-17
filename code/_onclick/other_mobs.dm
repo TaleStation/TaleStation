@@ -34,8 +34,49 @@
 		return
 	SEND_SIGNAL(src, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, A, proximity_flag, modifiers)
 
+<<<<<<< HEAD
 	if(!right_click_attack_chain(A, modifiers) && !dna?.species?.spec_unarmedattack(src, A, modifiers)) //Because species like monkeys dont use attack hand
 		A.attack_hand(src, modifiers)
+=======
+/mob/living/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
+	// The sole reason for this signal needing to exist is making FotNS incompatible with Hulk.
+	// Note that it is send before [proc/can_unarmed_attack] is called, keep this in mind.
+	var/sigreturn = SEND_SIGNAL(src, COMSIG_LIVING_EARLY_UNARMED_ATTACK, attack_target, modifiers)
+	if(sigreturn & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
+	if(sigreturn & COMPONENT_SKIP_ATTACK)
+		return FALSE
+
+	if(!can_unarmed_attack())
+		return FALSE
+
+	sigreturn = SEND_SIGNAL(src, COMSIG_LIVING_UNARMED_ATTACK, attack_target, proximity_flag, modifiers)
+	if(sigreturn & COMPONENT_CANCEL_ATTACK_CHAIN)
+		return TRUE
+	if(sigreturn & COMPONENT_SKIP_ATTACK)
+		return FALSE
+
+	if(!right_click_attack_chain(attack_target, modifiers))
+		resolve_unarmed_attack(attack_target, modifiers)
+	return TRUE
+
+/mob/living/carbon/human/UnarmedAttack(atom/attack_target, proximity_flag, list/modifiers)
+	// Humans can always check themself regardless of having their hands blocked or w/e
+	if(src == attack_target && !combat_mode && HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
+		check_self_for_injuries()
+		return TRUE
+
+	return ..()
+
+/mob/living/carbon/resolve_unarmed_attack(atom/attack_target, list/modifiers)
+	return attack_target.attack_paw(src, modifiers)
+
+/mob/living/carbon/human/resolve_unarmed_attack(atom/attack_target, list/modifiers)
+	if(!ISADVANCEDTOOLUSER(src))
+		return ..()
+
+	return attack_target.attack_hand(src, modifiers)
+>>>>>>> dcedf89c70b45 (Fixes being able to punch yourself (#79033))
 
 /mob/living/carbon/human/resolve_right_click_attack(atom/target, list/modifiers)
 	return target.attack_hand_secondary(src, modifiers)

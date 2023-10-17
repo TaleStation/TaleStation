@@ -410,7 +410,13 @@
 		return
 	var/datum/dna/dna = source.has_dna()
 	if(dna?.check_mutation(/datum/mutation/human/hulk)) //NO HULK
+<<<<<<< HEAD
 		return
+=======
+		return NONE
+	if(!source.can_unarmed_attack())
+		return COMPONENT_SKIP_ATTACK
+>>>>>>> dcedf89c70b45 (Fixes being able to punch yourself (#79033))
 
 	var/mob/living/living_target = target
 	source.changeNext_move(CLICK_CD_MELEE)

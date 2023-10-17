@@ -36,6 +36,7 @@
 /datum/mutation/human/hulk/proc/on_attack_hand(mob/living/carbon/human/source, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
 
+<<<<<<< HEAD
 	if(!proximity)
 		return
 	if(!source.combat_mode || LAZYACCESS(modifiers, RIGHT_CLICK))
@@ -47,6 +48,14 @@
 		log_combat(source, target, "punched", "hulk powers")
 		source.do_attack_animation(target, ATTACK_EFFECT_SMASH)
 		source.changeNext_move(CLICK_CD_MELEE)
+=======
+	if(!source.combat_mode || !proximity || LAZYACCESS(modifiers, RIGHT_CLICK))
+		return NONE
+	if(!source.can_unarmed_attack())
+		return COMPONENT_SKIP_ATTACK
+	if(!target.attack_hulk(owner))
+		return NONE
+>>>>>>> dcedf89c70b45 (Fixes being able to punch yourself (#79033))
 
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
