@@ -44,11 +44,7 @@
 		if (title && length(title) > 0)
 			announcement += "[span_prioritytitle("<br>[title]")]"
 	else if(type == "Captain")
-<<<<<<< HEAD
-		announcement += "<h1 class='alert'>Site Director Announces</h1>" // NON-MODULAR CHANGES: Captain -> Site Director
-=======
-		announcement += "[span_priorityannounce("<u>Captain Announces</u>")]"
->>>>>>> 37db1ecbf8d7c (Fixes announcements font scaling (#78995))
+		announcement += "[span_priorityannounce("<u>Site Director Announces</u>")]" // NON-MODULAR CHANGES: Captain -> Site Director
 		GLOB.news_network.submit_article(text, "Captain's Announcement", "Station Announcements", null)
 	else if(type == "Syndicate Captain")
 		announcement += "[span_priorityannounce("<u>Syndicate Captain Announces</u>")]"
