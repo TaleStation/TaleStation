@@ -1,33 +1,9 @@
-<<<<<<< HEAD
-#define RCD_DESTRUCTIVE_SCAN_RANGE 10
-#define RCD_HOLOGRAM_FADE_TIME (15 SECONDS)
-#define RCD_DESTRUCTIVE_SCAN_COOLDOWN (RCD_HOLOGRAM_FADE_TIME + 1 SECONDS)
-
-///each define maps to a variable used for construction in the RCD
-#define CONSTRUCTION_MODE "construction_mode"
-#define WINDOW_TYPE "window_type"
-#define COMPUTER_DIR "computer_dir"
-#define WALLFRAME_TYPE "wallframe_type"
-#define FURNISH_TYPE "furnish_type"
-#define AIRLOCK_TYPE "airlock_type"
-
-///flags to be sent to UI
-#define TITLE "title"
-#define ICON "icon"
-
-///flags for creating icons shared by an entire category
-#define CATEGORY_ICON_STATE  "category_icon_state"
-#define CATEGORY_ICON_SUFFIX "category_icon_suffix"
-#define TITLE_ICON "ICON=TITLE"
-
-=======
 /// Multiplier applied on construction & deconstruction time when building multiple structures
 #define FREQUENT_USE_DEBUFF_MULTIPLIER 3
 
 /// Delay before another rcd scan can be performed in the UI
 #define RCD_DESTRUCTIVE_SCAN_COOLDOWN (RCD_HOLOGRAM_FADE_TIME + 1 SECONDS)
 
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 //RAPID CONSTRUCTION DEVICE
 
 /obj/item/construction/rcd
@@ -70,8 +46,8 @@
 
 	COOLDOWN_DECLARE(destructive_scan_cooldown)
 
+	///number of active rcd effects in use e.g. when building multiple walls at once this value increases
 	var/current_active_effects = 0
-	var/frequent_use_debuff_multiplier = 3
 
 /obj/effect/rcd_hologram
 	name = "hologram"
@@ -136,10 +112,6 @@
 	user.visible_message(span_suicide("[user] pulls the trigger... But there is not enough ammo!"))
 	return SHAME
 
-<<<<<<< HEAD
-/// check can the structure be placed on the turf
-/obj/item/construction/rcd/proc/can_place(atom/A, list/rcd_results, mob/user)
-=======
 /**
  * checks if we can build the structure
  * Arguments
@@ -151,18 +123,11 @@
 /obj/item/construction/rcd/proc/can_place(atom/target, list/rcd_results, mob/user)
 	var/rcd_mode = rcd_results["[RCD_DESIGN_MODE]"]
 	var/atom/movable/rcd_structure = rcd_results["[RCD_DESIGN_PATH]"]
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 	/**
 	 *For anything that does not go an a wall we have to make sure that turf is clear for us to put the structure on it
 	 *If we are just trying to destory something then this check is not nessassary
 	 *RCD_WALLFRAME is also returned as the rcd_mode when upgrading apc, airalarm, firealarm using simple circuits upgrade
 	 */
-<<<<<<< HEAD
-	if(rcd_results["mode"] != RCD_WALLFRAME && rcd_results["mode"] != RCD_DECONSTRUCT)
-		var/turf/target_turf = get_turf(A)
-		//if we are trying to build a window on top of a grill we check for specific edge cases
-		if(rcd_results["mode"] == RCD_WINDOWGRILLE && istype(A, /obj/structure/grille))
-=======
 	if(rcd_mode != RCD_WALLFRAME && rcd_mode != RCD_DECONSTRUCT)
 		var/turf/target_turf = get_turf(target)
 		//if we are trying to build a window we check for specific edge cases
@@ -170,33 +135,28 @@
 			var/obj/structure/window/window_type = rcd_structure
 			var/is_full_tile = initial(window_type.fulltile)
 
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 			var/list/structures_to_ignore
-
-			//if we are trying to build full-tile windows we only ignore the grille but other directional windows on the grill can block its construction
-			if(window_type == /obj/structure/window/fulltile || window_type == /obj/structure/window/reinforced/fulltile)
-				structures_to_ignore = list(A)
-			//for normal directional windows we ignore the grille & other directional windows as they can be in diffrent directions on the grill. There is a later check during construction to deal with those
-			else
-				structures_to_ignore = list(/obj/structure/grille, /obj/structure/window)
+			if(istype(target, /obj/structure/grille))
+				if(is_full_tile) //if we are trying to build full-tile windows we ignore the grille
+					structures_to_ignore = list(target)
+				else //no building directional windows on grills
+					return FALSE
+			else //for directional windows we ignore other directional windows as they can be in diffrent directions on the turf.
+				structures_to_ignore = list(/obj/structure/window)
 
 			//check if we can build our window on the grill
-			if(target_turf.is_blocked_turf(exclude_mobs = FALSE, source_atom = null, ignore_atoms = structures_to_ignore, type_list = (length(structures_to_ignore) == 2)))
+			if(target_turf.is_blocked_turf(exclude_mobs = !is_full_tile, source_atom = null, ignore_atoms = structures_to_ignore, type_list = !is_full_tile))
 				playsound(loc, 'sound/machines/click.ogg', 50, TRUE)
-				balloon_alert(user, "something is on the grille!")
+				balloon_alert(user, "something is blocking the turf")
 				return FALSE
 
 		/**
 		 * if we are trying to create plating on turf which is not a proper floor then dont check for objects on top of the turf just allow that turf to be converted into plating. e.g. create plating beneath a player or underneath a machine frame/any dense object
 		 * if we are trying to finish a wall girder then let it finish then make sure no one/nothing is stuck in the girder
 		 */
-<<<<<<< HEAD
-		else if(rcd_results["mode"] == RCD_FLOORWALL && (!istype(target_turf, /turf/open/floor) || istype(A, /obj/structure/girder)))
-=======
 		else if(rcd_mode == RCD_TURF && rcd_structure == /turf/open/floor/plating/rcd  && (!istype(target_turf, /turf/open/floor) || istype(target, /obj/structure/girder)))
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 			//if a player builds a wallgirder on top of himself manually with iron sheets he can't finish the wall if he is still on the girder. Exclude the girder itself when checking for other dense objects on the turf
-			if(istype(A, /obj/structure/girder) && target_turf.is_blocked_turf(exclude_mobs = FALSE, source_atom = null, ignore_atoms = list(A)))
+			if(istype(target, /obj/structure/girder) && target_turf.is_blocked_turf(exclude_mobs = FALSE, source_atom = null, ignore_atoms = list(target)))
 				playsound(loc, 'sound/machines/click.ogg', 50, TRUE)
 				balloon_alert(user, "something is on the girder!")
 				return FALSE
@@ -238,31 +198,33 @@
 
 	return TRUE
 
-/obj/item/construction/rcd/proc/rcd_create(atom/A, mob/user)
+/**
+ * actual proc to create the structure
+ *
+ * Arguments
+ * * [atom][target]- the target we are trying to build on/deconstruct e.g. turf, wall etc
+ * * [mob][user]- the user building this structure
+ */
+/obj/item/construction/rcd/proc/rcd_create(atom/target, mob/user)
 	//does this atom allow for rcd actions?
-	var/list/rcd_results = A.rcd_vals(user, src)
+	var/list/rcd_results = target.rcd_vals(user, src)
 	if(!rcd_results)
 		return FALSE
 	rcd_results["[RCD_DESIGN_MODE]"] = mode
 	rcd_results["[RCD_DESIGN_PATH]"] = rcd_design_path
 
 	var/delay = rcd_results["delay"] * delay_mod
-
 	if (
 		!(upgrade & RCD_UPGRADE_NO_FREQUENT_USE_COOLDOWN) \
 			&& !rcd_results[RCD_RESULT_BYPASS_FREQUENT_USE_COOLDOWN] \
 			&& current_active_effects > 0
 	)
-		delay *= frequent_use_debuff_multiplier
+		delay *= FREQUENT_USE_DEBUFF_MULTIPLIER
 
 	current_active_effects += 1
-	rcd_create_effect(A, user, delay, rcd_results)
+	_rcd_create_effect(target, user, delay, rcd_results)
 	current_active_effects -= 1
 
-<<<<<<< HEAD
-/obj/item/construction/rcd/proc/rcd_create_effect(atom/target, mob/user, delay, list/rcd_results)
-	var/obj/effect/constructing_effect/rcd_effect = new(get_turf(target), delay, src.mode, upgrade)
-=======
 /**
  * Internal proc which creates the rcd effects & creates the structure
  *
@@ -274,7 +236,6 @@
  */
 /obj/item/construction/rcd/proc/_rcd_create_effect(atom/target, mob/user, delay, list/rcd_results)
 	var/obj/effect/constructing_effect/rcd_effect = new(get_turf(target), delay, rcd_results["[RCD_DESIGN_MODE]"], upgrade)
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 
 	//resource & structure placement sanity checks before & after delay along with beam effects
 	if(!checkResource(rcd_results["cost"], user) || !can_place(target, rcd_results, user))
@@ -519,21 +480,6 @@
 		0.0, 0.0, 0.0, 0.0,
 	)
 
-<<<<<<< HEAD
-#undef CONSTRUCTION_MODE
-#undef WINDOW_TYPE
-#undef COMPUTER_DIR
-#undef WALLFRAME_TYPE
-#undef FURNISH_TYPE
-#undef AIRLOCK_TYPE
-
-#undef TITLE
-#undef ICON
-
-#undef CATEGORY_ICON_STATE
-#undef CATEGORY_ICON_SUFFIX
-#undef TITLE_ICON
-=======
 /obj/item/construction/rcd/combat
 	name = "industrial RCD"
 	icon_state = "ircd"
@@ -565,7 +511,6 @@
 
 #undef FREQUENT_USE_DEBUFF_MULTIPLIER
 #undef RCD_DESTRUCTIVE_SCAN_COOLDOWN
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 
 /obj/item/rcd_ammo
 	name = "RCD matter cartridge"

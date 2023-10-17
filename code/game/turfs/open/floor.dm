@@ -217,10 +217,6 @@
 				src, RCD_MEMORY_WALL,
 			)
 		if(RCD_WINDOWGRILLE)
-<<<<<<< HEAD
-			return rcd_result_with_memory(
-				list("mode" = RCD_WINDOWGRILLE, "delay" = 1 SECONDS, "cost" = 4),
-=======
 			//default cost for building a grill for fulltile windows
 			var/cost = 4
 			var/delay = 1 SECONDS
@@ -232,7 +228,6 @@
 				delay = 2.5 SECONDS
 			return rcd_result_with_memory(
 				list("delay" = delay, "cost" = cost),
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 				src, RCD_MEMORY_WINDOWGRILLE,
 			)
 		if(RCD_AIRLOCK)
@@ -367,56 +362,6 @@
 			if(!ScrapeAway(flags = CHANGETURF_INHERIT_AIR))
 				return FALSE
 			return TRUE
-<<<<<<< HEAD
-		if(RCD_WINDOWGRILLE)
-			if(locate(/obj/structure/grille) in src)
-				return FALSE
-			var/obj/structure/grille/new_grille = new(src)
-			new_grille.set_anchored(TRUE)
-			return TRUE
-		if(RCD_MACHINE)
-			if(locate(/obj/structure/frame/machine) in src)
-				return FALSE
-			var/obj/structure/frame/machine/new_machine = new(src)
-			new_machine.state = 2
-			new_machine.icon_state = "box_1"
-			new_machine.set_anchored(TRUE)
-			return TRUE
-		if(RCD_COMPUTER)
-			if(locate(/obj/structure/frame/computer) in src)
-				return FALSE
-			var/obj/structure/frame/computer/new_computer = new(src)
-			new_computer.set_anchored(TRUE)
-			new_computer.state = 1
-			new_computer.setDir(the_rcd.computer_dir)
-			return TRUE
-		if(RCD_FLOODLIGHT)
-			if(locate(/obj/structure/floodlight_frame) in src)
-				return FALSE
-			var/obj/structure/floodlight_frame/new_floodlight = new(src)
-			new_floodlight.name = "secured [new_floodlight.name]"
-			new_floodlight.desc = "A bare metal frame that looks like a floodlight. Requires a light tube to complete."
-			new_floodlight.icon_state = "floodlight_c3"
-			new_floodlight.state = FLOODLIGHT_NEEDS_LIGHTS
-			return TRUE
-		if(RCD_GIRDER)
-			if(locate(/obj/structure/girder) in src)
-				return FALSE
-			new /obj/structure/girder(src)
-			return TRUE
-		if(RCD_FURNISHING)
-			if(locate(the_rcd.furnish_type) in src)
-				return FALSE
-			var/atom/new_furnish = new the_rcd.furnish_type(src)
-			new_furnish.setDir(user.dir)
-			if(istype(new_furnish, /obj/machinery/microwave/engineering))
-				var/obj/machinery/microwave/engineering/new_mw = new_furnish
-				var/obj/item/stock_parts/cell/new_cell = new()
-				new_mw.cell = new_cell
-				new_mw.update_appearance()
-			return TRUE
-=======
->>>>>>> 66f726dfe31da (General code maintenance for rcd devices and their DEFINE file (#78443))
 	return FALSE
 
 /turf/open/floor/material
