@@ -30,6 +30,11 @@ export const tajaran_body_markings_color: Feature<string> = {
   component: FeatureColorInput,
 };
 
+export const lizard_body_markings_color: Feature<string> = {
+  name: 'Lizard Body Markings Color',
+  component: FeatureColorInput,
+};
+
 export const feature_avian_tail: FeatureChoiced = {
   name: 'Tail',
   component: FeatureDropdownInput,

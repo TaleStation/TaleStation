@@ -1,10 +1,13 @@
 // --- Loadout item datums for neck items ---
 
 /// Neck Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck))
+/datum/loadout_category/neck
+	category_name = "Neck"
+	ui_title = "Neck Slot Items"
+	type_to_generate = /datum/loadout_item/neck
 
 /datum/loadout_item/neck
-	category = LOADOUT_ITEM_NECK
+	abstract_type = /datum/loadout_item/neck
 
 /datum/loadout_item/neck/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.neck = item_path

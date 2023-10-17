@@ -3,8 +3,14 @@
 // All signals send the source datum of the signal as the first argument
 
 ///from the [EX_ACT] wrapper macro: (severity, target)
+#define COMSIG_ATOM_PRE_EX_ACT "atom_pre_ex_act"
+	/// if returned, don't let the explosion act on this atom
+	#define COMPONENT_CANCEL_EX_ACT (1<<0)
+///from the [EX_ACT] wrapper macro: (severity, target)
 #define COMSIG_ATOM_EX_ACT "atom_ex_act"
-///from base of atom/emp_act(): (severity)
+///from base of atom/emp_act(): (severity). return EMP protection flags
+#define COMSIG_ATOM_PRE_EMP_ACT "atom_emp_act"
+///from base of atom/emp_act(): (severity, protection)
 #define COMSIG_ATOM_EMP_ACT "atom_emp_act"
 ///from base of atom/fire_act(): (exposed_temperature, exposed_volume)
 #define COMSIG_ATOM_FIRE_ACT "atom_fire_act"

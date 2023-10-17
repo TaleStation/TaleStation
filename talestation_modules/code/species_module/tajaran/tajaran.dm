@@ -50,17 +50,13 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
-	// Say sounds
-	species_speech_sounds = list('talestation_modules/sound/voice/meow1.ogg' = 50, \
-									'talestation_modules/sound/voice/meow2.ogg' = 50,
-									'talestation_modules/sound/voice/meow3.ogg' = 50)
-	species_speech_sounds_ask = list()
-	species_speech_sounds_exclaim = list()
-
 // Randomize tajaran
 /datum/species/tajaran/randomize_features(mob/living/carbon/human/human_mob)
-	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
-	randomize_external_organs(human_mob)
+	var/list/features = ..()
+	features["tajaran_ears"] = pick("Sharp", "Regular", "Tall", "Fluffy", "Short", "Puffy")
+	features["tajaran_snout"] = pick("Snout 1", "Snout 2", "Snout 3", "Snout 4", "Snout 5", "Snout 6")
+	features["tajaran_markings"] = pick("Default", "Stripes")
+	return features
 
 // Tajaran species preview in tgui
 /datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
@@ -87,31 +83,34 @@ GLOBAL_LIST_EMPTY(tajaran_body_markings_list)
 	return randname
 
 // Generates tajaran side profile for prefs
-/proc/generate_tajaran_side_shots(list/sprite_accessories, key, include_snout = TRUE)
-	var/list/values = list()
+/proc/generate_tajaran_side_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/tajaran
+	var/static/icon/tajaran_with_snout
 
-	var/icon/tajaran = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+	if (isnull(tajaran))
+		tajaran = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
+		eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
+		tajaran.Blend(eyes, ICON_OVERLAY)
 
-	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
-	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
-	tajaran.Blend(eyes, ICON_OVERLAY)
+		tajaran_with_snout = icon(tajaran)
+		tajaran_with_snout.Blend(icon('talestation_modules/icons/species/tajaran/tajaran_snouts.dmi', "m_tajaran_snout_wide", EAST), ICON_OVERLAY)
 
-	if (include_snout)
-		tajaran.Blend(icon('talestation_modules/icons/species/tajaran/tajaran_snouts.dmi', "m_tajaran_snout_wide", EAST), ICON_OVERLAY)
+	var/icon/final_icon = include_snout ? icon(tajaran_with_snout) : icon(tajaran)
 
-	for (var/name in sprite_accessories)
-		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
-		var/icon/final_icon = icon(tajaran)
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_GRAY, ICON_MULTIPLY)
 
-		if (sprite_accessory.icon_state != "none")
-			var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
-			final_icon.Blend(accessory_icon, ICON_OVERLAY)
+	return final_icon
 
-		final_icon.Crop(11, 20, 23, 32)
-		final_icon.Scale(32, 32)
-		final_icon.Blend(COLOR_GRAY, ICON_MULTIPLY)
-
-		values[name] = final_icon
-
-	return values
+/datum/species/tajaran/get_species_speech_sounds(sound_type)
+	return string_assoc_list(list(
+		'talestation_modules/sound/voice/meow1.ogg' = 50,
+		'talestation_modules/sound/voice/meow2.ogg' = 50,
+		'talestation_modules/sound/voice/meow3.ogg' = 50,
+	))

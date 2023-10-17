@@ -112,48 +112,6 @@
 	quirk_holder.add_mood_event("bad_touch", /datum/mood_event/very_bad_touch)
 	COOLDOWN_START(src, time_since_last_touch, 30 SECONDS)
 
-// Prosthetic limb quirks (targeted limbs)
-/datum/quirk/prosthetic_limb
-	name = "Prosthetic Limb - Random"
-
-/datum/quirk/prosthetic_limb/targeted
-	value = -2
-	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE //while parent doesn't change appearance because it's random, here we know for sure what limbs are prosthetic.
-	abstract_parent_type = /datum/quirk/prosthetic_limb/targeted
-	/// Typepath of what bodypart we're adding onto our person.
-	var/obj/item/bodypart/replacement
-
-/datum/quirk/prosthetic_limb/targeted/add_unique()
-	if(!replacement)
-		CRASH("Targeted prosthetic limb quirk tried to add a null replacement to [quirk_holder]!")
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	if(!istype(human_holder))
-		return
-	var/obj/item/bodypart/prosthetic = new replacement
-	slot_string = "[prosthetic.plaintext_zone]"
-
-	human_holder.del_and_replace_bodypart(prosthetic, TRUE)
-
-/datum/quirk/prosthetic_limb/targeted/left_arm
-	name = "Prosthetic Limb - Left Arm"
-	desc = "Your left arm is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/arm/left/robot/surplus
-
-/datum/quirk/prosthetic_limb/targeted/right_arm
-	name = "Prosthetic Limb - Right Arm"
-	desc = "Your right arm is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/arm/right/robot/surplus
-
-/datum/quirk/prosthetic_limb/targeted/left_leg
-	name = "Prosthetic Limb - Left Leg"
-	desc = "Your left leg is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/leg/left/robot/surplus
-
-/datum/quirk/prosthetic_limb/targeted/right_leg
-	name = "Prosthetic Limb - Right Leg"
-	desc = "Your right leg is replaced with a prosthetic."
-	replacement = /obj/item/bodypart/leg/right/robot/surplus
-
 // Personally, the head being more prone to pain is a cool idea
 /datum/quirk/glass_jaw
 	desc = "Your jaw is weak and susceptible to knockouts if ample damage is applied. Its also much weaker to pain."

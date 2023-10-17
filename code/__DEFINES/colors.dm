@@ -46,6 +46,7 @@
 #define COLOR_SOFT_RED "#FA8282"
 #define COLOR_CULT_RED "#960000"
 #define COLOR_BUBBLEGUM_RED "#950A0A"
+#define COLOR_CARP_RIFT_RED "#ff330030"
 
 #define COLOR_YELLOW "#FFFF00"
 #define COLOR_VIVID_YELLOW "#FBFF23"
@@ -56,6 +57,7 @@
 #define COLOR_VIBRANT_LIME "#00FF00"
 #define COLOR_SERVICE_LIME "#58C800"
 #define COLOR_JADE "#5EFB6E"
+#define COLOR_EMERALD "#00CC66"
 #define COLOR_LIME "#32CD32"
 #define COLOR_DARK_LIME "#00aa00"
 #define COLOR_VERY_PALE_LIME_GREEN "#DDFFD3"
@@ -92,6 +94,7 @@
 #define COLOR_STRONG_MAGENTA "#B800B8"
 #define COLOR_PURPLE "#800080"
 #define COLOR_VIOLET "#B900F7"
+#define COLOR_VOID_PURPLE "#53277E"
 #define COLOR_STRONG_VIOLET "#6927C5"
 #define COLOR_DARK_PURPLE "#551A8B"
 
@@ -202,6 +205,8 @@
 #define LIGHT_COLOR_DEFAULT "#f3fffa"
 /// Bright but quickly dissipating neon green. rgb(100, 200, 100)
 #define LIGHT_COLOR_GREEN "#64C864"
+/// Bright, pale "nuclear" green. rgb(120, 255, 120)
+#define LIGHT_COLOR_NUCLEAR "#78FF78"
 /// Vivid, slightly blue green. rgb(60, 240, 70)
 #define LIGHT_COLOR_VIVID_GREEN "#3CF046"
 /// Electric green. rgb(0, 255, 0)
@@ -286,6 +291,7 @@
 /// Icon filter that creates gaussian blur
 #define GAUSSIAN_BLUR(filter_size) filter(type="blur", size=filter_size)
 
+// Colors related to items used in construction
 #define CABLE_COLOR_BLUE "blue"
 	#define CABLE_HEX_COLOR_BLUE COLOR_STRONG_BLUE
 #define CABLE_COLOR_BROWN "brown"
@@ -304,6 +310,9 @@
 	#define CABLE_HEX_COLOR_WHITE COLOR_WHITE
 #define CABLE_COLOR_YELLOW "yellow"
 	#define CABLE_HEX_COLOR_YELLOW COLOR_YELLOW
+//windows affected by Nar'Sie turn this color.
+#define NARSIE_WINDOW_COLOUR "#7D1919"
+
 
 #define COLOR_CARP_PURPLE "#aba2ff"
 #define COLOR_CARP_PINK "#da77a8"
@@ -321,6 +330,30 @@
 #define COLOR_CARP_PALE_GREEN "#7ef099"
 #define COLOR_CARP_SILVER "#fdfbf3"
 #define COLOR_CARP_DARK_BLUE "#3a384d"
+#define COLOR_CARP_DARK_GREEN "#358102"
+
+#define COLOR_SLIME_ADAMANTINE "#135f49"
+#define COLOR_SLIME_BLACK "#3b3b3b"
+#define COLOR_SLIME_BLUE "#19ffff"
+#define COLOR_SLIME_BLUESPACE "#ebebeb"
+#define COLOR_SLIME_CERULEAN "#5783aa"
+#define COLOR_SLIME_DARK_BLUE "#2e9dff"
+#define COLOR_SLIME_DARK_PURPLE "#9948f7"
+#define COLOR_SLIME_GOLD "#c38b07"
+#define COLOR_SLIME_GREEN "#07f024"
+#define COLOR_SLIME_GREY "#c2c2c2"
+#define COLOR_SLIME_LIGHT_PINK "#ffe1fa"
+#define COLOR_SLIME_METAL "#676767"
+#define COLOR_SLIME_OIL "#242424"
+#define COLOR_SLIME_ORANGE "#ffb445"
+#define COLOR_SLIME_PINK "#fe5bbd"
+#define COLOR_SLIME_PURPLE "#d138ff"
+#define COLOR_SLIME_PYRITE "#ffc427"
+#define COLOR_SLIME_RAINBOW COLOR_SLIME_GREY // only for consistency
+#define COLOR_SLIME_RED "#fb4848"
+#define COLOR_SLIME_SEPIA "#9b8a7a"
+#define COLOR_SLIME_SILVER "#dadada"
+#define COLOR_SLIME_YELLOW "#fff419"
 
 #define COLOR_GNOME_RED_ONE "#f10b0b"
 #define COLOR_GNOME_RED_TWO "#bc5347"
@@ -341,6 +374,17 @@
 
 #define SOFA_BROWN "#a75400"
 #define SOFA_MAROON "#830000"
+
+#define COLOR_ICECREAM_VANILLA "#f2eede"
+#define COLOR_ICECREAM_CHOCOLATE "#93683c"
+#define COLOR_ICECREAM_STRAWBERRY "#f4cbcb"
+#define COLOR_ICECREAM_BLUE "#cbd5f4"
+#define COLOR_ICECREAM_LEMON "#ffff9f"
+#define COLOR_ICECREAM_CARAMEL "#d98736"
+#define COLOR_ICECREAM_ORANGESICLE "#ffa980"
+#define COLOR_ICECREAM_PEACH "#ffcc66"
+#define COLOR_ICECREAM_CUSTOM "#f3f3f3"
+#define COLOR_ICECREAM_CHERRY_CHOCOLATE "#800000"
 
 GLOBAL_LIST_INIT(cable_colors, list(
 	CABLE_COLOR_BLUE = CABLE_HEX_COLOR_BLUE,

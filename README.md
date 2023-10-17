@@ -11,7 +11,9 @@ Come make a story to share with friends and foes alike.
 
 ## Links
 
-Main - https://discord.gg/24Q2rKzgR3
+Discord - https://discord.gg/24Q2rKzgR3
+
+Server - https://shiptest.net/tale
 
 ## LICENSE
 

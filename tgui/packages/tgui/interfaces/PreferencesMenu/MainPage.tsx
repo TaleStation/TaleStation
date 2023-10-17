@@ -13,7 +13,7 @@ import { filterMap, sortBy } from 'common/collections';
 import { useRandomToggleState } from './useRandomToggleState';
 
 const CLOTHING_CELL_SIZE = 48;
-const CLOTHING_SIDEBAR_ROWS = 13.5; // NON-MODULAR CHANGES
+const CLOTHING_SIDEBAR_ROWS = 9;
 
 const CLOTHING_SELECTION_CELL_SIZE = 48;
 const CLOTHING_SELECTION_WIDTH = 5.4;
@@ -22,7 +22,6 @@ const CLOTHING_SELECTION_MULTIPLIER = 5.2;
 const CharacterControls = (props: {
   handleRotate: () => void;
   handleOpenSpecies: () => void;
-  handleOpenLoadouts: () => void; // NON-MODULAR CHANGES: Loadouts
   gender: Gender;
   setGender: (gender: Gender) => void;
   showGender: boolean;
@@ -57,16 +56,6 @@ const CharacterControls = (props: {
           />
         </Stack.Item>
       )}
-
-      <Stack.Item>
-        <Button // NON-MODULAR CHANGES: Loadouts - Also fuck the commenting scheme for tsx
-          onClick={props.handleOpenLoadouts}
-          fontSize="22px"
-          icon="briefcase"
-          tooltip="Loadouts"
-          tooltipPosition="top"
-        />
-      </Stack.Item>
     </Stack>
   );
 };
@@ -538,10 +527,6 @@ export const MainPage = (
                       handleOpenSpecies={props.openSpecies}
                       handleRotate={() => {
                         act('rotate');
-                      }}
-                      // NON-MODULAR CHANGES: Loadouts
-                      handleOpenLoadouts={() => {
-                        act('open_loadout_manager');
                       }}
                       setGender={createSetPreference(act, 'gender')}
                       showGender={

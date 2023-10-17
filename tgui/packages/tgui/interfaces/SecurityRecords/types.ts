@@ -24,6 +24,7 @@ export type SecurityRecord = {
   rank: string;
   species: string;
   wanted_status: string;
+  voice: string;
   // NON-MODULAR CHANGES: Adds sec records to TGUI
   old_security_records: string;
 };

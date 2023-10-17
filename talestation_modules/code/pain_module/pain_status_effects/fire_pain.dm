@@ -4,6 +4,7 @@
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = null
 	remove_on_fullheal = TRUE
+	on_remove_on_mob_delete = TRUE
 	heal_flag_necessary = HEAL_ADMIN|HEAL_WOUNDS|HEAL_STATUS
 
 	/// Amount of pain being given

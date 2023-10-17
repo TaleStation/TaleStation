@@ -1,10 +1,13 @@
 // --- Loadout item datums for heads ---
 
 /// Head Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_helmets, generate_loadout_items(/datum/loadout_item/head))
+/datum/loadout_category/head
+	category_name = "Head"
+	ui_title = "Head Slot Items"
+	type_to_generate = /datum/loadout_item/head
 
 /datum/loadout_item/head
-	category = LOADOUT_ITEM_HEAD
+	abstract_type = /datum/loadout_item/head
 
 /datum/loadout_item/head/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(isplasmaman(equipper))

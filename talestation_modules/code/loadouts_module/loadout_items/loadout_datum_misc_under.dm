@@ -3,9 +3,12 @@
 */
 
 /// Underslot - Misc. Under Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/under/miscellaneous))
+/datum/loadout_category/misc_clothing
+	category_name = "Miscellaneous"
+	type_to_generate = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous
+	abstract_type = /datum/loadout_item/under/miscellaneous
 
 /datum/loadout_item/under/miscellaneous/camo
 	name = "Camo Pants"
@@ -65,7 +68,7 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 
 /datum/loadout_item/under/miscellaneous/henchmen_suit
 	name = "Henchmen Suit"
-	item_path = /obj/item/clothing/under/suit/henchmen
+	item_path = /obj/item/clothing/under/costume/henchmen
 
 /datum/loadout_item/under/miscellaneous/jackbros_outfit
 	name = "Jack Bros Outfit"

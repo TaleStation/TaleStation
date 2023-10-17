@@ -1,10 +1,34 @@
 // --- Loadout item datums for backpack / pocket items ---
 
 /// Pocket items (Moved to backpack)
-GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_item/pocket_items))
+/datum/loadout_category/pocket
+	category_name = "Other"
+	type_to_generate = /datum/loadout_item/pocket_items
+	/// How many pocket items are allowed
+	var/max_allowed = 3
+
+/datum/loadout_category/pocket/New()
+	. = ..()
+	ui_title = "Backpack Items ([max_allowed] max)"
+
+/datum/loadout_category/pocket/handle_duplicate_entires(
+	datum/preference_middleware/loadout/manager,
+	datum/loadout_item/conflicting_item,
+	datum/loadout_item/added_item,
+	list/datum/loadout_item/all_loadout_items,
+)
+	var/list/datum/loadout_item/pocket_items/other_pocket_items = list()
+	for(var/datum/loadout_item/pocket_items/other_pocket_item in all_loadout_items)
+		other_pocket_items += other_pocket_item
+
+	if(length(other_pocket_items) >= max_allowed)
+		// We only need to deselect something if we're above the limit
+		// (And if we are we prioritize the first item found, FIFO)
+		manager.deselect_item(other_pocket_items[1])
+	return TRUE
 
 /datum/loadout_item/pocket_items
-	category = LOADOUT_ITEM_MISC
+	abstract_type = /datum/loadout_item/pocket_items
 
 /datum/loadout_item/pocket_items/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
 	// Backpack items aren't created if it's a visual equipping, so don't do any on equip stuff. It doesn't exist.
@@ -165,6 +189,7 @@ GLOBAL_LIST_INIT(loadout_pocket_items, generate_loadout_items(/datum/loadout_ite
 	item_path = /obj/item/lipstick
 
 /datum/loadout_item/pocket_items/plush
+	abstract_type = /datum/loadout_item/pocket_items/plush
 	can_be_named = TRUE
 
 /datum/loadout_item/pocket_items/plush/lizard_random

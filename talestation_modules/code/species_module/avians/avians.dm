@@ -38,22 +38,15 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
-	// Say sounds
-	species_speech_sounds = list('talestation_modules/sound/voice/meow1.ogg' = 50, \
-									'talestation_modules/sound/voice/meow2.ogg' = 50,
-									'talestation_modules/sound/voice/meow3.ogg' = 50)
-	species_speech_sounds_ask = list()
-	species_speech_sounds_exclaim = list()
-
-// Randomize tajaran
+// Randomize avian
 /datum/species/avian/randomize_features(mob/living/carbon/human/human_mob)
-	human_mob.dna.features["ears"] = pick(GLOB.ears_list)
-	randomize_external_organs(human_mob)
+	var/list/features = ..()
+	features["avian_beak"] = pick("Short", "Long")
+	features["avian_tail"] = pick("Wide", "Short")
+	return features
 
-// Tajaran species preview in tgui
+// Avian species preview in tgui
 /datum/species/avian/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
-	//human_for_preview.hairstyle = "Business Hair"
-	//human_for_preview.hair_color = "#504444"
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
 	human_for_preview.dna.features["avian_beak"] = "short"
 	human_for_preview.dna.features["avian_tail"] = "wide"
@@ -76,31 +69,33 @@ GLOBAL_LIST_EMPTY(avian_tail_list)
 	return randname
 
 // Generates avian side profile for prefs
-/proc/generate_avian_side_shots(list/sprite_accessories, key, include_snout = TRUE)
-	var/list/values = list()
+/proc/generate_avian_side_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/avian
+	var/static/icon/avian_with_snout
 
-	var/icon/avian = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+	if (isnull(avian))
+		avian = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "tajaran_head_m", EAST)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
+		eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
+		avian.Blend(eyes, ICON_OVERLAY)
 
-	var/icon/eyes = icon('icons/mob/species/human/human_face.dmi', "eyes", EAST)
-	eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
-	avian.Blend(eyes, ICON_OVERLAY)
+		avian_with_snout = icon(avian)
+		avian_with_snout.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
 
-	if (include_snout)
-		avian.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
+	var/icon/final_icon = include_snout ? icon(avian_with_snout) : icon(avian)
 
-	for (var/name in sprite_accessories)
-		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
-		var/icon/final_icon = icon(avian)
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
 
-		if (sprite_accessory.icon_state != "none")
-			var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
-			final_icon.Blend(accessory_icon, ICON_OVERLAY)
+	return final_icon
 
-		final_icon.Crop(11, 20, 23, 32)
-		final_icon.Scale(32, 32)
-		final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
-
-		values[name] = final_icon
-
-	return values
+/* TO-DO: They need to CAW!!
+/datum/species/avian/get_species_speech_sounds(sound_type)
+	return string_assoc_list(list(
+	))
+*/

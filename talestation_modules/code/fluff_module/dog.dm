@@ -7,4 +7,4 @@
 	icon_state = "corgigrey"
 	icon_living = "corgigrey"
 	icon_dead = "corgigrey_dead"
-	nofur = TRUE
+	can_be_shaved = FALSE

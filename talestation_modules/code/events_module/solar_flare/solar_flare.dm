@@ -52,7 +52,7 @@
 	if(was_announced)
 		priority_announce("[command_name()] has issued an all clear signal for your station. The solar weather event over the [picked_dept] department has cleared. Please return to your workplaces and resume duty.", "All Clear Alert")
 
-/datum/round_event/solar_flare/tick()
+/datum/round_event/solar_flare/tick(seconds_between_ticks)
 	if(activeFor % time_between_flares != 0)
 		return
 

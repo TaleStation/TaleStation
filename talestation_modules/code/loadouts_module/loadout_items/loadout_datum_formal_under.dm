@@ -3,13 +3,16 @@
 */
 
 /// Underslot - Formal Suit Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_undersuits, generate_loadout_items(/datum/loadout_item/under/formal))
+/datum/loadout_category/formal
+	category_name = "Formal"
+	type_to_generate = /datum/loadout_item/under/formal
 
 /datum/loadout_item/under/formal
+	abstract_type = /datum/loadout_item/under/formal
 
 /datum/loadout_item/under/formal/amish_suit
 	name = "Amish Suit"
-	item_path = /obj/item/clothing/under/suit/sl
+	item_path = /obj/item/clothing/under/costume/buttondown/slacks/service
 
 /datum/loadout_item/under/formal/assistant
 	name = "Assistant Formal"
@@ -38,10 +41,6 @@ GLOBAL_LIST_INIT(loadout_undersuits, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/formal/black_tango
 	name = "Black Tango Dress"
 	item_path = /obj/item/clothing/under/dress/tango
-
-/datum/loadout_item/under/formal/Black_twopiece
-	name = "Black Two-Piece Suit"
-	item_path = /obj/item/clothing/under/suit/blacktwopiece
 
 /datum/loadout_item/under/formal/black_skirt
 	name = "Black Skirt"
@@ -142,10 +141,6 @@ GLOBAL_LIST_INIT(loadout_undersuits, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/formal/sailor_skirt
 	name = "Sailor Dress"
 	item_path = /obj/item/clothing/under/dress/sailor
-
-/datum/loadout_item/under/formal/scratch_suit
-	name = "Scratch Suit"
-	item_path = /obj/item/clothing/under/suit/white_on_white
 
 /datum/loadout_item/under/formal/striped_skirt
 	name = "Striped Dress"

@@ -1,5 +1,7 @@
 /// The darkness threshold for space dragon when choosing a color
 #define DARKNESS_THRESHOLD 50
+/// Any interactions executed by the space dragon
+#define DOAFTER_SOURCE_SPACE_DRAGON_INTERACTION "space dragon interaction"
 
 /**
  * # Space Dragon
@@ -71,10 +73,6 @@
 	var/gust_tiredness = 30
 	/// Determines whether or not Space Dragon is in the middle of using wing gust.  If set to true, prevents him from moving and doing certain actions.
 	var/using_special = FALSE
-	/// Determines whether or not Space Dragon is currently tearing through a wall.
-	var/tearing_wall = FALSE
-	/// The ability to make your sprite smaller
-	var/datum/action/small_sprite/space_dragon/small_sprite
 	/// The color of the space dragon.
 	var/chosen_color
 	/// Minimum devastation damage dealt coefficient based on max health
@@ -84,12 +82,11 @@
 
 /mob/living/simple_animal/hostile/space_dragon/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/seethrough_mob)
 	AddElement(/datum/element/simple_flying)
 	add_traits(list(TRAIT_SPACEWALK, TRAIT_FREE_HYPERSPACE_MOVEMENT, TRAIT_NO_FLOATING_ANIM, TRAIT_HEALS_FROM_CARP_RIFTS), INNATE_TRAIT)
 	AddElement(/datum/element/content_barfer)
-	small_sprite = new
-	small_sprite.Grant(src)
-	RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, PROC_REF(add_dragon_overlay))
+	RegisterSignal(src, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(before_attack))
 
 /mob/living/simple_animal/hostile/space_dragon/Login()
 	. = ..()
@@ -104,49 +101,86 @@
 /mob/living/simple_animal/hostile/space_dragon/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	. = ..()
 	tiredness = max(tiredness - (0.5 * seconds_per_tick), 0)
-	for(var/mob/living/consumed_mob in src)
-		if(consumed_mob.stat == DEAD)
-			continue
-		playsound(src, 'sound/effects/splat.ogg', 50, TRUE)
-		visible_message(span_danger("[src] vomits up [consumed_mob]!"))
-		consumed_mob.forceMove(loc)
-		consumed_mob.Paralyze(50)
 
-/mob/living/simple_animal/hostile/space_dragon/AttackingTarget()
-	if(using_special)
+/mob/living/simple_animal/hostile/space_dragon/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
+	if (isliving(arrived))
+		RegisterSignal(arrived, COMSIG_MOB_STATCHANGE, PROC_REF(eaten_stat_changed))
+
+/mob/living/simple_animal/hostile/space_dragon/Exited(atom/movable/gone, direction)
+	. = ..()
+	if (isliving(gone))
+		UnregisterSignal(gone, COMSIG_MOB_STATCHANGE)
+
+/// Release consumed mobs if they transition from dead to alive
+/mob/living/simple_animal/hostile/space_dragon/proc/eaten_stat_changed(mob/living/eaten)
+	SIGNAL_HANDLER
+	if (eaten.stat == DEAD)
 		return
+	playsound(src, 'sound/effects/splat.ogg', vol = 50, vary = TRUE)
+	visible_message(span_danger("[src] vomits up [eaten]!"))
+	eaten.forceMove(loc)
+	eaten.Paralyze(5 SECONDS)
+
+/mob/living/simple_animal/hostile/space_dragon/proc/before_attack(datum/source, atom/target)
+	SIGNAL_HANDLER
+	if(using_special)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
 	if(target == src)
 		to_chat(src, span_warning("You almost bite yourself, but then decide against it."))
-		return
-	if(iswallturf(target))
-		if(tearing_wall)
-			return
-		tearing_wall = TRUE
-		var/turf/closed/wall/thewall = target
-		to_chat(src, span_warning("You begin tearing through the wall..."))
-		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
-		var/timetotear = 40
-		if(istype(target, /turf/closed/wall/r_wall))
-			timetotear = 120
-		if(do_after(src, timetotear, target = thewall))
-			if(isopenturf(thewall))
-				return
-			thewall.dismantle_wall(1)
-			playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
-		tearing_wall = FALSE
-		return
-	if(isliving(target)) //Swallows corpses like a snake to regain health.
-		var/mob/living/L = target
-		if(L.stat == DEAD)
-			to_chat(src, span_warning("You begin to swallow [L] whole..."))
-			if(do_after(src, 30, target = L))
-				if(eat(L))
-					adjustHealth(-L.maxHealth * 0.25)
-			return
-	. = ..()
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
+	if(DOING_INTERACTION(src, DOAFTER_SOURCE_SPACE_DRAGON_INTERACTION)) // patience grasshopper
+		target.balloon_alert(src, "finish current action first!")
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
 	if(ismecha(target))
-		var/obj/vehicle/sealed/mecha/M = target
-		M.take_damage(50, BRUTE, MELEE, 1)
+		target.take_damage(50, BRUTE, MELEE, 1)
+		return // don't block the rest of the attack chain
+
+	if(iswallturf(target))
+		INVOKE_ASYNC(src, PROC_REF(tear_down_wall), target)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
+	if(isliving(target)) //Swallows corpses like a snake to regain health.
+		var/mob/living/living_target = target
+		if(living_target.stat != DEAD)
+			return // go ham on slapping the shit out of them buddy
+
+		INVOKE_ASYNC(src, PROC_REF(eat_this_corpse), living_target)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+
+/// Handles tearing down a wall. Returns TRUE if successful, FALSE otherwise.
+/mob/living/simple_animal/hostile/space_dragon/proc/tear_down_wall(turf/closed/wall/wall_target)
+	to_chat(src, span_warning("You begin tearing through the wall..."))
+	playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
+
+	var/time_to_tear = 4 SECONDS
+	if(istype(wall_target, /turf/closed/wall/r_wall))
+		time_to_tear = 12 SECONDS
+
+	if(!do_after(src, time_to_tear, target = wall_target, interaction_key = DOAFTER_SOURCE_SPACE_DRAGON_INTERACTION))
+		return FALSE
+
+	if(isopenturf(wall_target))
+		return FALSE // well the thing was destroyed while we were sleeping so that's nice, but we didn't successfully tear it down. whatever
+
+	wall_target.dismantle_wall(devastated = TRUE)
+	playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
+	return TRUE
+
+/// Handles eating a corpse, giving us a bit of health back. Returns TRUE if we were sucessful in eating, FALSE otherwise.
+/mob/living/simple_animal/hostile/space_dragon/proc/eat_this_corpse(mob/living/corpse)
+	to_chat(src, span_warning("You begin to swallow the body of [corpse] whole..."))
+
+	if(!do_after(src, 3 SECONDS, target = corpse, interaction_key = DOAFTER_SOURCE_SPACE_DRAGON_INTERACTION))
+		return FALSE
+	if(!eat(corpse))
+		return FALSE
+
+	adjustHealth(-(corpse.maxHealth * 0.25))
+	return TRUE
 
 /mob/living/simple_animal/hostile/space_dragon/ranged_secondary_attack(atom/target, modifiers)
 	if(using_special)
@@ -169,15 +203,10 @@
 /mob/living/simple_animal/hostile/space_dragon/death(gibbed)
 	. = ..()
 	add_dragon_overlay()
-	UnregisterSignal(small_sprite, COMSIG_ACTION_TRIGGER)
 
 /mob/living/simple_animal/hostile/space_dragon/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
-	var/was_dead = stat == DEAD
 	. = ..()
 	add_dragon_overlay()
-
-	if (was_dead)
-		RegisterSignal(small_sprite, COMSIG_ACTION_TRIGGER, PROC_REF(add_dragon_overlay))
 
 /**
  * Allows space dragon to choose its own name.
@@ -221,8 +250,6 @@
  */
 /mob/living/simple_animal/hostile/space_dragon/proc/add_dragon_overlay()
 	cut_overlays()
-	if(!small_sprite.small)
-		return
 	if(stat == DEAD)
 		var/mutable_appearance/overlay = mutable_appearance(icon, "overlay_dead")
 		overlay.appearance_flags = RESET_COLOR
@@ -354,6 +381,8 @@
 	if(A && A.loc != src)
 		playsound(src, 'sound/magic/demon_attack1.ogg', 60, TRUE)
 		visible_message(span_warning("[src] swallows [A] whole!"))
+		to_chat(src, span_notice("Your acids cleanse the flames off [A] on the way down. Delicious!"))
+		A.extinguish()
 		A.forceMove(src)
 		return TRUE
 	return FALSE
@@ -412,3 +441,4 @@
 	mind.add_antag_datum(/datum/antagonist/space_dragon)
 
 #undef DARKNESS_THRESHOLD
+#undef DOAFTER_SOURCE_SPACE_DRAGON_INTERACTION

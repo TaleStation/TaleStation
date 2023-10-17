@@ -68,7 +68,7 @@
 		RegisterSignal(holder, COMSIG_MOVABLE_MOVED, PROC_REF(check_adjacency))
 	return TRUE
 
-/datum/status_effect/temperature_pack/tick()
+/datum/status_effect/temperature_pack/tick(seconds_between_ticks)
 	if(QDELETED(holder) || QDELETED(pressed_item) || owner.stat == DEAD || !holder.is_holding(pressed_item))
 		stop_effects(silent = TRUE)
 		return
@@ -136,7 +136,7 @@
 	var/obj/item/bodypart/held_bodypart = human_owner.pain_controller.body_zones[targeted_zone]
 	return span_danger("[holder == owner ? "[owner.p_theyre(TRUE)]" : "[holder] is"] pressing a cold [pressed_item.name] against [owner.p_their()] [parse_zone(held_bodypart.body_zone)].")
 
-/datum/status_effect/temperature_pack/cold/tick()
+/datum/status_effect/temperature_pack/cold/tick(seconds_between_ticks)
 	if(pressed_item.resistance_flags & ON_FIRE)
 		stop_effects(silent = TRUE)
 		return
@@ -163,7 +163,7 @@
 	var/obj/item/bodypart/held_bodypart = human_owner.pain_controller.body_zones[targeted_zone]
 	return span_danger("[holder == owner ? "[owner.p_theyre(TRUE)]" : "[holder] is"] pressing a warm [pressed_item.name] against [owner.p_their()] [held_bodypart.name].")
 
-/datum/status_effect/temperature_pack/heat/tick()
+/datum/status_effect/temperature_pack/heat/tick(seconds_between_ticks)
 	if(HAS_TRAIT(pressed_item, TRAIT_FROZEN))
 		stop_effects(silent = TRUE)
 		return

@@ -1,10 +1,13 @@
 // --- Loadout item datums for gloves ---
 
 /// Glove Slot Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/gloves))
+/datum/loadout_category/gloves
+	category_name = "Gloves"
+	ui_title = "Glove Slot Items"
+	type_to_generate = /datum/loadout_item/gloves
 
 /datum/loadout_item/gloves
-	category = LOADOUT_ITEM_GLOVES
+	abstract_type = /datum/loadout_item/gloves
 
 /datum/loadout_item/gloves/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(isplasmaman(equipper))
@@ -62,7 +65,7 @@ GLOBAL_LIST_INIT(loadout_gloves, generate_loadout_items(/datum/loadout_item/glov
 /datum/loadout_item/gloves/yellow
 	name = "Yellow Gloves"
 	item_path = /obj/item/clothing/gloves/color/normal_yellow
-	additional_tooltip_contents = list("NON-INSULATING - This item is purely cosmetic and provide no shock insulation.")
+	additional_tooltip_contents = list("This item is purely cosmetic and provide no shock insulation.")
 
 /datum/loadout_item/gloves/white
 	name = "White Gloves"

@@ -22,9 +22,6 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 	species_language_holder = /datum/language_holder/skrell
 	exotic_bloodtype = "S"
 	mutanttongue = /obj/item/organ/internal/tongue/skrell
-	species_speech_sounds = list('talestation_modules/sound/voice/huff.ogg' = 120)
-	species_speech_sounds_exclaim = list('talestation_modules/sound/voice/huff_ask.ogg' = 120)
-	species_speech_sounds_ask = list('talestation_modules/sound/voice/huff_exclaim.ogg' = 120)
 	species_pain_mod = 0.80
 
 	bodypart_overrides = list(
@@ -57,31 +54,40 @@ GLOBAL_LIST_EMPTY(head_tentacles_list)
 		C.blood_volume += 0.5 * seconds_per_tick
 	..()
 
-/proc/generate_skrell_side_shots(list/sprite_accessories, key, list/sides)
-	var/list/values = list()
+/proc/generate_skrell_side_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/skrell
+	var/static/icon/skrell_with_hair
 
-	var/icon/skrell = icon('talestation_modules/icons/species/skrell/bodyparts.dmi', "skrell_head_m", EAST)
-	var/icon/eyes = icon('talestation_modules/icons/species/skrell/skrell_eyes.dmi', "eyes", EAST)
+	if (isnull(skrell))
+		skrell = icon('talestation_modules/icons/species/skrell/bodyparts.dmi', "skrell_head_m", SOUTH)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", SOUTH)
+		eyes.Blend(COLOR_ALMOST_BLACK, ICON_MULTIPLY)
+		skrell.Blend(eyes, ICON_OVERLAY)
 
-	eyes.Blend(COLOR_ALMOST_BLACK, ICON_MULTIPLY)
-	skrell.Blend(eyes, ICON_OVERLAY)
+		skrell_with_hair = icon(skrell)
 
-	for (var/name in sprite_accessories)
-		var/datum/sprite_accessory/sprite_accessory = sprite_accessories[name]
+	var/icon/final_icon = include_snout ? icon(skrell_with_hair) : icon(skrell)
 
-		var/icon/final_icon = icon(skrell)
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", SOUTH)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
-		if (sprite_accessory.icon_state != "none")
-			for(var/side in sides)
-				var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_[side]", EAST)
-				final_icon.Blend(accessory_icon, ICON_OVERLAY)
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_BLUE_GRAY, ICON_MULTIPLY)
 
-		final_icon.Crop(11, 20, 23, 32)
-		final_icon.Scale(32, 32)
-		final_icon.Blend(COLOR_BLUE_GRAY, ICON_MULTIPLY)
+	return final_icon
 
-		values[name] = final_icon
+/datum/species/skrell/get_species_speech_sounds(sound_type)
+	switch(sound_type)
+		if(SOUND_QUESTION)
+			return string_assoc_list(list('talestation_modules/sound/voice/huff_ask.ogg' = 120))
+		if(SOUND_EXCLAMATION)
+			return string_assoc_list(list('talestation_modules/sound/voice/huff_exclaim.ogg' = 120))
+		else
+			return string_assoc_list(list('talestation_modules/sound/voice/huff.ogg' = 120))
 
-	return values
-
-
+/datum/species/skrell/randomize_features(mob/living/carbon/human/human_mob)
+	var/list/features = ..()
+	features["head_tentacles"] = pick("Short", "Long")
+	return features

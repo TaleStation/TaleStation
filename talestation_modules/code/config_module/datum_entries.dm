@@ -49,3 +49,8 @@
 // NEVER set this value to 0!!
 /datum/config_entry/number/flavor_text_character_requirement
 	default = 125
+
+GLOBAL_VAR(main_engine_start_reason)
+/// This is the channel TGS will use to announce SM delamms
+/datum/config_entry/string/channel_announce_delam
+	default = null

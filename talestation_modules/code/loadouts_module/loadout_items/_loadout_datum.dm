@@ -1,35 +1,14 @@
 // -- The loadout item datum and related procs. --
 
 /// Global list of ALL loadout datums instantiated.
+/// Loadout datums are created by loadout categories.
 GLOBAL_LIST_EMPTY(all_loadout_datums)
 
 /**
- * Generate a list of singleton loadout_item datums from all subtypes of [type_to_generate]
+ * # Loadout item datum
  *
- * returns a list of singleton datums.
+ * Singleton that holds all the information about each loadout items, and how to equip them.
  */
-/proc/generate_loadout_items(type_to_generate)
-	RETURN_TYPE(/list)
-
-	. = list()
-	if(!ispath(type_to_generate))
-		CRASH("generate_loadout_items(): called with an invalid or null path as an argument!")
-
-	for(var/datum/loadout_item/found_type as anything in subtypesof(type_to_generate))
-		/// Any item without a name is "abstract"
-		if(isnull(initial(found_type.name)))
-			continue
-
-		if(!ispath(initial(found_type.item_path)))
-			stack_trace("generate_loadout_items(): Attempted to instantiate a loadout item ([initial(found_type.name)]) with an invalid or null typepath! (got path: [initial(found_type.item_path)])")
-			continue
-
-		var/datum/loadout_item/spawned_type = new found_type()
-		. += spawned_type
-
-/// Loadout item datum.
-/// Holds all the information about each loadout items.
-/// A list of singleton loadout items are generated on initialize.
 /datum/loadout_item
 	/// Displayed name of the loadout item.
 	var/name
@@ -44,92 +23,168 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 	/// Whether this item can be reskinned.
 	/// Only works if the item has a "unique reskin" list set.
 	var/can_be_reskinned = FALSE
-	/// The category of the loadout item.
-	var/category
+	/// The category of the loadout item. Set automatically in New
+	VAR_FINAL/datum/loadout_category/category
+	/// The abstract parent of this loadout item, to determine which items to not instantiate
+	var/abstract_type = /datum/loadout_item
 	/// The actual item path of the loadout item.
 	var/obj/item/item_path
-	/// Lazylist of additional text for the tooltip displayed on this item.
+	/// Lazylist of additional "tooltips" to display about this item.
 	var/list/additional_tooltip_contents
 
-/datum/loadout_item/New()
+/datum/loadout_item/New(category)
+
+	src.category = category
+
 	if(can_be_greyscale == DONT_GREYSCALE)
 		// Explicitly be false if we don't want this to greyscale
 		can_be_greyscale = FALSE
-/*
 	else if(initial(item_path.flags_1) & IS_PLAYER_COLORABLE_1)
 		// Otherwise set this automatically to true if it is actually colorable
 		can_be_greyscale = TRUE
 		// This means that one can add a greyscale item that does not have player colorable set
 		// but is still modifyable as a greyscale item in the loadout menu by setting it to true manually
 		// Why? I HAVE NO IDEA why you would do that but you sure can
-*/
-// Theres literally 0 reason to have this code, it makes having colored items nigh redudnant
-// You either get to have all the colored stuff, or a greyscale, or both
-// I want both
 
-	if(can_be_named)
-		// If we're a renamable item, insert the "renamable" tooltip at the beginning of the list.
-		add_tooltip(TOOLTIP_RENAMABLE, inverse_order = TRUE)
-
-	if(can_be_greyscale)
-		// Likewise, if we're greyscaleable, insert the "greyscaleable" tooltip at the beginning of the list (before renamable)
-		add_tooltip(TOOLTIP_GREYSCALE, inverse_order = TRUE)
-
-	if(can_be_reskinned)
-		// No need to repeat myself but I will, insert the reskinnable tooltip at the end if we have a reskin available
-		add_tooltip(TOOLTIP_RESKINNABLE)
+	if(isnull(name))
+		name = initial(item_path.name)
 
 	if(GLOB.all_loadout_datums[item_path])
 		stack_trace("Loadout datum collision detected! [item_path] is shared between multiple loadout datums.")
 	GLOB.all_loadout_datums[item_path] = src
 
-/datum/loadout_item/Destroy()
+/datum/loadout_item/Destroy(force, ...)
+	if(force)
+		stack_trace("Who's destroying loadout item datums?! This shouldn't really ever be done! (Use FORCE if necessary)")
+		return
+
 	GLOB.all_loadout_datums -= item_path
-	stack_trace("Who's destroying loadout item datums?! This shouldn't really ever be done!")
 	return ..()
-
-/// Helper to add a tooltip to our tooltip list.
-/// If inverse_order is TRUE, we will add to the front instead of the back.
-/datum/loadout_item/proc/add_tooltip(tooltip, inverse_order = FALSE)
-	if(!additional_tooltip_contents)
-		additional_tooltip_contents = list()
-
-	if(inverse_order)
-		additional_tooltip_contents.Insert(1, tooltip)
-	else
-		additional_tooltip_contents.Add(tooltip)
 
 /**
  * Takes in an action from a loadout manager and applies it
  *
  * Useful for subtypes of loadout items with unique actions
  */
-/datum/loadout_item/proc/handle_loadout_action(datum/loadout_manager/manager, action)
+/datum/loadout_item/proc/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action)
 	SHOULD_CALL_PARENT(TRUE)
 
 	switch(action)
 		if("select_color")
-			if(!can_be_greyscale)
-				return FALSE
-
-			manager.select_item_color(src)
-			return FALSE
+			if(can_be_greyscale)
+				set_item_color(manager, user)
+				// no update necessary. no change until they interact with the menu
 
 		if("set_name")
-			if(!can_be_named)
-				return FALSE
-
-			manager.set_item_name(src)
-			return FALSE
+			if(can_be_named)
+				set_name(manager, user)
+				// no update necessary, name is not seen
 
 		if("set_skin")
-			if(!can_be_reskinned)
-				return FALSE
-
-			manager.set_skin(src)
-			return TRUE
+			if(can_be_reskinned)
+				set_skin(manager, user)
+				. = TRUE // do an update to show new skin
 
 	return FALSE
+
+/datum/loadout_item/proc/set_item_color(datum/preference_middleware/loadout/manager, mob/user)
+	if(manager.menu)
+		to_chat(user, span_warning("You already have a greyscaling window open!"))
+		return
+
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/list/allowed_configs = list()
+	if(initial(item_path.greyscale_config))
+		allowed_configs += "[initial(item_path.greyscale_config)]"
+	if(initial(item_path.greyscale_config_worn))
+		allowed_configs += "[initial(item_path.greyscale_config_worn)]"
+	if(initial(item_path.greyscale_config_inhand_left))
+		allowed_configs += "[initial(item_path.greyscale_config_inhand_left)]"
+	if(initial(item_path.greyscale_config_inhand_right))
+		allowed_configs += "[initial(item_path.greyscale_config_inhand_right)]"
+
+	var/datum/greyscale_modify_menu/menu = new(
+		manager,
+		user,
+		allowed_configs,
+		CALLBACK(src, PROC_REF(set_slot_greyscale), manager),
+		starting_icon_state = initial(item_path.icon_state),
+		starting_config = initial(item_path.greyscale_config),
+		starting_colors = loadout?[item_path]?[INFO_GREYSCALE] || initial(item_path.greyscale_colors),
+	)
+
+	manager.register_greyscale_menu(menu)
+	menu.ui_interact(user)
+
+/// Sets [category_slot]'s greyscale colors to the colors in the currently opened [open_menu].
+/datum/loadout_item/proc/set_slot_greyscale(datum/preference_middleware/loadout/manager, datum/greyscale_modify_menu/open_menu)
+	if(!istype(open_menu))
+		CRASH("set_slot_greyscale called without a greyscale menu!")
+
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	if(!loadout?[item_path])
+		manager.select_item(src)
+
+	var/list/colors = open_menu.split_colors
+	if(!colors)
+		return
+
+	loadout[item_path][INFO_GREYSCALE] = colors.Join("")
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	manager.character_preview_view.update_body()
+
+/datum/loadout_item/proc/set_name(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/input_name = tgui_input_text(
+		user = user,
+		message = "What name do you want to give [name]? Leave blank to clear.",
+		title = "[name] name",
+		default = loadout?[item_path]?[INFO_NAMED], // plop in existing name (if any)
+		max_length = MAX_NAME_LEN,
+	)
+	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
+		return
+
+	if(!islist(loadout?[item_path]))
+		manager.select_item(src)
+
+	if(input_name)
+		loadout[item_path][INFO_NAMED] = input_name
+	else
+		loadout[item_path] -= INFO_NAMED
+
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+
+/datum/loadout_item/proc/set_skin(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/static/list/list/cached_reskins = list()
+	if(!islist(cached_reskins[item_path]))
+		var/obj/item/item_template = new item_path()
+		cached_reskins[item_path] = item_template.unique_reskin.Copy()
+		qdel(item_template)
+
+	var/list/choices = cached_reskins[item_path].Copy()
+	choices["Default"] = TRUE
+
+	var/input_skin = tgui_input_list(
+		user = user,
+		message = "What skin do you want this to be?",
+		title = "Reskin [name]",
+		items = choices,
+		default = loadout?[item_path]?[INFO_RESKIN],
+	)
+	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
+		return
+
+	if(!islist(loadout?[type]))
+		manager.select_item(src)
+
+	if(!input_skin || input_skin == "Default")
+		loadout[item_path] -= INFO_RESKIN
+	else
+		loadout[item_path][INFO_RESKIN] = input_skin
+
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 
 /**
  * Place our [var/item_path] into [outfit].
@@ -171,7 +226,8 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
 		if(skin_chosen in equipped_item.unique_reskin)
 			equipped_item.current_skin = skin_chosen
 			equipped_item.icon_state = equipped_item.unique_reskin[skin_chosen]
-			equipper.update_worn_oversuit()
+			equipper.update_clothing(equipped_item.slot_flags)
+
 		else
 			// Not valid
 			item_details -= INFO_RESKIN
@@ -187,3 +243,55 @@ GLOBAL_LIST_EMPTY(all_loadout_datums)
  */
 /datum/loadout_item/proc/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
 	return FALSE
+
+/// Returns a formatted list of data for this loadout item, for use in UIs
+/datum/loadout_item/proc/to_ui_data()
+	RETURN_TYPE(/list)
+	SHOULD_CALL_PARENT(TRUE)
+
+	var/list/formatted_item = list()
+	formatted_item["name"] = name
+	formatted_item["path"] = item_path
+	formatted_item["buttons"] = get_ui_buttons()
+	return formatted_item
+
+/**
+ * Returns a list of UI buttons for this loadout item
+ * These will automatically be turned into buttons in the UI, according to they icon you provide
+ * act_key should match a key to handle in [handle_loadout_action] - this is how you react to the button being pressed
+ */
+/datum/loadout_item/proc/get_ui_buttons()
+	SHOULD_CALL_PARENT(TRUE)
+	RETURN_TYPE(/list)
+
+	var/list/button_list = list()
+
+	for(var/tooltip in additional_tooltip_contents)
+		// Not real buttons - have no act - but just provides a "hey, this is special!" tip
+		UNTYPED_LIST_ADD(button_list, list(
+			"icon" = FA_ICON_EXCLAMATION,
+			"tooltip" = tooltip,
+		))
+
+	if(can_be_greyscale)
+		UNTYPED_LIST_ADD(button_list, list(
+			"icon" = FA_ICON_PALETTE,
+			"act_key" = "select_color",
+			"tooltip" = "Modify this item's color via greyscaling!",
+		))
+
+	if(can_be_named)
+		UNTYPED_LIST_ADD(button_list, list(
+			"icon" = FA_ICON_PEN,
+			"act_key" = "set_name",
+			"tooltip" = "Modify the name this item will have.",
+		))
+
+	if(can_be_reskinned)
+		UNTYPED_LIST_ADD(button_list, list(
+			"icon" = FA_ICON_THEATER_MASKS,
+			"act_key" = "set_skin",
+			"tooltip" = "Change the default skin of this item.",
+		))
+
+	return button_list

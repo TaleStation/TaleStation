@@ -1,10 +1,13 @@
 // --- Loadout item datums for under suits ---
 
 /// Underslot - Jumpsuit Items (Deletes overrided items)
-GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/under/jumpsuit))
+/datum/loadout_category/undersuit
+	category_name = "Jumpsuit"
+	ui_title = "Under Suit Slot Items"
+	type_to_generate = /datum/loadout_item/under/jumpsuit
 
 /datum/loadout_item/under
-	category = LOADOUT_ITEM_UNIFORM
+	abstract_type = /datum/loadout_item/under
 
 /datum/loadout_item/under/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(isplasmaman(equipper))
@@ -14,14 +17,9 @@ GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/u
 	else
 		outfit.uniform = item_path
 
-/datum/loadout_item/under/jumpsuit/random/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
-	return
-
-/datum/loadout_item/under/jumpsuit/random_skirt/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
-	return
-
 // jumpsuit undersuits
 /datum/loadout_item/under/jumpsuit
+	abstract_type = /datum/loadout_item/under/jumpsuit
 
 /datum/loadout_item/under/jumpsuit/greyscale
 	name = "Greyscale Jumpsuit"
@@ -38,10 +36,12 @@ GLOBAL_LIST_INIT(loadout_jumpsuits, generate_loadout_items(/datum/loadout_item/u
 	item_path = /obj/item/clothing/under/color/random
 	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
-/datum/loadout_item/under/jumpsuit/random_skirt
+/datum/loadout_item/under/jumpsuit/random/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
+	return
+
+/datum/loadout_item/under/jumpsuit/random/skirt
 	name = "Random Jumpskirt"
 	item_path = /obj/item/clothing/under/color/jumpskirt/random
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/under/jumpsuit/black
 	name = "Black Jumpsuit"

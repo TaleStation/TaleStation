@@ -1,10 +1,13 @@
 // --- Loadout item datums for belts ---
 
 /// Belt Slot Items (Moves overrided items to backpack)
-GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts))
+/datum/loadout_category/belts
+	category_name = "Belt"
+	ui_title = "Belt Slot Items"
+	type_to_generate = /datum/loadout_item/belts
 
 /datum/loadout_item/belts
-	category = LOADOUT_ITEM_BELT
+	abstract_type = /datum/loadout_item/belts
 
 /datum/loadout_item/belts/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(outfit.belt)
