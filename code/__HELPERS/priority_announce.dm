@@ -37,6 +37,11 @@
 	else if(SSstation.announcer.event_sounds[sound])
 		sound = SSstation.announcer.event_sounds[sound]
 
+<<<<<<< HEAD
+=======
+	announcement += "<br>"
+
+>>>>>>> 12308dbd3dae7 (Announcement CSS hotfix [NO GBP] (#79052))
 	if(type == "Priority")
 		announcement += "<h1 class='alert'>Priority Announcement</h1>"
 		if (title && length(title) > 0)
@@ -65,7 +70,12 @@
 	if(SSstation.announcer.custom_alert_message && !has_important_message)
 		announcement += SSstation.announcer.custom_alert_message
 	else
+<<<<<<< HEAD
 		announcement += "<br>[span_alert(text)]<br>"
+=======
+		announcement += "[span_priorityalert("<br>[text]<br>")]"
+
+>>>>>>> 12308dbd3dae7 (Announcement CSS hotfix [NO GBP] (#79052))
 	announcement += "<br>"
 
 	if(!players)
