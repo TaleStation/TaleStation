@@ -37,14 +37,14 @@
 	else if(SSstation.announcer.event_sounds[sound])
 		sound = SSstation.announcer.event_sounds[sound]
 
-	announcement += "<br><br>"
+	announcement += "<br>"
 
 	if(type == "Priority")
 		announcement += "[span_priorityannounce("<u>Priority Announcement</u>")]"
 		if (title && length(title) > 0)
 			announcement += "[span_prioritytitle("<br>[title]")]"
 	else if(type == "Captain")
-		announcement += "[span_priorityannounce("<u>Site Director Announces</u>")]" // NON-MODULAR CHANGES: Captain -> Site Director
+		announcement += "[span_priorityannounce("<u>Captain Announces</u>")]"
 		GLOB.news_network.submit_article(text, "Captain's Announcement", "Station Announcements", null)
 	else if(type == "Syndicate Captain")
 		announcement += "[span_priorityannounce("<u>Syndicate Captain Announces</u>")]"
@@ -69,7 +69,7 @@
 	else
 		announcement += "[span_priorityalert("<br>[text]<br>")]"
 
-	announcement += "<br><br>"
+	announcement += "<br>"
 
 	if(!players)
 		players = GLOB.player_list
