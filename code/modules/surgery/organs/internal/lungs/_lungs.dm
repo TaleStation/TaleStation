@@ -514,7 +514,7 @@
 		if(prob(20))
 			n2o_euphoria = EUPHORIA_ACTIVE
 			breather.emote(pick("giggle", "laugh"))
-			breather.set_drugginess(30 SECONDS)
+			// breather.set_drugginess(30 SECONDS) NON-MODULAR CHANGES: This SUCKS TODO: Remove when we hard fork
 		else
 			n2o_euphoria = EUPHORIA_INACTIVE
 			// NON-MODULAR CHANGES: Pain anesthetic
