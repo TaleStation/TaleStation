@@ -31,13 +31,8 @@
 /// Target nearby friendlies if they are hurt (and are not themselves Legions)
 /datum/targetting_datum/basic/attack_until_dead/legion
 
-<<<<<<< HEAD
-/datum/targetting_datum/basic/attack_until_dead/legion/faction_check(mob/living/living_mob, mob/living/the_target)
-	if (!living_mob.faction_check_mob(the_target, exact_match = check_factions_exactly))
-=======
 /datum/targetting_datum/basic/attack_until_dead/legion/faction_check(datum/ai_controller/controller, mob/living/living_mob, mob/living/the_target)
 	if (!living_mob.faction_check_atom(the_target, exact_match = check_factions_exactly))
->>>>>>> 847514310d205 (Fixes a runtime with AI targeting code, refactors faction checking to be at the atom/movable level (#78803))
 		return FALSE
 	if (istype(the_target, living_mob.type))
 		return TRUE
