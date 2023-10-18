@@ -65,4 +65,3 @@
 // Stationary gas tanks
 #define TANK_FRAME 0
 #define TANK_PLATING_UNSECURED 1
-
