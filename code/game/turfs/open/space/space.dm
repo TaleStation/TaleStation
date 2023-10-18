@@ -235,7 +235,7 @@ GLOBAL_VAR_INIT(starlight_color, COLOR_STARLIGHT)
 /turf/open/space/openspace/zAirOut()
 	return TRUE
 
-/turf/open/space/openspace/zPassIn(atom/movable/A, direction, turf/source)
+/turf/open/space/openspace/zPassIn(direction)
 	if(direction == DOWN)
 		for(var/obj/contained_object in contents)
 			if(contained_object.obj_flags & BLOCK_Z_IN_DOWN)
@@ -248,9 +248,7 @@ GLOBAL_VAR_INIT(starlight_color, COLOR_STARLIGHT)
 		return TRUE
 	return FALSE
 
-/turf/open/space/openspace/zPassOut(atom/movable/A, direction, turf/destination, allow_anchored_movement)
-	if(A.anchored && !allow_anchored_movement)
-		return FALSE
+/turf/open/space/openspace/zPassOut(direction)
 	if(direction == DOWN)
 		for(var/obj/contained_object in contents)
 			if(contained_object.obj_flags & BLOCK_Z_OUT_DOWN)
