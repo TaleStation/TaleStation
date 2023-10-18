@@ -27,5 +27,11 @@
 /obj/item/clothing/under/rank/prisoner
 	greyscale_config_worn_digitigrade = /datum/greyscale_config/jumpsuit/prison/worn/digi
 
+/obj/item/clothing/under/rank/civilian/lawyer/bluesuit
+	greyscale_config_worn_digitigrade = /datum/greyscale_config/buttondown_slacks/worn/digi
+
+/obj/item/clothing/under/costume/buttondown/slacks
+	greyscale_config_worn_digitigrade = /datum/greyscale_config/buttondown_slacks/worn/digi
+
 /obj/item/clothing/under/color/jumpskirt
 	greyscale_config_worn_digitigrade = null
