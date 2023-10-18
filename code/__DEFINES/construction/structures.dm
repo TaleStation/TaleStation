@@ -38,6 +38,11 @@
 #define RWINDOW_BOLTS_HEATED 7
 #define RWINDOW_SECURE 8
 
+//tram structure construction states
+#define TRAM_OUT_OF_FRAME 0
+#define TRAM_IN_FRAME 1
+#define TRAM_SCREWED_TO_FRAME 2
+
 //airlock assembly construction states
 #define AIRLOCK_ASSEMBLY_NEEDS_WIRES 0
 #define AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS 1
