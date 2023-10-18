@@ -151,8 +151,6 @@
 	new_team_member.prefs.safe_transfer_prefs_to(player_mob, is_antag = TRUE)
 	if(player_mob.dna.species.outfit_important_for_life)
 		player_mob.set_species(/datum/species/human)
-<<<<<<< HEAD
-=======
 
 	var/datum/mind/new_member_mind = new_team_member.mob.mind
 	if(new_member_mind?.current)
@@ -162,7 +160,6 @@
 			old_body = new_member_mind.current, \
 		)
 
->>>>>>> b527d465ec311 (Observers can now play CTF again.  (#79000))
 	player_mob.ckey = new_team_member.ckey
 	if(isnull(ctf_player_component))
 		var/datum/component/ctf_player/player_component = player_mob.mind.AddComponent(/datum/component/ctf_player, team, ctf_game, ammo_type)
