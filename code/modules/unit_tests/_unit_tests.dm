@@ -202,7 +202,11 @@
 #include "organ_set_bonus.dm"
 #include "organs.dm"
 #include "outfit_sanity.dm"
+<<<<<<< HEAD
 #include "pain.dm"
+=======
+#include "oxyloss_suffocation.dm"
+>>>>>>> 0c1924a864305 (Adds Oxyloss KO unit test (#79112))
 #include "paintings.dm"
 #include "pills.dm"
 #include "plane_double_transform.dm"
