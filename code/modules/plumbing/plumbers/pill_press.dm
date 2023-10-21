@@ -46,6 +46,7 @@
 /obj/machinery/plumbing/pill_press/process(seconds_per_tick)
 	if(machine_stat & NOPOWER)
 		return
+<<<<<<< HEAD
 	if(reagents.total_volume >= current_volume)
 		if (product == "pill")
 			var/obj/item/reagent_containers/pill/P = new(src)
@@ -54,6 +55,19 @@
 			stored_products += P
 			if(pill_number == RANDOM_PILL_STYLE)
 				P.icon_state = "pill[rand(1,21)]"
+=======
+
+	//shift & check to account for floating point inaccuracies
+	if(reagents.total_volume + 0.01 >= current_volume)
+		var/obj/item/reagent_containers/container = locate(packaging_type)
+		container = new container(src)
+		var/suffix
+		switch(packaging_category)
+			if(CAT_PILLS)
+				suffix = "Pill"
+			if(CAT_PATCHES)
+				suffix = "Patch"
+>>>>>>> 4db10f0aa38ea ([NO GBP] Apply multiplier correctly when transferring reagents. (#79084))
 			else
 				P.icon_state = "pill[pill_number]"
 			if(P.icon_state == "pill4") //mirrored from chem masters
