@@ -33,6 +33,7 @@
 		/mob/living/simple_animal/bot/secbot/honkbot,
 		/mob/living/simple_animal/bot/secbot/pingsky,
 		/mob/living/simple_animal/bot/vibebot,
+<<<<<<< HEAD
 		/mob/living/simple_animal/drone,
 		/mob/living/simple_animal/drone/classic,
 		/mob/living/simple_animal/drone/derelict,
@@ -42,6 +43,8 @@
 		/mob/living/simple_animal/drone/syndrone,
 		/mob/living/simple_animal/drone/syndrone/badass,
 		/mob/living/simple_animal/holodeck_monkey,
+=======
+>>>>>>> 1b8bcd0365ac2 (Basic drones (#79109))
 		/mob/living/simple_animal/hostile,
 		/mob/living/simple_animal/hostile/alien,
 		/mob/living/simple_animal/hostile/alien/drone,
