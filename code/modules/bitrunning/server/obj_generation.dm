@@ -73,7 +73,26 @@
 	return wayout
 
 /// Scans over neo's contents for bitrunning tech disks. Loads the items or abilities onto the avatar.
+<<<<<<< HEAD
 /obj/machinery/quantum_server/proc/stock_gear(mob/living/carbon/human/avatar, mob/living/carbon/human/neo)
+=======
+/obj/machinery/quantum_server/proc/stock_gear(mob/living/carbon/human/avatar, mob/living/carbon/human/neo, datum/lazy_template/virtual_domain/generated_domain)
+	var/domain_forbids_items = generated_domain.forbids_disk_items
+	var/domain_forbids_spells = generated_domain.forbids_disk_spells
+
+	var/import_ban = list()
+	var/disk_ban = list()
+	if(domain_forbids_items)
+		import_ban += "smuggled digital equipment"
+		disk_ban += "items"
+	if(domain_forbids_spells)
+		import_ban += "imported_abilities"
+		disk_ban += "powers"
+
+	if(length(import_ban))
+		to_chat(neo, span_warning("This domain forbids the use of [english_list(import_ban)], your disk [english_list(disk_ban)] will not be granted!"))
+
+>>>>>>> 83e6cc517be7c (Fixes infinite loop in bitrunning (#79194))
 	var/failed = FALSE
 
 	for(var/obj/item/bitrunning_disk/disk in neo.get_contents())
