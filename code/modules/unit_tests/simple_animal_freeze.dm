@@ -68,6 +68,7 @@
 		/mob/living/simple_animal/hostile/asteroid/polarbear/lesser,
 		/mob/living/simple_animal/hostile/asteroid/wolf,
 		/mob/living/simple_animal/hostile/construct,
+<<<<<<< HEAD
 		/mob/living/simple_animal/hostile/construct/artificer,
 		/mob/living/simple_animal/hostile/construct/artificer/angelic,
 		/mob/living/simple_animal/hostile/construct/artificer/hostile,
@@ -78,6 +79,8 @@
 		/mob/living/simple_animal/hostile/construct/juggernaut/hostile,
 		/mob/living/simple_animal/hostile/construct/juggernaut/mystic,
 		/mob/living/simple_animal/hostile/construct/juggernaut/noncult,
+=======
+>>>>>>> 6dde9e4c4e144 (Basic Constructs: Juggernaut (#79170))
 		/mob/living/simple_animal/hostile/construct/proteon,
 		/mob/living/simple_animal/hostile/construct/proteon/hostile,
 		/mob/living/simple_animal/hostile/construct/wraith,

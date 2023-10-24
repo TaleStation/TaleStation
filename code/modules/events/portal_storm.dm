@@ -23,9 +23,17 @@
 	max_wizard_trigger_potency = 7
 
 /datum/round_event/portal_storm/portal_storm_narsie
+<<<<<<< HEAD
 	boss_types = list(/mob/living/simple_animal/hostile/construct/artificer/hostile = 6)
 	hostile_types = list(/mob/living/simple_animal/hostile/construct/juggernaut/hostile = 8,\
 						/mob/living/simple_animal/hostile/construct/wraith/hostile = 6)
+=======
+	boss_types = list(/mob/living/basic/construct/artificer/hostile = 6)
+	hostile_types = list(
+		/mob/living/basic/construct/juggernaut/hostile = 8,
+		/mob/living/simple_animal/hostile/construct/wraith/hostile = 6,
+	)
+>>>>>>> 6dde9e4c4e144 (Basic Constructs: Juggernaut (#79170))
 
 /datum/round_event/portal_storm
 	start_when = 7
