@@ -29,9 +29,15 @@
 
 /obj/effect/mob_spawn/ghost_role/drone/Initialize(mapload)
 	. = ..()
+<<<<<<< HEAD:code/modules/mob/living/simple_animal/friendly/drone/drones_as_items.dm
 	var/area/A = get_area(src)
 	if(A)
 		notify_ghosts("A drone shell has been created in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
+=======
+	var/area/area = get_area(src)
+	if(area)
+		notify_ghosts("A drone shell has been created in \the [area.name].", source = src, action = NOTIFY_PLAY, flashwindow = FALSE, ignore_key = POLL_IGNORE_DRONE, notify_suiciders = FALSE)
+>>>>>>> 153e06dc04fb7 (Partially reverts ghost announcements (#79221)):code/modules/mob/living/basic/drone/drones_as_items.dm
 
 /obj/effect/mob_spawn/ghost_role/drone/allow_spawn(mob/user, silent = FALSE)
 	var/client/user_client = user.client

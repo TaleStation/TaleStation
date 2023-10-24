@@ -262,11 +262,16 @@
 
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR) //don't notify for objects created during a map load
 		return
+<<<<<<< HEAD
+=======
+
+>>>>>>> 153e06dc04fb7 (Partially reverts ghost announcements (#79221))
 	for(var/mob/dead/observer/ghost in GLOB.player_list)
 		if(!notify_suiciders && HAS_TRAIT(ghost, TRAIT_SUICIDED))
 			continue
 		if(ignore_key && (ghost.ckey in GLOB.poll_ignore[ignore_key]))
 			continue
+<<<<<<< HEAD
 		var/orbit_link
 		if(source && action == NOTIFY_ORBIT)
 			orbit_link = " <a href='?src=[REF(ghost)];follow=[REF(source)]'>(Orbit)</a>"
@@ -276,6 +281,17 @@
 		if(flashwindow)
 			window_flash(ghost.client)
 		if(!source)
+=======
+
+		if(flashwindow)
+			window_flash(ghost.client)
+
+		if(ghost_sound)
+			SEND_SOUND(ghost, sound(ghost_sound, volume = notify_volume))
+
+		if(isnull(source))
+			to_chat(ghost, span_ghostalert(message))
+>>>>>>> 153e06dc04fb7 (Partially reverts ghost announcements (#79221))
 			continue
 		var/atom/movable/screen/alert/notify_action/alert = ghost.throw_alert("[REF(source)]_notify_action", /atom/movable/screen/alert/notify_action)
 		if(!alert)
@@ -311,9 +327,28 @@
 		alert_overlay.plane = FLOAT_PLANE
 		alert.add_overlay(alert_overlay)
 
+<<<<<<< HEAD
 /**
  * Heal a robotic body part on a mob
  */
+=======
+		var/custom_link = enter_link ? " [enter_link]" : ""
+		var/link = " <a href='?src=[REF(ghost)];[action]=[REF(source)]'>([capitalize(action)])</a>"
+
+		to_chat(ghost, span_ghostalert("[message][custom_link][link]"))
+
+		var/atom/movable/screen/alert/notify_action/toast = ghost.throw_alert(
+			category = "[REF(source)]_notify_action",
+			type = /atom/movable/screen/alert/notify_action,
+			new_master = source,
+		)
+		toast.action = action
+		toast.desc = "Click to [action]."
+		toast.name = header
+		toast.target = source
+
+/// Heals a robotic limb on a mob
+>>>>>>> 153e06dc04fb7 (Partially reverts ghost announcements (#79221))
 /proc/item_heal_robotic(mob/living/carbon/human/human, mob/user, brute_heal, burn_heal)
 	var/obj/item/bodypart/affecting = human.get_bodypart(check_zone(user.zone_selected))
 	if(!affecting || IS_ORGANIC_LIMB(affecting))
