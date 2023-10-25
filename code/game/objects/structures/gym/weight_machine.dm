@@ -156,9 +156,6 @@
 	base_icon_state = "benchpress"
 
 	pixel_shift_y = 5
-<<<<<<< HEAD
-=======
 
 #undef WORKOUT_XP
 #undef EXERCISE_STATUS_DURATION
->>>>>>> af43f39737d92 (Add new fitness skill and mechanics (#78922))
