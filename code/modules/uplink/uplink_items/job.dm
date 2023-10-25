@@ -333,8 +333,6 @@
 	item = /obj/item/seeds/seedling/evil
 	cost = 8
 	restricted_roles = list(JOB_BOTANIST)
-<<<<<<< HEAD
-=======
 
 /datum/uplink_item/role_restricted/bee_smoker
 	name = "Bee Smoker"
@@ -364,4 +362,3 @@
 	restricted_roles = list(JOB_ASSISTANT, JOB_MIME, JOB_CLOWN)
 	restricted = TRUE
 	refundable = FALSE
->>>>>>> 764b998b1d5df (Adds a Syndicate Monkey Agent beacon uplink item (#79012))
