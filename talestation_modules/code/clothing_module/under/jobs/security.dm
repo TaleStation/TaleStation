@@ -1,6 +1,10 @@
 /// -- Modular security clothing. --
 //BO clothing
 //Unused, may be reimplamented later if we get a different sprite
+
+/obj/item/clothing/under/rank/security
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/under/security_digi.dmi'
+
 /obj/item/clothing/under/rank/security/bridge_officer
 	name = "bridge officer uniform"
 	desc = "A formal blue suit and tie kitted out with padding for protection worn by the officers that work the bridge. Someone owes you a beer..."
@@ -26,6 +30,7 @@
 	desc = "A distinguished black suit kitted out with padding for protection worn by the officers that work the bridge."
 	icon = 'icons/obj/clothing/under/suits.dmi'
 	worn_icon = 'icons/mob/clothing/under/suits.dmi'
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/under/suits_digi.dmi'
 	icon_state = "really_black_suit"
 	inhand_icon_state = "lawyer_black"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION

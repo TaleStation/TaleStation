@@ -24,6 +24,7 @@
 	desc = "Nothing sets the mood like a pair of coffee stained overalls. Oh, and a few lost pens. How'd these get in there?"
 	icon = 'icons/obj/clothing/under/misc.dmi'
 	worn_icon = 'icons/mob/clothing/under/misc.dmi'
+	worn_icon_digitigrade = 'talestation_modules/icons/clothing/under/misc_digi.dmi'
 	icon_state = "overalls"
 	inhand_icon_state = "lb_suit"
 	can_adjust = FALSE
