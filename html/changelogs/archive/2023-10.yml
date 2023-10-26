@@ -738,3 +738,160 @@
   - image: 'Jolly: Xenobiologist suit and skirt icons have been updated.'
   - image: 'Halcyon: New and improved digi sprites.'
   - refactor: 'Zephyr: Reworked digi handling clothing code.'
+2023-10-26:
+  JohnFulpWillard, sprites by CoiledLamb:
+  - rscadd: You can now play Mafia on your PDA.
+  - balance: Mafia changelings can now only talk to eachother during the night.
+  - bugfix: Mafia abilities can't be repeatedly used on people.
+  LT3:
+  - image: Added Halloween themed floor/tram tiles
+  - bugfix: Fixed tram cabinet LMB/RMB actions being reversed
+  - bugfix: Tram cabinet can now read IDs inside PDAs and wallets
+  - bugfix: Crossing signals now correctly indicate broken/no power
+  - bugfix: Trying to repair tram (weld) without welding fuel fails
+  - bugfix: You can actually unbolt the tram controller from the wall
+  - qol: Tram spoilers now have visual and examine hints about being malfunctioning/emagged
+  - qol: Improved some tram error messages
+  LT3, san7890:
+  - rscadd: Announcements have gotten a fresh coat of paint! They should be popping
+      with splendid new colors and should have a lot less ugly linebreaks, while still
+      managing to keep your attention at the screen.
+  Melbert:
+  - rscadd: Adds Food Allergies as a -2 quirk. You can select which food you're allergic
+      to or rock a random option.
+  - refactor: Refactored zombies to use the regenerator component. Now they'll have
+      a slight glow/animation when the regeneration actually kicks in.
+  TaleStationBot:
+  - bugfix: Scream for me, the spell, now works
+  - bugfix: Non-random puncture wounds can now be applied
+  - qol: Nonhuman autopsy, Tier Two Lasers, and several other experiments can now
+      be completed earlier.
+  - balance: Advanced robotics techweb node no longer requires neural programming
+      node.
+  - bugfix: connected Meta's Cytology equipment properly
+  - bugfix: hallucination announcements use new announcement style
+  - bugfix: Fix cqc kicks to only cause staminaloss when target is on the floor
+  - bugfix: Blobbernauts will once again take damage when not on blob tiles.
+  - bugfix: plumbing pill press & bottler won't stop when processing 50 unit bottles
+  - code_imp: 'made a lot of variables defines and lists static to save memory for
+      plumbing pill press. Moved global lists to it''s rightful
+
+      place'
+  - code_imp: copied over chem master pill & patch designs over to plumbing pill press
+      and removed the old designs. resized UI
+  - bugfix: admin triggering the Revenant event now works again
+  - bugfix: making assembly activated bombs works again
+  - rscadd: added a new syndicate item - the bee smoker
+  - rscadd: New dream that plays sound at you
+  - admin: Added SS13.get_runner_ckey() and SS13.get_runner_client() which stores
+      the ckey and returns the client of the user who ran the lua script. Can be unreliable
+      if accessed after sleeping.
+  - admin: Added timer loop helpers to the SS13.lua module, check the docs
+  - admin: The SS13.lua module can now be made local without causing any errors.
+  - qol: Adminwho messages are now in an examine block for heightened clarity.
+  - rscadd: Starlight should be a bit more intense, and flow better onto non space
+      tiles
+  - qol: improves blackout drunk character gameplay
+  - bugfix: fixed improper prob() placement that caused blackout character to be forced
+      sleep
+  - sound: added hiccup sound
+  - bugfix: The polymorphic belt shouldn't work on animated objects. Logically wouldn't
+      have DNA.
+  - bugfix: Kisses and emitters no longer make the SM crystal scream so much.
+  - qol: signalers now tell you their cooldown and also use balloon alerts
+  - bugfix: Food created by mixing chemicals once again has a reagent purity based
+      on the component chemicals.
+  - bugfix: You should be revived properly when entering the mansus realm following
+      a heretic sacrifice
+  - bugfix: The buff which is supposed to heal you in the mansus realm will now do
+      that instead of unavoidably damaging you
+  - balance: The mansus realm's healing buff heals for 25% as much as it did before
+      it was broken
+  - bugfix: surgical trays no longer animate when opened
+  - bugfix: plastic sheet produces 4 tiles via the tiles option without using the
+      crafting menu
+  - bugfix: Replaced error spaghetti in thunderdome kitchen with regular cooked spaghetti
+  - refactor: Artificer constructs have been converted to the basic mob framework.
+      This should change very little about them, but please report any bugs. NPC artificers
+      are now smarter, and will focus on healing nearby wounded constructs - if you
+      see them, take them out first!
+  - rscadd: Aquariums now have a small internal reagent holder, accessible when the
+      panel is open and used to automatically feed the fishes at selectable intervals,
+      also compatible with plumbing.
+  - rscadd: Fish catalogs can now be bought as a goodie pack, for 25 cr, or rarely
+      found at the library or maints.
+  - bugfix: Fixed the prices of fish analyzers. It's supposed to be 150 cr, not 500.
+  - balance: Moved the aquarium kit and fish supply packs from the "General" section
+      to "Service" and "Livestock" respectively, meaning they can be ordered for free
+      from the service orders console.
+  - bugfix: Fixed tesla coil zaps cutting off too early.
+  - bugfix: Entering a virtual domain should no longer give you a message that it
+      doesn't forbid items
+  - rscadd: Just in time for Halloween- ghost notifications have been upgraded to
+      their own announcements. Boo!
+  - rscadd: Demonic-Frost Miner's ruin gets an aesthetic refresh
+  - bugfix: RCD & RTD ui updates when switching between root categories
+  - bugfix: Meatwheat Clumps, Bungo Pits, and Eggplant Eggs should once again inherit
+      reagent purity from the grown item which produces them.
+  - rscadd: Most pies can now be sliced rather than being consumed whole.
+  - rscadd: Rootdough can be crafted using soy milk in place of eggs.
+  - rscadd: Two new lizard-safe rootbread sandwiches can be crafted.
+  - refactor: Holodeck monkeys have been moved to the same system as old monkeys,
+      and should retain the similar "ephermeal" behavior, while being a whole lot
+      smarter by leveraging new AI. Please report anything that is completely wack
+      about this.
+  - balance: Slimes can't eat holodeck monkeys anymore, because apparently they could
+      and that is wack.
+  - code_imp: Bitrunner domains can now have spells or items from disks disabled if
+      the domain maker wants such a thing
+  - balance: Export scanner no longer shows value of shipping manifests, now you actually
+      have to read them.
+  - balance: Shipping manifest penalty is now only half crate cost as well as capped
+      to 500 credits.
+  - balance: Shipping manifests for private orders or locked crates can no longer
+      have the incorrect contents error. Shipping manifests for departmental orders
+      can n longer have any error.
+  - bugfix: Fix holodeck items from being eaten, crafted, recycled, juiced, or grinded.
+  - bugfix: Cooked meat no longer spreads blood around as if it weren't cooked.
+  - qol: changed wording of a popup in the admin dressing menu
+  - bugfix: items that require reagent containers & the reagents inside it for crafting(e.g.
+      molotov) now crafts properly.
+  - bugfix: most crafting recipes should work now
+  - rscdel: Protolathe/circuit imprinter/techfab designs costing reagents is now totally
+      deprecated.
+  - bugfix: cryo and stuff that transfers reagents with a multiplier should transfer
+      correct volumes as expected.
+  - rscadd: Gygax type mechs now have an option to disable overclock when overheated.
+  - bugfix: Fixed overclocking having no effect on Ripley.
+  - refactor: Maintenance Drones now use the basic mob framework. This shouldn't come
+      with any noticeable gameplay changes, but please report any bugs.
+  - bugfix: Drones can now interact normally with electrified doors.
+  - bugfix: Drones' built-in tools can no longer be placed in storage objects and/or
+      thrown on the floor.
+  - bugfix: Drones can now perform right-click interactions correctly, such as deconstructing
+      reinforced windows.
+  - bugfix: Drones can now reboot or cannibalize other drones without being in combat
+      mode.
+  - bugfix: fixes not being able to walk over or pull mook corpses
+  - rscadd: Add new fitness skill and mechanics for weight machines and punching bags.  Working
+      out with a proper diet and good sleep will result in massive fitness gains.  As
+      your fitness increases, so does your mass.
+  - refactor: Hostile skeleton NPCs now use the basic mob framework. They're a little
+      smarter, and they also have a slightly improved set of attack effects and sounds.
+      They love to drink milk, but will be harmed greatly if any heartless spaceman
+      tricks them into drinking soymilk instead. Please report any bugs.
+  - bugfix: '[Tramstation] fixed an unlinked Disposals Bin in the Pod Bay'
+  - rscadd: Adds a subtle ghost poll. This pings in dead chat and gives a screen alert,
+      but no TGUI popup. Orbit the point of interest to be selected for the role.
+  - refactor: A number of ghost spawns now feature this alert. Write an issue report
+      if anything breaks.
+  - qol: The Command intercom now has a High-Volume setting like command headsets
+  - qol: A memo telling frequencies of station radio channels are now present near
+      the Command intercom and T-Comms room
+  - image: Station, Command, and Prison intercoms have received new sprites
+  - spellcheck: Station and Command intercom descriptions have been changed to tell
+      about their functionality
+  Treach:
+  - bugfix: Skeleton Keys now fit in the Explorer's Webbing.
+  ninjanomnom:
+  - balance: It damages your eyes to look at the supermatter singularity
