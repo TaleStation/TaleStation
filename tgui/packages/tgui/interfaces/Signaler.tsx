@@ -23,14 +23,9 @@ export const Signaler = (props, context) => {
 };
 
 export const SignalerContent = (props, context) => {
-<<<<<<< HEAD:tgui/packages/tgui/interfaces/Signaler.js
-  const { act, data } = useBackend(context);
-  const { code, frequency, minFrequency, maxFrequency } = data;
-=======
   const { act, data } = useBackend<Data>(context);
   const { code, frequency, cooldown, minFrequency, maxFrequency } = data;
 
->>>>>>> 31457e18dbb15 (Converts some js to tsx (#78946)):tgui/packages/tgui/interfaces/Signaler.tsx
   const color = 'rgba(13, 13, 213, 0.7)';
   const backColor = 'rgba(0, 0, 69, 0.5)';
   return (
@@ -106,6 +101,7 @@ export const SignalerContent = (props, context) => {
           <Button
             mb={-0.1}
             fluid
+            tooltip={cooldown && `Cooldown: ${cooldown * 0.1} seconds`}
             icon="arrow-up"
             content="Send Signal"
             textAlign="center"
