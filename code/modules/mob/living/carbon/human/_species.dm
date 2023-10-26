@@ -1432,21 +1432,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 			else
 				H.adjustFireLoss(damage_amount, forced = forced)
 		if(TOX)
-<<<<<<< HEAD
 		// NON-MODULAR CHANGES: Lizards
 			var/damage_amount = forced ? damage : damage * hit_percent * toxmod * H.physiology.tox_mod
-			H.adjustToxLoss(damage_amount)
+			H.adjustToxLoss(damage_amount, forced = forced)
 		if(OXY)
 		// NON-MODULAR CHANGES: Lizards
 			var/damage_amount = forced ? damage : damage * hit_percent * oxymod * H.physiology.oxy_mod
-			H.adjustOxyLoss(damage_amount)
-=======
-			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.tox_mod
-			H.adjustToxLoss(damage_amount, forced = forced)
-		if(OXY)
-			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.oxy_mod
 			H.adjustOxyLoss(damage_amount, forced = forced)
->>>>>>> 0d5f9907a2434 (Shapechange health transfer tweaks (#79009))
 		if(CLONE)
 			var/damage_amount = forced ? damage : damage * hit_percent * H.physiology.clone_mod
 			H.adjustCloneLoss(damage_amount, forced = forced)
