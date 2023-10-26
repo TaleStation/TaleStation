@@ -167,14 +167,10 @@
  * Scans an object, target, and provides it's export value based on selling to the cargo shuttle, to mob/user.
  */
 /obj/item/universal_scanner/proc/export_scan(obj/target, mob/user)
-	// Before you fix it:
-	// yes, checking manifests is a part of intended functionality.
 	var/datum/export_report/report = export_item_and_contents(target, dry_run = TRUE)
 	var/price = 0
 	for(var/exported_datum in report.total_amount)
 		price += report.total_value[exported_datum]
-<<<<<<< HEAD
-=======
 
 	var/message = "Scanned [target]"
 	var/warning = FALSE
@@ -202,12 +198,8 @@
 	else
 		to_chat(user, span_notice(message))
 
->>>>>>> d3366a57a9801 (scanning export barcodes now tells you who made them and the profit split (#79173))
 	if(price)
-		to_chat(user, span_notice("Scanned [target], value: <b>[price]</b> credits[target.contents.len ? " (contents included)" : ""]."))
 		playsound(src, 'sound/machines/terminal_select.ogg', 50, vary = TRUE)
-	else
-		to_chat(user, span_warning("Scanned [target], no export value."))
 
 	if(istype(target, /obj/item/delivery))
 		var/obj/item/delivery/parcel = target
