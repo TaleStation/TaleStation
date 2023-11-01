@@ -14,4 +14,4 @@
 	worn_icon = 'talestation_modules/icons/clothing/worn/suit/suit.dmi'
 	greyscale_config = /datum/greyscale_config/labcoat
 	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
-	greyscale_colors = "#EEEEEE#364091#364091#836AB0"
+	greyscale_colors = "#EEEEEE#977ebd#977ebd#836ab0"
