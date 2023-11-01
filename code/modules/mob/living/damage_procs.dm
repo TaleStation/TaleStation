@@ -82,9 +82,9 @@
 			else
 				damage_dealt = adjustFireLoss(damage_amount, forced = forced)
 		if(TOX)
-			damage_dealt = adjustToxLoss(damage_amount, forced = forced) * species.toxmod // NON-MODULAR CHANGES: Species modifier
+			damage_dealt = adjustToxLoss(damage_amount, forced = forced) * species?.toxmod // NON-MODULAR CHANGES: Species modifier
 		if(OXY)
-			damage_dealt = adjustOxyLoss(damage_amount, forced = forced) * species.oxymod // NON-MODULAR CHANGES: Species modifier
+			damage_dealt = adjustOxyLoss(damage_amount, forced = forced) * species?.oxymod // NON-MODULAR CHANGES: Species modifier
 		if(CLONE)
 			damage_dealt = adjustCloneLoss(damage_amount, forced = forced)
 		if(STAMINA)
