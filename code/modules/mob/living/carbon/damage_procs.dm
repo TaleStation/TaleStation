@@ -54,7 +54,7 @@
 	sharpness = NONE,
 	attack_direction = null,
 	attacking_item,
-	datum/species/species // NON-MODULAR CHANGES: Passes args
+	datum/species/species, // NON-MODULAR CHANGES: Passes args
 )
 	var/final_mod = ..()
 
@@ -64,9 +64,9 @@
 		if(BURN)
 			final_mod *= physiology.burn_mod
 		if(TOX)
-			final_mod *= physiology.tox_mod * species?.toxmod // NON-MODULAR CHANGES: Species modifier
+			final_mod *= physiology.tox_mod * species.toxmod // NON-MODULAR CHANGES: Species modifier
 		if(OXY)
-			final_mod *= physiology.oxy_mod * species?.oxymod // NON-MODULAR CHANGES: Species modifier
+			final_mod *= physiology.oxy_mod * species.oxymod // NON-MODULAR CHANGES: Species modifier
 		if(CLONE)
 			final_mod *= physiology.clone_mod
 		if(STAMINA)

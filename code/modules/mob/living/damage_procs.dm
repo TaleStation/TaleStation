@@ -31,6 +31,7 @@
 	sharpness = NONE,
 	attack_direction = null,
 	attacking_item,
+	datum/species/species, // NON-MODULAR CHANGES: Passes args
 )
 	SHOULD_CALL_PARENT(TRUE)
 	var/damage_amount = damage
@@ -81,9 +82,9 @@
 			else
 				damage_dealt = adjustFireLoss(damage_amount, forced = forced)
 		if(TOX)
-			damage_dealt = adjustToxLoss(damage_amount, forced = forced)
+			damage_dealt = adjustToxLoss(damage_amount, forced = forced) * species.toxmod // NON-MODULAR CHANGES: Species modifier
 		if(OXY)
-			damage_dealt = adjustOxyLoss(damage_amount, forced = forced)
+			damage_dealt = adjustOxyLoss(damage_amount, forced = forced) * species.oxymod // NON-MODULAR CHANGES: Species modifier
 		if(CLONE)
 			damage_dealt = adjustCloneLoss(damage_amount, forced = forced)
 		if(STAMINA)
