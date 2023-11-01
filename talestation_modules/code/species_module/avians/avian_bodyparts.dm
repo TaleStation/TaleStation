@@ -8,6 +8,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	is_dimorphic = TRUE
+	wing_types = NONE
 
 /obj/item/bodypart/arm/left/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
