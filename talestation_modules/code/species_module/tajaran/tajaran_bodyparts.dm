@@ -10,6 +10,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/tajaran/bodyparts.dmi'
 	limb_id = SPECIES_TAJARAN
 	is_dimorphic = TRUE
+	wing_types = NONE
 
 /obj/item/bodypart/arm/left/tajaran
 	icon_greyscale = 'talestation_modules/icons/species/tajaran/bodyparts.dmi'
