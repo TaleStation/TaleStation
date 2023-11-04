@@ -96,11 +96,15 @@ GLOBAL_LIST_INIT(phobia_mobs, list(
 		/mob/living/basic/faithless,
 		/mob/living/basic/ghost,
 		/mob/living/basic/heretic_summon,
-		/mob/living/basic/skeleton,
+<<<<<<< HEAD
+=======
 		/mob/living/basic/revenant,
+		/mob/living/basic/shade,
+>>>>>>> 07f2214ac455f (Basic Wizards (#79476))
+		/mob/living/basic/skeleton,
+		/mob/living/basic/wizard,
 		/mob/living/simple_animal/bot/mulebot/paranormal,
 		/mob/living/simple_animal/hostile/dark_wizard,
-		/mob/living/simple_animal/hostile/wizard,
 		/mob/living/simple_animal/hostile/zombie,
 		/mob/living/simple_animal/shade,
 	)),
