@@ -58,7 +58,11 @@
 	RegisterSignal(fugu, COMSIG_MOB_STATCHANGE, PROC_REF(check_death))
 	fugu.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/inflated)
 	ADD_TRAIT(fugu, TRAIT_FUGU_GLANDED, TRAIT_STATUS_EFFECT(id))
+<<<<<<< HEAD
 	fugu.AddElement(/datum/element/wall_smasher)
+=======
+	fugu.AddElement(/datum/element/wall_tearer, allow_reinforced = FALSE)
+>>>>>>> 89e918df78dd2 ([no gbp] Don't try and have a status effect destroy walls (#79500))
 	fugu.mob_size = MOB_SIZE_LARGE
 	fugu.icon_state = "Fugu1"
 	fugu.melee_damage_lower = 15
