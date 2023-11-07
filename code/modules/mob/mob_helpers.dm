@@ -275,6 +275,14 @@
 	if(ignore_mapload && SSatoms.initialized != INITIALIZATION_INNEW_REGULAR) //don't notify for objects created during a map load
 		return
 
+	if(source)
+		if(isnull(alert_overlay))
+			alert_overlay = get_small_overlay(source)
+
+		alert_overlay.appearance_flags |= TILE_BOUND
+		alert_overlay.layer = FLOAT_LAYER
+		alert_overlay.plane = FLOAT_PLANE
+
 	for(var/mob/dead/observer/ghost in GLOB.player_list)
 		if(!notify_suiciders && HAS_TRAIT(ghost, TRAIT_SUICIDED))
 			continue
@@ -299,10 +307,14 @@
 		var/atom/movable/screen/alert/notify_action/toast = ghost.throw_alert(
 			category = "[REF(source)]_notify_action",
 			type = /atom/movable/screen/alert/notify_action,
-			new_master = source,
 		)
 		toast.action = action
+<<<<<<< HEAD
 		toast.desc = "Click to [action]."
+=======
+		toast.add_overlay(alert_overlay)
+		toast.desc = "[message] -- Click to [action]."
+>>>>>>> e2529818aa04c (Reverts reverted toast icons (#79538))
 		toast.name = header
 		toast.target = source
 
