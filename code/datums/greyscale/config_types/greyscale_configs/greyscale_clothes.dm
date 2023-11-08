@@ -361,11 +361,7 @@
 /datum/greyscale_config/labcoat
 	name = "Labcoat"
 	icon_file = 'icons/obj/clothing/suits/labcoat.dmi'
-<<<<<<< HEAD
-	json_config = 'code/datums/greyscale/json_configs/labcoat_worn.json'
-=======
 	json_config = 'code/datums/greyscale/json_configs/labcoat.json'
->>>>>>> 4d78268850aa3 (Fixes labcoats having the wrong sprites when thrown (#79457))
 
 /datum/greyscale_config/labcoat/worn
 	name = "Labcoat (Worn)"
