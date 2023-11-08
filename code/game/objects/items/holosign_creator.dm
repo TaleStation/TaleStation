@@ -67,12 +67,9 @@
 		if(target_turf.is_blocked_turf(TRUE)) //don't try to sneak dense stuff on our tile during the wait.
 			return .
 	target_holosign = new holosign_type(get_turf(target), src)
-<<<<<<< HEAD
-=======
 	target_holosign.add_hiddenprint(user)
 	if(color)
 		target_holosign.color = color
->>>>>>> f6487e838d13a (Coloured holobarriers (#79219))
 	return .
 
 /obj/item/holosign_creator/attack(mob/living/carbon/human/M, mob/user)
