@@ -189,8 +189,6 @@
 #define BB_MOOK_MUSIC_AUDIENCE "music_audience"
 /// the bonfire we will light up
 #define BB_MOOK_BONFIRE_TARGET "bonfire_target"
-<<<<<<< HEAD
-=======
 
 //leaper keys
 ///key holds our volley ability
@@ -218,4 +216,3 @@
 #define BB_WIZARD_BLINK_SPELL "BB_wizard_blink_spell"
 /// Key for the next time we can cast a spell
 #define BB_WIZARD_SPELL_COOLDOWN "BB_wizard_spell_cooldown"
->>>>>>> 42c8e1adf9ce7 (new wizard ability and basic leaper refactor (#79237))

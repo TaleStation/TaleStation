@@ -28,17 +28,6 @@
 
 /mob/living/basic/mining/ice_demon/Initialize(mapload)
 	. = ..()
-<<<<<<< HEAD
-	var/datum/action/cooldown/mob_cooldown/slippery_ice_floors/ice_floor = new(src)
-	ice_floor.Grant(src)
-	ai_controller.set_blackboard_key(BB_DEMON_SLIP_ABILITY, ice_floor)
-	var/datum/action/cooldown/mob_cooldown/ice_demon_teleport/demon_teleport = new(src)
-	demon_teleport.Grant(src)
-	ai_controller.set_blackboard_key(BB_DEMON_TELEPORT_ABILITY, demon_teleport)
-	var/datum/action/cooldown/spell/conjure/create_afterimages/afterimage = new(src)
-	afterimage.Grant(src)
-	ai_controller.set_blackboard_key(BB_DEMON_CLONE_ABILITY, afterimage)
-=======
 	var/static/list/innate_actions = list(
 		/datum/action/cooldown/mob_cooldown/slippery_ice_floors = BB_DEMON_SLIP_ABILITY,
 		/datum/action/cooldown/mob_cooldown/ice_demon_teleport = BB_DEMON_TELEPORT_ABILITY,
@@ -46,7 +35,6 @@
 	)
 	grant_actions_by_list(innate_actions)
 
->>>>>>> 42c8e1adf9ce7 (new wizard ability and basic leaper refactor (#79237))
 	AddComponent(\
 		/datum/component/ranged_attacks,\
 		projectile_type = /obj/projectile/temp/ice_demon,\
