@@ -31,12 +31,29 @@
 	source.delay = controller.movement_delay
 
 	var/can_move = TRUE
-	if(controller.ai_traits & STOP_MOVING_WHEN_PULLED && pawn.pulledby) //Need to store more state. Annoying.
+	if((controller.ai_traits & STOP_MOVING_WHEN_PULLED) && pawn.pulledby) //Need to store more state. Annoying.
 		can_move = FALSE
 
 	if(!isturf(pawn.loc)) //No moving if not on a turf
 		can_move = FALSE
 
+<<<<<<< HEAD
+=======
+	if(isliving(pawn))
+		var/mob/living/pawn_mob = pawn
+		if(!(pawn_mob.mobility_flags & MOBILITY_MOVE))
+			can_move = FALSE
+
+	return can_move
+
+///Anything to do before moving; any checks if the pawn should be able to move should be placed in allowed_to_move() and called by this proc
+/datum/ai_movement/proc/pre_move(datum/move_loop/source)
+	SIGNAL_HANDLER
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	var/datum/ai_controller/controller = source.extra_info
+
+>>>>>>> 51220a36c14a6 (Basic mobs check for `MOBILITY_MOVE` to move (#79627))
 	// Check if this controller can actually run, so we don't chase people with corpses
 	if(!controller.able_to_run())
 		controller.CancelActions()
