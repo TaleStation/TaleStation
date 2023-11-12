@@ -24,7 +24,11 @@
 	if(controller.pathing_attempts >= max_pathing_attempts)
 		controller.CancelActions()
 
+<<<<<<< HEAD
 ///Should the movement be allowed to happen? As of writing this, MOVELOOP_SKIP_STEP is defined as (1<<0) so be careful on using (return TRUE) or (can_move = TRUE; return can_move)
+=======
+///Should the movement be allowed to happen? return TRUE if it can, FALSE otherwise
+>>>>>>> 3223d2a3fbf71 (Lemon fixes ci (#79384))
 /datum/ai_movement/proc/allowed_to_move(datum/move_loop/source)
 	var/atom/movable/pawn = source.moving
 	var/datum/ai_controller/controller = source.extra_info
@@ -43,10 +47,17 @@
 		qdel(source) //stop moving
 		return MOVELOOP_SKIP_STEP
 
+<<<<<<< HEAD
 	//Why doesn't this return TRUE or can_move?
 	//MOVELOOP_SKIP_STEP is defined as (1<<0) and TRUE are defined as the same "1", returning TRUE would be the equivalent of skipping the move
 	if(can_move)
 		return
+=======
+	source.delay = controller.movement_delay
+
+	if(allowed_to_move(source))
+		return NONE
+>>>>>>> 3223d2a3fbf71 (Lemon fixes ci (#79384))
 	increment_pathing_failures(controller)
 	return MOVELOOP_SKIP_STEP
 
