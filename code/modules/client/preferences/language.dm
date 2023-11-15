@@ -1,6 +1,6 @@
 /* NON-MODULAR CHANGES: Disables /tg/s langauge pref choices
 /datum/preference/choiced/language
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "language"
 	savefile_identifier = PREFERENCE_CHARACTER
 
