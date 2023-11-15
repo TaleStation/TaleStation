@@ -12,8 +12,4 @@
 	RegisterSignal(loop, COMSIG_MOVELOOP_PREPROCESS_CHECK, PROC_REF(pre_move))
 
 /datum/ai_movement/complete_stop/allowed_to_move(datum/move_loop/source)
-<<<<<<< HEAD
-	return // no movement allowed
-=======
-	return FALSE 
->>>>>>> 3223d2a3fbf71 (Lemon fixes ci (#79384))
+	return FALSE
