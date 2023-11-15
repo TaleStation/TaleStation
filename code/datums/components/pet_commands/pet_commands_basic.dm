@@ -102,11 +102,11 @@
  * # Pet Command: Use ability
  * Use an an ability that does not require any targets
  */
-/datum/pet_command/untargetted_ability
-	///untargetted ability we will use
+/datum/pet_command/untargeted_ability
+	///untargeted ability we will use
 	var/ability_key
 
-/datum/pet_command/untargetted_ability/execute_action(datum/ai_controller/controller)
+/datum/pet_command/untargeted_ability/execute_action(datum/ai_controller/controller)
 	var/datum/action/cooldown/ability = controller.blackboard[ability_key]
 	if(!ability?.IsAvailable())
 		return
@@ -158,8 +158,6 @@
 	return SUBTREE_RETURN_FINISH_PLANNING
 
 /**
-<<<<<<< HEAD
-=======
  * # Breed command. breed with a partner!
  */
 /datum/pet_command/point_targeting/breed
@@ -190,7 +188,6 @@
 	return SUBTREE_RETURN_FINISH_PLANNING
 
 /**
->>>>>>> 7a44f10993cb8 (basic gutlunchers and ashwalker ranching (#79508))
  * # Pet Command: Targetted Ability
  * Tells a pet to use some kind of ability on the next thing you point at
  */
