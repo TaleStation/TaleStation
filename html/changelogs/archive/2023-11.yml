@@ -513,3 +513,54 @@
   san7890, Ghommie:
   - bugfix: The Blessing of Insanity now grants no damage slowdown and free hyperspace
       movement correctly.
+2023-11-17:
+  Melbert:
+  - balance: Stop, drop, and roll no longer instantly clears 5 fire stacks off of
+      you - Instead, it will clear 1 fire stack off of you every time you roll, with
+      a roll every 0.8 seconds.
+  - balance: Stop, drop, and roll no longer stuns you for 6 seconds. Instead, it will
+      knock you to the floor while you are rolling. Moving around or getting up will
+      cancel the roll, and you cannot use items while rolling around.
+  - balance: Stop, drop, and roll will now repeat until the fire is put out or you
+      get up.
+  TaleStationBot:
+  - bugfix: Fix mapping linter not identifying duplicate blacklisted objects on a
+      turf
+  - code_imp: Add a mapping linter to check for stacked machinery
+  - rscadd: The mother hallucination has more possible one-liners now.
+  - balance: After a string of unfortunate incidents, persons with telekinesis have
+      been strongly warned against playing Russian Roulette, as they tend to hyperfixate
+      on the gun a bit too much and end up firing it directly at their head.
+  - code_imp: removed redundant procs `get_master_reagent_id()` & `get_master_reagent_name()`
+  - code_imp: merged `remove_all_type()` proc with `remove_reagent()` now this proc
+      can perform both functions.  `remove_reagent()` now returns the total volume
+      of reagents removed rather than a simple TRUE/FALSE.
+  - code_imp: merged `trans_id_to()` proc with `trans_to()` now this proc can perform
+      both functions
+  - refactor: plumbing reaction chamber will now use only a single tick to balance
+      ph of a solution making it less efficient but more faster. Just make the reaction
+      chamber wait for longer periods of time to accurately balance ph
+  - refactor: reagent holder code has been condensed. Report any bugs on GitHub
+  - bugfix: Fixed catwalks over open space not making a sound when walked over.
+  - rscadd: Adds a chance that, when sharpened, a sufficiently potent carrot will
+      turn into a sword instead of a shiv.
+  - balance: Male Goats should no longer spawn with an udder, instead of it just being
+      Pete.
+  - qol: if you die in a mech you automatically eject
+  - image: light tube inhand sprites are now grey, as are the icons for the light
+      bulb/tube/mixed boxes
+  - bugfix: grabs no longer trigger krav maga
+  - bugfix: Space Ruin - All American Diner - Soda Machine now is scooted out of the
+      way
+  - rscadd: Androids now have robotic brains instead of organic brains.
+  - bugfix: Bar Bots (and several other mobs) will no longer aggro on you if you click
+      on them with a "forceful" item from halfway across the room.
+  - qol: The supermatter filters have been flipped on BirdshotStation to work like
+      the supermatters on every round, meaning the filtered gas goes in, and the non-filtered
+      gas comes out.
+  Vekter (on behalf of Constellado):
+  - image: 'Added a new bar sign as one of the winners of our Bar Sign Contest: "The
+      Assembly Line".'
+  mogeoko:
+  - bugfix: Turbine parts will now use an amount of materials no greater than needed
+      for the upgrade
