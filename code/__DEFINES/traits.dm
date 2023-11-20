@@ -651,6 +651,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_MOVE_VENTCRAWLING "move_ventcrawling"
 #define TRAIT_MOVE_FLOATING "move_floating"
 #define TRAIT_MOVE_PHASING "move_phasing"
+#define TRAIT_MOVE_UPSIDE_DOWN "move_upside_down"
 /// Disables the floating animation. See above.
 #define TRAIT_NO_FLOATING_ANIM "no-floating-animation"
 
@@ -1066,6 +1067,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// changelings with this trait can no longer talk over the hivemind
 #define CHANGELING_HIVEMIND_MUTE "ling_mute"
 #define TRAIT_HULK "hulk"
+<<<<<<< HEAD:code/__DEFINES/traits.dm
 #define STASIS_MUTE "stasis"
 #define GENETICS_SPELL "genetics_spell"
 #define EYES_COVERED "eyes_covered"
@@ -1182,6 +1184,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define AUTOPSY_TRAIT "autopsy_trait"
 /// Trait given by [/datum/status_effect/blessing_of_insanity]
 #define MAD_WIZARD_TRAIT "mad_wizard_trait"
+=======
+>>>>>>> c1ed62915bc7a (Adds `UPSIDE_DOWN` movetype for negative gravity / makes Atrocinator affected by less things (#79785)):code/__DEFINES/traits/declarations.dm
 /// Isn't attacked harmfully by blob structures
 #define TRAIT_BLOB_ALLY "blob_ally"
 

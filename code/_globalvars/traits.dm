@@ -1,9 +1,35 @@
+<<<<<<< HEAD:code/_globalvars/traits.dm
 /*
 	FUN ZONE OF ADMIN LISTINGS
 	Try to keep this in sync with __DEFINES/traits.dm
 	quirks have it's own panel so we don't need them here.
 */
 GLOBAL_LIST_INIT(traits_by_type, list(
+=======
+// This file contains any stuff related to admin-visible traits.
+// There's likely more than a few traits missing from this file, do consult the `_traits.dm` file in this folder to see every global trait that exists.
+// quirks have it's own panel so we don't need them here.
+
+GLOBAL_LIST_INIT(admin_visible_traits, list(
+	/atom = list(
+		"TRAIT_KEEP_TOGETHER" = TRAIT_KEEP_TOGETHER,
+	),
+	/atom/movable = list(
+		"TRAIT_ASHSTORM_IMMUNE" = TRAIT_ASHSTORM_IMMUNE,
+		"TRAIT_HAS_LABEL" = TRAIT_HAS_LABEL,
+		"TRAIT_LAVA_IMMUNE" = TRAIT_LAVA_IMMUNE,
+		"TRAIT_MOVE_FLOATING" = TRAIT_MOVE_FLOATING,
+		"TRAIT_MOVE_FLYING" = TRAIT_MOVE_FLYING,
+		"TRAIT_MOVE_GROUND" = TRAIT_MOVE_GROUND,
+		"TRAIT_MOVE_PHASING" = TRAIT_MOVE_PHASING,
+		"TRAIT_MOVE_VENTCRAWLING" = TRAIT_MOVE_VENTCRAWLING,
+		"TRAIT_MOVE_UPSIDE_DOWN" = TRAIT_MOVE_UPSIDE_DOWN,
+		"TRAIT_RUNECHAT_HIDDEN" = TRAIT_RUNECHAT_HIDDEN,
+		"TRAIT_SNOWSTORM_IMMUNE" = TRAIT_SNOWSTORM_IMMUNE,
+		"TRAIT_VOIDSTORM_IMMUNE" = TRAIT_VOIDSTORM_IMMUNE,
+		"TRAIT_WEATHER_IMMUNE" = TRAIT_WEATHER_IMMUNE,
+	),
+>>>>>>> c1ed62915bc7a (Adds `UPSIDE_DOWN` movetype for negative gravity / makes Atrocinator affected by less things (#79785)):code/_globalvars/traits/admin_tooling.dm
 	/mob = list(
 		"TRAIT_KNOCKEDOUT" = TRAIT_KNOCKEDOUT,
 		"TRAIT_IMMOBILIZED" = TRAIT_IMMOBILIZED,
