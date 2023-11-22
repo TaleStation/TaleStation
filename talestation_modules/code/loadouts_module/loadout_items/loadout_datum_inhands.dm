@@ -28,7 +28,7 @@
 
 /datum/loadout_item/inhand/briefcase_secure
 	name = "Secure Briefcase"
-	item_path = /obj/item/storage/secure/briefcase
+	item_path = /obj/item/storage/briefcase/secure
 
 /datum/loadout_item/inhand/bouquet_mixed
 	name = "Mixed Bouquet"
