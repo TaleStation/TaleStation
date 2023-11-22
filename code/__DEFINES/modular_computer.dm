@@ -7,17 +7,7 @@
 #define PROGRAM_ALL ALL
 #define PROGRAM_CONSOLE (1<<0)
 #define PROGRAM_LAPTOP (1<<1)
-<<<<<<< HEAD
-#define PROGRAM_TABLET (1<<2)
-//Program categories
-#define PROGRAM_CATEGORY_CREW "Crew"
-#define PROGRAM_CATEGORY_ENGI "Engineering"
-#define PROGRAM_CATEGORY_SUPL "Supply"
-#define PROGRAM_CATEGORY_SCI "Science"
-#define PROGRAM_CATEGORY_MISC "Other"
-=======
 #define PROGRAM_PDA (1<<2)
->>>>>>> ddd3f5394304f (PDA general maintenance (NTNet downloader rework) (#79741))
 
 //Program categories
 #define PROGRAM_CATEGORY_DEVICE "Device Tools"
