@@ -31,8 +31,6 @@
 	var/requires_gravity = TRUE // can you use this to write in zero-g
 	embedding = list(embed_chance = 50)
 	sharpness = SHARP_POINTY
-<<<<<<< HEAD
-=======
 	var/dart_insert_icon = 'icons/obj/weapons/guns/toy.dmi'
 	var/dart_insert_casing_icon_state = "overlay_pen"
 	var/dart_insert_projectile_icon_state = "overlay_pen_proj"
@@ -65,7 +63,6 @@
 
 /obj/item/pen/proc/on_removed_from_dart(datum/source, obj/projectile/dart, mob/user)
 	SIGNAL_HANDLER
->>>>>>> c670e5d921726 ([NO GBP] Makes dart insert projectile var modification code slightly better (#79886))
 
 /obj/item/pen/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is scribbling numbers all over [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku..."))
@@ -104,7 +101,7 @@
 		if("#FF0000")
 			colour = "#00FF00"
 			chosen_color = "green"
-			throw_speed = initial(throw_speed)
+			throw_speed--
 		if("#00FF00")
 			colour = "#0000FF"
 			chosen_color = "blue"
@@ -119,6 +116,8 @@
 	icon_state = "pen-fountain"
 	font = FOUNTAIN_PEN_FONT
 	requires_gravity = FALSE // fancy spess pens
+	dart_insert_casing_icon_state = "overlay_fountainpen"
+	dart_insert_projectile_icon_state = "overlay_fountainpen_proj"
 
 /obj/item/pen/charcoal
 	name = "charcoal stylus"
@@ -148,13 +147,23 @@
 	custom_materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*7.5)
 	sharpness = SHARP_EDGED
 	resistance_flags = FIRE_PROOF
-	unique_reskin = list("Oak" = "pen-fountain-o",
-						"Gold" = "pen-fountain-g",
-						"Rosewood" = "pen-fountain-r",
-						"Black and Silver" = "pen-fountain-b",
-						"Command Blue" = "pen-fountain-cb"
-						)
+	unique_reskin = list(
+		"Oak" = "pen-fountain-o",
+		"Gold" = "pen-fountain-g",
+		"Rosewood" = "pen-fountain-r",
+		"Black and Silver" = "pen-fountain-b",
+		"Command Blue" = "pen-fountain-cb"
+	)
 	embedding = list("embed_chance" = 75)
+	dart_insert_casing_icon_state = "overlay_fountainpen_gold"
+	dart_insert_projectile_icon_state = "overlay_fountainpen_gold_proj"
+	var/list/overlay_reskin = list(
+		"Oak" = "overlay_fountainpen_gold",
+		"Gold" = "overlay_fountainpen_gold",
+		"Rosewood" = "overlay_fountainpen_gold",
+		"Black and Silver" = "overlay_fountainpen",
+		"Command Blue" = "overlay_fountainpen_gold"
+	)
 
 /obj/item/pen/fountain/captain/Initialize(mapload)
 	. = ..()
@@ -163,11 +172,18 @@
 	effectiveness = 115, \
 	)
 	//the pen is mightier than the sword
+	RegisterSignal(src, COMSIG_DART_INSERT_PARENT_RESKINNED, PROC_REF(reskin_dart_insert))
 
 /obj/item/pen/fountain/captain/reskin_obj(mob/M)
 	..()
 	if(current_skin)
 		desc = "It's an expensive [current_skin] fountain pen. The nib is quite sharp."
+
+/obj/item/pen/fountain/captain/proc/reskin_dart_insert(datum/component/dart_insert/insert_comp)
+	if(!istype(insert_comp)) //You really shouldn't be sending this signal from anything other than a dart_insert component
+		return
+	insert_comp.casing_overlay_icon_state = overlay_reskin[current_skin]
+	insert_comp.projectile_overlay_icon_state = "[overlay_reskin[current_skin]]_proj"
 
 /obj/item/pen/attack_self(mob/living/carbon/user)
 	. = ..()
@@ -282,6 +298,23 @@
 	reagents.add_reagent(/datum/reagent/toxin/mutetoxin, 15)
 	reagents.add_reagent(/datum/reagent/toxin/staminatoxin, 10)
 
+/obj/item/pen/sleepy/on_inserted_into_dart(datum/source, obj/item/ammo_casing/dart, mob/user)
+	. = ..()
+	var/obj/projectile/proj = dart.loaded_projectile
+	RegisterSignal(proj, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_dart_hit))
+
+/obj/item/pen/sleepy/on_removed_from_dart(datum/source, obj/item/ammo_casing/dart, obj/projectile/proj, mob/user)
+	. = ..()
+	if(istype(proj))
+		UnregisterSignal(proj, COMSIG_PROJECTILE_SELF_ON_HIT)
+
+/obj/item/pen/sleepy/proc/on_dart_hit(datum/source, atom/movable/firer, atom/target, angle, hit_limb, blocked)
+	SIGNAL_HANDLER
+	var/mob/living/carbon/carbon_target = target
+	if(!istype(carbon_target) || blocked == 100)
+		return
+	if(carbon_target.can_inject(target_zone = hit_limb))
+		reagents.trans_to(carbon_target, reagents.total_volume, transferred_by = firer, methods = INJECT)
 /*
  * (Alan) Edaggers
  */
@@ -297,6 +330,7 @@
 	light_power = 0.75
 	light_color = COLOR_SOFT_RED
 	light_on = FALSE
+	dart_insert_projectile_icon_state = "overlay_edagger"
 	/// The real name of our item when extended.
 	var/hidden_name = "energy dagger"
 	/// The real desc of our item when extended.
@@ -322,8 +356,6 @@
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 	RegisterSignal(src, COMSIG_DETECTIVE_SCANNED, PROC_REF(on_scan))
 
-<<<<<<< HEAD
-=======
 /obj/item/pen/edagger/on_inserted_into_dart(datum/source, obj/item/ammo_casing/dart, mob/user)
 	. = ..()
 	var/datum/component/transforming/transform_comp = GetComponent(/datum/component/transforming)
@@ -380,7 +412,6 @@
 		vision_distance = 1
 	)
 
->>>>>>> c670e5d921726 ([NO GBP] Makes dart insert projectile var modification code slightly better (#79886))
 /obj/item/pen/edagger/suicide_act(mob/living/user)
 	if(HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
 		user.visible_message(span_suicide("[user] forcefully rams the pen into their mouth!"))
@@ -442,6 +473,25 @@
 	toolspeed = 10 //You will never willingly choose to use one of these over a shovel.
 	font = FOUNTAIN_PEN_FONT
 	colour = "#0000FF"
+	dart_insert_casing_icon_state = "overlay_survivalpen"
+	dart_insert_projectile_icon_state = "overlay_survivalpen_proj"
+
+/obj/item/pen/survival/on_inserted_into_dart(datum/source, obj/item/ammo_casing/dart, mob/user)
+	. = ..()
+	RegisterSignal(dart.loaded_projectile, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_dart_hit))
+
+/obj/item/pen/survival/on_removed_from_dart(datum/source, obj/item/ammo_casing/dart, obj/projectile/proj, mob/user)
+	. = ..()
+	if(istype(proj))
+		UnregisterSignal(proj, COMSIG_PROJECTILE_SELF_ON_HIT)
+
+/obj/item/pen/survival/proc/on_dart_hit(obj/projectile/source, atom/movable/firer, atom/target)
+	var/turf/target_turf = get_turf(target)
+	if(!target_turf)
+		target_turf = get_turf(src)
+	if(ismineralturf(target_turf))
+		var/turf/closed/mineral/mineral_turf = target_turf
+		mineral_turf.gets_drilled(firer, TRUE)
 
 /obj/item/pen/destroyer
 	name = "Fine Tipped Pen"
@@ -456,6 +506,7 @@
 	desc = "A pen with an extendable screwdriver tip. This one has a yellow cap."
 	icon_state = "pendriver"
 	toolspeed = 1.2  // gotta have some downside
+	dart_insert_projectile_icon_state = "overlay_pendriver"
 
 /obj/item/pen/screwdriver/get_all_tool_behaviours()
 	return list(TOOL_SCREWDRIVER)
