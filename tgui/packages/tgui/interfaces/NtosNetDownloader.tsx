@@ -34,7 +34,7 @@ type ProgramData = {
 };
 
 export const NtosNetDownloader = (props, context) => {
-  const { act, data } = useBackend < Data > context;
+  const { act, data } = useBackend<Data>(context);
   const {
     disk_size,
     disk_used,
@@ -162,7 +162,7 @@ export const NtosNetDownloader = (props, context) => {
 
 const Program = (props, context) => {
   const { program } = props;
-  const { act, data } = useBackend < Data > context;
+  const { act, data } = useBackend<Data>(context);
   const {
     disk_size,
     disk_used,
