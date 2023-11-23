@@ -8,33 +8,33 @@ import { filter, sortBy } from 'common/collections';
 import { NtosWindow } from '../layouts';
 
 type Data = {
-  disk_size: number;
-  disk_used: number;
-  downloadcompletion: number;
-  downloading: BooleanLike;
-  downloadname: string;
-  downloadsize: number;
-  error: string;
-  emagged: BooleanLike;
-  categories: string[];
-  programs: ProgramData[];
+  disk_size: number,
+  disk_used: number,
+  downloadcompletion: number,
+  downloading: BooleanLike,
+  downloadname: string,
+  downloadsize: number,
+  error: string,
+  emagged: BooleanLike,
+  categories: string[],
+  programs: ProgramData[],
 };
 
 type ProgramData = {
-  icon: string;
-  filename: string;
-  filedesc: string;
-  fileinfo: string;
-  category: string;
-  installed: BooleanLike;
-  compatible: BooleanLike;
-  size: number;
-  access: BooleanLike;
-  verifiedsource: BooleanLike;
+  icon: string,
+  filename: string,
+  filedesc: string,
+  fileinfo: string,
+  category: string,
+  installed: BooleanLike,
+  compatible: BooleanLike,
+  size: number,
+  access: BooleanLike,
+  verifiedsource: BooleanLike,
 };
 
 export const NtosNetDownloader = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend < Data > context;
   const {
     disk_size,
     disk_used,
@@ -57,10 +57,8 @@ export const NtosNetDownloader = (props, context) => {
     categories[0]
   );
   const [searchItem, setSearchItem] = useLocalState(context, 'searchItem', '');
-  const search = createSearch<ProgramData>(
-    searchItem,
-    (program) => program.filedesc
-  );
+  const search =
+    createSearch < ProgramData > (searchItem, (program) => program.filedesc);
   const items = flow([
     searchItem.length > 0
       ? // If we have a query, search everything for it.
@@ -162,7 +160,7 @@ export const NtosNetDownloader = (props, context) => {
 
 const Program = (props, context) => {
   const { program } = props;
-  const { act, data } = useBackend<Data>(context);
+  const { act, data } = useBackend < Data > context;
   const {
     disk_size,
     disk_used,
