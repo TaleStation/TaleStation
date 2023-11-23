@@ -481,3 +481,15 @@
 
 /// from /obj/structure/cursed_slot_machine/determine_victor() when someone finally wins.
 #define COMSIG_GLOB_CURSED_SLOT_MACHINE_WON "cursed_slot_machine_won"
+<<<<<<< HEAD
+=======
+
+/// from /datum/component/dart_insert/add_to_dart() : (obj/item/ammo_casing, mob/user)
+#define COMSIG_DART_INSERT_ADDED "dart_insert_added"
+
+/// from /datum/component/dart_insert/remove_from_dart() : (obj/ammo_casing/dart, mob/user)
+#define COMSIG_DART_INSERT_REMOVED "dart_insert_removed"
+
+/// from /datum/component/dart_insert/on_reskin()
+#define COMSIG_DART_INSERT_PARENT_RESKINNED "dart_insert_parent_reskinned"
+>>>>>>> c670e5d921726 ([NO GBP] Makes dart insert projectile var modification code slightly better (#79886))

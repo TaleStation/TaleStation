@@ -31,6 +31,41 @@
 	var/requires_gravity = TRUE // can you use this to write in zero-g
 	embedding = list(embed_chance = 50)
 	sharpness = SHARP_POINTY
+<<<<<<< HEAD
+=======
+	var/dart_insert_icon = 'icons/obj/weapons/guns/toy.dmi'
+	var/dart_insert_casing_icon_state = "overlay_pen"
+	var/dart_insert_projectile_icon_state = "overlay_pen_proj"
+
+/obj/item/pen/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dart_insert, \
+		dart_insert_icon, \
+		dart_insert_casing_icon_state, \
+		dart_insert_icon, \
+		dart_insert_projectile_icon_state, \
+		CALLBACK(src, PROC_REF(get_dart_var_modifiers))\
+	)
+	RegisterSignal(src, COMSIG_DART_INSERT_ADDED, PROC_REF(on_inserted_into_dart))
+	RegisterSignal(src, COMSIG_DART_INSERT_REMOVED, PROC_REF(on_removed_from_dart))
+
+/obj/item/pen/proc/on_inserted_into_dart(datum/source, obj/projectile/dart, mob/user, embedded = FALSE)
+	SIGNAL_HANDLER
+
+/obj/item/pen/proc/get_dart_var_modifiers()
+	return list(
+		"damage" = max(5, throwforce),
+		"speed" = max(0, throw_speed - 3),
+		"embedding" = embedding,
+		"armour_penetration" = armour_penetration,
+		"wound_bonus" = wound_bonus,
+		"bare_wound_bonus" = bare_wound_bonus,
+		"demolition_mod" = demolition_mod,
+	)
+
+/obj/item/pen/proc/on_removed_from_dart(datum/source, obj/projectile/dart, mob/user)
+	SIGNAL_HANDLER
+>>>>>>> c670e5d921726 ([NO GBP] Makes dart insert projectile var modification code slightly better (#79886))
 
 /obj/item/pen/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] is scribbling numbers all over [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit sudoku..."))
@@ -287,6 +322,65 @@
 	RegisterSignal(src, COMSIG_TRANSFORMING_ON_TRANSFORM, PROC_REF(on_transform))
 	RegisterSignal(src, COMSIG_DETECTIVE_SCANNED, PROC_REF(on_scan))
 
+<<<<<<< HEAD
+=======
+/obj/item/pen/edagger/on_inserted_into_dart(datum/source, obj/item/ammo_casing/dart, mob/user)
+	. = ..()
+	var/datum/component/transforming/transform_comp = GetComponent(/datum/component/transforming)
+	if(HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
+		transform_comp.do_transform(src, user)
+	RegisterSignal(dart.loaded_projectile, COMSIG_PROJECTILE_FIRE, PROC_REF(on_containing_dart_fired))
+	RegisterSignal(dart.loaded_projectile, COMSIG_PROJECTILE_ON_SPAWN_DROP, PROC_REF(on_containing_dart_drop))
+	RegisterSignal(dart.loaded_projectile, COMSIG_PROJECTILE_ON_SPAWN_EMBEDDED, PROC_REF(on_containing_dart_embedded))
+
+/obj/item/pen/edagger/on_removed_from_dart(datum/source, obj/item/ammo_casing/dart, obj/projectile/projectile, mob/user)
+	. = ..()
+	if(istype(dart))
+		UnregisterSignal(dart, list(COMSIG_ITEM_UNEMBEDDED, COMSIG_ITEM_FAILED_EMBED))
+	if(istype(projectile))
+		UnregisterSignal(projectile, list(COMSIG_PROJECTILE_FIRE, COMSIG_PROJECTILE_ON_SPAWN_DROP, COMSIG_PROJECTILE_ON_SPAWN_EMBEDDED))
+
+/obj/item/pen/edagger/get_dart_var_modifiers()
+	. = ..()
+	var/datum/component/transforming/transform_comp = GetComponent(/datum/component/transforming)
+	.["damage"] = max(5, transform_comp.throwforce_on)
+	.["speed"] = max(0, transform_comp.throw_speed_on - 3)
+	var/list/embed_params = .["embedding"]
+	embed_params["embed_chance"] = 100
+
+/obj/item/pen/edagger/proc/on_containing_dart_fired(obj/projectile/source)
+	SIGNAL_HANDLER
+	playsound(source, 'sound/weapons/saberon.ogg', 5, TRUE)
+	var/datum/component/transforming/transform_comp = GetComponent(/datum/component/transforming)
+	source.hitsound = transform_comp.hitsound_on
+	source.set_light(light_range, light_power, light_color, l_on = TRUE)
+
+/obj/item/pen/edagger/proc/on_containing_dart_drop(datum/source, obj/item/ammo_casing/new_casing)
+	SIGNAL_HANDLER
+	playsound(new_casing, 'sound/weapons/saberoff.ogg', 5, TRUE)
+
+/obj/item/pen/edagger/proc/on_containing_dart_embedded(datum/source, obj/item/ammo_casing/new_casing)
+	SIGNAL_HANDLER
+	RegisterSignal(new_casing, COMSIG_ITEM_UNEMBEDDED, PROC_REF(on_embedded_removed))
+	RegisterSignal(new_casing, COMSIG_ITEM_FAILED_EMBED, PROC_REF(on_containing_dart_failed_embed))
+
+/obj/item/pen/edagger/proc/on_containing_dart_failed_embed(obj/item/ammo_casing/source)
+	SIGNAL_HANDLER
+	playsound(source, 'sound/weapons/saberoff.ogg', 5, TRUE)
+	UnregisterSignal(source, list(COMSIG_ITEM_UNEMBEDDED, COMSIG_ITEM_FAILED_EMBED))
+
+/obj/item/pen/edagger/proc/on_embedded_removed(obj/item/ammo_casing/source, mob/living/carbon/victim)
+	SIGNAL_HANDLER
+	playsound(source, 'sound/weapons/saberoff.ogg', 5, TRUE)
+	UnregisterSignal(source, list(COMSIG_ITEM_UNEMBEDDED, COMSIG_ITEM_FAILED_EMBED))
+	victim.visible_message(
+		message = span_warning("The blade of the [hidden_name] retracts as the [source.name] is removed from [victim]!"),
+		self_message = span_warning("The blade of the [hidden_name] retracts as the [source.name] is removed from you!"),
+		blind_message = span_warning("You hear an energy blade retract!"),
+		vision_distance = 1
+	)
+
+>>>>>>> c670e5d921726 ([NO GBP] Makes dart insert projectile var modification code slightly better (#79886))
 /obj/item/pen/edagger/suicide_act(mob/living/user)
 	if(HAS_TRAIT(src, TRAIT_TRANSFORM_ACTIVE))
 		user.visible_message(span_suicide("[user] forcefully rams the pen into their mouth!"))
