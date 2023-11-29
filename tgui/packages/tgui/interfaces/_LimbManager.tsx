@@ -97,11 +97,11 @@ type Limb = {
   path: string;
 };
 
-const LimbSelectButton = (
-  props: { select_limb: Limb; selected_limbs: string[] | null },
-  context
-) => {
-  const { act, data } = useBackend<Limb>(context);
+const LimbSelectButton = (props: {
+  select_limb: Limb;
+  selected_limbs: string[] | null;
+}) => {
+  const { act, data } = useBackend<Limb>();
   const { select_limb, selected_limbs } = props;
   const is_active = selected_limbs?.includes(select_limb.path);
   return (
@@ -119,15 +119,12 @@ const LimbSelectButton = (
   );
 };
 
-const DisplayLimbs = (
-  props: {
-    selected_limbs: string[] | null;
-    limbs: LimbCategory[];
-    current_selection: string | null;
-  },
-  context
-) => {
-  const { data } = useBackend<LimbCategory>(context);
+const DisplayLimbs = (props: {
+  selected_limbs: string[] | null;
+  limbs: LimbCategory[];
+  current_selection: string | null;
+}) => {
+  const { data } = useBackend<LimbCategory>();
   const { selected_limbs, limbs, current_selection } = props;
 
   const limb_category = getActiveCategory(limbs, current_selection);
@@ -351,8 +348,8 @@ class LimbManagerInner extends Component<
   }
 }
 
-export const LimbManagerPage = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+export const LimbManagerPage = (props) => {
+  const { act, data } = useBackend<Data>();
   const { limbs, selected_limbs, preview_flat_icon } = data;
 
   return (

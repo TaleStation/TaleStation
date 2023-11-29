@@ -32,21 +32,15 @@ type Data = {
   tutorial_text: string;
 };
 
-export const LoadoutPage = (props, context) => {
-  const { data } = useBackend<Data>(context);
+export const LoadoutPage = (props) => {
+  const { data } = useBackend<Data>();
   const { loadout_tabs } = data;
   const [tutorialStatus, setTutorialStatus] = useLocalState(
-    context,
     'tutorialStatus',
     false
   );
-  const [searchLoadout, setSearchLoadout] = useLocalState(
-    context,
-    'searchLoadout',
-    ''
-  );
+  const [searchLoadout, setSearchLoadout] = useLocalState('searchLoadout', '');
   const [selectedTabName, setSelectedTab] = useLocalState(
-    context,
     'tabs',
     loadout_tabs[0]?.name
   );
@@ -98,11 +92,10 @@ export const LoadoutPage = (props, context) => {
   );
 };
 
-const LoadoutTutorialDimmer = (props, context) => {
-  const { data } = useBackend<Data>(context);
+const LoadoutTutorialDimmer = (props) => {
+  const { data } = useBackend<Data>();
   const { tutorial_text } = data;
   const [tutorialStatus, setTutorialStatus] = useLocalState(
-    context,
     'tutorialStatus',
     false
   );
@@ -125,11 +118,8 @@ const LoadoutTutorialDimmer = (props, context) => {
   );
 };
 
-const ItemDisplay = (
-  props: { item: LoadoutItem; active: boolean },
-  context
-) => {
-  const { act } = useBackend<LoadoutItem>(context);
+const ItemDisplay = (props: { item: LoadoutItem; active: boolean }) => {
+  const { act } = useBackend<LoadoutItem>();
   const { item, active } = props;
   return (
     <Stack>
@@ -168,11 +158,10 @@ const ItemDisplay = (
   );
 };
 
-const LoadoutTabDisplay = (
-  props: { category: LoadoutCategory | undefined },
-  context
-) => {
-  const { data } = useBackend<Data>(context);
+const LoadoutTabDisplay = (props: {
+  category: LoadoutCategory | undefined;
+}) => {
+  const { data } = useBackend<Data>();
   const { selected_loadout } = data;
   const { category } = props;
   if (!category) {
@@ -199,10 +188,10 @@ const LoadoutTabDisplay = (
   );
 };
 
-const SearchDisplay = (props, context) => {
-  const { data } = useBackend<Data>(context);
+const SearchDisplay = (props) => {
+  const { data } = useBackend<Data>();
   const { loadout_tabs, selected_loadout } = data;
-  const [searchLoadout] = useLocalState(context, 'searchLoadout', '');
+  const [searchLoadout] = useLocalState('searchLoadout', '');
 
   const allLoadoutItems = () => {
     const concatItems: LoadoutItem[] = [];
@@ -239,15 +228,11 @@ const SearchDisplay = (props, context) => {
   );
 };
 
-const LoadoutTabs = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+const LoadoutTabs = (props) => {
+  const { act, data } = useBackend<Data>();
   const { loadout_tabs } = data;
-  const [selectedTabName] = useLocalState(
-    context,
-    'tabs',
-    loadout_tabs[0]?.name
-  );
-  const [searchLoadout] = useLocalState(context, 'searchLoadout', '');
+  const [selectedTabName] = useLocalState('tabs', loadout_tabs[0]?.name);
+  const [searchLoadout] = useLocalState('searchLoadout', '');
   const activeCategory = loadout_tabs.find((curTab) => {
     return curTab.name === selectedTabName;
   });
@@ -295,10 +280,10 @@ const LoadoutTabs = (props, context) => {
   );
 };
 
-const LoadoutPreviewSection = (props, context) => {
-  const { act, data } = useBackend<Data>(context);
+const LoadoutPreviewSection = (props) => {
+  const { act, data } = useBackend<Data>();
   const { mob_name, job_clothes, loadout_preview_view } = data;
-  const [tutorialStatus] = useLocalState(context, 'tutorialStatus', false);
+  const [tutorialStatus] = useLocalState('tutorialStatus', false);
   return (
     <Section
       title={`Preview: ${mob_name}`}

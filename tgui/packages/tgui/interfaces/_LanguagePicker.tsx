@@ -22,15 +22,12 @@ type Language = {
   requires: string | null;
 };
 
-export const LanguageStack = (
-  props: {
-    language: Language;
-    selected_lang: typePath;
-    tooltip: string;
-  },
-  context
-) => {
-  const { act } = useBackend<Language>(context);
+export const LanguageStack = (props: {
+  language: Language;
+  selected_lang: typePath;
+  tooltip: string;
+}) => {
+  const { act } = useBackend<Language>();
   const { name, type, pickable } = props.language;
 
   return (
@@ -57,7 +54,7 @@ export const LanguageStack = (
   );
 };
 
-const WarningDimmer = (props, context) => {
+const WarningDimmer = (props) => {
   return (
     <Dimmer vertical align="center">
       <Stack.Item fontSize="18px">{props.message}</Stack.Item>
@@ -65,8 +62,8 @@ const WarningDimmer = (props, context) => {
   );
 };
 
-export const LanguagePage = (props, context) => {
-  const { data } = useBackend<Data>(context);
+export const LanguagePage = (props) => {
+  const { data } = useBackend<Data>();
 
   const {
     species,
