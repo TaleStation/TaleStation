@@ -1190,3 +1190,7 @@ GLOBAL_PROTECT(admin_verbs_poll)
 		QDEL_NULL(segment.ai_controller)
 		segment.AddComponent(/datum/component/mob_chain, front = previous)
 		previous = segment
+<<<<<<< HEAD
+=======
+
+>>>>>>> 835ca9200792b (Moves the new "Turn Target into MMI" verb into a VV dropdown option and rewrites the code around it. (#80097))
