@@ -9,6 +9,15 @@
 #define ALIGNMENT_NEUT "neutral"
 #define ALIGNMENT_EVIL "evil"
 
+<<<<<<< HEAD
+=======
+///how many lines multiplied by tempo should at least be higher than this. Makes people have to choose a long enough song to get the final effect.
+#define FESTIVAL_SONG_LONG_ENOUGH 170
+
+/// the probability, when not overridden by sects, for a bible's bless effect to trigger on a smack
+#define DEFAULT_SMACK_CHANCE 60
+
+>>>>>>> 5a905d86806c4 (Festival Sect Expansion: New Tunes, New Rites, Cogitandi Fidis (#80032))
 //## which weapons should we use?
 
 // unused but for clarity
