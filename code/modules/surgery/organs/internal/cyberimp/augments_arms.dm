@@ -325,11 +325,7 @@
 		if(!istype(potential_flash, /obj/item/assembly/flash/armimplant))
 			continue
 		var/obj/item/assembly/flash/armimplant/flash = potential_flash
-<<<<<<< HEAD
-		flash.arm = WEAKREF(src) // Todo: wipe single letter vars out of assembly code
-=======
 		flash.arm = WEAKREF(src)
->>>>>>> f8b41f94426ad (Changes occurrences of `recieve` in code to `receive` (#80065))
 
 /obj/item/organ/internal/cyberimp/arm/surgery
 	name = "surgical toolset implant"
