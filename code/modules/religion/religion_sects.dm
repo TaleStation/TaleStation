@@ -38,6 +38,8 @@
 	var/altar_icon_state
 	/// Currently Active (non-deleted) rites
 	var/list/active_rites
+	/// Chance that we fail a bible blessing.
+	var/smack_chance = DEFAULT_SMACK_CHANCE
 	/// Whether the structure has CANDLE OVERLAYS!
 	var/candle_overlay = TRUE
 
@@ -122,6 +124,10 @@
 		playsound(chap, SFX_PUNCH, 25, TRUE, -1)
 		blessed.add_mood_event("blessing", /datum/mood_event/blessing)
 	return TRUE
+
+/// What happens if we bless a corpse? By default just do the default smack behavior
+/datum/religion_sect/proc/sect_dead_bless(mob/living/target, mob/living/chap)
+	return FALSE
 
 /**** Nanotrasen Approved God ****/
 
@@ -286,11 +292,12 @@
 	name = "Punished God"
 	quote = "To feel the freedom, you must first understand captivity."
 	desc = "Incapacitate yourself in any way possible. Bad mutations, lost limbs, traumas, \
-	even addictions. You will learn the secrets of the universe from your defeated shell."
+		even addictions. You will learn the secrets of the universe from your defeated shell."
 	tgui_icon = "user-injured"
 	altar_icon_state = "convertaltar-burden"
 	alignment = ALIGNMENT_NEUT
 	candle_overlay = FALSE
+	smack_chance = 0
 	rites_list = list(/datum/religion_rites/nullrod_transformation)
 
 /datum/religion_sect/burden/on_conversion(mob/living/carbon/human/new_convert)
@@ -298,11 +305,11 @@
 	if(!ishuman(new_convert))
 		to_chat(new_convert, span_warning("[GLOB.deity] needs higher level creatures to fully comprehend the suffering. You are not burdened."))
 		return
-	new_convert.gain_trauma(/datum/brain_trauma/special/burdened, TRAUMA_RESILIENCE_MAGIC)
+	new_convert.gain_trauma(/datum/brain_trauma/special/burdened, TRAUMA_RESILIENCE_ABSOLUTE)
 
 /datum/religion_sect/burden/on_deconversion(mob/living/carbon/human/new_convert)
 	if (ishuman(new_convert))
-		new_convert.cure_trauma_type(/datum/brain_trauma/special/burdened, TRAUMA_RESILIENCE_MAGIC)
+		new_convert.cure_trauma_type(/datum/brain_trauma/special/burdened, TRAUMA_RESILIENCE_ABSOLUTE)
 	return ..()
 
 /datum/religion_sect/burden/tool_examine(mob/living/carbon/human/burdened) //display burden level
@@ -313,8 +320,6 @@
 		return "You are at burden level [burden.burden_level]/9."
 	return "You are not burdened."
 
-<<<<<<< HEAD
-=======
 /datum/religion_sect/burden/sect_bless(mob/living/carbon/target, mob/living/carbon/chaplain)
 	if(!istype(target) || !istype(chaplain))
 		return FALSE
@@ -380,7 +385,6 @@
 
 /datum/religion_sect/burden/sect_dead_bless(mob/living/target, mob/living/chaplain)
 	return sect_bless(target, chaplain)
->>>>>>> 274eb2a52ecd3 (Removes Clone Damage (#80109))
 
 /datum/religion_sect/honorbound
 	name = "Honorbound God"
@@ -499,7 +503,10 @@
 	alignment = ALIGNMENT_GOOD
 	candle_overlay = FALSE
 	rites_list = list(
+		/datum/religion_rites/holy_violin,
+		/datum/religion_rites/portable_song_tuning,
 		/datum/religion_rites/song_tuner/evangelism,
+		/datum/religion_rites/song_tuner/light,
 		/datum/religion_rites/song_tuner/nullwave,
 		/datum/religion_rites/song_tuner/pain,
 		/datum/religion_rites/song_tuner/lullaby,
