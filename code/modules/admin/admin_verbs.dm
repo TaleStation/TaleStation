@@ -97,8 +97,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/cmd_admin_law_panel,
 	/client/proc/log_viewer_new,
 	/client/proc/player_ticket_history,
-	// MODULAR STUFF
-	/datum/admins/proc/togglelooc, /* NON-MODULAR CHANGES: toggle LOOC verb (this list isn't touched ever anyways) - What a fat fucking lie that was #2644*/
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/library_control))
 GLOBAL_PROTECT(admin_verbs_ban)
@@ -171,7 +169,6 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	return list(
 	#ifdef TESTING /* Keep these at the top to not make the list look fugly */
 	/client/proc/check_missing_sprites,
-	/client/proc/run_dynamic_simulations,
 	#endif
 	/proc/machine_upgrade,
 	/datum/admins/proc/create_or_modify_area,
@@ -1190,7 +1187,3 @@ GLOBAL_PROTECT(admin_verbs_poll)
 		QDEL_NULL(segment.ai_controller)
 		segment.AddComponent(/datum/component/mob_chain, front = previous)
 		previous = segment
-<<<<<<< HEAD
-=======
-
->>>>>>> 835ca9200792b (Moves the new "Turn Target into MMI" verb into a VV dropdown option and rewrites the code around it. (#80097))
