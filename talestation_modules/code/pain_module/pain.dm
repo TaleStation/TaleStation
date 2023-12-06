@@ -428,10 +428,6 @@
 				if(50 to INFINITY)
 					pain += 3
 
-		// Cellular pain is dealt to all bodyparts
-		if(CLONE)
-			def_zone = BODY_ZONES_ALL
-
 		// No pain from stamina loss
 		// In the future stamina can probably cause very sharp pain and replace stamcrit,
 		// but the system will require much finer tuning before then

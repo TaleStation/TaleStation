@@ -73,8 +73,6 @@
 			final_mod *= physiology.tox_mod * species?.toxmod // NON-MODULAR CHANGES: Species modifier
 		if(OXY)
 			final_mod *= physiology.oxy_mod * species?.oxymod // NON-MODULAR CHANGES: Species modifier
-		if(CLONE)
-			final_mod *= physiology.clone_mod
 		if(STAMINA)
 			final_mod *= physiology.stamina_mod
 		if(BRAIN)
