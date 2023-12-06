@@ -60,4 +60,13 @@
 			SPECIES_PERK_DESC = "Tajarans have special, adapted eyes that enable them to see better in the dark!.",
 	))
 
+	to_add += list(list(
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_ICON = FA_ICON_PERSON_FALLING,
+			SPECIES_PERK_NAME = "Catlike Grace",
+			SPECIES_PERK_DESC = "Tajarans have catlike instincts allowing them to land upright on their feet.  \
+				Instead of being knocked down from falling, you only recieve a short slowdown. \
+				However, they do not have catlike legs, and the fall will deal additional damage.",
+	))
+
 	return to_add
