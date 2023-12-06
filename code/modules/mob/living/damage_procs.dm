@@ -84,13 +84,7 @@
 		if(TOX)
 			damage_dealt = adjustToxLoss(damage_amount, forced = forced) * species?.toxmod // NON-MODULAR CHANGES: Species modifier
 		if(OXY)
-<<<<<<< HEAD
 			damage_dealt = adjustOxyLoss(damage_amount, forced = forced) * species?.oxymod // NON-MODULAR CHANGES: Species modifier
-		if(CLONE)
-			damage_dealt = adjustCloneLoss(damage_amount, forced = forced)
-=======
-			damage_dealt = adjustOxyLoss(damage_amount, forced = forced)
->>>>>>> 274eb2a52ecd3 (Removes Clone Damage (#80109))
 		if(STAMINA)
 			damage_dealt = adjustStaminaLoss(damage_amount, forced = forced)
 		if(BRAIN)
