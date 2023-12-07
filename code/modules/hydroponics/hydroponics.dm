@@ -900,7 +900,7 @@
 			reagent_source.update_appearance()
 		return 1
 
-	else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/sample))
+	else if(istype(O, /obj/item/seeds))
 		if(!myseed)
 		//NON-MODULAR CHANGES: XenoBotany
 			var/obj/item/seeds/seed = O
