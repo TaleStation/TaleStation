@@ -3,13 +3,19 @@ import { classes } from 'common/react';
 import { InfernoNode, SFC } from 'inferno';
 import { useBackend } from '../../backend';
 import { Box, Button, Dropdown, Stack, Tooltip } from '../../components';
-import { createSetPreference, Job, JoblessRole, JobPriority, PreferencesMenuData } from './data';
+import {
+  createSetPreference,
+  Job,
+  JoblessRole,
+  JobPriority,
+  PreferencesMenuData,
+} from './data';
 import { ServerPreferencesFetcher } from './ServerPreferencesFetcher';
 
 const sortJobs = (entries: [string, Job][], head?: string) =>
   sortBy<[string, Job]>(
     ([key, _]) => (key === head ? -1 : 1),
-    ([key, _]) => key
+    ([key, _]) => key,
   )(entries);
 
 const PRIORITY_BUTTON_SIZE = '18px';
@@ -47,7 +53,7 @@ type CreateSetPriority = (priority: JobPriority | null) => () => void;
 const createSetPriorityCache: Record<string, CreateSetPriority> = {};
 
 const createCreateSetPriorityFromName = (
-  jobName: string
+  jobName: string,
 ): CreateSetPriority => {
   if (createSetPriorityCache[jobName] !== undefined) {
     return createSetPriorityCache[jobName];
@@ -107,11 +113,20 @@ const PriorityButtons = (props: {
   return (
     <Stack
       style={{
+<<<<<<< HEAD
         'align-items': 'center',
         'height': '100%',
         'justify-content': 'flex-end',
         'padding-left': '0.3em',
       }}>
+=======
+        alignItems: 'center',
+        height: '100%',
+        justifyContent: 'flex-end',
+        paddingLeft: '0.3em',
+      }}
+    >
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
       {isOverflow ? (
         <>
           <PriorityButton
@@ -230,8 +245,14 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
             className="job-name"
             width="50%"
             style={{
+<<<<<<< HEAD
               'padding-left': '0.3em',
             }}>
+=======
+              paddingLeft: '0.3em',
+            }}
+          >
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
             {name}
           </Stack.Item>
         </Tooltip>
@@ -268,7 +289,7 @@ const Department: SFC<{ department: string }> = (props) => {
 
         const jobsForDepartment = sortJobs(
           Object.entries(jobs).filter(([_, job]) => job.department === name),
-          department.head
+          department.head,
         );
 
         return (

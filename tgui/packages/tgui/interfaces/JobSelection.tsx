@@ -1,5 +1,12 @@
 import { useBackend } from '../backend';
-import { Box, Button, StyleableSection, Icon, Stack, NoticeBox } from '../components';
+import {
+  Box,
+  Button,
+  StyleableSection,
+  Icon,
+  Stack,
+  NoticeBox,
+} from '../components';
 import { Window } from '../layouts';
 import { Color } from 'common/color';
 import { SFC } from 'inferno';
@@ -51,6 +58,7 @@ export const JobEntry: SFC<{
           ? '#949494' // Grey background
           : job.prioritized
             ? '#16fc0f' // Bright green background
+<<<<<<< HEAD
             : Color.fromHex(department.color)
               .darken(10)
               .toString(),
@@ -61,6 +69,14 @@ export const JobEntry: SFC<{
             .toString(),
         'font-size': '1.1rem',
         'cursor': job.unavailable_reason ? 'initial' : 'pointer',
+=======
+            : Color.fromHex(department.color).darken(10).toString(),
+        color: job.unavailable_reason
+          ? '#616161' // Dark grey font
+          : Color.fromHex(department.color).darken(90).toString(),
+        fontSize: '1.1rem',
+        cursor: job.unavailable_reason ? 'initial' : 'pointer',
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
       }}
       tooltip={
         job.unavailable_reason ||
@@ -77,16 +93,25 @@ export const JobEntry: SFC<{
       }
       onClick={() => {
         !job.unavailable_reason && data.onClick();
-      }}>
+      }}
+    >
       <>
         {jobIcon && <Icon name={jobIcon} />}
         {job.command ? <b>{jobName}</b> : jobName}
         <span
           style={{
+<<<<<<< HEAD
             'white-space': 'nowrap',
             'position': 'absolute',
             'right': '0.5em',
           }}>
+=======
+            whiteSpace: 'nowrap',
+            position: 'absolute',
+            right: '0.5em',
+          }}
+        >
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
           {job.used_slots} / {job.open_slots}
         </span>
       </>
@@ -101,17 +126,21 @@ export const JobSelection = (props) => {
   }
   const departments: Record<string, Department> = deepMerge(
     data.departments,
-    data.departments_static
+    data.departments_static,
   );
 
   return (
     <Window
       width={1012}
       height={data.shuttle_status ? 690 : 666 /* Hahahahahaha */}
+<<<<<<< HEAD
       onComponentDidMount={() => {
         // Send a heartbeat back to DM to let it know the window is alive and well
         act('ui_mounted_with_no_bluescreen');
       }}>
+=======
+    >
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
       <Window.Content scrollable>
         <StyleableSection
           title={
@@ -130,8 +159,14 @@ export const JobSelection = (props) => {
               />
             </>
           }
+<<<<<<< HEAD
           titleStyle={{ 'min-height': '3.4em' }}>
           <Box wrap="wrap" style={{ 'columns': '20em' }}>
+=======
+          titleStyle={{ minHeight: '3.4em' }}
+        >
+          <Box wrap="wrap" style={{ columns: '20em' }}>
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
             {Object.entries(departments).map((departmentEntry) => {
               const departmentName = departmentEntry[0];
               const entry = departmentEntry[1];
@@ -150,7 +185,8 @@ export const JobSelection = (props) => {
                             'color': Color.fromHex(entry.color)
                               .darken(60)
                               .toString(),
-                          }}>
+                          }}
+                        >
                           {entry.open_slots +
                             (entry.open_slots === 1 ? ' slot' : ' slots') +
                             ' available'}
@@ -168,10 +204,16 @@ export const JobSelection = (props) => {
                         .toString(),
                     }}
                     textStyle={{
+<<<<<<< HEAD
                       'color': Color.fromHex(entry.color)
                         .darken(80)
                         .toString(),
                     }}>
+=======
+                      color: Color.fromHex(entry.color).darken(80).toString(),
+                    }}
+                  >
+>>>>>>> 2631b0b8ef1a8 (Replaces prettierx with the normal prettier (#80189))
                     <Stack vertical>
                       {Object.entries(entry.jobs).map((job) => (
                         <Stack.Item key={job[0]}>
