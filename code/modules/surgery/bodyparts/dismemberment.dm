@@ -94,8 +94,8 @@
 		return
 	var/atom/drop_loc = owner.drop_location()
 
-	SEND_SIGNAL(owner, COMSIG_CARBON_REMOVE_LIMB, src, special, dismembered)
-	SEND_SIGNAL(src, COMSIG_BODYPART_REMOVED, owner, special, dismembered)
+	SEND_SIGNAL(owner, COMSIG_CARBON_REMOVE_LIMB, src, dismembered, special) // NON-MODULAR CHANGES: Moves special param
+	SEND_SIGNAL(src, COMSIG_BODYPART_REMOVED, owner, dismembered, special) // NON-MODULAR CHANGES: Moves special param
 	update_limb(dropping_limb = TRUE)
 	bodypart_flags &= ~BODYPART_IMPLANTED //limb is out and about, it can't really be considered an implant
 	owner.remove_bodypart(src)
