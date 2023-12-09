@@ -146,7 +146,8 @@ export const CharacterPreferenceWindow = (props) => {
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Loadout}
-                  setPage={setCurrentPage}>
+                  setPage={setCurrentPage}
+                >
                   Loadout
                 </PageButton>
               </Stack.Item>
@@ -155,7 +156,8 @@ export const CharacterPreferenceWindow = (props) => {
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Limbs}
-                  setPage={setCurrentPage}>
+                  setPage={setCurrentPage}
+                >
                   Limbs
                 </PageButton>
               </Stack.Item>
@@ -164,7 +166,8 @@ export const CharacterPreferenceWindow = (props) => {
                 <PageButton
                   currentPage={currentPage}
                   page={Page.Languages}
-                  setPage={setCurrentPage}>
+                  setPage={setCurrentPage}
+                >
                   Languages
                 </PageButton>
               </Stack.Item>
