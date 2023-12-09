@@ -6,7 +6,7 @@
 /obj/item/xeno_analyzer
 	name = "xeno agriculture analyzer"
 	desc = "A scanner used to scan xeno agriculture, unearthing their mysteries."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/devices/scanner.dmi'
 	icon_state = "hydro"
 	inhand_icon_state = "analyzer"
 	worn_icon_state = "plantanalyzer"

@@ -4,7 +4,7 @@
 /obj/item/locker_spawner
 	name = "Locker Summoning Device"
 	desc = "Because your job is unique, you get this."
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/devices/remote.dmi'
 	icon_state = "gangtool-red"
 	w_class = WEIGHT_CLASS_SMALL
 	/// Job required to use the beacon; If null, anyone can
