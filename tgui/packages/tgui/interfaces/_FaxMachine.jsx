@@ -1,5 +1,13 @@
 import { useBackend, useSharedState, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Dropdown, Section, Stack, Tabs } from '../components';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Dropdown,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 
 export const _FaxMachine = (props, context) => {
@@ -23,13 +31,13 @@ export const _FaxMachine = (props, context) => {
   const [selectedPaperTab, setSelectedPaper] = useLocalState(
     context,
     'ref',
-    received_paperwork[0]?.ref
+    received_paperwork[0]?.ref,
   );
 
   const [destination, setDestination] = useLocalState(
     context,
     'dest',
-    default_destination
+    default_destination,
   );
 
   const selectedPaper = received_paperwork.find((paper) => {
@@ -54,7 +62,8 @@ export const _FaxMachine = (props, context) => {
                 onClick={() => act('un_emag_machine')}
               />
             )
-          }>
+          }
+        >
           Hello, {display_name}!{' '}
           {emagged
             ? 'ERR- ERRoR. ERROR.'
@@ -68,7 +77,8 @@ export const _FaxMachine = (props, context) => {
                   width="50%"
                   icon="copy"
                   selected={tab === 1}
-                  onClick={() => setTab(1)}>
+                  onClick={() => setTab(1)}
+                >
                   <b>Send a Fax</b>
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -78,7 +88,8 @@ export const _FaxMachine = (props, context) => {
                   onClick={() => {
                     setTab(2);
                     act('read_last_received');
-                  }}>
+                  }}
+                >
                   <Stack>
                     <Stack.Item textAlign="left">
                       <b>Received Faxes </b>
@@ -100,7 +111,8 @@ export const _FaxMachine = (props, context) => {
                       style={{
                         color: emagged ? 'lightgreen' : 'lightblue',
                         fontWeight: 'bold',
-                      }}>
+                      }}
+                    >
                       Message to Send:
                     </span>
                     <BlockQuote mt={1}>{stored_paper.contents}</BlockQuote>

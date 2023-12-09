@@ -1,5 +1,14 @@
 import { useBackend, useSharedState, useLocalState } from '../backend';
-import { BlockQuote, Box, Button, Divider, Dropdown, Section, Stack, Tabs } from '../components';
+import {
+  BlockQuote,
+  Box,
+  Button,
+  Divider,
+  Dropdown,
+  Section,
+  Stack,
+  Tabs,
+} from '../components';
 import { Window } from '../layouts';
 
 export const _FaxMachineCommand = (props, context) => {
@@ -23,13 +32,13 @@ export const _FaxMachineCommand = (props, context) => {
   const [selectedPaperTab, setSelectedPaper] = useLocalState(
     context,
     'ref',
-    received_paperwork[0]?.ref
+    received_paperwork[0]?.ref,
   );
 
   const [destination, setDestination] = useLocalState(
     context,
     'dest',
-    default_destination
+    default_destination,
   );
 
   const selectedPaper = received_paperwork.find((paper) => {
@@ -54,7 +63,8 @@ export const _FaxMachineCommand = (props, context) => {
                 onClick={() => act('un_emag_machine')}
               />
             )
-          }>
+          }
+        >
           Hello, {display_name}!{' '}
           {emagged
             ? 'ERR- ERRoR. ERROR.'
@@ -68,7 +78,8 @@ export const _FaxMachineCommand = (props, context) => {
                   width="50%"
                   icon="copy"
                   selected={tab === 1}
-                  onClick={() => setTab(1)}>
+                  onClick={() => setTab(1)}
+                >
                   <b>Send a Fax</b>
                 </Tabs.Tab>
                 <Tabs.Tab
@@ -78,7 +89,8 @@ export const _FaxMachineCommand = (props, context) => {
                   onClick={() => {
                     setTab(2);
                     act('read_last_received');
-                  }}>
+                  }}
+                >
                   <Stack>
                     <Stack.Item textAlign="left">
                       <b>Received Faxes </b>
@@ -100,7 +112,8 @@ export const _FaxMachineCommand = (props, context) => {
                       style={{
                         color: emagged ? 'lightgreen' : 'lightblue',
                         fontWeight: 'bold',
-                      }}>
+                      }}
+                    >
                       Message to Send:
                     </span>
                     <BlockQuote mt={1}>{stored_paper.contents}</BlockQuote>
@@ -193,7 +206,8 @@ export const _FaxMachineCommand = (props, context) => {
               }
               onClick={() => act('toggle_recieving')}
             />
-          }>
+          }
+        >
           <Stack vertical grow>
             <Stack.Item height={2}>
               {received_paperwork && received_paperwork.length > 0 ? (
@@ -204,7 +218,8 @@ export const _FaxMachineCommand = (props, context) => {
                       key={paper}
                       textAlign="center"
                       selected={paper.ref === selectedPaperTab}
-                      onClick={() => setSelectedPaper(paper.ref)}>
+                      onClick={() => setSelectedPaper(paper.ref)}
+                    >
                       Paper {paper.num}
                     </Tabs.Tab>
                   ))}
