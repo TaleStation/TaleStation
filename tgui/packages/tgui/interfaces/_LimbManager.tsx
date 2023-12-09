@@ -1,4 +1,4 @@
-import { Component, createRef } from 'inferno';
+import { Component, createRef } from 'react';
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Box, BlockQuote, Button, Section, Stack } from '../components';
@@ -210,10 +210,10 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
           <div
             ref={this.ref}
             style={{
-              'width': '100%',
-              'height': '100%',
-              'position': 'relative',
-              'z-index': 1,
+              width: '100%',
+              height: '100%',
+              position: 'relative',
+              zIndex: 1,
             }}>
             <Box
               as="img"
@@ -222,9 +222,8 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
               height={width}
               width={height}
               style={{
-                '-ms-interpolation-mode': 'nearest-neighbor',
-                'position': 'absolute',
-                'z-index': 1,
+                position: 'absolute',
+                zIndex: 1,
               }}
               onClick={(event) => {
                 const { x, y } = updateXYState(event);
@@ -244,10 +243,9 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
                 height={width}
                 width={height}
                 style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
-                  'pointer-events': 'none',
-                  'position': 'absolute',
-                  'z-index': 3,
+                  PointerEvent: 'none',
+                  position: 'absolute',
+                  zIndex: 3,
                 }}
               />
             )}
@@ -259,11 +257,10 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
                 height={width}
                 width={height}
                 style={{
-                  '-ms-interpolation-mode': 'nearest-neighbor',
-                  'pointer-events': 'none',
-                  'position': 'absolute',
-                  'z-index': 2,
-                  'opacity': 0.5,
+                  pointerEvents: 'none',
+                  position: 'absolute',
+                  zIndex: 2,
+                  opacity: 0.5,
                 }}
               />
             )}

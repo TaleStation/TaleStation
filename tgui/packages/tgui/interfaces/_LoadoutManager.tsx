@@ -123,7 +123,7 @@ const ItemDisplay = (props: { item: LoadoutItem; active: boolean }) => {
   const { item, active } = props;
   return (
     <Stack>
-      <Stack.Item grow align="left" style={{ 'text-transform': 'capitalize' }}>
+      <Stack.Item grow align="left" style={{ textTransform: 'capitalize' }}>
         {item.name}
       </Stack.Item>
       {item.buttons.map((button) => (
