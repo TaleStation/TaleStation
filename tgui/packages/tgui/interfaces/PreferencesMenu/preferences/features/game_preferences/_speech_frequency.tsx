@@ -1,8 +1,13 @@
-import { FeatureNumeric, FeatureNumericData, FeatureNumberInput, FeatureValueProps } from '../base';
+import {
+  FeatureNumeric,
+  FeatureNumericData,
+  FeatureNumberInput,
+  FeatureValueProps,
+} from '../base';
 import { Stack, Button } from '../../../../../components';
 
 const FeatureSpeechSoundFrequency = (
-  props: FeatureValueProps<number, number, FeatureNumericData>
+  props: FeatureValueProps<number, number, FeatureNumericData>,
 ) => {
   return (
     <Stack>

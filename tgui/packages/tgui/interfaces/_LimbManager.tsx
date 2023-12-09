@@ -67,7 +67,7 @@ const catToPos = (cat: string | null): { x: number; y: number } => {
 
 const getActiveCategory = (
   limbs: LimbCategory[],
-  cat: string | null
+  cat: string | null,
 ): LimbCategory | null => {
   if (!cat) {
     return null;
@@ -214,7 +214,8 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
               height: '100%',
               position: 'relative',
               zIndex: 1,
-            }}>
+            }}
+          >
             <Box
               as="img"
               m={1}

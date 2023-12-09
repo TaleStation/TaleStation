@@ -64,7 +64,8 @@ export const ExaminePanel = (props, context) => {
                   scrollable
                   fill
                   title={character_name + "'s Flavor Text:"}
-                  preserveWhitespace>
+                  preserveWhitespace
+                >
                   {flavor_text}
                 </Section>
               </Stack.Item>
@@ -75,7 +76,8 @@ export const ExaminePanel = (props, context) => {
                       scrollable
                       fill
                       title="OOC Notes"
-                      preserveWhitespace>
+                      preserveWhitespace
+                    >
                       {ooc_notes}
                     </Section>
                   </Stack.Item>

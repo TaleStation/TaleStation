@@ -65,7 +65,8 @@ export const XenoAnalyzer = (props, context) => {
                 <ProgressBar
                   value={water_level}
                   height={2}
-                  maxValue={max_water}>
+                  maxValue={max_water}
+                >
                   {water_level} units
                 </ProgressBar>
                 <br />
