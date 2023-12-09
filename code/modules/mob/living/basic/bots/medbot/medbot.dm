@@ -192,7 +192,11 @@
 /mob/living/basic/bot/medbot/multitool_act(mob/living/user, obj/item/multitool/tool)
 	if(!QDELETED(tool.buffer) && istype(tool.buffer, /datum/techweb))
 		linked_techweb = tool.buffer
+<<<<<<< HEAD
 	return TRUE
+=======
+	return ITEM_INTERACT_SUCCESS
+>>>>>>> 10a951b203e2d (Patches up merge skew (#80197))
 
 // Variables sent to TGUI
 /mob/living/basic/bot/medbot/ui_data(mob/user)
