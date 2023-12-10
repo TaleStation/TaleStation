@@ -7,11 +7,7 @@
 	size = 2
 	tgui_id = "NtosNotepad"
 	program_icon = "book"
-<<<<<<< HEAD
-	usage_flags = PROGRAM_PDA
-=======
 	can_run_on_flags = PROGRAM_ALL
->>>>>>> edbc7c562261e (PDA update (Messenger works while dead, Microwave works, etc). (#80069))
 
 	var/written_note = "Congratulations on your station upgrading to the new NtOS and Thinktronic based collaboration effort, \
 		bringing you the best in electronics and software since 2467!\n\
