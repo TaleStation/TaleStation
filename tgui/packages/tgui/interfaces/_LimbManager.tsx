@@ -244,7 +244,7 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
                 height={width}
                 width={height}
                 style={{
-                  PointerEvent: 'none',
+                  pointerEvents: 'none',
                   position: 'absolute',
                   zIndex: 3,
                 }}
