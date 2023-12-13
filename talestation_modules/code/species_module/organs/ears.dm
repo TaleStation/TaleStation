@@ -6,7 +6,7 @@
 	icon_state = "cyber_kitty"
 	damage_multiplier = 1.5 //slightly better than regular cat ears
 
-/obj/item/organ/internal/ears/cat/cybernetic/Insert(mob/living/carbon/human/ear_owner, special = 0, drop_if_replaced = TRUE)
+/obj/item/organ/internal/ears/cat/cybernetic/Insert(mob/living/carbon/human/ear_owner, special = 0, movement_flags = DELETE_IF_REPLACED)
 	..()
 	if(istype(ear_owner))
 		color = ear_owner.hair_color
