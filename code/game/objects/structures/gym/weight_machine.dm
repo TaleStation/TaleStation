@@ -1,11 +1,6 @@
 #define WORKOUT_XP 5
-<<<<<<< HEAD
-#define EXERCISE_STATUS_DURATION 20 SECONDS
-#define SAFE_DRUNK_LEVEL 39 
-=======
 #define EXERCISE_STATUS_DURATION 15 SECONDS
 #define SAFE_DRUNK_LEVEL 39
->>>>>>> 536381d308c7a (Fitness rebalance and improvements - mood, fireman carry, and longer workouts (#79584))
 
 /obj/structure/weightmachine
 	name = "chest press machine"
@@ -157,7 +152,6 @@
 		end_workout()
 		return FALSE
 	var/mutable_appearance/workout = mutable_appearance(icon, "[base_icon_state]-o", ABOVE_MOB_LAYER)
-	SET_PLANE_EXPLICIT(workout, GAME_PLANE_UPPER, src)
 	flick_overlay_view(workout, 0.8 SECONDS)
 	flick("[base_icon_state]-u", src)
 	var/mob/living/user = buckled_mobs[1]
