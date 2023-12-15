@@ -385,3 +385,46 @@
       the `BASIC` tag instead (like with carbons, reagent containers, turfs, etc.).
       So, instead of having to scroll through and try and figure out what that weird
       subtype of Poly is, it should now be easier to read in that smaller screen.
+2023-12-15:
+  ATHATH:
+  - rscadd: If your bitrunning avatar somehow acquires and consumes a red pill, they
+      will be disconnected from the Matrix.
+  LemonInTheDark, Donglesplonge:
+  - image: Redoes fov "mask" sprites. They're clean, have a very pleasant dithering
+      effect, and look real fuckin good!
+  - rscdel: Changed FOV, it no longer hides mobs, instead it blurs the hidden area,
+      and makes it a bit darker/oversaturated
+  TaleStationBot:
+  - bugfix: The clown car once again obtains the accesses of kidnapped crew within
+      the car. Supermatter crystals beware!
+  - bugfix: Newscaster shouldn't bluescreen anymore.
+  - bugfix: fixes a bug which was causing certain mutations to only get partially
+      removed
+  - bugfix: Admin interview panel should feel snappier.
+  - bugfix: Away lathes can now print robot navigational beacons
+  - bugfix: fixes zombie tumor not reviving
+  - bugfix: Advanced Plastic Surgery is now unavailable shiftstart
+  - balance: Fitness level decreases the time it takes to firemany carry someone.
+      Fitness level determines how much of a positive mood the workout grants. Working
+      out is now more difficult and requires more nutrition.
+  - balance: Exercise no longer triggers double metabolism.
+  - bugfix: items that are rejected by the mat container will display the chat message
+      saying that.
+  - rscadd: Adds a new discount experiment for unlocking the combat exosuit nodes
+      - complete it by scanning two exosuits with equipment in the left and right
+      hand slots. This replaces the prior discount experiment about destroying exosuits.
+  - bugfix: Fix double-clicking in various UIs
+  - bugfix: mobs that have the `TRAIT_PERMANENTLY_ONFIRE` trait cannot be extinguished
+      by anything.
+  - bugfix: stuff thrown into lava should not runtime. it currently does not but if
+      there is a slight chance it does not happen
+  - bugfix: Tram controls should work again.
+  - bugfix: ORM will generate points regardless of how the ore enters it.
+  - bugfix: Machines like autolathe, techfab etc can now be hit with iron sheets (or
+      any other material item type those machines accept) when in combat mode rather
+      than inserting them because it makes sense.
+  - bugfix: Mat container won't display chats fully if the `MATCONTAINER_SILENT` flag
+      is passed.
+  - refactor: Machines like autolathe, techfab etc now display summed up material
+      inserts to chats rather than each item individually. Also, will skip items &
+      its contents if it cannot be processed thus saving time
