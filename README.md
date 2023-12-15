@@ -15,7 +15,28 @@ Come make a story to share with friends and foes alike.
 
 [Server](https://shiptest.net/tale)
 
+<<<<<<< HEAD
 [Wiki](https://github.com/TaleStation/TaleStation/wiki)
+=======
+[Maps and Away Missions](.github/guides/MAPS_AND_AWAY_MISSIONS.md)
+
+## Compilation
+
+**The quick way**. Find `bin/server.cmd` in this folder and double click it to automatically build and host the server on port 1337.
+
+**The long way**. Find `bin/build.cmd` in this folder, and double click it to initiate the build. It consists of multiple steps and might take around 1-5 minutes to compile. If it closes, it means it has finished its job. You can then [setup the server](.github/guides/RUNNING_A_SERVER.md) normally by opening `tgstation.dmb` in DreamDaemon.
+
+**Building tgstation in DreamMaker directly is deprecated and might produce errors**, such as `'tgui.bundle.js': cannot find file`.
+
+**[How to compile in VSCode and other build options](tools/build/README.md).**
+
+## Contributors
+[Guides for Contributors](.github/CONTRIBUTING.md)
+
+[/tg/station HACKMD account](https://hackmd.io/@tgstation) - Design documentation here
+
+[Interested in some starting lore?](https://github.com/tgstation/common_core)
+>>>>>>> 57d33322b65e6 (Addresses broken emojis in readme (#80329))
 
 ## LICENSE
 
