@@ -1,20 +1,30 @@
 import { createSearch, toTitleCase } from 'common/string';
+import { useState } from 'react';
+
 import { useBackend, useSharedState } from '../backend';
 import {
   BlockQuote,
   Box,
   Button,
+  Icon,
+  Image,
+  Input,
+  LabeledList,
+  Section,
+  Stack,
   Table,
   Tabs,
+<<<<<<< HEAD
   Input,
   Stack,
   Icon,
   Section,
   LabeledList,
+=======
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 } from '../components';
-import { Window } from '../layouts';
 import { formatSiUnit } from '../format';
-import { useState } from 'react';
+import { Window } from '../layouts';
 
 export const OreRedemptionMachine = (props) => {
   const { act, data } = useBackend();

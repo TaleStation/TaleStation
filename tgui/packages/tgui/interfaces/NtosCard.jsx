@@ -1,3 +1,8 @@
+<<<<<<< HEAD:tgui/packages/tgui/interfaces/NtosCard.jsx
+=======
+import { BooleanLike } from 'common/react';
+
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430)):tgui/packages/tgui/interfaces/NtosCard.tsx
 import { useBackend } from '../backend';
 import {
   Box,

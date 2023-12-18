@@ -1,7 +1,12 @@
 import { BooleanLike, classes } from 'common/react';
+
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Icon, NoticeBox, Section, Stack } from '../components';
+=======
+import { Button, Icon, Image, NoticeBox, Section, Stack } from '../components';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
 
 type Data = {

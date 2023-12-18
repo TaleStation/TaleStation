@@ -4,6 +4,11 @@
  * @license MIT
  */
 
+<<<<<<< HEAD:tgui/packages/tgui/layouts/NtosWindow.jsx
+=======
+import { BooleanLike } from 'common/react';
+
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430)):tgui/packages/tgui/layouts/NtosWindow.tsx
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
 import { Box, Button } from '../components';

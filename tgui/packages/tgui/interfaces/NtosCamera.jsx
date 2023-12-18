@@ -1,6 +1,11 @@
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { NtosWindow } from '../layouts';
 import { Button, Box, NoticeBox, Stack } from '../components';
+=======
+import { Button, Image, NoticeBox, Stack } from '../components';
+import { NtosWindow } from '../layouts';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 
 export const NtosCamera = (props) => {
   return (

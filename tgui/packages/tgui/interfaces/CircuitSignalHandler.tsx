@@ -1,7 +1,12 @@
 import { BooleanLike } from 'common/react';
+<<<<<<< HEAD
 import { Component } from 'react';
+=======
+import { Component, KeyboardEvent } from 'react';
+
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 import { useBackend } from '../backend';
-import { Box, Stack, Section, Input, Button, Dropdown } from '../components';
+import { Box, Button, Dropdown, Input, Section, Stack } from '../components';
 import { Window } from '../layouts';
 
 type Response = {

@@ -1,4 +1,9 @@
+import { range, sortBy } from 'common/collections';
+import { KEY } from 'common/keys';
 import { Component } from 'react';
+
+import { resolveAsset } from '../../assets';
+import { useBackend } from '../../backend';
 import {
   Box,
   Button,
@@ -7,13 +12,13 @@ import {
   Tooltip,
   TrackOutsideClicks,
 } from '../../components';
-import { resolveAsset } from '../../assets';
-import { PreferencesMenuData } from './data';
-import { useBackend } from '../../backend';
-import { range, sortBy } from 'common/collections';
 import { KeyEvent } from '../../events';
-import { TabbedMenu } from './TabbedMenu';
 import { fetchRetry } from '../../http';
+<<<<<<< HEAD
+=======
+import { PreferencesMenuData } from './data';
+import { TabbedMenu } from './TabbedMenu';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 
 type Keybinding = {
   name: string;

@@ -1,8 +1,13 @@
 import { classes } from 'common/react';
+
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
+<<<<<<< HEAD
 import { Box, Button, Section, Stack } from '../../components';
 import { MutationInfo } from './MutationInfo';
+=======
+import { Box, Button, Image, Section, Stack } from '../../components';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 import {
   CLEAR_GENE,
   GENE_COLORS,
@@ -12,6 +17,7 @@ import {
   SUBJECT_DEAD,
   SUBJECT_TRANSFORMING,
 } from './constants';
+import { MutationInfo } from './MutationInfo';
 
 const GenomeImage = (props) => {
   const { url, selected, onClick } = props;

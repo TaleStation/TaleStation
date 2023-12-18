@@ -1,8 +1,13 @@
 import { range } from 'common/collections';
 import { BooleanLike } from 'common/react';
+
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, Icon, Stack } from '../components';
+=======
+import { Box, Button, Icon, Image, Stack } from '../components';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 const ROWS = 5;

@@ -3,14 +3,19 @@ import {
   Box,
   Button,
   ColorBox,
+  Divider,
   Flex,
-  Stack,
   Icon,
+  Image,
   Input,
   LabeledList,
   Section,
+  Stack,
   Table,
+<<<<<<< HEAD
   Divider,
+=======
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 } from '../components';
 import { Window } from '../layouts';
 

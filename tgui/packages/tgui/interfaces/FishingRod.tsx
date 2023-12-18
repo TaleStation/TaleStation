@@ -1,6 +1,10 @@
 import { useBackend } from '../backend';
+import { Box, Button, Flex, Image, Section, Stack } from '../components';
 import { Window } from '../layouts';
+<<<<<<< HEAD
 import { Box, Stack, Button, Section, Flex } from '../components';
+=======
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 
 type FishingRodData = {
   bait_name: string;

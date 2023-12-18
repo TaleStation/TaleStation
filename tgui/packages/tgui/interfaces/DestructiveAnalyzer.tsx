@@ -1,6 +1,11 @@
 import { BooleanLike } from 'common/react';
+
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Button, Box, Section, NoticeBox } from '../components';
+=======
+import { Box, Button, Image, NoticeBox, Section } from '../components';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 import { Window } from '../layouts';
 
 type Data = {

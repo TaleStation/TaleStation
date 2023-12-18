@@ -1,8 +1,13 @@
+import { useState } from 'react';
+
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
+<<<<<<< HEAD
 import { Box, Button, NoticeBox, Section, Stack, Input } from '../components';
+=======
+import { Button, Image, Input, NoticeBox, Section, Stack } from '../components';
+>>>>>>> 6ccb751678c11 (Updates eslint + sorts imports (#80430))
 import { NtosWindow } from '../layouts';
-import { useState } from 'react';
 
 export const NtosPortraitPrinter = (props) => {
   const { act, data } = useBackend();
