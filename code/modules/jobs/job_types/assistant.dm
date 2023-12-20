@@ -48,6 +48,7 @@ Assistant
 	..()
 	give_hat()
 	give_jumpsuit(target)
+*/
 
 /datum/outfit/job/assistant/proc/give_hat()
 	for(var/holidayname in GLOB.holidays)
@@ -56,12 +57,6 @@ Assistant
 		if(prob(HOLIDAY_HAT_CHANCE) && !isnull(special_hat) && isnull(head))
 			head = special_hat
 
-<<<<<<< HEAD
-	give_jumpsuit(target)
-*/
-
-=======
->>>>>>> a3fa541e2e50e (Bridge Assistant Station Trait (#80279))
 /datum/outfit/job/assistant/proc/give_jumpsuit(mob/living/carbon/human/target)
 	var/static/jumpsuit_number = 0
 	jumpsuit_number += 1

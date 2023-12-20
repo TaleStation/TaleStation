@@ -47,15 +47,10 @@
 #define JOB_HEAD_OF_PERSONNEL "Asset Clerk"
 #define JOB_HEAD_OF_SECURITY "Head of Security"
 #define JOB_RESEARCH_DIRECTOR "Research Director"
-<<<<<<< HEAD
 #define JOB_CHIEF_ENGINEER "Site Foreman"
 #define JOB_CHIEF_MEDICAL_OFFICER "Medical Director"
 // NON-MODULAR CHANGES END
-=======
-#define JOB_CHIEF_ENGINEER "Chief Engineer"
-#define JOB_CHIEF_MEDICAL_OFFICER "Chief Medical Officer"
-#define JOB_BRIDGE_ASSISTANT "Bridge Assistant"
->>>>>>> a3fa541e2e50e (Bridge Assistant Station Trait (#80279))
+#define JOB_BRIDGE_ASSISTANT "Bridge Assistant" // TO-DO: Remove this stuff later
 //Silicon
 #define JOB_AI "AI"
 #define JOB_CYBORG "Cyborg"
