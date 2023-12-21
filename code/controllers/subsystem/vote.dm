@@ -86,9 +86,6 @@ SUBSYSTEM_DEF(vote)
 	// Announce the results of the vote to the world.
 	var/to_display = current_vote.get_result_text(winners, final_winner, non_voters)
 
-<<<<<<< HEAD
-	log_vote(to_display)
-=======
 	var/total_votes = 0
 	var/list/vote_choice_data = list()
 	for(var/choice in current_vote.choices)
@@ -111,11 +108,10 @@ SUBSYSTEM_DEF(vote)
 	)
 	var/log_string = replacetext(to_display, "\n", "\\n") // 'keep' the newlines, but dont actually print them as newlines
 	log_vote(log_string, vote_log_data)
->>>>>>> 8b7576b90a92e (actually log total vote votes correctly (#80438))
 	to_chat(world, span_infoplain(vote_font("\n[to_display]")))
 
 	// Finally, doing any effects on vote completion
-	if (final_winner) // if no one voted final_winner will be null
+	if (final_winner) // if no one voted, or the vote cannot be won, final_winner will be null
 		current_vote.finalize_vote(final_winner)
 
 /**
