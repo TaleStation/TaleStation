@@ -67,11 +67,7 @@
 		var/list/instances_list = list()
 		for(var/instance_path in item_instances)
 			if(ispath(instance_path, requirement_path))
-				var/obj/item/item = item_instances[instance_path]
-				if(item.flags_1 & HOLOGRAM_1)
-					continue
-
-				instances_list += item
+				instances_list += item_instances[instance_path]
 
 		requirements_list[requirement_path] = instances_list
 
@@ -218,8 +214,13 @@
 				if(result.atom_storage && recipe.delete_contents)
 					for(var/obj/item/thing in result)
 						qdel(thing)
-			if (IsEdible(result))
-				result.reagents?.clear_reagents()
+			result.reagents?.clear_reagents()
+			var/datum/reagents/holder = locate() in parts
+			if(holder) //transfer reagents from ingredients to result
+				if(result.reagents)
+					holder.trans_to(result.reagents, holder.total_volume, no_react = TRUE)
+				parts -= holder
+				qdel(holder)
 			result.CheckParts(parts, recipe)
 			if(send_feedback)
 				SSblackbox.record_feedback("tally", "object_crafted", 1, result.type)
@@ -252,9 +253,11 @@
 */
 
 /datum/component/personal_crafting/proc/del_reqs(datum/crafting_recipe/R, atom/a)
+	. = list()
+
+	var/datum/reagents/holder
 	var/list/surroundings
 	var/list/Deletion = list()
-	. = list()
 	var/data
 	var/amt
 	var/list/requirements = list()
@@ -274,17 +277,24 @@
 			if(ispath(path_key, /datum/reagent))
 				while(amt > 0)
 					var/obj/item/reagent_containers/RC = locate() in surroundings
-					if(QDELETED(RC)) //being deleted or null(i.e. not found)
+					if(isnull(RC)) //not found
 						break
-					var/datum/reagent/RG = RC.reagents.has_reagent(path_key)
-					if(RG)
-						if(RG.volume >= amt)
-							RC.reagents.remove_reagent(path_key, amt)
+					if(QDELING(RC)) //deleting so is unusable
+						surroundings -= RC
+						continue
+
+					var/reagent_volume = RC.reagents.get_reagent_amount(path_key)
+					if(reagent_volume)
+						if(!holder)
+							holder = new(INFINITY, NO_REACT) //an infinite volume holder than can store reagents without reacting
+							. += holder
+						if(reagent_volume >= amt)
+							RC.reagents.trans_to(holder, amt, target_id = path_key, no_react = TRUE)
 							continue main_loop
 						else
+							RC.reagents.trans_to(holder, reagent_volume, target_id = path_key, no_react = TRUE)
 							surroundings -= RC
-							amt -= RG.volume
-							RC.reagents.remove_reagent(path_key, RG.volume)
+							amt -= reagent_volume
 						SEND_SIGNAL(RC.reagents, COMSIG_REAGENTS_CRAFTING_PING) // - [] TODO: Make this entire thing less spaghetti
 					else
 						surroundings -= RC
