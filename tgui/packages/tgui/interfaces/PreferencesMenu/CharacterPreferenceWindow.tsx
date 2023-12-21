@@ -3,6 +3,11 @@ import { exhaustiveCheck } from 'common/exhaustive';
 import { useBackend, useLocalState } from '../../backend';
 import { Button, Stack } from '../../components';
 import { Window } from '../../layouts';
+// NON-MODULAR CHANGES: Our prefs stuff
+import { LanguagePage } from '../_LanguagePicker';
+import { LimbManagerPage } from '../_LimbManager';
+import { LoadoutPage } from '../_LoadoutManager';
+// NON-MODULAR CHANGES END
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
 import { JobsPage } from './JobsPage';
@@ -10,11 +15,6 @@ import { MainPage } from './MainPage';
 import { PageButton } from './PageButton';
 import { QuirksPage } from './QuirksPage';
 import { SpeciesPage } from './SpeciesPage';
-// NON-MODULAR CHANGES
-import { LoadoutPage } from '../_LoadoutManager';
-import { LimbManagerPage } from '../_LimbManager';
-import { LanguagePage } from '../_LanguagePicker';
-// NON-MODULARS END
 
 enum Page {
   Antags,

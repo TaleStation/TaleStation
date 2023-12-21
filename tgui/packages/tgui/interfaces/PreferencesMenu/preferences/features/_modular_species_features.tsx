@@ -1,8 +1,8 @@
 import {
-  FeatureChoiced,
-  FeatureDropdownInput,
-  FeatureColorInput,
   Feature,
+  FeatureChoiced,
+  FeatureColorInput,
+  FeatureDropdownInput,
 } from './base';
 
 export const feature_head_tentacles: FeatureChoiced = {
