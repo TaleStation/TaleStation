@@ -581,3 +581,42 @@
   - rscadd: Added new GaGs santahats.
   - balance: Doing experiments AFTER their tech is researched now gives full 100%
       points instead of 66%.
+2023-12-24:
+  BurgerBB:
+  - balance: Miasma is now filtered through gas mask filters, at medium strength.
+  KannaLisvern:
+  - qol: Removed Bluespace Crystals and Diamonds from medical emergency bed's recipe.
+  Melbert:
+  - bugfix: Gibbing a bot will no longer spawn bloody gibs.
+  Rhials:
+  - qol: Wizard apprentices now spawn on the same tile as the contract that summoned
+      them.
+  - qol: Obsessed crewmembers are now displayed in the orbit panel.
+  - qol: The Paradox Clone orbit menu tab is now white. Neat!
+  TaleStationBot:
+  - balance: Ai's using the mech domination ability can now eject from the mech
+  - refactor: Ghost roles now offer ghosts a clickable poll button. Ghosts can select
+      a role, deselect it, alt-click it for "Never For This Round", can cancel "Never",
+      can see the countdown, and can see how many other people are signed up for the
+      role poll.
+  - bugfix: the boozeomat ui will stop duplicating space beer bottles
+  - refactor: refactored vending machine backend to have unique keys for their data
+      structures. should fix bugs related to items that happen to have the same name.
+  - bugfix: Fixes Holy Water giving you more blood and making you less drunk than
+      water normally does.
+  - bugfix: Injecting yourself twice with a luxury medipen in pressure doesn't runtime
+      and mechs with a cell with no max charge won't runtime.
+  - refactor: Gives hyposprays a var to check if they're fully used up rather than
+      setting total_volume to 0.
+  - rscadd: Added weapon recharger boards to designs available to print on sec techfab.
+  - rscadd: Nightmares retain their ability to dodge projectiles for a brief period
+      after leaving a dark area, meaning it is now possible to dodge lasers.
+  - qol: Nightmares and Shadow People now receive a screen alert when they are in
+      a sufficiently dark location that their abilities are active.
+  - qol: MOD wearers and internal AIs can pin the individual actions in a MOD circuit
+      module in a similar way to how they can pin modules. Circuit module actions
+      can be pinned from the configuration menu of the circuit
+  - refactor: The MOD action and BCI action components have been merged into one component
+      - the Equipment Action component.
+  - bugfix: Reactions whose temps/ph values fall way below their optimal values no
+      longer restart & prevents infinite loops. Made reaction code slightly faster
