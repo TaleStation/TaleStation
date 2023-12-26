@@ -71,7 +71,7 @@ export const LoadoutPage = (props) => {
               />
               <Input
                 width="200px"
-                onInput={(event) => setSearchLoadout(event.target.value)}
+                onInput={(event, value) => setSearchLoadout(value)}
                 placeholder="Search for item"
                 value={searchLoadout}
               />
