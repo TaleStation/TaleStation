@@ -761,12 +761,7 @@ export const Spellbook = (props) => {
                   <Input
                     width={15}
                     placeholder="Search for a spell..."
-<<<<<<< HEAD
-                    icon="search"
-                    onChange={(e, val) => setSpellSearch(val)}
-=======
                     onInput={(e, val) => setSpellSearch(val)}
->>>>>>> 59e28a1f77978 (Refactors TS in Box component (#80368))
                   />
                 </Stack.Item>
               </Stack>
