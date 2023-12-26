@@ -45,11 +45,7 @@ export class SearchBar extends Component<SearchBarProps> {
           <Input
             fluid
             placeholder={hint ? hint : 'Search for...'}
-<<<<<<< HEAD
-            onChange={(_e: unknown, v: string) => this.onInput(v)}
-=======
             onInput={(_e, v) => this.onInput(v)}
->>>>>>> 865faed46d4fc (Fixes some input issues [no gbp] (#80520))
             value={searchText}
           />
         </Stack.Item>
