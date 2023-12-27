@@ -7,9 +7,6 @@
 import { Placement } from '@popperjs/core';
 import { KEY } from 'common/keys';
 import { BooleanLike, classes } from 'common/react';
-<<<<<<< HEAD
-import { createRef, ReactNode, useEffect, useState } from 'react';
-=======
 import {
   ChangeEvent,
   createRef,
@@ -19,7 +16,6 @@ import {
   useRef,
   useState,
 } from 'react';
->>>>>>> 3d8c3996b1c20 (Fixes lua editor (#80539))
 
 import { Box, BoxProps, computeBoxClassName, computeBoxProps } from './Box';
 import { Icon } from './Icon';
@@ -35,13 +31,13 @@ type EllipsisUnion =
   | {
       ellipsis: true;
       children: string;
-      /** @deprecated */
+      /** @deprecated use children instead */
       content?: never;
     }
   | Partial<{
       ellipsis: undefined;
       children: ReactNode;
-      /** @deprecated */
+      /** @deprecated use children instead */
       content: ReactNode;
     }>;
 
@@ -59,7 +55,7 @@ type Props = Partial<{
   onClick: (e: any) => void;
   selected: BooleanLike;
   tooltip: ReactNode;
-  tooltipPosition: string;
+  tooltipPosition: Placement;
   verticalAlignContent: string;
 }> &
   EllipsisUnion &
@@ -210,34 +206,31 @@ type ConfirmProps = Partial<{
   confirmColor: string;
   confirmContent: ReactNode;
   confirmIcon: string;
-  content: ReactNode;
-  icon: string;
-  onClick: () => void;
 }> &
-  Omit<Props, 'content'>;
+  Props;
 
 /**  Requires user confirmation before triggering its action. */
 const ButtonConfirm = (props: ConfirmProps) => {
   const {
+    children,
     color,
     confirmColor = 'bad',
     confirmContent = 'Confirm?',
     confirmIcon,
-    content,
-    children,
+    ellipsis = true,
     icon,
     onClick,
     ...rest
   } = props;
   const [clickedOnce, setClickedOnce] = useState(false);
 
-  const handleClick = () => {
+  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
     if (!clickedOnce) {
       setClickedOnce(true);
       return;
     }
 
-    onClick?.();
+    onClick?.(event);
     setClickedOnce(false);
   };
 
@@ -248,7 +241,7 @@ const ButtonConfirm = (props: ConfirmProps) => {
       onClick={handleClick}
       {...rest}
     >
-      {clickedOnce ? confirmContent : content}
+      {clickedOnce ? confirmContent : children}
     </Button>
   );
 };
@@ -268,10 +261,12 @@ type InputProps = Partial<{
 /** Accepts and handles user input. */
 const ButtonInput = (props: InputProps) => {
   const {
+    children,
     color = 'default',
     content,
     currentValue,
     defaultValue,
+    disabled,
     fluid,
     icon,
     iconRotation,
@@ -285,6 +280,8 @@ const ButtonInput = (props: InputProps) => {
   } = props;
   const [inInput, setInInput] = useState(false);
   const inputRef = createRef<HTMLInputElement>();
+
+  const toDisplay = content || children;
 
   const commitResult = (e) => {
     const input = inputRef.current;
@@ -324,8 +321,9 @@ const ButtonInput = (props: InputProps) => {
       onClick={() => setInInput(true)}
     >
       {icon && <Icon name={icon} rotation={iconRotation} spin={iconSpin} />}
-      <div>{content}</div>
+      <div>{toDisplay}</div>
       <input
+        disabled={!!disabled}
         ref={inputRef}
         className="NumberInput__input"
         style={{

@@ -71,7 +71,7 @@ export const LoadoutPage = (props) => {
               />
               <Input
                 width="200px"
-                onInput={(event) => setSearchLoadout(event.target.value)}
+                onInput={(event, value) => setSearchLoadout(value)}
                 placeholder="Search for item"
                 value={searchLoadout}
               />
@@ -96,7 +96,7 @@ export const LoadoutPage = (props) => {
           </Tabs>
         </Section>
       </Stack.Item>
-      <Stack.Item fill>
+      <Stack.Item>
         <LoadoutTabs />
       </Stack.Item>
     </Stack>
@@ -286,7 +286,7 @@ const LoadoutTabs = (props) => {
           </Section>
         )}
       </Stack.Item>
-      <Stack.Item grow fill align="center">
+      <Stack.Item align="center">
         <LoadoutPreviewSection />
       </Stack.Item>
     </Stack>
@@ -300,7 +300,6 @@ const LoadoutPreviewSection = (props) => {
   return (
     <Section
       title={`Preview: ${mob_name}`}
-      grow
       height="100%"
       buttons={
         <Button.Checkbox
