@@ -2,7 +2,7 @@ import { Component, createRef } from 'react';
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { BlockQuote, Box, Button, Section, Stack } from '../components';
+import { BlockQuote, Button, Image, Section, Stack } from '../components';
 import { Connections } from './common/Connections';
 
 const makeCategoryReadable = (cat: string | null): string | null => {
@@ -217,15 +217,14 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
               zIndex: 1,
             }}
           >
-            <Box
-              as="img"
+            <Image
               m={1}
               src={`data:image/jpeg;base64,${preview_flat_icon}`}
               height={width}
               width={height}
               style={{
                 position: 'absolute',
-                zIndex: 1,
+                zIndex: '1',
               }}
               onClick={(event) => {
                 const { x, y } = updateXYState(event);
@@ -238,8 +237,7 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
               }}
             />
             {selected && (
-              <Box
-                as="img"
+              <Image
                 m={1}
                 src={resolveAsset(`body_zones.${selected}.png`)}
                 height={width}
@@ -247,13 +245,12 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
                 style={{
                   pointerEvents: 'none',
                   position: 'absolute',
-                  zIndex: 3,
+                  zIndex: '3',
                 }}
               />
             )}
             {current_cat && current_cat !== selected && (
-              <Box
-                as="img"
+              <Image
                 m={1}
                 src={resolveAsset(`body_zones.${current_cat}.png`)}
                 height={width}
@@ -261,8 +258,8 @@ class LimbPreview extends Component<PreviewProps, PreviewState> {
                 style={{
                   pointerEvents: 'none',
                   position: 'absolute',
-                  zIndex: 2,
-                  opacity: 0.5,
+                  zIndex: '2',
+                  opacity: '0.5',
                 }}
               />
             )}

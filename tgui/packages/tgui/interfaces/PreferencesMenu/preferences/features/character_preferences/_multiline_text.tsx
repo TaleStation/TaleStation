@@ -10,7 +10,7 @@ export const MultilineText = (props: FeatureValueProps<string, string>) => {
           width="80%"
           height="52px"
           value={value}
-          onInput={(e, value) => {
+          onChange={(e, value) => {
             handleSetValue(value);
           }}
         />
