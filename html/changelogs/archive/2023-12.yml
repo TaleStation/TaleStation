@@ -674,3 +674,52 @@
       rather than using the camera's y axis picture size setting for both axis.
   - bugfix: Fixed a bug that would give you the chat message "/datum/element/damage_threshold
       looks unharmed!"
+2023-12-28:
+  Melbert:
+  - bugfix: Fixed some occasions in which heartbeat SFX will continue on revival for
+      longer than expected
+  Ryll/Shaps:
+  - balance: Yawns are less likely to propagate
+  TaleStationBot:
+  - rscadd: Added the 'Coupon Master' program for the PDA. Install it to receive periodical,
+      redeemable coupons for several cargo packs. Requires NTnet connection and the
+      messenger enabled to work.
+  - rscadd: Coupons are no longer only limited to goodies, but may also apply discount
+      to some other packs as well.
+  - rscadd: Adds a brown suit jacket to the detective's vendor
+  - image: 'Adds a new sprite for the a brown detective suit jacket
+
+      :cl:'
+  - bugfix: debug chem heater now withdraws more than 100 units from its inserted
+      beaker.
+  - bugfix: chem heater has correct overlay when its panel is closed with a screwdriver
+      while a beaker is inside.
+  - qol: added more examines and tooltips for the chem heater.
+  - code_imp: converted chem heater UI to typescript. removed unused procs, vars,
+      ui tracking code. Added auto doc for everything.
+  - refactor: removed chem heater tutorial help button & its related reward, chem
+      heater code has been optimized as a whole.
+  - bugfix: Regal rats (and others), won't be punished by the automute system for
+      repeating the same command several times.
+  - rscdel: Removes the wires from canisters. It's a cool idea, but cheap controlled
+      maxcaps are bad actually
+  - bugfix: NTOS Messenger should search as you type now
+  - bugfix: Fixed the surgery menu spamming chat messages when on the eyes section
+      of a player with no eyes.
+  - bugfix: mercury & lithium will no longer make you randomly move outside of cryotubes
+      or in ground less turfs (space, water, lava etc)
+  - bugfix: LUA editor should be usable again
+  - spellcheck: Fixes a typo in chat message when starting a Death Knell with the
+      Vorpal Scythe
+  - admin: Adds logging for the death knell, both when starts and when it is completed
+      successfully.
+  - qol: Add UI screentips to spraycans
+  - qol: You can now build multiple pipe layers with the RPD, with just 1 click!
+  - bugfix: fixes a hard del with thrown items
+  - bugfix: fixing damaged sandy dirt lacking an icon
+  - bugfix: plumbing rcd ui no longer has any graphical glitches
+  - rscadd: basic bots can now display their paths on huds
+  - bugfix: medbots can research healing again
+  - bugfix: fixes a potential mob hard del with cardboard boxes
+  - rscadd: Added a "postal workers strike" negative station trait. In the case of
+      holidays and sunday though, it'll be a "postal system overtime" instead.
