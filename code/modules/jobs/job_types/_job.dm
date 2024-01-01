@@ -209,14 +209,9 @@
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-<<<<<<< HEAD
 	// NON-MODULAR CHANGES: LOADOUTS
 	if(equipping.outfit)
 		equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only)
-
-=======
-	equipOutfit(equipping.get_outfit(), visual_only)
->>>>>>> 402f58aa103cb (Geared Assistants Station Trait (#80323))
 
 /datum/job/proc/announce_head(mob/living/carbon/human/H, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 	if(H && GLOB.announcement_systems.len)

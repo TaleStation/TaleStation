@@ -62,7 +62,7 @@ Assistant
 		if(prob(HOLIDAY_HAT_CHANCE) && !isnull(special_hat) && isnull(head))
 			head = special_hat
 
-	give_jumpsuit(target)
+//	give_jumpsuit(target) NON-MODULAR CHANGES: Disables this since it conflicts with loadouts
 
 /datum/outfit/job/assistant/proc/give_jumpsuit(mob/living/carbon/human/target)
 	var/static/jumpsuit_number = 0
