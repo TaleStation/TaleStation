@@ -1,9 +1,13 @@
 import { sortBy, sortStrings } from 'common/collections';
 import { BooleanLike, classes } from 'common/react';
-import { ComponentType, createElement, ReactNode } from 'react';
+import { ComponentType, createElement, ReactNode, useState } from 'react';
 
+<<<<<<< HEAD
 import { sendAct, useBackend, useLocalState } from '../../../../backend';
 // NON-MODULAR CHANGES: Adds TextArea
+=======
+import { sendAct, useBackend } from '../../../../backend';
+>>>>>>> 5e6d3797bc66b (Replaces most useLocalState with useState (#80784))
 import {
   Box,
   Button,
@@ -343,10 +347,7 @@ export const FeatureValueInput = (props: {
 
   const feature = props.feature;
 
-  const [predictedValue, setPredictedValue] = useLocalState(
-    `${props.featureId}_predictedValue_${data.active_slot}`,
-    props.value,
-  );
+  const [predictedValue, setPredictedValue] = useState(props.value);
 
   const changeValue = (newValue: unknown) => {
     setPredictedValue(newValue);
