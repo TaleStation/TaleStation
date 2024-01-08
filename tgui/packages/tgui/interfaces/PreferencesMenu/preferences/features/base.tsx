@@ -2,12 +2,8 @@ import { sortBy, sortStrings } from 'common/collections';
 import { BooleanLike, classes } from 'common/react';
 import { ComponentType, createElement, ReactNode, useState } from 'react';
 
-<<<<<<< HEAD
-import { sendAct, useBackend, useLocalState } from '../../../../backend';
-// NON-MODULAR CHANGES: Adds TextArea
-=======
 import { sendAct, useBackend } from '../../../../backend';
->>>>>>> 5e6d3797bc66b (Replaces most useLocalState with useState (#80784))
+// NON-MODULAR CHANGES: Adds TextArea
 import {
   Box,
   Button,
@@ -18,6 +14,7 @@ import {
   Stack,
   TextArea,
 } from '../../../../components';
+// NON-MODULAR CHANGES END
 import { createSetPreference, PreferencesMenuData } from '../../data';
 import { ServerPreferencesFetcher } from '../../ServerPreferencesFetcher';
 
