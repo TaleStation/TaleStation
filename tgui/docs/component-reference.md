@@ -554,7 +554,14 @@ A basic text input, which allow users to enter text into a UI.
   when this happens. Useful for things like chat inputs.
 - `onChange: (e, value) => void` - Fires when the value is changed.
 - `onEnter: (e, value) => void` - Fires when the user hits enter.
+<<<<<<< HEAD
 - `onEscape: (e, value) => void` - Fires when the user hits escape.
+=======
+- `onEscape: (e) => void` - Fires when the user hits escape.
+- `onInput: (e, value) => void` - Fires when the user types into the input.
+- `expensive: boolean` - Introduces a delay before updating the input. Useful for large filters,
+  where you don't want to update on every keystroke.
+>>>>>>> 8b6b96d4464ff (Input changes take XII: Responsive small lists (#80720))
 
 ### `Knob`
 

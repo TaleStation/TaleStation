@@ -57,7 +57,7 @@ export const LanguageStack = (props: {
 
 const WarningDimmer = (props) => {
   return (
-    <Dimmer vertical align="center">
+    <Dimmer align="center">
       <Stack.Item fontSize="18px">{props.message}</Stack.Item>
     </Dimmer>
   );
