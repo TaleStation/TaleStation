@@ -272,7 +272,7 @@
 	desc = "A steel crate. This one seems like trouble."
 
 /obj/structure/closet/crate/resource_cache/random_materials/Initialize(mapload)
-	for(var/i in 1 to rand(2, 4))
+	for(var/i in 1 to rand(2, 3))
 		resources += list(pick(subtypesof(/obj/item/stack)) = round(rand(2, 20),2))
 	return ..()
 
