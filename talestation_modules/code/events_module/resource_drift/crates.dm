@@ -273,7 +273,7 @@
 
 /obj/structure/closet/crate/resource_cache/random_materials/Initialize(mapload)
 	for(var/i in 1 to rand(2, 4))
-		resources += list(pick(subtypesof(/obj/item/stack)) = round(rand(1, 50),5))
+		resources += list(pick(subtypesof(/obj/item/stack)) = round(rand(2, 20),2))
 	return ..()
 
 //---
