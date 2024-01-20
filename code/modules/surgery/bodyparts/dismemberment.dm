@@ -26,7 +26,7 @@
 	if (wounding_type)
 		LAZYSET(limb_owner.body_zone_dismembered_by, body_zone, wounding_type)
 
-	drop_limb(FALSE, TRUE) // NON-MODULAR CHANGES: args
+	drop_limb(special = FALSE, dismembered = TRUE) // NON-MODULAR CHANGES: adds special arg
 
 	limb_owner.update_equipment_speed_mods() // Update in case speed affecting item unequipped by dismemberment
 	var/turf/owner_location = limb_owner.loc
