@@ -269,11 +269,12 @@
 // Yes, this crate can have literally any stack item.
 // No, it's blacklisted from the events that use it for a reason.
 /obj/structure/closet/crate/resource_cache/random_materials
-	desc = "A steel crate. This one seems like trouble."
+	storage_capacity = 60
+	desc = "A mysterious looking crate. It looks deeper on the inside."
 
 /obj/structure/closet/crate/resource_cache/random_materials/Initialize(mapload)
-	for(var/i in 1 to rand(2, 4))
-		resources += list(pick(subtypesof(/obj/item/stack)) = round(rand(1, 50),5))
+	for(var/i in 1 to rand(2, 3))
+		resources += list(pick(subtypesof(/obj/item/stack)) = round(rand(2, 20),2))
 	return ..()
 
 //---
