@@ -1,6 +1,13 @@
 /datum/map_generator/cave_generator/icemoon
 	weighted_open_turf_types = list(/turf/open/misc/asteroid/snow/icemoon = 19, /turf/open/misc/ice/icemoon = 1)
+<<<<<<< HEAD
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/snow = 1)
+=======
+	weighted_closed_turf_types = list(
+		/turf/closed/mineral/snowmountain/icemoon = 100,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
+	)
+>>>>>>> 0705183abba91 (Removes infinite sources of plasma from icebox (#81091))
 
 
 	weighted_mob_spawn_list = list(
