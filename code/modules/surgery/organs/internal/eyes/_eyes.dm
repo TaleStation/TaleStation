@@ -284,11 +284,7 @@
 
 /datum/action/cooldown/golem_ore_sight/Activate(atom/target)
 	. = ..()
-<<<<<<< HEAD
-	mineral_scan_pulse(get_turf(target))
-=======
 	mineral_scan_pulse(get_turf(target), scanner = target)
->>>>>>> 7a1b8d502ca5d (Fixes runtime when mineral scanning (#81049))
 
 ///Robotic
 
