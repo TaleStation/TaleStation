@@ -10,44 +10,12 @@
 	processing_flags = START_PROCESSING_MANUALLY
 	/// Cooldown between "Error" sound effects being played
 	COOLDOWN_DECLARE(jukebox_error_cd)
-<<<<<<< HEAD
-
-/obj/machinery/jukebox/disco
-	name = "radiant dance machine mark IV"
-	desc = "The first three prototypes were discontinued after mass casualty incidents."
-	icon_state = "disco"
-	req_access = list(ACCESS_ENGINEERING)
-	anchored = FALSE
-	var/list/spotlights = list()
-	var/list/sparkles = list()
-
-/obj/machinery/jukebox/disco/indestructible
-	name = "radiant dance machine mark V"
-	desc = "Now redesigned with data gathered from the extensive disco and plasma research."
-	req_access = null
-	anchored = TRUE
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	obj_flags = /obj::obj_flags | NO_DECONSTRUCTION
-
-/datum/track
-	var/song_name = "generic"
-	var/song_path = null
-	var/song_length = 0
-	var/song_beat = 0
-
-/datum/track/default
-	song_path = 'sound/ambience/title3.ogg'
-	song_name = "Tintin on the Moon"
-	song_length = 3 MINUTES + 52 SECONDS
-	song_beat = 1 SECONDS
-=======
 	/// Cooldown between being allowed to play another song
 	COOLDOWN_DECLARE(jukebox_song_cd)
 	/// TimerID to when the current song ends
 	var/song_timerid
 	/// The actual music player datum that handles the music
 	var/datum/jukebox/music_player
->>>>>>> 7ffc073b33a2f (Refactor jukebox, jukebox datum, now jukebox audio is positional. And it fully respects deaf people.  (#81135))
 
 /obj/machinery/jukebox/Initialize(mapload)
 	. = ..()
