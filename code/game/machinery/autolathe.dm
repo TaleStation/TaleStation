@@ -221,11 +221,7 @@
 		return
 
 	//use power
-<<<<<<< HEAD
-	var/power = active_power_usage
-=======
 	var/total_charge = 0
->>>>>>> 73b891388bf19 (Lathes no use power to print piecemeal AND respect area.requires_power (#81198))
 	for(var/material in design.materials)
 		total_charge += round(design.materials[material] * material_cost_coefficient * build_count)
 	var/charge_per_item = total_charge / build_count
@@ -355,7 +351,7 @@
 
 	flick("autolathe_[item_inserted.has_material_type(/datum/material/glass) ? "r" : "o"]", src)
 
-	use_power(min(active_power_usage * 0.25, amount_inserted / 100))
+	use_power(min(active_power_usage * 0.25, amount_inserted / SHEET_MATERIAL_AMOUNT))
 
 	update_static_data_for_all_viewers()
 
