@@ -1,4 +1,15 @@
 /// -- Modular GAGS configs. --
+
+/*
+* Masks
+*/
+
+
+
+/*
+* Suits
+*/
+
 /datum/greyscale_config/jumpsuit/worn/digi
 	name = "Digitigrate Jumpsuit Worn"
 	icon_file = 'talestation_modules/icons/clothing/under/color_digi.dmi'

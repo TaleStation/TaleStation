@@ -5,17 +5,32 @@
 	/// Config for generating digitigrade greyscaling
 	var/greyscale_config_worn_digitigrade
 
+	/// Worn icon if we're something with a snout
+	var/icon/worn_icon_snouted
+
+	/// Config for generating snouted greyscaling
+	var/greyscale_config_worn_snouted
+
 /obj/item/clothing/equipped(mob/living/carbon/user, slot)
 	if(istype(user) && (user.bodytype & BODYTYPE_DIGITIGRADE) && !isnull(worn_icon_digitigrade))
 		worn_icon = worn_icon_digitigrade
+
+	if(istype(user) && (user.bodytype & BODYTYPE_SNOUTED) && !isnull(worn_icon_snouted))
+		worn_icon = worn_icon_snouted
+
 	else
 		worn_icon = initial(worn_icon)
 		update_greyscale()
+
 	return ..()
 
 /obj/item/clothing/update_greyscale()
 	if(greyscale_config_worn_digitigrade)
 		worn_icon_digitigrade = SSgreyscale.GetColoredIconByType(greyscale_config_worn_digitigrade, greyscale_colors)
+
+	if(greyscale_config_worn_snouted)
+		worn_icon_snouted = SSgreyscale.GetColoredIconByType(greyscale_config_worn_snouted, greyscale_colors)
+
 	return ..()
 
 /obj/item/clothing/under

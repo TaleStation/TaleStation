@@ -3,6 +3,7 @@
 	limb_id = SPECIES_AVIAN
 	is_dimorphic = TRUE
 	head_flags = HEAD_ALL_FEATURES
+	bodytype = BODYTYPE_SNOUTED
 
 /obj/item/bodypart/chest/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
