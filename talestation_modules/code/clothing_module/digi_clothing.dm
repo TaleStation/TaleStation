@@ -12,11 +12,12 @@
 	var/greyscale_config_worn_snouted
 
 /obj/item/clothing/equipped(mob/living/carbon/user, slot)
-	if(istype(user) && (user.bodytype & BODYTYPE_DIGITIGRADE) && !isnull(worn_icon_digitigrade))
-		worn_icon = worn_icon_digitigrade
+	if(istype(user))
+		if((user.bodytype & BODYTYPE_DIGITIGRADE) && !isnull(worn_icon_digitigrade))
+			worn_icon = worn_icon_digitigrade
 
-	if(istype(user) && (user.bodytype & BODYTYPE_SNOUTED) && !isnull(worn_icon_snouted))
-		worn_icon = worn_icon_snouted
+		if((user.bodytype & BODYTYPE_SNOUTED) && !isnull(worn_icon_snouted))
+			worn_icon = worn_icon_snouted
 
 	else
 		worn_icon = initial(worn_icon)
