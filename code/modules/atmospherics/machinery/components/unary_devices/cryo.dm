@@ -239,8 +239,16 @@
 	else
 		. += mutable_appearance('icons/obj/medical/cryogenics.dmi', "cover-off", ABOVE_ALL_MOB_LAYER, src, plane = ABOVE_GAME_PLANE)
 
+<<<<<<< HEAD
 /obj/machinery/cryo_cell/nap_violation(mob/violator)
 	open_machine()
+=======
+/obj/machinery/cryo_cell/dump_inventory_contents(list/subset = list())
+	//only drop mobs when opening the machine
+	for (var/mob/living/living_guy in contents)
+		subset += living_guy
+	return ..(subset)
+>>>>>>> dc50ef274c70a (Cryo tubes will dump legions spawned inside them when opened (#81273))
 
 
 /obj/machinery/cryo_cell/proc/set_on(active)
