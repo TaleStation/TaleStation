@@ -268,7 +268,7 @@
 
 	return data
 
-/obj/machinery/rnd/production/ui_act(action, list/params, datum/tgui/ui, mob/user)
+/obj/machinery/rnd/production/ui_act(action, list/params, datum/tgui/ui)
 	. = ..()
 	if(.)
 		return
@@ -336,6 +336,7 @@
 			var/build_time_per_item = (design.construction_time * design.lathe_time_factor) ** 0.8
 
 			// Charge the lathe tax at least once per ten items.
+			var/mob/user = usr
 			var/total_cost = LATHE_TAX * max(round(print_quantity / 10), 1)
 			if(!charges_tax)
 				total_cost = 0
