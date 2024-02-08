@@ -430,31 +430,12 @@
 		efficiency -= new_servo.tier * 0.2
 	creation_efficiency = max(1,efficiency) // creation_efficiency goes 1.6 -> 1.4 -> 1.2 -> 1 per level of servo efficiency
 
-<<<<<<< HEAD
-/obj/machinery/autolathe/examine(mob/user)
-	. += ..()
-	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: Storing up to <b>[materials.max_amount]</b> material units.<br>Material consumption at <b>[creation_efficiency*100]%</b>.")
-		if(drop_direction)
-			. += span_notice("Currently configured to drop printed objects <b>[dir2text(drop_direction)]</b>.")
-			. += span_notice("<b>Alt-click</b> to reset.")
-		else
-			. += span_notice("<b>Drag towards a direction</b> (while next to it) to change drop direction.")
-
-/obj/machinery/autolathe/AltClick(mob/user)
-	. = ..()
-	if(drop_direction)
-		balloon_alert(user, "drop direction reset")
-		drop_direction = 0
-
-=======
 /**
  * Cut a wire in the autolathe
  * Arguments
  *
  * * wire - the wire we are trying to cut
  */
->>>>>>> e4b23f2b4b6ed (General maintenance for Lathes (#81244))
 /obj/machinery/autolathe/proc/reset(wire)
 	switch(wire)
 		if(WIRE_HACK)

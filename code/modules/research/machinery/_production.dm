@@ -6,12 +6,7 @@
 	var/efficiency_coeff = 1
 	/// The material storage used by this fabricator.
 	var/datum/component/remote_materials/materials
-<<<<<<< HEAD
-
-	/// Which departments forego the lathe tax when using this lathe.
-=======
 	/// Which departments are allowed to process this design
->>>>>>> e4b23f2b4b6ed (General maintenance for Lathes (#81244))
 	var/allowed_department_flags = ALL
 	/// Icon state when production has started
 	var/production_animation
@@ -23,6 +18,8 @@
 	var/stripe_color = null
 	///direction we output onto (if 0, on top of us)
 	var/drop_direction = 0
+	/// Does this charge the user's ID on fabrication?
+	var/charges_tax = TRUE
 
 /obj/machinery/rnd/production/Initialize(mapload)
 	. = ..()
@@ -271,7 +268,7 @@
 
 	return data
 
-/obj/machinery/rnd/production/ui_act(action, list/params, datum/tgui/ui)
+/obj/machinery/rnd/production/ui_act(action, list/params, datum/tgui/ui, mob/user)
 	. = ..()
 	if(.)
 		return
@@ -338,6 +335,33 @@
 			charge_per_item = min(active_power_usage, round(charge_per_item * coefficient))
 			var/build_time_per_item = (design.construction_time * design.lathe_time_factor) ** 0.8
 
+			// Charge the lathe tax at least once per ten items.
+			var/total_cost = LATHE_TAX * max(round(print_quantity / 10), 1)
+			if(!charges_tax)
+				total_cost = 0
+			if(isliving(user))
+				var/mob/living/living_user = user
+				var/obj/item/card/id/card = living_user.get_idcard(TRUE)
+
+				if(!card && istype(user.pulling, /obj/item/card/id))
+					card = user.pulling
+
+				if(card && card.registered_account)
+					var/datum/bank_account/our_acc = card.registered_account
+					if(our_acc.account_job.departments_bitflags & allowed_department_flags)
+						total_cost = 0 // We are not charging crew for printing their own supplies and equipment.
+
+			if(total_cost)
+				if(iscyborg(user))
+					var/mob/living/silicon/robot/borg = user
+					if(!borg.cell)
+						return FALSE
+					borg.cell.use(SILICON_LATHE_TAX)
+
+				else if(attempt_charge(src, user, total_cost) & COMPONENT_OBJ_CANCEL_CHARGE)
+					say("Insufficient funds to complete prototype. Please present a holochip or valid ID card.")
+					return FALSE
+
 			//start production
 			busy = TRUE
 			SStgui.update_uis(src)
@@ -354,111 +378,6 @@
 
 			return TRUE
 
-<<<<<<< HEAD
-/obj/machinery/rnd/production/proc/build_efficiency(path)
-	if(ispath(path, /obj/item/stack/sheet) || ispath(path, /obj/item/stack/ore/bluespace_crystal))
-		return 1
-	else
-		return efficiency_coeff
-
-/obj/machinery/rnd/production/proc/user_try_print_id(mob/user, design_id, print_quantity)
-	if(!design_id)
-		return FALSE
-
-	if(istext(print_quantity))
-		print_quantity = text2num(print_quantity)
-
-	if(isnull(print_quantity))
-		print_quantity = 1
-
-	var/datum/design/design = stored_research.researched_designs[design_id] ? SSresearch.techweb_design_by_id(design_id) : null
-
-	if(!istype(design))
-		return FALSE
-
-	if(busy)
-		say("Warning: fabricator is busy!")
-		return FALSE
-
-	if(!(isnull(allowed_department_flags) || (design.departmental_flags & allowed_department_flags)))
-		say("This fabricator does not have the necessary keys to decrypt this design.")
-		return FALSE
-
-	if(design.build_type && !(design.build_type & allowed_buildtypes))
-		say("This fabricator does not have the necessary manipulation systems for this design.")
-		return FALSE
-
-	if(!materials.mat_container)
-		say("No connection to material storage, please contact the quartermaster.")
-		return FALSE
-
-	if(materials.on_hold())
-		say("Mineral access is on hold, please contact the quartermaster.")
-		return FALSE
-
-	print_quantity = clamp(print_quantity, 1, 50)
-	var/coefficient = build_efficiency(design.build_path)
-
-	// check if sufficient materials are available.
-	if(!materials.mat_container.has_materials(design.materials, coefficient, print_quantity))
-		say("Not enough materials to complete prototype[print_quantity > 1 ? "s" : ""].")
-		return FALSE
-
-	//use power
-	var/total_charge = 0
-	for(var/material in design.materials)
-		total_charge += round(design.materials[material] * coefficient * print_quantity / 35)
-	var/charge_per_item = total_charge / print_quantity
-
-	// Charge the lathe tax at least once per ten items.
-	var/total_cost = LATHE_TAX * max(round(print_quantity / 10), 1)
-	if(!charges_tax)
-		total_cost = 0
-	if(isliving(user))
-		var/mob/living/living_user = user
-		var/obj/item/card/id/card = living_user.get_idcard(TRUE)
-
-		if(!card && istype(user.pulling, /obj/item/card/id))
-			card = user.pulling
-
-		if(card && card.registered_account)
-			var/datum/bank_account/our_acc = card.registered_account
-			if(our_acc.account_job.departments_bitflags & allowed_department_flags)
-				total_cost = 0 // We are not charging crew for printing their own supplies and equipment.
-
-	if(total_cost)
-		if(iscyborg(user))
-			var/mob/living/silicon/robot/borg = user
-			if(!borg.cell)
-				return FALSE
-			borg.cell.use(SILICON_LATHE_TAX)
-
-		else if(attempt_charge(src, user, total_cost) & COMPONENT_OBJ_CANCEL_CHARGE)
-			say("Insufficient funds to complete prototype. Please present a holochip or valid ID card.")
-			return FALSE
-
-	if(production_animation)
-		flick(production_animation, src)
-
-	var/total_time = (design.construction_time * design.lathe_time_factor * print_quantity) ** 0.8
-	var/time_per_item = total_time / print_quantity
-	start_making(design, print_quantity, time_per_item, coefficient, charge_per_item)
-
-	return TRUE
-
-/// Begins the act of making the given design the given number of items
-/// Does not check or use materials/power/etc
-/obj/machinery/rnd/production/proc/start_making(datum/design/design, build_count, build_time_per_item, build_efficiency, charge_per_item)
-	PROTECTED_PROC(TRUE)
-
-	busy = TRUE
-	update_static_data_for_all_viewers()
-	addtimer(CALLBACK(src, PROC_REF(do_make_item), design, build_efficiency, build_time_per_item, charge_per_item, build_count), build_time_per_item)
-
-/// Callback for start_making, actually makes the item
-/// Called using timers started by start_making
-/obj/machinery/rnd/production/proc/do_make_item(datum/design/design, build_efficiency, time_per_item, charge_per_item, items_remaining)
-=======
 /**
  * Callback for start_making, actually makes the item
  * Arguments
@@ -471,7 +390,6 @@
  * * turf/target - the location to drop the printed item on
 */
 /obj/machinery/rnd/production/proc/do_make_item(datum/design/design, items_remaining, build_time_per_item, material_cost_coefficient, charge_per_item, turf/target)
->>>>>>> e4b23f2b4b6ed (General maintenance for Lathes (#81244))
 	PROTECTED_PROC(TRUE)
 
 	if(!items_remaining) // how
