@@ -216,6 +216,11 @@
 	},
 /obj/structure/cable,
 /obj/machinery/holopad/secure,
+/obj/machinery/door/window/brigdoor/right/directional/east{
+	name = "Primary AI Core Access";
+	req_access = list("ai_upload");
+	pixel_x = 4
+	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
 "aca" = (
@@ -6121,6 +6126,11 @@
 /obj/effect/turf_decal/stripes/corner,
 /obj/machinery/holopad/secure,
 /obj/structure/cable/layer3,
+/obj/machinery/door/window/brigdoor/left/directional/west{
+	name = "Primary AI Core Access";
+	req_access = list("ai_upload");
+	pixel_x = -4
+	},
 /turf/open/floor/engine,
 /area/station/ai_monitored/turret_protected/ai)
 "ceh" = (
@@ -22164,10 +22174,7 @@
 	pixel_x = 3;
 	pixel_y = 28
 	},
-/obj/machinery/door/window/left/directional/west{
-	atom_integrity = 300;
-	base_state = "leftsecure";
-	icon_state = "leftsecure";
+/obj/machinery/door/window/brigdoor/left/directional/west{
 	name = "Primary AI Core Access";
 	req_access = list("ai_upload")
 	},
@@ -27525,15 +27532,6 @@
 	name = "Private Channel";
 	pixel_x = 8
 	},
-/obj/machinery/door/window/left/directional/west{
-	atom_integrity = 300;
-	base_state = "leftsecure";
-	icon_state = "leftsecure";
-	layer = 4.1;
-	name = "Tertiary AI Core Access";
-	pixel_x = -3;
-	req_access = list("ai_upload")
-	},
 /turf/open/floor/circuit/red,
 /area/station/ai_monitored/turret_protected/ai)
 "iMN" = (
@@ -31795,9 +31793,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/spawner/random/aimodule/neutral,
-/obj/machinery/door/window/left/directional/south{
-	base_state = "right";
-	icon_state = "right";
+/obj/machinery/door/window/right/directional/south{
 	name = "Core Modules";
 	req_access = list("captain")
 	},
@@ -34353,10 +34349,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "lcK" = (
-/obj/machinery/door/window/left/directional/east{
-	atom_integrity = 300;
-	base_state = "rightsecure";
-	icon_state = "rightsecure";
+/obj/machinery/door/window/brigdoor/right/directional/east{
 	name = "Primary AI Core Access";
 	req_access = list("ai_upload")
 	},
@@ -61508,9 +61501,7 @@
 /obj/structure/window/reinforced/spawner/directional/north{
 	pixel_y = 1
 	},
-/obj/machinery/door/window/right/directional/west{
-	base_state = "left";
-	icon_state = "left";
+/obj/machinery/door/window/left/directional/west{
 	name = "Fitness Ring"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -67141,9 +67132,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/machinery/door/window/right/directional/east{
-	base_state = "left";
-	icon_state = "left";
+/obj/machinery/door/window/left/directional/east{
 	name = "Fitness Ring"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -72578,15 +72567,6 @@
 	listening = 0;
 	name = "Private Channel";
 	pixel_x = -8
-	},
-/obj/machinery/door/window/left/directional/east{
-	atom_integrity = 300;
-	base_state = "rightsecure";
-	icon_state = "rightsecure";
-	layer = 4.1;
-	name = "Secondary AI Core Access";
-	pixel_x = 4;
-	req_access = list("ai_upload")
 	},
 /turf/open/floor/circuit/red,
 /area/station/ai_monitored/turret_protected/ai)
