@@ -242,14 +242,12 @@
 	priority = PRIORITY_ABSOLUTE
 	colour = COLOR_RED
 
-<<<<<<< HEAD
+/datum/client_colour/temp
+	priority = PRIORITY_HIGH
+
 // NON-MODULAR CHANGES: Monochrome lizard
 /datum/client_colour/monochrome/lizard
 	priority = PRIORITY_NORMAL
-=======
-/datum/client_colour/temp
-	priority = PRIORITY_HIGH
->>>>>>> fa4ada025cf7d (Client colo(u)r no longer uses Client.color, now coloring the render game plane instead (#81328))
 
 #undef PRIORITY_ABSOLUTE
 #undef PRIORITY_HIGH
