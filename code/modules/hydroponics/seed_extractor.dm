@@ -13,13 +13,12 @@
  * * user - checks if we can remove the object from the inventory
  * *
  */
-/proc/seedify(obj/item/object, t_max, obj/processing_object, mob/living/user) // NON-MODULAR CHANGES: changes processing_object parameter
+/proc/seedify(obj/item/object, t_max, obj/processing_object, mob/living/user)
 	//try to get the seed from this item
 	var/obj/item/seeds/seed = object.get_plant_seed()
 	if(isnull(seed))
 		return null
 
-	// NON-MODULAR CHANGES: Xenobotany
 	var/obj/machinery/seed_extractor/extractor // Moved from the () parameters
 	if(istype(processing_object, /obj/machinery/seed_extractor)) // Reroutes parameter
 		extractor = processing_object
@@ -28,7 +27,6 @@
 	var/obj/item/food/grown/grown_item = object
 	if(!grown_item.is_alien_produce == accepts_alien_seeds(processing_object))
 		return
-	// NON-MODULAR CHANGES END
 
 	//generate a random multiplier if value is not specified
 	var/list/seeds = list()
@@ -137,13 +135,11 @@
 	var/list/generated_seeds = seedify(attacking_item, -1, src, user)
 	if(!isnull(generated_seeds))
 
-	// NON-MODULAR CHANGES: XenoBotany seedify check
 		var/obj/item/food/grown/produce = attacking_item
 		// Checks if our seeds are alien seeds
 		if(produce.is_alien_produce != accepts_alien_seeds)
 			to_chat(user, span_warning("The [src.name] can't accept [attacking_item]!"))
 			return
-	// NON-MODULAR CHANGES END
 
 		if(LAZYACCESS(params2list(params), RIGHT_CLICK))
 			//find all seeds lying on the turf and add them to the machine
@@ -160,13 +156,11 @@
 	else if(istype(attacking_item, /obj/item/seeds))
 		if(contents.len >= max_seeds)
 			to_chat(user, span_warning("[src] is full."))
-		// NON-MODULAR CHANGES: XenoBotany seed storage check
 		var/obj/item/seeds/seed = attacking_item
 		// Checks if our seeds are alien seeds
 		if(seed.is_alien_seeds != accepts_alien_seeds)
 			to_chat(user, span_warning("The [src.name] can't accept [attacking_item]!"))
 			return
-		// NON-MODULAR CHANGES END
 		else if(add_seed(attacking_item, user))
 			to_chat(user, span_notice("You add [attacking_item] to [src]."))
 

@@ -9,7 +9,6 @@ import {
 } from 'react';
 
 import { sendAct, useBackend } from '../../../../backend';
-// NON-MODULAR CHANGES: Adds TextArea
 import {
   Box,
   Button,
@@ -20,7 +19,6 @@ import {
   Stack,
   TextArea,
 } from '../../../../components';
-// NON-MODULAR CHANGES END
 import { createSetPreference, PreferencesMenuData } from '../../data';
 import { ServerPreferencesFetcher } from '../../ServerPreferencesFetcher';
 
@@ -398,8 +396,6 @@ export const FeatureShortTextInput = (
     />
   );
 };
-
-// NON-MODULAR CHANGES: Better flavor text
 
 export const FeatureTextInput = (
   props: FeatureValueProps<string, string, FeatureShortTextData>,

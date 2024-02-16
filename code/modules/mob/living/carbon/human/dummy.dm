@@ -102,7 +102,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_lizard"] = get_consistent_feature_entry(GLOB.tails_list_lizard)
 	target.dna.features["pod_hair"] = get_consistent_feature_entry(GLOB.pod_hair_list)
 	target.dna.initialize_dna(create_mutation_blocks = FALSE, randomize_features = FALSE)
-	// NON-MODULAR CHANGES: Modular dna.features
 	target.dna.features["head_tentacles"] = get_consistent_feature_entry(GLOB.head_tentacles_list)
 	target.dna.features["tajaran_snout"] = get_consistent_feature_entry(GLOB.tajaran_snout_list)
 	target.dna.features["tajaran_ears"] = get_consistent_feature_entry(GLOB.tajaran_ears_list)

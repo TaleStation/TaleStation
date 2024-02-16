@@ -8,7 +8,7 @@
 	medical_record_text = "Patient speaks multiple languages."
 	mail_goodies = list(/obj/item/taperecorder, /obj/item/clothing/head/frenchberet, /obj/item/clothing/mask/fakemoustache/italian)
 
-/* NON-MODULAR CHANGES: Disables bilingual quirk
+/* TO-DO: Fully remove Bilingual NON-MODULAR (so I can remember later :3)
 /datum/quirk_constant_data/bilingual
 	associated_typepath = /datum/quirk/bilingual
 	customization_options = list(/datum/preference/choiced/language)

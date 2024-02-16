@@ -515,10 +515,8 @@
 		if(prob(20))
 			n2o_euphoria = EUPHORIA_ACTIVE
 			breather.emote(pick("giggle", "laugh"))
-			// breather.set_drugginess(30 SECONDS) NON-MODULAR CHANGES: This SUCKS TODO: Remove when we hard fork
 		else
 			n2o_euphoria = EUPHORIA_INACTIVE
-			// NON-MODULAR CHANGES: Pain anesthetic
 			breather.remove_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
 		return
 
@@ -531,12 +529,10 @@
 	if(!HAS_TRAIT(breather, TRAIT_SLEEPIMMUNE))
 		breather.Unconscious(6 SECONDS)
 	// Enough to make the mob sleep.
-	// NON-MODULAR CHANGES
 	var/amount_of_sleep = min(breather.AmountSleeping() + 10 SECONDS, 20 SECONDS)
 	if(n2o_pp > n2o_sleep_min && breather.Sleeping(amount_of_sleep))
 		// If we got put to sleep we count as "on anesthetic"
 		breather.apply_status_effect(/datum/status_effect/grouped/anesthetic, /datum/gas/nitrous_oxide)
-	// NON-MODULAR CHANGES END
 
 /// N2O side-effects. "Too much N2O!"
 /obj/item/organ/internal/lungs/proc/safe_n2o(mob/living/carbon/breather, datum/gas_mixture/breath, old_n2o_pp)

@@ -57,10 +57,10 @@
 	if(!json_config)
 		stack_trace("Greyscale config object [DebugName()] is missing a json configuration, make sure `json_config` has been assigned a value.")
 	string_json_config = "[json_config]"
-	/* NON-MODULAR CHANGES: We want to keep modularity, so all this does is scream that a greyscale config is not in the right path
+	/*  TO DO: Figure out what I want to do with this. Could just nuke it but I'll let it simmer until I can figure out wtf I wanna do - Jolly
 	if(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1)
 		stack_trace("All greyscale json configuration files should be located within 'code/datums/greyscale/json_configs/'")
-	*/ // NON-MODULAR CHANGES END
+	*/
 	if(!icon_file)
 		stack_trace("Greyscale config object [DebugName()] is missing an icon file, make sure `icon_file` has been assigned a value.")
 	string_icon_file = "[icon_file]"

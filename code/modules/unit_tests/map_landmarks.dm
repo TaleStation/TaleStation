@@ -6,10 +6,9 @@
 		if(job.spawn_positions <= 0)
 			// Zero spawn positions means we don't need to care if they don't have a roundstart landmark
 			continue
-			// NON-MODULAR CHANGES: Adds a check to skip modular jobs
+			// NON-MODULAR CHANGES: Adds a check to skip modular jobs TO-DO Undo this and intergrate it properly
 		if(!job.is_unit_testable)
 			continue
-			// NON-MODULAR CHANGES END
 		if(job.get_default_roundstart_spawn_point())
 			continue
 

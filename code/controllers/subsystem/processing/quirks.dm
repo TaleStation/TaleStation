@@ -25,7 +25,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/photophobia, /datum/quirk/nyctophobia),
 	list(/datum/quirk/item_quirk/settler, /datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
-	// NON-MODULAR CHANGES: Our unique quirk blacklist
 	list(/datum/quirk/allodynia, /datum/quirk/pain_vulnerability, /datum/quirk/pain_resistance, /datum/quirk/glass_jaw),
 	list(/datum/quirk/allodynia, /datum/quirk/bad_touch),
 ))

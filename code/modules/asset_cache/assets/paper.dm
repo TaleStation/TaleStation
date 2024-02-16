@@ -17,7 +17,6 @@
 		"stamp-mime" = 'icons/stamp_icons/large_stamp-mime.png',
 		"stamp-centcom" = 'icons/stamp_icons/large_stamp-centcom.png',
 		"stamp-syndicate" = 'icons/stamp_icons/large_stamp-syndicate.png',
-		// NON-MODULAR CHANGES: Our custom stamps
 		"stamp-ap" = 'talestation_modules/icons/stamp_icons/large_stamp-ap.png',
 		"stamp-bo" = 'talestation_modules/icons/stamp_icons/large_stamp-bo.png',
 	)

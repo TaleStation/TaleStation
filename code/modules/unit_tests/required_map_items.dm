@@ -13,13 +13,13 @@
 /// This list will just be full of typepaths that we expect.
 /// More detailed information about each item (mainly, how much of each should exist) is set on a per item basis
 /datum/unit_test/required_map_items/proc/setup_expected_types()
-	expected_types += list(/obj/item/stamp/head/captain, // NON-MODULAR CHANGES: The chances of /tg/ altering this list is slim to none
+	expected_types += list(/obj/item/stamp/head/captain, // NON-MODULAR TO-DO: Add AP/BO stamps to this
 						/obj/item/stamp/head/hop, // I'll pay anyone 1$ if I'm wrong
 						/obj/item/stamp/head/hos,
 						/obj/item/stamp/head/ce,
 						/obj/item/stamp/head/cmo,
 						/obj/item/stamp/head/qm,
-						/obj/item/stamp/head/rd,) // NON-MODULAR CHANGES END
+						/obj/item/stamp/head/rd,)
 	expected_types += subtypesof(/obj/machinery/computer/department_orders)
 
 	expected_types += /mob/living/basic/parrot/poly

@@ -67,7 +67,6 @@ const RecordInfo = (props) => {
     species,
     wanted_status,
     voice,
-    // NON-MODULAR CHANGES: Adds sec records to TGUI
     old_security_records,
   } = foundRecord;
 
@@ -194,9 +193,6 @@ const RecordInfo = (props) => {
                 text={note}
               />
             </LabeledList.Item>
-            {
-              // NON-MODULAR CHANGES: Adds sec records to TGUI
-            }
             <LabeledList.Item label="Previous Security Records">
               {old_security_records}
             </LabeledList.Item>

@@ -47,7 +47,6 @@
 	quirk_holder.inertia_move_delay *= 0.8
 
 	var/mob/living/carbon/human/human_quirker = quirk_holder
-	// human_quirker.set_mob_height(modded_height) NON-MODULAR CHANGES: Removes the hight from spacer, it'll conflict with our heights
 	human_quirker.physiology.pressure_mod *= 0.8
 	human_quirker.physiology.cold_mod *= 0.8
 

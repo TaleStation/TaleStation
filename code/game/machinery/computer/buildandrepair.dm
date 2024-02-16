@@ -196,10 +196,8 @@
 				new_machine.setDir(dir)
 				transfer_fingerprints_to(new_machine)
 
-				// NON-MODULAR CHANGES: Conjoning computers
 				for(var/obj/machinery/computer/selected in range(1,src))
 					selected.update_overlays()
-				// NON-MODULAR CHANGES END
 
 				if(istype(new_machine, /obj/machinery/computer))
 					var/obj/machinery/computer/new_computer = new_machine

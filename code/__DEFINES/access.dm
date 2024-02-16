@@ -361,7 +361,7 @@
 	ACCESS_RD, \
 	ACCESS_AP, \
 	ACCESS_BO, \
-) // NON-MODULAR CHANGES: Adds our access defines
+)
 
 /// Captains private rooms. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_CAPTAIN)
 #define CAPTAIN_ACCESS list( \
@@ -475,7 +475,7 @@
 	ACCESS_SCIENCE, \
 	ACCESS_XENOBIOLOGY, \
 	ACCESS_XENOBOTANY, \
-) // NON-MODULAR CHANGES: Adds our access defines
+)
 /// Name for the Engineering region.
 #define REGION_ENGINEERING "Engineering"
 /// Used to seed the accesses_by_region list in SSid_access. A list of all engineering regional accesses that are overseen by the CE.

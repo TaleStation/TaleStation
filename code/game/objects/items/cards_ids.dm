@@ -1029,7 +1029,7 @@
 /obj/item/card/id/advanced/update_overlays()
 	. = ..()
 
-	if(registered_name && registered_name != "Site Director") // NON-MODULAR CHANGES: Captsain -> Site Director
+	if(registered_name && registered_name != "Site Director")
 		. += mutable_appearance(icon, assigned_icon_state)
 
 	var/trim_icon_file = trim_icon_override ? trim_icon_override : trim?.trim_icon
@@ -1110,8 +1110,8 @@
 	registered_age = null
 
 /obj/item/card/id/advanced/gold/captains_spare/update_label() //so it doesn't change to Captain's ID card (Captain) on a sneeze
-	if(registered_name == "Site Director") // NON-MODULAR CHANGES: Captain -> Site Director
-		name = "[initial(name)][(!assignment || assignment == "Site Director") ? "" : " ([assignment])"]" // NON-MODULAR CHANGES: Captain -> Site Director
+	if(registered_name == "Site Director")
+		name = "[initial(name)][(!assignment || assignment == "Site Director") ? "" : " ([assignment])"]"
 		update_appearance(UPDATE_ICON)
 	else
 		..()

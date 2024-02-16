@@ -203,7 +203,7 @@ export const DmTarget = new Juke.Target({
     'html/**',
     'icons/**',
     'interface/**',
-    'talestation_modules/**', // NON-MODULAR CHANGES: BUILD OUR FILES!
+    'talestation_modules/**', // Remove me if I no longer exist for some reason :)
     `${DME_NAME}.dme`,
     NamedVersionFile,
   ],

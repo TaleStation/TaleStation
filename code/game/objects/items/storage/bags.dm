@@ -275,7 +275,7 @@
 	if(user.incapacitated())
 		return
 	for(var/obj/item/plant in contents)
-		seedify(plant, 1, src) // NON-MODULAR CHANGES: XenoBotany src
+		seedify(plant, 1, src)
 
 // -----------------------------
 //        Sheet Snatcher

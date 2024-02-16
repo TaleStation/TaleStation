@@ -51,8 +51,8 @@ SUBSYSTEM_DEF(job)
 		JOB_CHIEF_MEDICAL_OFFICER = 5,
 		JOB_HEAD_OF_SECURITY = 6,
 		JOB_QUARTERMASTER = 7,
-		JOB_BRIDGE_OFFICER = 8, //NON-MODULAR CHANGES: Chain of Command define
-		JOB_ASSET_PROTECTION = 9, //NON-MODULAR CHANGES: Chain of Command define
+		JOB_BRIDGE_OFFICER = 8,
+		JOB_ASSET_PROTECTION = 9,
 	)
 
 	/// If TRUE, some player has been assigned Captaincy or Acting Captaincy at some point during the shift and has been given the spare ID safe code.
@@ -242,7 +242,7 @@ SUBSYSTEM_DEF(job)
 	job.current_positions++
 	return TRUE
 
-// NON-MODULAR CHANGES START: Cryopods
+/// Frees up a role via cryopods
 /datum/controller/subsystem/job/proc/FreeRole(rank)
 	if(!rank)
 		return
@@ -251,7 +251,6 @@ SUBSYSTEM_DEF(job)
 	if(!job)
 		return FALSE
 	job.current_positions = max(0, job.current_positions - 1)
-// NON-MODULAR CHANGES END
 
 /datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level)
 	JobDebug("Running FOC, Job: [job], Level: [job_priority_level_to_string(level)]")
@@ -567,7 +566,7 @@ SUBSYSTEM_DEF(job)
 
 	equipping.mind?.set_assigned_role_with_greeting(job, player_client)
 
-	equipping.on_job_equipping(job, player_client?.prefs) // NON-MODULAR CHANGES
+	equipping.on_job_equipping(job, player_client?.prefs) // Loadouts stuff
 
 	job.announce_job(equipping)
 
@@ -803,7 +802,7 @@ SUBSYSTEM_DEF(job)
 	desc = "Proof that you have been approved for Captaincy, with all its glory and all its horror."
 
 /obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code/Initialize(mapload)
-	var/safe_code = SSid_access.spare_id_safe_code // NON-MODULAR CHANGES: Overriding this doesn't work
+	var/safe_code = SSid_access.spare_id_safe_code
 	default_raw_text = "Site Director's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge.<br><br>If your job would not ordinarily have Head of Staff access, your ID card has been specially modified to possess it."
 	return ..()
 
@@ -812,7 +811,7 @@ SUBSYSTEM_DEF(job)
 	desc = "Proof that nobody has been approved for Captaincy. A skeleton key for a skeleton shift."
 
 /obj/item/paper/paperslip/corporate/fluff/emergency_spare_id_safe_code/Initialize(mapload)
-	var/safe_code = SSid_access.spare_id_safe_code // NON-MODULAR CHANGES: Overriding this doesn't work
+	var/safe_code = SSid_access.spare_id_safe_code
 	default_raw_text = "Site Director's Spare ID safe code combination: [safe_code ? safe_code : "\[REDACTED\]"]<br><br>The spare ID can be found in its dedicated safe on the bridge."
 	return ..()
 
@@ -820,7 +819,7 @@ SUBSYSTEM_DEF(job)
 	var/id_safe_code = SSid_access.spare_id_safe_code
 
 	if(!id_safe_code)
-		CRASH("Cannot promote [new_captain.real_name] to Site Director, there is no id_safe_code.") // NON-MODULAR CHNAGES: Captain -> Site Director
+		CRASH("Cannot promote [new_captain.real_name] to Site Director, there is no id_safe_code.")
 
 	var/paper = new /obj/item/folder/biscuit/confidential/spare_id_safe_code()
 	var/list/slots = list(
@@ -832,7 +831,7 @@ SUBSYSTEM_DEF(job)
 	var/where = new_captain.equip_in_one_of_slots(paper, slots, FALSE, indirect_action = TRUE) || "at your feet"
 
 	if(acting_captain)
-		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Director. You can find in important note about this [where].")) // NON-MODULAR CHANGES: Captain -> Director
+		to_chat(new_captain, span_notice("Due to your position in the chain of command, you have been promoted to Acting Director. You can find in important note about this [where]."))
 	else
 		to_chat(new_captain, span_notice("You can find the code to obtain your spare ID from the secure safe on the Bridge [where]."))
 		new_captain.add_mob_memory(/datum/memory/key/captains_spare_code, safe_code = SSid_access.spare_id_safe_code)

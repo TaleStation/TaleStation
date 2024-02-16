@@ -42,14 +42,12 @@
 #define JOB_ASSISTANT "Assistant"
 #define JOB_PRISONER "Prisoner"
 //Command
-// NON-MODULAR CHANGES: Changes define names to new titles
 #define JOB_CAPTAIN "Site Director"
 #define JOB_HEAD_OF_PERSONNEL "Asset Clerk"
 #define JOB_HEAD_OF_SECURITY "Head of Security"
 #define JOB_RESEARCH_DIRECTOR "Research Director"
 #define JOB_CHIEF_ENGINEER "Site Foreman"
 #define JOB_CHIEF_MEDICAL_OFFICER "Medical Director"
-// NON-MODULAR CHANGES END
 #define JOB_BRIDGE_ASSISTANT "Bridge Assistant" // TO-DO: Remove this stuff later
 //Silicon
 #define JOB_AI "AI"

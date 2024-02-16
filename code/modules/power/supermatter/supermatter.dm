@@ -732,11 +732,11 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 	if(istext(who))
 		investigate_log("has been powered for the first time by [who][how ? " with [how]" : ""].", INVESTIGATE_ENGINE)
-		message_admins("[src] [ADMIN_JMP(src)] has been powered for the first time by [who][how ? " with [how]" : ""].") // NON-MODULAR CHANGES: Delam report to TGS
+		message_admins("[src] [ADMIN_JMP(src)] has been powered for the first time by [who][how ? " with [how]" : ""].") // TO-DO: FIX THIS
 		GLOB.main_engine_start_reason = "[who][how ? " with [how]" : ""]."
 	else
 		investigate_log("has been powered for the first time by [key_name(who)][how ? " with [how]" : ""].", INVESTIGATE_ENGINE)
-		message_admins("[src] [ADMIN_JMP(src)] has been powered for the first time by [ADMIN_FULLMONTY(who)][how ? " with [how]" : ""].") // NON-MODULAR CHANGES: Delam report to TGS
+		message_admins("[src] [ADMIN_JMP(src)] has been powered for the first time by [ADMIN_FULLMONTY(who)][how ? " with [how]" : ""].") // Ditto
 		GLOB.main_engine_start_reason = "[key_name(who)][how ? " with [how]" : ""]."
 	activation_logged = TRUE
 
