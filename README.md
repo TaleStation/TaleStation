@@ -1,10 +1,11 @@
-## TaleStation, a /TG/ Station downstream.
+## TaleStation
 
 Our server; byond://join.shiptest.net:1565
 
 An eternal work in progress.
 
-Welcome to TaleStation! A SS13 server thats a downstream of /TG/station. For now.
+Welcome to TaleStation!
+We're a fork of /tg/station.
 
 We're a server with a roleplay over mechanics end goal in mind, where people can come to make and tell stories.
 Come make a story to share with friends and foes alike.
