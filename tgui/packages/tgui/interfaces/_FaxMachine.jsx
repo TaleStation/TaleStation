@@ -1,4 +1,6 @@
-import { useBackend, useSharedState, useLocalState } from '../backend';
+import { useState } from 'react';
+
+import { useBackend, useSharedState } from '../backend';
 import {
   BlockQuote,
   Box,
@@ -28,13 +30,13 @@ export const _FaxMachine = (props, context) => {
 
   const [tab, setTab] = useSharedState(context, 'tab', 1);
 
-  const [selectedPaperTab, setSelectedPaper] = useLocalState(
+  const [selectedPaperTab, setSelectedPaper] = useState(
     context,
     'ref',
     received_paperwork[0]?.ref,
   );
 
-  const [destination, setDestination] = useLocalState(
+  const [destination, setDestination] = useState(
     context,
     'dest',
     default_destination,
