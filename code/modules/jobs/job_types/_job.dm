@@ -190,14 +190,14 @@
 
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
-/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
+/mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref)
 	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
 	bank_account.payday(STARTING_PAYCHECKS, TRUE)
 	account_id = bank_account.account_id
 	bank_account.replaceable = FALSE
 	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
-	dress_up_as_job(equipping, FALSE, used_pref) // NON-MODULAR CHANGES: LOADOUTS
+	dress_up_as_job(equipping, FALSE, used_pref)
 
 	if(EMERGENCY_PAST_POINT_OF_NO_RETURN && prob(VERY_LATE_ARRIVAL_TOAST_PROB))
 		equip_to_slot_or_del(new /obj/item/food/griddle_toast(src), ITEM_SLOT_MASK)
@@ -207,9 +207,8 @@
 /mob/living/proc/dress_up_as_job(datum/job/equipping, visual_only = FALSE)
 	return
 
-/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref) // NON-MODULAR CHANGES: LOADOUTS
+/mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref)
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
-	// NON-MODULAR CHANGES: LOADOUTS
 	if(equipping.outfit)
 		equip_outfit_and_loadout(equipping.outfit, used_pref, visual_only)
 
@@ -435,7 +434,7 @@
 
 
 /datum/job/proc/get_captaincy_announcement(mob/living/captain)
-	return "Due to extreme staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!" // NON-MODULAR CHANGES: Captain -> Site Director
+	return "Due to extreme staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!"
 
 
 /// Returns an atom where the mob should spawn in.

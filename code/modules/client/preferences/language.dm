@@ -1,4 +1,5 @@
 /* NON-MODULAR CHANGES: Disables /tg/s langauge pref choices
+TO-DO: Nuke this
 /datum/preference/choiced/language
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "language"

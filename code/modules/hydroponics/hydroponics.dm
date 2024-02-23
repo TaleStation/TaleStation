@@ -902,12 +902,10 @@
 
 	else if(istype(O, /obj/item/seeds))
 		if(!myseed)
-		//NON-MODULAR CHANGES: XenoBotany
 			var/obj/item/seeds/seed = O
 			if(seed.is_alien_seeds != accepts_alien_seeds)
 				to_chat(user, span_warning("[src] cannot accept [accepts_alien_seeds ? "normal" : "alien"] seeds!"))
 				return
-		// NON-MODULAR CHANGES END
 			if(istype(O, /obj/item/seeds/kudzu))
 				investigate_log("had Kudzu planted in it by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_BOTANY)
 			if(!user.transferItemToLoc(O, src))

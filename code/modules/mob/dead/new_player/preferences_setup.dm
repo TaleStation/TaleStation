@@ -108,7 +108,7 @@
 
 	if(preview_job)
 		mannequin.job = preview_job.title
-		mannequin.dress_up_as_job(preview_job, TRUE, src) // NON-MODULAR CHANGES
+		mannequin.dress_up_as_job(preview_job, TRUE, src)
 
 	// Apply visual quirks
 	// Yes we do it every time because it needs to be done after job gear

@@ -381,10 +381,8 @@
 			if(target_record)
 				. += "<a href='?src=[REF(src)];hud=m;evaluation=1;examine_time=[world.time]'>\[Medical evaluation\]</a><br>"
 			. += "<a href='?src=[REF(src)];hud=m;quirk=1;examine_time=[world.time]'>\[See quirks\]</a>"
-		// NON-MODULAR CHANGES - Examine Records
 			if(target_record && length(target_record.old_medical_records) > RECORDS_INVISIBLE_THRESHOLD)
 				. += "<a href='?src=[REF(src)];hud=m;medrecords=1;examine_time=[world.time]'>\[View medical records\]</a>"
-			// NON-MODULAR CHANGES END
 
 		if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			if((user.stat == CONSCIOUS || isobserver(user)) && user != src)
@@ -411,7 +409,6 @@
 		. += span_info("<b>Quirks:</b> [get_quirk_string(FALSE, CAT_QUIRK_ALL)]")
 	. += "</span>"
 
-	// NON-MODULAR CHANGES: Updated flavor text
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's "flavor_text" DNA feature. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
 	var/preview_text = copytext_char((dna.features["flavor_text"]), 1, FLAVOR_PREVIEW_LIMIT)
@@ -424,7 +421,6 @@
 		flavor_text_link = span_notice("<a href='?src=[REF(src)];lookup_info=open_examine_panel'>Examine closely...</a>")
 	if (flavor_text_link)
 		. += flavor_text_link
-	/// NON-MODULAR CHANGES END
 
 	SEND_SIGNAL(src, COMSIG_ATOM_EXAMINE, user, .)
 

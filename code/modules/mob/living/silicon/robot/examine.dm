@@ -48,7 +48,6 @@
 			. += span_deadsay("It looks like its system is corrupted and requires a reset.")
 	. += "</span>"
 
-	// NON-MODULAR CHANGES: Better flavor text
 	var/flavor_text_link
 	/// The first 1-FLAVOR_PREVIEW_LIMIT characters in the mob's client's silicon_flavor_text preference datum. FLAVOR_PREVIEW_LIMIT is defined in flavor_defines.dm.
 	var/silicon_preview_text = copytext_char((client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/silicon_flavor_text)), 1, FLAVOR_PREVIEW_LIMIT)
@@ -57,7 +56,6 @@
 
 	if (flavor_text_link)
 		. += flavor_text_link
-	// NON-MODULAR CHANGES END
 
 	. += ..()
 

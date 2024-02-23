@@ -98,7 +98,7 @@
 	var/static/list/possible_objectives = list(
 		"You love the Syndicate.",
 		"Do not trust Nanotrasen.",
-		"The Site Directorr is a lizardperson.", // NON-MODULAR CHANGES: Captain -> Site Director
+		"The Site Directorr is a lizardperson.",
 		"Nanotrasen isn't real.",
 		"They put something in the food to make you forget.",
 		"You are the only real person on the station.",

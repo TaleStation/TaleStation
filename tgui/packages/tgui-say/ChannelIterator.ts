@@ -1,4 +1,4 @@
-export type Channel = 'Say' | 'Radio' | 'Me' | 'OOC' | 'LOOC' | 'Admin'; // NON-MODULAR CHANGES: Adds LOOC
+export type Channel = 'Say' | 'Radio' | 'Me' | 'OOC' | 'LOOC' | 'Admin';
 
 /**
  * ### ChannelIterator
@@ -15,9 +15,9 @@ export class ChannelIterator {
     'OOC',
     'LOOC',
     'Admin',
-  ]; // NON-MODULAR CHANGES: Adds LOOC
+  ];
   private readonly blacklist: Channel[] = ['Admin'];
-  private readonly quiet: Channel[] = ['OOC', 'Admin', 'LOOC']; // NON-MODULAR CHANGES: Adds LOOC
+  private readonly quiet: Channel[] = ['OOC', 'Admin', 'LOOC'];
 
   public next(): Channel {
     if (this.blacklist.includes(this.channels[this.index])) {

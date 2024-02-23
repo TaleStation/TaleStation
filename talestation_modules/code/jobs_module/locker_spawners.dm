@@ -1,5 +1,6 @@
 // Locker spawner tool
 // Given to jobs that join stations not compatible with their job (IE, modular jobs on non-modular stations).
+// TO-DO: Probably axe this content
 
 /obj/item/locker_spawner
 	name = "Locker Summoning Device"

@@ -96,13 +96,6 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		// Note that jobs divisible by 10 are considered heads of staff, and bolded
 		// 00: Captain
 		JOB_CAPTAIN = 00,
-
-		//NON-MODULAR CHANGES START
-		JOB_BRIDGE_OFFICER = 50,
-		JOB_ASSET_PROTECTION = 10,
-		JOB_XENOBIOLOGIST = 34,
-		//NON-MODULAR CHANGES END
-
 		// 10-19: Security
 		JOB_HEAD_OF_SECURITY = 10,
 		JOB_WARDEN = 11,
@@ -112,6 +105,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_SECURITY_OFFICER_SCIENCE = 15,
 		JOB_SECURITY_OFFICER_SUPPLY = 16,
 		JOB_DETECTIVE = 17,
+		JOB_ASSET_PROTECTION = 18,
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
 		JOB_CHEMIST = 21,
@@ -124,6 +118,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_SCIENTIST = 31,
 		JOB_ROBOTICIST = 32,
 		JOB_GENETICIST = 33,
+		JOB_XENOBIOLOGIST = 34,
 		// 40-49: Engineering
 		JOB_CHIEF_ENGINEER = 40,
 		JOB_STATION_ENGINEER = 41,
@@ -144,6 +139,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_MIME = 67,
 		JOB_JANITOR = 68,
 		JOB_LAWYER = 69,
+		JOB_BRIDGE_OFFICER = 70,
 		JOB_PSYCHOLOGIST = 71,
 		// 200-229: Centcom
 		JOB_CENTCOM_ADMIRAL = 200,

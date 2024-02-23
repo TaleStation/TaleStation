@@ -234,7 +234,6 @@
 		/datum/job/station_engineer = /obj/item/organ/internal/cyberimp/arm/toolset,
 		/datum/job/virologist = /obj/item/organ/internal/lungs/cybernetic/tier2,
 		/datum/job/warden = /obj/item/organ/internal/cyberimp/eyes/hud/security,
-		// NON-MODULAR CHANGES: Adds our jobs
 		/datum/job/asset_protection = /obj/item/organ/internal/cyberimp/brain/anti_stun,
 		/datum/job/bridge_officer = /obj/item/organ/internal/cyberimp/arm/gun/taser,
 		/datum/job/scientist/xenobiologist = /obj/item/organ/internal/cyberimp/arm/muscle,

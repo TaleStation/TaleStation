@@ -245,7 +245,6 @@
 /datum/client_colour/temp
 	priority = PRIORITY_HIGH
 
-// NON-MODULAR CHANGES: Monochrome lizard
 /datum/client_colour/monochrome/lizard
 	priority = PRIORITY_NORMAL
 

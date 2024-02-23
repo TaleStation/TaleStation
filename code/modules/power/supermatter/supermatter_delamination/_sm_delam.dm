@@ -40,7 +40,7 @@ GLOBAL_LIST_INIT(sm_delam_list, list(
 	if (sm.damage >= sm.emergency_point && sm.damage_archived < sm.emergency_point)
 		sm.investigate_log("has entered the emergency point.", INVESTIGATE_ENGINE)
 		message_admins("[sm] has entered the emergency point [ADMIN_VERBOSEJMP(sm)].")
-		send2chat(new /datum/tgs_message_content("[sm] has entered the emergency point! It was first powered by [GLOB.main_engine_start_reason]"), CONFIG_GET(string/channel_announce_delam)) // NON-MODULAR CHANGES: Delam report to TGS
+		send2chat(new /datum/tgs_message_content("[sm] has entered the emergency point! It was first powered by [GLOB.main_engine_start_reason]"), CONFIG_GET(string/channel_announce_delam)) // TO-DO: FIX THIS
 
 	if((REALTIMEOFDAY - sm.lastwarning) < SUPERMATTER_WARNING_DELAY)
 		return FALSE

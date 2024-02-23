@@ -210,14 +210,13 @@
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
 
-	// NON-MODULAR CHANGES: Minimal flavor text
+	// Check for min flavor text requirement to join the game
 	if(CONFIG_GET(flag/min_flavor_text))
 		if(length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to join the round. \
 						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
 			return
-	// NON-MODULAR CHANGES END
 
 	ready = !ready
 	if(ready)
@@ -269,14 +268,13 @@
 
 	var/mob/dead/new_player/new_player = hud.mymob
 
-	// NON-MODULAR CHANGES: Minimal flavor text
+	// Check for min flavor text requirement to join the game
 	if(CONFIG_GET(flag/min_flavor_text))
 		if(length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to join the round. \
 						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
 			return
-	// NON-MODULAR CHANGES END
 
 	if(SSticker.queued_players.len || (relevant_cap && living_player_count() >= relevant_cap && !(ckey(new_player.key) in GLOB.admin_datums)))
 		to_chat(new_player, span_danger("[CONFIG_GET(string/hard_popcap_message)]"))
@@ -330,14 +328,13 @@
 	if(!.)
 		return
 	var/mob/dead/new_player/new_player = hud.mymob
-	// NON-MODULAR CHANGES: Minimal flavor text
+	// Check for min flavor text requirement to observe the game
 	if(CONFIG_GET(flag/min_flavor_text))
 		if(length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text)) <= CONFIG_GET(number/flavor_text_character_requirement))
 			to_chat(new_player, span_notice("You need at least [CONFIG_GET(number/flavor_text_character_requirement)] characters of flavor text to observe the round. \
 						You have [length_char(new_player.client.prefs.read_preference(/datum/preference/multiline_text/flavor_datum/flavor_text))] characters. \
 						Junk flavor text will get you banned. Put effort into it."))
 			return
-	// NON-MODULAR CHANGES END
 	new_player.make_me_an_observer()
 
 /atom/movable/screen/lobby/button/observe/proc/enable_observing()

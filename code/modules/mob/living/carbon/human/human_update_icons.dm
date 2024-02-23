@@ -105,7 +105,7 @@ There are several things that need to be remembered:
 		if((bodytype & BODYTYPE_MONKEY) && (uniform.supports_variations_flags & CLOTHING_MONKEY_VARIATION))
 			icon_file = MONKEY_UNIFORM_FILE
 		else if((bodytype & BODYTYPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
-			icon_file = uniform.worn_icon_digitigrade // NON-MODULAR CHANGES: Enables rendering of digi clothing on dummies, some how
+			icon_file = uniform.worn_icon_digitigrade // REMINDER: This enables rendering of digi clothes. Maybe we should update this
 		//Female sprites have lower priority than digitigrade sprites
 		else if(dna.species.sexes && (bodytype & BODYTYPE_HUMANOID) && physique == FEMALE && !(uniform.female_sprite_flags & NO_FEMALE_UNIFORM)) //Agggggggghhhhh
 			woman = TRUE

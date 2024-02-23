@@ -4,11 +4,9 @@ import { useState } from 'react';
 import { useBackend } from '../../backend';
 import { Button, Stack } from '../../components';
 import { Window } from '../../layouts';
-// NON-MODULAR CHANGES: Our prefs stuff
 import { LanguagePage } from '../_LanguagePicker';
 import { LimbManagerPage } from '../_LimbManager';
 import { LoadoutPage } from '../_LoadoutManager';
-// NON-MODULAR CHANGES END
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
 import { JobsPage } from './JobsPage';
@@ -23,9 +21,9 @@ enum Page {
   Jobs,
   Species,
   Quirks,
-  Loadout, // NON-MODULAR CHANGES
-  Limbs, // NON-MODULAR CHANGES
-  Languages, // NON-MODULAR CHANGES
+  Loadout,
+  Limbs,
+  Languages,
 }
 
 const CharacterProfiles = (props: {
@@ -84,7 +82,6 @@ export const CharacterPreferenceWindow = (props) => {
       pageContents = <QuirksPage />;
       break;
 
-    // NON-MODULAR CHANGES: Adds Loadouts, Limbs and Language to Prefs Midware
     case Page.Loadout:
       pageContents = <LoadoutPage />;
       break;
@@ -96,7 +93,6 @@ export const CharacterPreferenceWindow = (props) => {
     case Page.Languages:
       pageContents = <LanguagePage />;
       break;
-    // NON-MODULAR CHANGES END
 
     default:
       exhaustiveCheck(currentPage);
@@ -118,16 +114,6 @@ export const CharacterPreferenceWindow = (props) => {
             />
           </Stack.Item>
 
-          {/* // NON-MODULAR CHANGES : Hide byond premium banner
-
-          {!data.content_unlocked && (
-            <Stack.Item align="center">
-              Buy BYOND premium for more slots!
-            </Stack.Item>
-          )}
-
-          */}
-
           <Stack.Divider />
 
           <Stack.Item>
@@ -143,7 +129,6 @@ export const CharacterPreferenceWindow = (props) => {
                 </PageButton>
               </Stack.Item>
 
-              {/* // NON-MODULAR CHANGES START */}
               <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}
@@ -173,7 +158,6 @@ export const CharacterPreferenceWindow = (props) => {
                   Languages
                 </PageButton>
               </Stack.Item>
-              {/* // NON-MODULAR CHANGES END */}
 
               <Stack.Item grow>
                 <PageButton

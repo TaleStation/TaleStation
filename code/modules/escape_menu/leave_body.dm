@@ -13,7 +13,7 @@
 		"Suicide",
 		"Perform a dramatic suicide in game",
 		/* pixel_offset = */ -105,
-		// CALLBACK(src, PROC_REF(leave_suicide)), // NON-MODULAR CHANGES: Disables being able to properly use the button
+		// CALLBACK(src, PROC_REF(leave_suicide)), // NON-MODULAR TO-DO: Replace the button
 		/* button_overlay = */ dead_clown,
 	))
 

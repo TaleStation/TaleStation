@@ -538,7 +538,7 @@
 		"Make the clown as miserable as possible.", \
 		"Make the Site Director as miserable as possible.", \
 		"Prevent the use of energy weapons where possible.",
-	) // NON-MODULAR CHANGES: Captain -> Site Director
+	)
 	explanation_text = pick(explanation_texts)
 	..()
 

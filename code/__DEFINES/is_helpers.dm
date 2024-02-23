@@ -116,9 +116,9 @@ GLOBAL_LIST_INIT(turfs_pass_meteor, typecacheof(list(
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
 #define isandroid(A) (is_species(A, /datum/species/android))
 #define isnightmare(A) (is_species(A, /datum/species/shadow/nightmare))
-#define isskrell(A) (is_species(A, /datum/species/skrell)) // NON-MODULAR CHANGES, check for Skrell
-#define istajaran(A) (is_species(A, /datum/species/tajaran)) // NON-MODULAR CHANGES, check for Tajaran
-#define isavian(A) (is_species(A, /datum/species/avian)) // NON-MODULAR CHANGES, check for Avians
+#define isskrell(A) (is_species(A, /datum/species/skrell))
+#define istajaran(A) (is_species(A, /datum/species/tajaran))
+#define isavian(A) (is_species(A, /datum/species/avian))
 
 //More carbon mobs
 #define isalien(A) (istype(A, /mob/living/carbon/alien))

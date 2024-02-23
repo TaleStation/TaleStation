@@ -301,7 +301,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Quirks
 	all_quirks = save_data?["all_quirks"]
 
-	// NON-MODULAR CHANGES: Read our prefs
 	load_talestation_prefs(save_data)
 
 	//try to fix any outdated data if necessary
@@ -319,7 +318,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)
 			job_preferences -= j
 
-	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), src) // NON-MODULAR CHANGES
+	all_quirks = SSquirks.filter_invalid_quirks(SANITIZE_LIST(all_quirks), src)
 	validate_quirks()
 
 	return TRUE
@@ -362,7 +361,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	//Quirks
 	save_data["all_quirks"] = all_quirks
 
-	// NON-MODULAR CHANGES: Load out prefs
+	// Load loadout prefs
 	load_talestation_prefs(save_data)
 
 	return TRUE

@@ -38,7 +38,7 @@
  * ignore_walls - Whether or not the sound can pass through walls.
  * falloff_distance - Distance at which falloff begins. Sound is at peak volume (in regards to falloff) aslong as it is in this range.
  */
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, pref_to_use) // NON-MODULAR CHANGES: adds pref_to_use
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff_exponent = SOUND_FALLOFF_EXPONENT, frequency = null, channel = 0, pressure_affected = TRUE, ignore_walls = TRUE, falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE, use_reverb = TRUE, pref_to_use)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
@@ -78,10 +78,8 @@
 			listeners += get_hearers_in_view(maxdistance, below_turf)
 
 	for(var/mob/listening_mob in listeners | SSmobs.dead_players_by_zlevel[source_z])//observers always hear through walls
-		// NON-MODULAR CHANGES: Say sounds toggle
 		if(pref_to_use && listening_mob.client && !listening_mob.client.prefs.read_preference(pref_to_use))
 			continue
-		// NON-MODULAR CHANGES END
 
 		if(get_dist(listening_mob, turf_source) <= maxdistance)
 			listening_mob.playsound_local(turf_source, soundin, vol, vary, frequency, falloff_exponent, channel, pressure_affected, S, maxdistance, falloff_distance, 1, use_reverb)

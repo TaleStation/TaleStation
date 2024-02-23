@@ -24,7 +24,7 @@ import './styles/themes/paper.scss';
 import './styles/themes/retro.scss';
 import './styles/themes/syndicate.scss';
 import './styles/themes/wizard.scss';
-import './styles/themes/tale-syndicate.scss'; // NON-MODULAR CHANGES
+import './styles/themes/tale-syndicate.scss';
 import './styles/themes/admin.scss';
 
 import { perf } from 'common/perf';

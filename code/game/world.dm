@@ -347,6 +347,7 @@ GLOBAL_VAR(restart_counter)
 	auxcleanup()
 	. = ..()
 /* NON-MODULAR REMOVAL: Removes Hub proc for modular stuff
+TO DO: Intergrates changes I did awhile ago
 
 /world/proc/update_status()
 

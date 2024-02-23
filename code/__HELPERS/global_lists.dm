@@ -33,13 +33,13 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae, GLOB.moth_antennae_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, GLOB.moth_markings_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, GLOB.pod_hair_list)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/head_tentacles, GLOB.head_tentacles_list) //NON-MODULAR CHANGES: Skrell
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list) //NON-MODULAR CHANGES: Tajarans
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list) //NON-MODULAR CHANGES: Tajarans
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list) //NON-MODULAR CHANGES: Tajarans
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears/tajaran_ears, GLOB.tajaran_ears_list) //NON-MODULAR CHANGES: Tajarans
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list) //NON-MODULAR CHANGES: Avians
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list) //NON-MODULAR CHANGES: Avians
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/head_tentacles, GLOB.head_tentacles_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tajaran_body_markings, GLOB.tajaran_body_markings_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/tajaran_tail, GLOB.tajaran_tail_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/tajaran_snout, GLOB.tajaran_snout_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/ears/tajaran_ears, GLOB.tajaran_ears_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list)
 
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()

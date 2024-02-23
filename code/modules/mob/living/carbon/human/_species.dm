@@ -103,12 +103,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	/// IE: 10 = 10% less damage taken.
 	var/damage_modifier = 0
 
-	// NON-MODULAR CHANGES: Lizards
 	///multiplier for toxin damage
 	var/toxmod = 1
 	///multiplier for oxygen damage
 	var/oxymod = 1
-	// NON-MODULAR CHANGES END
 
 	///multiplier for damage from cold temperature
 	var/coldmod = 1
@@ -117,10 +115,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	///multiplier for stun durations
 	var/stunmod = 1
 
-	// NON-MODULAR CHANGES: Lizard
 	///Multiplier for blood regeneration
 	var/blood_gain_multiplier = 1
-	// NON-MODULAR CHANGES END
 
 	///multiplier for money paid at payday
 	var/payday_modifier = 1.0
@@ -758,12 +754,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = GLOB.ears_list[source.dna.features["ears"]]
 				if("body_markings")
 					accessory = GLOB.body_markings_list[source.dna.features["body_markings"]]
-				// NON-MODULAR CHANGES: Special species checks
 				if("tajaran_body_markings")
 					accessory = GLOB.tajaran_body_markings_list[source.dna.features["tajaran_body_markings"]]
 				if("tajaran_ears")
 					accessory = GLOB.tajaran_ears_list[source.dna.features["tajaran_ears"]]
-				// NON-MODULAR CHANGES END
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
 
@@ -791,12 +785,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 								accessory_overlay.color = fixed_mut_color
 							else
 								accessory_overlay.color = source.dna.features["mcolor"]
-							// NON-MODULAR CHANGES: Tajaran body markings color - shit code
+							// shit fucking code
 							if(istype(accessory, /datum/sprite_accessory/tajaran_body_markings) && source.dna.features["tajaran_body_markings_color"])
 								accessory_overlay.color = source.dna.features["tajaran_body_markings_color"]
 							if(istype(accessory, /datum/sprite_accessory/body_markings) && source.dna.features["lizard_body_markings_color"])
 								accessory_overlay.color = source.dna.features["lizard_body_markings_color"]
-							// NON-MODULAR CHANGES END
 						if(HAIR_COLOR)
 							if(hair_color == "mutcolor")
 								accessory_overlay.color = source.dna.features["mcolor"]

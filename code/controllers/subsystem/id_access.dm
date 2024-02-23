@@ -194,7 +194,6 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
-		//NON-MODULAR CHANGES START
 		"[ACCESS_BO]" = list(
 			"regions" = list(REGION_COMMAND),
 			"head" = JOB_CAPTAIN,
@@ -207,7 +206,6 @@ SUBSYSTEM_DEF(id_access)
 			"templates" = list(),
 			"pdas" = list(),
 		),
-		//NON-MODULAR CHANGES END
 
 	)
 
@@ -345,7 +343,6 @@ SUBSYSTEM_DEF(id_access)
 	desc_by_access["[ACCESS_CENT_CAPTAIN]"] = "Code Gold"
 	desc_by_access["[ACCESS_CENT_BAR]"] = "Code Scotch"
 	desc_by_access["[ACCESS_BIT_DEN]"] = "Bitrunner Den"
-	// NON-MODULAR CHANGES: Our dictonary access
 	desc_by_access["[ACCESS_XENOBOTANY]"] = "XenoBotany Lab"
 
 /**

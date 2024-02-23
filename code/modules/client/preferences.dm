@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 6 // NON-MODULAR CHANGES: More save slots!
+	var/max_save_slots = 6
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -522,7 +522,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	for(var/datum/antagonist/antag as anything in mind.antag_datums)
 		if(antag.get_team()) //No team antags
 			return FALSE
-	return FALSE // NON-MODULAR CHANGES: Disables random hardcore
+	return FALSE // NON-MODULAR TO-DO: Remove hardcore random
 
 /// Inverts the key_bindings list such that it can be used for key_bindings_by_key
 /datum/preferences/proc/get_key_bindings_by_key(list/key_bindings)

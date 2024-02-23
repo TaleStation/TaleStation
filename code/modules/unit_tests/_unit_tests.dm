@@ -84,11 +84,6 @@
 /// A trait source when adding traits through unit tests
 #define TRAIT_SOURCE_UNIT_TESTS "unit_tests"
 
-/* NON-MODULAR UNIT TESTS
-* Linters throws a bitch fit due to the comment and the list needs to be in alphabetical order
-* pain.dm
-*/
-
 // BEGIN_INCLUDE
 #include "abductor_baton_spell.dm"
 #include "ablative_hud.dm"
