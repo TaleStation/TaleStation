@@ -687,7 +687,7 @@
 /obj/item/clothing/head/beret/cargo
 	name = "cargo beret"
 	desc = "No need to compensate when you can wear this beret!"
-	greyscale_colors = "#b7723d"
+	greyscale_colors = "#c99840"
 	flags_1 = NONE
 
 //Curator
