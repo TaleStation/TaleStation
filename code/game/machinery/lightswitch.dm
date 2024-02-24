@@ -73,6 +73,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light_switch, 26)
 /obj/machinery/light_switch/interact(mob/user)
 	. = ..()
 	set_lights(!area.lightswitch)
+	playsound(src, 'talestation_modules/sound/machines/lights/lightswitch.ogg', 100, 1)
 
 /obj/machinery/light_switch/attackby_secondary(obj/item/weapon, mob/user, params)
 	if(weapon.tool_behaviour == TOOL_SCREWDRIVER)

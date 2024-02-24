@@ -1,9 +1,6 @@
 // Modular Light switch bullshit
 
-/obj/machinery/light_switch/interact(mob/user)
-	. = ..()
-	playsound(src, 'talestation_modules/sound/machines/lights/lightswitch.ogg', 100, 1)
-
+// TO-DO: turn the prob% into a config or define
 #ifndef UNIT_TESTS
 /obj/machinery/light_switch/LateInitialize()
 	. = ..()
