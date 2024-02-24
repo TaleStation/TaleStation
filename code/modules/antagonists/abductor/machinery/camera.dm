@@ -13,6 +13,7 @@
 	icon_keyboard = null
 	icon_screen = null
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	connectable = FALSE
 
 /obj/machinery/computer/camera_advanced/abductor/Destroy()
 	if(console)

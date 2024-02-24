@@ -78,6 +78,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 	icon_screen = "invaders"
 	light_color = LIGHT_COLOR_GREEN
 	interaction_flags_machine = INTERACT_MACHINE_ALLOW_SILICON
+	connectable = FALSE
 	var/list/prize_override
 
 /obj/machinery/computer/arcade/proc/Reset()

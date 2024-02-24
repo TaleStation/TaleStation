@@ -189,6 +189,7 @@
 	icon_keyboard = null
 	icon_screen = "detective_tv"
 	pass_flags = PASSTABLE
+	connectable = FALSE
 
 /obj/machinery/computer/security/mining
 	name = "outpost camera console"

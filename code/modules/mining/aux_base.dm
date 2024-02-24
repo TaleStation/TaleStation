@@ -21,6 +21,7 @@
 	icon_screen = "pod_on"
 	req_one_access = list(ACCESS_AUX_BASE, ACCESS_COMMAND)
 	circuit = /obj/item/circuitboard/computer/auxiliary_base
+	connectable = FALSE
 	/// Shuttle ID of the base
 	var/shuttleId = "colony_drop"
 	/// If we give warnings before base is launched
