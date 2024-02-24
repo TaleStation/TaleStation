@@ -7,14 +7,12 @@
 // Asset Protection stamper
 /obj/item/stamp/head/ap
 	name = "the asset protection's rubber stamp"
-	icon = 'talestation_modules/icons/objects/bureaucracy.dmi'
 	icon_state = "stamp-ap"
 	is_unit_testable = FALSE
 
 // Bridge Officer stamper
 /obj/item/stamp/head/bo
 	name = "the bridge officer's rubber stamp"
-	icon = 'talestation_modules/icons/objects/bureaucracy.dmi'
 	icon_state = "stamp-bo"
 	is_unit_testable = FALSE
 
