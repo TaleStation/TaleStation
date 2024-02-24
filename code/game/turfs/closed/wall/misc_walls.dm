@@ -51,6 +51,11 @@
 	. = ..()
 	AddElement(/datum/element/rust)
 
+/turf/closed/wall/rust/New(loc, ...)
+	. = ..()
+	var/mutable_appearance/rust = mutable_appearance(icon, "rust")
+	add_overlay(rust)
+
 /turf/closed/wall/r_wall/rust
 	//SDMM supports colors, this is simply for easier mapping
 	//and should be removed on initialize
@@ -60,6 +65,11 @@
 /turf/closed/wall/r_wall/rust/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/rust)
+
+/turf/closed/wall/r_wall/rust/New(loc, ...)
+	. = ..()
+	var/mutable_appearance/rust = mutable_appearance(icon, "rust")
+	add_overlay(rust)
 
 /turf/closed/wall/mineral/bronze
 	name = "clockwork wall"
