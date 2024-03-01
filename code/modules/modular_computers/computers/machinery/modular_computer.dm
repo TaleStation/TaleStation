@@ -45,6 +45,9 @@
 	update_appearance()
 	register_context()
 
+	// Modular consoles all have the same case.
+	AddComponent(/datum/component/connectable_computer)
+
 /obj/machinery/modular_computer/Destroy()
 	QDEL_NULL(cpu)
 	return ..()

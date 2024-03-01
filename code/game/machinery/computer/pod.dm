@@ -136,6 +136,7 @@
 	icon_state = "oldcomp"
 	icon_screen = "library"
 	icon_keyboard = null
+	connectable = FALSE
 
 /obj/machinery/computer/pod/old/mass_driver_controller
 	name = "\improper Mass Driver Controller"

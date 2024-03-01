@@ -668,6 +668,7 @@
 	density = FALSE
 	icon_keyboard = null
 	icon_screen = "pod_on"
+	connectable = FALSE
 
 /obj/machinery/computer/shuttle/pod/Initialize(mapload)
 	. = ..()

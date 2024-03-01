@@ -19,6 +19,8 @@
 	var/time_to_unscrew = 2 SECONDS
 	/// Are we authenticated to use this? Used by things like comms console, security and medical data, and apc controller.
 	var/authenticated = FALSE
+	///Determines if the computer can connect to other computers (no arcades, etc.)
+	var/connectable = TRUE
 
 /datum/armor/machinery_computer
 	fire = 40
@@ -27,6 +29,9 @@
 /obj/machinery/computer/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	power_change()
+
+	if(connectable)
+		AddComponent(/datum/component/connectable_computer)
 
 /obj/machinery/computer/process()
 	if(machine_stat & (NOPOWER|BROKEN))

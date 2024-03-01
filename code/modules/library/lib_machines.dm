@@ -26,6 +26,7 @@ GLOBAL_VAR_INIT(library_table_modified, 0)
 	circuit = /obj/item/circuitboard/computer/libraryconsole
 	desc = "Checked out books MUST be returned on time."
 	anchored_tabletop_offset = 8
+	connectable = FALSE
 	///The current book id we're searching for
 	var/book_id = null
 	///The current title we're searching for
