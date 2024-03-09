@@ -60,12 +60,16 @@
 	for (var/mob/dead/new_player/signee as anything in lobby_candidates)
 		if (isnull(signee) || !signee.client || !signee.mind || signee.ready != PLAYER_READY_TO_PLAY)
 			LAZYREMOVE(lobby_candidates, signee)
-	if (!LAZYLEN(lobby_candidates))
-		on_failed_assignment()
-		return // Nobody signed up :(
-	for(var/_ in 1 to position_amount)
+
+	var/datum/job/our_job = SSjob.GetJobType(job_to_add)
+	our_job.total_positions = position_amount
+	our_job.spawn_positions = position_amount
+	while(length(lobby_candidates) && position_amount > 0)
 		var/mob/dead/new_player/picked_player = pick_n_take(lobby_candidates)
-		picked_player.mind.assigned_role = new job_to_add()
+		picked_player.mind.set_assigned_role(our_job)
+		our_job.current_positions++
+		position_amount--
+
 	lobby_candidates = null
 
 /// Called if we didn't assign a role before the round began, we add it to the latejoin menu instead
