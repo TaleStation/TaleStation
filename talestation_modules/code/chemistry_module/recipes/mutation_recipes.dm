@@ -11,12 +11,6 @@
 	results = list(/datum/reagent/mutationtoxin/lizard = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/consumable/frostoil = 1) //lizerds are cold-blooded
 
-/* This was removed in code in favor of Tajarans
-/datum/chemical_reaction/mutation_toxin/felinid_mutation
-	results = list(/datum/reagent/mutationtoxin/felinid = 2)
-	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/consumable/sugar = 1)
-*/
-
 /datum/chemical_reaction/mutation_toxin/moth_mutation
 	results = list(/datum/reagent/mutationtoxin/moth = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/consumable/tinlux = 1) //Tinea Luxor, makes it a bit harder than the rest but its funny because glow

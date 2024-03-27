@@ -289,7 +289,7 @@ GLOBAL_LIST_EMPTY(species_list)
 			. = TRUE
 
 /// Returns if the given target is a human. Like, a REAL human.
-/// Not a moth, not a felinid (which are human subtypes), but a human.
+/// Not a mutant but a human.
 /proc/ishumanbasic(target)
 	if (!ishuman(target))
 		return FALSE

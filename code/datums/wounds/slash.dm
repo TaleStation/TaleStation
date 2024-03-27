@@ -189,7 +189,7 @@
 		return suture(I, user)
 
 /datum/wound/slash/flesh/try_handling(mob/living/carbon/human/user)
-	if(user.pulling != victim || user.zone_selected != limb.body_zone || !isfelinid(user) || !victim.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
+	if(user.pulling != victim || user.zone_selected != limb.body_zone || !istajaran(user) || !victim.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
 		return FALSE
 	if(DOING_INTERACTION_WITH_TARGET(user, victim))
 		to_chat(user, span_warning("You're already interacting with [victim]!"))
@@ -204,9 +204,9 @@
 	lick_wounds(user)
 	return TRUE
 
-/// if a felinid is licking this cut to reduce bleeding
+/// if a tajaran is licking this cut to reduce bleeding
 /datum/wound/slash/flesh/proc/lick_wounds(mob/living/carbon/human/user)
-	// transmission is one way patient -> felinid since google said cat saliva is antiseptic or whatever, and also because felinids are already risking getting beaten for this even without people suspecting they're spreading a deathvirus
+	// transmission is one way patient -> tajaran since google said cat saliva is antiseptic or whatever, and also because felinids are already risking getting beaten for this even without people suspecting they're spreading a deathvirus
 	for(var/i in victim.diseases)
 		var/datum/disease/iter_disease = i
 		if(iter_disease.spread_flags & (DISEASE_SPREAD_SPECIAL | DISEASE_SPREAD_NON_CONTAGIOUS))

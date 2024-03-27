@@ -9,6 +9,15 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.1
 
+// Look, this is probably a hack, but it works. Yell at me later for this
+// tldr cat tails render with this; not gonna question it, but replace it later
+/datum/species/human/on_species_gain(mob/living/carbon/carbon_being, pref_load)
+	if(ishuman(carbon_being))
+		var/mob/living/carbon/human/target_human = carbon_being
+		if(!pref_load)
+			target_human.dna.features["tail_cat"] = "Cat"
+	return ..()
+
 /datum/species/human/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.set_haircolor("#bb9966", update = FALSE) // brown
 	human.set_hairstyle("Business Hair", update = TRUE)
