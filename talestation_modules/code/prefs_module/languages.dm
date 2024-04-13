@@ -95,10 +95,6 @@
 	banned_from_species = /datum/species/lizard/silverscale // already know it (though this check should be deharcoded)
 	required_species = /datum/species/lizard
 
-/datum/language/nekomimetic
-	available_as_pref = TRUE
-	banned_from_species = /datum/species/human/felinid
-
 /datum/language/moffic
 	available_as_pref = TRUE
 	banned_from_species = /datum/species/moth

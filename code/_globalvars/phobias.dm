@@ -551,7 +551,7 @@ GLOBAL_LIST_INIT(phobia_species, list(
 		/datum/species/pod,
 		/datum/species/shadow,
 	)),
-	"anime" = typecacheof(list(/datum/species/human/felinid)),
+	// "anime" = typecacheof(list()), // TO-DO: Reimplament this later since Felinids were removed
 	"conspiracies" = typecacheof(list(
 		/datum/species/abductor,
 		/datum/species/lizard,
