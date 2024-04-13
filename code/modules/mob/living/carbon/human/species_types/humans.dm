@@ -7,7 +7,6 @@
 	mutant_bodyparts = list("wings" = "None")
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
-	payday_modifier = 1.1
 
 // Look, this is probably a hack, but it works. Yell at me later for this
 // tldr cat tails render with this; not gonna question it, but replace it later
