@@ -294,7 +294,25 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 			replace_beaker(usr, BEAKER2)
 			. = TRUE
 
+<<<<<<< HEAD
 /*				processing procs				*/
+=======
+/obj/machinery/chem_mass_spec/click_alt(mob/living/user)
+	if(processing_reagents)
+		balloon_alert(user, "still processing!")
+		return CLICK_ACTION_BLOCKING
+	replace_beaker(user, TRUE)
+	return CLICK_ACTION_SUCCESS
+
+/obj/machinery/chem_mass_spec/alt_click_secondary(mob/living/user)
+	. = ..()
+	if(!can_interact(user))
+		return
+	if(processing_reagents)
+		balloon_alert(user, "still processing!")
+		return ..()
+	replace_beaker(user, FALSE)
+>>>>>>> 8e3f635b988 (Alt click refactor (#82656))
 
 ///Increments time if it's progressing - if it's past time then it purifies and stops processing
 /obj/machinery/chem_mass_spec/process(seconds_per_tick)

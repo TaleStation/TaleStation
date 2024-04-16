@@ -27,6 +27,11 @@
 	light_range = 3
 	light_power = 0.6
 	del_on_death = TRUE
+<<<<<<< HEAD
+=======
+	req_one_access = list(ACCESS_ROBOTICS)
+	interaction_flags_click = ALLOW_SILICON_REACH
+>>>>>>> 8e3f635b988 (Alt click refactor (#82656))
 
 	///Will other (noncommissioned) bots salute this bot?
 	var/commissioned = FALSE
@@ -428,13 +433,9 @@
 		ui = new(user, src, "SimpleBot", name)
 		ui.open()
 
-/mob/living/simple_animal/bot/AltClick(mob/user)
-	. = ..()
-	if(!can_interact(user))
-		return
-	if(!user.can_perform_action(src, ALLOW_SILICON_REACH))
-		return
+/mob/living/simple_animal/bot/click_alt(mob/user)
 	unlock_with_id(user)
+	return CLICK_ACTION_SUCCESS
 
 /mob/living/simple_animal/bot/proc/unlock_with_id(mob/user)
 	if(bot_cover_flags & BOT_COVER_EMAGGED)

@@ -33,6 +33,7 @@
 	if(!istype(attacked_atom, /obj/item/clothing/glasses))
 		return
 
+<<<<<<< HEAD
 	forceMove(attacked_atom)
 	attacked_atom.add_overlay(meter_appearance)
 	RegisterSignal(attacked_atom, COMSIG_ITEM_EQUIPPED, PROC_REF(check_wearing))
@@ -40,6 +41,17 @@
 	RegisterSignal(attacked_atom, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(attacked_atom, COMSIG_CLICK_ALT, PROC_REF(on_altclick))
 	RegisterSignal(attacked_atom, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(on_multitool))
+=======
+	. = ITEM_INTERACT_SUCCESS
+
+	forceMove(interacting_with)
+	interacting_with.add_overlay(meter_appearance)
+	RegisterSignal(interacting_with, COMSIG_ITEM_EQUIPPED, PROC_REF(check_wearing))
+	RegisterSignal(interacting_with, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
+	RegisterSignal(interacting_with, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+	RegisterSignal(interacting_with, COMSIG_CLICK_ALT, PROC_REF(on_click_alt))
+	RegisterSignal(interacting_with, COMSIG_ATOM_TOOL_ACT(TOOL_MULTITOOL), PROC_REF(redirect_multitool))
+>>>>>>> 8e3f635b988 (Alt click refactor (#82656))
 	balloon_alert(user, "style meter attached")
 	playsound(src, 'sound/machines/click.ogg', 30, TRUE)
 	if(!iscarbon(attacked_atom.loc))
@@ -89,14 +101,15 @@
 
 
 /// Signal proc to remove from glasses
-/obj/item/style_meter/proc/on_altclick(datum/source, mob/user)
+/obj/item/style_meter/proc/on_click_alt(datum/source, mob/user)
 	SIGNAL_HANDLER
 
-	if(istype(loc, /obj/item/clothing/glasses))
-		clean_up()
-		forceMove(get_turf(src))
+	if(!istype(loc, /obj/item/clothing/glasses))
+		return CLICK_ACTION_BLOCKING
 
-	return COMPONENT_CANCEL_CLICK_ALT
+	clean_up()
+	forceMove(get_turf(src))
+	return CLICK_ACTION_SUCCESS
 
 
 /// Signal proc for when the glasses or the meter is multitooled
