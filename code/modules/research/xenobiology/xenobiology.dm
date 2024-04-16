@@ -691,6 +691,27 @@
 	var/list/not_interested = list()
 	var/being_used = FALSE
 	var/sentience_type = SENTIENCE_ORGANIC
+<<<<<<< HEAD
+=======
+	/// Reason for offering potion. This will be displayed in the poll alert to ghosts.
+	var/potion_reason
+
+/obj/item/slimepotion/slime/sentience/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click to set potion offer reason. [potion_reason ? "Current reason: [span_warning(potion_reason)]" : null]")
+
+/obj/item/slimepotion/slime/sentience/Initialize(mapload)
+	register_context()
+	return ..()
+
+/obj/item/slimepotion/slime/sentience/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	context[SCREENTIP_CONTEXT_ALT_LMB] = "Set potion offer reason"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/slimepotion/slime/sentience/click_alt(mob/living/user)
+	potion_reason = tgui_input_text(user, "Enter reason for offering potion", "Intelligence Potion", potion_reason, multiline = TRUE)
+	return CLICK_ACTION_SUCCESS
+>>>>>>> 8e3f635b988 (Alt click refactor (#82656))
 
 /obj/item/slimepotion/slime/sentience/attack(mob/living/dumb_mob, mob/user)
 	if(being_used || !isliving(dumb_mob))

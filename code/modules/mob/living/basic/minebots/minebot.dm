@@ -121,10 +121,89 @@
 	return ..()
 
 /mob/living/basic/mining_drone/attack_hand(mob/living/carbon/human/user, list/modifiers)
+<<<<<<< HEAD
 	if(user.combat_mode)
 		return ..()
+=======
+	if(!user.combat_mode)
+		ui_interact(user)
+		return
+	return ..()
+
+/mob/living/basic/mining_drone/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "MineBot", name)
+		ui.open()
+
+/mob/living/basic/mining_drone/ui_data(mob/user)
+	var/list/data = list()
+	data["auto_defend"] = ai_controller.blackboard[BB_MINEBOT_AUTO_DEFEND]
+	data["repair_node_drone"] = ai_controller.blackboard[BB_MINEBOT_REPAIR_DRONE]
+	data["plant_mines"] = ai_controller.blackboard[BB_MINEBOT_PLANT_MINES]
+	data["bot_maintain_distance"] = ai_controller.blackboard[BB_MINIMUM_SHOOTING_DISTANCE]
+	data["bot_name"] = name
+	data["bot_mode"] = combat_mode
+	data["bot_health"] = health
+	data["bot_maxhealth"] = maxHealth
+	data["bot_color"] = ""
+	var/color_value = neutral_overlay.color
+	for(var/index in possible_colors)
+		if(possible_colors[index] == color_value)
+			data["bot_color"] = index
+			break
+	return data
+
+/mob/living/basic/mining_drone/ui_static_data(mob/user)
+	var/list/data = list()
+	data["bot_icon"] = icon2base64(getFlatIcon(src))
+	data["possible_colors"] = list()
+	for(var/color in possible_colors)
+		data["possible_colors"] += list(list(
+			"color_name" = color,
+			"color_value" = possible_colors[color],
+		))
+	return data
+
+/mob/living/basic/mining_drone/ui_act(action, params, datum/tgui/ui)
+	. = ..()
+	switch(action)
+		if("change_min_distance")
+			var/new_distance = clamp(params["distance"], 0, 5)
+			ai_controller.set_blackboard_key(BB_MINIMUM_SHOOTING_DISTANCE, new_distance)
+		if("toggle_defend")
+			var/new_toggle = !ai_controller.blackboard[BB_MINEBOT_AUTO_DEFEND]
+			ai_controller.set_blackboard_key(BB_MINEBOT_AUTO_DEFEND, new_toggle)
+		if("toggle_repair")
+			var/new_defend = !ai_controller.blackboard[BB_MINEBOT_REPAIR_DRONE]
+			ai_controller.set_blackboard_key(BB_MINEBOT_REPAIR_DRONE, new_defend)
+		if("toggle_mines")
+			var/new_mines = !ai_controller.blackboard[BB_MINEBOT_PLANT_MINES]
+			ai_controller.set_blackboard_key(BB_MINEBOT_PLANT_MINES, new_mines)
+		if("set_name")
+			var/input_name = sanitize_name(params["chosen_name"], allow_numbers = TRUE)
+			name = (input_name ? input_name : initial(name))
+		if("toggle_mode")
+			set_combat_mode(!combat_mode)
+		if("set_color")
+			change_color(params["chosen_color"])
+			update_static_data(ui.user, ui)
+	return TRUE
+
+/mob/living/basic/mining_drone/proc/change_color(new_color)
+	selected_color = new_color
+	if(!isnull(selected_color))
+		neutral_overlay.color = selected_color
+		combat_overlay.color = selected_color
+	update_appearance()
+
+/mob/living/basic/mining_drone/click_alt(mob/living/user)
+	if(user.combat_mode)
+		return CLICK_ACTION_BLOCKING
+>>>>>>> 8e3f635b988 (Alt click refactor (#82656))
 	set_combat_mode(!combat_mode)
 	balloon_alert(user, "now [combat_mode ? "attacking wildlife" : "collecting loose ore"]")
+	return CLICK_ACTION_SUCCESS
 
 /mob/living/basic/mining_drone/RangedAttack(atom/target)
 	if(!combat_mode)
