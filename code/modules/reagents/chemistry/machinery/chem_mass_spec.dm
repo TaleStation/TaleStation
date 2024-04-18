@@ -177,17 +177,140 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 
 /obj/machinery/chem_mass_spec/update_overlays()
 	. = ..()
-	if(beaker1)
-		. += "HPLC_beaker1"
-	if(beaker2)
-		. += "HPLC_beaker2"
-	if(powered())
+	if(gone == beaker1)
+		beaker1 = null
+	if(gone == beaker2)
+		beaker2 = null
+
+/obj/machinery/chem_mass_spec/RefreshParts()
+	. = ..()
+
+	cms_coefficient = 1
+	for(var/datum/stock_part/micro_laser/laser in component_parts)
+		cms_coefficient /= laser.tier
+
+/obj/machinery/chem_mass_spec/item_interaction(mob/living/user, obj/item/item, list/modifiers)
+	if((item.item_flags & ABSTRACT) || (item.flags_1 & HOLOGRAM_1) || !can_interact(user) || !user.can_perform_action(src, FORBID_TELEKINESIS_REACH))
+		return NONE
+
+	if(is_reagent_container(item) && item.is_open_container())
 		if(processing_reagents)
 			. += "HPLC_graph_active"
 		else if (length(beaker1?.reagents.reagent_list))
 			. += "HPLC_graph_idle"
 
-/*			UI Code				*/
+		var/obj/item/reagent_containers/beaker = item
+		if(!user.transferItemToLoc(beaker, src))
+			return ITEM_INTERACT_BLOCKING
+
+		var/is_right_clicking = LAZYACCESS(modifiers, RIGHT_CLICK)
+		ui_interact(user)
+		return ITEM_INTERACT_SUCCESS
+
+	return NONE
+
+/obj/machinery/chem_mass_spec/wrench_act(mob/living/user, obj/item/tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(processing_reagents)
+		balloon_alert(user, "still processing!")
+		return .
+
+	if(default_unfasten_wrench(user, tool) == SUCCESSFUL_UNFASTEN)
+		return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/chem_mass_spec/screwdriver_act(mob/living/user, obj/item/tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(processing_reagents)
+		balloon_alert(user, "still processing!")
+		return .
+
+	if(default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		update_appearance()
+		return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/chem_mass_spec/crowbar_act(mob/living/user, obj/item/tool)
+	. = ITEM_INTERACT_BLOCKING
+	if(processing_reagents)
+		balloon_alert(user, "still processing!")
+		return .
+
+	if(default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_SUCCESS
+
+
+/**
+ * Computes either the lightest or heaviest reagent in the input beaker
+ * Arguments
+ *
+ * * smallest - TRUE to find lightest reagent, FALSE to find heaviest reagent
+ */
+/obj/machinery/chem_mass_spec/proc/calculate_mass(smallest = TRUE)
+	PRIVATE_PROC(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(QDELETED(beaker1))
+		return 0
+
+	var/result = 0
+	for(var/datum/reagent/reagent as anything in beaker1?.reagents.reagent_list)
+		var/datum/reagent/target = reagent
+		if(!istype(reagent, /datum/reagent/inverse) && (reagent.inverse_chem_val > reagent.purity && reagent.inverse_chem))
+			target = GLOB.chemical_reagents_list[reagent.inverse_chem]
+
+		if(!result)
+			result = target.mass
+		else
+			result = smallest ? min(result, reagent.mass) : max(result, reagent.mass)
+	return smallest ? FLOOR(result, 50) : CEILING(result, 50)
+
+/*
+ * Replaces a beaker in the machine, either input or output
+ * Arguments
+ *
+ * * user - The one bonking the machine
+ * * target beaker - the target beaker we are trying to replace
+ * * new beaker - the new beaker to add/replace the slot with
+ */
+/obj/machinery/chem_mass_spec/proc/replace_beaker(mob/living/user, is_input, obj/item/reagent_containers/new_beaker)
+	PRIVATE_PROC(TRUE)
+
+	if(is_input) //replace input beaker
+		if(!QDELETED(beaker1))
+			try_put_in_hand(beaker1, user)
+		beaker1 = new_beaker
+		lower_mass_range = calculate_mass(smallest = TRUE)
+		upper_mass_range = calculate_mass(smallest = FALSE)
+		estimate_time()
+
+	else //replace output beaker
+		if(!QDELETED(beaker2))
+			try_put_in_hand(beaker2, user)
+		beaker2 = new_beaker
+
+	update_appearance()
+
+///Computes time to purity reagents
+/obj/machinery/chem_mass_spec/proc/estimate_time()
+	PRIVATE_PROC(TRUE)
+
+	delay_time = 0
+	if(QDELETED(beaker1))
+		return
+
+	for(var/datum/reagent/reagent as anything in beaker1.reagents.reagent_list)
+		//we don't bother about impure chems
+		if(istype(reagent, /datum/reagent/inverse) || (reagent.inverse_chem_val > reagent.purity && reagent.inverse_chem))
+			continue
+		//out of our selected range
+		if(reagent.mass < lower_mass_range || reagent.mass > upper_mass_range)
+			continue
+		//already at max purity
+		if((initial(reagent.purity) - reagent.purity) <= 0)
+			continue
+		///Roughly 10 - 30s?
+		delay_time += (((reagent.mass * reagent.volume) + (reagent.mass * reagent.get_inverse_purity() * 0.1)) * 0.0035) + 10
+
+	delay_time *= cms_coefficient
 
 /obj/machinery/chem_mass_spec/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -195,7 +318,6 @@ This will not clean any inverted reagents. Inverted reagents will still be corre
 		ui = new(user, src, "MassSpec", name)
 		ui.open()
 
-/obj/machinery/chem_mass_spec/ui_data(mob/user)
 	var/data = list()
 	data["graphLowerRange"] = 0
 	data["lowerRange"] = lower_mass_range

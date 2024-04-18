@@ -205,9 +205,9 @@
 
 	return FALSE
 
-/obj/machinery/bouldertech/attackby(obj/item/attacking_item, mob/user, params)
-	if(panel_open)
-		return ..()
+/obj/machinery/bouldertech/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(panel_open || user.combat_mode)
+		return NONE
 
 	if(istype(attacking_item, /obj/item/boulder))
 		. = TRUE
@@ -239,7 +239,7 @@
 		to_chat(user, span_notice("You claim [amount] mining points from \the [src] to [id_card]."))
 		return
 
-	return ..()
+	return NONE
 
 /obj/machinery/bouldertech/attack_hand_secondary(mob/user, list/modifiers)
 	. = ..()
