@@ -91,6 +91,8 @@
 	var/fallback_icon_state
 	/// When ordered in a restaurant, what custom order do we create?
 	var/restaurant_order = /datum/custom_order/reagent/drink
+	///The section of the autowiki chem table this reagent will be under
+	var/category = "Misc"
 
 /datum/reagent/New()
 	SHOULD_CALL_PARENT(TRUE)

@@ -48,3 +48,7 @@
 		final_string += copytext(string, second_spot, second_spot + 1)
 		final_string += copytext(string, second_spot + 2, string_len)
 	return scramble_text(final_string.Join(), intensity - 1)
+
+//any value in a list
+/proc/sortList(list/L, cmp=/proc/cmp_text_asc)
+	return sortTim(L.Copy(), cmp)

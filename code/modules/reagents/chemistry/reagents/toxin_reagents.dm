@@ -16,6 +16,7 @@
 	var/silent_toxin = FALSE
 	///The afflicted must be above this health value in order for the toxin to deal damage
 	var/health_required = -100
+	category = "Toxin"
 
 // Are you a bad enough dude to poison your own plants?
 /datum/reagent/toxin/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)

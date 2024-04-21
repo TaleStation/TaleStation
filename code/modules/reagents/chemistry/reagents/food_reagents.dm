@@ -13,7 +13,9 @@
 	taste_mult = 4
 	inverse_chem_val = 0.1
 	inverse_chem = null
-	creation_purity = 0.5 // 50% pure by default. Below - synthetic food. Above - natural food.
+	/// 50% pure by default. Below - synthetic food. Above - natural food.
+	creation_purity = 0.5
+	category = "Food and Drink"
 	/// How much nutrition this reagent supplies
 	var/nutriment_factor = 1
 	/// affects mood, typically higher for mixed drinks with more complex recipes'
