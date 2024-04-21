@@ -36,7 +36,7 @@ async function main() {
 	const bot = new MWBot()
 
 	await bot.loginGetEditToken({
-		apiUrl: "https://talewiki.shiptest.net/w/api.php",
+		apiUrl: "https://talewiki.shiptest.net/mediawiki/api.php",
 		username: USERNAME,
 		password: PASSWORD,
 	})
