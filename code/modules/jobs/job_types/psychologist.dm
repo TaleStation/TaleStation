@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Head of Personnel and the Chief Medical Officer"
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SERVICE
 	config_tag = "PSYCHOLOGIST"
 
 	outfit = /datum/outfit/job/psychologist

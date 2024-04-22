@@ -7,7 +7,7 @@
 	total_positions = 3
 	spawn_positions = 3
 	supervisors = SUPERVISOR_QM
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SUPPLY
 	config_tag = "SHAFT_MINER"
 
 	outfit = /datum/outfit/job/miner

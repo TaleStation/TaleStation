@@ -10,8 +10,8 @@
 	supervisors = SUPERVISOR_HOS
 	minimal_player_age = 7
 	exp_requirements = 300
-	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_required_type = EXP_TYPE_SECURITY
+	exp_granted_type = EXP_TYPE_SECURITY
 	config_tag = "DETECTIVE"
 
 	outfit = /datum/outfit/job/detective

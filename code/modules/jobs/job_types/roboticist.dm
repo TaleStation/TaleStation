@@ -7,8 +7,8 @@
 	spawn_positions = 2
 	supervisors = SUPERVISOR_RD
 	exp_requirements = 60
-	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_required_type = EXP_TYPE_SCIENCE
+	exp_granted_type = EXP_TYPE_SCIENCE
 	bounty_types = CIV_JOB_ROBO
 	config_tag = "ROBOTICIST"
 

@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	supervisors = SUPERVISOR_HOP
 	config_tag = "CURATOR"
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SERVICE
 
 	outfit = /datum/outfit/job/curator
 	plasmaman_outfit = /datum/outfit/plasmaman/curator

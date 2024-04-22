@@ -8,7 +8,7 @@
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = SUPERVISOR_QM
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SUPPLY
 	config_tag = "CARGO_TECHNICIAN"
 
 	outfit = /datum/outfit/job/cargo_tech
