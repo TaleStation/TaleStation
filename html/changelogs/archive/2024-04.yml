@@ -15,3 +15,83 @@
   - code_imp: cleans up some procs for ore box
   - spellcheck: corrected description & ui notice of ore box to specify it can hold
       boulders too
+2024-04-22:
+  00-Steven:
+  - bugfix: Chef and department security have the assignment on their ID imprinted
+      onto their PDA by default, instead of defaulting to Cook/Security Officer and
+      requiring you to do so manually.
+  13spacemen:
+  - refactor: Bloody item overlays no longer use icon procs to generate the overlay
+  ArcaneMusic:
+  - code_imp: We now log how many ores spawned on lavaland each round, as well as
+      the sizes of all of the ore vents.
+  Ben10Omnitrix:
+  - rscadd: new virtual pet app on the pda
+  Ghommie:
+  - rscadd: Curators now get a 22.5% cut on credits spent on painting patronages (divided
+      by the number of curators). The service department also gets another, 12.5%
+      cut.
+  - qol: Added a zoom in and out buttons to the painting UI.
+  - rscadd: Added a new fishing line reel that speeds up the first half of the fishing
+      minigame, and also let's you catch things from afar like a discount meat hook.
+  - balance: During the biting phase preceeding the actual minigame, initiating it
+      as soon as the "!!!" alert pops up will net you an advantage. Conversely...
+  - balance: The deceleration and bounce should feel less sudden and stiff, meaning
+      the controls are 25% more slippery again.
+  - balance: Added a cooldown to spam-casting fishing rods.
+  - imageadd: Resprited line reels a little.
+  Kashargul:
+  - qol: hides the delete button on the main tab allows to reorder all other chat
+      tabs
+  - qol: makes the tgui_input_number user friendly for negative and decimal inputs
+  - code_imp: the onBlur={(_, value) => onBlur(value)} event should now be used on
+      all uses of RestrictedInput to ensure that the number is fully sanitized whenever
+      the user leaves the field or submits it through a button
+  LT3:
+  - qol: Air alarms now display the source of triggered fire alarms/firedoors
+  LemonInTheDark:
+  - rscadd: Tweaked the saturation, color and intensity of a bunch of lights
+  Synclt21:
+  - qol: adds examines & screentips for building & deconstructing both machine & computer
+      frames.
+  - qol: Adding a circuitboard from a rped to n computer frame will automatically
+      screw it in place like before.
+  - code_imp: merged procs for computer & machine frames. autodocs them where possible.
+  - code_imp: moved code for machine frame into its own file.
+  - bugfix: Indestructible items like the pai card don't teleport to the ore silo
+      when you insert them into silo linked machine & also displays a message saying
+      it was rejected.
+  Synctlt21:
+  - qol: adds examines & screentips for crowbar, screwdriver acts to BRM & refinery
+      machines
+  - qol: adds examines about the number of boulders stored & processed to BRM & refinery
+      machines
+  - qol: BRM now has its lights turn on/off depending on wether automatic boulder
+      retrieval is on/off for visual clarity along with examines
+  - qol: refinery machines now display ballon alerts & plays sounds more frequently
+      when processing boulders for better feedback
+  - bugfix: vents now spawn boulders of all sizes & not just small ones
+  - bugfix: expanded gulag boulders now have correct materials in them.
+  - bugfix: manual tapping of vents now has a cooldown applied as intended.
+  - bugfix: BRM has its light turned off when area power goes off
+  - bugfix: boulders ejected from refineries by hand no longer teleport all over the
+      place occasionally.
+  - bugfix: refineries no longer eject boulders with 0 durability
+  - bugfix: Boulders & refineries no longer pile up on top of BRM's & refineries in
+      long rounds. Their locs have to be clear of boulders before they spit out more
+      boulders to prevent a large pile of boulders from causing lag
+  - bugfix: sheets ejected from lathes no longer get rejected when inserted back which
+      could happen at random, no more boulders with empty materials
+  - code_imp: splits boulder types into its own file along with other items
+  - code_imp: merges & autodocs procs, vars related to boulders
+  - refactor: repaths BRM to a simpler subtype
+  - refactor: BRM now spawns boulders in batches(batch size can be increased with
+      upgraded parts) with a boulder appearing every second. After a batch is processed
+      a 3 second cooldown is applied to stop the conveyer belt from clogging up, With
+      this BRM wires are removed as there is no need for timers to be attached to
+      wires which intefers without our batch processing timings.
+  jlsnow301, infraredbaron:
+  - rscadd: Added a new UI element over players that are interacting, building, etc.
+  mogeoko:
+  - bugfix: 'Thermomachines now reconnect to pipes on multitool''s act. fix: Multi-deck
+      connectors won''t connect pipes not located in front/top/bottom of it.'
