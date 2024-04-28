@@ -8,8 +8,8 @@
 	spawn_positions = 5
 	supervisors = SUPERVISOR_CE
 	exp_requirements = 60
-	exp_required_type = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_required_type = EXP_TYPE_SERVICE
+	exp_granted_type = EXP_TYPE_ENGINEERING
 	config_tag = "STATION_ENGINEER"
 
 	outfit = /datum/outfit/job/engineer

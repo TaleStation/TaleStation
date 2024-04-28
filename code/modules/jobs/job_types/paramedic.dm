@@ -7,7 +7,7 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = SUPERVISOR_CMO
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_MEDICAL
 	config_tag = "PARAMEDIC"
 
 	outfit = /datum/outfit/job/paramedic

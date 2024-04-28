@@ -12,9 +12,9 @@
 	req_admin_notify = 1
 	minimal_player_age = 14
 	exp_requirements = 180
-	exp_required_type = EXP_TYPE_CREW
-	exp_required_type_department = EXP_TYPE_CREW
-	exp_granted_type = EXP_TYPE_CREW
+	exp_required_type = EXP_TYPE_COMMAND
+	exp_required_type_department = EXP_TYPE_COMMAND
+	exp_granted_type = EXP_TYPE_COMMAND
 	config_tag = "CAPTAIN"
 
 	outfit = /datum/outfit/job/captain

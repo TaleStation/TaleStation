@@ -6,7 +6,7 @@
 	total_positions = 3
 	spawn_positions = 2
 	supervisors = SUPERVISOR_HOP
-	exp_granted_type = EXP_TYPE_CREW
+	exp_granted_type = EXP_TYPE_SERVICE
 	config_tag = "BOTANIST"
 
 	outfit = /datum/outfit/job/botanist
