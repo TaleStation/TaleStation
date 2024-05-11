@@ -13,20 +13,15 @@
 /// This list will just be full of typepaths that we expect.
 /// More detailed information about each item (mainly, how much of each should exist) is set on a per item basis
 /datum/unit_test/required_map_items/proc/setup_expected_types()
-	expected_types += list(/obj/item/stamp/head/captain, // NON-MODULAR TO-DO: Add AP/BO stamps to this
-						/obj/item/stamp/head/hop, // I'll pay anyone 1$ if I'm wrong
-						/obj/item/stamp/head/hos,
-						/obj/item/stamp/head/ce,
-						/obj/item/stamp/head/cmo,
-						/obj/item/stamp/head/qm,
-						/obj/item/stamp/head/rd,)
-	expected_types += subtypesof(/obj/machinery/computer/department_orders)
+	expected_types += subtypesof(/obj/item/stamp/head)
+	expected_types += subtypesof(/obj/machinery/modular_computer/preset/cargochat)
 
 	expected_types += /mob/living/basic/parrot/poly
 	expected_types += /mob/living/basic/pet/dog/corgi/ian
 	expected_types += /mob/living/carbon/human/species/monkey/punpun
 	expected_types += /obj/machinery/computer/communications
 	expected_types += /obj/machinery/drone_dispenser
+	expected_types += /obj/item/piggy_bank/vault
 
 /datum/unit_test/required_map_items/Run()
 	setup_expected_types()
@@ -36,7 +31,6 @@
 		var/datum/required_item/item = required_map_items[got_type]
 		var/items_found = item?.total_amount || 0
 		required_map_items -= got_type
-
 		if(items_found <= 0)
 			TEST_FAIL("Item [got_type] was not found, but is expected to be mapped in on mapload!")
 			continue
@@ -51,8 +45,7 @@
 
 	// This primarily serves as a reminder to include the typepath in the expected types list above.
 	// However we can easily delete this line in the future if it runs into false positives.
-	// NON-MODULAR CHANGES: Disables this warning - Above comment something something
-	// TEST_ASSERT(length(required_map_items) == 0, "The following paths were found in required map items, but weren't checked: [english_list(required_map_items)]")
+	TEST_ASSERT(length(required_map_items) == 0, "The following paths were found in required map items, but weren't checked: [english_list(required_map_items)]")
 
 /// Datum for tracking required map items
 /datum/required_item

@@ -15,7 +15,6 @@
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_COMMAND
 	config_tag = "ASSET_PROTECTION"
-	is_unit_testable = FALSE
 
 	outfit = /datum/outfit/job/asset_protection
 	plasmaman_outfit = /datum/outfit/plasmaman/head_of_security
