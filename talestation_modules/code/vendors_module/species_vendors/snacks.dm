@@ -86,7 +86,7 @@
 	desc = "A bottle of tea brought to you in a convenient plastic bottle."
 	icon = 'talestation_modules/icons/machines/vending_machines/imported_quick_foods.dmi'
 	icon_state = "tea_bottle"
-	inhand_icon_state = "bottle"
+	inhand_icon_state = null
 	list_reagents = list(/datum/reagent/consumable/tea = 40)
 	cap_icon_state = "bottle_cap_tea"
 	flip_chance = 5 //I fucking dare you
@@ -97,6 +97,7 @@
 	name = "bottle of tea astra"
 	desc = "A bottle of tea astra, known for the rather unusual tastes the leaf is known to give when brewed."
 	icon_state = "tea_bottle_blue"
+	inhand_icon_state = null
 	list_reagents = list(
 		/datum/reagent/consumable/tea = 25,
 		/datum/reagent/medicine/salglu_solution = 10, // I know this looks strange but this is what tea astra grinds into, tea in the year 25whatever baby
@@ -166,6 +167,7 @@
 	name = "bottle of strawberry tea"
 	desc = "A bottle of strawberry flavored tea; does not contain any actual strawberries."
 	icon_state = "tea_bottle_pink"
+	inhand_icon_state = null
 	list_reagents = list(/datum/reagent/consumable/pinktea = 40)
 	custom_price = PAYCHECK_LOWER * 2
 
@@ -173,6 +175,7 @@
 	name = "bottle of catnip tea"
 	desc = "A bottle of catnip tea, required to be at or under a 50% concentration by the SFDA for safety purposes."
 	icon_state = "tea_bottle_pink"
+	inhand_icon_state = null
 	list_reagents = list(
 		/datum/reagent/consumable/catnip_tea = 20,
 		/datum/reagent/consumable/pinkmilk = 20, // I can't believe they would cut my catnip
