@@ -140,10 +140,10 @@
 				/obj/item/food/vendor_snacks/moth_bag/fuel_jack = 6,
 				/obj/item/food/vendor_snacks/moth_bag/cheesecake = 6,
 				/obj/item/food/vendor_snacks/moth_bag/cheesecake/honey = 6,
-				/obj/item/reagent_containers/cup/soda_cans/skyrat/lemonade = 6,
-				/obj/item/reagent_containers/cup/soda_cans/skyrat/navy_rum = 6,
-				/obj/item/reagent_containers/cup/soda_cans/skyrat/soda_water_moth = 6,
-				/obj/item/reagent_containers/cup/soda_cans/skyrat/ginger_beer = 6,
+				/obj/item/reagent_containers/cup/soda_cans/lemonade = 6,
+				/obj/item/reagent_containers/cup/soda_cans/navy_rum = 6,
+				/obj/item/reagent_containers/cup/soda_cans/soda_water_moth = 6,
+				/obj/item/reagent_containers/cup/soda_cans/ginger_beer = 6,
 			),
 		),
 		list(
@@ -185,7 +185,7 @@
 				/obj/item/food/vendor_snacks/lizard_box/sweet_roll = 6,
 				/obj/item/reagent_containers/cup/glass/bottle/mushi_kombucha = 6,
 				/obj/item/reagent_containers/cup/glass/waterbottle/tea/mushroom = 6,
-				/obj/item/reagent_containers/cup/soda_cans/skyrat/kortara = 6,
+				/obj/item/reagent_containers/cup/soda_cans/kortara = 6,
 			),
 		),
 		list(
