@@ -8,6 +8,7 @@
 
 /datum/reagent/medicine
 	taste_description = "bitterness"
+	category = "Medicine"
 
 /datum/reagent/medicine/New()
 	. = ..()

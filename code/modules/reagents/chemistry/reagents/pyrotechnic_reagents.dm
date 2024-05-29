@@ -6,6 +6,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	color = "#550000"
 	taste_description = "sweet tasting metal"
+	category = "Pyrotechnics"
 
 /datum/reagent/thermite/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
@@ -23,6 +24,7 @@
 	color = "#808080" // rgb: 128, 128, 128
 	taste_description = "oil"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/stabilizing_agent
 	name = "Stabilizing Agent"
@@ -45,6 +47,7 @@
 	taste_description = "burning"
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/clf3/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -82,6 +85,7 @@
 	color = "#5A64C8"
 	taste_description = "air and bitterness"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/liquid_dark_matter
 	name = "Liquid Dark Matter"
@@ -90,6 +94,7 @@
 	color = "#210021"
 	taste_description = "compressed bitterness"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/gunpowder
 	name = "Gunpowder"
@@ -127,6 +132,7 @@
 	color = "#FFFFFF"
 	taste_description = "salt"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/tatp
 	name = "TaTP"
@@ -135,6 +141,7 @@
 	color = "#FFFFFF"
 	taste_description = "death"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/flash_powder
 	name = "Flash Powder"
@@ -143,6 +150,7 @@
 	color = "#C8C8C8"
 	taste_description = "salt"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/smoke_powder
 	name = "Smoke Powder"
@@ -151,6 +159,7 @@
 	color = "#C8C8C8"
 	taste_description = "smoke"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/sonic_powder
 	name = "Sonic Powder"
@@ -159,6 +168,7 @@
 	color = "#C8C8C8"
 	taste_description = "loud noises"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/phlogiston
 	name = "Phlogiston"
@@ -168,6 +178,7 @@
 	taste_description = "burning"
 	self_consuming = TRUE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/phlogiston/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume)
 	. = ..()
@@ -191,6 +202,7 @@
 	self_consuming = TRUE
 	penetrates_skin = NONE
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 // why, just why
 /datum/reagent/napalm/on_hydroponics_apply(obj/machinery/hydroponics/mytray, mob/user)
@@ -225,6 +237,7 @@
 	inverse_chem = /datum/reagent/inverse/cryostylane
 	burning_volume = 0.05
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED | REAGENT_DEAD_PROCESS
+	category = "Pyrotechnics"
 
 /datum/reagent/cryostylane/burn(datum/reagents/holder)
 	if(holder.has_reagent(/datum/reagent/oxygen))
@@ -277,6 +290,7 @@
 	burning_temperature = null
 	burning_volume = 0.05
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/pyrosium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -303,6 +317,7 @@
 	self_consuming = TRUE
 	var/shock_timer = 0
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/teslium/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -331,6 +346,7 @@
 	color = "#CAFF43"
 	taste_description = "jelly"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/teslium/energized_jelly/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	if(!isjellyperson(affected_mob)) //everyone but jellypeople get shocked as normal.
@@ -350,6 +366,7 @@
 	color = "#A6FAFF55"
 	taste_description = "the inside of a fire extinguisher"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	category = "Pyrotechnics"
 
 /datum/reagent/firefighting_foam/expose_turf(turf/open/exposed_turf, reac_volume)
 	. = ..()
