@@ -10,6 +10,7 @@ import { LoadoutPage } from '../_LoadoutManager';
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
 import { JobsPage } from './JobsPage';
+import { LoadoutPage } from './loadout/index';
 import { MainPage } from './MainPage';
 import { PageButton } from './PageButton';
 import { QuirksPage } from './QuirksPage';
