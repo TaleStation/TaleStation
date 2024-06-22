@@ -362,5 +362,9 @@
 	icon_state = "pill21"
 /obj/item/reagent_containers/pill/style/limewhite
 	icon_state = "pill22"
+/obj/item/reagent_containers/pill/style/clown
+	icon_state = "pill23"
+/obj/item/reagent_containers/pill/style/unknown
+	icon_state = "pill24"
 /obj/item/reagent_containers/pill/style/happy
 	icon_state = "pill_happy"
