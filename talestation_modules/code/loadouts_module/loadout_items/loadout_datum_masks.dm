@@ -3,7 +3,7 @@
 /// Mask Slot Items (Deletes overrided items)
 /datum/loadout_category/mask
 	category_name = "Mask"
-	ui_title = "Mouth Slot Items"
+	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/mask
 
 /datum/loadout_item/mask

@@ -3,7 +3,7 @@
 /// Belt Slot Items (Moves overrided items to backpack)
 /datum/loadout_category/belts
 	category_name = "Belt"
-	ui_title = "Belt Slot Items"
+	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/belts
 
 /datum/loadout_item/belts

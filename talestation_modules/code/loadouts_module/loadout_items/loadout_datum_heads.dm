@@ -1,22 +1,5 @@
 // --- Loadout item datums for heads ---
 
-/// Head Slot Items (Deletes overrided items)
-/datum/loadout_category/head
-	category_name = "Head"
-	ui_title = "Head Slot Items"
-	type_to_generate = /datum/loadout_item/head
-
-/datum/loadout_item/head
-	abstract_type = /datum/loadout_item/head
-
-/datum/loadout_item/head/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(isplasmaman(equipper))
-		if(!visuals_only)
-			to_chat(equipper, "Your loadout helmet was not equipped directly due to your envirosuit helmet.")
-			LAZYADD(outfit.backpack_contents, item_path)
-	else
-		outfit.head = item_path
-
 /datum/loadout_item/head/greyscale_beret
 	name = "Greyscale Beret"
 	can_be_greyscale = TRUE
@@ -237,7 +220,6 @@
 /datum/loadout_item/head/rainbow_bunch
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/head/sherrif_hat
 	name = "Sheriff Hat"
@@ -274,7 +256,6 @@
 /datum/loadout_item/head/wig
 	name = "Wig"
 	item_path = /obj/item/clothing/head/wig/random
-	additional_tooltip_contents = list("This wig is randomized when you get it. Stylize it to your hearts content!")
 
 /datum/loadout_item/head/marisa_hat
 	name = "Witch Hat"

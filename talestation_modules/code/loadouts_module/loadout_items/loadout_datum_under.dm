@@ -3,7 +3,7 @@
 /// Underslot - Jumpsuit Items (Deletes overrided items)
 /datum/loadout_category/undersuit
 	category_name = "Jumpsuit"
-	ui_title = "Under Suit Slot Items"
+	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/under/jumpsuit
 
 /datum/loadout_item/under
@@ -34,7 +34,6 @@
 /datum/loadout_item/under/jumpsuit/random
 	name = "Random Jumpsuit"
 	item_path = /obj/item/clothing/under/color/random
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/under/jumpsuit/random/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
 	return
