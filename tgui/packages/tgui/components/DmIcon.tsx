@@ -21,11 +21,11 @@ type Props = {
   icon: string;
   /** Required: The state of the icon */
   icon_state: string;
+  /** Fallback icon. */
+  fallback: ReactNode;
 } & Partial<{
   /** Facing direction. See direction enum. Default is South */
   direction: Direction;
-  /** Fallback icon. */
-  fallback: ReactNode;
   /** Frame number. Default is 1 */
   frame: number;
   /** Movement state. Default is false */
@@ -66,7 +66,7 @@ export function DmIcon(props: Props) {
     }
   }, []);
 
-  if (!iconRef) return { fallback };
+  if (!iconRef) return fallback;
 
   return <Image fixErrors src={query} {...rest} />;
 }
