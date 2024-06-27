@@ -3,7 +3,7 @@
 /// Ear Slot Items (Moves overrided items to backpack)
 /datum/loadout_category/ears
 	category_name = "Ears"
-	ui_title = "Ear Slot Items"
+	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/ears
 
 /datum/loadout_item/ears

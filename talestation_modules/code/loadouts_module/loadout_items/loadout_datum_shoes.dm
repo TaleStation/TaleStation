@@ -3,14 +3,14 @@
 /// Shoe Slot Items (Deletes overrided items)
 /datum/loadout_category/shoes
 	category_name = "Shoes"
-	ui_title = "Foot Slot Items"
+	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/shoes
 
 /datum/loadout_item/shoes
 	abstract_type = /datum/loadout_item/shoes
 	/// Snowflake, whether these shoes work on digi legs.
 	VAR_FINAL/supports_digitigrade = FALSE
-
+/*
 /datum/loadout_item/shoes/New()
 	. = ..()
 	var/ignores_digi = !!(initial(item_path.item_flags) & IGNORE_DIGITIGRADE)
@@ -18,6 +18,7 @@
 	supports_digitigrade = ignores_digi || supports_digi
 	if(supports_digitigrade)
 		LAZYADD(additional_tooltip_contents, "This item can be worn on characters whom have digitigrade legs.")
+*/
 
 // This is snowflake but digitigrade is in general
 // Need to handle shoes that don't fit digitigrade being selected
@@ -37,7 +38,6 @@
 	name = "Greyscale Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
 	can_be_greyscale = TRUE
-	additional_tooltip_contents = list(TOOLTIP_GREYSCALE)
 
 /datum/loadout_item/shoes/black_cowboy_boots
 	name = "Black Cowboy Boots"

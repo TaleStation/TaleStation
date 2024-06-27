@@ -3,7 +3,7 @@
 /// Exosuit / Outersuit Slot Items (Deletes overrided items)
 /datum/loadout_category/suit
 	category_name = "Suit"
-	ui_title = "Outer Suit Slot Items"
+	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/suit
 
 /datum/loadout_item/suit
@@ -19,7 +19,6 @@
 	name = "Greyscale Parade Jacket"
 	can_be_greyscale = TRUE
 	item_path = /obj/item/clothing/suit/greyscale_parade
-	additional_tooltip_contents = list(TOOLTIP_NO_ARMOR)
 
 /datum/loadout_item/suit/suspenders_greyscale
 	name = "Greyscale Suspenders"
@@ -58,7 +57,6 @@
 /datum/loadout_item/suit/goliath_cloak
 	name = "Heirloom Goliath Cloak"
 	item_path = /obj/item/clothing/suit/hooded/cloak/goliath_heirloom
-	additional_tooltip_contents = list(TOOLTIP_NO_ARMOR)
 
 /datum/loadout_item/suit/wawaiian_shirt
 	name = "Hawaiian Shirt"

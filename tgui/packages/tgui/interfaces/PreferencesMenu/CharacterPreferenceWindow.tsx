@@ -6,7 +6,6 @@ import { Button, Stack } from '../../components';
 import { Window } from '../../layouts';
 import { LanguagePage } from '../_LanguagePicker';
 import { LimbManagerPage } from '../_LimbManager';
-import { LoadoutPage } from '../_LoadoutManager';
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
 import { JobsPage } from './JobsPage';
