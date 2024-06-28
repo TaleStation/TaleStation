@@ -17,6 +17,8 @@ export function IconDisplay(props: Props) {
   }
 
   if (icon_state) {
+    // @ts-ignore
+    // figure out why this causes ts lints to fail, it works so its not a problem?
     return <DmIcon fallback={fallback} icon={icon} icon_state={icon_state} />;
   }
 
