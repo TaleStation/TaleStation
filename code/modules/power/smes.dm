@@ -86,14 +86,14 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/power/smes/attackby(obj/item/I, mob/user, params)
+/obj/machinery/power/smes/attackby(obj/item/item, mob/user, params)
 	//opening using screwdriver
-	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), I))
+	if(default_deconstruction_screwdriver(user, "[initial(icon_state)]-o", initial(icon_state), item))
 		update_appearance()
 		return
 
 	//changing direction using wrench
-	if(default_change_direction_wrench(user, I))
+	if(default_change_direction_wrench(user, item))
 		terminal = null
 		var/turf/T = get_step(src, dir)
 		for(var/obj/machinery/power/terminal/term in T)
@@ -151,12 +151,12 @@
 
 	//crowbarring it !
 	var/turf/T = get_turf(src)
-	if(default_deconstruction_crowbar(I))
+	if(default_deconstruction_crowbar(item))
 		message_admins("[src] has been deconstructed by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(T)].")
 		user.log_message("deconstructed [src]", LOG_GAME)
 		investigate_log("deconstructed by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_ENGINE)
 		return
-	else if(panel_open && I.tool_behaviour == TOOL_CROWBAR)
+	else if(panel_open && item.tool_behaviour == TOOL_CROWBAR)
 		return
 
 	return ..()
@@ -190,7 +190,7 @@
 	//disassembling the terminal
 	. = ..()
 	if(terminal && panel_open)
-		terminal.dismantle(user, I)
+		terminal.dismantle(user, item)
 		return TRUE
 
 
