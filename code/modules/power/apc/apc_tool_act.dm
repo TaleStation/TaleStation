@@ -26,7 +26,7 @@
 		. = wallframe_act(user, tool)
 	if(.)
 		return .
-	
+
 	if(panel_open && !opened && is_wire_tool(tool))
 		wires.interact(user)
 		return ITEM_INTERACT_SUCCESS
@@ -127,7 +127,7 @@
 /obj/machinery/power/apc/proc/electronics_act(mob/living/user, obj/item/electronics/apc/installing_board)
 	if(!opened)
 		return NONE
-	
+
 	if(has_electronics)
 		balloon_alert(user, "there is already a board!")
 		return ITEM_INTERACT_BLOCKING
@@ -155,7 +155,7 @@
 		if(machine_stat & BROKEN)
 			balloon_alert(user, "frame is too damaged!")
 			return ITEM_INTERACT_BLOCKING
-		if(!pseudocircuit.adapt_circuit(user, circuit_cost = 50 KILO JOULES))
+		if(!pseudocircuit.adapt_circuit(user, circuit_cost = 50))
 			return ITEM_INTERACT_BLOCKING
 		user.visible_message(
 			span_notice("[user] fabricates a circuit and places it into [src]."),
@@ -169,7 +169,7 @@
 		if(machine_stat & MAINT)
 			balloon_alert(user, "no board for a cell!")
 			return ITEM_INTERACT_BLOCKING
-		if(!pseudocircuit.adapt_circuit(user, circuit_cost = 500 KILO JOULES))
+		if(!pseudocircuit.adapt_circuit(user, circuit_cost = 500))
 			return ITEM_INTERACT_BLOCKING
 		var/obj/item/stock_parts/cell/crap/empty/bad_cell = new(src)
 		bad_cell.forceMove(src)
