@@ -198,7 +198,6 @@
 		else
 			target.visible_message(span_danger("[user] places [target] in [src]."), span_userdanger("[user] places you in [src]."))
 			log_combat(user, target, "stuffed", addition="into [src]")
-			target.LAssailant = WEAKREF(user)
 			. = TRUE
 		update_appearance()
 
@@ -347,7 +346,7 @@
 	data["pressure_charging"] = pressure_charging
 	data["panel_open"] = panel_open
 	data["per"] = CLAMP01(air_contents.return_pressure() / (SEND_PRESSURE))
-	data["isai"] = isAI(user)
+	data["isai"] = HAS_AI_ACCESS(user)
 	return data
 
 /obj/machinery/disposal/bin/ui_act(action, params)

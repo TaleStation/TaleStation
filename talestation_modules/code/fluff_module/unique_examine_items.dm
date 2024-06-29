@@ -340,7 +340,7 @@
 		when facing these creatures to avoid being 'facehugged' by their offspring.", \
 		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
 
-/mob/living/simple_animal/hostile/alien/Initialize(mapload)
+/mob/living/basic/hostile/alien/Initialize(mapload)
 	. = ..()
 	var/static/list/job_examine = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST)
 	AddElement(/datum/element/unique_examine, \
@@ -372,7 +372,7 @@
 		confusing and disorienting their kin and offspring.", \
 		EXAMINE_CHECK_JOB, get_sec_and_command_jobs(), hint = FALSE)
 
-/mob/living/simple_animal/hostile/alien/queen/Initialize(mapload)
+/mob/living/basic/hostile/alien/queen/Initialize(mapload)
 	. = ..()
 	var/static/list/job_examine = list(JOB_CHIEF_MEDICAL_OFFICER, JOB_RESEARCH_DIRECTOR, JOB_SCIENTIST, JOB_XENOBIOLOGIST)
 	AddElement(/datum/element/unique_examine, \

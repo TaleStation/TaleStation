@@ -395,7 +395,7 @@
 		var/swapped = FALSE
 		if(!isnull(cell))
 			cell.forceMove(drop_location())
-			if(!issilicon(user) && Adjacent(user))
+			if(!HAS_SILICON_ACCESS(user) && Adjacent(user))
 				user.put_in_hands(cell)
 			cell = null
 			swapped = TRUE
@@ -501,22 +501,22 @@
 		return
 	if(operating || panel_open || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return
-	if(isAI(user) && (machine_stat & NOPOWER))
+	if(HAS_AI_ACCESS(user) && (machine_stat & NOPOWER))
 		return
 
 	if(!length(ingredients))
-		if(isAI(user))
+		if(HAS_AI_ACCESS(user))
 			examine(user)
 		else
 			balloon_alert(user, "it's empty!")
 		return
 
-	var/choice = show_radial_menu(user, src, isAI(user) ? ai_radial_options : radial_options, require_near = !issilicon(user))
+	var/choice = show_radial_menu(user, src, HAS_AI_ACCESS(user) ? ai_radial_options : radial_options, require_near = !HAS_SILICON_ACCESS(user))
 
 	// post choice verification
 	if(operating || panel_open || (!vampire_charging_capable && !anchored) || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return
-	if(isAI(user) && (machine_stat & NOPOWER))
+	if(HAS_AI_ACCESS(user) && (machine_stat & NOPOWER))
 		return
 
 	switch(choice)
