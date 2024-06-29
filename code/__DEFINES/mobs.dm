@@ -357,7 +357,6 @@
 #define AI_ON 1
 #define AI_IDLE 2
 #define AI_OFF 3
-#define AI_Z_OFF 4
 
 //The range at which a mob should wake up if you spawn into the z level near it
 #define MAX_SIMPLEMOB_WAKEUP_RANGE 5
@@ -970,3 +969,17 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 /// Types of bullets that mining mobs take full damage from
 #define MINING_MOB_PROJECTILE_VULNERABILITY list(BRUTE)
+
+// Sprites for photocopying butts
+#define BUTT_SPRITE_HUMAN_MALE "human_male"
+#define BUTT_SPRITE_HUMAN_FEMALE "human_female"
+#define BUTT_SPRITE_LIZARD "lizard"
+#define BUTT_SPRITE_QR_CODE "qr_code"
+#define BUTT_SPRITE_XENOMORPH "xeno"
+#define BUTT_SPRITE_DRONE "drone"
+#define BUTT_SPRITE_CAT "cat"
+#define BUTT_SPRITE_FLOWERPOT "flowerpot"
+#define BUTT_SPRITE_GREY "grey"
+#define BUTT_SPRITE_PLASMA "plasma"
+#define BUTT_SPRITE_FUZZY "fuzzy"
+#define BUTT_SPRITE_SLIME "slime"
