@@ -91,3 +91,10 @@ GLOBAL_VAR_INIT(chicken_count, 0)
 		/datum/ai_planning_subtree/random_speech/chicken,
 	)
 
+/mob/living/basic/chicken/kentucky
+	name = "Kentucky"
+	desc = "A timeless classic."
+
+// Used on Kilo. Why is it space-immune? Don't ask.
+/mob/living/basic/chicken/kentucky/space_proof
+	habitable_atmos = null
