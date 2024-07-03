@@ -414,7 +414,6 @@
 /**
  * No Department/Station Trait
  */
-
 /obj/item/modular_computer/pda/assistant
 	name = "assistant PDA"
 	starting_programs = list(
@@ -424,7 +423,6 @@
 /**
  * Non-roles
  */
-
 /obj/item/modular_computer/pda/syndicate
 	name = "military PDA"
 	greyscale_colors = "#891417#80FF80"
