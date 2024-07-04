@@ -3,7 +3,7 @@
 /// Exosuit / Outersuit Slot Items (Deletes overrided items)
 /datum/loadout_category/suit
 	category_name = "Suit"
-	// category_ui_icon =
+	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = /datum/loadout_item/suit
 	tab_order = /datum/loadout_category/head::tab_order + 6
 

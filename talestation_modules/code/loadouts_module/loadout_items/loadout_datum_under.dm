@@ -3,7 +3,7 @@
 /// Underslot - Jumpsuit Items (Deletes overrided items)
 /datum/loadout_category/undersuit
 	category_name = "Jumpsuit"
-	// category_ui_icon =
+	category_ui_icon = FA_ICON_SHIRT
 	type_to_generate = /datum/loadout_item/under/jumpsuit
 	tab_order = /datum/loadout_category/head::tab_order + 10
 

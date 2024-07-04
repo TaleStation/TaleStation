@@ -3,7 +3,7 @@
 /// Shoe Slot Items (Deletes overrided items)
 /datum/loadout_category/shoes
 	category_name = "Shoes"
-	// category_ui_icon =
+	category_ui_icon = FA_ICON_SHOE_PRINTS
 	type_to_generate = /datum/loadout_item/shoes
 	tab_order = /datum/loadout_category/head::tab_order + 13
 

@@ -3,6 +3,7 @@
 */
 /datum/loadout_category/costumes
 	category_name = "Costumes"
+	category_ui_icon = FA_ICON_THEATER_MASKS
 	type_to_generate = /datum/loadout_item/costume
 	tab_order = /datum/loadout_category/head::tab_order + 8
 

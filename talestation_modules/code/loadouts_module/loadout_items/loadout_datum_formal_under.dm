@@ -5,6 +5,7 @@
 /// Underslot - Formal Suit Items (Deletes overrided items)
 /datum/loadout_category/formal
 	category_name = "Formal"
+	category_ui_icon = FA_ICON_USER_TIE
 	type_to_generate = /datum/loadout_item/under/formal
 	tab_order = /datum/loadout_category/head::tab_order + 7
 

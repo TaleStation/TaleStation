@@ -3,7 +3,7 @@
 /// Glove Slot Items (Deletes overrided items)
 /datum/loadout_category/gloves
 	category_name = "Gloves"
-	// category_ui_icon =
+	category_ui_icon = FA_ICON_MITTEN
 	type_to_generate = /datum/loadout_item/gloves
 	tab_order = /datum/loadout_category/head::tab_order + 5
 
