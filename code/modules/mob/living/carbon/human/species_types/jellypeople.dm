@@ -29,7 +29,6 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
 	inherent_factions = list(FACTION_SLIME)
 	species_language_holder = /datum/language_holder/jelly
-	ass_image = 'icons/ass/assslime.png'
 
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/jelly,
@@ -721,10 +720,13 @@
 		to_chat(telepath, span_warning("You don't see anyone to send your thought to."))
 		return
 	var/mob/living/recipient = tgui_input_list(telepath, "Choose a telepathic message recipient", "Telepathy", sort_names(recipient_options))
-	if(isnull(recipient))
+	if(isnull(recipient) || telepath.stat == DEAD || !is_species(telepath, /datum/species/jelly/stargazer))
 		return
 	var/msg = tgui_input_text(telepath, title = "Telepathy")
-	if(isnull(msg))
+	if(isnull(msg) || telepath.stat == DEAD || !is_species(telepath, /datum/species/jelly/stargazer))
+		return
+	if(!(recipient in oview(telepath)))
+		to_chat(telepath, span_warning("You can't see [recipient] anymore!"))
 		return
 	if(recipient.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = 0))
 		to_chat(telepath, span_warning("As you reach into [recipient]'s mind, you are stopped by a mental blockage. It seems you've been foiled."))

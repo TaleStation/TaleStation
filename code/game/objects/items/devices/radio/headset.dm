@@ -111,6 +111,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 
 /obj/item/radio/headset/dropped(mob/user, silent)
 	. = ..()
+	if(QDELETED(src)) //This can be called as a part of destroy
+		return
 	for(var/language in language_list)
 		user.remove_language(language, language_flags = UNDERSTOOD_LANGUAGE, source = LANGUAGE_RADIOKEY)
 
@@ -334,17 +336,25 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
 /obj/item/radio/headset/silicon/pai
-	name = "\proper mini Integrated Subspace Transceiver "
+	name = "\proper mini Integrated Subspace Transceiver"
 	subspace_transmission = FALSE
 
 
 /obj/item/radio/headset/silicon/ai
-	name = "\proper Integrated Subspace Transceiver "
+	name = "\proper Integrated Subspace Transceiver"
 	keyslot2 = new /obj/item/encryptionkey/ai
 	command = TRUE
 
+/obj/item/radio/headset/silicon/human_ai
+	name = "\proper Disconnected Subspace Transceiver"
+	desc = "A headset that is rumored to be one day implanted into a brain in a jar directly."
+	icon_state = "rob_headset"
+	worn_icon_state = "rob_headset"
+	keyslot2 = new /obj/item/encryptionkey/ai_with_binary
+	command = TRUE
+
 /obj/item/radio/headset/silicon/ai/evil
-	name = "\proper Evil Integrated Subspace Transceiver "
+	name = "\proper Evil Integrated Subspace Transceiver"
 	keyslot2 = new /obj/item/encryptionkey/ai/evil
 	command = FALSE
 
@@ -429,9 +439,9 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 		// And grant all the languages we definitely should know now
 		grant_headset_languages(mob_loc)
 
-/obj/item/radio/headset/AltClick(mob/living/user)
-	if(!istype(user) || !Adjacent(user) || user.incapacitated())
-		return
-	if (command)
-		use_command = !use_command
-		to_chat(user, span_notice("You toggle high-volume mode [use_command ? "on" : "off"]."))
+/obj/item/radio/headset/click_alt(mob/living/user)
+	if (!command)
+		return CLICK_ACTION_BLOCKING
+	use_command = !use_command
+	to_chat(user, span_notice("You toggle high-volume mode [use_command ? "on" : "off"]."))
+	return CLICK_ACTION_SUCCESS
