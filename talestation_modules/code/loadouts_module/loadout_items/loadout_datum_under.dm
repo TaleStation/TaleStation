@@ -5,6 +5,7 @@
 	category_name = "Jumpsuit"
 	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/under/jumpsuit
+	tab_order = /datum/loadout_category/head::tab_order + 10
 
 /datum/loadout_item/under
 	abstract_type = /datum/loadout_item/under

@@ -5,6 +5,7 @@
 	category_name = "Ears"
 	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/ears
+	tab_order = /datum/loadout_category/head::tab_order + 1
 
 /datum/loadout_item/ears
 	abstract_type = /datum/loadout_item/ears

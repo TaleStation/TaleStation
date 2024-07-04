@@ -5,6 +5,7 @@
 	category_name = "Shoes"
 	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/shoes
+	tab_order = /datum/loadout_category/head::tab_order + 13
 
 /datum/loadout_item/shoes
 	abstract_type = /datum/loadout_item/shoes

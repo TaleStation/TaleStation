@@ -5,6 +5,7 @@
 	category_name = "Suit"
 	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/suit
+	tab_order = /datum/loadout_category/head::tab_order + 6
 
 /datum/loadout_item/suit
 	abstract_type = /datum/loadout_item/suit

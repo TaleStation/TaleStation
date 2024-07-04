@@ -5,6 +5,7 @@
 	category_name = "Mask"
 	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/mask
+	tab_order = /datum/loadout_category/head::tab_order + 3
 
 /datum/loadout_item/mask
 	abstract_type = /datum/loadout_item/mask

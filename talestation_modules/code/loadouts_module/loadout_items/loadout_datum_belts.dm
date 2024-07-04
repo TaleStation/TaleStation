@@ -5,6 +5,7 @@
 	category_name = "Belt"
 	// category_ui_icon =
 	type_to_generate = /datum/loadout_item/belts
+	tab_order = /datum/loadout_category/head::tab_order + 12
 
 /datum/loadout_item/belts
 	abstract_type = /datum/loadout_item/belts

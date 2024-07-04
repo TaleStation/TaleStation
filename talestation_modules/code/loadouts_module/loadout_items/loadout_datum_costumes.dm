@@ -4,6 +4,7 @@
 /datum/loadout_category/costumes
 	category_name = "Costumes"
 	type_to_generate = /datum/loadout_item/costume
+	tab_order = /datum/loadout_category/head::tab_order + 8
 
 /datum/loadout_item/costume
 	abstract_type = /datum/loadout_item/costume
