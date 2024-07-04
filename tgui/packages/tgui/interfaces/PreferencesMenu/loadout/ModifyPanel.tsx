@@ -106,6 +106,8 @@ const LoadoutModifyButtons = (props: { modifyItemDimmer: LoadoutItem }) => {
                       }}
                     >
                       {modifyItemDimmer.icon ? (
+                        // @ts-ignore
+                        // ditto, figure out why this is crying
                         <DmIcon
                           fallback={<Icon name="spinner" spin color="gray" />}
                           icon={modifyItemDimmer.icon}
