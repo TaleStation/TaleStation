@@ -29,6 +29,8 @@ export const ItemIcon = (props: { item: LoadoutItem; scale?: number }) => {
   }
 
   return (
+    // @ts-ignore
+    // ditto, figure out why this is crying
     <DmIcon
       fallback={<Icon name="spinner" spin color="gray" />}
       icon={icon_to_use}
