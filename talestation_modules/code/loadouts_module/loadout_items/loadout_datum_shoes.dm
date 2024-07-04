@@ -23,7 +23,13 @@
 // This is snowflake but digitigrade is in general
 // Need to handle shoes that don't fit digitigrade being selected
 // Ideally would be generalized with species can equip or something but OH WELL
-/datum/loadout_item/shoes/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
+/datum/loadout_item/shoes/on_equip_item(
+	obj/item/clothing/accessory/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only = FALSE
+	)
 	// Supports digi = needs no special handling so we can continue as normal
 	if(supports_digitigrade)
 		return ..()

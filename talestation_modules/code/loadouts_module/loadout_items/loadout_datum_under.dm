@@ -35,7 +35,13 @@
 	name = "Random Jumpsuit"
 	item_path = /obj/item/clothing/under/color/random
 
-/datum/loadout_item/under/jumpsuit/random/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
+/datum/loadout_item/under/jumpsuit/random/on_equip_item(
+	obj/item/clothing/accessory/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only = FALSE
+	)
 	return
 
 /datum/loadout_item/under/jumpsuit/random/skirt
