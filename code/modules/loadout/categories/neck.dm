@@ -11,6 +11,14 @@
 /datum/loadout_item/neck/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.neck = item_path
 
+/datum/loadout_item/neck/maid_neck_cover
+	name = "Maid Neck Cover"
+	item_path = /obj/item/clothing/neck/maid
+
+/datum/loadout_item/neck/stethoscope
+	name = "Stethoscope"
+	item_path = /obj/item/clothing/neck/stethoscope
+
 /datum/loadout_item/neck/scarf_greyscale
 	name = "Scarf (Colorable)"
 	item_path = /obj/item/clothing/neck/scarf
@@ -26,6 +34,10 @@
 /datum/loadout_item/neck/necktie
 	name = "Necktie (Colorable)"
 	item_path = /obj/item/clothing/neck/tie
+
+/datum/loadout_item/neck/necktie_tied
+	name = "Tied Necktie (Colorable)"
+	item_path = /obj/item/clothing/neck/tie/tied
 
 /datum/loadout_item/neck/necktie_disco
 	name = "Necktie (Ugly)"

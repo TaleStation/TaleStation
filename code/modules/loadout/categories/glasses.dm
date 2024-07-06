@@ -53,3 +53,25 @@
 /datum/loadout_item/glasses/eyepatch
 	name = "Eyepatch"
 	item_path = /obj/item/clothing/glasses/eyepatch
+
+/datum/loadout_item/glasses/geist_glasses
+	name = "Geist Gazers"
+	item_path = /obj/item/clothing/glasses/geist_gazers
+
+/datum/loadout_item/glasses/psych_glasses
+	name = "Psych Glasses"
+	item_path = /obj/item/clothing/glasses/psych
+
+/datum/loadout_item/glasses/welding_goggles
+	name = "Welding Goggles"
+	item_path = /obj/item/clothing/glasses/welding
+
+/datum/loadout_item/glasses/monocle
+	name = "Monocle"
+	item_path = /obj/item/clothing/glasses/monocle
+
+/* TODO: Find where the greyscale went
+/datum/loadout_item/glasses/colored_blindfold
+	name = "Colored Blindfold"
+	item_path = /obj/item/clothing/glasses/blindfold/white/loadout
+*/
