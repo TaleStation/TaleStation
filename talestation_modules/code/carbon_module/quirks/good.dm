@@ -7,10 +7,6 @@
 	/datum/language/narsie, \
 	/datum/language/xenocommon )
 
-// Rebalance of existing quirks
-/datum/quirk/jolly //haha
-	value = 3
-
 // New quirks
 
 /datum/quirk/no_appendix
