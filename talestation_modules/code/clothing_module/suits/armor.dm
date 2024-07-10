@@ -82,6 +82,7 @@
 	desc = "No armor, all fashion, unfortunately."
 	icon_state = "formal"
 	inhand_icon_state = "labcoat"
+	icon = 'talestation_modules/icons/clothing/suit/suit.dmi'
 	body_parts_covered = CHEST|GROIN|ARMS
 	allowed = list(
 		/obj/item/flashlight,
