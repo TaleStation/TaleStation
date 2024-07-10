@@ -11,14 +11,15 @@
 	abstract_type = /datum/loadout_item/shoes
 	/// Snowflake, whether these shoes work on digi legs.
 	VAR_FINAL/supports_digitigrade = FALSE
-/*
-/datum/loadout_item/shoes/New()
+
+/* TO-DO: Unshit code this hot mess
+/datum/loadout_item/shoes/New(mob/living/carbon/human/equipper)
 	. = ..()
 	var/ignores_digi = !!(initial(item_path.item_flags) & IGNORE_DIGITIGRADE)
 	var/supports_digi = !!(initial(item_path.supports_variations_flags) & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON))
 	supports_digitigrade = ignores_digi || supports_digi
 	if(supports_digitigrade)
-		LAZYADD(additional_tooltip_contents, "This item can be worn on characters whom have digitigrade legs.")
+		to_chat(equipper, "Your loadout helmet was not equipped directly due to your species outfit.")
 */
 
 // This is snowflake but digitigrade is in general
@@ -41,6 +42,12 @@
 
 	// Does not support digi and our equipper is not digi? Continue as normal
 	return ..()
+
+/datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+	if(outfit.shoes)
+		LAZYADD(outfit.backpack_contents, outfit.shoes)
+	outfit.shoes = item_path
+
 /datum/loadout_item/shoes/greyscale_sneakers
 	name = "Greyscale Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
