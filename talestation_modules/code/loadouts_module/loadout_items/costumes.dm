@@ -1,5 +1,6 @@
 /*
 * Loadout items that are primarily costumes in nature
+* These are suit items
 */
 /datum/loadout_category/costumes
 	category_name = "Costumes"
