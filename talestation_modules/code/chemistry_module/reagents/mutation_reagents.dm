@@ -9,14 +9,6 @@
 	name = "Empowered Mutation Toxin"
 	description = "A stronger version of unstable mutation toxin. This could make some interesting species."
 
-/datum/reagent/mutationtoxin/skrell
-	name = "Skrell Mutation Toxin"
-	description = "A non-euclidian-looking toxin. It has protrusions."
-	color = "#764685"
-	race = /datum/species/skrell
-	taste_description = "calamari"
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
-
 /datum/reagent/mutationtoxin/tajaran
 	name = "Tajaran Mutation Toxin"
 	description = "A curiously hairy-looking toxin. Do you really want to drink this?"

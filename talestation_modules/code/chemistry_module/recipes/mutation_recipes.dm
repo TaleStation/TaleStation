@@ -43,10 +43,6 @@
 	results = list(/datum/reagent/mutationtoxin/shadow = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation/empowered = 1, /datum/reagent/liquid_dark_matter = 1)
 
-/datum/chemical_reaction/mutation_toxin/skrell_mutation
-	results = list(/datum/reagent/mutationtoxin/skrell = 2)
-	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/toxin/slimejelly = 1) // can't put carpotoxin here unfortunately, makes CI scream
-
 /datum/chemical_reaction/mutation_toxin/tajaran_mutation
 	results = list(/datum/reagent/mutationtoxin/tajaran = 2)
 	required_reagents = list(/datum/reagent/unstable_mutation = 1, /datum/reagent/toxin/carpotoxin = 1) // fsh

@@ -23,8 +23,6 @@
 */
 /// NOTE: Do NOT move the rest of the defines from code/__DEFINES/DNA.dm due to the number of blocks needed
 
-/// Skrell head tentacles
-#define ORGAN_SLOT_EXTERNAL_HEAD_TENTACLES "head_tentacles"
 /// Tajaran body markings
 #define ORGAN_SLOT_EXTERNAL_TAJARAN_MARKINGS "tajaran_markings"
 /// Tajaran snout

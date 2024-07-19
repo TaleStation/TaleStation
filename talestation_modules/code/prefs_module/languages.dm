@@ -82,10 +82,6 @@
 	/// Players cannot select this language in the preferences menu if they do not have this species set.
 	var/datum/species/required_species
 
-/datum/language/skrell
-	available_as_pref = TRUE
-	banned_from_species = /datum/species/skrell
-
 /datum/language/draconic
 	available_as_pref = TRUE
 	banned_from_species = /datum/species/lizard
