@@ -203,9 +203,9 @@ LINEN BINS
 
 /obj/item/bedsheet/captain
 	name = "site director's bedsheet"
-	desc = "It has a Nanotrasen symbol on it, and was woven with a\
-		 revolutionary new kind of thread guaranteed to have 0.01% permeability\
-		 for most non-chemical substances, popular among most modern Site Directors."
+	desc = "It has a Nanotrasen symbol on it, and was woven with a \
+		revolutionary new kind of thread guaranteed to have 0.01% permeability \
+		for most non-chemical substances, popular among most modern Site Directors."
 	icon_state = "sheetcaptain"
 	inhand_icon_state = "sheetcaptain"
 	dream_messages = list("authority", "a golden ID", "sunglasses", "a green disc", "an antique gun", "the site director")
