@@ -48,7 +48,7 @@
 	return "Due to staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!"
 
 /datum/outfit/job/hop
-	name = "Head of Personnel"
+	name = "Asset Clerk"
 	jobtype = /datum/job/head_of_personnel
 
 	id = /obj/item/card/id/advanced/silver
@@ -93,7 +93,7 @@
 <p>Firing Staff - Terminating a staff member's employment will wipe any trim from their card, remove all access and instantly set them as demoted.</p>
 <h2>Changing Jobs - Step by Step</h2>
 <ol>
-<li>Grab an appropriate ID card. Head of Staff jobs require a silver ID card. Captain requires a gold ID card.</li>
+<li>Grab an appropriate ID card. Head of Staff jobs require a silver ID card. Site Director requires a gold ID card.</li>
 <li>Insert the ID card into the combined PDA Painter and ID Trimmer in the HoP office.</li>
 <li>Select to appropriate trim then hit the button to apply it to the card. This will wipe all the card's access.</li>
 <li>Remove the ID from the PDA/ID Painter and open up any modular computer with the Plexagon Access Management application downloaded.</li>
