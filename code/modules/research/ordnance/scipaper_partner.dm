@@ -14,7 +14,8 @@
 
 /datum/scientific_partner/baron
 	name = "Ghost Writing"
-	flufftext = "A nearby research station ran by a very wealthy captain seems to be struggling with their scientific output. They might reward us handsomely if we ghostwrite for them."
+		flufftext = "A nearby research station ran by a very wealthy Site Director seems to be struggling with their scientific output. \
+			They might reward us handsomely if we ghostwrite for them."
 	multipliers = list(SCIPAPER_COOPERATION_INDEX = 0.25, SCIPAPER_FUNDING_INDEX = 2)
 	boostable_nodes = list(
 		"comp_recordkeeping" = 500,

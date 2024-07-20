@@ -6,7 +6,7 @@
 #define RANDOM_DETONATE_MAX_TIME (6 SECONDS)
 
 /obj/item/grenade/clusterbuster
-	desc = "Use of this weapon may constitute a war crime in your area, consult your local captain."
+	desc = "Use of this weapon may constitute a war crime in your area, consult your local Site Director."
 	name = "clusterbang"
 	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "clusterbang"

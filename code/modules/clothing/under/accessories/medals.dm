@@ -47,7 +47,8 @@
 
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
-	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is the most basic award given by Nanotrasen. It is often awarded by a captain to a member of his crew."
+	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is the most basic award given by Nanotrasen. \
+	It is often awarded by a Site Director to a member of his crew."
 
 /obj/item/clothing/accessory/medal/bronze_heart
 	name = "bronze heart medal"
@@ -104,8 +105,9 @@
 	icon_state = "med_medal2"
 
 /obj/item/clothing/accessory/medal/gold/captain
-	name = "medal of captaincy"
-	desc = "A golden medal awarded exclusively to those promoted to the rank of captain. It signifies the codified responsibilities of a captain to Nanotrasen, and their undisputable authority over their crew."
+		name = "medal of leadership"
+	desc = "A golden medal awarded exclusively to those promoted to the rank of Site Director. \
+	It signifies the codified responsibilities of a Site Director to Nanotrasen, and their undisputable authority over their crew."
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/accessory/medal/gold/heroism

@@ -18,8 +18,8 @@
 		add_file(program_type)
 
 /obj/item/computer_disk/command/captain
-	name = "captain data disk"
-	desc = "Removable disk used to download essential Captain tablet apps."
+	name = "site director data disk"
+	desc = "Removable disk used to download essential Site Director tablet apps."
 	icon_state = "datadisk10"
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
@@ -123,6 +123,6 @@
 		/datum/computer_file/program/alarm_monitor,
 		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/supermatter_monitor,
-		
+
 	)
 

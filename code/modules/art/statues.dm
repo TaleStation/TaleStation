@@ -170,7 +170,7 @@
 	abstract_type = /obj/structure/statue/diamond
 
 /obj/structure/statue/diamond/captain
-	name = "statue of THE captain."
+	name = "statue of THE Site Director."
 	icon_state = "cap"
 
 /obj/structure/statue/diamond/ai1

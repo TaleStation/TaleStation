@@ -110,7 +110,7 @@
 	greyscale_colors = "#2b2793#67a552"
 
 /obj/item/encryptionkey/heads/captain
-	name = "\proper the captain's encryption key"
+	name = "\proper the site director's encryption key"
 	icon_state = "cypherkey_cube"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube

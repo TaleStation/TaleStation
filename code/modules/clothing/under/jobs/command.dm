@@ -1,6 +1,6 @@
 /obj/item/clothing/under/rank/captain
-	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
-	name = "captain's jumpsuit"
+	name = "site director's jumpsuit"
+	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Site Director\"."
 	icon_state = "captain"
 	inhand_icon_state = "b_suit"
 	sensor_mode = SENSOR_COORDS
@@ -13,8 +13,8 @@
 	wound = 15
 
 /obj/item/clothing/under/rank/captain/skirt
-	name = "captain's jumpskirt"
-	desc = "It's a blue jumpskirt with some gold markings denoting the rank of \"Captain\"."
+	name = "site director's jumpskirt"
+	desc = "It's a blue jumpskirt with some gold markings denoting the rank of \"Site Director\"."
 	icon_state = "captain_skirt"
 	inhand_icon_state = "b_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -23,7 +23,7 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/captain/suit
-	name = "captain's suit"
+	name = "site director's suit"
 	desc = "A green suit and yellow necktie. Exemplifies authority."
 	icon_state = "green_suit"
 	inhand_icon_state = "dg_suit"
@@ -40,8 +40,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/captain/parade
-	name = "captain's parade uniform"
-	desc = "A captain's luxury-wear, for special occasions."
+	name = "site director's parade uniform"
+	desc = "A Site Director's luxury-wear, for special occasions."
 	icon_state = "captain_parade"
 	inhand_icon_state = null
 	can_adjust = FALSE

@@ -3,7 +3,7 @@
 	icon = 'icons/obj/scrolls.dmi'
 	icon_state = "charter"
 	desc = "An official document entrusting the governance of the station \
-		and surrounding space to the Captain."
+		and surrounding space to the Site Director."
 	var/used = FALSE
 	var/name_type = "station"
 

@@ -151,8 +151,8 @@
 	inhand_icon_state = "securitypack"
 
 /obj/item/storage/backpack/captain
-	name = "captain's backpack"
-	desc = "It's a special backpack made exclusively for Nanotrasen officers."
+	name = "site director's backpack"
+	desc = "It's a special backpack made exclusively for Nanotrasen Overseers."
 	icon_state = "backpack-captain"
 	inhand_icon_state = "captainpack"
 
@@ -369,8 +369,8 @@
 	inhand_icon_state = "satchel-explorer"
 
 /obj/item/storage/backpack/satchel/cap
-	name = "captain's satchel"
-	desc = "An exclusive satchel for Nanotrasen officers."
+	name = "site director's satchel"
+	desc = "An exclusive satchel for Nanotrasen Overseers."
 	icon_state = "satchel-captain"
 	inhand_icon_state = "satchel-cap"
 
@@ -518,8 +518,8 @@
 	AddComponent(/datum/component/curse_of_hunger, add_dropdel = TRUE)
 
 /obj/item/storage/backpack/duffelbag/captain
-	name = "captain's duffel bag"
-	desc = "A large duffel bag for holding extra captainly goods."
+	name = "site director's duffel bag"
+	desc = "A large duffel bag for holding that damn disk."
 	icon_state = "duffel-captain"
 	inhand_icon_state = "duffel-captain"
 

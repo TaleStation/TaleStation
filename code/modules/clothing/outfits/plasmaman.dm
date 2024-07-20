@@ -188,7 +188,7 @@
 	mask = /obj/item/clothing/mask/gas/clown_hat/plasmaman
 
 /datum/outfit/plasmaman/captain
-	name = "Captain Plasmaman"
+	name = "Site Director Plasmaman"
 
 	uniform = /obj/item/clothing/under/plasmaman/captain
 	gloves = /obj/item/clothing/gloves/captain //Too iconic to be replaced with a plasma version

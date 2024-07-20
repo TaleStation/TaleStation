@@ -40,7 +40,7 @@
 	REGISTER_REQUIRED_MAP_ITEM(1, INFINITY)
 
 /obj/item/stamp/head/captain
-	name = "captain's rubber stamp"
+	name = "site director's rubber stamp"
 	icon_state = "stamp-cap"
 	dye_color = DYE_CAPTAIN
 

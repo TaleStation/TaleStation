@@ -216,14 +216,14 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	command = TRUE
 
 /obj/item/radio/headset/heads/captain
-	name = "\proper the captain's headset"
+	name = "\proper the site director's headset"
 	desc = "The headset of the king."
 	icon_state = "com_headset"
 	worn_icon_state = "com_headset"
 	keyslot = /obj/item/encryptionkey/heads/captain
 
 /obj/item/radio/headset/heads/captain/alt
-	name = "\proper the captain's bowman headset"
+	name = "\proper the site director's bowman headset"
 	desc = "The headset of the boss. Protects ears from flashbangs."
 	icon_state = "com_headset_alt"
 	worn_icon_state = "com_headset_alt"

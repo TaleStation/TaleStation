@@ -39,12 +39,12 @@
 	icon_state = "heads_quarters"
 
 /area/station/command/heads_quarters/captain
-	name = "\improper Captain's Office"
+	name = "\improper Site Director's Office"
 	icon_state = "captain"
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/station/command/heads_quarters/captain/private
-	name = "\improper Captain's Quarters"
+	name = "\improper Site Director's Quarters"
 	icon_state = "captain_private"
 	sound_environment = SOUND_AREA_WOODFLOOR
 

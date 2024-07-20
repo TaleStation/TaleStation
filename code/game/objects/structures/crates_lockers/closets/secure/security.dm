@@ -1,5 +1,5 @@
 /obj/structure/closet/secure_closet/captains
-	name = "captain's locker"
+	name = "\proper site director's locker"
 	icon_state = "cap"
 	req_access = list(ACCESS_CAPTAIN)
 

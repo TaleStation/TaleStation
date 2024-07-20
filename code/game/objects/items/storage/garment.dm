@@ -7,8 +7,8 @@
 	resistance_flags = FLAMMABLE
 
 /obj/item/storage/bag/garment/captain
-	name = "captain's garment bag"
-	desc = "A bag for storing extra clothes and shoes. This one belongs to the captain."
+	name = "site director's garment bag"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the Site Director."
 
 /obj/item/storage/bag/garment/hos
 	name = "head of security's garment bag"

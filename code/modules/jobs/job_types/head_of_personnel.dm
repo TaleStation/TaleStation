@@ -45,8 +45,7 @@
 
 
 /datum/job/head_of_personnel/get_captaincy_announcement(mob/living/captain)
-	return "Due to staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
-
+	return "Due to staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!"
 
 /datum/outfit/job/hop
 	name = "Head of Personnel"

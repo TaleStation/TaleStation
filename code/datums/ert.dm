@@ -64,7 +64,7 @@
 	leader_experience = FALSE
 
 /datum/ert/centcom_official/New()
-	mission = "Conduct a routine performance review of [station_name()] and its Captain."
+	mission = "Conduct a routine performance review of [station_name()] and its Director."
 
 /datum/ert/inquisition
 	roles = list(/datum/antagonist/ert/chaplain/inquisitor, /datum/antagonist/ert/security/inquisitor, /datum/antagonist/ert/medic/inquisitor)

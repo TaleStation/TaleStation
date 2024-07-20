@@ -204,8 +204,8 @@
 	job = /datum/job/botanist
 
 /datum/id_trim/job/captain
-	assignment = "Captain"
-	intern_alt_name = "Captain-in-Training"
+	assignment = "Site Director"
+	intern_alt_name = "Director-in-Training"
 	trim_state = "trim_captain"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_COMMAND_BLUE
