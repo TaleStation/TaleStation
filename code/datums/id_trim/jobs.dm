@@ -340,8 +340,8 @@
 	job = /datum/job/chief_engineer
 
 /datum/id_trim/job/chief_medical_officer
-	assignment = "Chief Medical Officer"
-	intern_alt_name = "Chief Medical Officer-in-Training"
+	assignment = "Medical Director"
+	intern_alt_name = "Medical Director-in-Training"
 	trim_state = "trim_medicaldoctor"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_MEDICAL_BLUE

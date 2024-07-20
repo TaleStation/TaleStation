@@ -264,8 +264,8 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	keyslot = /obj/item/encryptionkey/heads/ce
 
 /obj/item/radio/headset/heads/cmo
-	name = "\proper the chief medical officer's headset"
-	desc = "The headset of the highly trained medical chief."
+	name = "\proper the medical director's headset"
+	desc = "The headset of the highly trained medical director."
 	icon_state = "com_headset"
 	worn_icon_state = "com_headset"
 	keyslot = /obj/item/encryptionkey/heads/cmo

@@ -332,7 +332,7 @@
 
 // Chief Medical Officer
 /obj/item/clothing/suit/hooded/wintercoat/medical/cmo
-	name = "chief medical officer's winter coat"
+	name = "medical director's winter coat"
 	desc = "A winter coat in a vibrant shade of blue with a small silver caduceus instead of a plastic zipper tab. The normal liner is replaced with an exceptionally thick, soft layer of fur."
 	icon_state = "coatcmo"
 	inhand_icon_state = null

@@ -119,7 +119,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 	result_path = /obj/machinery/computer/security/telescreen/ce
 
 /obj/machinery/computer/security/telescreen/cmo
-	name = "\improper Chief Medical Officer's telescreen"
+	name = "\improper Medical Director's telescreen"
 	desc = "A telescreen with access to the medbay's camera network."
 	network = list("medbay")
 	frame_type = /obj/item/wallframe/telescreen/cmo

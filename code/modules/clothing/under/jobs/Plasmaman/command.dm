@@ -45,8 +45,8 @@
 	acid = 95
 
 /obj/item/clothing/under/plasmaman/chief_medical_officer
-	name = "chief medical officer's plasma envirosuit"
-	desc = "It's an envirosuit worn by those with the experience to be \"Chief Medical Officer\"."
+	name = "medical director's plasma envirosuit"
+	desc = "It's an envirosuit worn by those with the experience to be \"Medical Director\"."
 	icon_state = "cmo_envirosuit"
 	inhand_icon_state = null
 

@@ -73,7 +73,7 @@
 	)
 
 /obj/item/modular_computer/pda/heads/cmo
-	name = "chief medical officer PDA"
+	name = "medical director PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#FAFAFA#000099#3F96CC"
 	starting_programs = list(

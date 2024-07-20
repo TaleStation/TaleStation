@@ -53,7 +53,7 @@
 	icon_state = "ce_office"
 
 /area/station/command/heads_quarters/cmo
-	name = "\improper Chief Medical Officer's Office"
+	name = "\improper Medical Director's Office"
 	icon_state = "cmo_office"
 
 /area/station/command/heads_quarters/hop

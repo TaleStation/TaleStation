@@ -27,8 +27,8 @@
 	)
 
 /obj/item/computer_disk/command/cmo
-	name = "chief medical officer data disk"
-	desc = "Removable disk used to download essential CMO tablet apps."
+	name = "medical director data disk"
+	desc = "Removable disk used to download essential Medical Director tablet apps."
 	starting_programs = list(
 		/datum/computer_file/program/records/medical,
 	)

@@ -138,7 +138,7 @@
 	greyscale_colors = "#dca01b#f8d860"
 
 /obj/item/encryptionkey/heads/cmo
-	name = "\proper the chief medical officer's encryption key"
+	name = "\proper the medical director's encryption key"
 	icon_state = "cypherkey_medical"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
