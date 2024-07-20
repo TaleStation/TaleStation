@@ -125,7 +125,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 	frame_type = /obj/item/wallframe/telescreen/cmo
 
 /obj/item/wallframe/telescreen/cmo
-	name = "\improper Chief Engineer'stelescreen frame"
+	name = "\improper Site Foreman'stelescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/cmo
 
 /obj/machinery/computer/security/telescreen/vault

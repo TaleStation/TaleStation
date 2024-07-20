@@ -61,7 +61,7 @@
 		/datum/ai_planning_subtree/random_speech/fox,
 	)
 
-// The captain's fox, Renault
+// The site director's fox, Renault
 /mob/living/basic/pet/fox/renault
 	name = "Renault"
 	desc = "Renault, the Site Director's trustworthy fox."

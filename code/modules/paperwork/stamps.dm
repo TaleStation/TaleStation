@@ -65,7 +65,7 @@
 	dye_color = DYE_RD
 
 /obj/item/stamp/head/cmo
-	name = "chief medical officer's rubber stamp"
+	name = "medical director's rubber stamp"
 	icon_state = "stamp-cmo"
 	dye_color = DYE_CMO
 

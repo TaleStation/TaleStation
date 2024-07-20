@@ -120,7 +120,7 @@
 	icon_state = "cmo"
 
 /obj/structure/statue/gold/ce
-	name = "statue of the chief engineer"
+	name = "statue of the site foreman"
 	icon_state = "ce"
 
 /obj/structure/statue/gold/rd

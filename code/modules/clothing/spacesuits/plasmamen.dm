@@ -319,7 +319,7 @@
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT // Same protection as the Atmospherics Hardhat
 
 /obj/item/clothing/head/helmet/space/plasmaman/chief_engineer
-	name = "chief engineer's plasma envirosuit helmet"
+	name = "site foreman's plasma envirosuit helmet"
 	desc = "A special containment helmet designed for the Site Foreman, the usual purple stripes being replaced by the chief's green. Has improved thermal shielding."
 	icon_state = "ce_envirohelm"
 	inhand_icon_state = null
