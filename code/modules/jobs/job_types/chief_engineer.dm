@@ -57,7 +57,7 @@
 	return "Due to staffing shortages, newly promoted Acting Site Director [captain.real_name] on deck!"
 
 /datum/outfit/job/ce
-	name = "Chief Engineer"
+	name = "Site Foreman"
 	jobtype = /datum/job/chief_engineer
 
 	id = /obj/item/card/id/advanced/silver
@@ -85,7 +85,7 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 
 /datum/outfit/job/ce/mod
-	name = "Chief Engineer (MODsuit)"
+	name = "Site Foreman (MODsuit)"
 
 	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/advanced

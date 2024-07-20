@@ -179,7 +179,7 @@
 	return add_item_to_steal(src, /obj/item/clothing/accessory/lawyers_badge)
 
 /datum/objective_item/steal/traitor/chief_engineer_belt
-	name = "the chief engineer's belt"
+	name = "the site foreman's belt"
 	targetitem = /obj/item/storage/belt/utility/chief
 	excludefromjob = list(JOB_CHIEF_ENGINEER)
 	exists_on_map = TRUE
@@ -291,7 +291,7 @@
 	return add_item_to_steal(src, /obj/item/tank/jetpack/oxygen/captain)
 
 /datum/objective_item/steal/magboots
-	name = "the chief engineer's advanced magnetic boots"
+	name = "the site foreman's advanced magnetic boots"
 	targetitem = /obj/item/clothing/shoes/magboots/advance
 	excludefromjob = list(JOB_CHIEF_ENGINEER)
 	item_owner = list(JOB_CHIEF_ENGINEER)

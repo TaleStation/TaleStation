@@ -131,7 +131,7 @@
 	greyscale_colors = "#280b1a#820a16"
 
 /obj/item/encryptionkey/heads/ce
-	name = "\proper the chief engineer's encryption key"
+	name = "\proper the site foreman's encryption key"
 	icon_state = "cypherkey_engineering"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering

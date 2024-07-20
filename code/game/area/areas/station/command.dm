@@ -49,7 +49,7 @@
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/station/command/heads_quarters/ce
-	name = "\improper Chief Engineer's Office"
+	name = "\improper Site Foreman's Office"
 	icon_state = "ce_office"
 
 /area/station/command/heads_quarters/cmo

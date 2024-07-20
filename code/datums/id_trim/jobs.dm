@@ -299,8 +299,8 @@
 	job = /datum/job/chemist
 
 /datum/id_trim/job/chief_engineer
-	assignment = "Chief Engineer"
-	intern_alt_name = "Chief Engineer-in-Training"
+	assignment = "Site Foreman"
+	intern_alt_name = "Junior Foreman"
 	trim_state = "trim_stationengineer"
 	department_color = COLOR_COMMAND_BLUE
 	subdepartment_color = COLOR_ENGINEERING_ORANGE

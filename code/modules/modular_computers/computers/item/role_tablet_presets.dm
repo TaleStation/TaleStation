@@ -58,7 +58,7 @@
 	)
 
 /obj/item/modular_computer/pda/heads/ce
-	name = "chief engineer PDA"
+	name = "site foreman PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#D99A2E#69DBF3#FAFAFA"
 	starting_programs = list(
