@@ -1,5 +1,7 @@
 /obj/item/clothing/shoes/sneakers
 	dying_key = DYE_REGISTRY_SNEAKERS
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	icon_state = "sneakers"
 	inhand_icon_state = "sneakers_back"
 	lefthand_file = 'icons/mob/inhands/clothing/shoes_lefthand.dmi'
@@ -13,6 +15,8 @@
 
 /obj/item/clothing/shoes/sneakers/black
 	name = "black shoes"
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	desc = "A pair of black shoes."
 	custom_price = PAYCHECK_CREW
 
@@ -23,11 +27,15 @@
 
 /obj/item/clothing/shoes/sneakers/brown
 	name = "brown shoes"
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	desc = "A pair of brown shoes."
 	greyscale_colors = "#472c21#ffffff"
 
 /obj/item/clothing/shoes/sneakers/blue
 	name = "blue shoes"
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	greyscale_colors = "#4f88df#ffffff"
 	armor_type = /datum/armor/sneakers_blue
 
@@ -36,19 +44,27 @@
 
 /obj/item/clothing/shoes/sneakers/green
 	name = "green shoes"
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	greyscale_colors = "#3bca5a#ffffff"
 
 /obj/item/clothing/shoes/sneakers/yellow
 	name = "yellow shoes"
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	greyscale_colors = "#deb63d#ffffff"
 
 /obj/item/clothing/shoes/sneakers/purple
 	name = "purple shoes"
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	greyscale_colors = "#7e1980#ffffff"
 
 /obj/item/clothing/shoes/sneakers/red
 	name = "red shoes"
 	desc = "Stylish red shoes."
+	icon_preview = 'icons/obj/fluff/previews.dmi'
+	icon_state_preview = "shoes_cloth"
 	greyscale_colors = "#a52f29#ffffff"
 
 /obj/item/clothing/shoes/sneakers/white

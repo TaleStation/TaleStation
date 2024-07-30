@@ -1,9 +1,18 @@
 /*
 * Loadout items that are primarily costumes in nature
+* These are suit items
 */
 /datum/loadout_category/costumes
 	category_name = "Costumes"
+	category_ui_icon = FA_ICON_THEATER_MASKS
 	type_to_generate = /datum/loadout_item/costume
+	tab_order = /datum/loadout_category/head::tab_order + 8
+
+/datum/loadout_item/costume/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+	outfit.suit = item_path
+	if(outfit.suit_store)
+		LAZYADD(outfit.backpack_contents, outfit.suit_store)
+		outfit.suit_store = null
 
 /datum/loadout_item/costume
 	abstract_type = /datum/loadout_item/costume

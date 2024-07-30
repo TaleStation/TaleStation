@@ -3,8 +3,9 @@
 /// Mask Slot Items (Deletes overrided items)
 /datum/loadout_category/mask
 	category_name = "Mask"
-	ui_title = "Mouth Slot Items"
+	category_ui_icon = FA_ICON_MASK_FACE
 	type_to_generate = /datum/loadout_item/mask
+	tab_order = /datum/loadout_category/head::tab_order + 3
 
 /datum/loadout_item/mask
 	abstract_type = /datum/loadout_item/mask
@@ -21,25 +22,9 @@
 	name = "Balaclava"
 	item_path = /obj/item/clothing/mask/balaclava
 
-/datum/loadout_item/mask/black_bandana
-	name = "Black Bandana"
-	item_path = /obj/item/clothing/mask/bandana/black
-
-/datum/loadout_item/mask/blue_bandana
-	name = "Blue Bandana"
-	item_path = /obj/item/clothing/mask/bandana/blue
-
-/datum/loadout_item/mask/gold_bandana
-	name = "Gold Bandana"
-	item_path = /obj/item/clothing/mask/bandana/gold
-
-/datum/loadout_item/mask/green_bandana
-	name = "Green Bandana"
-	item_path = /obj/item/clothing/mask/bandana/green
-
-/datum/loadout_item/mask/red_bandana
-	name = "Red Bandana"
-	item_path = /obj/item/clothing/mask/bandana/red
+/datum/loadout_item/mask/bandana
+	name = "Colorable Bandana"
+	item_path = /obj/item/clothing/mask/bandana
 
 /datum/loadout_item/mask/skull_bandana
 	name = "Skull Bandana"

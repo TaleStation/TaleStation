@@ -1,79 +1,5 @@
 // --- Loadout item datums for backpack / pocket items ---
 
-/// Pocket items (Moved to backpack)
-/datum/loadout_category/pocket
-	category_name = "Other"
-	type_to_generate = /datum/loadout_item/pocket_items
-	/// How many pocket items are allowed
-	var/max_allowed = 3
-
-/datum/loadout_category/pocket/New()
-	. = ..()
-	ui_title = "Backpack Items ([max_allowed] max)"
-
-/datum/loadout_category/pocket/handle_duplicate_entires(
-	datum/preference_middleware/loadout/manager,
-	datum/loadout_item/conflicting_item,
-	datum/loadout_item/added_item,
-	list/datum/loadout_item/all_loadout_items,
-)
-	var/list/datum/loadout_item/pocket_items/other_pocket_items = list()
-	for(var/datum/loadout_item/pocket_items/other_pocket_item in all_loadout_items)
-		other_pocket_items += other_pocket_item
-
-	if(length(other_pocket_items) >= max_allowed)
-		// We only need to deselect something if we're above the limit
-		// (And if we are we prioritize the first item found, FIFO)
-		manager.deselect_item(other_pocket_items[1])
-	return TRUE
-
-/datum/loadout_item/pocket_items
-	abstract_type = /datum/loadout_item/pocket_items
-
-/datum/loadout_item/pocket_items/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
-	// Backpack items aren't created if it's a visual equipping, so don't do any on equip stuff. It doesn't exist.
-	if(visuals_only)
-		return
-
-	return ..()
-
-// The wallet loadout item is special, and puts the player's ID and other small items into it on initialize (fancy!)
-/datum/loadout_item/pocket_items/wallet
-	name = "Wallet"
-	item_path = /obj/item/storage/wallet
-	additional_tooltip_contents = list("FILLS AUTOMATICALLY - This item will populate itself with your ID card and other small items you may have on spawn.")
-
-// We add our wallet manually, later, so no need to put it in any outfits.
-/datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)
-	return
-
-// We didn't spawn any item yet, so nothing to call here.
-/datum/loadout_item/pocket_items/wallet/on_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper, visuals_only, list/preference_list)
-	return
-
-// We add our wallet at the very end of character initialization (after quirks, etc) to ensure the backpack / their ID is all set by now.
-/datum/loadout_item/pocket_items/wallet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
-	var/obj/item/card/id/advanced/id_card = equipper.get_item_by_slot(ITEM_SLOT_ID)
-	if(istype(id_card, /obj/item/storage/wallet)) // Wallets station trait guard
-		return
-
-	var/obj/item/storage/wallet/wallet = new(equipper)
-	if(istype(id_card))
-		equipper.temporarilyRemoveItemFromInventory(id_card, force = TRUE)
-		equipper.equip_to_slot_if_possible(wallet, ITEM_SLOT_ID, initial = TRUE)
-		id_card.forceMove(wallet)
-
-		for(var/obj/item/thing in equipper?.back)
-			if(wallet.contents.len >= 3)
-				break
-			if(thing.w_class > WEIGHT_CLASS_SMALL)
-				continue
-			wallet.atom_storage.attempt_insert(thing, override = TRUE, force = TRUE)
-
-	else
-		if(!equipper.equip_to_slot_if_possible(wallet, slot = ITEM_SLOT_BACKPACK, initial = TRUE))
-			wallet.forceMove(equipper.drop_location())
-
 /datum/loadout_item/pocket_items/plush/lizard_greyscale
 	name = "Greyscale Lizard Plush"
 	can_be_greyscale = TRUE
@@ -195,7 +121,6 @@
 /datum/loadout_item/pocket_items/plush/lizard_random
 	name = "Random Lizard Plush"
 	item_path = /obj/item/toy/plush/lizard_plushie
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/pocket_items/plush/carp
 	name = "Carp Plush"
