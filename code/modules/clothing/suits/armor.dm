@@ -236,7 +236,7 @@
 	dog_fashion = null
 
 /obj/item/clothing/suit/armor/vest/capcarapace
-	name = "captain's carapace"
+	name = "site director's carapace"
 	desc = "A fireproof armored chestpiece reinforced with ceramic plates and plasteel pauldrons to provide additional protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest, although it does chafe your nipples."
 	icon_state = "capcarapace"
 	inhand_icon_state = "armor"
@@ -261,7 +261,7 @@
 	icon_state = "syndievest"
 
 /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
-	name = "captain's parade coat"
+	name = "site director's parade coat"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "capformal"
 	inhand_icon_state = null
@@ -618,8 +618,8 @@
 	AddComponent(/datum/component/toggle_icon)
 
 /obj/item/clothing/suit/armor/vest/hop
-	name = "head of personnel's coat"
-	desc = "A stylish coat given to a Head of Personnel."
+	name = "asset clerk's coat"
+	desc = "A stylish coat given to an Asset Clerk."
 	icon_state = "hop_coat"
 	inhand_icon_state = "b_suit"
 	body_parts_covered = CHEST|GROIN|ARMS

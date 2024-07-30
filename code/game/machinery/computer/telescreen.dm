@@ -109,23 +109,23 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 	result_path = /obj/machinery/computer/security/telescreen/research
 
 /obj/machinery/computer/security/telescreen/ce
-	name = "\improper Chief Engineer's telescreen"
+	name = "\improper Site Foreman's telescreen"
 	desc = "Used for watching the engine, telecommunications and the minisat."
 	network = list("engine", "singularity", "tcomms", "minisat")
 	frame_type = /obj/item/wallframe/telescreen/ce
 
 /obj/item/wallframe/telescreen/ce
-	name = "\improper Chief Engineer's telescreen frame"
+	name = "\improper Site Foreman's telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/ce
 
 /obj/machinery/computer/security/telescreen/cmo
-	name = "\improper Chief Medical Officer's telescreen"
+	name = "\improper Medical Director's telescreen"
 	desc = "A telescreen with access to the medbay's camera network."
 	network = list("medbay")
 	frame_type = /obj/item/wallframe/telescreen/cmo
 
 /obj/item/wallframe/telescreen/cmo
-	name = "\improper Chief Engineer'stelescreen frame"
+	name = "\improper Site Foreman'stelescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/cmo
 
 /obj/machinery/computer/security/telescreen/vault

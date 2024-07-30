@@ -17,7 +17,7 @@
 	icon_state = "goldenplaque"
 
 /obj/structure/plaque/static_plaque/golden/captain
-	name = "The Most Robust Captain Award for Robustness"
+	name = "The Most Confident Site Director Award for 'Putting Up With the Crews Shit'."
 
 /obj/structure/plaque/static_plaque/tram
 	/// The tram we have info about

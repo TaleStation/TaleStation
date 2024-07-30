@@ -110,7 +110,7 @@
 	greyscale_colors = "#2b2793#67a552"
 
 /obj/item/encryptionkey/heads/captain
-	name = "\proper the captain's encryption key"
+	name = "\proper the site director's encryption key"
 	icon_state = "cypherkey_cube"
 	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube
@@ -131,21 +131,21 @@
 	greyscale_colors = "#280b1a#820a16"
 
 /obj/item/encryptionkey/heads/ce
-	name = "\proper the chief engineer's encryption key"
+	name = "\proper the site foreman's encryption key"
 	icon_state = "cypherkey_engineering"
 	channels = list(RADIO_CHANNEL_ENGINEERING = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_engineering
 	greyscale_colors = "#dca01b#f8d860"
 
 /obj/item/encryptionkey/heads/cmo
-	name = "\proper the chief medical officer's encryption key"
+	name = "\proper the medical director's encryption key"
 	icon_state = "cypherkey_medical"
 	channels = list(RADIO_CHANNEL_MEDICAL = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_medical
 	greyscale_colors = "#ebebeb#2b2793"
 
 /obj/item/encryptionkey/heads/hop
-	name = "\proper the head of personnel's encryption key"
+	name = "\proper the asset clerk's encryption key"
 	icon_state = "cypherkey_cube"
 	channels = list(RADIO_CHANNEL_SERVICE = 1, RADIO_CHANNEL_COMMAND = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_cube

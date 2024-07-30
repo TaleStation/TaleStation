@@ -800,7 +800,7 @@ SUBSYSTEM_DEF(job)
 
 /obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code
 	name = "Nanotrasen-Approved Spare ID Safe Code"
-	desc = "Proof that you have been approved for Captaincy, with all its glory and all its horror."
+	desc = "Proof that you have been approved for temporary leadership, with all its glory and all its horror."
 
 /obj/item/paper/paperslip/corporate/fluff/spare_id_safe_code/Initialize(mapload)
 	var/safe_code = SSid_access.spare_id_safe_code
@@ -809,7 +809,7 @@ SUBSYSTEM_DEF(job)
 
 /obj/item/paper/paperslip/corporate/fluff/emergency_spare_id_safe_code
 	name = "Emergency Spare ID Safe Code Requisition"
-	desc = "Proof that nobody has been approved for Captaincy. A skeleton key for a skeleton shift."
+	desc = "Proof that nobody has been approved for temporary leadership. A skeleton key for a skeleton shift."
 
 /obj/item/paper/paperslip/corporate/fluff/emergency_spare_id_safe_code/Initialize(mapload)
 	var/safe_code = SSid_access.spare_id_safe_code

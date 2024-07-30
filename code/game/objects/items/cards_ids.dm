@@ -1113,9 +1113,9 @@
 	ADD_TRAIT(src, TRAIT_TASTEFULLY_THICK_ID_CARD, ROUNDSTART_TRAIT)
 
 /obj/item/card/id/advanced/gold/captains_spare
-	name = "captain's spare ID"
-	desc = "The spare ID of the High Lord himself."
-	registered_name = "Captain"
+	name = "site director's spare ID"
+	desc = "The spare ID of the Sir Asshole themself."
+	registered_name = "Site Director"
 	trim = /datum/id_trim/job/captain
 	registered_age = null
 

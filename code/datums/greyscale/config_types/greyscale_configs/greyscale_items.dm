@@ -130,7 +130,7 @@
 	json_config = 'code/datums/greyscale/json_configs/pda_chaplain.json'
 
 /datum/greyscale_config/tablet/captain
-	name = "Captain PDA"
+	name = "Site Director PDA"
 	json_config = 'code/datums/greyscale/json_configs/pda_captain.json'
 
 /datum/greyscale_config/tablet/clown

@@ -11,8 +11,8 @@
 	acid = 20
 
 /obj/item/clothing/under/rank/engineering/chief_engineer
-	desc = "It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of \"Chief Engineer\". Made from fire resistant materials."
-	name = "chief engineer's jumpsuit"
+	desc = "It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of \"Site Foreman\". Made from fire resistant materials."
+	name = "site foreman's jumpsuit"
 	icon_state = "chiefengineer"
 	inhand_icon_state = "gy_suit"
 	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
@@ -22,8 +22,8 @@
 	acid = 40
 
 /obj/item/clothing/under/rank/engineering/chief_engineer/skirt
-	name = "chief engineer's jumpskirt"
-	desc = "It's a high visibility jumpskirt given to those engineers insane enough to achieve the rank of \"Chief Engineer\". Made from fire resistant materials."
+	name = "site foreman's jumpskirt"
+	desc = "It's a high visibility jumpskirt given to those engineers insane enough to achieve the rank of \"Site Foreman\". Made from fire resistant materials."
 	icon_state = "chief_skirt"
 	inhand_icon_state = "gy_suit"
 	body_parts_covered = CHEST|GROIN|ARMS

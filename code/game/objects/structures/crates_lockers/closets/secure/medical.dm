@@ -70,7 +70,7 @@
 	new /obj/item/clothing/glasses/blindfold(src)
 
 /obj/structure/closet/secure_closet/chief_medical
-	name = "chief medical officer's locker"
+	name = "\proper medical director's locker"
 	req_access = list(ACCESS_CMO)
 	icon_state = "cmo"
 

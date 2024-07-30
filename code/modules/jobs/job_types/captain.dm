@@ -50,14 +50,14 @@
 
 
 /datum/job/captain/get_captaincy_announcement(mob/living/captain)
-	return "Captain [captain.real_name] on deck!"
+	return "Site Director [captain.real_name] on deck!"
 
 /datum/job/captain/get_radio_information()
 	. = ..()
 	. += "\nYou have access to all radio channels, but they are not automatically tuned. Check your radio for more information."
 
 /datum/outfit/job/captain
-	name = "Captain"
+	name = "Site Director"
 	jobtype = /datum/job/captain
 
 	id = /obj/item/card/id/advanced/gold
@@ -117,7 +117,7 @@
 	celestial_charter.name_type = special_charter
 
 /datum/outfit/job/captain/mod
-	name = "Captain (MODsuit)"
+	name = "Site Director (MODsuit)"
 
 	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/magnate

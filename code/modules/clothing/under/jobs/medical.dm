@@ -23,14 +23,14 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer
-	desc = "It's a jumpsuit worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
-	name = "chief medical officer's jumpsuit"
+	name = "medical director's jumpsuit"
+	desc = "It's a jumpsuit worn by those with the experience to be \"Medical Director\". It provides minor biological protection."
 	icon_state = "cmo"
 	inhand_icon_state = "w_suit"
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/skirt
-	name = "chief medical officer's jumpskirt"
-	desc = "It's a jumpskirt worn by those with the experience to be \"Chief Medical Officer\". It provides minor biological protection."
+	name = "medical director's jumpskirt"
+	desc = "It's a jumpskirt worn by those with the experience to be \"Medical Director\". It provides minor biological protection."
 	icon_state = "cmo_skirt"
 	inhand_icon_state = "w_suit"
 	body_parts_covered = CHEST|GROIN|ARMS
@@ -39,14 +39,14 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/scrubs
-	name = "chief medical officer's scrubs"
-	desc = "A distinctive set of white and turquoise scrubs given to chief medical officers who desire a clinical look."
+	name = "medical director's scrubs"
+	desc = "A distinctive set of white and turquoise scrubs given to medical directors who desire a clinical look."
 	icon_state = "scrubscmo"
 	inhand_icon_state = "w_suit"
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck
-	name = "chief medical officer's turtleneck"
-	desc = "A light blue turtleneck and tan khakis, for a chief medical officer with a superior sense of style."
+	name = "medical director's turtleneck"
+	desc = "A light blue turtleneck and tan khakis, for a medical director with a superior sense of style."
 	icon_state = "cmoturtle"
 	inhand_icon_state = "b_suit"
 	can_adjust = TRUE
@@ -54,8 +54,8 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck/skirt
-	name = "chief medical officer's turtleneck skirt"
-	desc = "A light blue turtleneck and tan khaki skirt, for a chief medical officer with a superior sense of style."
+	name = "medical director's turtleneck skirt"
+	desc = "A light blue turtleneck and tan khaki skirt, for a medical director with a superior sense of style."
 	icon_state = "cmoturtle_skirt"
 	inhand_icon_state = "b_suit"
 	body_parts_covered = CHEST|GROIN|ARMS

@@ -157,7 +157,7 @@
 	acid = 60
 
 /obj/item/clothing/suit/hooded/wintercoat/captain
-	name = "captain's winter coat"
+	name = "site director's winter coat"
 	desc = "A luxurious winter coat, stuffed with the down of the endangered Uka bird and trimmed with genuine sable. The fabric is an indulgently soft micro-fiber, \
 			and the deep ultramarine colour is only one that could be achieved with minute amounts of crystalline bluespace dust woven into the thread between the plectrums. \
 			Extremely lavish, and extremely durable."
@@ -192,7 +192,7 @@
 	acid = 50
 
 /obj/item/clothing/suit/hooded/wintercoat/hop
-	name = "head of personnel's winter coat"
+	name = "asset clerk's winter coat"
 	desc = "A cozy winter coat, covered in thick fur. The breast features a proud yellow chevron, reminding everyone that you're the second banana."
 	icon_state = "coathop"
 	inhand_icon_state = null
@@ -332,7 +332,7 @@
 
 // Chief Medical Officer
 /obj/item/clothing/suit/hooded/wintercoat/medical/cmo
-	name = "chief medical officer's winter coat"
+	name = "medical director's winter coat"
 	desc = "A winter coat in a vibrant shade of blue with a small silver caduceus instead of a plastic zipper tab. The normal liner is replaced with an exceptionally thick, soft layer of fur."
 	icon_state = "coatcmo"
 	inhand_icon_state = null
@@ -543,8 +543,10 @@
 
 // Chief Engineer
 /obj/item/clothing/suit/hooded/wintercoat/engineering/ce
-	name = "chief engineer's winter coat"
-	desc = "A white winter coat with reflective green and yellow stripes. Stuffed with asbestos, treated with fire retardant PBDE, lined with a micro thin sheet of lead foil and snugly fitted to your body's measurements. This baby's ready to save you from anything except the thyroid cancer and systemic fibrosis you'll get from wearing it. The zipper tab is a tiny golden wrench."
+	name = "site foreman's winter coat"
+	desc = "A white winter coat with reflective green and yellow stripes. \
+	Stuffed with asbestos, treated with fire retardant PBDE, lined with a micro thin sheet of lead foil and snugly fitted to your body's measurements. \
+	This baby's ready to save you from anything except thyroid cancer and systemic fibrosis you'll get from wearing it. The zipper tab is a tiny golden wrench."
 	icon_state = "coatce"
 	inhand_icon_state = null
 	armor_type = /datum/armor/engineering_ce

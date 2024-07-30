@@ -183,7 +183,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/tank/jetpack/oxygen/captain
-	name = "captain's jetpack"
+	name = "site director's jetpack"
 	desc = "A compact, lightweight jetpack containing a high amount of compressed oxygen."
 	icon_state = "jetpack-captain"
 	inhand_icon_state = "jetpack-captain"
