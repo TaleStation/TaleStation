@@ -42,47 +42,16 @@ GLOBAL_LIST_EMPTY(avian_crest_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
-
 // Randomize avian
-/datum/species/avian/randomize_features(mob/living/carbon/human/human_mob)
+/datum/species/avian/randomize_features()
 	var/list/features = ..()
-	features["avian_beak"] = pick(
-		"Finch",
-		"Small",
-		"Parrot",
-		"Regular",
-		"Tiny",
-		"Tropical",
-		"Shoebill",
-		"Duck",
-		)
-	features["avian_tail"] = pick(
-		"Wide",
-		"Short",
-		"Owl",
-		"Long",
-		)
-	features["avian_legs"] = pick(
-		"Normal Legs",
-		"Talon Legs",
-		"Webbed Legs",
-	)
-	features["avian_crest"] = pick(
-		"Kepori",
-		"Ears",
-		"High",
-		"Spiked",
-		"Slick",
-		"Moptop",
-		"Daft",
-	)
+	features["avian_legs"] = pick(GLOB.avian_legs_list)
 	return features
 
 // Avian species preview in tgui
 /datum/species/avian/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
-	human_for_preview.dna.features["avian_beak"] = "short"
-	human_for_preview.dna.features["avian_tail"] = "wide"
+	human_for_preview.dna.features["avian_beak"] = "duck"
 	human_for_preview.dna.features["avian_crest"] = "Kepori"
 
 	human_for_preview.update_body()

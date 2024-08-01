@@ -38,7 +38,7 @@
 	icon_state = "duck"
 
 /*
-* Duck Tails
+* Avian Tails
 */
 
 /datum/sprite_accessory/tail/avian_tail/wide

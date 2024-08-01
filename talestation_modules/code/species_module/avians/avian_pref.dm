@@ -57,7 +57,7 @@
 	return assoc_to_keys_features(GLOB.avian_crest_list)
 
 /datum/preference/choiced/avian_crest/icon_for(value)
-	return generate_avian_front_shots(GLOB.avian_crest_list[value], "avian_crest")
+	return generate_avian_front_shots(GLOB.avian_crest_list[value], "avian_crest", include_snout = TRUE)
 
 /datum/preference/choiced/avian_crest/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["avian_crest"] = value

@@ -1,7 +1,7 @@
 /obj/item/bodypart/head/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
-	head_flags = HEAD_ALL_FEATURES_NO_HAIR
+	head_flags = HEAD_ALL_FEATURES_NO_HAIR_OR_FACIAL_HAIR
 	is_dimorphic = FALSE
 	bodytype = BODYTYPE_SNOUTED
 
