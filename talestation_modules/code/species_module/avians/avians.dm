@@ -21,8 +21,8 @@ GLOBAL_LIST_EMPTY(avian_crest_list)
 		"avian_legs" = "Normal Legs"
 		)
 	external_organs = list(
-		/obj/item/organ/external/snout/avian_beak = "Short",
-		/obj/item/organ/external/tail/avian_tail = "Wide",
+		/obj/item/organ/external/snout/avian_beak = "Regular Beak",
+		/obj/item/organ/external/tail/avian_tail = "Wide Tail",
 		/obj/item/organ/external/avian_crest = "Kepori",
 		)
 
@@ -46,13 +46,16 @@ GLOBAL_LIST_EMPTY(avian_crest_list)
 /datum/species/avian/randomize_features()
 	var/list/features = ..()
 	features["avian_legs"] = pick(GLOB.avian_legs_list)
+	features["avian_crest"] = pick(GLOB.avian_crest_list)
 	return features
 
 // Avian species preview in tgui
 /datum/species/avian/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	var/obj/item/organ/external/snout/avian_beak/beak = human_for_preview.get_organ_by_type(/obj/item/organ/external/snout/avian_beak)
+
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
-	human_for_preview.dna.features["avian_beak"] = "duck"
 	human_for_preview.dna.features["avian_crest"] = "Kepori"
+	beak.simple_change_sprite(/datum/sprite_accessory/snout/avian_beak/duck)
 
 	human_for_preview.update_body()
 	human_for_preview.update_body_parts(update_limb_data = TRUE)

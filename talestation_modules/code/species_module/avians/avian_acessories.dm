@@ -113,7 +113,7 @@
 
 /datum/sprite_accessory/avian_crest/no_hair
 	name = "No Crest"
-	icon_state = "no_hair"
+	icon_state = "crestless"
 
 /*
 * Sprite overlays for talons
