@@ -757,6 +757,8 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = GLOB.tajaran_ears_list[source.dna.features["tajaran_ears"]]
 				if("legs")
 					accessory = GLOB.legs_list[source.dna.features["legs"]]
+				if("avian_legs")
+					accessory = GLOB.avian_legs_list[source.dna.features["avian_legs"]]
 
 			if(!accessory || accessory.icon_state == "none")
 				continue

@@ -31,3 +31,16 @@
 /datum/preference/choiced/avian_tail/create_default_value()
 	var/datum/sprite_accessory/tail/avian_tail/tail = /datum/sprite_accessory/tail/avian_tail
 	return initial(tail.name)
+
+// Avian legs
+/datum/preference/choiced/avian_legs
+	savefile_key = "feature_avian_legs"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	relevant_mutant_bodypart = "avian_legs"
+
+/datum/preference/choiced/avian_legs/init_possible_values()
+	return assoc_to_keys_features(GLOB.avian_legs_list)
+
+/datum/preference/choiced/avian_legs/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["avian_legs"] = value
