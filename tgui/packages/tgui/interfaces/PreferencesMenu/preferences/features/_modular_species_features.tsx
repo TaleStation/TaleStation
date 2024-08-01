@@ -50,3 +50,8 @@ export const feature_avian_legs: FeatureChoiced = {
     return <FeatureDropdownInput buttons {...props} />;
   },
 };
+
+export const feature_avian_crest: FeatureChoiced = {
+  name: 'Avian Crests',
+  component: FeatureDropdownInput,
+};

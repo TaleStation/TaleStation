@@ -55,3 +55,27 @@
 	disliked_foodtypes = CLOTH
 	liked_foodtypes = GRAIN | FRUIT | VEGETABLES
 	toxic_foodtypes = MEAT | SEAFOOD
+
+/obj/item/organ/external/avian_crest
+	name = "avian crest"
+	desc = "Pretty head plumage of Avians. Plucking them off is a death sentance."
+
+	zone = BODY_ZONE_HEAD
+	slot = ORGAN_SLOT_EXTERNAL_AVIAN_CREST
+	dna_block = DNA_AVIAN_CREST_BLOCK
+
+	preference = "feature_avian_crest"
+
+	bodypart_overlay = /datum/bodypart_overlay/mutant/avian_crest
+
+/datum/bodypart_overlay/mutant/avian_crest
+	layers = EXTERNAL_ADJACENT
+	feature_key = "avian_crest"
+
+/datum/bodypart_overlay/mutant/avian_crest/can_draw_on_bodypart(mob/living/carbon/human/human)
+	if(!(human.head?.flags_inv & HIDEEARS))
+		return TRUE
+	return FALSE
+
+/datum/bodypart_overlay/mutant/avian_crest/get_global_feature_list()
+	return GLOB.avian_crest_list

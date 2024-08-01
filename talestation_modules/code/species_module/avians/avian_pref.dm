@@ -44,3 +44,20 @@
 
 /datum/preference/choiced/avian_legs/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["avian_legs"] = value
+
+// Avian hair
+/datum/preference/choiced/avian_crest
+	savefile_key = "feature_avian_crest"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_FEATURES
+	main_feature_name = "Avian Crest"
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/avian_crest/init_possible_values()
+	return assoc_to_keys_features(GLOB.avian_crest_list)
+
+/datum/preference/choiced/avian_crest/icon_for(value)
+	return generate_avian_front_shots(GLOB.avian_crest_list[value], "avian_crest")
+
+/datum/preference/choiced/avian_crest/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features["avian_crest"] = value

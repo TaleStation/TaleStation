@@ -78,41 +78,42 @@
 * Avian Hair
 */
 
-/datum/sprite_accessory/avian_hair
-	icon = 'talestation_modules/icons/species/avians/avian_hair.dmi'
+/datum/sprite_accessory/avian_crest
+	icon = 'talestation_modules/icons/species/avians/avian_crest.dmi'
 	name = "Avian Hair"
+	color_src = MUTANT_COLOR
 
-/datum/sprite_accessory/avian_hair/kepori
+/datum/sprite_accessory/avian_crest/kepori
 	name = "Kepori"
-	icon_state = "keproi"
+	icon_state = "kepori"
 
-/datum/sprite_accessory/avian_hair/ears
+/datum/sprite_accessory/avian_crest/ears
 	name = "Ears"
 	icon_state = "ears"
 
-/datum/sprite_accessory/avian_hair/high
+/datum/sprite_accessory/avian_crest/high
 	name = "High"
 	icon_state = "high"
 
-/datum/sprite_accessory/avian_hair/spiked
+/datum/sprite_accessory/avian_crest/spiked
 	name = "Spiked"
 	icon_state = "spiked"
 
-/datum/sprite_accessory/avian_hair/slick
+/datum/sprite_accessory/avian_crest/slick
 	name = "Slick"
 	icon_state = "slick"
 
-/datum/sprite_accessory/avian_hair/moptop
+/datum/sprite_accessory/avian_crest/moptop
 	name = "Moptop"
 	icon_state = "moptop"
 
-/datum/sprite_accessory/avian_hair/daft
+/datum/sprite_accessory/avian_crest/daft
 	name = "Daft"
 	icon_state = "daft"
 
-/datum/sprite_accessory/avian_hair/bald
-	name = "Bald"
-	icon_state = "bald"
+/datum/sprite_accessory/avian_crest/no_hair
+	name = "No Crest"
+	icon_state = "no_hair"
 
 /*
 * Sprite overlays for talons

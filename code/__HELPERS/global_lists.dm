@@ -40,6 +40,7 @@
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/snout/avian_beak, GLOB.avian_beak_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/tail/avian_tail, GLOB.avian_tail_list)
 	init_sprite_accessory_subtypes(/datum/sprite_accessory/avian_legs, GLOB.avian_legs_list)
+	init_sprite_accessory_subtypes(/datum/sprite_accessory/avian_crest, GLOB.avian_crest_list)
 
 /// Inits GLOB.species_list. Not using GLOBAL_LIST_INIT b/c it depends on GLOB.string_lists
 /proc/init_species_list()

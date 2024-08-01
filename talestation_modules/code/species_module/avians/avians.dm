@@ -2,6 +2,7 @@
 GLOBAL_LIST_EMPTY(avian_beak_list)
 GLOBAL_LIST_EMPTY(avian_tail_list)
 GLOBAL_LIST_EMPTY(avian_legs_list)
+GLOBAL_LIST_EMPTY(avian_crest_list)
 
 /datum/species/avian
 	name = "Avian"
@@ -22,6 +23,7 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 	external_organs = list(
 		/obj/item/organ/external/snout/avian_beak = "Short",
 		/obj/item/organ/external/tail/avian_tail = "Wide",
+		/obj/item/organ/external/avian_crest = "Kepori",
 		)
 
 	mutanttongue = /obj/item/organ/internal/tongue/avian
@@ -40,6 +42,7 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
+
 // Randomize avian
 /datum/species/avian/randomize_features(mob/living/carbon/human/human_mob)
 	var/list/features = ..()
@@ -47,7 +50,7 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 		"Finch",
 		"Small",
 		"Parrot",
-		"Regukar",
+		"Regular",
 		"Tiny",
 		"Tropical",
 		"Shoebill",
@@ -64,7 +67,15 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 		"Talon Legs",
 		"Webbed Legs",
 	)
-
+	features["avian_crest"] = pick(
+		"Kepori",
+		"Ears",
+		"High",
+		"Spiked",
+		"Slick",
+		"Moptop",
+		"Daft",
+	)
 	return features
 
 // Avian species preview in tgui
@@ -72,10 +83,12 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 	human_for_preview.dna.features["mcolor"] = COLOR_WHITE
 	human_for_preview.dna.features["avian_beak"] = "short"
 	human_for_preview.dna.features["avian_tail"] = "wide"
+	human_for_preview.dna.features["avian_crest"] = "Kepori"
 
 	human_for_preview.update_body()
 	human_for_preview.update_body_parts(update_limb_data = TRUE)
 
+/* TO-DO: Add names later, I copied this over from Tajarans originally, oops!
 /datum/species/avian/random_name(gender,unique,lastname)
 	var/randname
 	if(gender == MALE)
@@ -89,6 +102,7 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 		randname += " [pick(GLOB.last_names_taj)]"
 
 	return randname
+*/
 
 // Generates avian side profile for prefs
 /proc/generate_avian_side_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
@@ -96,18 +110,43 @@ GLOBAL_LIST_EMPTY(avian_legs_list)
 	var/static/icon/avian_with_beak
 
 	if (isnull(avian))
-		avian = icon('talestation_modules/icons/species/tajaran/bodyparts.dmi', "avian_head", EAST)
+		avian = icon('talestation_modules/icons/species/avians/bodyparts.dmi', "avian_head", EAST)
 		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", EAST)
 		eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
 		avian.Blend(eyes, ICON_OVERLAY)
 
 		avian_with_beak = icon(avian)
-		avian_with_beak.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_short", EAST), ICON_OVERLAY)
+		avian_with_beak.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_regular_ADJ", EAST), ICON_OVERLAY)
 
 	var/icon/final_icon = include_snout ? icon(avian_with_beak) : icon(avian)
 
 	if (!isnull(sprite_accessory))
 		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", EAST)
+		final_icon.Blend(accessory_icon, ICON_OVERLAY)
+
+	final_icon.Crop(11, 20, 23, 32)
+	final_icon.Scale(32, 32)
+	final_icon.Blend(COLOR_WHITE, ICON_MULTIPLY)
+
+	return final_icon
+
+/proc/generate_avian_front_shots(datum/sprite_accessory/sprite_accessory, key, include_snout = TRUE)
+	var/static/icon/avian
+	var/static/icon/avian_with_beak
+
+	if (isnull(avian))
+		avian = icon('talestation_modules/icons/species/avians/bodyparts.dmi', "avian_head", SOUTH)
+		var/icon/eyes = icon('icons/mob/human/human_face.dmi', "eyes", SOUTH)
+		eyes.Blend(COLOR_BLACK, ICON_MULTIPLY)
+		avian.Blend(eyes, ICON_OVERLAY)
+
+		avian_with_beak = icon(avian)
+		avian_with_beak.Blend(icon('talestation_modules/icons/species/avians/avian_beaks.dmi', "m_avian_beak_regular_ADJ", SOUTH), ICON_OVERLAY)
+
+	var/icon/final_icon = include_snout ? icon(avian_with_beak) : icon(avian)
+
+	if (!isnull(sprite_accessory))
+		var/icon/accessory_icon = icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", SOUTH)
 		final_icon.Blend(accessory_icon, ICON_OVERLAY)
 
 	final_icon.Crop(11, 20, 23, 32)
