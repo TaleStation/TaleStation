@@ -4,6 +4,7 @@
 	head_flags = HEAD_ALL_FEATURES_NO_HAIR_OR_FACIAL_HAIR
 	is_dimorphic = FALSE
 	bodytype = BODYTYPE_SNOUTED
+	eyeless_icon = 'talestation_modules/icons/species/avians/avian_eyes.dmi'
 
 /obj/item/bodypart/chest/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'

@@ -75,6 +75,11 @@
 	/// Draw this head as missing eyes
 	VAR_PROTECTED/show_eyeless = FALSE
 
+	/// Icon file for our eyeless icons
+	var/eyeless_icon = 'icons/mob/human/human_face.dmi'
+	/// Icon state for missing eyes, probably shouldn't be changed
+	var/eyeless_icon_state = "eyes_missing"
+
 	/// Offset to apply to equipment worn on the ears
 	var/datum/worn_feature_offset/worn_ears_offset
 	/// Offset to apply to equipment worn on the eyes
@@ -160,8 +165,8 @@
 		var/obj/item/organ/internal/eyes/eyes_icon = eyes?.eye_icon_file
 		// This is a bit of copy/paste code from eyes.dm:generate_body_overlay
 		if(eyes?.eye_icon_state && (head_flags & HEAD_EYESPRITES))
-			var/image/eye_left = image('icons/mob/human/human_face.dmi', "[eyes.eye_icon_state]_l", -BODY_LAYER, SOUTH)
-			var/image/eye_right = image('icons/mob/human/human_face.dmi', "[eyes.eye_icon_state]_r", -BODY_LAYER, SOUTH)
+			var/image/eye_left = image(eyes_icon, "[eyes.eye_icon_state]_l", -BODY_LAYER, SOUTH)
+			var/image/eye_right = image(eyes_icon, "[eyes.eye_icon_state]_r", -BODY_LAYER, SOUTH)
 			if(head_flags & HEAD_EYECOLOR)
 				if(eyes.eye_color_left)
 					eye_left.color = eyes.eye_color_left

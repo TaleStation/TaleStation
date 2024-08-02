@@ -187,8 +187,6 @@
 /// Returns an appropriate missing eyes overlay
 /obj/item/bodypart/head/proc/get_eyeless_overlay(can_rotate = TRUE)
 	RETURN_TYPE(/image)
-	var/eyeless_icon = 'icons/mob/human/human_face.dmi'
-	var/eyeless_icon_state = "eyes_missing"
 
 	var/image/eyeless_overlay
 	if(can_rotate)
