@@ -1,3 +1,9 @@
+/obj/item/organ/internal/eyes/avian
+	name = "avian eyes"
+	desc = "Eyes of the Birds of Prey. Sharp and keen. Probably best you dispose of them."
+	eye_icon_state = "avian_eyes"
+	eye_icon_file = 'talestation_modules/icons/species/avians/avian_eyes.dmi'
+
 /obj/item/organ/external/tail/avian_tail
 	name = "avian plummage"
 	desc = "The plummage off an avian. Hey, who plucked these?!"

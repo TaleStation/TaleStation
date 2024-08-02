@@ -26,6 +26,7 @@ GLOBAL_LIST_EMPTY(avian_crest_list)
 		/obj/item/organ/external/avian_crest = "Kepori",
 		)
 
+	mutanteyes = /obj/item/organ/internal/eyes/avian
 	mutanttongue = /obj/item/organ/internal/tongue/avian
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	examine_limb_id = SPECIES_MAMMAL
