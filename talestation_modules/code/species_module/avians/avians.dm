@@ -47,7 +47,6 @@ GLOBAL_LIST_EMPTY(avian_crest_list)
 /datum/species/avian/randomize_features()
 	var/list/features = ..()
 	features["avian_legs"] = pick(GLOB.avian_legs_list)
-	features["avian_crest"] = pick(GLOB.avian_crest_list)
 	return features
 
 // Avian species preview in tgui
