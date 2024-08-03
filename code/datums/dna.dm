@@ -179,7 +179,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			L[DNA_GENDER_BLOCK] = construct_block(G_PLURAL, GENDERS)
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
-		var/datum/bodypart_overlay/simple/avian_feet/feet
 		if(!GLOB.hairstyles_list.len)
 			init_sprite_accessory_subtypes(/datum/sprite_accessory/hair,GLOB.hairstyles_list, GLOB.hairstyles_male_list, GLOB.hairstyles_female_list)
 		L[DNA_HAIRSTYLE_BLOCK] = construct_block(GLOB.hairstyles_list.Find(H.hairstyle), GLOB.hairstyles_list.len)
@@ -189,7 +188,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_FACIAL_HAIRSTYLE_BLOCK] = construct_block(GLOB.facial_hairstyles_list.Find(H.facial_hairstyle), GLOB.facial_hairstyles_list.len)
 		L[DNA_FACIAL_HAIR_COLOR_BLOCK] = sanitize_hexcolor(H.facial_hair_color, include_crunch = FALSE)
 		L[DNA_SKIN_TONE_BLOCK] = construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len)
-		L[DNA_AVIAN_TALON_COLOR_BLOCK] = construct_block(GLOB.talon_colors.Find(feet?.draw_color), GLOB.talon_colors.len)
 		L[DNA_EYE_COLOR_LEFT_BLOCK] = sanitize_hexcolor(H.eye_color_left, include_crunch = FALSE)
 		L[DNA_EYE_COLOR_RIGHT_BLOCK] = sanitize_hexcolor(H.eye_color_right, include_crunch = FALSE)
 
@@ -318,7 +316,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(!ishuman(holder))
 		CRASH("Non-human mobs shouldn't have DNA")
 	var/mob/living/carbon/human/H = holder
-	var/datum/bodypart_overlay/simple/avian_feet/feet
 	switch(blocknumber)
 		if(DNA_HAIR_COLOR_BLOCK)
 			set_uni_identity_block(blocknumber, sanitize_hexcolor(H.hair_color, include_crunch = FALSE))
@@ -326,8 +323,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_identity_block(blocknumber, sanitize_hexcolor(H.facial_hair_color, include_crunch = FALSE))
 		if(DNA_SKIN_TONE_BLOCK)
 			set_uni_identity_block(blocknumber, construct_block(GLOB.skin_tones.Find(H.skin_tone), GLOB.skin_tones.len))
-		if(DNA_AVIAN_TALON_COLOR_BLOCK)
-			set_uni_identity_block(blocknumber, construct_block(GLOB.talon_colors.Find(feet?.draw_color), GLOB.talon_colors.len))
 		if(DNA_EYE_COLOR_LEFT_BLOCK)
 			set_uni_identity_block(blocknumber, sanitize_hexcolor(H.eye_color_left, include_crunch = FALSE))
 		if(DNA_EYE_COLOR_RIGHT_BLOCK)
@@ -642,7 +637,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	..()
 	var/structure = dna.unique_identity
 	skin_tone = GLOB.skin_tones[deconstruct_block(get_uni_identity_block(structure, DNA_SKIN_TONE_BLOCK), GLOB.skin_tones.len)]
-	talon_color = GLOB.talon_colors[deconstruct_block(get_uni_identity_block(structure, DNA_AVIAN_TALON_COLOR_BLOCK), GLOB.talon_colors.len)]
 	eye_color_left = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_LEFT_BLOCK))
 	eye_color_right = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_RIGHT_BLOCK))
 	set_haircolor(sanitize_hexcolor(get_uni_identity_block(structure, DNA_HAIR_COLOR_BLOCK)), update = FALSE)

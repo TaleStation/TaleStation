@@ -123,6 +123,7 @@
 /datum/bodypart_overlay/simple/avian_feet
 	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
 	layers = EXTERNAL_ADJACENT
+	draw_color = "#e47a33"
 
 // PLANTI //
 

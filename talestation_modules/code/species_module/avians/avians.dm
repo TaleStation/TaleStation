@@ -27,7 +27,7 @@ GLOBAL_LIST_INIT(talon_colors_names, sort_list(list(
 		TRAIT_LITERATE,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_MUTANT_COLORS,
-		TRAIT_USES_TALON_COLOR,
+		//TRAIT_USES_TALON_COLOR, TO-DO: Reimplament this later
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID

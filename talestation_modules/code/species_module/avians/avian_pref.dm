@@ -62,6 +62,7 @@
 /datum/preference/choiced/avian_crest/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["avian_crest"] = value
 
+/* TO-DO: Do this later
 // Talon color
 /datum/preference/choiced/talon_color
 	savefile_key = "feature_avian_leg_color"
@@ -107,3 +108,4 @@
 			. = "#e47a33"
 		if("blue")
 			. = "#65c4e0"
+*/

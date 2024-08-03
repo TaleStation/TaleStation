@@ -37,9 +37,8 @@
 #define DNA_HAIR_COLOR_BLOCK 6
 #define DNA_FACIAL_HAIRSTYLE_BLOCK 7
 #define DNA_FACIAL_HAIR_COLOR_BLOCK 8
-#define DNA_AVIAN_TALON_COLOR_BLOCK 9
 
-#define DNA_UNI_IDENTITY_BLOCKS 9
+#define DNA_UNI_IDENTITY_BLOCKS 8
 
 /// This number needs to equal the total number of DNA blocks
 #define DNA_MUTANT_COLOR_BLOCK 1
