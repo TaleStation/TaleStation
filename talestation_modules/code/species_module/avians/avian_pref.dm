@@ -61,3 +61,49 @@
 
 /datum/preference/choiced/avian_crest/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["avian_crest"] = value
+
+// Talon color
+/datum/preference/choiced/talon_color
+	savefile_key = "feature_avian_leg_color"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	relevant_inherent_trait = TRAIT_USES_TALON_COLOR
+
+/datum/preference/choiced/talon_color/init_possible_values()
+	return GLOB.talon_colors
+
+/datum/preference/choiced/talon_color/compile_constant_data()
+	var/list/data = ..()
+
+	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = GLOB.talon_colors_names
+
+	var/list/to_hex = list()
+	for (var/choice in get_choices())
+		var/hex_value = taloncolor2hex(choice)
+		var/list/hsl = rgb2num(hex_value, COLORSPACE_HSL)
+
+		to_hex[choice] = list(
+			"lightness" = hsl[3],
+			"value" = hex_value,
+		)
+
+	data["to_hex"] = to_hex
+
+	return data
+
+/datum/preference/choiced/talon_color/apply_to_human(mob/living/carbon/human/target, value)
+	target.talon_color = value
+	var/datum/bodypart_overlay/simple/avian_feet/feet
+	feet?.draw_color = target.talon_color
+
+/proc/taloncolor2hex(talon_color)
+	. = 0
+	switch(talon_color)
+		if("grey")
+			. = "#8b837f"
+		if("yellow")
+			. = "#f5d64b"
+		if("orange")
+			. = "#e47a33"
+		if("blue")
+			. = "#65c4e0"

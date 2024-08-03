@@ -120,19 +120,19 @@
 * These get applied to the legs, funky business!
 */
 
+/datum/bodypart_overlay/simple/avian_feet
+	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+	layers = EXTERNAL_ADJACENT
+
 // PLANTI //
 
 // TALONS //
 
-/datum/bodypart_overlay/simple/avian_talon_l_planti
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+/datum/bodypart_overlay/simple/avian_feet/talon_l_planti
 	icon_state = "avian_talon_l_planti"
-	layers = EXTERNAL_ADJACENT
 
-/datum/bodypart_overlay/simple/avian_talon_r_planti
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+/datum/bodypart_overlay/simple/avian_feet/talon_r_planti
 	icon_state = "avian_talon_r_planti"
-	layers = EXTERNAL_ADJACENT
 
 // WEBBED FEET //
 
@@ -140,24 +140,16 @@
 
 // TALONS //
 
-/datum/bodypart_overlay/simple/avian_talon_l_digi
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+/datum/bodypart_overlay/simple/avian_feet/talon_l_digi
 	icon_state = "avian_talon_l_digi"
-	layers = EXTERNAL_ADJACENT
 
-/datum/bodypart_overlay/simple/avian_talon_r_digi
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+/datum/bodypart_overlay/simple/avian_feet/talon_r_digi
 	icon_state = "avian_talon_r_digi"
-	layers = EXTERNAL_ADJACENT
 
 // WEBBED FEET //
 
-/datum/bodypart_overlay/simple/avian_web_l_digi
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+/datum/bodypart_overlay/simple/avian_feet/web_l_digi
 	icon_state = "avian_web_l_digi"
-	layers = EXTERNAL_ADJACENT
 
-/datum/bodypart_overlay/simple/avian_web_r_digi
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
+/datum/bodypart_overlay/simple/avian_feet/web_r_digi
 	icon_state = "avian_web_r_digi"
-	layers = EXTERNAL_ADJACENT

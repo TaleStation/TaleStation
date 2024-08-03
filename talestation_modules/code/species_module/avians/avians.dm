@@ -3,6 +3,19 @@ GLOBAL_LIST_EMPTY(avian_beak_list)
 GLOBAL_LIST_EMPTY(avian_tail_list)
 GLOBAL_LIST_EMPTY(avian_legs_list)
 GLOBAL_LIST_EMPTY(avian_crest_list)
+GLOBAL_LIST_INIT(talon_colors, sort_list(list(
+	"grey",
+	"yellow",
+	"orange",
+	"blue",
+	)))
+
+GLOBAL_LIST_INIT(talon_colors_names, sort_list(list(
+	"grey" = "Grey",
+	"yellow" = "Yellow",
+	"orange" = "Orange",
+	"blue" = "Blue",
+	)))
 
 /datum/species/avian
 	name = "Avian"
@@ -14,6 +27,7 @@ GLOBAL_LIST_EMPTY(avian_crest_list)
 		TRAIT_LITERATE,
 		TRAIT_EASILY_WOUNDED,
 		TRAIT_MUTANT_COLORS,
+		TRAIT_USES_TALON_COLOR,
 	)
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID

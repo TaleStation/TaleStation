@@ -34,7 +34,10 @@
 	/// Var used to keep track of a human mob having a heterochromatic right eye. To ensure prefs don't overwrite shit
 	var/eye_color_heterochromatic = FALSE
 
-	var/skin_tone = "caucasian1" //Skin tone
+	/// Skin tone
+	var/skin_tone = "caucasian1"
+	/// Talon color for avians
+	var/talon_color = "grey"
 
 	var/lip_style = null //no lipstick by default- arguably misleading, as it could be used for general makeup
 	var/lip_color = COLOR_WHITE

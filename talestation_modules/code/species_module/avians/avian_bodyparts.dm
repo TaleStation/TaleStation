@@ -32,7 +32,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	/// What bodypart overlay do we pass?
-	var/left_talon_overlay = /datum/bodypart_overlay/simple/avian_talon_l_planti
+	var/left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_l_planti
 
 /obj/item/bodypart/leg/left/avian/Initialize()
 	. = ..()
@@ -43,7 +43,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
 	/// What bodypart overlay do we pass?
-	var/right_talon_overlay = /datum/bodypart_overlay/simple/avian_talon_r_planti
+	var/right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_r_planti
 
 /obj/item/bodypart/leg/right/avian/Initialize()
 	. = ..()
@@ -54,7 +54,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
-	left_talon_overlay = /datum/bodypart_overlay/simple/avian_talon_l_digi
+	left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_l_digi
 
 /obj/item/bodypart/leg/left/avian/digitigrade/talon/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
@@ -77,7 +77,7 @@
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
-	right_talon_overlay = /datum/bodypart_overlay/simple/avian_talon_r_digi
+	right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_r_digi
 
 /obj/item/bodypart/leg/right/avian/digitigrade/talon/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
@@ -129,7 +129,7 @@
 	//icon_state = "digitigrade_l_leg_web"
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
-	left_talon_overlay = /datum/bodypart_overlay/simple/avian_web_l_digi
+	left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_l_digi
 
 /obj/item/bodypart/leg/left/avian/digitigrade/webbed/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
@@ -153,7 +153,7 @@
 	//icon_state = "digitigrade_r_leg_web"
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
-	right_talon_overlay = /datum/bodypart_overlay/simple/avian_web_r_digi
+	right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_r_digi
 
 /obj/item/bodypart/leg/right/avian/digitigrade/webbed/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
