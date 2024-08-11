@@ -4,8 +4,10 @@
 
 /// Underslot - Misc. Under Items (Deletes overrided items)
 /datum/loadout_category/misc_clothing
-	category_name = "Miscellaneous"
+	category_name = "Misc"
 	type_to_generate = /datum/loadout_item/under/miscellaneous
+	category_ui_icon = FA_ICON_STAR
+	tab_order = /datum/loadout_category/head::tab_order + 11
 
 /datum/loadout_item/under/miscellaneous
 	abstract_type = /datum/loadout_item/under/miscellaneous

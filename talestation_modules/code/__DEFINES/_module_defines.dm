@@ -11,16 +11,8 @@
 #define COMPANY_FILE "companies.json"
 #define RESOURCE_EVENT_FILE "resource_events.json"
 
-#define INFO_GREYSCALE "greyscale"
-#define INFO_NAMED "name"
-#define INFO_RESKIN "reskin"
-#define INFO_LAYER "layer"
-
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3
-
-/// Used to make something not recolorable even if it's capable
-#define DONT_GREYSCALE -1
 
 /// Defines for extra info blurbs, for loadout items.
 #define TOOLTIP_NO_ARMOR "This item has no armor and is entirely cosmetic."

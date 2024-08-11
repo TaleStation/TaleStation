@@ -3,8 +3,9 @@
 /// Glove Slot Items (Deletes overrided items)
 /datum/loadout_category/gloves
 	category_name = "Gloves"
-	ui_title = "Glove Slot Items"
+	category_ui_icon = FA_ICON_MITTEN
 	type_to_generate = /datum/loadout_item/gloves
+	tab_order = /datum/loadout_category/head::tab_order + 5
 
 /datum/loadout_item/gloves
 	abstract_type = /datum/loadout_item/gloves
@@ -20,7 +21,6 @@
 /datum/loadout_item/gloves/bone
 	name = "Heirloom Bone Bracers"
 	item_path = /obj/item/clothing/gloves/armorless_bracer
-	additional_tooltip_contents = list(TOOLTIP_NO_ARMOR)
 
 /datum/loadout_item/gloves/black
 	name = "Black Gloves"
@@ -65,7 +65,6 @@
 /datum/loadout_item/gloves/yellow
 	name = "Yellow Gloves"
 	item_path = /obj/item/clothing/gloves/color/normal_yellow
-	additional_tooltip_contents = list("This item is purely cosmetic and provide no shock insulation.")
 
 /datum/loadout_item/gloves/white
 	name = "White Gloves"

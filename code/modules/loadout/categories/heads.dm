@@ -1,21 +1,141 @@
-// --- Loadout item datums for heads ---
-
 /// Head Slot Items (Deletes overrided items)
 /datum/loadout_category/head
 	category_name = "Head"
-	ui_title = "Head Slot Items"
+	category_ui_icon = FA_ICON_HAT_COWBOY
 	type_to_generate = /datum/loadout_item/head
+	tab_order = 1
 
 /datum/loadout_item/head
 	abstract_type = /datum/loadout_item/head
 
 /datum/loadout_item/head/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
-	if(isplasmaman(equipper))
+	if(equipper.dna?.species?.outfit_important_for_life)
 		if(!visuals_only)
-			to_chat(equipper, "Your loadout helmet was not equipped directly due to your envirosuit helmet.")
+			to_chat(equipper, "Your loadout helmet was not equipped directly due to your species outfit.")
 			LAZYADD(outfit.backpack_contents, item_path)
 	else
 		outfit.head = item_path
+
+/datum/loadout_item/head/beanie
+	name = "Beanie (Colorable)"
+	item_path = /obj/item/clothing/head/beanie
+
+/datum/loadout_item/head/fancy_cap
+	name = "Fancy Hat (Colorable)"
+	item_path = /obj/item/clothing/head/costume/fancy
+
+/datum/loadout_item/head/red_beret
+	name = "Red Beret (Colorable)"
+	item_path = /obj/item/clothing/head/beret
+
+/datum/loadout_item/head/delinquent_cap
+	name = "Cap (Delinquent)"
+	item_path = /obj/item/clothing/head/costume/delinquent
+
+/datum/loadout_item/head/black_cap
+	name = "Cap (Black)"
+	item_path = /obj/item/clothing/head/soft/black
+
+/datum/loadout_item/head/blue_cap
+	name = "Cap (Blue)"
+	item_path = /obj/item/clothing/head/soft/blue
+
+/datum/loadout_item/head/green_cap
+	name = "Cap (Green)"
+	item_path = /obj/item/clothing/head/soft/green
+
+/datum/loadout_item/head/grey_cap
+	name = "Cap (Grey)"
+	item_path = /obj/item/clothing/head/soft/grey
+
+/datum/loadout_item/head/orange_cap
+	name = "Cap (Orange)"
+	item_path = /obj/item/clothing/head/soft/orange
+
+/datum/loadout_item/head/purple_cap
+	name = "Cap (Purple)"
+	item_path = /obj/item/clothing/head/soft/purple
+
+/datum/loadout_item/head/rainbow_cap
+	name = "Cap (Rainbow)"
+	item_path = /obj/item/clothing/head/soft/rainbow
+
+/datum/loadout_item/head/red_cap
+	name = "Cap (Red)"
+	item_path = /obj/item/clothing/head/soft/red
+
+/datum/loadout_item/head/white_cap
+	name = "Cap (White)"
+	item_path = /obj/item/clothing/head/soft
+
+/datum/loadout_item/head/yellow_cap
+	name = "Cap (Yellow)"
+	item_path = /obj/item/clothing/head/soft/yellow
+
+/datum/loadout_item/head/flatcap
+	name = "Cap (Flat)"
+	item_path = /obj/item/clothing/head/flatcap
+
+/datum/loadout_item/head/beige_fedora
+	name = "Fedora (Beige)"
+	item_path = /obj/item/clothing/head/fedora/beige
+
+/datum/loadout_item/head/black_fedora
+	name = "Fedora (Black)"
+	item_path = /obj/item/clothing/head/fedora
+
+/datum/loadout_item/head/white_fedora
+	name = "Fedora (White)"
+	item_path = /obj/item/clothing/head/fedora/white
+
+/datum/loadout_item/head/mail_cap
+	name = "Cap (Mail)"
+	item_path = /obj/item/clothing/head/costume/mailman
+
+/datum/loadout_item/head/kitty_ears
+	name = "Kitty Ears"
+	item_path = /obj/item/clothing/head/costume/kitty
+
+/datum/loadout_item/head/rabbit_ears
+	name = "Rabbit Ears"
+	item_path = /obj/item/clothing/head/costume/rabbitears
+
+/datum/loadout_item/head/bandana
+	name = "Bandana Thin"
+	item_path = /obj/item/clothing/head/costume/tmc
+
+/datum/loadout_item/head/rastafarian
+	name = "Cap (Rastafarian)"
+	item_path = /obj/item/clothing/head/rasta
+
+/datum/loadout_item/head/top_hat
+	name = "Top Hat"
+	item_path = /obj/item/clothing/head/hats/tophat
+
+/datum/loadout_item/head/bowler_hat
+	name = "Bowler Hat"
+	item_path = /obj/item/clothing/head/hats/bowler
+
+/datum/loadout_item/head/bear_pelt
+	name = "Bear Pelt"
+	item_path = /obj/item/clothing/head/costume/bearpelt
+
+/datum/loadout_item/head/ushanka
+	name ="Ushanka"
+	item_path = /obj/item/clothing/head/costume/ushanka
+
+/datum/loadout_item/head/plague_doctor
+	name = "Cap (Plague Doctor)"
+	item_path = /obj/item/clothing/head/bio_hood/plague
+
+/datum/loadout_item/head/rose
+	name = "Rose"
+	item_path = /obj/item/food/grown/rose
+
+/datum/loadout_item/head/wig
+	name = "Wig"
+	item_path = /obj/item/clothing/head/wig/natural
+	additional_displayed_text = list("Hair Color")
 
 /datum/loadout_item/head/greyscale_beret
 	name = "Greyscale Beret"
@@ -25,94 +145,6 @@
 /datum/loadout_item/head/greyscale_beret/badge
 	name = "Greyscale Beret (with badge)"
 	item_path = /obj/item/clothing/head/beret/greyscale_badge
-
-/datum/loadout_item/head/bear_pelt
-	name = "Bear Pelt"
-	item_path = /obj/item/clothing/head/costume/bearpelt
-
-/datum/loadout_item/head/bowler_hat
-	name = "Bowler Hat"
-	item_path = /obj/item/clothing/head/hats/bowler
-
-/datum/loadout_item/head/black_beanie
-	name = "Black Beanie"
-	item_path = /obj/item/clothing/head/beanie/black
-
-/datum/loadout_item/head/dark_blue_beanie
-	name = "Dark Blue Beanie"
-	item_path = /obj/item/clothing/head/beanie/darkblue
-
-/datum/loadout_item/head/orange_beanie
-	name = "Orange Beanie"
-	item_path = /obj/item/clothing/head/beanie/orange
-
-/datum/loadout_item/head/red_beanie
-	name = "Red Beanie"
-	item_path = /obj/item/clothing/head/beanie/red
-
-/datum/loadout_item/head/white_beanie
-	name = "White Beanie"
-	item_path = /obj/item/clothing/head/beanie
-
-/datum/loadout_item/head/yellow_beanie
-	name = "Yellow Beanie"
-	item_path = /obj/item/clothing/head/beanie/yellow
-
-/datum/loadout_item/head/christmas_beanie
-	name = "Christmas Beanie"
-	item_path = /obj/item/clothing/head/beanie/christmas
-
-/datum/loadout_item/head/black_beret
-	name = "Black Beret"
-	item_path = /obj/item/clothing/head/beret/black
-
-/datum/loadout_item/head/red_beret
-	name = "Red Beret"
-	item_path = /obj/item/clothing/head/beret
-
-/datum/loadout_item/head/black_cap
-	name = "Black Cap"
-	item_path = /obj/item/clothing/head/soft/black
-
-/datum/loadout_item/head/blue_cap
-	name = "Blue Cap"
-	item_path = /obj/item/clothing/head/soft/blue
-
-/datum/loadout_item/head/green_cap
-	name = "Green Cap"
-	item_path = /obj/item/clothing/head/soft/green
-
-/datum/loadout_item/head/grey_cap
-	name = "Grey Cap"
-	item_path = /obj/item/clothing/head/soft/grey
-
-/datum/loadout_item/head/orange_cap
-	name = "Orange Cap"
-	item_path = /obj/item/clothing/head/soft/orange
-
-/datum/loadout_item/head/purple_cap
-	name = "Purple Cap"
-	item_path = /obj/item/clothing/head/soft/purple
-
-/datum/loadout_item/head/red_cap
-	name = "Red Cap"
-	item_path = /obj/item/clothing/head/soft/red
-
-/datum/loadout_item/head/white_cap
-	name = "White Cap"
-	item_path = /obj/item/clothing/head/soft
-
-/datum/loadout_item/head/yellow_cap
-	name = "Yellow Cap"
-	item_path = /obj/item/clothing/head/soft/yellow
-
-/datum/loadout_item/head/rainbow_cap
-	name = "Rainbow Cap"
-	item_path = /obj/item/clothing/head/soft/rainbow
-
-/datum/loadout_item/head/delinquent_cap
-	name = "Delinquent Cap"
-	item_path = /obj/item/clothing/head/costume/delinquent
 
 /datum/loadout_item/head/chicken_suit_head
 	name = "Chicken Suit Head"
@@ -130,25 +162,9 @@
 	name = "Desperado Hat"
 	item_path = /obj/item/clothing/head/cowboy/black
 
-/datum/loadout_item/head/flatcap
-	name = "Flat Cap"
-	item_path = /obj/item/clothing/head/flatcap
-
 /datum/loadout_item/head/jackbros_hat
 	name = "Frosty Hat"
 	item_path = /obj/item/clothing/head/costume/jackbros
-
-/datum/loadout_item/head/beige_fedora
-	name = "Beige Fedora"
-	item_path = /obj/item/clothing/head/fedora/beige
-
-/datum/loadout_item/head/black_fedora
-	name = "Black Fedora"
-	item_path = /obj/item/clothing/head/fedora
-
-/datum/loadout_item/head/white_fedora
-	name = "White Fedora"
-	item_path = /obj/item/clothing/head/fedora/white
 
 /datum/loadout_item/head/geranium
 	name = "Geranium"
@@ -186,17 +202,9 @@
 	name = "Jester Hat"
 	item_path = /obj/item/clothing/head/costume/jester
 
-/datum/loadout_item/head/kitty_ears
-	name = "Kitty Ears"
-	item_path = /obj/item/clothing/head/costume/kitty
-
 /datum/loadout_item/head/lily
 	name = "Lily"
 	item_path = /obj/item/food/grown/poppy/lily
-
-/datum/loadout_item/head/mail_cap
-	name = "Mail Cap"
-	item_path = /obj/item/clothing/head/costume/mailman
 
 /datum/loadout_item/head/nurse_hat
 	name = "Nurse Hat"
@@ -218,26 +226,9 @@
 	name = "Poppy"
 	item_path = /obj/item/food/grown/poppy
 
-/datum/loadout_item/head/plague_doctor
-	name = "Plague Doctor Hood"
-	item_path = /obj/item/clothing/head/bio_hood/plague
-
-/datum/loadout_item/head/rabbit_ears
-	name = "Rabbit Ears"
-	item_path = /obj/item/clothing/head/costume/rabbitears
-
-/datum/loadout_item/head/rastafarian
-	name = "Rastafarian Cap"
-	item_path = /obj/item/clothing/head/rasta
-
-/datum/loadout_item/head/rose
-	name = "Rose"
-	item_path = /obj/item/food/grown/rose
-
 /datum/loadout_item/head/rainbow_bunch
 	name = "Rainbow Bunch"
 	item_path = /obj/item/food/grown/rainbow_flower
-	additional_tooltip_contents = list(TOOLTIP_RANDOM_COLOR)
 
 /datum/loadout_item/head/sherrif_hat
 	name = "Sheriff Hat"
@@ -259,14 +250,6 @@
 	name = "Sunflower"
 	item_path = /obj/item/food/grown/sunflower
 
-/datum/loadout_item/head/top_hat
-	name = "Top Hat"
-	item_path = /obj/item/clothing/head/hats/tophat
-
-/datum/loadout_item/head/ushanka
-	name ="Ushanka"
-	item_path = /obj/item/clothing/head/costume/ushanka
-
 /datum/loadout_item/head/wedding_veil
 	name = "Wedding Veil"
 	item_path = /obj/item/clothing/head/costume/weddingveil
@@ -274,7 +257,6 @@
 /datum/loadout_item/head/wig
 	name = "Wig"
 	item_path = /obj/item/clothing/head/wig/random
-	additional_tooltip_contents = list("This wig is randomized when you get it. Stylize it to your hearts content!")
 
 /datum/loadout_item/head/marisa_hat
 	name = "Witch Hat"
