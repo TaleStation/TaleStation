@@ -107,6 +107,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tajaran_body_markings"] = get_consistent_feature_entry(GLOB.tajaran_body_markings_list)
 	target.dna.features["avian_beak"] = get_consistent_feature_entry(GLOB.avian_beak_list)
 	target.dna.features["avian_tail"] = get_consistent_feature_entry(GLOB.avian_tail_list)
+	target.dna.features["avian_crest"] = get_consistent_feature_entry(GLOB.avian_crest_list)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly
 	// In practice this doesn't matter, but this is for the sake of 100%(ish) consistency
 	var/static/consistent_UF

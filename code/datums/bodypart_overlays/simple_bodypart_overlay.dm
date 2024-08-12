@@ -6,7 +6,7 @@
 	///Icon of the overlay
 	var/icon = 'icons/mob/human/species/misc/bodypart_overlay_simple.dmi'
 	///Color we apply to our overlay (none by default)
-	var/draw_color
+	var/draw_color = ""
 
 /datum/bodypart_overlay/simple/get_image(layer, obj/item/bodypart/limb)
 	return image(icon, icon_state, layer = layer)

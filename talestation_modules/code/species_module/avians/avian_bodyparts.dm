@@ -1,9 +1,10 @@
 /obj/item/bodypart/head/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
-	is_dimorphic = TRUE
-	head_flags = HEAD_ALL_FEATURES
+	head_flags = HEAD_ALL_FEATURES_NO_HAIR_OR_FACIAL_HAIR
+	is_dimorphic = FALSE
 	bodytype = BODYTYPE_SNOUTED
+	eyeless_icon = 'talestation_modules/icons/species/avians/avian_eyes.dmi'
 
 /obj/item/bodypart/chest/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
@@ -30,35 +31,40 @@
 /obj/item/bodypart/leg/left/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
+	/// What bodypart overlay do we pass?
+	var/left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_l_planti
 
 /obj/item/bodypart/leg/left/avian/Initialize()
 	. = ..()
 
-	// Adds talons
-	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_l_planti())
+	add_bodypart_overlay(new left_talon_overlay())
 
 /obj/item/bodypart/leg/right/avian
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = SPECIES_AVIAN
+	/// What bodypart overlay do we pass?
+	var/right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_r_planti
 
 /obj/item/bodypart/leg/right/avian/Initialize()
 	. = ..()
 
-	// Adds talons
-	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_r_planti())
+	add_bodypart_overlay(new right_talon_overlay())
 
-/obj/item/bodypart/leg/left/avian/digitigrade/avian
+/obj/item/bodypart/leg/left/avian/webbed
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
+	left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_l_planti
+
+/obj/item/bodypart/leg/right/avian/webbed
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
+	right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_r_planti
+
+/obj/item/bodypart/leg/left/avian/digitigrade/talon
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
+	left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_l_digi
 
-/obj/item/bodypart/leg/left/avian/digitigrade/avian/Initialize()
-	. = ..()
-
-	// Adds talons
-	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_l_digi())
-
-/obj/item/bodypart/leg/left/avian/digitigrade/avian/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+/obj/item/bodypart/leg/left/avian/digitigrade/talon/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
@@ -75,18 +81,13 @@
 		else
 			limb_id = SPECIES_AVIAN
 
-/obj/item/bodypart/leg/right/avian/digitigrade/avian
+/obj/item/bodypart/leg/right/avian/digitigrade/talon
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
 	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
+	right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/talon_r_digi
 
-/obj/item/bodypart/leg/right/avian/digitigrade/avian/Initialize()
-	. = ..()
-
-	// Adds talons
-	add_bodypart_overlay(new /datum/bodypart_overlay/simple/avian_talon_r_digi())
-
-/obj/item/bodypart/leg/right/avian/digitigrade/avian/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+/obj/item/bodypart/leg/right/avian/digitigrade/talon/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	. = ..()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
@@ -103,14 +104,24 @@
 		else
 			limb_id = SPECIES_AVIAN
 
-// Proc for digi leg handling; it applies the correct stuff to the species or whatever
-// Fuck this stupid fucking proc
 /datum/species/avian/replace_body(mob/living/carbon/target, datum/species/avian/new_species)
 	new_species ||= target.dna.species
 
-	if((new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL && target.dna.features["legs"] == "Digitigrade Legs") || new_species.digitigrade_customization == DIGITIGRADE_FORCED)
-		new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/digitigrade/avian
-		new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/digitigrade/avian
+	if(new_species.digitigrade_customization == DIGITIGRADE_FORCED)
+		new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/digitigrade/talon
+		new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/digitigrade/talon
+
+	else if(new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL)
+		switch(target.dna.features["avian_legs"])
+			if("Digi Talons")
+				new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/digitigrade/talon
+				new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/digitigrade/talon
+			if("Digi Webbed Feet")
+				new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/digitigrade/webbed
+				new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/digitigrade/webbed
+			if("Planti Webbed Feet")
+				new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/webbed
+				new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/webbed
 
 	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
 		if(old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES)
@@ -124,25 +135,50 @@
 			new_part.update_limb(is_creating = TRUE)
 			qdel(old_part)
 
-// Overlays talons for legs
-/// Overlay for planti talons
-/datum/bodypart_overlay/simple/avian_talon_l_planti
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
-	icon_state = "avian_talon_l_planti"
-	layers = EXTERNAL_ADJACENT
+/obj/item/bodypart/leg/left/avian/digitigrade/webbed
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
+	//icon_state = "digitigrade_l_leg_web"
+	limb_id = BODYPART_ID_DIGITIGRADE
+	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
+	left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_l_digi
 
-/datum/bodypart_overlay/simple/avian_talon_r_planti
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
-	icon_state = "avian_talon_r_planti"
-	layers = EXTERNAL_ADJACENT
+/obj/item/bodypart/leg/left/avian/digitigrade/webbed/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		var/uniform_compatible = FALSE
+		var/suit_compatible = FALSE
+		if(!(human_owner.w_uniform) || (human_owner.w_uniform.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON))) //Checks uniform compatibility
+			uniform_compatible = TRUE
+		if((!human_owner.wear_suit) || (human_owner.wear_suit.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)) || !(human_owner.wear_suit.body_parts_covered & LEGS)) //Checks suit compatability
+			suit_compatible = TRUE
 
-/// Overlay for digi talons
-/datum/bodypart_overlay/simple/avian_talon_l_digi
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
-	icon_state = "avian_talon_l_digi"
-	layers = EXTERNAL_ADJACENT
+		if((uniform_compatible && suit_compatible) || (suit_compatible && human_owner.wear_suit?.flags_inv & HIDEJUMPSUIT)) //If the uniform is hidden, it doesnt matter if its compatible
+			limb_id = BODYPART_ID_DIGITIGRADE
 
-/datum/bodypart_overlay/simple/avian_talon_r_digi
-	icon = 'talestation_modules/icons/species/avians/avian_talons.dmi'
-	icon_state = "avian_talon_r_digi"
-	layers = EXTERNAL_ADJACENT
+		else
+			limb_id = SPECIES_AVIAN
+
+/obj/item/bodypart/leg/right/avian/digitigrade/webbed
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
+	//icon_state = "digitigrade_r_leg_web"
+	limb_id = BODYPART_ID_DIGITIGRADE
+	bodytype = BODYTYPE_HUMANOID | BODYTYPE_ORGANIC | BODYTYPE_DIGITIGRADE
+	right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_r_digi
+
+/obj/item/bodypart/leg/right/avian/digitigrade/webbed/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	if(ishuman(owner))
+		var/mob/living/carbon/human/human_owner = owner
+		var/uniform_compatible = FALSE
+		var/suit_compatible = FALSE
+		if(!(human_owner.w_uniform) || (human_owner.w_uniform.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON))) //Checks uniform compatibility
+			uniform_compatible = TRUE
+		if((!human_owner.wear_suit) || (human_owner.wear_suit.supports_variations_flags & (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON)) || !(human_owner.wear_suit.body_parts_covered & LEGS)) //Checks suit compatability
+			suit_compatible = TRUE
+
+		if((uniform_compatible && suit_compatible) || (suit_compatible && human_owner.wear_suit?.flags_inv & HIDEJUMPSUIT)) //If the uniform is hidden, it doesnt matter if its compatible
+			limb_id = BODYPART_ID_DIGITIGRADE
+
+		else
+			limb_id = SPECIES_AVIAN

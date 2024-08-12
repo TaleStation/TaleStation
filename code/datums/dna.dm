@@ -240,6 +240,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		L[DNA_AVIAN_BEAK_BLOCK] = construct_block(GLOB.avian_beak_list.Find(features["avian_beak"]), GLOB.avian_beak_list.len)
 	if(features["avian_tail"])
 		L[DNA_AVIAN_TAIL_BLOCK] = construct_block(GLOB.avian_tail_list.Find(features["avian_tail"]), GLOB.avian_tail_list.len)
+	if(features["avian_crest"])
+		L[DNA_AVIAN_CREST_BLOCK] = construct_block(GLOB.avian_crest_list.Find(features["avian_crest"]), GLOB.avian_crest_list.len)
 
 	for(var/blocknum in 1 to DNA_FEATURE_BLOCKS)
 		. += L[blocknum] || random_string(GET_UI_BLOCK_LEN(blocknum), GLOB.hex_characters)
@@ -388,6 +390,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_beak_list.Find(features["avian_beak"]), GLOB.avian_beak_list.len))
 		if(DNA_AVIAN_TAIL_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_tail_list.Find(features["avian_tail"]), GLOB.avian_tail_list.len))
+		if(DNA_AVIAN_CREST_BLOCK)
+			set_uni_feature_block(blocknumber, construct_block(GLOB.avian_crest_list.Find(features["avian_crest"]), GLOB.avian_crest_list.len))
 
 //Please use add_mutation or activate_mutation instead
 /datum/dna/proc/force_give(datum/mutation/human/human_mutation)
@@ -472,14 +476,10 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(create_mutation_blocks) //I hate this
 		generate_dna_blocks()
 	if(randomize_features)
-		var/static/list/all_species_protoypes
-		if(isnull(all_species_protoypes))
-			all_species_protoypes = list()
-			for(var/species_path in subtypesof(/datum/species))
-				all_species_protoypes += new species_path()
-
-		for(var/datum/species/random_species as anything in all_species_protoypes)
-			features |= random_species.randomize_features()
+		for(var/species_type in GLOB.species_prototypes)
+			var/list/new_features = GLOB.species_prototypes[species_type].randomize_features()
+			for(var/feature in new_features)
+				features[feature] = new_features[feature]
 
 		features["mcolor"] = "#[random_color()]"
 
@@ -698,6 +698,8 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 		dna.features["avian_beak"] = GLOB.avian_beak_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_BEAK_BLOCK), GLOB.avian_beak_list.len)]
 	if(dna.features["avian_tail"])
 		dna.features["avian_tail"] = GLOB.avian_tail_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_TAIL_BLOCK), GLOB.avian_tail_list.len)]
+	if(dna.features["avian_crest"])
+		dna.features["avian_crest"] = GLOB.avian_crest_list[deconstruct_block(get_uni_feature_block(features, DNA_AVIAN_CREST_BLOCK), GLOB.avian_crest_list.len)]
 
 	for(var/obj/item/organ/external/external_organ in organs)
 		external_organ.mutate_feature(features, src)

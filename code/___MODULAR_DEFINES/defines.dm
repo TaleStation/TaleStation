@@ -29,6 +29,8 @@
 #define ORGAN_SLOT_EXTERNAL_TAJARAN_SNOUT "tajaran_snout"
 /// Avian beak
 #define ORGAN_SLOT_EXTERNAL_AVIAN_BEAK "avian_beak"
+/// Avian hair
+#define ORGAN_SLOT_EXTERNAL_AVIAN_CREST "avian_crest"
 
 /*
 * Job defines

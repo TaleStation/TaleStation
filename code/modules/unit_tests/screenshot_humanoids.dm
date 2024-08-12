@@ -23,8 +23,17 @@
 	moth.equipOutfit(/datum/outfit/job/cmo, visualsOnly = TRUE)
 	test_screenshot("[/datum/species/moth]", get_flat_icon_for_all_directions(moth))
 
+	// duck
+	var/mob/living/carbon/human/avian = allocate(/mob/living/carbon/human/dummy/consistent)
+	avian.dna.features["mcolor"] = "#fff"
+	avian.dna.features["avian_beak"] = "Duck Bill"
+	avian.dna.features["avian_crest"] = "Kepori"
+	avian.dna.features["avian_legs"] = "Planti Webbed Feet"
+	avian.set_species(/datum/species/avian)
+	test_screenshot("[/datum/species/avian]", get_flat_icon_for_all_directions(avian))
+
 	// The rest of the species
-	for (var/datum/species/species_type as anything in subtypesof(/datum/species) - /datum/species/moth - /datum/species/lizard)
+	for (var/datum/species/species_type as anything in subtypesof(/datum/species) - /datum/species/moth - /datum/species/lizard - /datum/species/avian)
 		test_screenshot("[species_type]", get_flat_icon_for_all_directions(make_dummy(species_type, /datum/outfit/job/assistant/consistent)))
 
 /datum/unit_test/screenshot_humanoids/proc/make_dummy(species, job_outfit)
