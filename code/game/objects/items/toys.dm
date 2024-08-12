@@ -206,7 +206,7 @@
 #define CAPTAINSAID_MODE_OFF 1
 
 /obj/item/toy/captainsaid
-	name = "\improper Shipmans's Aid"
+	name = "\improper Shipmate's Aid"
 	desc = "Every Shipmate's greatest ally when exploring the vast emptiness of space, now with a color display!"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "captainsaid_off"

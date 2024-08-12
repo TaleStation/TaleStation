@@ -179,7 +179,7 @@
 	return add_item_to_steal(src, /obj/item/clothing/accessory/lawyers_badge)
 
 /datum/objective_item/steal/traitor/chief_engineer_belt
-	name = "the site foreman's belt"
+	name = "the Site Foreman's belt"
 	targetitem = /obj/item/storage/belt/utility/chief
 	excludefromjob = list(JOB_CHIEF_ENGINEER)
 	exists_on_map = TRUE
