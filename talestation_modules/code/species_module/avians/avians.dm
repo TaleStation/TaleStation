@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(talon_colors_names, sort_list(list(
 
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	mutant_bodyparts = list(
-		"avian_legs" = "Normal Legs"
+		"avian_legs" = "Planti Talons"
 		)
 	external_organs = list(
 		/obj/item/organ/external/snout/avian_beak = "Regular Beak",

@@ -50,6 +50,14 @@
 
 	add_bodypart_overlay(new right_talon_overlay())
 
+/obj/item/bodypart/leg/left/avian/webbed
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
+	left_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_l_planti
+
+/obj/item/bodypart/leg/right/avian/webbed
+	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
+	right_talon_overlay = /datum/bodypart_overlay/simple/avian_feet/web_r_planti
+
 /obj/item/bodypart/leg/left/avian/digitigrade/talon
 	icon_greyscale = 'talestation_modules/icons/species/avians/bodyparts.dmi'
 	limb_id = BODYPART_ID_DIGITIGRADE
@@ -105,12 +113,15 @@
 
 	else if(new_species.digitigrade_customization == DIGITIGRADE_OPTIONAL)
 		switch(target.dna.features["avian_legs"])
-			if("Talon Legs")
+			if("Digi Talons")
 				new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/digitigrade/talon
 				new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/digitigrade/talon
-			if("Webbed Legs")
+			if("Digi Webbed Feet")
 				new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/digitigrade/webbed
 				new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/digitigrade/webbed
+			if("Planti Webbed Feet")
+				new_species.bodypart_overrides[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/avian/webbed
+				new_species.bodypart_overrides[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/avian/webbed
 
 	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
 		if(old_part.change_exempt_flags & BP_BLOCK_CHANGE_SPECIES)

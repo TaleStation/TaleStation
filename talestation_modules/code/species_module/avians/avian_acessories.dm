@@ -65,14 +65,17 @@
 /datum/sprite_accessory/avian_legs
 	name = "Avian Legs"
 
-/datum/sprite_accessory/avian_legs/none
-	name = "Normal Legs"
+/datum/sprite_accessory/avian_legs/talon_planti
+	name = "Planti Talons"
 
-/datum/sprite_accessory/avian_legs/talon
-	name = "Talon Legs"
+/datum/sprite_accessory/avian_legs/talon_webbed
+	name = "Planti Webbed Feet"
 
-/datum/sprite_accessory/avian_legs/webbed
-	name = "Webbed Legs"
+/datum/sprite_accessory/avian_legs/talon_digi
+	name = "Digi Talons"
+
+/datum/sprite_accessory/avian_legs/webbed_digi
+	name = "Digi Webbed Feet"
 
 /*
 * Avian Hair
@@ -136,6 +139,12 @@
 	icon_state = "avian_talon_r_planti"
 
 // WEBBED FEET //
+
+/datum/bodypart_overlay/simple/avian_feet/web_l_planti
+	icon_state = "avian_web_l_planti"
+
+/datum/bodypart_overlay/simple/avian_feet/web_r_planti
+	icon_state = "avian_web_r_planti"
 
 // DIGI //
 
