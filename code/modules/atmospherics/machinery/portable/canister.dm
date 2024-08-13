@@ -118,6 +118,7 @@
 	desc = "Pre-mixed air."
 	greyscale_config = /datum/greyscale_config/canister
 	greyscale_colors = "#c6c0b5"
+	icon_state = "air"
 
 /obj/machinery/portable_atmospherics/canister/antinoblium
 	name = "Antinoblium canister"
@@ -137,6 +138,7 @@
 	gas_type = /datum/gas/carbon_dioxide
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#4e4c48#eaeaea"
+	icon_state = "co2"
 
 /obj/machinery/portable_atmospherics/canister/freon
 	name = "Freon canister"
@@ -185,12 +187,14 @@
 	gas_type = /datum/gas/nitrogen
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#e9ff5c#f4fce8"
+	icon_state = "n2"
 
 /obj/machinery/portable_atmospherics/canister/nitrous_oxide
 	name = "Nitrous oxide canister"
 	gas_type = /datum/gas/nitrous_oxide
 	greyscale_config = /datum/greyscale_config/canister/double_stripe
 	greyscale_colors = "#c63e3b#f7d5d3"
+	icon_state = "n2o"
 
 /obj/machinery/portable_atmospherics/canister/nitrium
 	name = "Nitrium canister"
@@ -209,6 +213,7 @@
 	gas_type = /datum/gas/oxygen
 	greyscale_config = /datum/greyscale_config/canister/stripe
 	greyscale_colors = "#2786e5#e8fefe"
+	icon_state = "o2"
 
 /obj/machinery/portable_atmospherics/canister/pluoxium
 	name = "Pluoxium canister"
@@ -228,6 +233,7 @@
 	gas_type = /datum/gas/plasma
 	greyscale_config = /datum/greyscale_config/canister/hazard
 	greyscale_colors = "#f62800#000000"
+	icon_state = "plasma"
 
 /obj/machinery/portable_atmospherics/canister/tritium
 	name = "Tritium canister"
