@@ -97,7 +97,7 @@
 
 	update_appearance()
 
-/obj/item/grenade/spawnergrenade/rat_bomb_spawner/arm_grenade(mob/user, delayoverride)
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	. = ..()
 	icon_state = base_icon_state + "_active"
 
