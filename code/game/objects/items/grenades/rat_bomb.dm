@@ -2,6 +2,7 @@
 	name = "vermin bomb"
 	desc = "Not to be confused with its sister, the vermin grenade. This one has a faint smell of gunpowder.."
 	icon = 'icons/obj/weapons/grenade.dmi'
+	icon_state = "rat_bomb_brown"
 	primer_sound = 'sound/effects/fuse.ogg'
 	ex_heavy = 1
 	ex_light = 3
