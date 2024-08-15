@@ -6,11 +6,10 @@
 	icon_keyboard = null
 	icon_screen = null
 	layer = SIGN_LAYER
-	network = list("thunder")
+	network = list(CAMERANET_NETWORK_THUNDERDOME)
 	density = FALSE
 	circuit = null
 	light_power = 0
-	connectable = FALSE
 	/// The kind of wallframe that this telescreen drops
 	var/frame_type = /obj/item/wallframe/telescreen
 
@@ -91,8 +90,18 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 /obj/machinery/computer/security/telescreen/rd
 	name = "\improper Research Director's telescreen"
 	desc = "Used for watching the AI and the RD's goons from the safety of his office."
-	network = list("rd", "aicore", "aiupload", "minisat", "xeno", "test", "toxins")
+	network = list(
+		CAMERANET_NETWORK_RD,
+		CAMERANET_NETWORK_AI_CORE,
+		CAMERANET_NETWORK_AI_UPLOAD,
+		CAMERANET_NETWORK_MINISAT,
+		CAMERANET_NETWORK_XENOBIOLOGY,
+		CAMERANET_NETWORK_TEST_CHAMBER,
+		CAMERANET_NETWORK_ORDNANCE,
+	)
 	frame_type = /obj/item/wallframe/telescreen/rd
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/rd, 32)
 
 /obj/item/wallframe/telescreen/rd
 	name = "\improper Research Director's telescreen frame"
@@ -101,133 +110,286 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/entertai
 /obj/machinery/computer/security/telescreen/research
 	name = "research telescreen"
 	desc = "A telescreen with access to the research division's camera network."
-	network = list("rd")
+	network = list(CAMERANET_NETWORK_RD)
 	frame_type = /obj/item/wallframe/telescreen/research
 
 /obj/item/wallframe/telescreen/research
 	name = "research telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/research
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/research, 32)
+
 /obj/machinery/computer/security/telescreen/ce
 	name = "\improper Chief Engineer's telescreen"
 	desc = "Used for watching the engine, telecommunications and the minisat."
-	network = list("engine", "singularity", "tcomms", "minisat")
+	network = list(CAMERANET_NETWORK_ENGINE, CAMERANET_NETWORK_TELECOMMS, CAMERANET_NETWORK_MINISAT)
 	frame_type = /obj/item/wallframe/telescreen/ce
 
 /obj/item/wallframe/telescreen/ce
 	name = "\improper Chief Engineer's telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/ce
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/ce, 32)
+
 /obj/machinery/computer/security/telescreen/cmo
 	name = "\improper Chief Medical Officer's telescreen"
 	desc = "A telescreen with access to the medbay's camera network."
-	network = list("medbay")
+	network = list(CAMERANET_NETWORK_MEDBAY)
 	frame_type = /obj/item/wallframe/telescreen/cmo
 
 /obj/item/wallframe/telescreen/cmo
 	name = "\improper Chief Engineer'stelescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/cmo
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/cmo, 32)
+
 /obj/machinery/computer/security/telescreen/vault
 	name = "vault monitor"
 	desc = "A telescreen that connects to the vault's camera network."
-	network = list("vault")
+	network = list(CAMERANET_NETWORK_VAULT)
 	frame_type = /obj/item/wallframe/telescreen/vault
 
 /obj/item/wallframe/telescreen/vault
 	name = "vault telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/vault
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/vault, 32)
+
 /obj/machinery/computer/security/telescreen/ordnance
 	name = "bomb test site monitor"
 	desc = "A telescreen that connects to the bomb test site's camera."
-	network = list("ordnance")
+	network = list(CAMERANET_NETWORK_ORDNANCE)
 	frame_type = /obj/item/wallframe/telescreen/ordnance
 
 /obj/item/wallframe/telescreen/ordnance
 	name = "bomb test site telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/ordnance
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/ordnance, 32)
+
 /obj/machinery/computer/security/telescreen/engine
 	name = "engine monitor"
 	desc = "A telescreen that connects to the engine's camera network."
-	network = list("engine")
+	network = list(CAMERANET_NETWORK_ENGINE)
 	frame_type = /obj/item/wallframe/telescreen/engine
 
 /obj/item/wallframe/telescreen/engine
 	name = "engine telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/engine
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/engine, 32)
+
 /obj/machinery/computer/security/telescreen/turbine
 	name = "turbine monitor"
 	desc = "A telescreen that connects to the turbine's camera."
-	network = list("turbine")
+	network = list(CAMERANET_NETWORK_TURBINE)
 	frame_type = /obj/item/wallframe/telescreen/turbine
 
 /obj/item/wallframe/telescreen/turbine
 	name = "turbine telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/turbine
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/turbine, 32)
+
 /obj/machinery/computer/security/telescreen/interrogation
 	name = "interrogation room monitor"
 	desc = "A telescreen that connects to the interrogation room's camera."
-	network = list("interrogation")
+	network = list(CAMERANET_NETWORK_INTERROGATION)
 	frame_type = /obj/item/wallframe/telescreen/interrogation
 
 /obj/item/wallframe/telescreen/interrogation
 	name = "interrogation telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/interrogation
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/interrogation, 32)
+
 /obj/machinery/computer/security/telescreen/prison
 	name = "prison monitor"
 	desc = "A telescreen that connects to the permabrig's camera network."
-	network = list("prison")
+	network = list(CAMERANET_NETWORK_PRISON)
 	frame_type = /obj/item/wallframe/telescreen/prison
 
 /obj/item/wallframe/telescreen/prison
 	name = "prison telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/prison
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/prison, 32)
+
 /obj/machinery/computer/security/telescreen/auxbase
 	name = "auxiliary base monitor"
 	desc = "A telescreen that connects to the auxiliary base's camera."
-	network = list("auxbase")
+	network = list(CAMERANET_NETWORK_AUXBASE)
 	frame_type = /obj/item/wallframe/telescreen/auxbase
 
 /obj/item/wallframe/telescreen/auxbase
 	name = "auxiliary base telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/auxbase
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/auxbase, 32)
+
 /obj/machinery/computer/security/telescreen/minisat
 	name = "minisat monitor"
 	desc = "A telescreen that connects to the minisat's camera network."
-	network = list("minisat")
+	network = list(CAMERANET_NETWORK_MINISAT)
 	frame_type = /obj/item/wallframe/telescreen/minisat
 
 /obj/item/wallframe/telescreen/minisat
 	name = "minisat telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/minisat
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/minisat, 32)
+
 /obj/machinery/computer/security/telescreen/aiupload
 	name = "\improper AI upload monitor"
 	desc = "A telescreen that connects to the AI upload's camera network."
-	network = list("aiupload")
+	network = list(CAMERANET_NETWORK_AI_UPLOAD)
 	frame_type = /obj/item/wallframe/telescreen/aiupload
 
 /obj/item/wallframe/telescreen/aiupload
 	name = "\improper AI upload telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/aiupload
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/aiupload, 32)
+
 /obj/machinery/computer/security/telescreen/bar
 	name = "bar monitor"
 	desc = "A telescreen that connects to the bar's camera network. Perfect for checking on customers."
-	network = list("bar")
+	network = list(CAMERANET_NETWORK_BAR)
 	frame_type = /obj/item/wallframe/telescreen/bar
 
 /obj/item/wallframe/telescreen/bar
 	name = "bar telescreen frame"
 	result_path = /obj/machinery/computer/security/telescreen/bar
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/bar, 32)
+
+/obj/machinery/computer/security/telescreen/isolation
+	name = "isolation cell monitor"
+	desc = "A telescreen that connects to the isolation cells camera network."
+	network = list(CAMERANET_NETWORK_ISOLATION)
+	frame_type = /obj/item/wallframe/telescreen/bar
+
+/obj/item/wallframe/telescreen/isolation
+	name = "isolation telescreen frame"
+	result_path = /obj/machinery/computer/security/telescreen/isolation
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/isolation, 32)
+
+/obj/machinery/computer/security/telescreen/normal
+	name = "security camera monitor"
+	desc = "A telescreen that connects to the stations camera network."
+	network = list(CAMERANET_NETWORK_SS13)
+	frame_type = /obj/item/wallframe/telescreen/normal
+
+/obj/item/wallframe/telescreen/normal
+	name = "security camera telescreen frame"
+	result_path = /obj/machinery/computer/security/telescreen/normal
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/normal, 32)
+
+/obj/machinery/computer/security/telescreen/tcomms
+	name = "tcomms camera monitor"
+	desc = "A telescreen that connects to the tcomms camera network."
+	network = list(CAMERANET_NETWORK_TELECOMMS)
+	frame_type = /obj/item/wallframe/telescreen/tcomms
+
+/obj/item/wallframe/telescreen/tcomms
+	name = "tcomms camera telescreen frame"
+	result_path = /obj/machinery/computer/security/telescreen/tcomms
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/tcomms, 32)
+
+/obj/machinery/computer/security/telescreen/test_chamber
+	name = "xenobiology test chamber camera monitor"
+	desc = "A telescreen that connects to the xenobiology test chamber camera network."
+	network = list(CAMERANET_NETWORK_XENOBIOLOGY)
+	frame_type = /obj/item/wallframe/telescreen/test_chamber
+
+/obj/item/wallframe/telescreen/test_chamber
+	name = "xenobiology test chamber camera telescreen frame"
+	result_path = /obj/machinery/computer/security/telescreen/test_chamber
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/test_chamber, 32)
+
+/obj/machinery/computer/security/telescreen/engine_waste
+	name = "\improper Engine Waste Monitor"
+	desc = "A telescreen that connects to the engine waste camera network."
+	network = list(CAMERANET_NETWORK_WASTE)
+	frame_type = /obj/item/wallframe/telescreen/engine_waste
+
+/obj/item/wallframe/telescreen/engine_waste
+	name = "\improper Engine Waste telescreen frame"
+	result_path = /obj/machinery/computer/security/telescreen/engine_waste
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/engine_waste, 32)
+
+/obj/machinery/computer/security/telescreen/cargo_sec
+	name = "cargo camera monitor"
+	desc = "A telescreen that connects to the cargo and main station camera network."
+	network = list(CAMERANET_NETWORK_SS13,
+					CAMERA_NETWORK_CARGO,
+					)
+	frame_type = /obj/item/wallframe/telescreen/cargo_sec
+
+/obj/item/wallframe/telescreen/cargo_sec
+	name = "cargo telescreen frame"
+	result_path = /obj/machinery/computer/security/telescreen/cargo_sec
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/cargo_sec, 32)
+
+// This is used in moonoutpost19.dmm
+/obj/machinery/computer/security/telescreen/moon_outpost
+
+/obj/machinery/computer/security/telescreen/moon_outpost/research
+	name = "research monitor"
+	desc = "Used for monitoring the research division and the labs within."
+	network = list(CAMERANET_NETWORK_MOON19_RESEARCH,
+					CAMERANET_NETWORK_MOON19_XENO,
+					)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/moon_outpost/research, 32)
+
+/obj/machinery/computer/security/telescreen/moon_outpost/xenobio
+	name = "xenobiology monitor"
+	desc = "Used for watching the contents of the xenobiology containment pen."
+	network = list(CAMERANET_NETWORK_MOON19_XENO)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/moon_outpost/xenobio, 32)
+
+// This is used in undergroundoutpost45.dmm
+/obj/machinery/computer/security/telescreen/underground_outpost
+
+/obj/machinery/computer/security/telescreen/underground_outpost/research
+	name = "research monitor"
+	desc = "Used for monitoring the research division and the labs within."
+	network = list(CAMERANET_NETWORK_UGO45_RESEARCH)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/underground_outpost/research, 32)
+
+// This is used in forgottenship.dmm
+/obj/machinery/computer/security/telescreen/forgotten_ship
+
+/obj/machinery/computer/security/telescreen/forgotten_ship/sci
+	name = "Cameras monitor"
+	network = list(CAMERANET_NETWORK_FSCI)
+	req_access = list("syndicate")
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/forgotten_ship/sci, 32)
+
+// This is used in deepstorage.dmm
+/obj/machinery/computer/security/telescreen/deep_storage
+
+/obj/machinery/computer/security/telescreen/deep_storage/bunker
+	name = "Bunker Entrance monitor"
+	network = list(CAMERA_NETWORK_BUNKER)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/deep_storage/bunker, 32)
+
+/obj/machinery/computer/security/telescreen/monastery
+	name = "Monastery monitor"
+	network = list(MONASTERY_CAMERA_NET)
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/monastery, 32)
 
 /// A button that adds a camera network to the entertainment monitors
 /obj/machinery/button/showtime
