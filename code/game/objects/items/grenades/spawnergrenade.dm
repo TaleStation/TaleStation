@@ -85,7 +85,7 @@
 	spawner_type = /mob/living/basic/mouse/rat
 	deliveryamt = 15
 
-/obj/item/grenade/spawnergrenade/rat_bomb_spawner/Initialize()
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/Initialize(mapload)
 	. = ..()
 	base_icon_state = pick(list(
 		"rat_bomb_brown",

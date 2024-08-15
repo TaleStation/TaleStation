@@ -7,7 +7,7 @@
 	ex_light = 3
 	ex_flame = 4
 
-/obj/item/grenade/firecracker/rat_bomb_explosive/Initialize()
+/obj/item/grenade/firecracker/rat_bomb_explosive/Initialize(mapload)
 	. = ..()
 	base_icon_state = pick(list(
 		"rat_bomb_brown",
