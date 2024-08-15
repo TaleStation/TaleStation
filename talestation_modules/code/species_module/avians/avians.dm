@@ -141,8 +141,7 @@ GLOBAL_LIST_INIT(talon_colors_names, sort_list(list(
 
 	return final_icon
 
-/* TO-DO: They need to CAW!!
 /datum/species/avian/get_species_speech_sounds(sound_type)
 	return string_assoc_list(list(
+		'talestation_modules/sound/voice/avian.ogg' = 50,
 	))
-*/
