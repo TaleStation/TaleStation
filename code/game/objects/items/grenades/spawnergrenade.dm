@@ -80,7 +80,7 @@
 
 /obj/item/grenade/spawnergrenade/rat_bomb_spawner
 	name = "vermin grenade"
-	desc = "WARNING: DO NOT USE IN CLOSE SPACES. This rat is filled with 500 other rats. Let them out."
+	desc = "WARNING: DO NOT USE IN ENCLOSED SPACES. This rat is filled with 500 other rats. Let them out."
 	primer_sound = 'sound/effects/fuse.ogg'
 	spawner_type = /mob/living/basic/mouse/rat
 	deliveryamt = 15
