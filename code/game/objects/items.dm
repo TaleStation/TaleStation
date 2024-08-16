@@ -865,6 +865,13 @@
 /obj/item/proc/get_surgery_tool_overlay(tray_extended)
 	return null
 
+/**
+* Similar to the above, but for winter coats
+* does not have the "table mode" ability
+ */
+/obj/item/proc/get_winter_coat_overlay()
+	return null
+
 /obj/item/proc/update_slot_icon()
 	if(!ismob(loc))
 		return
