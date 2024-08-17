@@ -71,6 +71,5 @@
 /obj/item/coat_rack/deconstruct(disassembled = TRUE)
 	if(!(obj_flags & NO_DECONSTRUCTION))
 		dump_contents()
-		new /obj/item/stack/rods(drop_location(), 2)
-		new /obj/item/stack/sheet/mineral/silver(drop_location())
+		new /obj/item/stack/sheet/mineral/wood(drop_location(), 5)
 	return ..()
