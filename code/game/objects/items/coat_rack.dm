@@ -8,6 +8,7 @@
 	desc = "A nifty rack for storing your winter clothing."
 	icon = 'talestation_modules/icons/objects/coatrackdmi.dmi'
 	icon_state = "coat_rack"
+	pixel_y = 24
 	w_class = WEIGHT_CLASS_BULKY
 	slowdown = 1
 	item_flags = SLOWS_WHILE_IN_HAND
