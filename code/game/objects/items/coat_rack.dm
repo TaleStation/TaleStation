@@ -30,18 +30,17 @@
 
 /obj/item/coat_rack/update_overlays()
 	. = ..()
-	// assoc list of all overlays, key = the item generating the overlay, value = the overlay string
-	var/list/winter_coat_overlays = list()
-	for(var/obj/item/winter_coat in src)
-		// the overlay we will use if we want to display this one
-		var/actual_overlay = winter_coat.get_winter_coat_overlay()
-		// Copied from surgery_tram.dm, not sure if needed for overlays to work properly
-		if(!length(winter_coat.get_all_tool_behaviours()))
-			winter_coat_overlays[winter_coat] = actual_overlay
-			continue
 
-	for(var/winter_coat in winter_coat_overlays)
-		. |= winter_coat_overlays[winter_coat]
+	var/obj/item/clothing/suit/hooded/wintercoat/wintercoat = "coat"
+	switch(contents.len)
+		if(1)
+			. += image(icon = initial(icon), icon_state = "[wintercoat]_1")
+		if(2)
+			. += image(icon = initial(icon), icon_state = "[wintercoat]_2")
+		if(3)
+			. += image(icon = initial(icon), icon_state = "[wintercoat]_3")
+		if(4)
+			. += image(icon = initial(icon), icon_state = "[wintercoat]_4")
 
 /obj/item/coat_rack/attack_hand(mob/living/user)
 	if(!user.can_perform_action(src, NEED_HANDS))
