@@ -34,13 +34,13 @@
 	var/obj/item/clothing/suit/hooded/wintercoat/wintercoat = "coat"
 	switch(contents.len)
 		if(1)
-			. += image(icon = initial(icon), icon_state = "[wintercoat]_1")
+			. += mutable_appearance(icon = initial(icon), icon_state = "[wintercoat]_1")
 		if(2)
-			. += image(icon = initial(icon), icon_state = "[wintercoat]_2")
+			. += mutable_appearance(icon = initial(icon), icon_state = "[wintercoat]_2")
 		if(3)
-			. += image(icon = initial(icon), icon_state = "[wintercoat]_3")
+			. += mutable_appearance(icon = initial(icon), icon_state = "[wintercoat]_3")
 		if(4)
-			. += image(icon = initial(icon), icon_state = "[wintercoat]_4")
+			. += mutable_appearance(icon = initial(icon), icon_state = "[wintercoat]_4")
 
 /obj/item/coat_rack/attack_hand(mob/living/user)
 	if(!user.can_perform_action(src, NEED_HANDS))
