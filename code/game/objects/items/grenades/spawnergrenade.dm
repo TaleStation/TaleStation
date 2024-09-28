@@ -77,3 +77,52 @@
 	desc = "You can hear faint meowing and the sounds of claws on metal coming from within."
 	spawner_type = /mob/living/basic/pet/cat/feral
 	deliveryamt = 5
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner
+	name = "vermin grenade"
+	desc = "WARNING: DO NOT USE IN ENCLOSED SPACES. This rat is filled with 500 other rats. Let them out."
+	primer_sound = 'sound/effects/fuse.ogg'
+	spawner_type = /mob/living/basic/mouse/rat
+	deliveryamt = 15
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/Initialize(mapload)
+	. = ..()
+	base_icon_state = pick(list(
+		"rat_bomb_brown",
+		"rat_bomb_gray",
+		"rat_bomb_white",
+		))
+
+	icon_state = base_icon_state
+
+	update_appearance()
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
+	. = ..()
+	icon_state = base_icon_state + "_active"
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/attack_self(mob/user) // You need to light it manually.
+	return
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/attackby(obj/item/item, mob/user, params)
+	var/ignition_msg = item.ignition_effect(src, user)
+	if(ignition_msg && !active)
+		visible_message(ignition_msg)
+		arm_grenade(user)
+	else
+		return ..()
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/fire_act(exposed_temperature, exposed_volume)
+	detonate()
+
+/obj/item/grenade/spawnergrenade/rat_bomb_spawner/wirecutter_act(mob/living/user, obj/item/item)
+	if(active)
+		return
+	if(det_time)
+		det_time -= 10
+		to_chat(user, span_notice("You shorten the fuse of [src] with [item]."))
+		playsound(src, 'sound/items/wirecutter.ogg', 20, TRUE)
+		icon_state = initial(icon_state) + "_[det_time]"
+		update_appearance()
+	else
+		to_chat(user, span_danger("You've already removed all of the fuse!"))
