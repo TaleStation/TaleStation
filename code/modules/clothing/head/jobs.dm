@@ -95,7 +95,7 @@
 
 //Captain
 /obj/item/clothing/head/hats/caphat
-	name = "captain's hat"
+	name = "site director's hat"
 	desc = "It's good being the king."
 	icon_state = "captain"
 	inhand_icon_state = "that"
@@ -116,14 +116,14 @@
 	wound = 5
 
 /obj/item/clothing/head/hats/caphat/parade
-	name = "captain's parade cap"
-	desc = "Worn only by Captains with an abundance of class."
+	name = "site director's parade cap"
+	desc = "Worn only by Site Directors with an abundance of class."
 	icon_state = "capcap"
 	dog_fashion = null
 
 /obj/item/clothing/head/caphat/beret
-	name = "captain's beret"
-	desc = "For the Captains known for their sense of fashion."
+	name = "site director's beret"
+	desc = "For the Site Directors known for their questionable sense of fashion."
 	icon_state = "beret_badge"
 	greyscale_config = /datum/greyscale_config/beret_badge
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
@@ -131,9 +131,9 @@
 
 //Head of Personnel
 /obj/item/clothing/head/hats/hopcap
-	name = "head of personnel's cap"
-	icon_state = "hopcap"
+	name = "asset clerk's cap"
 	desc = "The symbol of true bureaucratic micromanagement."
+	icon_state = "hopcap"
 	armor_type = /datum/armor/hats_hopcap
 	dog_fashion = /datum/dog_fashion/head/hop
 
@@ -558,7 +558,7 @@
 	greyscale_colors = "#16313D"
 
 /obj/item/clothing/head/beret/medical/cmo
-	name = "chief medical officer beret"
+	name = "medical director beret"
 	desc = "A beret in a distinct surgical turquoise!"
 	greyscale_colors = "#5EB8B8"
 

@@ -106,8 +106,8 @@
 
 /datum/uplink_item/device_tools/fakenucleardisk
 	name = "Decoy Nuclear Authentication Disk"
-	desc = "It's just a normal disk. Visually it's identical to the real deal, but it won't hold up under closer scrutiny by the Captain. \
-			Don't try to give this to us to complete your objective, we know better!"
+	desc = "It's just a normal disk. Visually it's identical to the real deal, but it won't hold up under closer scrutiny by the Site Director. \
+		Don't try to give this to us to complete your objective, we know better!"
 	item = /obj/item/disk/nuclear/fake
 	cost = 1
 	surplus = 1

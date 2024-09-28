@@ -82,7 +82,7 @@
 
 /datum/uplink_item/badass/costumes/centcom_official
 	name = "CentCom Official Costume"
-	desc = "Ask the crew to \"inspect\" their nuclear disk and weapons system, and then when they decline, pull out a fully automatic rifle and gun down the Captain. \
+	desc = "Ask the crew to \"inspect\" their nuclear disk and weapons system, and then when they decline, pull out a fully automatic rifle and gun down the Site Director. \
 			Radio headset does not include encryption key. No gun included."
 	purchasable_from = ALL
 	progression_minimum = 110 MINUTES

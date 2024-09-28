@@ -91,17 +91,17 @@
 	persistence_id = "RD"
 
 /obj/item/storage/photo_album/hop
-	name = "photo album (Head of Personnel)"
+	name = "photo album (Asset Clerk)"
 	icon_state = "album_blue"
 	persistence_id = "HoP"
 
 /obj/item/storage/photo_album/captain
-	name = "photo album (Captain)"
+	name = "photo album (Site Director)"
 	icon_state = "album_blue"
 	persistence_id = "Captain"
 
 /obj/item/storage/photo_album/cmo
-	name = "photo album (Chief Medical Officer)"
+	name = "photo album (Medical Director)"
 	icon_state = "album_blue"
 	persistence_id = "CMO"
 
@@ -111,7 +111,7 @@
 	persistence_id = "QM"
 
 /obj/item/storage/photo_album/ce
-	name = "photo album (Chief Engineer)"
+	name = "photo album (Site Foreman)"
 	icon_state = "album_blue"
 	persistence_id = "CE"
 

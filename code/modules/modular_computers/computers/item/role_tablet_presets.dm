@@ -14,7 +14,7 @@
 	)
 
 /obj/item/modular_computer/pda/heads/captain
-	name = "captain PDA"
+	name = "site director PDA"
 	greyscale_config = /datum/greyscale_config/tablet/captain
 	greyscale_colors = "#2C7CB2#FF0000#FFFFFF#FFD55B"
 	inserted_item = /obj/item/pen/fountain/captain
@@ -30,7 +30,7 @@
 	return COMPONENT_TABLET_NO_DETONATE
 
 /obj/item/modular_computer/pda/heads/hop
-	name = "head of personnel PDA"
+	name = "asset clerk PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#374f7e#a52f29#a52f29"
 	starting_programs = list(
@@ -58,7 +58,7 @@
 	)
 
 /obj/item/modular_computer/pda/heads/ce
-	name = "chief engineer PDA"
+	name = "site foreman PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#D99A2E#69DBF3#FAFAFA"
 	starting_programs = list(
@@ -73,7 +73,7 @@
 	)
 
 /obj/item/modular_computer/pda/heads/cmo
-	name = "chief medical officer PDA"
+	name = "medical director PDA"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_thick/head
 	greyscale_colors = "#FAFAFA#000099#3F96CC"
 	starting_programs = list(

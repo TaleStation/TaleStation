@@ -54,8 +54,8 @@
 
 //Captain
 /obj/item/clothing/suit/jacket/capjacket
-	name = "captain's parade jacket"
-	desc = "Worn by a Captain to show their class."
+	name = "site director's parade jacket"
+	desc = "Worn by a Site Director to show their class."
 	icon_state = "capjacket"
 	inhand_icon_state = "bio_suit"
 	body_parts_covered = CHEST|GROIN|ARMS

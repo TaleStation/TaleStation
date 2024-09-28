@@ -38,8 +38,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/secure_safe, 32)
  * get access to it.
  */
 /obj/structure/secure_safe/caps_spare
-	name = "captain's spare ID safe"
-	desc = "In case of emergency, do not break glass. All Captains and Acting Captains are provided with codes to access this safe. \
+	name = "site director's spare ID safe"
+	desc = "In case of emergency, do not break glass. All Site Director's and Acting Director's are provided with codes to access this safe. \
 		It is made out of the same material as the station's Black Box and is designed to resist all conventional weaponry. \
 		There appears to be a small amount of surface corrosion. It doesn't look like it could withstand much of an explosion.\
 		It remains quite flush against the wall, and there only seems to be enough room to fit something as slim as an ID card."

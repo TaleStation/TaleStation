@@ -206,8 +206,8 @@
 #define CAPTAINSAID_MODE_OFF 1
 
 /obj/item/toy/captainsaid
-	name = "\improper Captain's Aid"
-	desc = "Every captain's greatest ally when exploring the vast emptiness of space, now with a color display!"
+	name = "\improper Shipmate's Aid"
+	desc = "Every Shipmate's greatest ally when exploring the vast emptiness of space, now with a color display!"
 	icon = 'icons/obj/toys/toy.dmi'
 	icon_state = "captainsaid_off"
 	custom_price = PAYCHECK_COMMAND * 1.25
@@ -241,8 +241,8 @@
 #undef CAPTAINSAID_MODE_OFF
 
 /obj/item/toy/captainsaid/collector
-	name = "\improper Collector's Edition Captain's Aid"
-	desc = "A copy of the first run of Captain's Aid ever released. Functionally the same as the later batches, just more expensive. For the truly aristocratic."
+	name = "\improper Collector's Edition Shipmans's Aid"
+	desc = "A copy of the first run of the Shipmate's Aid ever released. Functionally the same as the later batches, just more expensive. For the truly aristocratic."
 
 /*
  * Fake singularity
@@ -1021,7 +1021,7 @@
 		playsound(user, toysound, 20, TRUE)
 
 /obj/item/toy/figure/cmo
-	name = "\improper Chief Medical Officer action figure"
+	name = "\improper Medical Director action figure"
 	icon_state = "cmo"
 	toysay = "Suit sensors!"
 
@@ -1053,7 +1053,7 @@
 	toysay = "Blaze it!"
 
 /obj/item/toy/figure/captain
-	name = "\improper Captain action figure"
+	name = "\improper Site Director action figure"
 	icon_state = "captain"
 	toysay = "Any heads of staff?"
 
@@ -1063,7 +1063,7 @@
 	toysay = "For Cargonia!"
 
 /obj/item/toy/figure/ce
-	name = "\improper Chief Engineer action figure"
+	name = "\improper Site Foreman action figure"
 	icon_state = "ce"
 	toysay = "Wire the solars!"
 
@@ -1114,9 +1114,9 @@
 	toysay = "Smash!"
 
 /obj/item/toy/figure/hop
-	name = "\improper Head of Personnel action figure"
+	name = "\improper Asset Clerk action figure"
 	icon_state = "hop"
-	toysay = "Giving out all access!"
+	toysay = "Papers please."
 
 /obj/item/toy/figure/hos
 	name = "\improper Head of Security action figure"

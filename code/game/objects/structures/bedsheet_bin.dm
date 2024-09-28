@@ -202,11 +202,13 @@ LINEN BINS
 	dream_messages = list("honk", "laughter", "a prank", "a joke", "a smiling face", "the clown")
 
 /obj/item/bedsheet/captain
-	name = "captain's bedsheet"
-	desc = "It has a Nanotrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
+	name = "site director's bedsheet"
+	desc = "It has a Nanotrasen symbol on it, and was woven with a \
+		revolutionary new kind of thread guaranteed to have 0.01% permeability \
+		for most non-chemical substances, popular among most modern Site Directors."
 	icon_state = "sheetcaptain"
 	inhand_icon_state = "sheetcaptain"
-	dream_messages = list("authority", "a golden ID", "sunglasses", "a green disc", "an antique gun", "the captain")
+	dream_messages = list("authority", "a golden ID", "sunglasses", "a green disc", "an antique gun", "the site director")
 
 /obj/item/bedsheet/rd
 	name = "research director's bedsheet"
@@ -229,11 +231,11 @@ LINEN BINS
 	dream_messages = list("healing", "life", "surgery", "a doctor")
 
 /obj/item/bedsheet/cmo
-	name = "chief medical officer's bedsheet"
+	name = "medical director's bedsheet"
 	desc = "It's a sterilized blanket that has a cross emblem. There's some cat fur on it, likely from Runtime."
 	icon_state = "sheetcmo"
 	inhand_icon_state = "sheetcmo"
-	dream_messages = list("authority", "a silvery ID", "healing", "life", "surgery", "a cat", "the chief medical officer")
+	dream_messages = list("authority", "a silvery ID", "healing", "life", "surgery", "a cat", "the medical director")
 
 /obj/item/bedsheet/hos
 	name = "head of security's bedsheet"
@@ -243,18 +245,18 @@ LINEN BINS
 	dream_messages = list("authority", "a silvery ID", "handcuffs", "a baton", "a flashbang", "sunglasses", "the head of security")
 
 /obj/item/bedsheet/hop
-	name = "head of personnel's bedsheet"
+	name = "asset clerk's bedsheet"
 	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
 	icon_state = "sheethop"
 	inhand_icon_state = "sheethop"
-	dream_messages = list("authority", "a silvery ID", "obligation", "a computer", "an ID", "a corgi", "the head of personnel")
+	dream_messages = list("authority", "a silvery ID", "obligation", "a computer", "an ID", "a corgi", "the asset clerk")
 
 /obj/item/bedsheet/ce
-	name = "chief engineer's bedsheet"
+	name = "site foreman's bedsheet"
 	desc = "It is decorated with a wrench emblem. It's highly reflective and stain resistant, so you don't need to worry about ruining it with oil."
 	icon_state = "sheetce"
 	inhand_icon_state = "sheetce"
-	dream_messages = list("authority", "a silvery ID", "the engine", "power tools", "an APC", "a parrot", "the chief engineer")
+	dream_messages = list("authority", "a silvery ID", "the engine", "power tools", "an APC", "a parrot", "the site foreman")
 
 /obj/item/bedsheet/qm
 	name = "quartermaster's bedsheet"

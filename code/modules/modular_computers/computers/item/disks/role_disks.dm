@@ -18,8 +18,8 @@
 		add_file(program_type)
 
 /obj/item/computer_disk/command/captain
-	name = "captain data disk"
-	desc = "Removable disk used to download essential Captain tablet apps."
+	name = "site director data disk"
+	desc = "Removable disk used to download essential Site Director tablet apps."
 	icon_state = "datadisk10"
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
@@ -27,8 +27,8 @@
 	)
 
 /obj/item/computer_disk/command/cmo
-	name = "chief medical officer data disk"
-	desc = "Removable disk used to download essential CMO tablet apps."
+	name = "medical director data disk"
+	desc = "Removable disk used to download essential Medical Director tablet apps."
 	starting_programs = list(
 		/datum/computer_file/program/records/medical,
 	)
@@ -49,15 +49,15 @@
 	)
 
 /obj/item/computer_disk/command/hop
-	name = "head of personnel data disk"
-	desc = "Removable disk used to download essential HoP tablet apps."
+	name = "asset clerk data disk"
+	desc = "Removable disk used to download essential AC tablet apps."
 	starting_programs = list(
 		/datum/computer_file/program/records/security,
 		/datum/computer_file/program/job_management,
 	)
 
 /obj/item/computer_disk/command/ce
-	name = "chief engineer data disk"
+	name = "site foreman data disk"
 	desc = "Removable disk used to download essential CE tablet apps."
 	starting_programs = list(
 		/datum/computer_file/program/supermatter_monitor,
@@ -123,6 +123,6 @@
 		/datum/computer_file/program/alarm_monitor,
 		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/supermatter_monitor,
-		
+
 	)
 
