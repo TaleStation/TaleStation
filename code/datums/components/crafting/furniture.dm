@@ -47,3 +47,13 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_FURNITURE
 	time = 5 SECONDS
+
+/datum/crafting_recipe/coat_rack
+	name = "Coat Rack"
+	reqs = list(
+		/obj/item/stack/sheet/mineral/wood = 5
+	)
+	result = /obj/item/coat_rack
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	category = CAT_FURNITURE
+	time = 5 SECONDS

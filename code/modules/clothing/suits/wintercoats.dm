@@ -14,6 +14,11 @@
 	hood_down_overlay_suffix = "_hood"
 	/// How snug are we?
 	var/zipped = FALSE
+	/// Overlay passed to the coat rack
+	var/winter_coat_overlay = "coat"
+
+/obj/item/clothing/suit/hooded/wintercoat/get_winter_coat_overlay(tray_extended)
+	return winter_coat_overlay
 
 /datum/armor/hooded_wintercoat
 	bio = 10
