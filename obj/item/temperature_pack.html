@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <base href="../../" />
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>&#x2F;obj&#x2F;item&#x2F;temperature_pack - TaleStation</title>
+</head>
+<body>
+<header>
+    <a href="index.html">TaleStation</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+ &mdash; <a href="obj/item/temperature_pack.html#var">Var Details</a> - <a href="obj/item/temperature_pack.html#proc">Proc Details</a></header>
+<main>
+<h1>temperature_pack <aside>/<a href="obj.html">obj</a>/<a href="obj/item.html">item</a>/<a href="obj/item/temperature_pack.html">temperature_pack</a></aside>
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L38">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 38"/></a></h1>
+
+<p>Temperature packs (heat packs, cold packs). Apply to hurt limb to un-hurty.</p><table class="summary" cellspacing="0"><tr><td colspan="2"><h2>Vars</h2></td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#var/active">active</a></th><td>Whether our pack is active.</td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#var/pain_heal_amount">pain_heal_amount</a></th><td>The amount of pain that our pack heals when used.</td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#var/pain_limb_modifier">pain_limb_modifier</a></th><td>The modifier put onto the limb when used.</td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#var/temperature_change">temperature_change</a></th><td>The change in temperature applied to the user while our pack is in use.</td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#var/used">used</a></th><td>Whether our pack has been used.</td></tr><tr><td colspan="2"><h2>Procs</h2></td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#proc/activate_pack">activate_pack</a></th><td>Activate [src] from [user], making it into a temperature pack that can be used, that expires in 5 minutes.</td></tr>
+            <tr><th><a href="obj/item/temperature_pack.html#proc/deactivate_pack">deactivate_pack</a></th><td>Deactivate [src], making it unusable, and sending signal <a href="talestation_modules/code/__DEFINES/pain_defines.html#define/COMSIG_TEMPERATURE_PACK_EXPIRED" title="COMSIG_TEMPERATURE_PACK_EXPIRED">COMSIG_TEMPERATURE_PACK_EXPIRED</a>.</td></tr></table>
+    <h2 id="var">Var Details</h2><h3 id="var/active"><aside class="declaration">var </aside>active
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L54">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 54"/></a></h3>
+        <p>Whether our pack is active.</p><h3 id="var/pain_heal_amount"><aside class="declaration">var </aside>pain_heal_amount
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L56">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 56"/></a></h3>
+        <p>The amount of pain that our pack heals when used.</p><h3 id="var/pain_limb_modifier"><aside class="declaration">var </aside>pain_limb_modifier
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L58">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 58"/></a></h3>
+        <p>The modifier put onto the limb when used.</p><h3 id="var/temperature_change"><aside class="declaration">var </aside>temperature_change
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L60">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 60"/></a></h3>
+        <p>The change in temperature applied to the user while our pack is in use.</p><h3 id="var/used"><aside class="declaration">var </aside>used
+            <aside>&ndash; </aside>
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L52">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 52"/></a></h3>
+        <p>Whether our pack has been used.</p><h2 id="proc">Proc Details</h2><h3 id="proc/activate_pack"><aside class="declaration">proc </aside>activate_pack<aside>(/<a href="mob.html">mob</a>/user) 
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L103">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 103"/></a></aside>
+        </h3>
+        <p>Activate [src] from [user], making it into a temperature pack that can be used, that expires in 5 minutes.</p><h3 id="proc/deactivate_pack"><aside class="declaration">proc </aside>deactivate_pack<aside>() 
+        
+    
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/code/pain_module/pain_implements.dm#L113">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;code&#x2F;pain_module&#x2F;pain_implements.dm 113"/></a></aside>
+        </h3>
+        <p>Deactivate [src], making it unusable, and sending signal <a href="talestation_modules/code/__DEFINES/pain_defines.html#define/COMSIG_TEMPERATURE_PACK_EXPIRED" title="COMSIG_TEMPERATURE_PACK_EXPIRED">COMSIG_TEMPERATURE_PACK_EXPIRED</a>.</p></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/TaleStation/TaleStation/tree/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16">7b370f4</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>

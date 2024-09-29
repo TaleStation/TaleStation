@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    
+    <link rel="stylesheet" href="dmdoc.css" />
+    <title>talestation_modules&#x2F;README.md - TaleStation</title>
+</head>
+<body>
+<header>
+    <a href="index.html">TaleStation</a> -
+    <a href="index.html#modules">Modules</a> -
+    <a href="index.html#types">Types</a>
+</header>
+<main>
+<h1>The talestation Module Folder <aside>talestation_modules/README.md</aside> 
+            <a href="https://github.com/TaleStation/TaleStation/blob/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16/talestation_modules/README.md">
+        <img src="git.png" width="16" height="16" title="talestation_modules&#x2F;README.md"/></a></h1>
+
+<table class="summary" cellspacing="0">
+        <tr><td colspan="2"><hh2 id="modules-and-you">MODULES AND YOU:</hh2>
+<p>So you want to add content? Then you've come to the right place. I appreciate you for reading this first before jumping in and adding a bunch of changes to /TG/ files.</p>
+<p>We use module files to separate our added content from /TG/ content to prevent un-necessary and excessive merge conflicts when mirroring from /TG/.</p>
+<p>What does this mean to you? This means if you want to add something, you should add it in THIS FOLDER (talestation_modules) and not in ANY OF THE OTHER FOLDERS unless absolutely necessary (it usually isn't).</p>
+<hh1 id="what-if-i-want-to-add">What if I want to add...</hh1><hh2 id="icons">Icons:</hh2>
+<p>ALWAYS add icons to a new .dmi in the <code>talestation_modules/icons</code> folder. Icons are notorious for causing awful terrible impossible-to-resolve-easy merge conflicts so never ever add them to normal codebase .dmi files. Adding icons can be complicated for things such as jumpsuits and IDs, so be sure to ask for help if it gets confusing.</p>
+<p>Try to not override an entire icon file, that being, overriding icons on <code>/obj/item/clothing/under</code>. If you wish to edit ONE singular piece of clothing, edit that specific piece of clothing MODULARLY. Mass overiding of icon files is not permitted and needlessly increases the RSC bloat.</p>
+<hh2 id="maps-map-edits">Maps &amp; Map edits:</hh2>
+<p>Currently we do not permit edit of the current in-rotation /TG/ maps (Birdshot, Box, Delta, Meta, North Star, Tram). Any edits to these maps will not be accepted. Copying the map and trying to open it as a modular map will also not be accepted. This goes for any map, ruin, shuttle, ect.</p>
+<p>However, KiloStation, LimaStation and PubbyStation are our in-house rotation maps. Edits to these maps are more than fair game. If you wish to expand the rotation map, keep in mind you will be <strong>required</strong> to maintain your map. Failure to do so will have it removed from the code. We will help you, but don't count on us.</p>
+<hh2 id="adding-new-content">Adding new content:</hh2>
+<p>Create all new content in a new .dm file in the <code>talestation_modules/code</code> folder. For the sake of organization, try to keep things contained within specific module folders. Don't think your content fits a specific module? Ask! Try to avoid creating needless random folders. </p>
+<p>If you're adding a new file, please add a comment (example below) with a short explanation of what the file is extending or adding.</p>
+<p><code>// --This file contains mob/living/carbon/human proc extensions.</code></p>
+<p>VERY IMPORTANT:</p>
+<p>After you make your new folder with your new .dm file, you need to add it to tgstation.dme in alphabetical order - VSCODE will do this automatically if you tick the file.</p>
+<p>ALWAYS make sure to comment your code, especially if you're overwriting procs and/or code from main files. This goes for non-modular comments too! This makes it easier to track them.</p>
+<hh2 id="a-minor-change-and-or-tweak">A minor change and/or tweak:</hh2>
+<p>If you want to add a behavior to an existing item or object, you should hook it in a new file, instead of adding it to the pre-existing one.</p>
+<p>For example, if I have an object <code>foo_bar</code> and want to make it do a flip when it's picked up, create a NEW FILE named <code>foo_bar.dm</code> in our module folder and add the <code>cool_flip</code> proc definition and code in that file. Then, you can call the proc <code>cool_flip</code> from <code>foo_bar/attack</code> proc in the main file if it already has one defined, or add a <code>foo_bar/attack</code> to your new file if it doesn't. Keep as much code as possible in the module files and out of /tg/ files for our sanity.</p>
+<hh2 id="big-changes-and-or-tweaks">Big changes and/or tweaks:</hh2>
+<p>Oh boy. This is where it gets annoying.</p>
+<p>You CAN override existing object variable and definitions easily, but adding sweeping changes to multiple procs is more difficult.</p>
+<p>Modules exist to minimize merge conflicts with the upstream, but if you want to change the main files then we can't just use modules in most cases.</p>
+<p>First: we recommend trying to make the change to the upstream first to save everyone's headaches.</p>
+<p>If your idea doesn't have a chance in hell of getting merged to the upstream, there's a most probable chance we won't take it here. However, there are some things to keep in mind IF you decide to PR here,</p>
+<ul>
+<li>
+<p>Keep your changes to an absolute minimum. Touch as few lines and as few files as possible</p>
+</li>
+<li>
+<p>Add a comment before and after your changed code so the spot is known in the future that something was changed</p>
+</li>
+<li>
+<p>You should also note in the comment what PR this is coming from for future reference</p>
+</li>
+</ul>
+<p>Something like so:</p>
+<pre><code>
+var/epic_variable = 3 // NON-MODULAR CHANGES
+
+</code></pre>
+<pre><code>
+// NON-MODULAR CHANGES START
+
+/obj/foo/bar/proc/do_thing()
+
+to_chat(world, &quot;I added a proc to something&quot;)
+
+qdel(src)
+
+// NON-MODULAR CHANGES END
+
+</code></pre>
+<ul>
+<li>
+<p>What DOES matter: The formatting of the first part of the comment! The comment MUST start with <code>// NON-MODULAR</code>, space included, exact number of forward slashes, capitalized.</p>
+</li>
+<li>
+<p>What doesn't matter: what follows above. <code>// NON-MODULAR CHANGES</code>, <code>// NON-MODULAR CHANGES START</code>, <code>// NON-MODULAR CHANGES END</code>, <code>// NON-MODULAR CHANGES: I did stuff</code></p>
+</li>
+</ul>
+<hh2 id="adding-to-vendors">Adding to Vendors:</hh2>
+<p>Go to <code>talestation_modules/code/modules/vending/_vending.dm</code> and use the template provided to add or remove items from vendors. Follow the provided template there.</p>
+<hh2 id="defines">Defines:</hh2>
+<p>Defines can only be seen by files if it's been compiled beforehand.</p>
+<ul>
+<li>
+<p>Add any defines you need to use across multiple files to <code>talestation_modules/code/__DEFINES/_module_defines</code> OR <code>talestation_modules/code/__DEFINES/_module_defines.dm</code> if the define is used in a /tg/ code file.</p>
+</li>
+<li>
+<p>Add any defines you need just in that file to the top of the file - make sure to undef it at the end.</p>
+</li>
+</ul>
+<hh1 id="remvoing-content">Remvoing Content</hh1>
+<p>Removing ANY content from this codebase goes one of two ways:</p>
+<hh2 id="non-modularly">Non-Modularly</hh2>
+<p>These are commented out removals. There should be sufficent backings as to why this is being removed.
+Trying to remove/delete TG master files will not be accepted. Take your reasoning upstream if thats the case.</p>
+<hh2 id="modularly">Modularly</hh2>
+<p>These are removals that are on our code. Any removals of our code should be archived here: https://github.com/TaleStation/TaleStation-Archive
+Things you can archive are:</p>
+<ul>
+<li>Any sort of code</li>
+<li>Sprites</li>
+<li>Maps (and any associated code)</li>
+<li>Sounds</li>
+</ul>
+<p>Please make sure everything is properly accounted for.</p>
+<hh1 id="important-other-notes">Important other notes:</hh1>
+<p>If you're ever confused, always make sure to ask questions. The system itself shouldn't be too difficult to navigate, but can induce some headaches if you're unsure what to do. The number one rule of contributing, always ask for help if you're not sure!</p></td></tr></table></main>
+<footer>
+    tgstation.dme
+    <a href="https://github.com/TaleStation/TaleStation/tree/7b370f4ca4fcaccc340a51c94cabbaa45f8c9a16">7b370f4</a>
+        (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.8.0</a></footer>
+</body>
+</html>
